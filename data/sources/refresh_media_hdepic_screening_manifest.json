@@ -1,0 +1,106 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/datasets/HD-EPIC/clips-mining",
+    "license_or_access_note": "HD-EPIC is released by the University of Bristol under CC BY 4.0. These clips were selected from official narration annotations and then reviewed as continuous video."
+  },
+  "tasks": [
+    {
+      "task_id": "media-refresh-replace-01",
+      "status": "rejected",
+      "rejection_code": "decisive_attribute_unreadable",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P05-20240427-145526-77",
+          "P05-20240427-145526-78",
+          "P05-20240427-145526-83"
+        ],
+        "media_id": "P05-20240427-145526__235-265",
+        "media_start_seconds": 235,
+        "original_video_id": "P05-20240427-145526",
+        "original_annotations": [
+          "Pick up the tin of coconut milk. [244.68, 245.75]",
+          "Realise that I don't need the coconut milk yet, so put it back down and pick up the soy sauce instead. [246.14, 246.93]",
+          "Spoon the coconut milk from the can into the pan. [255.63, 268.51]"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              246.2,
+              252.2
+            ],
+            "role": "A",
+            "description": "Soy sauce is opened and poured into the pan."
+          },
+          {
+            "interval_seconds": [
+              255,
+              262.5
+            ],
+            "role": "B",
+            "description": "The coconut-milk tin is picked up and coconut milk is spooned into the pan later."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "V0 shows a narrow dark sauce bottle being opened and poured into the pan.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a separate open blue tin being held while a thick pale ingredient is spooned into the same pan; the visible label does not identify the ingredient.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            246.2,
+            248.2,
+            250.2,
+            252.2
+          ],
+          "frame_paths": [
+            "data/observations/media-refresh-replace-01/V0_00.jpg",
+            "data/observations/media-refresh-replace-01/V0_01.jpg",
+            "data/observations/media-refresh-replace-01/V0_02.jpg",
+            "data/observations/media-refresh-replace-01/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            255,
+            257.5,
+            260,
+            262.5
+          ],
+          "frame_paths": [
+            "data/observations/media-refresh-replace-01/V1_00.jpg",
+            "data/observations/media-refresh-replace-01/V1_01.jpg",
+            "data/observations/media-refresh-replace-01/V1_02.jpg",
+            "data/observations/media-refresh-replace-01/V1_03.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "The continuous sequence proves that a different packaged ingredient is used later, but the released V1 pixels show only an open blue tin and pale contents. The label is unreadable, so identifying it as coconut milk and linking it to the coconut-milk tutorial requires the HD-EPIC narration rather than visual evidence.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}

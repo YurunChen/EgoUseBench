@@ -1,0 +1,262 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Local research copy obtained through the Ego2Web release; redistribution follows the upstream dataset terms."
+  },
+  "tasks": [
+    {
+      "task_id": "seed-map-graft-r-01",
+      "status": "rejected",
+      "family": "graft",
+      "subtype": "R",
+      "source": {
+        "record_ids": [
+          408,
+          410,
+          416
+        ],
+        "media_id": "5916f072-3d42-4d96-95a2-2fa000d4bd37",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On google.com/maps, identify the winery named on the hoodie worn by the other player in the video. Open its Google Maps business listing and report its full street address and overall star rating.",
+          "On yelp.com, open the Yelp page for the same winery shown on the hoodie and provide the Price Range (e.g., $, $$, etc.) and the total number of reviews displayed.",
+          "Using google.com/maps, from the identified winery’s page, find the nearest hotel by walking distance and report the hotel’s name and the walking time shown."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            20,
+            50
+          ],
+          "decision": "The interval continuously shows the same card-game scene. The text 'Peace Water Winery' is readable on the other player's hoodie, and the source annotations link that visible name first to a winery listing and then to the nearest hotel by walking distance."
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ],
+          "frame_paths": [
+            "data/observations/seed-map-graft-r-01/V0_00.jpg",
+            "data/observations/seed-map-graft-r-01/V0_01.jpg",
+            "data/observations/seed-map-graft-r-01/V0_02.jpg",
+            "data/observations/seed-map-graft-r-01/V0_03.jpg",
+            "data/observations/seed-map-graft-r-01/V0_04.jpg",
+            "data/observations/seed-map-graft-r-01/V0_05.jpg",
+            "data/observations/seed-map-graft-r-01/V0_06.jpg",
+            "data/observations/seed-map-graft-r-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The released observation shows the readable name 'Peace Water Winery' on the other player's hoodie.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": null,
+      "rejection_code": "visual_not_necessary",
+      "rejection_reason": "One readable hoodie image grounds the winery and B adds only a website-defined nearest-hotel relation; later physical evidence is not needed."
+    },
+    {
+      "task_id": "seed-map-refresh-replace-01",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          435,
+          436
+        ],
+        "media_id": "595a45c2-1c49-4d13-b49c-8a29ce07a790",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Google Maps, locate the exact grocery store shown at the very start of the video and open its business listing. Provide the store’s phone number from the listing, making sure you’ve identified the correct place by matching what’s shown on its entrance.",
+          "After finding the store on Google Maps, identify the larger complex or plaza it belongs to. Confirm by opening Street View or photos and visually matching the outdoor area seen after leaving the store, then report the complex/plaza name and its average rating (from Google Maps)."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            0,
+            150
+          ],
+          "decision": "The wearer starts at Tamimi Markets Express in Discovery Square, remains inside, checks out, then leaves into the visually distinct outdoor plaza. The later state is a place-level replacement rather than a different view of the store interior."
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            3,
+            6,
+            9
+          ],
+          "frame_paths": [
+            "data/observations/seed-map-refresh-replace-01/V0_00.jpg",
+            "data/observations/seed-map-refresh-replace-01/V0_01.jpg",
+            "data/observations/seed-map-refresh-replace-01/V0_02.jpg",
+            "data/observations/seed-map-refresh-replace-01/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "frame_paths": [
+            "data/observations/seed-map-refresh-replace-01/V1_00.jpg",
+            "data/observations/seed-map-refresh-replace-01/V1_01.jpg",
+            "data/observations/seed-map-refresh-replace-01/V1_02.jpg",
+            "data/observations/seed-map-refresh-replace-01/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows the readable Tamimi Markets Express entrance and interior.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows Discovery Square, the larger outdoor retail plaza after the wearer leaves the store.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": null,
+      "rejection_code": "visual_not_necessary",
+      "rejection_reason": "The store listing and map relation already reveal its containing plaza from V0, so V1 does not causally determine the final web target."
+    },
+    {
+      "task_id": "seed-map-clarify-sequence-01",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          498,
+          499
+        ],
+        "media_id": "6aca3039-dd0a-4ff5-a514-d46e4fcfeeba",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "Using Google Maps, identify the exact public square shown near the end of the video and open its listing. Report the square's official name, full address, and current average Google rating.",
+          "On TripAdvisor, find a well-reviewed walking tour that explicitly visits both the exact square from the video and the narrow alley featured earlier. Provide the tour title, overall rating, and the lowest listed price."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            75,
+            180
+          ],
+          "decision": "The wearer walks through one sustained, narrow and brightly painted cobbled alley before entering a visually distinct public square. These are the two place candidates named by the paired source annotations."
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            100,
+            110,
+            120,
+            130,
+            140,
+            150,
+            160,
+            170
+          ],
+          "frame_paths": [
+            "data/observations/seed-map-clarify-sequence-01/V0_00.jpg",
+            "data/observations/seed-map-clarify-sequence-01/V0_01.jpg",
+            "data/observations/seed-map-clarify-sequence-01/V0_02.jpg",
+            "data/observations/seed-map-clarify-sequence-01/V0_03.jpg",
+            "data/observations/seed-map-clarify-sequence-01/V0_04.jpg",
+            "data/observations/seed-map-clarify-sequence-01/V0_05.jpg",
+            "data/observations/seed-map-clarify-sequence-01/V0_06.jpg",
+            "data/observations/seed-map-clarify-sequence-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The first five released images show the narrow painted alley and the last three show the public square reached later.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent ask which of two visited places is intended before selecting a map record?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either the earlier narrow alley or the later public square can satisfy the unqualified place request.",
+        "belief_after": "The answer 'the second place' uniquely selects the public square.",
+        "required_behavior_change": "Ask before opening or saving a candidate and then use the sequence answer.",
+        "no_update_failure": "The Agent guesses one place before asking or ignores the answer.",
+        "overupdate_failure": "The Agent asks despite receiving 'second place' in the oracle instruction.",
+        "visual_dependency_claim": "The ordered first-person observation establishes the two visited places and their order; one task-start photo cannot recover that history, and text alone does not identify the intended one.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "ambiguous_instruction": "Find the place I visited and save its map listing.",
+          "oracle_instruction": "Find the second place I visited, the public square after the narrow alley, and save its map listing.",
+          "candidate_roles": [
+            "painted_alley",
+            "public_square"
+          ],
+          "hidden_target_role": "public_square",
+          "valid_slot": "sequence",
+          "canonical_question": "Do you mean the narrow alley I visited first or the public square I reached afterward?",
+          "canonical_answer": "I mean the second place, the public square.",
+          "goal_fields": {},
+          "environment_role_ids": {
+            "painted_alley": "l_a4ba82d43c58",
+            "public_square": "l_6a57ddb8937c"
+          },
+          "completion_claim": "The public square is saved after the sequence clarification.",
+          "target_granularity": "exact_instance"
+        }
+      }
+    }
+  ]
+}

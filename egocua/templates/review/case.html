@@ -1,0 +1,178 @@
+{% extends "review/base.html" %}
+{% block title %}{{ case.task.id }} · 人工审核{% endblock %}
+{% block content %}
+  <a class="back" href="{{ url_for('review_index') }}">← 返回任务列表</a>
+  <section class="case-head">
+    <div>
+      <div class="pills"><span class="pill">{{ case.task.track }}</span><span class="pill muted">{{ {'egomart':'购物','egodocs':'知识','egomedia':'媒体','egomaps':'地图'}[case.task.site] }}</span></div>
+      <h1>{{ case.task.id }}</h1>
+      <p>{{ case.focus }}</p>
+    </div>
+    <span class="status {{ case.own_status }}">{{ {'todo':'未审核','submitted':'已提交','stale':'需重审','invalid':'异常'}[case.own_status] }}</span>
+  </section>
+
+  {% if error %}<p class="notice error">{{ error }}</p>{% endif %}
+
+  <section class="panel">
+    <h2>1. 先判断它是不是眼镜任务</h2>
+    <p><b>项目要测的问题：</b>{{ case.motivation.project_question }}</p>
+    <p class="notice warning"><b>最关键的反事实检查：</b>{{ case.motivation.static_replacement_test }}</p>
+    {% if case.motivation.task_risk %}<p class="notice warning"><b>这道题需要重点判断：</b>{{ case.motivation.task_risk }}</p>{% endif %}
+    <dl class="summary-list">
+      <dt>这道题声称要研究什么</dt><dd>{{ case.motivation.research_question }}</dd>
+      <dt>为什么需要现实画面</dt><dd>{{ case.motivation.visual_dependency }}</dd>
+      <dt>新证据到达后要改变什么</dt><dd>{{ case.motivation.required_change }}</dd>
+      <dt>本轨道的准入标准</dt><dd>{{ case.motivation.track_test }}</dd>
+    </dl>
+    {% if case.pending_source_items %}
+      <div class="notice warning">
+        <b>来源证据还需要确认：</b>
+        <ul>{% for item in case.pending_source_items %}<li>{{ item }}</li>{% endfor %}</ul>
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="panel">
+    <h2>2. 任务设计</h2>
+    <article class="experiment-card">
+      <p><b>用户最初的要求：</b>{{ case.experiment.instruction }}</p>
+      <p><b>开始可见的画面：</b>{{ case.experiment.visible_packets|join('、') }}</p>
+      {% if case.experiment.scheduled_event %}
+        <p class="event">在第2个交互回合开始时送达，与搜索结果无关。</p>
+        {% if case.experiment.scheduled_event.type == 'instruction_injection' %}
+          <p><b>用户中途补充：</b>{{ case.experiment.scheduled_event.payload }}</p>
+        {% elif case.experiment.scheduled_event.type == 'visual_context_update' %}
+          <p><b>执行中更新：</b>向 Agent 提供后来看到的画面。</p>
+        {% endif %}
+      {% endif %}
+      {% if case.experiment.clarification_available %}<p class="event">Agent 可以向用户提问一次。</p>{% endif %}
+    </article>
+    <h3>结构难度</h3>
+    <p>这是由任务答案推导的最低操作量，不是模型实际运行步数。</p>
+    <dl class="summary-list">
+      <dt>需要处理的变化</dt><dd>{{ case.design_profile.change }}</dd>
+      <dt>开始时的合理答案数</dt><dd>{{ case.design_profile.initial_options }}</dd>
+      <dt>最终需要选择的目标数</dt><dd>{{ case.design_profile.final_entity_count }}</dd>
+      <dt>需要填写的网页字段数</dt><dd>{{ case.design_profile.required_field_count }}</dd>
+      <dt>最少关键网页操作</dt><dd>{{ case.design_profile.minimum_key_actions }}</dd>
+    </dl>
+  </section>
+
+  <section class="panel">
+    <h2>3. Agent 实际看到的画面</h2>
+    {% for packet in case.task.visual_packets %}
+      <h3>{{ packet.id }}</h3>
+      <div class="frames">
+        {% for frame in packet.frame_paths %}
+          <a href="{{ url_for('review_asset', path=frame) }}" target="_blank">
+            <img src="{{ url_for('review_asset', path=frame) }}" alt="{{ packet.id }} 第{{ loop.index }}帧">
+            <span>{{ packet.id }}:{{ loop.index0 }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    {% if case.source_video %}
+      <details open>
+        <summary>查看连续视频</summary>
+        <p>已定位到抽帧前后 {{ case.source_video.start_seconds }}–{{ case.source_video.end_seconds }} 秒，请连续观看这一段。</p>
+        <video controls preload="metadata" src="{{ url_for('review_asset', path=case.source_video.path) }}#t={{ case.source_video.start_seconds }},{{ case.source_video.end_seconds }}"></video>
+      </details>
+    {% endif %}
+
+    <h3>现实场景依据</h3>
+    <dl class="summary-list">
+      <dt>任务变化怎么产生</dt><dd>{{ case.scenario_evidence.label }}</dd>
+      <dt>说明</dt><dd>{{ case.scenario_evidence.explanation }}</dd>
+    </dl>
+    {% if case.scenario_evidence.observed_events %}
+      <details>
+        <summary>查看视频中的对象和动作</summary>
+        <ul>
+          {% for event in case.scenario_evidence.observed_events %}
+            <li>{{ event.description }}</li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endif %}
+    <details open>
+      <summary>查看画面支持的关键事实</summary>
+      <ul>
+        {% for claim in case.scenario_evidence.supported_claims %}
+          <li>{{ claim.text }}（{{ claim.supported_by|join('、') }}）</li>
+        {% else %}
+          <li>没有登记逐帧支持的关键事实。</li>
+        {% endfor %}
+      </ul>
+    </details>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading">
+      <div><h2>4. 基准答案</h2><p>请核对预设答案是否由画面和指令支持，并且能在网站中唯一完成。</p></div>
+      <a class="button" target="_blank" href="{{ url_for('open_site', task_id=case.task.id) }}">打开冻结网站核对</a>
+    </div>
+    {% for warning in case.review_warnings %}<p class="notice warning">{{ warning }}</p>{% endfor %}
+
+    {% if case.task.track == 'refresh' %}
+      <p><b>目标变化规则：</b>{{ '保留最初目标' if case.task.refresh.policy == 'retain' else '更新为后来出现的目标' }}</p>
+    {% elif case.task.track == 'clarify' %}
+      <p><b>允许确认的信息：</b>{{ case.task.clarification.valid_slot }}</p>
+      <p><b>用户的标准回答：</b>{{ case.task.clarification.canonical_answer }}</p>
+    {% endif %}
+
+    <div class="entity-grid">
+      {% for entity in case.entities %}
+        <article class="entity-card">
+          {% if entity.visual_path %}<img src="{{ url_for('review_asset', path=entity.visual_path) }}" alt="实体图片">{% endif %}
+          <div class="pills">{% for role in entity.roles %}<span class="pill">{{ role }}</span>{% endfor %}</div>
+          <h3>{{ entity.title or entity.name }}</h3>
+          {% if entity.summary or entity.description %}<p>{{ entity.summary or entity.description }}</p>{% endif %}
+          {% if entity.visible_fields %}<dl>{% for field in entity.visible_fields %}<dt>{{ field.label }}</dt><dd>{{ field.value }}</dd>{% endfor %}</dl>{% endif %}
+          {% if entity.facts %}<dl>{% for key, value in entity.facts.items() %}<dt>{{ key }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+
+    <h3>判分时要求的最终状态</h3>
+    {% for state in case.task.goal.acceptable_states %}
+      <dl class="summary-list">
+        <dt>目标数量</dt><dd>{{ state.selected_entity_ids|length }}</dd>
+        <dt>需要填写的字段</dt><dd>{{ state.fields if state.fields else '无' }}</dd>
+        <dt>必须提交</dt><dd>{{ '是' if state.submission_completed else '否' }}</dd>
+      </dl>
+    {% endfor %}
+
+    <dl class="summary-list">
+      <dt>数据来源</dt><dd>{{ case.source_dataset.name or '未注明' }}</dd>
+    </dl>
+    {% if case.source_record.source.original_annotations %}
+      <details>
+        <summary>查看原始数据标注</summary>
+        <ul>{% for text in case.source_record.source.original_annotations %}<li>{{ text }}</li>{% endfor %}</ul>
+      </details>
+    {% endif %}
+  </section>
+
+  <form class="panel form" method="post" action="{{ url_for('submit_case', task_id=case.task.id) }}">
+    <h2>5. 给出整体结论</h2>
+    <input type="hidden" name="revision" value="{{ case.revision }}">
+    <div class="review-points">
+      <p><b>查看时主要确认：</b></p>
+      <ul>{% for check in case.checks %}<li>{{ check.question }}</li>{% endfor %}</ul>
+    </div>
+    <label>问题说明<textarea name="note" placeholder="只有发现问题时才需要填写">{{ answers.get('note','') }}</textarea></label>
+    {% if case.own_status == 'submitted' %}
+      <button type="button" disabled>已经提交</button>
+    {% elif case.release_blockers %}
+      <div class="review-actions">
+        <button type="button" disabled>仍有验收问题，暂不能保留</button>
+        <button type="submit" name="decision" value="reject">发现问题</button>
+      </div>
+    {% else %}
+      <div class="review-actions">
+        <button class="primary" type="submit" name="decision" value="admit">答案没问题，保留</button>
+        <button type="submit" name="decision" value="reject">发现问题</button>
+      </div>
+    {% endif %}
+  </form>
+{% endblock %}

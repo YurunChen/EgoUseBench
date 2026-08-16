@@ -1,0 +1,624 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/datasets/HD-EPIC/clips-screened",
+    "license_or_access_note": "HD-EPIC is released by the University of Bristol under CC BY 4.0. These source-aligned research clips were downloaded from the official data.bris.ac.uk record. Candidate status records only a mining hypothesis; admission requires an image-only review of the released packets."
+  },
+  "tasks": [
+    {
+      "task_id": "seed-refresh-replace-knife-01",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240617-130401-161",
+          "P08-20240617-130401/cf2ad08a4e381d0e/2059b564fe95800b",
+          "P08-20240617-130401/5f4ebcb05f43e15c/d6ddd1a379e4f5ae"
+        ],
+        "media_id": "P08-20240617-130401__368-395",
+        "media_start_seconds": 368,
+        "media_sha256": "784656d6a3346f33ff4c73afbc08955ab31640a265e9b1264f66e946d180ad3c",
+        "original_video_id": "P08-20240617-130401",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240617-130401.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Pull a knife from the holder with the right hand. [376.72, 377.77]",
+          "Change my mind and put the knife back into the knife holder and instead grab a different knife with the right hand. [377.46, 378.91]",
+          "Use the later knife while preparing the onion. [380.47, 388.62]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "cf2ad08a4e381d0e",
+            "name": "knife2",
+            "track_id": "2059b564fe95800b",
+            "time_segment_seconds": [
+              377.128,
+              378.84937
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "5f4ebcb05f43e15c",
+            "name": "knife3",
+            "track_id": "d6ddd1a379e4f5ae",
+            "time_segment_seconds": [
+              379.084,
+              388.62209
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            377.2,
+            377.7,
+            378.2,
+            378.7
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-knife-01/V0_00.jpg",
+            "data/observations/seed-refresh-replace-knife-01/V0_01.jpg",
+            "data/observations/seed-refresh-replace-knife-01/V0_02.jpg",
+            "data/observations/seed-refresh-replace-knife-01/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            379.5,
+            381.5,
+            383.5,
+            385.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-knife-01/V1_00.jpg",
+            "data/observations/seed-refresh-replace-knife-01/V1_01.jpg",
+            "data/observations/seed-refresh-replace-knife-01/V1_02.jpg",
+            "data/observations/seed-refresh-replace-knife-01/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a long narrow dark-handled knife being removed from and returned toward the knife holder.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a visibly wider dark-handled kitchen knife being used on the onion after the first knife is returned.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The two knives have different HD-EPIC association and track identifiers, consistent with the visible change in blade shape.",
+          "supported_by": [
+            "V0:1",
+            "V1:1"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent replace an initially inferred knife target after the glasses observe the wearer return it and select a different knife?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "refresh_policy": "replace",
+        "belief_before": "The target is the knife first removed from the holder.",
+        "belief_after": "The target is the different knife selected and then used after the first is returned.",
+        "required_behavior_change": "Replace the first knife target with the later knife target.",
+        "no_update_failure": "The Agent submits a product matching the first knife after receiving V1.",
+        "overupdate_failure": "The Agent adds both knives or an unsupported distractor.",
+        "visual_dependency_claim": "The instruction does not name either knife appearance; the selected variant must be recovered from the ordered images.",
+        "task_blueprint": {
+          "instruction": "I am choosing a knife for this onion. Add the one I end up using to my cart.",
+          "initial_target_role": "first_knife",
+          "final_target_role": "later_knife",
+          "environment_role_ids": {
+            "first_knife": "p_caca681e7044",
+            "later_knife": "p_1f08fce0dff9"
+          },
+          "completion_claim": "The submitted cart contains exactly one knife matching the later observed variant and no extra products.",
+          "target_granularity": "variant"
+        }
+      },
+      "unresolved": [],
+      "blocking_checks": [],
+      "rejection_reason": null
+    },
+    {
+      "task_id": "candidate-refresh-replace-hdepic-06",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240622-141902-388",
+          "P08-20240622-141902/400c5e66724aa07f/2bf8dfe7bfea38b9",
+          "P08-20240622-141902/7b3b6938769bce94/94711f383ffba1f6"
+        ],
+        "media_id": "P08-20240622-141902__1078-1105",
+        "media_start_seconds": 1078,
+        "media_sha256": "be9695cbc415a2a39ff42256c0ebece87cd2df3418255ca966ac010dfe48f913",
+        "original_video_id": "P08-20240622-141902",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240622-141902.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Pick up and use the tea towel. [1083.51, 1084.76]",
+          "With right hand put tea towel back down on kitchen counter and instead rip off a piece of paper towel. [1087.57, 1089.09]",
+          "Use the paper towel to wipe the counter. [1092.54, 1101.67]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "400c5e66724aa07f",
+            "name": "tea towel",
+            "track_id": "2bf8dfe7bfea38b9",
+            "time_segment_seconds": [
+              1083.349,
+              1087.43217
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "7b3b6938769bce94",
+            "name": "paper towel",
+            "track_id": "94711f383ffba1f6",
+            "time_segment_seconds": [
+              1088.736,
+              1101.66755
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            1083.6,
+            1084.8,
+            1086,
+            1087.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-06/V0_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-06/V0_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-06/V0_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-06/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            1089,
+            1091,
+            1093,
+            1095
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-06/V1_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-06/V1_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-06/V1_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-06/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a gray patterned reusable towel being held and used at the sink before it is put down.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a white disposable sheet being taken from the upright paper-towel roll and used to wipe the counter.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The reusable towel and paper towel have different HD-EPIC association and track identifiers and occupy non-overlapping action intervals.",
+          "supported_by": [
+            "V0:3",
+            "V1:0"
+          ]
+        }
+      ],
+      "rejection_reason": "Rejected after image review and model-assisted diagnostic testing: the upright white household paper-towel roll is already prominent throughout V0, while the instruction asks for the second wiping product after the reusable cloth. The stale condition can therefore identify B without V1, so the episode fails the preregistered visual-update-necessity gate.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "candidate-refresh-replace-hdepic-07",
+      "status": "rejected",
+      "rejection_code": "redundant_decision_pattern",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240618-163547-129",
+          "P08-20240618-163547/0aac862e38a23a73/a2bbce6d4e8d152f",
+          "P08-20240618-163547/86f319cb6fa801d8/6c2967cc4876ea59"
+        ],
+        "media_id": "P08-20240618-163547__270-295",
+        "media_start_seconds": 270,
+        "media_sha256": "b563a884eabd64330e45915a5456ae9619fa73a47bdf98bdfd69dc5fea113289",
+        "original_video_id": "P08-20240618-163547",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240618-163547.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Use the small knife while preparing the onion. [277.55, 279.23]",
+          "Change my mind, put down the small knife and instead grab the larger knife from the back of the kitchen counter. [279.25, 280.80]",
+          "Use the larger knife on the onion. [279.74, 283.99]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "0aac862e38a23a73",
+            "name": "knife1",
+            "track_id": "a2bbce6d4e8d152f",
+            "time_segment_seconds": [
+              277.752,
+              279.67965
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "86f319cb6fa801d8",
+            "name": "knife2",
+            "track_id": "6c2967cc4876ea59",
+            "time_segment_seconds": [
+              280.122,
+              285.41561
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            277.8,
+            278.4,
+            279,
+            279.6
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-07/V0_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-07/V0_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-07/V0_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-07/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            280.2,
+            281.7,
+            283.2,
+            284.7
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-07/V1_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-07/V1_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-07/V1_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-07/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a small narrow knife being used on the onion and then moved away from the cutting area.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a visibly larger and wider knife being used on the same onion after the smaller knife is put down.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The two knives have different HD-EPIC association and track identifiers, consistent with the visible size change.",
+          "supported_by": [
+            "V0:1",
+            "V1:1"
+          ]
+        }
+      ],
+      "rejection_reason": "This clip independently supports a small-knife to chef-knife replacement, but it measures the same onion-cutting decision, instruction form, and final website action as seed-refresh-replace-knife-01. The seed has a clearer full return-to-holder sequence and stronger source-to-site mapping, so this duplicate decision pattern is excluded from the batch.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "candidate-refresh-replace-hdepic-08",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P09-20240622-150155-300",
+          "P09-20240622-150155/85b54cc17ec1671a/27bc011593a85836",
+          "P09-20240622-150155/31701be2c3ca6617/fff57f0085c6bde7"
+        ],
+        "media_id": "P09-20240622-150155__400-430",
+        "media_start_seconds": 400,
+        "media_sha256": "e25263c7471d73f8208dbf3e0a548a4285e18b632985c1f4a78b8982a818a1a6",
+        "original_video_id": "P09-20240622-150155",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P09/P09-20240622-150155.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Pull out and inspect a saucepan. [410.80, 415.39]",
+          "Return the cover while reaching for another saucepan. [415.49, 417.04]",
+          "Retrieve and inspect a red saucepan. [419.86, 423.80]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "85b54cc17ec1671a",
+            "name": "saucepan2",
+            "track_id": "27bc011593a85836",
+            "time_segment_seconds": [
+              411.592,
+              415.54959
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "31701be2c3ca6617",
+            "name": "red saucepan",
+            "track_id": "fff57f0085c6bde7",
+            "time_segment_seconds": [
+              420.001,
+              467.27325
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            411.8,
+            413.8,
+            415.4,
+            416.8
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-08/V0_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-08/V0_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-08/V0_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-08/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            419.9,
+            421,
+            422.2,
+            423.8
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-08/V1_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-08/V1_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-08/V1_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-08/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a silver-colored straight-sided saucepan with a black handle being removed and inspected.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a different red-exterior saucepan with a black handle and glass lid being handled later in the selection sequence.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The silver and red saucepans have different HD-EPIC association and track identifiers.",
+          "supported_by": [
+            "V0:2",
+            "V1:2"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent update from a first saucepan to the later red saucepan selected from the cupboard?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "refresh_policy": "replace",
+        "belief_before": "The target is the first saucepan removed and inspected.",
+        "belief_after": "The target is the red saucepan selected after the first inspection.",
+        "required_behavior_change": "Replace the first-saucepan target with the later red-saucepan target.",
+        "no_update_failure": "The Agent submits a product matching the first saucepan after receiving V1.",
+        "overupdate_failure": "The Agent adds both saucepans or an unsupported distractor.",
+        "visual_dependency_claim": "The instruction does not name the later saucepan color; the ordered images determine which saucepan was selected later.",
+        "task_blueprint": {
+          "instruction": "I am choosing a saucepan. Add the one I settle on to the cart.",
+          "initial_target_role": "first_saucepan",
+          "final_target_role": "later_red_saucepan",
+          "environment_role_ids": {
+            "first_saucepan": "p_2e32b7258402",
+            "later_red_saucepan": "p_65195050a00a"
+          },
+          "completion_claim": "The submitted cart contains exactly one red saucepan matching the later observation and no extra products.",
+          "target_granularity": "variant"
+        }
+      },
+      "unresolved": [],
+      "blocking_checks": [],
+      "rejection_reason": null
+    },
+    {
+      "task_id": "candidate-refresh-replace-hdepic-09",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240620-180825-136",
+          "P08-20240620-180825-137",
+          "P08-20240620-180825/7431f67f76b7d559/c04c7b1632763e8f",
+          "P08-20240620-180825/03463ea90de2ac45/f20e22b7fe89d555"
+        ],
+        "media_id": "P08-20240620-180825__260-285",
+        "media_start_seconds": 260,
+        "media_sha256": "b60f384ff697466cec818a5c3ef4bff1a41a9f702307fc3745d2dcfdb93b9052",
+        "original_video_id": "P08-20240620-180825",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240620-180825.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Change mind and instead grab pepper shaker from back of kitchen counter. [271.96, 272.60]",
+          "Change mind again and put pepper shaker down on kitchen counter. [272.70, 273.78]",
+          "Grab and use the garlic seasoning. [273.88, 279.84]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "7431f67f76b7d559",
+            "name": "pepper shaker",
+            "track_id": "c04c7b1632763e8f",
+            "time_segment_seconds": [
+              272.209,
+              273.75423
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "03463ea90de2ac45",
+            "name": "jar seasoning",
+            "track_id": "f20e22b7fe89d555",
+            "time_segment_seconds": [
+              275.776,
+              281.61531
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            272.2,
+            272.7,
+            273.2,
+            273.7
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-09/V0_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-09/V0_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-09/V0_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-09/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            275.8,
+            277,
+            278.2,
+            279.4
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-09/V1_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-09/V1_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-09/V1_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-09/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a dark-topped pepper shaker being held among the seasonings and then returned to the counter.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a different short clear seasoning jar with a silver top, purple label band, and pale contents being tilted and used over the cookware.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The two seasoning containers have different HD-EPIC association and track identifiers and appear in successive action intervals.",
+          "supported_by": [
+            "V0:3",
+            "V1:0"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent update from a briefly selected pepper shaker to the seasoning actually used afterward?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "refresh_policy": "replace",
+        "belief_before": "The target is the pepper shaker briefly selected first.",
+        "belief_after": "The target is the seasoning jar selected and used after the pepper shaker is put down.",
+        "required_behavior_change": "Replace the pepper-shaker target with the later-used seasoning target.",
+        "no_update_failure": "The Agent submits pepper after receiving V1.",
+        "overupdate_failure": "The Agent adds both seasonings or an unsupported distractor.",
+        "visual_dependency_claim": "The instruction omits the later product's appearance; V0 only establishes the black pepper grinder, while V1 reveals the short clear jar with a silver top, purple label band, and pale contents that must replace it.",
+        "task_blueprint": {
+          "instruction": "I am choosing a seasoning for this dish. Add the one I end up using to the cart.",
+          "initial_target_role": "pepper_shaker",
+          "final_target_role": "later_seasoning_jar",
+          "environment_role_ids": {
+            "pepper_shaker": "p_bf3e2b01432c",
+            "later_seasoning_jar": "p_5cf655d2a300"
+          },
+          "completion_claim": "The submitted cart contains exactly one seasoning matching the later-used jar and no extra products.",
+          "target_granularity": "variant"
+        }
+      },
+      "unresolved": [],
+      "blocking_checks": [],
+      "rejection_reason": null
+    }
+  ]
+}

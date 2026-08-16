@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}EgoCUA-Bench 人工审核{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a href="{{ url_for('review_index') }}">EgoCUA-Bench 人工审核</a>
+    <span>{{ workspace_reviewer if workspace_reviewer is defined else '' }}</span>
+  </header>
+  <main class="page">{% block content %}{% endblock %}</main>
+</body>
+</html>
+

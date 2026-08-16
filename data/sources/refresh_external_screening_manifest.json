@@ -1,0 +1,722 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/datasets/HD-EPIC/clips-screened",
+    "license_or_access_note": "HD-EPIC is released by the University of Bristol under CC BY 4.0. These source-aligned research clips were downloaded from the official data.bris.ac.uk record. A Benchmark Release must retain attribution and separately review redistribution of source frames."
+  },
+  "tasks": [
+    {
+      "task_id": "seed-refresh-replace-hdepic-01",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240614-085000/005a6818405d5faf/7bfb1f5e02653964",
+          "P08-20240614-085000/8b70c6acf6cda2da/88ef85a7b9c52fe1"
+        ],
+        "media_id": "P08-20240614-085000__890-930",
+        "media_start_seconds": 890,
+        "media_sha256": "e3d71ed8b418fcdf8f1408ecb2a9b1e830ccb1e38d7442a7d30cd0ab71b424cc",
+        "original_video_id": "P08-20240614-085000",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240614-085000.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "With right hand, pick up sponge. [898.01, 898.50]",
+          "With right hand, pick up different sponge. [901.24, 901.65]",
+          "With left hand, squeeze dish soap bottle and pour dish soap onto sponge in right hand. [905.30, 906.33]",
+          "With left hand lift spatula; with right hand use sponge to clean spatula. [907.17, 913.75]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "005a6818405d5faf",
+            "name": "sponge",
+            "track_id": "7bfb1f5e02653964",
+            "time_segment_seconds": [
+              898.405,
+              901.08408
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "8b70c6acf6cda2da",
+            "name": "second sponge",
+            "track_id": "88ef85a7b9c52fe1",
+            "time_segment_seconds": [
+              901.378,
+              913.44946
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            898.4,
+            899.2,
+            900,
+            900.8
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-01/V0_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-01/V0_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-01/V0_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-01/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            901.6,
+            903.2,
+            904.8,
+            906.4
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-01/V1_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-01/V1_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-01/V1_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-01/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a gray metal scouring pad being picked up and held immediately before it is relinquished.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a green-and-yellow rectangular dish sponge being selected and prepared with dish soap after the first object is relinquished.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The two objects have different HD-EPIC association IDs, and the first movement ends before the second movement begins.",
+          "supported_by": [
+            "V0:3",
+            "V1:0"
+          ]
+        }
+      ],
+      "rejection_code": "visual_not_necessary",
+      "rejection_reason": "The released instruction names the later object as a sponge while V0 shows a metal scouring pad, so the product category already rules out A. In three independent stale-arm GPT-5.4-mini runs, the model selected the same green-and-yellow final sponge before V1 arrived; direct image review also found a stable yellow/green sink-region cue in V0. The later packet is therefore not necessary to identify B, which invalidates the intended Refresh comparison.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "candidate-refresh-replace-hdepic-10",
+      "status": "rejected",
+      "rejection_code": "decisive_attribute_unreadable",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240614-184945-42",
+          "P08-20240614-184945-43",
+          "P08-20240614-184945-44",
+          "P08-20240614-184945-45",
+          "P08-20240614-184945-47",
+          "P08-20240614-184945-48",
+          "P08-20240614-184945-49"
+        ],
+        "media_id": "P08-20240614-184945__105-130",
+        "media_start_seconds": 105,
+        "media_sha256": "000fd919c129b68092d24994124d8bc410b182ebe853c945b2ac6650c69f668f",
+        "original_video_id": "P08-20240614-184945",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240614-184945.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Grab the salmon skewer again and move from the packaging to the baking tray with the right hand. [108.62, 113.23]",
+          "Because there is not enough space in the baking tray, adjust the placements of the salmon skewers to make space for the fourth salmon skewer. [113.23, 116.01]",
+          "With both hands, move the skewers around to make sure they are spaced out enough in the baking tray. [115.94, 117.43]",
+          "Change mind and instead grab the larger baking tray from the kitchen stove with the right hand. [117.25, 117.60]",
+          "With the right hand, place the larger baking tray on the kitchen counter. [118.68, 119.74]",
+          "With both hands, lift up the foil that has salmon skewers on it and move it from the smaller baking tray to the right side of the larger baking tray. [119.84, 122.00]",
+          "Place the foil down and flatten it out on the larger baking tray. [121.91, 122.49]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "de9529d43407b24d",
+            "name": "baking tray",
+            "track_id": "f6fc612c9eaaf659",
+            "time_segment_seconds": [
+              118.053,
+              119.74174
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            112,
+            113.2,
+            114.4,
+            115.6
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-10/V0_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-10/V0_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-10/V0_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-10/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            119,
+            120,
+            121,
+            122
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-replace-hdepic-10/V1_00.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-10/V1_01.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-10/V1_02.jpg",
+            "data/observations/candidate-refresh-replace-hdepic-10/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows the salmon skewers and foil occupying the smaller initial tray before a replacement tray is introduced.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a second dark-rimmed rectangular tray and the foil with the salmon skewers being transferred onto it.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The HD-EPIC narration and object-movement record identify the later tray placement and subsequent transfer as one continuous change-of-mind event.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "The continuous clip does show the foil moving from one tray to another, but the released views do not expose a stable visual attribute that uniquely separates the two trays for image-to-listing matching. A single starting frame and the later packet cannot be mapped to two honest frozen-site products without importing the HD-EPIC size narration, so the task fails the decisive-attribute and static-replacement checks.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "seed-refresh-replace-hdepic-02",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P09-20240624-160737/ff3dfc6bb3a6dbb3/1370c2aae8e951fb",
+          "P09-20240624-160737/d768b4e4c7ab80ce/7fc2dfc9e8356d11"
+        ],
+        "media_id": "P09-20240624-160737__10-30",
+        "media_start_seconds": 10,
+        "media_sha256": "abcf113313a4ac8023516ed80de947d39f184b5d6bb88f02e92ac2a0551ac046",
+        "original_video_id": "P09-20240624-160737",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P09/P09-20240624-160737.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Retrieving a napkin from the cupboard using my left hand. [14.94, 15.41]",
+          "Returning the napkin back to the cupboard using my left hand to make a different selection. [15.79, 17.64]",
+          "Selecting a different napkin from the carpet using my left hand. [16.59, 16.83]",
+          "Using the napkin to dry both my hands. [20.52, 27.48]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "ff3dfc6bb3a6dbb3",
+            "name": "napkin1",
+            "track_id": "1370c2aae8e951fb",
+            "time_segment_seconds": [
+              14.812,
+              15.94491
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "d768b4e4c7ab80ce",
+            "name": "napkin2",
+            "track_id": "7fc2dfc9e8356d11",
+            "time_segment_seconds": [
+              16.241,
+              27.76633
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            14.9,
+            15.2,
+            15.8,
+            16
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-02/V0_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-02/V0_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-02/V0_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-02/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            16.6,
+            17.2,
+            20.5,
+            22
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-02/V1_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-02/V1_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-02/V1_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-02/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a plain light-colored napkin being taken from the cupboard and then moved back toward it; the released pixels do not support a more specific color label.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a visually different napkin with muted gray, olive, cream and dark irregular camouflage-style patches being selected, spread out and used after the first napkin is returned.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The two napkins have different HD-EPIC association IDs, and the second remains in use through the end of the released evidence.",
+          "supported_by": [
+            "V0:3",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent replace an initially inferred napkin target after the glasses observe the wearer return it and select a different napkin?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "refresh_policy": "replace",
+        "belief_before": "The target is the plain light-colored napkin retrieved first from the cupboard.",
+        "belief_after": "The target is the muted camouflage-patterned napkin selected and used after the first is returned.",
+        "required_behavior_change": "Replace the first-napkin target with the later camouflage-patterned-napkin target and submit only the matching later variant.",
+        "no_update_failure": "The Agent submits a product matching the first napkin after receiving V1.",
+        "overupdate_failure": "The Agent adds both napkins or selects an unsupported distractor.",
+        "visual_dependency_claim": "The instruction does not name the napkin appearance; the later selected variant is recoverable only from the ordered images.",
+        "task_blueprint": {
+          "instruction": "I need another napkin like whichever one I end up using to dry my hands. Add it to the cart.",
+          "initial_target_role": "plain_light_colored_napkin",
+          "final_target_role": "muted_camouflage_pattern_napkin",
+          "environment_role_ids": {
+            "plain_light_colored_napkin": "p_fca389903bf4",
+            "muted_camouflage_pattern_napkin": "p_fd6156f0efd7"
+          },
+          "completion_claim": "The submitted cart contains exactly one napkin matching the later observed variant and no extra products.",
+          "target_granularity": "variant"
+        }
+      },
+      "unresolved": [],
+      "blocking_checks": [],
+      "rejection_reason": null
+    },
+    {
+      "task_id": "seed-refresh-replace-hdepic-03",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P03-20240216-205923/454c499f42afffda/39c48f7a2915e506",
+          "P03-20240216-205923/cb3cc57f80844fbe/ced233f23fcf6578"
+        ],
+        "media_id": "P03-20240216-205923__55-100",
+        "media_start_seconds": 55,
+        "media_sha256": "59cfed45906132154de382f60e490d4ad16e5c80b9fefa2eae193d01bc0f2f8d",
+        "original_video_id": "P03-20240216-205923",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P03/P03-20240216-205923.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "With my right hand, pick up the cloth from the kitchen top next to the hob. [58.45, 59.11]",
+          "Dry my hands by rubbing them against the cloth. [59.04, 64.57]",
+          "Drop the cloth on the kitchen top next to the hob. [70.84, 71.16]",
+          "With my left hand, pick up the folded white cloth. [87.04, 87.39]",
+          "Use the white cloth to wipe my hands dry; I use this cloth instead because the other cloth is quite dirty now. [87.22, 93.20]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "454c499f42afffda",
+            "name": "cloth",
+            "track_id": "39c48f7a2915e506",
+            "time_segment_seconds": [
+              58.6666668,
+              70.8666668
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "cb3cc57f80844fbe",
+            "name": "cloth2",
+            "track_id": "ced233f23fcf6578",
+            "time_segment_seconds": [
+              86.8,
+              93.4
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            59,
+            62.5,
+            66,
+            69.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-03/V0_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-03/V0_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-03/V0_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-03/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            87,
+            88.5,
+            90,
+            91.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-03/V1_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-03/V1_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-03/V1_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-03/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a beige cloth being held and used to dry the wearer's hands.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a white cloth with a red border being selected and used after the beige cloth has been dropped.",
+          "supported_by": [
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The two cloths have distinct association IDs and non-overlapping movement intervals.",
+          "supported_by": [
+            "V0:3",
+            "V1:0"
+          ]
+        }
+      ],
+      "rejection_reason": "The video clearly shows the beige striped cloth being released before a white textured cloth with both red and blue edge details is selected. The frozen site has separate products for white waffle texture, red edging, or blue edging, but no single product honestly matches the later cloth. The final target therefore cannot be linked to one unique website entity.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "seed-refresh-replace-hdepic-04",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P03-20240218-140054/ab363aebeb8a4521/89b60d55338d69ec",
+          "P03-20240218-140054/5ebfaaee70535f6a/8a8e7668beb73aea"
+        ],
+        "media_id": "P03-20240218-140054__670-710",
+        "media_start_seconds": 670,
+        "media_sha256": "10fc16fe89e442dd441163240063a3ace391803eca12f200ad1abec5b393360a",
+        "original_video_id": "P03-20240218-140054",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P03/P03-20240218-140054.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Dry hands using the cloth hanging from the cupboard under the sink. [672.68, 677.77]",
+          "Move the cloth toward the kitchen hob, then change my mind and use another cloth later. [677.03, 682.90]",
+          "Hook the cloth I used to dry hands back to the cupboard by the sink. [683.00, 685.17]",
+          "With my left hand, grab orange cloth from the kitchen tap above the sink. [685.13, 687.91]",
+          "Use the orange cloth to absorb the spilled water; I use this cloth instead because it absorbs more water. [688.01, 690.43]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "ab363aebeb8a4521",
+            "name": "cloth",
+            "track_id": "89b60d55338d69ec",
+            "time_segment_seconds": [
+              677.9666668,
+              684.7666668
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "5ebfaaee70535f6a",
+            "name": "orange cloth",
+            "track_id": "8a8e7668beb73aea",
+            "time_segment_seconds": [
+              686.1666668,
+              704.7
+            ],
+            "role": "B"
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            680,
+            681.5,
+            683,
+            684.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-04/V0_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-04/V0_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-04/V0_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-04/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            687,
+            688.5,
+            690,
+            691.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-replace-hdepic-04/V1_00.jpg",
+            "data/observations/seed-refresh-replace-hdepic-04/V1_01.jpg",
+            "data/observations/seed-refresh-replace-hdepic-04/V1_02.jpg",
+            "data/observations/seed-refresh-replace-hdepic-04/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a light-colored cloth held first and moved toward the hob before the wearer changes course.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows a saturated orange cloth selected and used on the hob after the first cloth is returned.",
+          "supported_by": [
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The two cloths have different HD-EPIC association IDs, and the first interval ends before the orange-cloth interval begins.",
+          "supported_by": [
+            "V0:3",
+            "V1:0"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent update a cloth referent when the wearer returns the first cloth and chooses a visibly different orange cloth for the spill?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "refresh_policy": "replace",
+        "belief_before": "The target is the light cloth first held near the sink and hob.",
+        "belief_after": "The target is the orange cloth selected and used after the first is returned.",
+        "required_behavior_change": "Replace the light-cloth target with the orange-cloth target and submit only the later variant.",
+        "no_update_failure": "The Agent submits a product matching the first light cloth after receiving V1.",
+        "overupdate_failure": "The Agent adds both cloths or an unsupported distractor.",
+        "visual_dependency_claim": "The instruction omits color; identifying the selected cloth requires the ordered source images.",
+        "task_blueprint": {
+          "instruction": "I am choosing a cloth for this spill. Add the one I settle on to the cart.",
+          "initial_target_role": "light_sink_cloth",
+          "final_target_role": "orange_hob_cleaning_cloth",
+          "environment_role_ids": {
+            "light_sink_cloth": "p_550d46abbf14",
+            "orange_hob_cleaning_cloth": "p_2e3524927e67"
+          },
+          "completion_claim": "The submitted cart contains exactly one cloth matching the later orange variant and no extra products.",
+          "target_granularity": "variant"
+        }
+      },
+      "unresolved": [],
+      "blocking_checks": [],
+      "rejection_reason": null
+    },
+    {
+      "task_id": "rejected-refresh-replace-hdepic-knife-01",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240622-141902/5263ddd1d58c7852/547948cb3964c1e1",
+          "P08-20240622-141902/5263ddd1d58c7852/8caccfc44eb4c837"
+        ],
+        "media_id": "P08-20240622-141902__25-45",
+        "media_start_seconds": 25,
+        "media_sha256": "0bf09a2341e616914c7fd036a08bf87f0f3c80587fe4d2480dcd0bbad3141260",
+        "original_annotations": [
+          "With right hand, grab knife from holder. [31.72, 32.30]",
+          "Change mind and instead put knife back in holder and grab a different knife. [32.10, 33.99]",
+          "With left hand grab a different knife from the drying rack. [34.09, 35.22]"
+        ]
+      },
+      "rejection_code": "ground_truth_not_deterministic",
+      "rejection_reason": "The narration describes a different knife, but HD-EPIC groups all three observed knife movement tracks under one physical-object association. The official entity supervision therefore cannot determine A and B as distinct objects.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-refresh-replace-hdepic-knife-02",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240614-132938/db1b9cf5af6977f3/e141c62589218dae",
+          "P08-20240614-132938/ecb0e4a36bb0e552/174b3ae6ad65db06"
+        ],
+        "media_id": "P08-20240614-132938__20-42",
+        "media_start_seconds": 20,
+        "media_sha256": "34551aafb5db3eea585c27e745950c1fd45efd9ad74310bc61ce42aab108309b",
+        "original_video_id": "P08-20240614-132938",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240614-132938.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Pinch knife and check whether it is the right size. [24.29, 27.16]",
+          "Decide to use a different knife and put the knife back in the holder. [25.40, 27.65]",
+          "Grab a different knife from the dish tray. [27.97, 28.74]",
+          "Cut chicken with fork and knife. [33.69, 35.44]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "db1b9cf5af6977f3",
+            "name": "knife",
+            "track_id": "e141c62589218dae",
+            "time_segment_seconds": [
+              25.841,
+              27.04942
+            ],
+            "role": "A"
+          },
+          {
+            "association_id": "ecb0e4a36bb0e552",
+            "name": "knife2",
+            "track_id": "174b3ae6ad65db06",
+            "time_segment_seconds": [
+              28.306,
+              47.963
+            ],
+            "role": "B"
+          }
+        ],
+        "visual_audit": {
+          "dense_contact_sheet": "artifacts/reports/source-evidence/b3af7584c87eea4d17453e0ef05bb61344eb901c1aff900e7ae9e24f05fe4d04.jpg",
+          "proposed_packet_contact_sheet": "artifacts/reports/source-evidence/74b198b236a3cee3de4e368111bd2f508907e48cfc34881d4739c5ea5f4cc634.jpg",
+          "proposed_timestamps_seconds": {
+            "V0": [
+              25.8,
+              26.2,
+              26.6,
+              27
+            ],
+            "V1": [
+              28.4,
+              30.8,
+              33.2,
+              35.6
+            ]
+          }
+        }
+      },
+      "rejection_code": "decisive_attribute_unreadable",
+      "rejection_reason": "HD-EPIC provides distinct physical-object associations and the temporal switch is visible, but the proposed 4+4 input frames do not expose a stable appearance difference that can map A and B to different catalog products. The first knife is largely occluded at the holder and both visible handles appear black; using narration such as 'different' or 'right size' would replace visual grounding with annotation leakage.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-refresh-replace-hdepic-towel-01",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P09-20240622-150155/06d457c3d18b0910/81f4a9aa5e81f996",
+          "P09-20240622-150155/fea06dac4ea4a30f/9162aa369aeae46e"
+        ],
+        "media_id": "P09-20240622-150155__70-92",
+        "media_start_seconds": 70,
+        "media_sha256": "5f09b0e9ef512c15b79ea8f6c1d583439bb9c43cec9ce37edc646726068eb2fb",
+        "original_annotations": [
+          "Place the hand towel back in the cupboard so that I can select a different one. [76.82, 77.99]",
+          "Select any hand towel from the cupboard using my right hand. [79.64, 80.32]",
+          "Hang a hand towel on the rack using my right hand, while my left hand holds another hand towel. [82.46, 83.10]",
+          "Wiping my hands on both hand towels. [83.78, 86.34]"
+        ]
+      },
+      "rejection_code": "ground_truth_not_deterministic",
+      "rejection_reason": "The wearer retains and uses both towels after the supposed switch. There is no unique final target B, so a single-item web checker would impose ground truth not present in the video.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}

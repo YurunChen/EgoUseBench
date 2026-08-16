@@ -1,0 +1,67 @@
+{% extends "review/base.html" %}
+{% block content %}
+  <section class="hero">
+    <div>
+      <p class="eyebrow">审核者 {{ progress.reviewer }}</p>
+      <h1>任务审核</h1>
+      <p>逐题判断画面、指令、网页目标和最终状态是否合理。</p>
+      {% if progress.scope == 'all' %}<p>当前展示全部已构造候选；正式实验清单不受影响。</p>{% endif %}
+    </div>
+    <div class="progress-number">
+      <strong>{{ progress.counts.submitted }}</strong><span>/ {{ progress.total }}</span>
+      <small>已提交</small>
+    </div>
+  </section>
+
+  {% if message %}<p class="notice success">{{ message }}</p>{% endif %}
+
+  <section class="stats">
+    <div><strong>{{ progress.counts.todo }}</strong><span>未审核</span></div>
+    <div><strong>{{ progress.counts.submitted }}</strong><span>已提交</span></div>
+    <div><strong>{{ progress.counts.stale }}</strong><span>材料已变化</span></div>
+    <div><strong>{{ progress.counts.invalid }}</strong><span>提交异常</span></div>
+  </section>
+
+  <form class="filters" method="get">
+    <label>任务类型
+      <select name="track">
+        <option value="">全部</option>
+        {% for value, label in [('graft','Graft'),('refresh','Refresh'),('clarify','Clarify')] %}
+          <option value="{{ value }}" {% if filters.track == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>网页场景
+      <select name="site">
+        <option value="">全部</option>
+        {% for value, label in [('egomart','购物'),('egodocs','知识'),('egomedia','媒体'),('egomaps','地图')] %}
+          <option value="{{ value }}" {% if filters.site == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>我的状态
+      <select name="status">
+        <option value="">全部</option>
+        {% for value, label in [('todo','未审核'),('submitted','已提交'),('stale','材料已变化'),('invalid','提交异常')] %}
+          <option value="{{ value }}" {% if filters.status == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <button type="submit">筛选</button>
+  </form>
+
+  <section class="task-list">
+    {% for task in progress.tasks %}
+      <a class="task-row" href="{{ url_for('review_case', task_id=task.id) }}">
+        <span class="task-id">{{ task.id }}</span>
+        <span class="pill">{{ task.track }}</span>
+        <span class="pill muted">{{ {'egomart':'购物','egodocs':'知识','egomedia':'媒体','egomaps':'地图'}[task.site] }}</span>
+        <span class="status {{ task.status }}">
+          {{ {'todo':'未审核','submitted':'已提交','stale':'需重审','invalid':'异常'}[task.status] }}
+        </span>
+      </a>
+    {% else %}
+      <p class="empty">没有符合条件的任务。</p>
+    {% endfor %}
+  </section>
+{% endblock %}

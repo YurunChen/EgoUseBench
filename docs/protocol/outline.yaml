@@ -1,0 +1,54 @@
+topic: EgoCUA-Bench scientific protocol
+slug: egocua_scientific_protocol
+objective: >-
+  Audit and revise the benchmark's task construction, completion validation,
+  metrics, and statistical analysis so that each claim has a well-defined
+  construct, executable evaluator, and auditable evidence.
+status: candidate_v12_primary_105_all_reviews_pending
+
+evidence_policy:
+  time_range: unrestricted
+  priority_years: "2023-2026"
+  source_priority:
+    - peer_reviewed_or_primary_benchmark_paper
+    - official_benchmark_documentation_or_code
+    - recent_preprint_with_released_protocol
+  labels:
+    established_consensus: repeated across mature interactive-agent benchmarks
+    emerging_practice: supported by recent benchmarks but not yet field-wide consensus
+    project_choice: a scoped design decision that must not be presented as consensus
+
+research_questions:
+  - id: RQ1
+    title: Construct validity and claim scope
+    question: What precisely do Graft, Refresh, and Clarify measure, and which claims are narrower than the proposed goal-belief-divergence theory?
+  - id: RQ2
+    title: Dynamic task construction
+    question: How can each task expose exactly one natural instruction update, visual update, or clarification event while preserving a deterministic final goal?
+  - id: RQ3
+    title: Completion validation
+    question: Which backend state predicates and evidence artifacts are sufficient to score alternative valid trajectories without an LLM judge?
+  - id: RQ4
+    title: Track-specific behavioral diagnostics
+    question: Which observable behaviors validly measure interruption response, visual refresh response, and clarification decisions without inferring latent beliefs?
+  - id: RQ5
+    title: Statistical estimands and uncertainty
+    question: What is the task-level unit of analysis, how should stochastic replicates be aggregated, and which confidence intervals are justified for a small pilot?
+  - id: RQ6
+    title: Human and evaluator validation
+    question: Which independent-human checks, adversarial evaluator tests, and manual replay audits are required before freezing a benchmark release?
+
+deliverables:
+  - protocol_audit_and_revision
+  - construct_metric_crosswalk
+  - task_acceptance_and_exclusion_rules
+  - evaluator_evidence_contract
+  - preregistered_analysis_plan
+  - code_gap_and_implementation_order
+
+execution:
+  batch_size: 1
+  items_per_agent: 6
+  output_directory: artifacts/reports/scientific_protocol
+  implementation_changes_allowed: true
+  next_gate: independent_human_execution_and_evaluator_replay

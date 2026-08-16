@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "resource_screened",
+  "workflow": "knowledge",
+  "decision": "Build one knowledge-workflow seed per track before implementing media or maps.",
+  "resource_audit": "data/sources/cross_domain_resource_audit.json",
+  "seeds": [
+    {
+      "candidate_id": "cross-seed-graft-c-01-ego2web-309",
+      "track": "graft",
+      "source_screening": {
+        "manifest": "data/sources/subtype_expansion_screening_manifest.json",
+        "task_id": "seed-graft-c-01"
+      },
+      "evidence_decision": "The reviewed interval identifies the wooden block-stacking game, and Ego2Web record 309 directly requests the matching knowledge article and two report fields.",
+      "proposed_intervention": {
+        "a": "Find and save the reference article for the tabletop game I am playing.",
+        "b": "Also submit the standard-set piece count and the section that states it.",
+        "bundled": "Find and save the reference article for the tabletop game I am playing, then submit the standard-set piece count and the section that states it."
+      },
+      "belief_before": "The matching article is sufficient before the later request.",
+      "belief_after": "The same article must remain selected and two exact article-backed fields must be submitted.",
+      "required_behavior_change": "Preserve the selected article and complete the newly required structured fields.",
+      "no_update_failure": "The article is saved but the new fields are absent or wrong.",
+      "overupdate_failure": "The Agent abandons the visually grounded game and answers from an unrelated stacking-game article.",
+      "proposed_final_state": {
+        "selected_entity_role": "matching_block_stacking_game_article",
+        "required_field_roles": ["standard_piece_count", "source_section_name"]
+      },
+      "remaining_gates": [
+        "freeze_local_near_neighbor_documents",
+        "two_reviewer_construction_adjudication",
+        "replay_missing_field_and_wrong_article_failures",
+        "protocol_valid_browser_use_run"
+      ]
+    },
+    {
+      "candidate_id": "cross-candidate-refresh-retain-ego2web-08-ego2web-327",
+      "track": "refresh",
+      "source_screening": {
+        "manifest": "data/sources/refresh_retain_expansion_screening_manifest.json",
+        "task_id": "candidate-refresh-retain-ego2web-08"
+      },
+      "evidence_decision": "The reviewed sequence shows a blue ingredient packet opened first and a different yellow packet later; record 327 asks for the article describing the first ingredient as a baking leavening agent.",
+      "proposed_instruction": "Find and save the reference article for the ingredient packet I open first, then submit how the article describes its role in baking.",
+      "belief_before": "The blue packet opened first determines the target article.",
+      "belief_after": "The later yellow packet is a distractor; the target article remains the one for the first blue packet.",
+      "required_behavior_change": "Process the later view without replacing the first-ingredient article.",
+      "no_update_failure": "The Agent loses the target or fails to finish after the later view.",
+      "overupdate_failure": "The Agent switches to an article for the later yellow packet.",
+      "proposed_final_state": {
+        "selected_entity_role": "first_blue_ingredient_article",
+        "required_field_roles": ["baking_role"]
+      },
+      "remaining_gates": [
+        "freeze_local_near_neighbor_documents",
+        "two_reviewer_construction_adjudication",
+        "replay_false_update_failure",
+        "protocol_valid_browser_use_run"
+      ]
+    },
+    {
+      "candidate_id": "cross-seed-clarify-sequence-poster-01-ego2web-34",
+      "track": "clarify",
+      "source_screening": {
+        "manifest": "data/sources/subtype_expansion_screening_manifest.json",
+        "task_id": "seed-clarify-sequence-poster-01"
+      },
+      "evidence_decision": "The reviewed interval contains a solar-system poster first and an Uncle Sam poster second; record 34 requests creator and production-year facts for the second poster.",
+      "proposed_ambiguous_instruction": "Find and save the reference record for the poster I examined, then submit its creator and production year.",
+      "proposed_oracle_instruction": "Find and save the reference record for the second poster I examined, then submit its creator and production year.",
+      "valid_slot": "sequence",
+      "canonical_answer": "I mean the second poster.",
+      "belief_before": "Either poster record could satisfy the unqualified request.",
+      "belief_after": "The answer uniquely selects the second, Uncle Sam poster record.",
+      "required_behavior_change": "Ask before opening or saving a candidate record, then use the answer to select the correct record and fields.",
+      "no_update_failure": "The Agent guesses a poster record before asking or selects the first poster after the answer.",
+      "overupdate_failure": "The Agent asks in the oracle arm despite already receiving the ordinal.",
+      "proposed_final_state": {
+        "selected_entity_role": "second_uncle_sam_poster_record",
+        "required_field_roles": ["creator_full_name", "production_year"]
+      },
+      "remaining_gates": [
+        "freeze_local_solar_system_record_and_near_neighbors",
+        "two_reviewer_construction_adjudication",
+        "replay_early_commit_and_wrong_field_failures",
+        "protocol_valid_browser_use_run"
+      ]
+    }
+  ]
+}

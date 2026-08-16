@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "resource_screened",
+  "reviewed_at": "2026-08-10",
+  "workflow": "knowledge",
+  "seeds": [
+    {
+      "candidate_id": "cross-seed-graft-c-01-ego2web-309",
+      "visual_link": {
+        "decision": "The released sequence visibly shows branded Jenga blocks being played.",
+        "evidence": [
+          "data/observations/seed-graft-c-01/V0_00.jpg",
+          "data/observations/seed-graft-c-01/V0_03.jpg",
+          "data/observations/seed-graft-c-01/V0_07.jpg"
+        ]
+      },
+      "target_resource": {
+        "resource_id": "d_5fff530fbf12",
+        "role": "jenga_article",
+        "title": "Jenga",
+        "source_url": "https://en.wikipedia.org/wiki/Jenga",
+        "retrieved_at": "2026-08-10",
+        "exact_fields": {
+          "standard_piece_count": "54",
+          "source_section_name": "Rules"
+        }
+      },
+      "checked_failure_states": [
+        "correct article without both report fields",
+        "wrong block-stacking article",
+        "wrong piece count",
+        "wrong source section"
+      ],
+      "remaining_gates": [
+        "freeze_local_near_neighbor_documents",
+        "two_reviewer_construction_adjudication",
+        "deterministic_evaluator_replay",
+        "protocol_valid_browser_use_run"
+      ]
+    },
+    {
+      "candidate_id": "cross-candidate-refresh-retain-ego2web-08-ego2web-327",
+      "visual_link": {
+        "decision": "The source annotation identifies the first blue packet as baking powder; the final V1 frame visibly identifies the later yellow packet as Foster Clark's Corn Flour.",
+        "target_evidence": [
+          "data/observations/candidate-refresh-retain-ego2web-08/V0_00.jpg",
+          "data/observations/candidate-refresh-retain-ego2web-08/V0_01.jpg",
+          "data/observations/candidate-refresh-retain-ego2web-08/V0_03.jpg"
+        ],
+        "distractor_evidence": [
+          "data/observations/candidate-refresh-retain-ego2web-08/V1_00.jpg",
+          "data/observations/candidate-refresh-retain-ego2web-08/V1_03.jpg"
+        ]
+      },
+      "target_resource": {
+        "resource_id": "d_83adf53b62bf",
+        "role": "baking_powder_article",
+        "title": "Baking powder",
+        "source_url": "https://en.wikipedia.org/wiki/Baking_powder",
+        "retrieved_at": "2026-08-10",
+        "exact_fields": {
+          "baking_role": "dry chemical leavening agent"
+        }
+      },
+      "later_distractor_resource": {
+        "resource_id": "d_76b51b0950c4",
+        "role": "corn_starch_article",
+        "title": "Corn starch",
+        "source_url": "https://en.wikipedia.org/wiki/Corn_starch",
+        "retrieved_at": "2026-08-10",
+        "exact_fields": {
+          "culinary_role": "thickening agent"
+        }
+      },
+      "checked_failure_states": [
+        "switch to the later corn-starch article",
+        "save both articles",
+        "submit the target article without its baking role",
+        "submit a non-leavening role"
+      ],
+      "remaining_gates": [
+        "freeze_local_near_neighbor_documents",
+        "two_reviewer_construction_adjudication",
+        "deterministic_evaluator_replay",
+        "protocol_valid_browser_use_run"
+      ]
+    },
+    {
+      "candidate_id": "cross-seed-clarify-sequence-poster-01-ego2web-34",
+      "visual_link": {
+        "decision": "The released sequence shows a solar-system poster first and an Uncle Sam recruitment poster second.",
+        "first_candidate_evidence": [
+          "data/observations/seed-clarify-sequence-poster-01/V0_00.jpg",
+          "data/observations/seed-clarify-sequence-poster-01/V0_01.jpg",
+          "data/observations/seed-clarify-sequence-poster-01/V0_02.jpg"
+        ],
+        "second_candidate_evidence": [
+          "data/observations/seed-clarify-sequence-poster-01/V0_04.jpg",
+          "data/observations/seed-clarify-sequence-poster-01/V0_05.jpg",
+          "data/observations/seed-clarify-sequence-poster-01/V0_07.jpg"
+        ]
+      },
+      "target_resource": {
+        "resource_id": "d_964cdfba32d4",
+        "role": "uncle_sam_poster_record",
+        "title": "I want you for U.S. Army : nearest recruiting station",
+        "source_url": "https://www.loc.gov/item/96507165/",
+        "retrieved_at": "2026-08-10",
+        "exact_fields": {
+          "creator": "James Montgomery Flagg",
+          "production_year": "1917"
+        },
+        "rights_note": "Library of Congress record states no known restrictions on publication."
+      },
+      "other_candidate": {
+        "resource_id": "d_6e7948718a8c",
+        "role": "solar_system_poster_record",
+        "visual_identity": "solar-system educational poster shown first"
+      },
+      "checked_failure_states": [
+        "open or save either candidate before asking in the interactive arm",
+        "select the first poster after the sequence answer",
+        "wrong creator",
+        "wrong production year",
+        "ask in the oracle arm"
+      ],
+      "remaining_gates": [
+        "freeze_local_solar_system_record_and_near_neighbors",
+        "two_reviewer_construction_adjudication",
+        "deterministic_evaluator_replay",
+        "protocol_valid_browser_use_run"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "reviewer_policy": {
+    "required_independent_reviews": 2,
+    "reviewers_must_not_see_each_others_submission": true,
+    "disagreement_outcome": "reject",
+    "model_output_may_influence_decision": false
+  },
+  "checks": {
+    "common": [
+      {
+        "id": "source_supported",
+        "question": "连续视频是否支持用户仍在操作、移动或观察现实场景，以及题目所需的对象、动作和先后关系？"
+      },
+      {
+        "id": "observation_sufficient",
+        "question": "实际提供给 Agent 的画面是否足以理解题目中的视觉信息？"
+      },
+      {
+        "id": "instruction_natural",
+        "question": "用户在这个真实场景中是否会自然提出这样的要求，而且指令清楚、没有提前泄露答案？"
+      },
+      {
+        "id": "web_workflow_required",
+        "question": "这道题是否必须在网页中搜索、比较、选择或配置状态，而不是只识别物体或回答一个事实？"
+      },
+      {
+        "id": "site_mapping_unique",
+        "question": "冻结网站中是否存在唯一合理的正确目标和必要的干扰项？"
+      },
+      {
+        "id": "final_state_complete",
+        "question": "最终状态是否完整，并能排除错误、遗漏、额外和重复结果？"
+      }
+    ],
+    "graft": [
+      {
+        "id": "initial_goal_complete",
+        "question": "最初要求 A 是否可以独立完成？"
+      },
+      {
+        "id": "update_changes_goal",
+        "question": "补充要求 B 是否在同一现实操作仍在进行时到达，并真正改变尚未完成的网页选择？"
+      },
+      {
+        "id": "update_preserves_required_goal",
+        "question": "加入 B 后，原本仍需完成的内容是否被正确保留？"
+      }
+    ],
+    "refresh": [
+      {
+        "id": "visual_change_real",
+        "question": "前后画面是否来自同一连续事件，并提供了真实、可辨认的新证据，而不是两张无关图片？"
+      },
+      {
+        "id": "refresh_policy_correct",
+        "question": "根据指令语义，目标应该保持或更新的判断是否明确？"
+      },
+      {
+        "id": "updated_target_unique",
+        "question": "看到 V1 后，最终目标是否仍然唯一？"
+      }
+    ],
+    "clarify": [
+      {
+        "id": "two_candidates_plausible",
+        "question": "用户仍在当前现实场景中操作时，画面中是否确实有两个合理候选，并且在网页承诺前必须确认？"
+      },
+      {
+        "id": "initially_underdetermined",
+        "question": "不提供澄清答案时，原始指令是否无法唯一确定目标？"
+      },
+      {
+        "id": "one_answer_is_enough",
+        "question": "一次自然的标准澄清是否足以唯一确定目标？"
+      }
+    ]
+  }
+}

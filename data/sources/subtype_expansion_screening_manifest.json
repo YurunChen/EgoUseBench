@@ -1,0 +1,331 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Local research access follows the Ego2Web dataset terms; this manifest records derived evidence but does not assume that source videos may be redistributed."
+  },
+  "tasks": [
+    {
+      "task_id": "seed-graft-c-01",
+      "status": "rejected",
+      "family": "graft",
+      "subtype": "C",
+      "source": {
+        "record_ids": [
+          309,
+          310
+        ],
+        "media_id": "2341bb0a-92b7-488b-b0e1-364e2d4080cc",
+        "media_sha256": "b9f92d8543c0881eb6ad6cef16da7b9f52270ce228db4ab753bf893c59f78332",
+        "original_annotations": [
+          "On wikipedia.org, open the article for the exact tabletop game being played in the video and report how many pieces are in a standard retail set. Also state the name of the section where this count appears.",
+          "On amazon.com, find a product page for the same game set as in the video in its regular size (not miniature or oversized). It must be Prime-eligible and have an average rating of at least 4 stars. Provide the current price and the total number of customer ratings."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            5,
+            5.714286,
+            6.428571,
+            7.142857,
+            7.857143,
+            8.571429,
+            9.285714,
+            10
+          ],
+          "frame_paths": [
+            "data/observations/seed-graft-c-01/V0_00.jpg",
+            "data/observations/seed-graft-c-01/V0_01.jpg",
+            "data/observations/seed-graft-c-01/V0_02.jpg",
+            "data/observations/seed-graft-c-01/V0_03.jpg",
+            "data/observations/seed-graft-c-01/V0_04.jpg",
+            "data/observations/seed-graft-c-01/V0_05.jpg",
+            "data/observations/seed-graft-c-01/V0_06.jpg",
+            "data/observations/seed-graft-c-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The ordered packet clearly shows one wooden block-stacking game being played at a table, supporting the shared game referent without exposing any website rating information.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": null,
+      "rejection_reason": "One image grounds the block-stacking game and B only adds website attributes, so the same commitment does not require an unfolding glasses session.",
+      "rejection_code": "visual_not_necessary"
+    },
+    {
+      "task_id": "seed-graft-c-trimmer-01",
+      "status": "rejected",
+      "family": "graft",
+      "subtype": "C",
+      "source": {
+        "record_ids": [
+          484,
+          485
+        ],
+        "media_id": "23cd32eb-5e7c-4e4f-b2bc-3fae85254044",
+        "media_sha256": "128a6b2286d1a4709f0c3bff5e08782dfac9f8f24de5b8927c7741d4548e683d",
+        "original_annotations": [
+          "On YouTube, find and open a step-by-step tutorial that shows how to reload the cutting line on the exact grass trimmer head shown in the video.",
+          "On ebay, locate and open a product page for a replacement pre-wound spool or complete trimmer head that matches the exact head used in the video."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            20,
+            21.428571,
+            22.857143,
+            24.285714,
+            25.714286,
+            27.142857,
+            28.571429,
+            30
+          ],
+          "frame_paths": [
+            "data/observations/seed-graft-c-trimmer-01/V0_00.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_01.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_02.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_03.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_04.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_05.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_06.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "All eight frames show the wearer opening and handling the same grass-trimmer head, supporting the grass-trimmer-head category but not a manufacturer or model.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": null,
+      "rejection_reason": "A single image of the trimmer head plus the complete install-and-reload request leads to the same tutorial choice and web action; delaying the second requirement changes only delivery time, not the Glass-Use decision.",
+      "rejection_code": "counterfactual_check_failed",
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "seed-clarify-sequence-poster-01",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          33,
+          34,
+          35
+        ],
+        "media_id": "de1d557a-e7c4-41fb-80a2-508354548c3d",
+        "media_sha256": "ce73e406fd7baaa8f38a27f1b05fff0c534eb4180d37e0ce18b253847ae40d06",
+        "original_annotations": [
+          "On Amazon, find the product listing that matches the second poster shown in the video.",
+          "Using Wikipedia, identify who created the second poster shown in the video.",
+          "On Quora, find a discussion about whether the second poster shown in the video is from WWI or WWII."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            85,
+            86.5,
+            88,
+            89.5,
+            93.5,
+            94,
+            94.5,
+            99.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-clarify-sequence-poster-01/V0_00.jpg",
+            "data/observations/seed-clarify-sequence-poster-01/V0_01.jpg",
+            "data/observations/seed-clarify-sequence-poster-01/V0_02.jpg",
+            "data/observations/seed-clarify-sequence-poster-01/V0_03.jpg",
+            "data/observations/seed-clarify-sequence-poster-01/V0_04.jpg",
+            "data/observations/seed-clarify-sequence-poster-01/V0_05.jpg",
+            "data/observations/seed-clarify-sequence-poster-01/V0_06.jpg",
+            "data/observations/seed-clarify-sequence-poster-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The continuous packet shows two temporally ordered poster candidates: a solar-system poster first and an Uncle Sam poster second.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent detect that a request referring only to one of two successively examined posters is underdetermined and ask which ordinal position is intended?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either the solar-system poster or the Uncle Sam poster can satisfy the unqualified request.",
+        "belief_after": "The answer 'the second poster' uniquely selects the Uncle Sam poster.",
+        "required_behavior_change": "Ask before committing to a poster, then select the second poster after the answer.",
+        "no_update_failure": "The Agent guesses a poster before asking or selects the first poster after the answer.",
+        "overupdate_failure": "The Agent asks in the oracle arm even though the ordinal is already supplied.",
+        "visual_dependency_claim": "The packet supplies the two poster appearances and their temporal order; text alone does not identify either poster.",
+        "task_blueprint": {
+          "ambiguous_instruction": "Find the poster I looked at in the room and add one matching print to the cart.",
+          "oracle_instruction": "Find the second poster I looked at in the room and add one matching print to the cart.",
+          "candidate_roles": [
+            "solar_system_single_poster_print",
+            "uncle_sam_single_poster_print"
+          ],
+          "hidden_target_role": "uncle_sam_single_poster_print",
+          "valid_slot": "sequence",
+          "canonical_question": "Do you mean the first poster I examined or the second one?",
+          "canonical_answer": "I mean the second poster.",
+          "completion_claim": "The submitted cart contains exactly one print matching the second, Uncle Sam poster and no extra products.",
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "solar_system_single_poster_print": "p_ef90d87e2062",
+            "uncle_sam_single_poster_print": "p_cf53e5dfd86d"
+          }
+        }
+      },
+      "rejection_reason": null
+    },
+    {
+      "task_id": "seed-clarify-position-01",
+      "status": "rejected",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          59
+        ],
+        "media_id": "001d2d1b-d2f9-4c39-810e-6e2087ff9d5a",
+        "media_sha256": "c4cb08c026d939ee3ca9109f4f84807b26e9ef3178b84e2b69cea8f9a37c14a7",
+        "original_annotations": [
+          "On walmart.com, find product pages for the exact energy drink variant the shopper grabs from the cooler and the energy drink beside the one shopper grabs."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            8,
+            8.8,
+            9.6,
+            10.4,
+            11.2,
+            12,
+            12.8,
+            13.6
+          ],
+          "frame_paths": [
+            "data/observations/seed-clarify-position-01/V0_00.jpg",
+            "data/observations/seed-clarify-position-01/V0_01.jpg",
+            "data/observations/seed-clarify-position-01/V0_02.jpg",
+            "data/observations/seed-clarify-position-01/V0_03.jpg",
+            "data/observations/seed-clarify-position-01/V0_04.jpg",
+            "data/observations/seed-clarify-position-01/V0_05.jpg",
+            "data/observations/seed-clarify-position-01/V0_06.jpg",
+            "data/observations/seed-clarify-position-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The packet stably shows a green Monster can as an anchor, black-and-gold Rockstar cans immediately to its left, and blue NOS cans immediately to its right.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": null,
+      "rejection_reason": "One static cooler photograph contains the anchor and both neighbors and produces the same left/right clarification decision.",
+      "rejection_code": "visual_not_necessary"
+    },
+    {
+      "task_id": "rejected-clarify-sequence-lab-containers-01",
+      "status": "rejected",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          3
+        ],
+        "media_id": "a0a7b274-9632-4591-80f6-589e7dff6372",
+        "media_sha256": "535003baff024e440a2b4649c237724dab2559800645940a41fd4ad1b27a725d",
+        "original_annotations": [
+          "On YouTube, find a video that introduces or features the same type of glass container as the second one picked up by the person in the video."
+        ]
+      },
+      "rejection_code": "insufficient_candidate_ambiguity",
+      "rejection_reason": "Dense review of 40-60 seconds shows several bottles, flasks and glass vessels in the active workspace. Removing the ordinal does not yield exactly two stable same-type candidates, and an eight-frame packet cannot recover a unique two-candidate sequence without relying on the source answer.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-clarify-position-snack-shelf-01",
+      "status": "rejected",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          19,
+          20
+        ],
+        "media_id": "b1c71e68-f8f1-475a-9237-4c040a6ea586",
+        "media_sha256": "a8ffc0865bebcfd0c99d8cfa582efeeec3401218d13c7a1724c96665f8374791",
+        "original_annotations": [
+          "Please find on Amazon the first snack that the man touches in the video and report its average price.",
+          "Please find on Amazon the snack that is at left of the first snack that the man touches in the video and report its average price."
+        ]
+      },
+      "rejection_code": "event_not_visible",
+      "rejection_reason": "The 50-54 second interaction is partially occluded by another shopper and a phone, while the shelf contains several products on both sides. The actual first touched snack and a two-candidate left/right set cannot both be recovered reliably from the proposed eight images.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "EgoSchema / Ego4D",
+    "source_root": "reference/datasets/egoschema/videos",
+    "repository_revision": "505c787376b5e066d0ae406d0e0d41245cebba15",
+    "license_or_access_note": "The 180-second clips were downloaded from the official public EgoSchema Google Drive IDs. The underlying videos are Ego4D excerpts and remain subject to Ego4D terms; a Benchmark Release must separately confirm whether source frames may be redistributed."
+  },
+  "tasks": [
+    {
+      "task_id": "seed-refresh-retain-egoschema-01",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "EgoSchema/3311f1b2-495a-4712-9989-ef8519be3cc7",
+          "Ego4D/c836b5f5-eaa8-4720-b9d0-1d528207eafa/1050-1230"
+        ],
+        "media_id": "3311f1b2-495a-4712-9989-ef8519be3cc7",
+        "media_start_seconds": 0,
+        "media_sha256": "92dd4e3412e50fe138b8cd7d92bd3f87c3572338483ddffeda2697810aa6f5e4",
+        "google_drive_id": "1bZvyzByTneFZIblnFCMUXawE23sKRHDN",
+        "original_video_id": "c836b5f5-eaa8-4720-b9d0-1d528207eafa",
+        "original_interval_seconds": [
+          1050,
+          1230
+        ],
+        "source_cluster_id": "ego4d-c836b5f5-eaa8-4720-b9d0-1d528207eafa",
+        "original_annotations": [
+          "EgoSchema question (retrieval only): In the context of selecting and organizing clothes, explain the significance of the different actions performed by c and how they collectively contribute to the overall purpose.",
+          "Public subset answer (retrieval only): The wearer examines multiple outfits while deciding what to wear."
+        ],
+        "discovery_annotation": {
+          "question": "In the context of selecting and organizing clothes, explain the significance of the different actions performed by c and how they collectively contribute to the overall purpose.",
+          "public_answer_summary": "The wearer examines multiple outfits while deciding what to wear.",
+          "ground_truth_use": "retrieval_only"
+        },
+        "observed_events": [
+          {
+            "local_interval_seconds": [
+              28,
+              32.5
+            ],
+            "global_interval_seconds": [
+              1078,
+              1082.5
+            ],
+            "role": "A",
+            "description": "The wearer examines a dark gray-and-black plaid shirt."
+          },
+          {
+            "local_interval_seconds": [
+              34.5,
+              37.5
+            ],
+            "global_interval_seconds": [
+              1084.5,
+              1087.5
+            ],
+            "role": "later_distractor",
+            "description": "The wearer next examines a visibly blue plaid shirt."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            28,
+            29.5,
+            31,
+            32.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-retain-egoschema-01/V0_00.jpg",
+            "data/observations/seed-refresh-retain-egoschema-01/V0_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-01/V0_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-01/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            34.5,
+            35.5,
+            36.5,
+            37.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-retain-egoschema-01/V1_00.jpg",
+            "data/observations/seed-refresh-retain-egoschema-01/V1_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-01/V1_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-01/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows one dark gray-and-black plaid shirt being examined first.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a visually distinct blue plaid shirt; it does not change which shirt was first.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "The two shirts and their order are visible, but the frozen site contains several black-gray plaid shirts and several blue plaid shirts with equally plausible coarse appearance. V0 therefore does not map the initial shirt to one unique site entity, so the final checker answer would be arbitrary.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "seed-refresh-retain-egoschema-02",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "EgoSchema/4d1d6605-2144-4934-8d74-5c5dd01df7ce",
+          "Ego4D/401e0445-146f-4ff1-8c30-cca37cf21a50/540-720"
+        ],
+        "media_id": "4d1d6605-2144-4934-8d74-5c5dd01df7ce",
+        "media_start_seconds": 0,
+        "media_sha256": "8558619599c1b411ba93e39916e20a2d94f0369424f86e4a05f634bfde05185e",
+        "google_drive_id": "1TJq-dVLlPDdXWo1ZeMnq2x9Uhj7BRSj-",
+        "original_video_id": "401e0445-146f-4ff1-8c30-cca37cf21a50",
+        "original_interval_seconds": [
+          540,
+          720
+        ],
+        "source_cluster_id": "ego4d-401e0445-146f-4ff1-8c30-cca37cf21a50",
+        "original_annotations": [
+          "EgoSchema question (retrieval only; hidden answer not used): From the wide range of clothing items c interacted with, identify the key decision-making moments in their shopping experience and explain their significance."
+        ],
+        "discovery_annotation": {
+          "question": "From the wide range of clothing items c interacted with, identify the key decision-making moments in their shopping experience and explain their significance.",
+          "public_answer_summary": null,
+          "ground_truth_use": "retrieval_only"
+        },
+        "observed_events": [
+          {
+            "local_interval_seconds": [
+              32,
+              38
+            ],
+            "global_interval_seconds": [
+              572,
+              578
+            ],
+            "role": "A",
+            "description": "The wearer holds up a cream, taupe and pale-gray color-block knit sweater."
+          },
+          {
+            "local_interval_seconds": [
+              95.4,
+              96.6
+            ],
+            "global_interval_seconds": [
+              635.4,
+              636.6
+            ],
+            "role": "later_distractor",
+            "description": "The wearer later holds up a plain mauve ribbed sweater."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            32,
+            34,
+            36,
+            38
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-retain-egoschema-02/V0_00.jpg",
+            "data/observations/seed-refresh-retain-egoschema-02/V0_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-02/V0_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-02/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            95.4,
+            95.8,
+            96.2,
+            96.6
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-retain-egoschema-02/V1_00.jpg",
+            "data/observations/seed-refresh-retain-egoschema-02/V1_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-02/V1_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-02/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a pale color-block knit sweater held up for inspection.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a different plain mauve ribbed sweater; the requested first sweater remains the V0 item.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent preserve a first-sweater target over a long visual gap when a later sweater is briefly examined?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "refresh_policy": "retain",
+        "belief_before": "The requested target is the pale color-block sweater shown first.",
+        "belief_after": "The target remains the pale color-block sweater after the mauve sweater appears.",
+        "required_behavior_change": "Retain the V0 target and ignore the later same-category distractor.",
+        "no_update_failure": "The Agent loses the initial A referent or fails to carry it through to final submission after V1.",
+        "overupdate_failure": "The Agent submits the later mauve sweater or both sweaters.",
+        "visual_dependency_claim": "The instruction uses temporal order rather than appearance, so V0 identifies A and V1 tests false updating.",
+        "task_blueprint": {
+          "instruction": "Find the sweater I am holding up now. Add the matching sweater to the cart.",
+          "initial_target_role": "pale_color_block_knit_sweater",
+          "later_distractor_role": "plain_mauve_ribbed_sweater",
+          "final_target_role": "pale_color_block_knit_sweater",
+          "environment_role_ids": {
+            "pale_color_block_knit_sweater": "p_85d682215a07",
+            "plain_mauve_ribbed_sweater": "p_d976df782179"
+          },
+          "completion_claim": "The submitted cart contains exactly one sweater matching the first pale color-block variant and no extra products.",
+          "target_granularity": "variant"
+        }
+      },
+      "unresolved": [],
+      "blocking_checks": [],
+      "rejection_reason": null
+    },
+    {
+      "task_id": "seed-refresh-retain-egoschema-03",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "EgoSchema/3a4f4d5c-c8fa-4bb1-8e80-7c22cab54116",
+          "Ego4D/c836b5f5-eaa8-4720-b9d0-1d528207eafa/330-510"
+        ],
+        "media_id": "3a4f4d5c-c8fa-4bb1-8e80-7c22cab54116",
+        "media_start_seconds": 0,
+        "media_sha256": "f5533343f65999c19b8d55fa01a79c03957ede0ec05c0a275ecd9fba9151c930",
+        "google_drive_id": "1jOyXRRAxmy1pjbTtcvDrIi1jH36mgPsH",
+        "original_video_id": "c836b5f5-eaa8-4720-b9d0-1d528207eafa",
+        "original_interval_seconds": [
+          330,
+          510
+        ],
+        "source_cluster_id": "ego4d-c836b5f5-eaa8-4720-b9d0-1d528207eafa",
+        "original_annotations": [
+          "EgoSchema question (retrieval only): Keeping in mind the ability to compress information, what would be a concise explanation for the main objective and key decisions behind c's actions during the video?",
+          "Public subset answer (retrieval only): The wearer is deciding what clothes to wear."
+        ],
+        "discovery_annotation": {
+          "question": "Keeping in mind the ability to compress information, what would be a concise explanation for the main objective and key decisions behind c's actions during the video?",
+          "public_answer_summary": "The wearer is deciding what clothes to wear.",
+          "ground_truth_use": "retrieval_only"
+        },
+        "observed_events": [
+          {
+            "local_interval_seconds": [
+              56,
+              59
+            ],
+            "global_interval_seconds": [
+              386,
+              389
+            ],
+            "role": "A",
+            "description": "The wearer examines a navy-and-white large-check plaid shirt."
+          },
+          {
+            "local_interval_seconds": [
+              67.5,
+              70.5
+            ],
+            "global_interval_seconds": [
+              397.5,
+              400.5
+            ],
+            "role": "later_distractor",
+            "description": "The wearer then examines a red-and-black plaid shirt."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            56,
+            57,
+            58,
+            59
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-retain-egoschema-03/V0_00.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V0_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V0_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            67.5,
+            68.5,
+            69.5,
+            70.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-retain-egoschema-03/V1_00.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V1_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V1_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows the navy-and-white plaid shirt examined before the red shirt.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a distinct red-and-black plaid shirt, providing a strong same-category distractor without changing the first-shirt referent.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "The source clearly shows a black-or-navy-and-white large-check shirt before a red-and-black plaid shirt, but the frozen site offers multiple black, gray, and white plaid variants with no single honest match to the first buffalo-check pattern. The source-to-site target is therefore not unique.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "seed-refresh-retain-egoschema-04",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "EgoSchema/2722dcf8-bd21-47a4-9346-aa993939250c",
+          "Ego4D/9c15ab39-2b2b-4eb1-a93d-4dd3b9711fc6/240-420"
+        ],
+        "media_id": "2722dcf8-bd21-47a4-9346-aa993939250c",
+        "media_start_seconds": 0,
+        "media_sha256": "8164150d7b50156c1727d868f26c0729a214a246b1723ce0eb41c516b8349bbc",
+        "google_drive_id": "1Z0ZIsEFg-9aMxG-MRWusNzpw4OYCTEUI",
+        "original_video_id": "9c15ab39-2b2b-4eb1-a93d-4dd3b9711fc6",
+        "original_interval_seconds": [
+          240,
+          420
+        ],
+        "source_cluster_id": "ego4d-9c15ab39-2b2b-4eb1-a93d-4dd3b9711fc6",
+        "original_annotations": [
+          "EgoSchema question (retrieval only; hidden answer not used): What can you infer about the main purpose of c's actions throughout the video?"
+        ],
+        "discovery_annotation": {
+          "question": "What can you infer about the main purpose of c's actions throughout the video?",
+          "public_answer_summary": null,
+          "ground_truth_use": "retrieval_only"
+        },
+        "observed_events": [
+          {
+            "local_interval_seconds": [
+              36,
+              39
+            ],
+            "global_interval_seconds": [
+              276,
+              279
+            ],
+            "role": "A",
+            "description": "The wearer reaches into a blue Planters snack display; no individual packet is visibly removed or retained."
+          },
+          {
+            "local_interval_seconds": [
+              141.5,
+              144.5
+            ],
+            "global_interval_seconds": [
+              381.5,
+              384.5
+            ],
+            "role": "later_distractor_context",
+            "description": "The wearer later browses a display containing several brightly colored candy bags while A is absent."
+          }
+        ],
+        "visual_audit": [
+          "artifacts/reports/source-evidence/0d28f7baa939faf68dd65a22287a3758159195083b02a00b23764677d7a3cd32.jpg",
+          "artifacts/reports/source-evidence/4e4c442d0c10f8ae8416687975d649e40a95bab35bcb25f3110454336fa661c5.jpg",
+          "not_retained:081eb789efb6b66f"
+        ]
+      },
+      "rejection_code": "ground_truth_not_deterministic",
+      "rejection_reason": "Dense review from 34-46 seconds and 8 fps review from 38-41 seconds show the wearer reaching into a blue Planters display, then looking away. No frame isolates an individual packet being removed, held or retained. The proposed variant-level 'first snack bag I picked up' target therefore conflates a display box, visible product facings and an unseen possible item, so neither four released images nor denser resampling can define one auditable catalog target.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-refresh-retain-egoschema-checkout-01",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "EgoSchema/0f0d2135-4595-400c-8463-bee11d8dbb5d",
+          "Ego4D/27cc18ec-ad3f-4892-8d07-b22ca9ec4da0/960-1140"
+        ],
+        "media_id": "0f0d2135-4595-400c-8463-bee11d8dbb5d",
+        "media_start_seconds": 0,
+        "media_sha256": "7f7dab28efdf90cafd21486493e6fa711874b22e2fa71d4c24d3c35c6c008c41",
+        "google_drive_id": "1aTh88rWPkLYKlpECipPV2w5MZYDab763",
+        "original_video_id": "27cc18ec-ad3f-4892-8d07-b22ca9ec4da0",
+        "original_interval_seconds": [
+          960,
+          1140
+        ],
+        "original_annotations": [
+          "EgoSchema question (retrieval only; hidden answer not used): Describe the pattern of actions taken by c in relation to the shopping items and how their actions changed over time."
+        ],
+        "visual_audit": "artifacts/reports/source-evidence/cfc907209474631b2d896cb5c6a6bd3ad319ec009f9e7e9972474f25b89a9dd5.jpg"
+      },
+      "rejection_code": "behavior_change_not_required",
+      "rejection_reason": "Dense review shows a checkout and bagging sequence dominated by transferring already selected items. It does not establish one initial product referent followed by a later same-task visual distractor, so a retain instruction would be added by the constructor rather than motivated by the observed event.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-refresh-retain-egoschema-outfit-01",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "EgoSchema/bd58f24f-340f-448d-977b-bf49a0575b21",
+          "Ego4D/b99ceea4-7fa3-407c-9b9f-1347645d23f2/2310-2490"
+        ],
+        "media_id": "bd58f24f-340f-448d-977b-bf49a0575b21",
+        "media_start_seconds": 0,
+        "media_sha256": "b2e60a7501560de32f13a40303b9f1d0b66d614d50fce2779ab2395f43f65246",
+        "google_drive_id": "1MnIB22YNMstPgWKXbsNnJlI80TQYqdaT",
+        "original_video_id": "b99ceea4-7fa3-407c-9b9f-1347645d23f2",
+        "original_interval_seconds": [
+          2310,
+          2490
+        ],
+        "original_annotations": [
+          "EgoSchema question (retrieval only): What is the primary purpose of c's actions throughout the video, and how do these actions support that purpose?",
+          "Public subset answer (retrieval only): C is trying on different clothes to find the perfect outfit."
+        ],
+        "visual_audit": "artifacts/reports/source-evidence/d53d65660ccb21beb7a7f328f2c2d9abe4bcd9994a4e474728356a28561ee5a9.jpg"
+      },
+      "rejection_code": "event_not_visible",
+      "rejection_reason": "The clip-level QA describes trying different clothes, but dense video review does not yield two stable, catalog-matchable product views attributable to a first-target/later-distractor sequence. Much of the clip shows another person, a red garment, windows and the room rather than two clear product variants.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}
