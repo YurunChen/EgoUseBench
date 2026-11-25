@@ -1,6 +1,6 @@
 <h1 align="center"><img src="website/static/egousebench-logo.png" width="46" alt="">&nbsp; EgoUseBench</h1>
 
-<p align="center"><strong>Can a computer-use agent keep up when the request changes mid-task?</strong></p>
+<p align="center"><strong>Benchmarking Computer-Use Agents under Evolving First-Person Contexts</strong></p>
 
 <p align="center">
   <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a> ·

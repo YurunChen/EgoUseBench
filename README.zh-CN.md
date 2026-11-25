@@ -1,6 +1,6 @@
 <h1 align="center"><img src="website/static/egousebench-logo.png" width="46" alt="">&nbsp; EgoUseBench</h1>
 
-<p align="center"><strong>用户中途改口，电脑操作智能体能跟上吗？</strong></p>
+<p align="center"><strong>动态第一人称情境下的电脑操作智能体基准评测</strong></p>
 
 <p align="center">
   <a href="README.md">English</a> · <strong>简体中文</strong> ·
