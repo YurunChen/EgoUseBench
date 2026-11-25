@@ -7,7 +7,15 @@
   <a href="#quick-start">Quick start</a> · <a href="#benchmark">Benchmark</a> · <a href="LICENSE">MIT</a>
 </p>
 
-**EgoUseBench** evaluates agents that use first-person observations to act on the web. While the agent shops, saves a tutorial, or bookmarks a place, the user may revise the request or reveal new evidence. The checker scores the **final website state** against the final task requirements.
+## News
+
+- **2026-11-25** — Added a [41-second explainer](#egousebench-in-41-seconds) on how EgoUseBench evaluates agents when tasks change mid-run.
+
+## Abstract
+
+AI wearables, such as smart glasses, extend the context available to agents beyond digital environments to users' everyday physical surroundings. With these devices, computer tasks can originate from users' ongoing real-world activities rather than solely from explicit instructions. Through first-person observations, agents can identify objects and activities relevant to user requests and ground digital tasks in the surrounding context. We call this interaction paradigm **Ego Use**. However, first-person observations are limited by the wearer's viewpoint and may provide incomplete or ambiguous evidence of ongoing activities. As new observations arrive, agents may need to revise their understanding of the physical context and user intent, and reassess whether prior digital actions remain valid. Whether current agents can reliably handle these changes remains insufficiently evaluated.
+
+We introduce **EgoUseBench**, a benchmark for evaluating Ego Use across three interaction settings with different levels of first-person context. Computer-Use relies on explicit instructions, Offline Ego Use provides prerecorded first-person context before execution, and Online Ego Use provides continuous observations as user intent evolves. Based on over 74 hours of real-world first-person recordings, we construct 693 tasks across the three interaction settings. To capture task evolution, we track first-person observations, user requirements, and website state separately. We further group tasks by how information changes during execution, resulting in three types: Graft (revised user requirements), Refresh (new first-person observations), and Clarify (agent-initiated information seeking). We evaluate several advanced models and find that average success rates in Online Ego Use are 26.3% lower than in Computer-Use. This result reveals the difficulty of keeping task execution aligned with evolving first-person context and user intent.
 
 ## EgoUseBench in 41 seconds
 
@@ -48,6 +56,12 @@ The default budget is **20 steps** for a single-change task and **30** for a com
 | **Online Ego Use** | First-person observations and user requests as execution unfolds | 293 |
 
 The online tasks cover **Graft** (the user updates the request), **Refresh** (a new view changes the evidence), and **Clarify** (the agent asks which object the user means). Agents operate on **EgoMart** for shopping, **EgoMedia** for saving tutorials, and **EgoMaps** for bookmarking places.
+
+### How a task runs
+
+[![Excerpt from the benchmark design figure: first-person observations, user requests, and the shopping cart evolve on separate tracks before the final-state check.](assets/egousebench-method.png)](assets/egousebench-method.png)
+
+In this Graft example, the user asks for peanut butter partway through the task. The tortillas stay in the cart. The checker tests whether the final cart satisfies both requests.
 
 ## Repository layout
 
