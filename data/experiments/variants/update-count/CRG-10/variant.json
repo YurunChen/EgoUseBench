@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "pair_id": "CRG-10",
+  "id": "CRG-10-update-count",
+  "source_task_path": "data/experiments/composite/CRG-10.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "refresh",
+      "onset_seconds": 29.2
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 35.2,
+      "request": "Keep the video about lengthening the dough to fifteen minutes or less."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 46.2,
+      "request": "Keep the video about lengthening the dough to six minutes or less. I’m sending it as a quick example for the next shift."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_1285bacc16db",
+        "m_485da734ba99"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_25801d8a8ecc",
+        "m_485da734ba99"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "35.2秒已在29.2秒Refresh后，实际方法为电动压片。1370秒Estella操作教程及675秒SFG500B完整演示均是原已审合法压片操作；前者公开Operating the sheeter章节，不能以同时含清洁章节排除。另一项C手工分份保持同一视频。",
+    "public_facts": [
+      {
+        "entity_id": "m_1285bacc16db",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 1370
+      },
+      {
+        "entity_id": "m_25801d8a8ecc",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 675
+      },
+      {
+        "entity_id": "m_1285bacc16db",
+        "path": [
+          "title"
+        ],
+        "equals": "Leaven Kitchen - Estella DSC78 78\" Countertop Reversible Dough Sheeter Tutorial and Walkthrough"
+      },
+      {
+        "entity_id": "m_25801d8a8ecc",
+        "path": [
+          "title"
+        ],
+        "equals": "Full Demo SFG500B dough sheeter"
+      },
+      {
+        "entity_id": "m_485da734ba99",
+        "path": [
+          "title"
+        ],
+        "equals": "Portioning dough balls"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_1285bacc16db",
+        "retained_state": "m_25801d8a8ecc"
+      },
+      "operator": "<=",
+      "value": 900
+    },
+    "original_request_effect": "46.2秒原6分钟继续排除675秒，原5条短压片+分份终态不变。"
+  }
+}

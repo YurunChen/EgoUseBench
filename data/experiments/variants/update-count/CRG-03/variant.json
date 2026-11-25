@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "pair_id": "CRG-03",
+  "id": "CRG-03-update-count",
+  "source_task_path": "data/experiments/composite/CRG-03.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 392.2,
+      "request": "Keep the recipe video under ten minutes."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 470.2
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 472.2,
+      "request": "Keep the recipe video under three minutes."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_2405327e2a55",
+        "m_d45a9fb31bd2"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_171688607bc4",
+        "m_d45a9fb31bd2"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "新增改口改到392.2秒，早于原已核实402–418秒番茄酱出现。此时淡色杯糊允许香草杯蛋糕解释；817秒香草杯蛋糕公开Making Batter/Cake Reveal章节与60秒香草杯蛋糕均适用。完整状态同时保留C指定的压力锅入门视频。不能在456.2秒已有红酱后仍拿香草蛋糕作合法反例。",
+    "public_facts": [
+      {
+        "entity_id": "m_2405327e2a55",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 817
+      },
+      {
+        "entity_id": "m_171688607bc4",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 60
+      },
+      {
+        "entity_id": "m_171688607bc4",
+        "path": [
+          "title"
+        ],
+        "equals": "Vanilla Mug Cake in 1 Minute | Eggless Microwave Cake | Em’s Kitchen"
+      },
+      {
+        "entity_id": "m_2405327e2a55",
+        "path": [
+          "title"
+        ],
+        "equals": "Low Carb Cake 90 Seconds! Moist & Fluffy Keto Friendly Vanilla Mug Cake Recipe"
+      },
+      {
+        "entity_id": "m_d45a9fb31bd2",
+        "path": [
+          "title"
+        ],
+        "equals": "How to Use an Instant Pot: Here's What Those Buttons Actually Mean"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_2405327e2a55",
+        "retained_state": "m_171688607bc4"
+      },
+      "operator": "<",
+      "value": 600
+    },
+    "original_request_effect": "470.2秒确认杯披萨后，263秒m_ac63dc941ac0杯披萨满足<10分钟，472.2秒原<3分钟再排除它；保留原64/159秒主菜+压力锅终态。"
+  }
+}

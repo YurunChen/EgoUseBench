@@ -2,23 +2,102 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
 .venv/
 *.egg-info/
+/build/
+/dist/
 .env
+.env.*
+!.env.example
 .DS_Store
+/启动人工执行.command
 
-# Regenerable experiment outputs. Keep artifacts/README.md as the contract.
+# Review materials and historical experiments; referenced evidence must be retained.
 artifacts/*
 !artifacts/README.md
 
 # Third-party datasets/checkouts are mounted locally, never committed here.
-reference/*/
+reference/*
+!reference/README.md
 
 # Local scratch notes and temporary review exports.
 .scratch/
 
+# Observation inputs and local research media. Keep the task definitions.
+/data/observations/
+/data/archive/
+/data/final-tasks/
+/data/final-tasks.building/
+/data/experiments/assets/
+/data/experiments/controlled-variable-evidence.json
+/data/experiments/variants/**/*.jpg
+/data/experiments/variants/**/*.jpeg
+/data/experiments/variants/**/*.png
+/data/experiments/variants/**/*.webp
+/data/experiments/variants/**/*.mp4
+
+# Raw captures stay local. These nine publisher records are needed to read
+# the frozen EgoMedia catalog even when no media is installed.
+/data/sources/upstream_detail_snapshots/*
+!/data/sources/upstream_detail_snapshots/youtube/
+/data/sources/upstream_detail_snapshots/youtube/*
+!/data/sources/upstream_detail_snapshots/youtube/83_bL7k8j2U.json
+!/data/sources/upstream_detail_snapshots/youtube/JwiQbvlKOLw.json
+!/data/sources/upstream_detail_snapshots/youtube/PohOqNzE6cs.json
+!/data/sources/upstream_detail_snapshots/youtube/RxgTQYydH34.json
+!/data/sources/upstream_detail_snapshots/youtube/V3igeGFsRSU.json
+!/data/sources/upstream_detail_snapshots/youtube/gk6eVrLO9KQ.json
+!/data/sources/upstream_detail_snapshots/youtube/kcR1Gb0HGzg.json
+!/data/sources/upstream_detail_snapshots/youtube/pbFT5mMKUNo.json
+!/data/sources/upstream_detail_snapshots/youtube/r2PyM1ScEuA.json
+/data/sources/upstream_search_snapshots/
+/data/sources/audits
+/data/reviews/
+
+# Maintainer agent rules and skills stay in the local workspace.
+/AGENTS.md
+/.claude/
+/.mock-clone.json
+/data/experiments/组合变化候选题库.md
+
 # Local design captures, dependencies, and cloud-sync state.
 .mock-clone/
+.superpowers/
 .claude/skills/**/node_modules/
 .claude/settings.local.json
 docs/.weekly-report-sync/
+/docs/comments/
+/docs/superpowers/
+
+# Separate paper repository, managed with its own Git history.
+/paper/
+# Local arXiv preprint workspace, separate from the benchmark release.
+/paper-arxiv/
+/arxiv-template/
+
+# Timestamped experiment outputs (raw evidence and derived results).
+/experiments/
+
+# Experiment materials and audits stay local until results are published.
+/data/experiments/clarify-trajectory-audit.json
+/data/experiments/variants/*
+!/data/experiments/variants/update-count/
+
+# Results and internal research notes are not part of the code release.
+/website/results.local.json
+/website/replays.local.json
+/docs/weekly-report.md
+/repo-docs/
+
+# Evaluation-site media ships with the dataset, not the catalog/code checkout.
+/sites/egomart/static/products/
+/sites/egomedia/static/thumbnails/
+/sites/egomedia/static/previews/
+/sites/egomedia/static/public-previews/
+/sites/egomedia/static/videos/
+/sites/egomaps/static/photos/
+
+# Deploy the curated replay bundle with the paper site.
+/website/static/samples/
+/website/.replay-*/

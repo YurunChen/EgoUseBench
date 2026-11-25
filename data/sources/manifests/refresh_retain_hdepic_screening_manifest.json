@@ -1,0 +1,137 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "license_or_access_note": "HD-EPIC is released by the University of Bristol under CC BY 4.0. This source-aligned research clip was downloaded from the official data.bris.ac.uk record. A Benchmark Release must retain attribution and separately review redistribution of source frames."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-refresh-retain-hdepic-12",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "P02-20240210-122334-61",
+          "P02-20240210-122334-62",
+          "P02-20240210-122334-63",
+          "P02-20240210-122334-64",
+          "P02-20240210-122334-65",
+          "P02-20240210-122334/1e25a8ba2a47a847/7b3607a98286056b",
+          "P02-20240210-122334/4cd348e03aa9b6f7/21a1fe96c7c627d3"
+        ],
+        "media_id": "P02-20240210-122334__94-104",
+        "media_start_seconds": 94,
+        "media_sha256": "c6dcaf0f6834d758ffb11662fe3ec1159316ef8633d4567daf7daa7751f6f376",
+        "original_video_id": "P02-20240210-122334",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P02/P02-20240210-122334.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Pick up both the larger plate and the smaller plate using the left and right hand respectively. [96.83, 97.75]",
+          "Place the smaller plate on the stack of saucers using the right hand. [99.05, 99.75]",
+          "Lift up the Tupperware lid from the stack of larger plates using the right hand to free up the space. [99.66, 100.84]",
+          "Place the larger plate onto the other stack of plates. [100.94, 101.43]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "1e25a8ba2a47a847",
+            "name": "smaller plate",
+            "track_id": "7b3607a98286056b",
+            "time_segment_seconds": [
+              97.08368,
+              99.57475
+            ],
+            "role": "initial_small_plate"
+          },
+          {
+            "association_id": "4cd348e03aa9b6f7",
+            "name": "larger plate",
+            "track_id": "21a1fe96c7c627d3",
+            "time_segment_seconds": [
+              97.08368,
+              101.39406
+            ],
+            "role": "later_large_plate"
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the smaller striped plate put away first",
+        "proposed_later_state": "the larger striped plate put away later",
+        "proposed_instruction": "Find the first of the two striped plates I put away. Add one visually matching plate to the cart and submit it.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/39d9b799583c7002f888456c88d6f8204cc984385bd899dda4e3e14aa1c10c83.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            99,
+            99.15,
+            99.3,
+            99.45
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-hdepic-12/V0_00.jpg",
+            "data/observations/candidate-refresh-retain-hdepic-12/V0_01.jpg",
+            "data/observations/candidate-refresh-retain-hdepic-12/V0_02.jpg",
+            "data/observations/candidate-refresh-retain-hdepic-12/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            100.85,
+            101.016667,
+            101.183333,
+            101.35
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-hdepic-12/V1_00.jpg",
+            "data/observations/candidate-refresh-retain-hdepic-12/V1_01.jpg",
+            "data/observations/candidate-refresh-retain-hdepic-12/V1_02.jpg",
+            "data/observations/candidate-refresh-retain-hdepic-12/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows the smaller striped plate being put away first while the larger matching-pattern plate remains visible below.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows the visibly larger striped plate being put away, without changing which plate was first.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "HD-EPIC assigns the smaller and larger plates different physical-object associations and movement tracks over the released interval.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "The continuous video clearly distinguishes a smaller plate put away before a larger plate, but both source plates use concentric colored rings. The two frozen-site candidates use horizontal gray stripe patterns instead, so neither provides an honest visual match and the smaller source plate cannot be linked to a unique website entity.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}

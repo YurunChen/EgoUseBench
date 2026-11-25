@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "pair_id": "CRG-12",
+  "id": "CRG-12-update-count",
+  "source_task_path": "data/experiments/composite/CRG-12.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 88.2,
+      "request": "Could the second video be five minutes or less?"
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 119.2
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 125.2,
+      "request": "Could the second video be three minutes or less? I just need a quick reminder while I work."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_6b38e47ff17d",
+        "m_ecc121e4ad7c"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_6b38e47ff17d",
+        "m_5405318b4f25"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "88.2秒早于119.2秒Refresh，约65秒已实际烙第一批无馅饼。主教程使用原已核实245秒无馅面饼m_6b38e47ff17d，不用未来包馅教程证明初期合法性。原C指定擀圆；481秒How to roll round rotis公开说明教逐次擀圆，250秒擀圆教程同样适用。中间5分钟限制只作用第二视频。",
+    "public_facts": [
+      {
+        "entity_id": "m_ecc121e4ad7c",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 481
+      },
+      {
+        "entity_id": "m_5405318b4f25",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 250
+      },
+      {
+        "entity_id": "m_ecc121e4ad7c",
+        "path": [
+          "title"
+        ],
+        "equals": "HOW TO ROLL ROUND ROTIS - perfect round chapatti tutorial"
+      },
+      {
+        "entity_id": "m_5405318b4f25",
+        "path": [
+          "title"
+        ],
+        "equals": "HOW TO HOLD A ROLLING PIN WHILE MAKING A ROTI | YOU'LL BE ABLE TO MAKE A PERFECT ROUND ROTI 💯"
+      },
+      {
+        "entity_id": "m_6b38e47ff17d",
+        "path": [
+          "title"
+        ],
+        "equals": "Quick and Easy Flatbread Recipe (No Yeast)"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_ecc121e4ad7c",
+        "retained_state": "m_5405318b4f25"
+      },
+      "operator": "<=",
+      "value": 300
+    },
+    "original_request_effect": "119.2秒主教程换包馅m_d1322dc2b06b后，250秒第二视频仍<=5分钟，原125.2秒<=3分钟再排除它；主教程六分钟限制和原8终态保留。"
+  }
+}

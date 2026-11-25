@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "note": "The classified inventory of reference/. reference/ itself is untracked, so this file is what says which third-party data the benchmark depends on, what each copy is for, and whether it is usable. tests/test_dataset_registry.py holds the tree to it.",
+  "root": "reference",
+  "authorization_confirmation": {
+    "confirmed_on": "2026-10-17",
+    "confirmed_by": "project_owner",
+    "source": "User reply to the source-dataset permission question in the current project chat",
+    "statement": "已有Ego4D的许可，其他数据集的许可也都有",
+    "scope": "Existing source datasets used by this project, including Ego4D-derived footage. Record the owner's confirmation; applicable dataset terms still govern use and redistribution. This is not a claim that agreement documents were independently inspected or that every dataset is unrestricted."
+  },
+  "classes": {
+    "sources": "Egocentric video that tasks are built from. Every screening manifest's dataset.source_root points inside here.",
+    "catalogs": "Upstream listing and image material that the frozen mock sites are populated from.",
+    "candidates": "Downloaded but not yet producing tasks. Each entry records what still blocks it.",
+    "literature": "Read-only comparison material. Never referenced by the synthesis pipeline."
+  },
+  "datasets": [
+    {
+      "id": "Ego2Web",
+      "class": "sources",
+      "path": "reference/sources/Ego2Web",
+      "role": "Primary source. 500 annotations over 310 videos across E-Commerce, Media Retrieval, Knowledge Lookup, and Local/Maps.",
+      "state": "usable",
+      "media": "310 mp4, 5.6 GB, complete",
+      "limitation": "The annotations describe web needs, not the wearer's full timeline. Derive current unused source IDs from selection and screening manifests; candidate-pool v2 returning zero describes its signals, not exhausted source supply. Current task lineage resolves EgoSchema clips through reference/sources/EgoSchema/repo/uid_to_ego4d.json; selection validation reports parent-recording collisions. This mapping does not establish redistribution permission. Constructed members are not automatically release-ready.",
+      "license": "Repository declares no license. dataset/ is a local mount; first-party tools read it and never rewrite it."
+    },
+    {
+      "id": "HD-EPIC",
+      "class": "sources",
+      "path": "reference/sources/HD-EPIC",
+      "role": "Refresh-replace source, and the best available raw material for indexical slots: assoc_info.json carries per-object tracks whose names are already indexical, priming_info.json carries gaze before action.",
+      "state": "usable",
+      "media": "Task-aligned and screening clips plus full recordings are retained locally; 12 full recordings have previously recorded official-MD5 verification. Annotations complete (689 MB). The 115.5 GB full release is not mirrored. Read actual files and acquisition records for current clip coverage.",
+      "limitation": "Annotation hits are source hypotheses, not task evidence. A local clip supports only its acquired interval, not the entire recording. Source manifests and acquisition receipts retain actual keyframe preroll and time mappings. Multiple clips from one recording use source.media_segments; missing intervals are not continuous coverage. New tasks still require visual checks, independent website grounding and the normal admission workflow.",
+      "license": "Official data record is CC BY 4.0."
+    },
+    {
+      "id": "EgoSchema",
+      "class": "sources",
+      "path": "reference/sources/EgoSchema",
+      "role": "Long-form egocentric clips; a small high-recall pool for Refresh-retain.",
+      "state": "usable",
+      "media": "7 three-minute clips",
+      "license": "Follows the Ego4D license."
+    },
+    {
+      "id": "amazon-berkeley-objects",
+      "class": "catalogs",
+      "path": "reference/catalogs/amazon-berkeley-objects",
+      "role": "Real product listings and CC BY 4.0 images for EgoMart entities and their confusable neighbours.",
+      "state": "usable",
+      "media": "16 listing shards plus image-path metadata, 90 MB. The bulk image archive is not mirrored; individual images are fetched from the ABO S3 bucket as needed.",
+      "license": "CC BY 4.0; attribute Amazon.com and the ABO dataset creators."
+    },
+    {
+      "id": "CaptainCook4D",
+      "class": "sources",
+      "path": "reference/sources/CaptainCook4D",
+      "role": "Procedure source. Human step intervals expose ordered object use, visible tool substitutions, and order violations; only clips with independently visible, web-groundable objects are admitted.",
+      "state": "usable",
+      "media": "annotations complete (384 recordings, 220 with errors, 795 order errors, per-step start/end); 31 recordings fetched at GoPro 360P. The newest four (1_143, 27_45, 5_44, 23_41) passed size, local SHA256, full video-stream decode and annotation-bound checks; receipt: reference/sources/CaptainCook4D/acquisition.json.",
+      "limitation": "Thirty local recordings support constructed tasks. A zero candidate-pool count does not establish source exhaustion. Additional downloads remain outside task membership until continuous visual and web-grounding review. Constructed members are not automatically release-ready.",
+      "license": "Dataset: Apache 2.0, as stated on https://captaincook4d.github.io/captain-cook/. Code licensing is separate."
+    },
+    {
+      "id": "EgoOops",
+      "class": "sources",
+      "path": "reference/sources/EgoOops",
+      "role": "Non-kitchen procedural source for physical referent continuity, corrective actions, and fixed-slot clarification in cardboard crafts, electrical circuits, toy blocks, and fluorescence experiments.",
+      "state": "usable",
+      "media": "Official annotations and license plus eight 720p recordings acquired: electronics/S1790010, tsumiki/S1760003, tsumiki/S1750001, electronics/S1790009, cardboard/S1810010, cardboard/S1810001, blacklight/S1800001, blacklight/S1800002. All eight passed ZIP CRC, local SHA256 and ffprobe checks. The two cardboard and two blacklight recordings passed complete video-stream decode with ffmpeg -xerror. Total compressed video payload: 985319542 bytes. Receipt: reference/sources/EgoOops/acquisition.json. The complete ZIP was not mirrored.",
+      "limitation": "Two electronics, two cardboard and two blacklight recordings support current formal tasks. The two block recordings remain unselected. Additional fluorescence explanation candidates still lack a closed public-content answer boundary. Refresh-replace can now record a changed reference at the later batch boundary, but that code change is not candidate approval. Count canonical original recording IDs, including activity prefixes, once. Mistake labels do not establish changed user goals; half of each activity contains intentionally performed errors.",
+      "license": "CC BY-SA 4.0, per https://y-haneji.github.io/EgoOops-project-page/ and the official annotation repository. Official cryptographic media checksum not found; use ZIP CRC plus locally computed hashes without claiming official hash verification."
+    },
+    {
+      "id": "EgoLife",
+      "class": "sources",
+      "path": "reference/sources/EgoLife",
+      "role": "Targeted pour-over source for independently reviewed dripper and filter experiments.",
+      "state": "usable",
+      "media": "One consecutive 60-second DAY4 pour-over excerpt stored locally.",
+      "limitation": "Only the stored interval is available. Product brand and commercial size are not readable; compatible choices require public website specifications. Other days are not mirrored.",
+      "license": "The acquisition manifest records S-Lab License 1.0 for non-commercial research. Released frames blur identifiable faces; private dialogue and captions are not used."
+    },
+    {
+      "id": "HoloAssist",
+      "class": "sources",
+      "path": "reference/sources/HoloAssist",
+      "role": "First-person activity footage screened for observable changes that affect browser outcomes.",
+      "state": "usable",
+      "media": "One targeted official compressed-video excerpt; see the source acquisition record for exact media and source times.",
+      "limitation": "Annotations locate events; only the visible preparation sets task constraints. The full video archive is not mirrored.",
+      "license": "CDLA Permissive 2.0 per https://holoassist.github.io/#download."
+    },
+    {
+      "id": "literature",
+      "class": "literature",
+      "path": "reference/literature",
+      "role": "TeleEgo, WAGIBench, EgoPlan, EgoPoint, REI-Bench, SAW-Bench, SuperGlasses, Egocentric-Co-Pilot, Wearable-AI-Leaderboard, VisualWebArena. Comparison material for design arguments; no pipeline reads them.",
+      "state": "reference_only"
+    }
+  ]
+}

@@ -1,0 +1,3229 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing dataset research authorization, as confirmed by the user. No public release performed."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-drop-2026102702",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "drop",
+      "source": {
+        "record_ids": [
+          446
+        ],
+        "media_id": "cf4f3548-c8de-49db-96b6-e1256fe4563b",
+        "original_video_id": "cf4f3548-c8de-49db-96b6-e1256fe4563b",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Amazon, find the exact product page for the electric drill shown in the video and report its model number and current price."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              0,
+              15
+            ],
+            "role": "handheld_drill",
+            "description": "The wearer holds a drill/driver against a wooden workpiece. Brand, torque, voltage and exact model are not deciding requirements."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_00.jpg",
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_01.jpg",
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_02.jpg",
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_03.jpg",
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_04.jpg",
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_05.jpg",
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_06.jpg",
+            "data/observations/candidate-mart-graft-drop-2026102702/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a hand-held drill/driver with a projecting chuck/bit held at a wooden workpiece. It does not establish an exact model or electrical specification. The workbench expansion and subsequent withdrawal of lighting are authored user needs.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent remove a withdrawn shopping item while retaining a physically grounded tool selection?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "user_intent",
+        "task_blueprint": {
+          "site": "egomart",
+          "instructions": {
+            "a": "I'm equipping another workbench. Add one listing for the same general kind of hand-held power tool I'm using here, plus one separate retail pack of portable work lights. Any brand or power source is fine. For the tool, choose a single-power-tool listing, not a combo of different power tools; its accessory kit is fine.",
+            "b": "I found a light I can use. Leave out the separate work-light listing and keep only the tool listing.",
+            "bundled": "I'm equipping another workbench. Add one listing for the same general kind of hand-held power tool I'm using here, plus one separate retail pack of portable work lights. Any brand or power source is fine. For the tool, choose a single-power-tool listing, not a combo of different power tools; its accessory kit is fine. I found a light I can use. Leave out the separate work-light listing and keep only the tool listing."
+          },
+          "initial_goal_roles": [
+            [
+              "drill",
+              "work_light"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "drill"
+            ]
+          ],
+          "environment_role_ids": {
+            "drill": "p_c47d405dabfc",
+            "work_light": "p_ae39cf0e73f6"
+          },
+          "equivalent_role_ids": {
+            "drill": [
+              "p_0e9c5f22ab98",
+              "p_0f168004a17f",
+              "p_f1d4dd83313b",
+              "p_b65fe85a05a7",
+              "p_2f3c69876322",
+              "p_012e88672162",
+              "p_df02f67d4594",
+              "p_27249ddbbbd4",
+              "p_3525c46fbd75",
+              "p_4bee4f9e25aa",
+              "p_bafc2a0d41ff",
+              "p_cf079c82550f",
+              "p_3b7be1f84483",
+              "p_1d7ce184aebc",
+              "p_c8967f03b87b",
+              "p_9b029213b65f",
+              "p_a9e76f4495e1",
+              "p_318f4da08a73",
+              "p_74e30f383311",
+              "p_911e3ceae7f0",
+              "p_5570c888e62a",
+              "p_eba57b256c8c",
+              "p_080df7af8266",
+              "p_954aaba5c540",
+              "p_3a69b4f4de82",
+              "p_9f6ffac95ec2",
+              "p_536f8ee3f599",
+              "p_caceb500785d",
+              "p_cf4b356f1585",
+              "p_1992b90633a3",
+              "p_77e4e8798a80",
+              "p_1ecc8d180a60",
+              "p_e00310d8acd2",
+              "p_1f819960405f",
+              "p_c65ac5274de7",
+              "p_358baa39cbf2",
+              "p_77bd0c7e1db4",
+              "p_a6384160a259",
+              "p_c3f68c8a442c",
+              "p_ec8f4e571144",
+              "p_70953cb9ebff",
+              "p_9bf53dd7b9a3",
+              "p_e988118530e9",
+              "p_ae68536b5ab5",
+              "p_7f46a3bbe341",
+              "p_22922000f305",
+              "p_a1714c1db05f",
+              "p_54c1e75732f3",
+              "p_06ef8a5f080e",
+              "p_847b2f87bebd",
+              "p_e0c6f77cb564",
+              "p_12e3791ae868",
+              "p_6ba8bee3f384",
+              "p_03e7b4a66f56",
+              "p_8f903a92a60b",
+              "p_f4ae6e3a2496",
+              "p_f3a6f4f687fe",
+              "p_cfee6ab8e3f1",
+              "p_c141bb7b6856",
+              "p_f6040eb6d08e",
+              "p_d511e16a0319",
+              "p_61e640839691",
+              "p_18918e8c20ed",
+              "p_e9d786008134"
+            ],
+            "work_light": [
+              "p_e47149b1a44c",
+              "p_0d5e77ebcfd4",
+              "p_61529a5b8c6f",
+              "p_b844f6ba68e9",
+              "p_20d5865f50e1",
+              "p_027090ffa2f4",
+              "p_1aaed0128f9d",
+              "p_235f50b37757",
+              "p_3b536e5a67d8",
+              "p_53918447183e",
+              "p_ec27ca67bd49",
+              "p_1c2ea6edfc1f",
+              "p_ac92bbd5807c",
+              "p_7ba5aa0dce30",
+              "p_276e2fd3928e",
+              "p_a0e2a28b0434",
+              "p_61b6ddbca0af",
+              "p_b0b6dd1e859c",
+              "p_6db875b326e8",
+              "p_3fae1100a278",
+              "p_107ab39686d4",
+              "p_2924992dd9b9",
+              "p_9b8ba8599e2f",
+              "p_58614010d1ef",
+              "p_c191811f81b4",
+              "p_b35cb322b84e",
+              "p_4aacbbf6b7c9",
+              "p_dae642c53db5",
+              "p_8f1b6792e540",
+              "p_5a0fb6bbb805",
+              "p_e579e65b88da",
+              "p_fec55cf0b84c",
+              "p_0e47dc3f4f08",
+              "p_0efc7d210706",
+              "p_52339d546d3a",
+              "p_c777b9977642",
+              "p_dc905cfd1d03",
+              "p_a1058eaa9add",
+              "p_4de06cf40824",
+              "p_76c97304d0e4",
+              "p_edae69ed3b02",
+              "p_4e01dc27f582",
+              "p_994ce432b8c4",
+              "p_44641b148ba1",
+              "p_b7b6242c22ad",
+              "p_a1c815dbaf4b",
+              "p_c58eba594e92",
+              "p_15df86fb91f4",
+              "p_7ea7ebec8043",
+              "p_37154afe832f",
+              "p_cf01ddac93eb",
+              "p_e5d991faf564",
+              "p_e835d13c2d1a",
+              "p_afd66dfe6c01",
+              "p_6510b840cce4",
+              "p_8a9e66df93bb",
+              "p_a7b7b4871124",
+              "p_003a7e8a079e",
+              "p_843f66336f05",
+              "p_efc052e6fd17",
+              "p_e113a4fc8b3e",
+              "p_4205bc767d52",
+              "p_b55ae53e559b",
+              "p_8cc27e645eb8",
+              "p_7c82c36074d0",
+              "p_e8fc888adaae",
+              "p_307a62496c43",
+              "p_206dd599b0d5",
+              "p_3e2e81a248bc",
+              "p_95767d6760f5",
+              "p_68eb7270ea38",
+              "p_0ae1181ab058",
+              "p_b90607bbc362",
+              "p_25e95e63e5a0",
+              "p_47f9aadd4d1d",
+              "p_a98c19612592",
+              "p_c45b5188e96e",
+              "p_389514913783",
+              "p_5e200de45c85",
+              "p_f63b5ec0f115",
+              "p_c89c7b240401"
+            ]
+          },
+          "target_granularity": "category"
+        },
+        "decision": {
+          "candidates": {
+            "initial": {
+              "goal_ref": "initial"
+            },
+            "final": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "initial",
+                "final"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "final"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The user withdraws the separately requested light while retaining the tool."
+            }
+          ],
+          "recording": "key_events",
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-27"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "woodworking power tools",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026102702.json",
+              "result_entity_ids": [
+                "p_470b2189a810",
+                "p_cc580c3242b1",
+                "p_611f46c56cbc",
+                "p_580e26453f34",
+                "p_3c231b3b192b",
+                "p_d0aedba8eace",
+                "p_b2d68b4d6a40",
+                "p_27682e3d80dc",
+                "p_0b27c4d160cb",
+                "p_8edbb1a80d07",
+                "p_52a684538978",
+                "p_8c50426284b4",
+                "p_c47d405dabfc",
+                "p_37347faaae9f",
+                "p_6e6aa4e8285f",
+                "p_b0bcca4c7056",
+                "p_3483de0bc9f4",
+                "p_0174ab95d31a",
+                "p_5313c83b2816",
+                "p_1d78f26d56d9",
+                "p_2331f87d77f1",
+                "p_83cc69abe835",
+                "p_70e68205ddeb",
+                "p_46bdd82e38df",
+                "p_6d90c4a74e1c",
+                "p_923d2b6991b9",
+                "p_d5d784e2dd78",
+                "p_c39a324d160f",
+                "p_de15749d229f",
+                "p_395ff293a953",
+                "p_940d9c2d868a",
+                "p_486bcc9a7eed",
+                "p_2031343858a8",
+                "p_84e75a817d97",
+                "p_7aa10d01a37c",
+                "p_8f652fe6b04b",
+                "p_652685d5abac",
+                "p_36f24a847fca",
+                "p_162190be4d8f",
+                "p_9d3010cd6bc6",
+                "p_5a15718102bf",
+                "p_84814e8ba83f",
+                "p_4eb94c30be96",
+                "p_edbbbd732f96",
+                "p_28ec57bb95c5",
+                "p_d6530f9f30e6",
+                "p_98f7470a7ea2",
+                "p_3814aaea0fe9"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "portable work light",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026102702.json",
+              "result_entity_ids": [
+                "p_ae39cf0e73f6",
+                "p_e47149b1a44c",
+                "p_0d5e77ebcfd4",
+                "p_61529a5b8c6f",
+                "p_b844f6ba68e9",
+                "p_20d5865f50e1",
+                "p_027090ffa2f4",
+                "p_1aaed0128f9d",
+                "p_235f50b37757",
+                "p_3b536e5a67d8",
+                "p_53918447183e",
+                "p_ec27ca67bd49",
+                "p_1c2ea6edfc1f",
+                "p_ac92bbd5807c",
+                "p_7ba5aa0dce30",
+                "p_276e2fd3928e",
+                "p_a0e2a28b0434",
+                "p_61b6ddbca0af",
+                "p_b0b6dd1e859c",
+                "p_6db875b326e8",
+                "p_3fae1100a278",
+                "p_107ab39686d4",
+                "p_2924992dd9b9",
+                "p_9b8ba8599e2f",
+                "p_58614010d1ef",
+                "p_c191811f81b4",
+                "p_b35cb322b84e",
+                "p_4aacbbf6b7c9",
+                "p_dae642c53db5",
+                "p_8f1b6792e540",
+                "p_5a0fb6bbb805",
+                "p_e579e65b88da",
+                "p_fec55cf0b84c",
+                "p_0e47dc3f4f08",
+                "p_0efc7d210706",
+                "p_52339d546d3a",
+                "p_c777b9977642",
+                "p_dc905cfd1d03",
+                "p_a1058eaa9add",
+                "p_4de06cf40824",
+                "p_76c97304d0e4",
+                "p_edae69ed3b02",
+                "p_4e01dc27f582",
+                "p_994ce432b8c4",
+                "p_4787810d3e98",
+                "p_44641b148ba1",
+                "p_b7b6242c22ad",
+                "p_a1c815dbaf4b"
+              ]
+            },
+            {
+              "stage": "tool_refinement",
+              "query": "electric drill",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026102702.json",
+              "result_entity_ids": [
+                "p_c47d405dabfc",
+                "p_0e9c5f22ab98",
+                "p_0f168004a17f",
+                "p_113b49c67e95",
+                "p_f1d4dd83313b",
+                "p_b65fe85a05a7",
+                "p_3d02f97a4d9c",
+                "p_3452082fb3f7",
+                "p_2f3c69876322",
+                "p_012e88672162",
+                "p_a8475fc5c802",
+                "p_df02f67d4594",
+                "p_27249ddbbbd4",
+                "p_f267a2988ba5",
+                "p_3525c46fbd75",
+                "p_4bee4f9e25aa",
+                "p_ecf84e6eec9a",
+                "p_bafc2a0d41ff",
+                "p_f114166f1fe4",
+                "p_d9496c8be3c7",
+                "p_cf079c82550f",
+                "p_3b7be1f84483",
+                "p_1d7ce184aebc",
+                "p_c81cc46ff7f9",
+                "p_b0bcca4c7056",
+                "p_69e7513cba42",
+                "p_0b27c4d160cb",
+                "p_c8967f03b87b",
+                "p_0174ab95d31a",
+                "p_5313c83b2816",
+                "p_9b029213b65f",
+                "p_a9e76f4495e1",
+                "p_318f4da08a73",
+                "p_74e30f383311",
+                "p_2331f87d77f1",
+                "p_f7e55d767065",
+                "p_911e3ceae7f0",
+                "p_8660b22d3048",
+                "p_9996dabf73bf",
+                "p_9a48bf758cbb",
+                "p_de15749d229f",
+                "p_5570c888e62a",
+                "p_eba57b256c8c",
+                "p_080df7af8266",
+                "p_408a5278d6db",
+                "p_a7c6978c97dc",
+                "p_b2d7ad4e693c",
+                "p_d5769a606f67"
+              ]
+            },
+            {
+              "stage": "calibration_after_change",
+              "query": "portable work light",
+              "result_entity_ids": [
+                "p_1aaed0128f9d",
+                "p_9b8ba8599e2f",
+                "p_c58eba594e92",
+                "p_15df86fb91f4",
+                "p_61b6ddbca0af",
+                "p_e579e65b88da",
+                "p_b844f6ba68e9",
+                "p_dae642c53db5",
+                "p_fec55cf0b84c",
+                "p_7ea7ebec8043",
+                "p_37154afe832f",
+                "p_cf01ddac93eb",
+                "p_e5d991faf564",
+                "p_c777b9977642",
+                "p_e835d13c2d1a",
+                "p_afd66dfe6c01",
+                "p_6510b840cce4",
+                "p_ae39cf0e73f6",
+                "p_8a9e66df93bb",
+                "p_a7b7b4871124",
+                "p_003a7e8a079e",
+                "p_843f66336f05",
+                "p_efc052e6fd17",
+                "p_e113a4fc8b3e",
+                "p_4205bc767d52",
+                "p_b55ae53e559b",
+                "p_8cc27e645eb8",
+                "p_7c82c36074d0",
+                "p_e8fc888adaae",
+                "p_307a62496c43",
+                "p_206dd599b0d5",
+                "p_3e2e81a248bc",
+                "p_95767d6760f5",
+                "p_7ba5aa0dce30",
+                "p_68eb7270ea38",
+                "p_0ae1181ab058",
+                "p_b90607bbc362",
+                "p_25e95e63e5a0",
+                "p_61529a5b8c6f",
+                "p_3b536e5a67d8",
+                "p_47f9aadd4d1d",
+                "p_a98c19612592",
+                "p_c45b5188e96e",
+                "p_389514913783",
+                "p_5e200de45c85",
+                "p_0efc7d210706",
+                "p_f63b5ec0f115",
+                "p_c89c7b240401"
+              ],
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026102702.json",
+              "provider": "amazon-ca-search-first-page-v1"
+            },
+            {
+              "stage": "calibration_before_change",
+              "query": "electric drill",
+              "result_entity_ids": [
+                "p_954aaba5c540",
+                "p_3a69b4f4de82",
+                "p_9f6ffac95ec2",
+                "p_536f8ee3f599",
+                "p_caceb500785d",
+                "p_cf4b356f1585",
+                "p_1992b90633a3",
+                "p_77e4e8798a80",
+                "p_1ecc8d180a60",
+                "p_e00310d8acd2",
+                "p_1f819960405f",
+                "p_c65ac5274de7",
+                "p_358baa39cbf2",
+                "p_77bd0c7e1db4",
+                "p_a00f430708db",
+                "p_a6384160a259",
+                "p_c3f68c8a442c",
+                "p_ec8f4e571144",
+                "p_70953cb9ebff",
+                "p_9bf53dd7b9a3",
+                "p_e988118530e9",
+                "p_ae68536b5ab5",
+                "p_114e7d9087d4",
+                "p_7f46a3bbe341",
+                "p_22922000f305",
+                "p_a1714c1db05f",
+                "p_54c1e75732f3",
+                "p_06ef8a5f080e",
+                "p_847b2f87bebd",
+                "p_e0c6f77cb564",
+                "p_12e3791ae868",
+                "p_6ba8bee3f384",
+                "p_03e7b4a66f56",
+                "p_2c95dbe02852",
+                "p_8f903a92a60b",
+                "p_f4ae6e3a2496",
+                "p_f3a6f4f687fe",
+                "p_20e7315e02f9",
+                "p_113b49c67e95",
+                "p_cfee6ab8e3f1",
+                "p_c141bb7b6856",
+                "p_f6040eb6d08e",
+                "p_d511e16a0319",
+                "p_b65fe85a05a7",
+                "p_61e640839691",
+                "p_18918e8c20ed",
+                "p_3b7be1f84483",
+                "p_e9d786008134"
+              ],
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026102702.json",
+              "provider": "amazon-ca-search-first-page-v1"
+            }
+          ],
+          "window_entity_ids": [
+            "p_470b2189a810",
+            "p_cc580c3242b1",
+            "p_611f46c56cbc",
+            "p_580e26453f34",
+            "p_3c231b3b192b",
+            "p_d0aedba8eace",
+            "p_b2d68b4d6a40",
+            "p_27682e3d80dc",
+            "p_0b27c4d160cb",
+            "p_8edbb1a80d07",
+            "p_52a684538978",
+            "p_8c50426284b4",
+            "p_c47d405dabfc",
+            "p_37347faaae9f",
+            "p_6e6aa4e8285f",
+            "p_b0bcca4c7056",
+            "p_3483de0bc9f4",
+            "p_0174ab95d31a",
+            "p_5313c83b2816",
+            "p_1d78f26d56d9",
+            "p_2331f87d77f1",
+            "p_83cc69abe835",
+            "p_70e68205ddeb",
+            "p_46bdd82e38df",
+            "p_6d90c4a74e1c",
+            "p_923d2b6991b9",
+            "p_d5d784e2dd78",
+            "p_c39a324d160f",
+            "p_de15749d229f",
+            "p_395ff293a953",
+            "p_940d9c2d868a",
+            "p_486bcc9a7eed",
+            "p_2031343858a8",
+            "p_84e75a817d97",
+            "p_7aa10d01a37c",
+            "p_8f652fe6b04b",
+            "p_652685d5abac",
+            "p_36f24a847fca",
+            "p_162190be4d8f",
+            "p_9d3010cd6bc6",
+            "p_5a15718102bf",
+            "p_84814e8ba83f",
+            "p_4eb94c30be96",
+            "p_edbbbd732f96",
+            "p_28ec57bb95c5",
+            "p_d6530f9f30e6",
+            "p_98f7470a7ea2",
+            "p_3814aaea0fe9",
+            "p_ae39cf0e73f6",
+            "p_e47149b1a44c",
+            "p_0d5e77ebcfd4",
+            "p_61529a5b8c6f",
+            "p_b844f6ba68e9",
+            "p_20d5865f50e1",
+            "p_027090ffa2f4",
+            "p_1aaed0128f9d",
+            "p_235f50b37757",
+            "p_3b536e5a67d8",
+            "p_53918447183e",
+            "p_ec27ca67bd49",
+            "p_1c2ea6edfc1f",
+            "p_ac92bbd5807c",
+            "p_7ba5aa0dce30",
+            "p_276e2fd3928e",
+            "p_a0e2a28b0434",
+            "p_61b6ddbca0af",
+            "p_b0b6dd1e859c",
+            "p_6db875b326e8",
+            "p_3fae1100a278",
+            "p_107ab39686d4",
+            "p_2924992dd9b9",
+            "p_9b8ba8599e2f",
+            "p_58614010d1ef",
+            "p_c191811f81b4",
+            "p_b35cb322b84e",
+            "p_4aacbbf6b7c9",
+            "p_dae642c53db5",
+            "p_8f1b6792e540",
+            "p_5a0fb6bbb805",
+            "p_e579e65b88da",
+            "p_fec55cf0b84c",
+            "p_0e47dc3f4f08",
+            "p_0efc7d210706",
+            "p_52339d546d3a",
+            "p_c777b9977642",
+            "p_dc905cfd1d03",
+            "p_a1058eaa9add",
+            "p_4de06cf40824",
+            "p_76c97304d0e4",
+            "p_edae69ed3b02",
+            "p_4e01dc27f582",
+            "p_994ce432b8c4",
+            "p_4787810d3e98",
+            "p_44641b148ba1",
+            "p_b7b6242c22ad",
+            "p_a1c815dbaf4b",
+            "p_0e9c5f22ab98",
+            "p_0f168004a17f",
+            "p_113b49c67e95",
+            "p_f1d4dd83313b",
+            "p_b65fe85a05a7",
+            "p_3d02f97a4d9c",
+            "p_3452082fb3f7",
+            "p_2f3c69876322",
+            "p_012e88672162",
+            "p_a8475fc5c802",
+            "p_df02f67d4594",
+            "p_27249ddbbbd4",
+            "p_f267a2988ba5",
+            "p_3525c46fbd75",
+            "p_4bee4f9e25aa",
+            "p_ecf84e6eec9a",
+            "p_bafc2a0d41ff",
+            "p_f114166f1fe4",
+            "p_d9496c8be3c7",
+            "p_cf079c82550f",
+            "p_3b7be1f84483",
+            "p_1d7ce184aebc",
+            "p_c81cc46ff7f9",
+            "p_69e7513cba42",
+            "p_c8967f03b87b",
+            "p_9b029213b65f",
+            "p_a9e76f4495e1",
+            "p_318f4da08a73",
+            "p_74e30f383311",
+            "p_f7e55d767065",
+            "p_911e3ceae7f0",
+            "p_8660b22d3048",
+            "p_9996dabf73bf",
+            "p_9a48bf758cbb",
+            "p_5570c888e62a",
+            "p_eba57b256c8c",
+            "p_080df7af8266",
+            "p_408a5278d6db",
+            "p_a7c6978c97dc",
+            "p_b2d7ad4e693c",
+            "p_d5769a606f67",
+            "p_c58eba594e92",
+            "p_15df86fb91f4",
+            "p_7ea7ebec8043",
+            "p_37154afe832f",
+            "p_cf01ddac93eb",
+            "p_e5d991faf564",
+            "p_e835d13c2d1a",
+            "p_afd66dfe6c01",
+            "p_6510b840cce4",
+            "p_8a9e66df93bb",
+            "p_a7b7b4871124",
+            "p_003a7e8a079e",
+            "p_843f66336f05",
+            "p_efc052e6fd17",
+            "p_e113a4fc8b3e",
+            "p_4205bc767d52",
+            "p_b55ae53e559b",
+            "p_8cc27e645eb8",
+            "p_7c82c36074d0",
+            "p_e8fc888adaae",
+            "p_307a62496c43",
+            "p_206dd599b0d5",
+            "p_3e2e81a248bc",
+            "p_95767d6760f5",
+            "p_68eb7270ea38",
+            "p_0ae1181ab058",
+            "p_b90607bbc362",
+            "p_25e95e63e5a0",
+            "p_47f9aadd4d1d",
+            "p_a98c19612592",
+            "p_c45b5188e96e",
+            "p_389514913783",
+            "p_5e200de45c85",
+            "p_f63b5ec0f115",
+            "p_c89c7b240401",
+            "p_954aaba5c540",
+            "p_3a69b4f4de82",
+            "p_9f6ffac95ec2",
+            "p_536f8ee3f599",
+            "p_caceb500785d",
+            "p_cf4b356f1585",
+            "p_1992b90633a3",
+            "p_77e4e8798a80",
+            "p_1ecc8d180a60",
+            "p_e00310d8acd2",
+            "p_1f819960405f",
+            "p_c65ac5274de7",
+            "p_358baa39cbf2",
+            "p_77bd0c7e1db4",
+            "p_a00f430708db",
+            "p_a6384160a259",
+            "p_c3f68c8a442c",
+            "p_ec8f4e571144",
+            "p_70953cb9ebff",
+            "p_9bf53dd7b9a3",
+            "p_e988118530e9",
+            "p_ae68536b5ab5",
+            "p_114e7d9087d4",
+            "p_7f46a3bbe341",
+            "p_22922000f305",
+            "p_a1714c1db05f",
+            "p_54c1e75732f3",
+            "p_06ef8a5f080e",
+            "p_847b2f87bebd",
+            "p_e0c6f77cb564",
+            "p_12e3791ae868",
+            "p_6ba8bee3f384",
+            "p_03e7b4a66f56",
+            "p_2c95dbe02852",
+            "p_8f903a92a60b",
+            "p_f4ae6e3a2496",
+            "p_f3a6f4f687fe",
+            "p_20e7315e02f9",
+            "p_cfee6ab8e3f1",
+            "p_c141bb7b6856",
+            "p_f6040eb6d08e",
+            "p_d511e16a0319",
+            "p_61e640839691",
+            "p_18918e8c20ed",
+            "p_e9d786008134"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_470b2189a810",
+            "p_b2d68b4d6a40",
+            "p_3452082fb3f7",
+            "p_37347faaae9f",
+            "p_4eb94c30be96"
+          ],
+          "related_entity_ids": [
+            "p_cc580c3242b1",
+            "p_611f46c56cbc",
+            "p_580e26453f34",
+            "p_3c231b3b192b",
+            "p_d0aedba8eace",
+            "p_27682e3d80dc",
+            "p_0b27c4d160cb",
+            "p_8edbb1a80d07",
+            "p_52a684538978",
+            "p_8c50426284b4",
+            "p_6e6aa4e8285f",
+            "p_b0bcca4c7056",
+            "p_3483de0bc9f4",
+            "p_0174ab95d31a",
+            "p_5313c83b2816",
+            "p_1d78f26d56d9",
+            "p_c58eba594e92",
+            "p_15df86fb91f4",
+            "p_7ea7ebec8043",
+            "p_37154afe832f",
+            "p_cf01ddac93eb",
+            "p_e5d991faf564",
+            "p_e835d13c2d1a",
+            "p_afd66dfe6c01",
+            "p_6510b840cce4",
+            "p_8a9e66df93bb",
+            "p_a7b7b4871124",
+            "p_003a7e8a079e",
+            "p_843f66336f05",
+            "p_efc052e6fd17",
+            "p_e113a4fc8b3e",
+            "p_4205bc767d52",
+            "p_b55ae53e559b",
+            "p_8cc27e645eb8",
+            "p_7c82c36074d0",
+            "p_e8fc888adaae",
+            "p_307a62496c43",
+            "p_206dd599b0d5",
+            "p_3e2e81a248bc",
+            "p_95767d6760f5",
+            "p_68eb7270ea38",
+            "p_0ae1181ab058",
+            "p_b90607bbc362",
+            "p_25e95e63e5a0",
+            "p_47f9aadd4d1d",
+            "p_a98c19612592",
+            "p_c45b5188e96e",
+            "p_389514913783",
+            "p_5e200de45c85",
+            "p_f63b5ec0f115",
+            "p_c89c7b240401",
+            "p_a00f430708db",
+            "p_114e7d9087d4",
+            "p_2c95dbe02852",
+            "p_20e7315e02f9"
+          ],
+          "ambient_entity_ids": [
+            "p_2331f87d77f1",
+            "p_83cc69abe835",
+            "p_70e68205ddeb",
+            "p_46bdd82e38df",
+            "p_6d90c4a74e1c",
+            "p_923d2b6991b9",
+            "p_d5d784e2dd78",
+            "p_c39a324d160f",
+            "p_de15749d229f",
+            "p_395ff293a953",
+            "p_940d9c2d868a",
+            "p_486bcc9a7eed",
+            "p_2031343858a8",
+            "p_84e75a817d97",
+            "p_7aa10d01a37c",
+            "p_8f652fe6b04b",
+            "p_652685d5abac",
+            "p_36f24a847fca",
+            "p_162190be4d8f",
+            "p_9d3010cd6bc6",
+            "p_5a15718102bf",
+            "p_84814e8ba83f",
+            "p_edbbbd732f96",
+            "p_28ec57bb95c5",
+            "p_d6530f9f30e6",
+            "p_98f7470a7ea2",
+            "p_3814aaea0fe9",
+            "p_ae39cf0e73f6",
+            "p_e47149b1a44c",
+            "p_0d5e77ebcfd4",
+            "p_61529a5b8c6f",
+            "p_b844f6ba68e9",
+            "p_20d5865f50e1",
+            "p_027090ffa2f4",
+            "p_1aaed0128f9d",
+            "p_235f50b37757",
+            "p_3b536e5a67d8",
+            "p_53918447183e",
+            "p_ec27ca67bd49",
+            "p_1c2ea6edfc1f",
+            "p_ac92bbd5807c",
+            "p_7ba5aa0dce30",
+            "p_276e2fd3928e",
+            "p_a0e2a28b0434",
+            "p_61b6ddbca0af",
+            "p_b0b6dd1e859c",
+            "p_6db875b326e8",
+            "p_3fae1100a278",
+            "p_107ab39686d4",
+            "p_2924992dd9b9",
+            "p_9b8ba8599e2f",
+            "p_58614010d1ef",
+            "p_c191811f81b4",
+            "p_b35cb322b84e",
+            "p_4aacbbf6b7c9",
+            "p_dae642c53db5",
+            "p_8f1b6792e540",
+            "p_5a0fb6bbb805",
+            "p_e579e65b88da",
+            "p_fec55cf0b84c",
+            "p_0e47dc3f4f08",
+            "p_0efc7d210706",
+            "p_52339d546d3a",
+            "p_c777b9977642",
+            "p_dc905cfd1d03",
+            "p_a1058eaa9add",
+            "p_4de06cf40824",
+            "p_76c97304d0e4",
+            "p_edae69ed3b02",
+            "p_4e01dc27f582",
+            "p_994ce432b8c4",
+            "p_4787810d3e98",
+            "p_44641b148ba1",
+            "p_b7b6242c22ad",
+            "p_a1c815dbaf4b",
+            "p_113b49c67e95",
+            "p_3d02f97a4d9c",
+            "p_a8475fc5c802",
+            "p_f267a2988ba5",
+            "p_ecf84e6eec9a",
+            "p_f114166f1fe4",
+            "p_d9496c8be3c7",
+            "p_c81cc46ff7f9",
+            "p_69e7513cba42",
+            "p_f7e55d767065",
+            "p_8660b22d3048",
+            "p_9996dabf73bf",
+            "p_9a48bf758cbb",
+            "p_408a5278d6db",
+            "p_a7c6978c97dc",
+            "p_b2d7ad4e693c",
+            "p_d5769a606f67"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_470b2189a810",
+              "ring": "core",
+              "reason": "This is a detail sander rather than a drilling tool.",
+              "why_plausible": "A hand-held woodworking power tool.",
+              "failure_predicates": [
+                "different_tool_type"
+              ]
+            },
+            {
+              "entity_id": "p_b2d68b4d6a40",
+              "ring": "core",
+              "reason": "The offer contains six different power tools.",
+              "why_plausible": "The kit includes a drill but violates the single-tool request.",
+              "failure_predicates": [
+                "multi_tool_combo"
+              ]
+            },
+            {
+              "entity_id": "p_3452082fb3f7",
+              "ring": "core",
+              "reason": "The listing is for the storage case only.",
+              "why_plausible": "Its title mentions the requested drill.",
+              "failure_predicates": [
+                "accessory_without_tool"
+              ]
+            },
+            {
+              "entity_id": "p_37347faaae9f",
+              "ring": "core",
+              "reason": "Only replacement batteries are supplied.",
+              "why_plausible": "The batteries are advertised for power tools.",
+              "failure_predicates": [
+                "accessory_without_tool"
+              ]
+            },
+            {
+              "entity_id": "p_4eb94c30be96",
+              "ring": "core",
+              "reason": "This is an impact driver rather than a drill/driver.",
+              "why_plausible": "Similar hand-held rotary power-tool form.",
+              "failure_predicates": [
+                "different_tool_type"
+              ]
+            },
+            {
+              "entity_id": "p_113b49c67e95",
+              "reason": "DCK240C2标题2-Tool Drill Driver/Impact Combo，商品图有两只独立动力机身，违反单动力工具商品要求。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_a00f430708db",
+              "reason": "公开名为21-in-1 Electric Cordless Screwdriver；放大图为直柄螺丝刀、螺丝批头和软延长轴，无钻削头或Drill功能说明。按当前公开材料是纯螺丝刀，非所指一般钻类。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_114e7d9087d4",
+              "reason": "BDCS50C公开名为4V Cordless Screwdriver with Bit Storage，图为储批头螺丝刀而非钻类，无钻削功能材料。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_2c95dbe02852",
+              "reason": "HOTO 3.6V公开名仅Electric Screwdriver，图为直柄螺丝刀和螺丝批头，无钻削配件/功能证据。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_20e7315e02f9",
+              "reason": "HOTO 25-piece公开名为Electric Screwdriver Kit，图为细直柄拧螺丝工具及批头，无钻削功能证据。",
+              "predicate": "wrong_product_or_package"
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ]
+        },
+        "belief_before": "The current shopping need is one drilling-tool listing identified from V0 plus one separately requested pack of portable work lights.",
+        "belief_after": "The user has found a usable light and withdraws that separate listing; only the V0 drilling-tool listing remains required.",
+        "required_behavior_change": "Remove any selected separate work-light listing; retain or add one legal drilling-tool listing, without unrelated cart entries.",
+        "no_update_failure": "Keeping both the drill and a separate light after the withdrawal leaves an extra item.",
+        "overupdate_failure": "Removing the still-requested drill or clearing the complete cart loses the unchanged need.",
+        "visual_dependency_claim": "The retained tool category is identified from the released workbench view, not named in A or B. Without V0 a saw, sander or drill could satisfy the unspecified hand-held power-tool reference."
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Initial 0–15 seconds inspected at native resolution; the rest of the recording was screened and does not prove a second power-tool function. Do not reuse that mistaken hypothesis.",
+        "answer_scope": "Initial construction covered 137 frozen-catalog entities. After complete native-window calibration, 217 entities were judged individually: 65 final drilling-tool listings and 82 initial work-light packs; the full cart requires one of each initially and only the tool finally. Independent decisions are preserved with their actual reviewer in the canonical assessment history.",
+        "calibration": {
+          "reviewer": {
+            "agent_id": "/root/independent_new_candidates",
+            "context_id": "/root/independent_new_candidates"
+          },
+          "capture_paths": [
+            "data/sources/upstream_search_snapshots/amazon/candidate-mart-graft-drop-2026102702--after_change.json",
+            "data/sources/upstream_search_snapshots/amazon/candidate-mart-graft-drop-2026102702--before_change.json"
+          ],
+          "scope": "Complete native result windows added without discarding the prior frozen window; old website facts and blind primary solutions retained. All added entities judged individually; two deciding detail passages published before trial."
+        }
+      },
+      "stream": {
+        "session_seconds": [
+          0.0,
+          78.0
+        ],
+        "update_onset_seconds": 40.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-drop-2026102702/review.json",
+        "wearer_frames_per_image": 1
+      },
+      "repair_history": [
+        {
+          "date": "2026-11-16",
+          "scope": "rendering_only",
+          "previous_stream": {
+            "session_seconds": [
+              0.0,
+              78.0
+            ],
+            "update_onset_seconds": 40.0,
+            "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-drop-2026102702/review.json"
+          },
+          "changes": {
+            "wearer_frames_per_image": 1
+          },
+          "reason": "Preserve all source frames, timestamps, release times, requests and goals. Apply the tested rendering setting uniformly across models and affected conditions.",
+          "review_evidence": "artifacts/reports/source-review-evidence/render-diagnostics-20261116.json",
+          "native_trial": {
+            "study": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-153607-203496_任务诊断_原始单帧_kimi-k2.6",
+            "run_id": "20261116-160527-482618-9426eeb1",
+            "archive": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-153607-203496_任务诊断_原始单帧_kimi-k2.6/runs/20261116-160527-482618-9426eeb1",
+            "purpose": "task_validation"
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-variant-2026102703",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "variant",
+      "source": {
+        "record_ids": [
+          1
+        ],
+        "media_id": "13e20734-cac8-492a-a70a-3d2bf598d21a",
+        "original_video_id": "13e20734-cac8-492a-a70a-3d2bf598d21a",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On eBay, locate the same brand laptop shown in the video and the black version of the controller that's on the table. Add both items to the cart and report the total price."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0.5,
+            1.5,
+            2.5,
+            3.5,
+            4.5,
+            5.5,
+            6.5,
+            7.5
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-variant-2026102703/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The table holds a closed green-lidded portable computer and a separate white game controller. A black remote and cards are also visible, but the request explicitly limits its physical alternatives to the computer and controller. The answer describes the physical device colour, not the colour required for the purchased replacement.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "prior_decision_references": [
+        {
+          "path": "data/sources/manifests/seed_screening_manifest.json",
+          "task_id": "rejected-clarify-variant-01",
+          "relation": "Earlier proposal required two same-type controllers. This construction instead uses the separately visible computer and controller."
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent use a physical appearance answer to identify a device class and then select a standalone website entity?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I'm making a shopping shortlist for one of the two devices here, the computer or the game controller. Add one device of the type I mean to the cart. Any brand and colour are fine. Included accessories are fine, but not a package containing multiple devices.",
+          "oracle_instruction": "I'm making a shopping shortlist for one of the two devices here, the computer or the game controller. Add one device of the type I mean to the cart. Any brand and colour are fine. Included accessories are fine, but not a package containing multiple devices. I mean the white device.",
+          "candidate_roles": [
+            "computer",
+            "controller"
+          ],
+          "hidden_target_role": "controller",
+          "valid_slot": "appearance",
+          "canonical_question": "Do you mean the closed computer or the white controller?",
+          "canonical_answer": "The white one.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "computer": "p_fdaa7c8190e6",
+            "controller": "p_c0ca69623a18"
+          },
+          "equivalent_role_ids": {
+            "computer": [
+              "p_b92565ac42d9",
+              "p_fcca60fd00af",
+              "p_b25f65af8e6a",
+              "p_7ebe72583b39",
+              "p_7c3f8818d434",
+              "p_af1db5335ed2",
+              "p_22a07e83ee65",
+              "p_bed82e8f7c83",
+              "p_4fb79e732673",
+              "p_45c6838b7485",
+              "p_d76792ae2c2a",
+              "p_30a1cd6dd0a3",
+              "p_5b879c9a4805",
+              "p_6daaaf501d89",
+              "p_555230d97fe3",
+              "p_192f2373a51a",
+              "p_a2a80d6c2f3d",
+              "p_6f8f513276ee",
+              "p_5cc5220937b9",
+              "p_5bb9a7af04a5",
+              "p_698ebdd050a9",
+              "p_f2bfad953865",
+              "p_024a3f8c4a0f",
+              "p_b5c29ae12388",
+              "p_ba6fb532670e",
+              "p_ffbd10df3d08",
+              "p_f674c12f6a54",
+              "p_eddd28d5ff01",
+              "p_279080250019",
+              "p_91d332d0d617",
+              "p_496dc8d3eedf",
+              "p_7f32042c82ed",
+              "p_93de2d36b42b",
+              "p_4042710e92ef",
+              "p_38178b54a9dc",
+              "p_f4cad794ce63",
+              "p_2422b6cec80e",
+              "p_36c0279db474",
+              "p_ca0709d543c7",
+              "p_7747120b7dc1",
+              "p_348121466b8a",
+              "p_20158d4fc29f",
+              "p_cd8c2d19461a",
+              "p_4727576dfe84",
+              "p_bdf6e370505a",
+              "p_1cb66b0c9c12",
+              "p_82fd52823496",
+              "p_d108b6dfea43",
+              "p_7f394b64d5b7",
+              "p_248ad28c46b0",
+              "p_af58d1902fc9",
+              "p_02a7f21a0f27",
+              "p_685333321813",
+              "p_80e93c1b090e"
+            ],
+            "controller": [
+              "p_f7abfb337fda",
+              "p_4902749e05f8",
+              "p_49317a42ad06",
+              "p_23b6285a1eaf",
+              "p_745990f11895",
+              "p_186fe1119dfe",
+              "p_9a680ff3aec9",
+              "p_48ac690d3a88",
+              "p_8e730cad3abb",
+              "p_d48a6247fae1",
+              "p_dd7826d4ab26",
+              "p_d67df7866f3d",
+              "p_fb11277a2525",
+              "p_4dc541915c3c",
+              "p_9b4f3b465879",
+              "p_0efbb4875970",
+              "p_1d31a1f8a038",
+              "p_e1c6cb86dbd8",
+              "p_04da090d8348",
+              "p_73934f3f4cd8",
+              "p_2c4244ead511",
+              "p_c63507ce201c",
+              "p_28d0600d8705",
+              "p_86df43efe210",
+              "p_012827248a7a",
+              "p_f34325e10df9",
+              "p_ac65e3555131",
+              "p_c8cc80b0b1a2",
+              "p_b8023ff887ce",
+              "p_4f3a4eeebc0e",
+              "p_0289562d9b9f",
+              "p_878c29329b38",
+              "p_6b1df1183900",
+              "p_aa6b4635e76a",
+              "p_298c8b36e6b5",
+              "p_1b14aae22ec9",
+              "p_ef0826305e9d",
+              "p_1e1dfc876187",
+              "p_3b7b3cb7b260",
+              "p_2ca6a48f7683",
+              "p_69b2aca15bf5",
+              "p_f9e22bd9f1ee",
+              "p_0f480841809e",
+              "p_52cb65f517dd",
+              "p_27f0d3a8904a",
+              "p_f3aca6f8c051",
+              "p_05674fe151bb",
+              "p_e8d9eff4441e",
+              "p_6c240e02cbcf",
+              "p_c3025f29c830",
+              "p_32be733ada52",
+              "p_9a2c7fb504ed",
+              "p_a7f553d84984",
+              "p_bd3ef255c4e9",
+              "p_c43e151f4ef3",
+              "p_f13f48380ada",
+              "p_030a04da6095",
+              "p_ff4dfcc3f364",
+              "p_9b5c4dcf5080",
+              "p_e7c027558057",
+              "p_d9253657675a",
+              "p_f7bf7a15009a",
+              "p_d815cd9a15cb",
+              "p_a8bbee4db382",
+              "p_3a3afba4056d",
+              "p_193e0a0b6b78",
+              "p_f07e36945d63",
+              "p_65258d69821e",
+              "p_e9553ae5a49d",
+              "p_9889a4188d16",
+              "p_f1332e1c9c46",
+              "p_1716e1a5d4b4",
+              "p_e67ea3018e83",
+              "p_a7efe17a861e",
+              "p_77a982665e9b"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "computer": "p_fdaa7c8190e6",
+            "controller": "p_c0ca69623a18"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "computer",
+                "controller"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "controller"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "Only the game controller is the white device in the released scene. Both website device categories remain available."
+            }
+          ],
+          "recording": "key_events",
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-27"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "laptop game controller",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-variant-2026102703.json",
+              "result_entity_ids": [
+                "p_c0ca69623a18",
+                "p_f7abfb337fda",
+                "p_4902749e05f8",
+                "p_49317a42ad06",
+                "p_23b6285a1eaf",
+                "p_745990f11895",
+                "p_186fe1119dfe",
+                "p_e772800249ba",
+                "p_57236d1ce199",
+                "p_9a680ff3aec9",
+                "p_fdaa7c8190e6",
+                "p_b92565ac42d9",
+                "p_95d5ef16d6c9",
+                "p_fcca60fd00af",
+                "p_b25f65af8e6a",
+                "p_7ebe72583b39",
+                "p_7c3f8818d434",
+                "p_af1db5335ed2",
+                "p_e1ca8f1f5710",
+                "p_2f47f3c9c0d3",
+                "p_9f24b1a1ac44",
+                "p_cf9ac05dd29e",
+                "p_4147672103cb",
+                "p_ead616b8395f",
+                "p_53450bd1de2f",
+                "p_d49a5dc5a5b5",
+                "p_e21c69fcdf4b",
+                "p_c53b445b7b60",
+                "p_bf317a49a3ad",
+                "p_69bba3dbed0b",
+                "p_2920ceedf855",
+                "p_2f053765576a",
+                "p_2c2076280013",
+                "p_cce43eea79b5",
+                "p_c938e48cd624",
+                "p_cf5311a513a9",
+                "p_f8eb72d84339",
+                "p_964013e638df",
+                "p_3eeb0beb88f2",
+                "p_e4daf2d89f62",
+                "p_8100121c184b",
+                "p_49e9ad4871f6",
+                "p_844649a43c99",
+                "p_608803edf37e",
+                "p_3a7630a50616",
+                "p_a9c5baa24459",
+                "p_5c8b30c0f778",
+                "p_408a5278d6db"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "laptop game controller",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-variant-2026102703.json",
+              "result_entity_ids": [
+                "p_c0ca69623a18",
+                "p_f7abfb337fda",
+                "p_4902749e05f8",
+                "p_49317a42ad06",
+                "p_23b6285a1eaf",
+                "p_745990f11895",
+                "p_186fe1119dfe",
+                "p_e772800249ba",
+                "p_57236d1ce199",
+                "p_9a680ff3aec9",
+                "p_fdaa7c8190e6",
+                "p_b92565ac42d9",
+                "p_95d5ef16d6c9",
+                "p_fcca60fd00af",
+                "p_b25f65af8e6a",
+                "p_7ebe72583b39",
+                "p_7c3f8818d434",
+                "p_af1db5335ed2",
+                "p_e1ca8f1f5710",
+                "p_2f47f3c9c0d3",
+                "p_9f24b1a1ac44",
+                "p_cf9ac05dd29e",
+                "p_4147672103cb",
+                "p_ead616b8395f",
+                "p_53450bd1de2f",
+                "p_d49a5dc5a5b5",
+                "p_e21c69fcdf4b",
+                "p_c53b445b7b60",
+                "p_bf317a49a3ad",
+                "p_69bba3dbed0b",
+                "p_2920ceedf855",
+                "p_2f053765576a",
+                "p_2c2076280013",
+                "p_cce43eea79b5",
+                "p_c938e48cd624",
+                "p_cf5311a513a9",
+                "p_f8eb72d84339",
+                "p_964013e638df",
+                "p_3eeb0beb88f2",
+                "p_e4daf2d89f62",
+                "p_8100121c184b",
+                "p_49e9ad4871f6",
+                "p_844649a43c99",
+                "p_608803edf37e",
+                "p_3a7630a50616",
+                "p_a9c5baa24459",
+                "p_5c8b30c0f778",
+                "p_408a5278d6db"
+              ]
+            },
+            {
+              "stage": "calibration_after_change",
+              "query": "game controller",
+              "result_entity_ids": [
+                "p_48ac690d3a88",
+                "p_8e730cad3abb",
+                "p_d48a6247fae1",
+                "p_dd7826d4ab26",
+                "p_d67df7866f3d",
+                "p_fb11277a2525",
+                "p_4dc541915c3c",
+                "p_9b4f3b465879",
+                "p_0efbb4875970",
+                "p_1d31a1f8a038",
+                "p_e1c6cb86dbd8",
+                "p_fd71a9387633",
+                "p_04da090d8348",
+                "p_73934f3f4cd8",
+                "p_2c4244ead511",
+                "p_c63507ce201c",
+                "p_28d0600d8705",
+                "p_86df43efe210",
+                "p_1b878ca2e08e",
+                "p_012827248a7a",
+                "p_f34325e10df9",
+                "p_ac65e3555131",
+                "p_c8cc80b0b1a2",
+                "p_b8023ff887ce",
+                "p_4f3a4eeebc0e",
+                "p_ba0b0e07d002",
+                "p_0289562d9b9f",
+                "p_878c29329b38",
+                "p_6b1df1183900",
+                "p_aa6b4635e76a",
+                "p_298c8b36e6b5",
+                "p_1b14aae22ec9",
+                "p_ef0826305e9d",
+                "p_a76bdc6f82ff",
+                "p_1e1dfc876187",
+                "p_3b7b3cb7b260",
+                "p_2ca6a48f7683",
+                "p_69b2aca15bf5",
+                "p_f9e22bd9f1ee",
+                "p_0f480841809e",
+                "p_cfcde45a18af",
+                "p_52cb65f517dd",
+                "p_ace6910d0159",
+                "p_efa2a5eb2fbb",
+                "p_78fd4912bb4a",
+                "p_27f0d3a8904a",
+                "p_f3aca6f8c051",
+                "p_27f1ccde83d9"
+              ],
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-variant-2026102703.json",
+              "provider": "amazon-ca-search-first-page-v1"
+            },
+            {
+              "stage": "calibration_before_change",
+              "query": "laptop",
+              "result_entity_ids": [
+                "p_22a07e83ee65",
+                "p_bed82e8f7c83",
+                "p_4fb79e732673",
+                "p_45c6838b7485",
+                "p_d76792ae2c2a",
+                "p_30a1cd6dd0a3",
+                "p_5b879c9a4805",
+                "p_6daaaf501d89",
+                "p_555230d97fe3",
+                "p_192f2373a51a",
+                "p_a2a80d6c2f3d",
+                "p_6f8f513276ee",
+                "p_5cc5220937b9",
+                "p_5bb9a7af04a5",
+                "p_698ebdd050a9",
+                "p_f2bfad953865",
+                "p_024a3f8c4a0f",
+                "p_b5c29ae12388",
+                "p_ba6fb532670e",
+                "p_ffbd10df3d08",
+                "p_f674c12f6a54",
+                "p_eddd28d5ff01",
+                "p_279080250019",
+                "p_91d332d0d617",
+                "p_496dc8d3eedf",
+                "p_7f32042c82ed",
+                "p_93de2d36b42b",
+                "p_4042710e92ef",
+                "p_38178b54a9dc",
+                "p_f4cad794ce63",
+                "p_2422b6cec80e",
+                "p_36c0279db474",
+                "p_ca0709d543c7",
+                "p_7747120b7dc1",
+                "p_348121466b8a",
+                "p_20158d4fc29f",
+                "p_cd8c2d19461a",
+                "p_4727576dfe84",
+                "p_bdf6e370505a",
+                "p_1cb66b0c9c12",
+                "p_82fd52823496",
+                "p_d108b6dfea43",
+                "p_7f394b64d5b7",
+                "p_248ad28c46b0",
+                "p_af58d1902fc9",
+                "p_02a7f21a0f27",
+                "p_685333321813",
+                "p_80e93c1b090e"
+              ],
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-variant-2026102703.json",
+              "provider": "amazon-ca-search-first-page-v1"
+            },
+            {
+              "stage": "calibration_combined_devices",
+              "query": "laptop game controller",
+              "result_entity_ids": [
+                "p_48ac690d3a88",
+                "p_8e730cad3abb",
+                "p_1d31a1f8a038",
+                "p_05674fe151bb",
+                "p_86df43efe210",
+                "p_e8d9eff4441e",
+                "p_6c240e02cbcf",
+                "p_4dc541915c3c",
+                "p_c3025f29c830",
+                "p_c8cc80b0b1a2",
+                "p_32be733ada52",
+                "p_0289562d9b9f",
+                "p_9a2c7fb504ed",
+                "p_a7f553d84984",
+                "p_ef0826305e9d",
+                "p_bd3ef255c4e9",
+                "p_c43e151f4ef3",
+                "p_28d0600d8705",
+                "p_fb11277a2525",
+                "p_f13f48380ada",
+                "p_030a04da6095",
+                "p_ff4dfcc3f364",
+                "p_d67df7866f3d",
+                "p_9b5c4dcf5080",
+                "p_e7c027558057",
+                "p_d9253657675a",
+                "p_f7bf7a15009a",
+                "p_9b4f3b465879",
+                "p_6b1df1183900",
+                "p_f9e22bd9f1ee",
+                "p_d815cd9a15cb",
+                "p_1b14aae22ec9",
+                "p_a8bbee4db382",
+                "p_3a3afba4056d",
+                "p_193e0a0b6b78",
+                "p_f07e36945d63",
+                "p_73934f3f4cd8",
+                "p_0f5480aa4b7e",
+                "p_65258d69821e",
+                "p_e9553ae5a49d",
+                "p_9889a4188d16",
+                "p_f1332e1c9c46",
+                "p_b7948ea2aa0a",
+                "p_309c568e56e3",
+                "p_1716e1a5d4b4",
+                "p_e67ea3018e83",
+                "p_a7efe17a861e",
+                "p_77a982665e9b"
+              ],
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-variant-2026102703.json",
+              "provider": "amazon-ca-search-first-page-v1"
+            }
+          ],
+          "window_entity_ids": [
+            "p_c0ca69623a18",
+            "p_f7abfb337fda",
+            "p_4902749e05f8",
+            "p_49317a42ad06",
+            "p_23b6285a1eaf",
+            "p_745990f11895",
+            "p_186fe1119dfe",
+            "p_e772800249ba",
+            "p_57236d1ce199",
+            "p_9a680ff3aec9",
+            "p_fdaa7c8190e6",
+            "p_b92565ac42d9",
+            "p_95d5ef16d6c9",
+            "p_fcca60fd00af",
+            "p_b25f65af8e6a",
+            "p_7ebe72583b39",
+            "p_7c3f8818d434",
+            "p_af1db5335ed2",
+            "p_e1ca8f1f5710",
+            "p_2f47f3c9c0d3",
+            "p_9f24b1a1ac44",
+            "p_cf9ac05dd29e",
+            "p_4147672103cb",
+            "p_ead616b8395f",
+            "p_53450bd1de2f",
+            "p_d49a5dc5a5b5",
+            "p_e21c69fcdf4b",
+            "p_c53b445b7b60",
+            "p_bf317a49a3ad",
+            "p_69bba3dbed0b",
+            "p_2920ceedf855",
+            "p_2f053765576a",
+            "p_2c2076280013",
+            "p_cce43eea79b5",
+            "p_c938e48cd624",
+            "p_cf5311a513a9",
+            "p_f8eb72d84339",
+            "p_964013e638df",
+            "p_3eeb0beb88f2",
+            "p_e4daf2d89f62",
+            "p_8100121c184b",
+            "p_49e9ad4871f6",
+            "p_844649a43c99",
+            "p_608803edf37e",
+            "p_3a7630a50616",
+            "p_a9c5baa24459",
+            "p_5c8b30c0f778",
+            "p_408a5278d6db",
+            "p_48ac690d3a88",
+            "p_8e730cad3abb",
+            "p_d48a6247fae1",
+            "p_dd7826d4ab26",
+            "p_d67df7866f3d",
+            "p_fb11277a2525",
+            "p_4dc541915c3c",
+            "p_9b4f3b465879",
+            "p_0efbb4875970",
+            "p_1d31a1f8a038",
+            "p_e1c6cb86dbd8",
+            "p_fd71a9387633",
+            "p_04da090d8348",
+            "p_73934f3f4cd8",
+            "p_2c4244ead511",
+            "p_c63507ce201c",
+            "p_28d0600d8705",
+            "p_86df43efe210",
+            "p_1b878ca2e08e",
+            "p_012827248a7a",
+            "p_f34325e10df9",
+            "p_ac65e3555131",
+            "p_c8cc80b0b1a2",
+            "p_b8023ff887ce",
+            "p_4f3a4eeebc0e",
+            "p_ba0b0e07d002",
+            "p_0289562d9b9f",
+            "p_878c29329b38",
+            "p_6b1df1183900",
+            "p_aa6b4635e76a",
+            "p_298c8b36e6b5",
+            "p_1b14aae22ec9",
+            "p_ef0826305e9d",
+            "p_a76bdc6f82ff",
+            "p_1e1dfc876187",
+            "p_3b7b3cb7b260",
+            "p_2ca6a48f7683",
+            "p_69b2aca15bf5",
+            "p_f9e22bd9f1ee",
+            "p_0f480841809e",
+            "p_cfcde45a18af",
+            "p_52cb65f517dd",
+            "p_ace6910d0159",
+            "p_efa2a5eb2fbb",
+            "p_78fd4912bb4a",
+            "p_27f0d3a8904a",
+            "p_f3aca6f8c051",
+            "p_27f1ccde83d9",
+            "p_22a07e83ee65",
+            "p_bed82e8f7c83",
+            "p_4fb79e732673",
+            "p_45c6838b7485",
+            "p_d76792ae2c2a",
+            "p_30a1cd6dd0a3",
+            "p_5b879c9a4805",
+            "p_6daaaf501d89",
+            "p_555230d97fe3",
+            "p_192f2373a51a",
+            "p_a2a80d6c2f3d",
+            "p_6f8f513276ee",
+            "p_5cc5220937b9",
+            "p_5bb9a7af04a5",
+            "p_698ebdd050a9",
+            "p_f2bfad953865",
+            "p_024a3f8c4a0f",
+            "p_b5c29ae12388",
+            "p_ba6fb532670e",
+            "p_ffbd10df3d08",
+            "p_f674c12f6a54",
+            "p_eddd28d5ff01",
+            "p_279080250019",
+            "p_91d332d0d617",
+            "p_496dc8d3eedf",
+            "p_7f32042c82ed",
+            "p_93de2d36b42b",
+            "p_4042710e92ef",
+            "p_38178b54a9dc",
+            "p_f4cad794ce63",
+            "p_2422b6cec80e",
+            "p_36c0279db474",
+            "p_ca0709d543c7",
+            "p_7747120b7dc1",
+            "p_348121466b8a",
+            "p_20158d4fc29f",
+            "p_cd8c2d19461a",
+            "p_4727576dfe84",
+            "p_bdf6e370505a",
+            "p_1cb66b0c9c12",
+            "p_82fd52823496",
+            "p_d108b6dfea43",
+            "p_7f394b64d5b7",
+            "p_248ad28c46b0",
+            "p_af58d1902fc9",
+            "p_02a7f21a0f27",
+            "p_685333321813",
+            "p_80e93c1b090e",
+            "p_05674fe151bb",
+            "p_e8d9eff4441e",
+            "p_6c240e02cbcf",
+            "p_c3025f29c830",
+            "p_32be733ada52",
+            "p_9a2c7fb504ed",
+            "p_a7f553d84984",
+            "p_bd3ef255c4e9",
+            "p_c43e151f4ef3",
+            "p_f13f48380ada",
+            "p_030a04da6095",
+            "p_ff4dfcc3f364",
+            "p_9b5c4dcf5080",
+            "p_e7c027558057",
+            "p_d9253657675a",
+            "p_f7bf7a15009a",
+            "p_d815cd9a15cb",
+            "p_a8bbee4db382",
+            "p_3a3afba4056d",
+            "p_193e0a0b6b78",
+            "p_f07e36945d63",
+            "p_0f5480aa4b7e",
+            "p_65258d69821e",
+            "p_e9553ae5a49d",
+            "p_9889a4188d16",
+            "p_f1332e1c9c46",
+            "p_b7948ea2aa0a",
+            "p_309c568e56e3",
+            "p_1716e1a5d4b4",
+            "p_e67ea3018e83",
+            "p_a7efe17a861e",
+            "p_77a982665e9b"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_fdaa7c8190e6",
+            "p_57236d1ce199",
+            "p_ead616b8395f",
+            "p_2f053765576a"
+          ],
+          "related_entity_ids": [
+            "p_e772800249ba",
+            "p_b92565ac42d9",
+            "p_95d5ef16d6c9",
+            "p_fcca60fd00af",
+            "p_b25f65af8e6a",
+            "p_7ebe72583b39",
+            "p_7c3f8818d434",
+            "p_af1db5335ed2",
+            "p_e1ca8f1f5710",
+            "p_2f47f3c9c0d3",
+            "p_9f24b1a1ac44",
+            "p_cf9ac05dd29e",
+            "p_4147672103cb",
+            "p_53450bd1de2f",
+            "p_d49a5dc5a5b5",
+            "p_e21c69fcdf4b",
+            "p_fd71a9387633",
+            "p_1b878ca2e08e",
+            "p_ba0b0e07d002",
+            "p_a76bdc6f82ff",
+            "p_cfcde45a18af",
+            "p_ace6910d0159",
+            "p_efa2a5eb2fbb",
+            "p_78fd4912bb4a",
+            "p_27f1ccde83d9",
+            "p_22a07e83ee65",
+            "p_bed82e8f7c83",
+            "p_4fb79e732673",
+            "p_45c6838b7485",
+            "p_d76792ae2c2a",
+            "p_30a1cd6dd0a3",
+            "p_5b879c9a4805",
+            "p_6daaaf501d89",
+            "p_555230d97fe3",
+            "p_192f2373a51a",
+            "p_a2a80d6c2f3d",
+            "p_6f8f513276ee",
+            "p_5cc5220937b9",
+            "p_5bb9a7af04a5",
+            "p_698ebdd050a9",
+            "p_f2bfad953865",
+            "p_024a3f8c4a0f",
+            "p_b5c29ae12388",
+            "p_ba6fb532670e",
+            "p_ffbd10df3d08",
+            "p_f674c12f6a54",
+            "p_eddd28d5ff01",
+            "p_279080250019",
+            "p_91d332d0d617",
+            "p_496dc8d3eedf",
+            "p_7f32042c82ed",
+            "p_93de2d36b42b",
+            "p_4042710e92ef",
+            "p_38178b54a9dc",
+            "p_f4cad794ce63",
+            "p_2422b6cec80e",
+            "p_36c0279db474",
+            "p_ca0709d543c7",
+            "p_7747120b7dc1",
+            "p_348121466b8a",
+            "p_20158d4fc29f",
+            "p_cd8c2d19461a",
+            "p_4727576dfe84",
+            "p_bdf6e370505a",
+            "p_1cb66b0c9c12",
+            "p_82fd52823496",
+            "p_d108b6dfea43",
+            "p_7f394b64d5b7",
+            "p_248ad28c46b0",
+            "p_af58d1902fc9",
+            "p_02a7f21a0f27",
+            "p_685333321813",
+            "p_80e93c1b090e",
+            "p_0f5480aa4b7e",
+            "p_b7948ea2aa0a",
+            "p_309c568e56e3"
+          ],
+          "ambient_entity_ids": [
+            "p_c53b445b7b60",
+            "p_bf317a49a3ad",
+            "p_69bba3dbed0b",
+            "p_2920ceedf855",
+            "p_2c2076280013",
+            "p_cce43eea79b5",
+            "p_c938e48cd624",
+            "p_cf5311a513a9",
+            "p_f8eb72d84339",
+            "p_964013e638df",
+            "p_3eeb0beb88f2",
+            "p_e4daf2d89f62",
+            "p_8100121c184b",
+            "p_49e9ad4871f6",
+            "p_844649a43c99",
+            "p_608803edf37e",
+            "p_3a7630a50616",
+            "p_a9c5baa24459",
+            "p_5c8b30c0f778",
+            "p_408a5278d6db"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_fdaa7c8190e6",
+              "ring": "core",
+              "reason": "A laptop is the other physical candidate, not the white referenced device.",
+              "why_plausible": "One of the two requested device classes.",
+              "failure_predicates": [
+                "wrong_physical_reference"
+              ]
+            },
+            {
+              "entity_id": "p_57236d1ce199",
+              "ring": "core",
+              "reason": "This is a charging dock, not a game controller.",
+              "why_plausible": "Used with game controllers.",
+              "failure_predicates": [
+                "accessory_without_device"
+              ]
+            },
+            {
+              "entity_id": "p_ead616b8395f",
+              "ring": "core",
+              "reason": "This is a computer desk, not an electronic device.",
+              "why_plausible": "The title mentions controller storage.",
+              "failure_predicates": [
+                "different_product_class"
+              ]
+            },
+            {
+              "entity_id": "p_2f053765576a",
+              "ring": "core",
+              "reason": "This is a card game, not an electronic controller.",
+              "why_plausible": "A gaming-related search result.",
+              "failure_predicates": [
+                "different_product_class"
+              ]
+            },
+            {
+              "entity_id": "p_fd71a9387633",
+              "reason": "明确2 pack，图有两只完整手柄。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_1b878ca2e08e",
+              "reason": "明确2 Pack，黑白两只独立手柄。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_ba0b0e07d002",
+              "reason": "Joy-Con 2 L/R包装，左右两件可独立作为控制器，不是单一所指手柄设备。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_a76bdc6f82ff",
+              "reason": "Left and Right Switch Gamepad，两只独立控制器/左右手柄包。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_cfcde45a18af",
+              "reason": "PS3 Wireless 2-Pack，图有两只完整手柄。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_ace6910d0159",
+              "reason": "AceGamer 2 Pack Pocket Controller，图有两只独立控制器。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_efa2a5eb2fbb",
+              "reason": "标题2 Wired Gamepad且图两只，超过一设备。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_78fd4912bb4a",
+              "reason": "明确2 pack，图黑白两只完整控制器。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_27f1ccde83d9",
+              "reason": "PUBG 1 Pair手机机械扳机夹，图为安装手机上的机械按压附件，不是完整电子游戏手柄。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_0f5480aa4b7e",
+              "reason": "KIWITATA 2X，图有两只SNES完整控制器。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_b7948ea2aa0a",
+              "reason": "2 Packs SNES完整手柄，图两只，超过一个设备。",
+              "predicate": "wrong_product_or_package"
+            },
+            {
+              "entity_id": "p_309c568e56e3",
+              "reason": "2 Pack N64，图两只不同颜色完整控制器。",
+              "predicate": "wrong_product_or_package"
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ]
+        },
+        "belief_before": "Either the green closed computer or the white game controller is a plausible physical referent; both classes have reachable website listings.",
+        "belief_after": "The answer The white one identifies the game controller in the actual released scene; website brand and colour remain unrestricted.",
+        "required_behavior_change": "Use the physical colour answer to choose one controller listing, allowing its included accessories but not multiple devices; do not buy the computer branch.",
+        "no_update_failure": "Ignoring the answer leaves the two physical classes unresolved and may select the computer.",
+        "overupdate_failure": "Treating the physical white cue as a required website colour incorrectly excludes valid black or other-coloured controllers.",
+        "visual_dependency_claim": "The answer names a physical appearance rather than a product name. The picture is needed to associate white with the controller; the instruction explicitly allows any website colour."
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "answer_scope": "Initial construction covered 48 frozen-catalog entities. The complete calibrated 176-entity union contains 76 legal single-controller listings and 55 computer referents; ordinary included accessories are allowed, multiple devices and accessory-only listings are not. Independent decisions and the original blind verdict are preserved in the canonical assessment history.",
+        "package_scope": "One requested device may include cables, receiver, charging dock or mount. Multiple-device packs and accessory-only listings do not satisfy the request.",
+        "calibration": {
+          "reviewer": {
+            "agent_id": "/root/independent_new_candidates",
+            "context_id": "/root/independent_new_candidates"
+          },
+          "capture_paths": [
+            "data/sources/upstream_search_snapshots/amazon/candidate-mart-clarify-variant-2026102703--after_change.json",
+            "data/sources/upstream_search_snapshots/amazon/candidate-mart-clarify-variant-2026102703--before_change.json",
+            "data/sources/upstream_search_snapshots/amazon/candidate-mart-clarify-variant-2026102703--combined_devices.json"
+          ],
+          "scope": "Complete native result windows added without discarding the prior frozen window; old website facts and blind primary solutions retained. All added entities judged individually; two deciding detail passages published before trial."
+        }
+      },
+      "stream": {
+        "session_seconds": [
+          0.5,
+          71.5
+        ],
+        "review_evidence": ".scratch/stream-materials/review/candidate-mart-clarify-variant-2026102703/review.json"
+      }
+    },
+    {
+      "task_id": "candidate-mart-clarify-position-2026102804",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          18
+        ],
+        "media_id": "b1a1280a-1f7f-4796-bca2-ba03f3fb9345",
+        "original_video_id": "b1a1280a-1f7f-4796-bca2-ba03f3fb9345",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              40,
+              51
+            ],
+            "description": "The wearer cooks in a round pan on the hob, to the left of the rectangular red cutting board on the adjacent worktop."
+          }
+        ],
+        "scope_note": "Left and right refer to this cooking interval. The need for a spare is authored, not a claim made by the source recording."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            40,
+            42,
+            44,
+            46,
+            48,
+            49,
+            50,
+            51
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102804/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The cutting board is on the wearer’s right of the round cooking pan. The released frames show a flat, straight-edged rectangular board whose right edge stays outside the image, so its aspect ratio is not established; square or oblong, exact colour, dimensions and material are not requirements.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent resolve a natural spatial reference between two real kitchen items and buy a practical spare rather than the wrong object, accessory or pack?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I'm cooking and need another one of these two items—the board or the pan—for a second preparation area. Add one individual item with a working surface of the same general shape to the cart. Any brand, colour, material or size is fine; no sets.",
+          "oracle_instruction": "I'm cooking and need another one of these two items—the board or the pan—for a second preparation area. I mean the item on my right. Add one individual item with a working surface of the same general shape to the cart. Any brand, colour, material or size is fine; no sets.",
+          "candidate_roles": [
+            "board",
+            "pan"
+          ],
+          "hidden_target_role": "board",
+          "valid_slot": "position",
+          "canonical_question": "Do you mean the item on your left or on your right?",
+          "canonical_answer": "The one on my right.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "board": "p_df7ff0bb7df7",
+            "pan": "p_5d8de116d98f"
+          },
+          "equivalent_role_ids": {
+            "board": [
+              "p_a7357dfd087b",
+              "p_acbaa6549057",
+              "p_abea599c0acb",
+              "p_b8a6140cd1eb",
+              "p_9e2f11085f06",
+              "p_7da6a0ce4322",
+              "p_cc94c5c8bb69",
+              "p_c883ca1a5604",
+              "p_0163903151ba",
+              "p_42f7bb5c2e63",
+              "p_8e74983285bc",
+              "p_5852391e77ad",
+              "p_b6b4b19e4a84",
+              "p_8247ef1e3fb0",
+              "p_79a2ab901fff",
+              "p_73bf11a7fb11",
+              "p_ff785d055ca2",
+              "p_65f0e97f775d",
+              "p_7103004640b8",
+              "p_35c6a33ab280",
+              "p_6c903ccea21b",
+              "p_3521efa8af00",
+              "p_47246a89c470",
+              "p_9085174bb86e",
+              "p_583614d031eb",
+              "p_5de5eb353dbb",
+              "p_133c909b608d",
+              "p_85a1c5b3472e",
+              "p_1c95b02e1dae",
+              "p_514032a306d6",
+              "p_1d0077e881f3",
+              "p_ecda32bd5d55",
+              "p_533408b61071",
+              "p_5dc09460bde6",
+              "p_2be8e84d0763",
+              "p_6de24740788c",
+              "p_97def538980c",
+              "p_e6413490afe7",
+              "p_a40b64e280f8"
+            ],
+            "pan": [
+              "p_48d38c4a07ef",
+              "p_d113551b44ae",
+              "p_8a7eaa9a2b25",
+              "p_2f3cb63631ae",
+              "p_839507bc9818",
+              "p_71a8d25134c8",
+              "p_1eaa7488b8ff",
+              "p_5769ce2a84c5",
+              "p_586d57e59626",
+              "p_e1723a22040c",
+              "p_2245cecd9c3e",
+              "p_9d2c32f55827",
+              "p_c5edcfdfc706",
+              "p_7ceb4bec4ea0",
+              "p_63d16d558081",
+              "p_67ad92c7ca79",
+              "p_52b7d3cb6bd5",
+              "p_26b3b05a20bf",
+              "p_c0bd8a880c28",
+              "p_ded04d11098f",
+              "p_5df5da31a47f",
+              "p_e8ade946ab59",
+              "p_28bad4916ffe",
+              "p_6fe156f5b24f",
+              "p_a9f95778a0f6",
+              "p_4a11fd74f5bd",
+              "p_381290e8178f",
+              "p_027259fe74fb",
+              "p_1cb60295a41b",
+              "p_ebb809677a77",
+              "p_66c4e21bc652"
+            ]
+          },
+          "completion_claim": "Exactly one individual flat rectangular (square or oblong) cutting board from all verified alternatives in the final cart. Pan depth, board handle shape, folds, brand, material, colour, aspect ratio and dimensions are not hidden constraints."
+        },
+        "decision": {
+          "candidates": {
+            "board": "p_df7ff0bb7df7",
+            "pan": "p_5d8de116d98f"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "board"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The answer gives only wearer-relative right; the released scene links right to the board, not to a product name."
+            }
+          ],
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-28",
+          "note": "New physical source; website boundary inherited from the reviewed kitchen-position task. Independent scene and no-scene checks still required."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "after_change",
+              "query": "rectangular cutting board single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102802.json",
+              "result_entity_ids": [
+                "p_df7ff0bb7df7",
+                "p_a7357dfd087b",
+                "p_acbaa6549057",
+                "p_abea599c0acb",
+                "p_b8a6140cd1eb",
+                "p_9e2f11085f06",
+                "p_049f910377a2",
+                "p_7da6a0ce4322",
+                "p_cc94c5c8bb69",
+                "p_c883ca1a5604",
+                "p_0163903151ba",
+                "p_42f7bb5c2e63",
+                "p_8e74983285bc",
+                "p_5852391e77ad",
+                "p_b6b4b19e4a84",
+                "p_9f6fc4503323",
+                "p_8247ef1e3fb0",
+                "p_79a2ab901fff",
+                "p_a40b64e280f8",
+                "p_73bf11a7fb11",
+                "p_e6413490afe7",
+                "p_ff785d055ca2",
+                "p_65f0e97f775d",
+                "p_7103004640b8",
+                "p_35c6a33ab280",
+                "p_854b96d1e518",
+                "p_6c903ccea21b",
+                "p_3521efa8af00",
+                "p_a5dcb6c18f97",
+                "p_47246a89c470",
+                "p_9085174bb86e",
+                "p_97def538980c",
+                "p_583614d031eb",
+                "p_5de5eb353dbb",
+                "p_f88f7e0d52de",
+                "p_133c909b608d",
+                "p_a139bcaddd6e",
+                "p_d7c08fad4fa3",
+                "p_85a1c5b3472e",
+                "p_1c95b02e1dae",
+                "p_514032a306d6",
+                "p_1d0077e881f3",
+                "p_f92b476fa522",
+                "p_ecda32bd5d55",
+                "p_533408b61071",
+                "p_5dc09460bde6",
+                "p_2be8e84d0763",
+                "p_6de24740788c"
+              ],
+              "snapshot_task_id": "candidate-mart-clarify-position-2026102802"
+            },
+            {
+              "stage": "before_change",
+              "query": "cooking pan single handle",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102802.json",
+              "result_entity_ids": [
+                "p_5d8de116d98f",
+                "p_48d38c4a07ef",
+                "p_d113551b44ae",
+                "p_dfa987f0c48e",
+                "p_8a7eaa9a2b25",
+                "p_8c9a7d9aa4c5",
+                "p_2f3cb63631ae",
+                "p_839507bc9818",
+                "p_71a8d25134c8",
+                "p_1eaa7488b8ff",
+                "p_5769ce2a84c5",
+                "p_586d57e59626",
+                "p_9973f5ab4a13",
+                "p_e1723a22040c",
+                "p_2245cecd9c3e",
+                "p_9d2c32f55827",
+                "p_762edf1e5ed1",
+                "p_d4b544b0c6f7",
+                "p_c5edcfdfc706",
+                "p_7ceb4bec4ea0",
+                "p_63d16d558081",
+                "p_67ad92c7ca79",
+                "p_52b7d3cb6bd5",
+                "p_2f408373b0b9",
+                "p_ce9575ee3982",
+                "p_26b3b05a20bf",
+                "p_c0bd8a880c28",
+                "p_ded04d11098f",
+                "p_5df5da31a47f",
+                "p_0a7e5659dd58",
+                "p_e8ade946ab59",
+                "p_d642bf4e9be3",
+                "p_28bad4916ffe",
+                "p_3a1c31f83747",
+                "p_defa9aad0b1b",
+                "p_d862f42c2526",
+                "p_6fe156f5b24f",
+                "p_a9f95778a0f6",
+                "p_4a11fd74f5bd",
+                "p_3a0e2299e75b",
+                "p_41196ffcd0ef",
+                "p_381290e8178f",
+                "p_027259fe74fb",
+                "p_af4a53b84cce",
+                "p_097edf76d373",
+                "p_1cb60295a41b",
+                "p_ebb809677a77",
+                "p_66c4e21bc652"
+              ],
+              "snapshot_task_id": "candidate-mart-clarify-position-2026102802"
+            }
+          ],
+          "window_entity_ids": [
+            "p_df7ff0bb7df7",
+            "p_a7357dfd087b",
+            "p_acbaa6549057",
+            "p_abea599c0acb",
+            "p_b8a6140cd1eb",
+            "p_9e2f11085f06",
+            "p_049f910377a2",
+            "p_7da6a0ce4322",
+            "p_cc94c5c8bb69",
+            "p_c883ca1a5604",
+            "p_0163903151ba",
+            "p_42f7bb5c2e63",
+            "p_8e74983285bc",
+            "p_5852391e77ad",
+            "p_b6b4b19e4a84",
+            "p_9f6fc4503323",
+            "p_8247ef1e3fb0",
+            "p_79a2ab901fff",
+            "p_a40b64e280f8",
+            "p_73bf11a7fb11",
+            "p_e6413490afe7",
+            "p_ff785d055ca2",
+            "p_65f0e97f775d",
+            "p_7103004640b8",
+            "p_35c6a33ab280",
+            "p_854b96d1e518",
+            "p_6c903ccea21b",
+            "p_3521efa8af00",
+            "p_a5dcb6c18f97",
+            "p_47246a89c470",
+            "p_9085174bb86e",
+            "p_97def538980c",
+            "p_583614d031eb",
+            "p_5de5eb353dbb",
+            "p_f88f7e0d52de",
+            "p_133c909b608d",
+            "p_a139bcaddd6e",
+            "p_d7c08fad4fa3",
+            "p_85a1c5b3472e",
+            "p_1c95b02e1dae",
+            "p_514032a306d6",
+            "p_1d0077e881f3",
+            "p_f92b476fa522",
+            "p_ecda32bd5d55",
+            "p_533408b61071",
+            "p_5dc09460bde6",
+            "p_2be8e84d0763",
+            "p_6de24740788c",
+            "p_5d8de116d98f",
+            "p_48d38c4a07ef",
+            "p_d113551b44ae",
+            "p_dfa987f0c48e",
+            "p_8a7eaa9a2b25",
+            "p_8c9a7d9aa4c5",
+            "p_2f3cb63631ae",
+            "p_839507bc9818",
+            "p_71a8d25134c8",
+            "p_1eaa7488b8ff",
+            "p_5769ce2a84c5",
+            "p_586d57e59626",
+            "p_9973f5ab4a13",
+            "p_e1723a22040c",
+            "p_2245cecd9c3e",
+            "p_9d2c32f55827",
+            "p_762edf1e5ed1",
+            "p_d4b544b0c6f7",
+            "p_c5edcfdfc706",
+            "p_7ceb4bec4ea0",
+            "p_63d16d558081",
+            "p_67ad92c7ca79",
+            "p_52b7d3cb6bd5",
+            "p_2f408373b0b9",
+            "p_ce9575ee3982",
+            "p_26b3b05a20bf",
+            "p_c0bd8a880c28",
+            "p_ded04d11098f",
+            "p_5df5da31a47f",
+            "p_0a7e5659dd58",
+            "p_e8ade946ab59",
+            "p_d642bf4e9be3",
+            "p_28bad4916ffe",
+            "p_3a1c31f83747",
+            "p_defa9aad0b1b",
+            "p_d862f42c2526",
+            "p_6fe156f5b24f",
+            "p_a9f95778a0f6",
+            "p_4a11fd74f5bd",
+            "p_3a0e2299e75b",
+            "p_41196ffcd0ef",
+            "p_381290e8178f",
+            "p_027259fe74fb",
+            "p_af4a53b84cce",
+            "p_097edf76d373",
+            "p_1cb60295a41b",
+            "p_ebb809677a77",
+            "p_66c4e21bc652"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_049f910377a2",
+            "p_854b96d1e518",
+            "p_48d38c4a07ef",
+            "p_762edf1e5ed1"
+          ],
+          "related_entity_ids": [
+            "p_9f6fc4503323",
+            "p_a5dcb6c18f97",
+            "p_f88f7e0d52de",
+            "p_a139bcaddd6e",
+            "p_d7c08fad4fa3",
+            "p_f92b476fa522",
+            "p_5d8de116d98f",
+            "p_d113551b44ae",
+            "p_dfa987f0c48e",
+            "p_8a7eaa9a2b25",
+            "p_8c9a7d9aa4c5",
+            "p_2f3cb63631ae",
+            "p_839507bc9818",
+            "p_71a8d25134c8",
+            "p_1eaa7488b8ff"
+          ],
+          "ambient_entity_ids": [
+            "p_5769ce2a84c5",
+            "p_586d57e59626",
+            "p_9973f5ab4a13",
+            "p_e1723a22040c",
+            "p_2245cecd9c3e",
+            "p_9d2c32f55827",
+            "p_d4b544b0c6f7",
+            "p_c5edcfdfc706",
+            "p_7ceb4bec4ea0",
+            "p_63d16d558081",
+            "p_67ad92c7ca79",
+            "p_52b7d3cb6bd5",
+            "p_2f408373b0b9",
+            "p_ce9575ee3982",
+            "p_26b3b05a20bf",
+            "p_c0bd8a880c28",
+            "p_ded04d11098f",
+            "p_5df5da31a47f",
+            "p_0a7e5659dd58",
+            "p_e8ade946ab59",
+            "p_d642bf4e9be3",
+            "p_28bad4916ffe",
+            "p_3a1c31f83747",
+            "p_defa9aad0b1b",
+            "p_d862f42c2526",
+            "p_6fe156f5b24f",
+            "p_a9f95778a0f6",
+            "p_4a11fd74f5bd",
+            "p_3a0e2299e75b",
+            "p_41196ffcd0ef",
+            "p_381290e8178f",
+            "p_027259fe74fb",
+            "p_af4a53b84cce",
+            "p_097edf76d373",
+            "p_1cb60295a41b",
+            "p_ebb809677a77",
+            "p_66c4e21bc652"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_049f910377a2",
+              "ring": "core",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_9f6fc4503323",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_854b96d1e518",
+              "ring": "core",
+              "reason": "A board holder, not a cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "accessory_not_board"
+              ]
+            },
+            {
+              "entity_id": "p_a5dcb6c18f97",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_f88f7e0d52de",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_a139bcaddd6e",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_d7c08fad4fa3",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_f92b476fa522",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_5d8de116d98f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_48d38c4a07ef",
+              "ring": "core",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d113551b44ae",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_dfa987f0c48e",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_8a7eaa9a2b25",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_8c9a7d9aa4c5",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2f3cb63631ae",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_839507bc9818",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_71a8d25134c8",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_1eaa7488b8ff",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_5769ce2a84c5",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_586d57e59626",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9973f5ab4a13",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_e1723a22040c",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2245cecd9c3e",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9d2c32f55827",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_762edf1e5ed1",
+              "ring": "core",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d4b544b0c6f7",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_c5edcfdfc706",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7ceb4bec4ea0",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_63d16d558081",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_67ad92c7ca79",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_52b7d3cb6bd5",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2f408373b0b9",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ce9575ee3982",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_26b3b05a20bf",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_c0bd8a880c28",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ded04d11098f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_5df5da31a47f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_0a7e5659dd58",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_e8ade946ab59",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d642bf4e9be3",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_28bad4916ffe",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3a1c31f83747",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_defa9aad0b1b",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d862f42c2526",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6fe156f5b24f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a9f95778a0f6",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4a11fd74f5bd",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3a0e2299e75b",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_41196ffcd0ef",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_381290e8178f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_027259fe74fb",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_af4a53b84cce",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_097edf76d373",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_1cb60295a41b",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ebb809677a77",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_66c4e21bc652",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ],
+          "reuse_note": "Unchanged public entities and same general-working-surface matching rule as candidate-mart-clarify-position-2026102802. Captured source pages remain at their original paths; no synthetic rankings or new captures claimed."
+        },
+        "catalogue_assessment": {
+          "rule": "One individual flat board with a rectangular (square or oblong) working surface; ordinary lids, serving use, folded lips, hanging holes and end handles do not disqualify an otherwise useful board. Exclude multi-board or tableware packages and standalone holders. Rounded corners are acceptable. A double-sided board pictured from both sides is one board, not a set. No exact model, colour or aspect-ratio matching. A single board with a rectangular main working surface remains acceptable when it adds holding fixtures. Shape refers to the working surface, not a projecting handle or fixture.",
+          "initial_accepted": [
+            "p_df7ff0bb7df7",
+            "p_a7357dfd087b",
+            "p_acbaa6549057",
+            "p_abea599c0acb",
+            "p_b8a6140cd1eb",
+            "p_9e2f11085f06",
+            "p_7da6a0ce4322",
+            "p_cc94c5c8bb69",
+            "p_c883ca1a5604",
+            "p_0163903151ba",
+            "p_42f7bb5c2e63",
+            "p_8e74983285bc",
+            "p_5852391e77ad",
+            "p_b6b4b19e4a84",
+            "p_8247ef1e3fb0",
+            "p_79a2ab901fff",
+            "p_73bf11a7fb11",
+            "p_ff785d055ca2",
+            "p_65f0e97f775d",
+            "p_7103004640b8",
+            "p_35c6a33ab280",
+            "p_6c903ccea21b",
+            "p_3521efa8af00",
+            "p_47246a89c470",
+            "p_9085174bb86e",
+            "p_583614d031eb",
+            "p_5de5eb353dbb",
+            "p_133c909b608d",
+            "p_85a1c5b3472e",
+            "p_1c95b02e1dae",
+            "p_514032a306d6",
+            "p_1d0077e881f3",
+            "p_ecda32bd5d55",
+            "p_533408b61071",
+            "p_5dc09460bde6",
+            "p_2be8e84d0763",
+            "p_6de24740788c",
+            "p_5d8de116d98f",
+            "p_48d38c4a07ef",
+            "p_d113551b44ae",
+            "p_8a7eaa9a2b25",
+            "p_2f3cb63631ae",
+            "p_839507bc9818",
+            "p_71a8d25134c8",
+            "p_1eaa7488b8ff",
+            "p_5769ce2a84c5",
+            "p_586d57e59626",
+            "p_e1723a22040c",
+            "p_2245cecd9c3e",
+            "p_9d2c32f55827",
+            "p_c5edcfdfc706",
+            "p_7ceb4bec4ea0",
+            "p_63d16d558081",
+            "p_67ad92c7ca79",
+            "p_52b7d3cb6bd5",
+            "p_26b3b05a20bf",
+            "p_c0bd8a880c28",
+            "p_ded04d11098f",
+            "p_5df5da31a47f",
+            "p_e8ade946ab59",
+            "p_28bad4916ffe",
+            "p_6fe156f5b24f",
+            "p_a9f95778a0f6",
+            "p_4a11fd74f5bd",
+            "p_381290e8178f",
+            "p_027259fe74fb",
+            "p_1cb60295a41b",
+            "p_ebb809677a77",
+            "p_66c4e21bc652",
+            "p_97def538980c"
+          ],
+          "final_accepted": [
+            "p_df7ff0bb7df7",
+            "p_a7357dfd087b",
+            "p_acbaa6549057",
+            "p_abea599c0acb",
+            "p_b8a6140cd1eb",
+            "p_9e2f11085f06",
+            "p_7da6a0ce4322",
+            "p_cc94c5c8bb69",
+            "p_c883ca1a5604",
+            "p_0163903151ba",
+            "p_42f7bb5c2e63",
+            "p_8e74983285bc",
+            "p_5852391e77ad",
+            "p_b6b4b19e4a84",
+            "p_8247ef1e3fb0",
+            "p_79a2ab901fff",
+            "p_73bf11a7fb11",
+            "p_ff785d055ca2",
+            "p_65f0e97f775d",
+            "p_7103004640b8",
+            "p_35c6a33ab280",
+            "p_6c903ccea21b",
+            "p_3521efa8af00",
+            "p_47246a89c470",
+            "p_9085174bb86e",
+            "p_583614d031eb",
+            "p_5de5eb353dbb",
+            "p_133c909b608d",
+            "p_85a1c5b3472e",
+            "p_1c95b02e1dae",
+            "p_514032a306d6",
+            "p_1d0077e881f3",
+            "p_ecda32bd5d55",
+            "p_533408b61071",
+            "p_5dc09460bde6",
+            "p_2be8e84d0763",
+            "p_6de24740788c",
+            "p_97def538980c"
+          ],
+          "evidence": "Both complete 48-result native pages, all 96 public listing images and titles screened; shared real products deduplicated by ASIN. Independent review found the general-shape modifier ambiguous and the square claim for p_97def538980c unsupported. The former is clarified in both public instructions; the latter is accepted as a practical substitute from its visible rectangular board rather than excluded without evidence."
+        },
+        "belief_before": "Either the visible cutting board or the visible cooking pan could be the requested spare.",
+        "belief_after": "The right-hand referent is the cutting board; choose one practical individual rectangular cutting board.",
+        "required_behavior_change": "Use the wearer-relative spatial answer to choose the board and leave no pan or extra item in the final cart.",
+        "no_update_failure": "Guess the pan or retain ambiguity without using the available answer.",
+        "overupdate_failure": "Buy both kitchen items, or impose an unrequested exact colour, material or brand.",
+        "visual_dependency_claim": "The answer names only right. The physical view is needed to link that direction to the board; both referent families exist in the real search window. A single well-aimed frame may suffice, which is acceptable for this static-reference control."
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Reviewed 10-second overview, 1-second samples from 40–65 seconds and native views. Original recording differs from all 195 formal tasks. Reused the existing verified rectangular-board and round-pan public catalogue; no claim of new live search capture."
+      },
+      "repair": {
+        "date": "2026-10-28",
+        "changes": [
+          "Expressed the authored purpose of a second preparation area and removed duplicate wording; referents, spatial answer, shape rule, website and all legal endings unchanged."
+        ],
+        "retained_evidence": "Sealed first-pass blind solution remains applicable; second pass checks the revised public wording."
+      },
+      "repair_history": [
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary: added natural broader real search rounds and/or neutralised leaking wording",
+          "constructor": "constructor-2804-20261031",
+          "decision_path": ".scratch/shortcut-repair/decisions/candidate-mart-clarify-position-2026102804.json",
+          "necessity_review_path": ".scratch/necessity-20261030/reviews/candidate-mart-clarify-position-2026102804.json",
+          "new_query_rounds": [],
+          "accepted_new": 0,
+          "rejected_new": 0,
+          "changed_existing": 2,
+          "residual_shortcut_check": {
+            "text_only_query": "The released words ('I'm cooking and need a second one of these two kitchen items ... one individual item of the same general shape ... any brand, colour, material or size; no sets') name neither item and give no purpose that separates a board from a pan. 'I'm cooking' leans slightly toward a pan if anything. A no-image agent should ask; the canonical answer 'the one on my right' cannot be resolved without the frames. A guessing agent would pick roughly evenly between 'cutting board' and 'frying pan'.",
+            "text_only_accept_fraction_estimate": "About 40-50%: a 'cutting board' guess lands on an accepted item about 40 of 48 times (40 of 48 board-query results accepted after this recheck), and a pan guess never does. With roughly even guessing, that is a coin flip or worse. The old wording was near 100%.",
+            "scene_decides": true,
+            "remaining_issue": "None from the wording. The only text-side residue is that 'cutting board' is the more common kitchen-spare guess, which keeps text-only success near half. That is inherent to a two-referent clarify task and is not a leak.",
+            "proposed_fix": "None needed. No search-coverage change: the window already holds one full real board query and one full real pan query."
+          },
+          "addressed_review": [
+            "2026-10-31 独立 Coding Agent 画面必要性审核（necessity-reviewer-A，.scratch/necessity-20261030/reviews/candidate-mart-clarify-position-2026102804.json）判为文字捷径：Frames show a pan being stirred on the induction hob and a red/salmon rectangular cutting board at the right edge. The scene decides board vs pan; within boards it adds only 'rectangular', and the text allows any brand, colour, material or size. 修复方向：Remove 'for a second preparation area' and 'working surface' so the wording fits pan and board equally (e.g. 'another one of these two kitchen items, same general shape, any brand/colour/material/size, no sets'); then only the right-hand position in the frames decides the referent."
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          40.0,
+          115.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-position-2026102804/review.json"
+      }
+    }
+  ]
+}

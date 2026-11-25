@@ -1,0 +1,31 @@
+{% if content.leaderboard %}
+<p class="lede">Success rates (%) on the same {{ content.main_eval.paired }} tasks in all three settings.</p>
+<div class="sheet">
+  <table aria-label="Model success rates">
+    <thead>
+      <tr>
+        <th scope="col">Model</th>
+        <th scope="col">Computer-Use</th>
+        <th scope="col">Offline Ego Use</th>
+        <th scope="col">Online Ego Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for group in content.groups %}
+      <tr class="group"><th colspan="4">{{ group.label }}</th></tr>
+      {% for row in content.leaderboard if row.group == group.id %}
+      <tr>
+        <th scope="row">{{ row.model }}</th>
+        <td>{{ "%.1f"|format(row.computer_use) }}</td>
+        <td>{{ "%.1f"|format(row.offline) }}</td>
+        <td class="online">{{ "%.1f"|format(row.online) }}</td>
+      </tr>
+      {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="note">{{ content.source_note }}</p>
+</div>
+{% else %}
+<p class="lede">Evaluation results are not included in this release.</p>
+{% endif %}

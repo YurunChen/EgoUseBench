@@ -1,0 +1,2246 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "HD-EPIC official Bristol research distribution. User confirmed dataset authorization."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102414",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P04-20240415-181212__222-856",
+        "original_video_id": "P04-20240415-181212",
+        "media_start_seconds": 222,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P04-20240415-181212__222-856.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P04/P04-20240415-181212.mp4",
+        "record_ids": [
+          "P04-20240415-181212-106",
+          "P04-20240415-181212-257",
+          "P04-20240415-181212-290",
+          "P04-20240415-181212-291",
+          "P04-20240415-181212-325",
+          "P04-20240415-181212-326"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "seconds": [
+              223,
+              224
+            ],
+            "fact": "A metal spoon scrapes food from the pestle held over a small handleless mortar."
+          },
+          {
+            "seconds": [
+              555,
+              556
+            ],
+            "fact": "A broad wooden spatula is dried with a purple cloth beside the sink."
+          },
+          {
+            "seconds": [
+              654,
+              655,
+              852,
+              853
+            ],
+            "fact": "The same broad wooden spatula stirs in a metal cooking vessel with one long handle; pressure operation, exact body material and model are not task requirements."
+          },
+          {
+            "seconds": [
+              819,
+              820
+            ],
+            "fact": "Frozen peas are measured in a separate small metal cup and transferred to a bowl on the scale."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact original retail identity, brand, capacity or dimensions.",
+          "The future use described by the constructed instruction is not an observed video event."
+        ]
+      },
+      "screening": {
+        "real_user_need": "Keep one matching extra vessel available to prepare two batches side by side.",
+        "scope_note": "New independent recording; independent final answer audit pending. Both conditions deliver the same full physical reference upfront.",
+        "proposed_instruction": "Next time I want to prepare two batches side by side. Add one spare food-preparation vessel with the same broad handle layout as one of the vessels I used here; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_223.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_224.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_555.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_556.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_654.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_655.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_819.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_820.jpg"
+          ],
+          "timestamps_seconds": [
+            223,
+            224,
+            555,
+            556,
+            654,
+            655,
+            819,
+            820
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the model link the identifying action and the actual tool-container use when more observed events separate these necessary facts?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The handleless mortar used with a metal spoon and the cooking vessel used with the wooden spatula are both possible vessels.",
+        "belief_after": "The wooden spatula dried with the cloth is subsequently used in the vessel with a single long handle.",
+        "required_behavior_change": "Link the two necessary observed events and buy one spare matching the referenced object.",
+        "no_update_failure": "Without the physical reference, two observed objects are plausible. The same reference is supplied upfront in both Span conditions.",
+        "overupdate_failure": "Buying both candidate objects or multiple items violates the request for one spare.",
+        "visual_dependency_claim": "Neither the identifying action nor the tool-container relation alone determines the requested object; both must be linked across the source sequence.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Next time I want to prepare two batches side by side. Add one spare food-preparation vessel with the same broad handle layout as one of the vessels I used here; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine.",
+          "oracle_instruction": "Next time I want to prepare two batches side by side. Add one spare food-preparation vessel with the same broad handle layout as the vessel I used with the utensil I dried with the cloth; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "target_vessel",
+            "other_vessel"
+          ],
+          "hidden_target_role": "target_vessel",
+          "valid_slot": "sequence",
+          "canonical_question": "Which food-preparation vessel do you mean?",
+          "canonical_answer": "The one I used with the utensil I dried with the cloth.",
+          "environment_role_ids": {
+            "target_vessel": "p_b4f66bba3ada",
+            "other_vessel": "p_6afb3ad7e2f9"
+          },
+          "equivalent_role_ids": {
+            "target_vessel": [
+              "p_e4c213f731db",
+              "p_d84468ad7cb6",
+              "p_8c9106c838a4",
+              "p_474f66cdaadb",
+              "p_90d6a79f82ec",
+              "p_7da97dbcebd7",
+              "p_0802715445c9",
+              "p_35891ce25591",
+              "p_b8345bebc403",
+              "p_16718393e530",
+              "p_5d23fbc6dbd3",
+              "p_dae7c3250db2",
+              "p_0b6bf574f507",
+              "p_530c061f0f4e",
+              "p_781b7f160535",
+              "p_596c8dd60338",
+              "p_1b0b8d3205cc",
+              "p_8ac2aa95f987",
+              "p_4071df1ef202",
+              "p_e2bd008d96c2",
+              "p_84eeea1266bd",
+              "p_d6581e004a26",
+              "p_450857ca86f8",
+              "p_93957f087fcd",
+              "p_0a9569e0b3b6",
+              "p_572c64c4da65",
+              "p_85969c942a99",
+              "p_d4b544b0c6f7",
+              "p_000fb369c5a8",
+              "p_ba3045225ef0",
+              "p_605a093cbb69",
+              "p_aa59c5888271",
+              "p_e803252f5e33",
+              "p_19457bb0ac99",
+              "p_2e5d98b5884d",
+              "p_4dc65526ebb0",
+              "p_bc3112c437d5",
+              "p_fd7bbbe336bd",
+              "p_46518f72bdd3",
+              "p_e4b5cf9afbd0",
+              "p_519888de602b",
+              "p_05e8791c6734"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "single round bowl",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026101706--after_change.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-2026101706",
+              "result_entity_ids": [
+                "p_b1203bcb9b41",
+                "p_3db30a4c7df3",
+                "p_c736b815b22d",
+                "p_974c315c0ddf",
+                "p_e15c1831362b",
+                "p_4970c7aa7dea",
+                "p_c3006f800343",
+                "p_83fb7735c857",
+                "p_92eb99a6ce50",
+                "p_094c2d797572",
+                "p_4049be28e96a",
+                "p_45e9df3a6f89",
+                "p_038177ea7c4c",
+                "p_d1e2c1b4504a",
+                "p_7f09a58ca5e5",
+                "p_02f7f87d5b5f",
+                "p_10b51218457d",
+                "p_6afb3ad7e2f9",
+                "p_b447b3fb5d2a",
+                "p_4e49288631df",
+                "p_9917c580f3b1",
+                "p_99cad0791444",
+                "p_947649f1a87a",
+                "p_aa2053e18e40",
+                "p_f93ad21f4c6a",
+                "p_38bdfc6c797f",
+                "p_a8f4de5dd79c",
+                "p_fe81fa221b11",
+                "p_d6ef9bb344ae",
+                "p_a826b72fd51f",
+                "p_0ad099710d8e",
+                "p_c4ddf091f748",
+                "p_164c309c14d1",
+                "p_e0b44c7e2c0e",
+                "p_4642732ec754",
+                "p_7933da5cb09a",
+                "p_e911998c71c9",
+                "p_541c95e06aaf",
+                "p_6d70350b03ae",
+                "p_f9d2404a8a20",
+                "p_ad0a7d869085",
+                "p_4280c20066d9",
+                "p_c682e079daae",
+                "p_0e80cedb1cba",
+                "p_3f8ca123c8f6",
+                "p_9ec7488e594b",
+                "p_53b289e54d3e",
+                "p_d65bcaf918eb"
+              ],
+              "snapshot_stage": "after_change"
+            },
+            {
+              "stage": "after_change",
+              "query": "nonstick skillet pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-17.json",
+              "snapshot_task_id": "candidate-mart-graft-p-17",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_e4c213f731db",
+                "p_d84468ad7cb6",
+                "p_b4f66bba3ada",
+                "p_8c9106c838a4",
+                "p_e4b5cf9afbd0",
+                "p_474f66cdaadb",
+                "p_90d6a79f82ec",
+                "p_7da97dbcebd7",
+                "p_0802715445c9",
+                "p_35891ce25591",
+                "p_b8345bebc403",
+                "p_898c19b4d988",
+                "p_16718393e530",
+                "p_519888de602b",
+                "p_5d23fbc6dbd3",
+                "p_dae7c3250db2",
+                "p_05e8791c6734",
+                "p_d9e00e35d551",
+                "p_f01720b69037",
+                "p_0b6bf574f507",
+                "p_530c061f0f4e",
+                "p_781b7f160535",
+                "p_596c8dd60338",
+                "p_1b0b8d3205cc",
+                "p_8ac2aa95f987",
+                "p_4071df1ef202",
+                "p_cd0e3c1f3e91",
+                "p_e2bd008d96c2",
+                "p_84eeea1266bd",
+                "p_d6581e004a26",
+                "p_450857ca86f8",
+                "p_93957f087fcd",
+                "p_0a9569e0b3b6",
+                "p_572c64c4da65",
+                "p_85969c942a99",
+                "p_d4b544b0c6f7",
+                "p_000fb369c5a8",
+                "p_ba3045225ef0",
+                "p_716b6cceb6fe",
+                "p_605a093cbb69",
+                "p_aa59c5888271",
+                "p_e803252f5e33",
+                "p_19457bb0ac99",
+                "p_2e5d98b5884d",
+                "p_4dc65526ebb0",
+                "p_bc3112c437d5",
+                "p_fd7bbbe336bd",
+                "p_46518f72bdd3"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_4071df1ef202",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_0a9569e0b3b6",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_898c19b4d988",
+            "p_d9e00e35d551",
+            "p_f01720b69037"
+          ],
+          "related_entity_ids": [
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb",
+            "p_cd0e3c1f3e91",
+            "p_716b6cceb6fe"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_b1203bcb9b41",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3db30a4c7df3",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c736b815b22d",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_974c315c0ddf",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e15c1831362b",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4970c7aa7dea",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c3006f800343",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_83fb7735c857",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_92eb99a6ce50",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_094c2d797572",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4049be28e96a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_45e9df3a6f89",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_038177ea7c4c",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d1e2c1b4504a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7f09a58ca5e5",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_02f7f87d5b5f",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_10b51218457d",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6afb3ad7e2f9",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b447b3fb5d2a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4e49288631df",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9917c580f3b1",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_99cad0791444",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_947649f1a87a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aa2053e18e40",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f93ad21f4c6a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_38bdfc6c797f",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a8f4de5dd79c",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fe81fa221b11",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d6ef9bb344ae",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a826b72fd51f",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0ad099710d8e",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c4ddf091f748",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_164c309c14d1",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e0b44c7e2c0e",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4642732ec754",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7933da5cb09a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e911998c71c9",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_541c95e06aaf",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6d70350b03ae",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f9d2404a8a20",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ad0a7d869085",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4280c20066d9",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c682e079daae",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0e80cedb1cba",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3f8ca123c8f6",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9ec7488e594b",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_53b289e54d3e",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d65bcaf918eb",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_898c19b4d988",
+              "ring": "core",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d9e00e35d551",
+              "ring": "core",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f01720b69037",
+              "ring": "core",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cd0e3c1f3e91",
+              "ring": "related",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_716b6cceb6fe",
+              "ring": "related",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "All public images and titles inspected; complete matrix recorded in construction-evidence.json."
+          }
+        },
+        "decision": {
+          "candidates": {
+            "target_vessel": "p_b4f66bba3ada",
+            "other_vessel": "p_6afb3ad7e2f9"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "target_vessel"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The wooden spatula dried with the cloth is subsequently used in the vessel with a single long handle."
+            }
+          ],
+          "established_by": "Constructing agent /root/expand_span20; independent review pending",
+          "established_at": "2026-10-24"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-25",
+          "scope": "wording_only",
+          "reason": "Bind the requested handle layout explicitly to the vessel, not the nearby utensil noun.",
+          "previous_instructions": {
+            "ambiguous": "Next time I want to prepare two batches side by side. Add a spare like one of the food-preparation vessels I used here. Match its broad handle layout; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine.",
+            "oracle": "Next time I want to prepare two batches side by side. Add a spare like the food-preparation vessel I used with the utensil I dried with the cloth. Match its broad handle layout; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine."
+          },
+          "semantic_review": "/root/span_review_current targeted wording judgment; prior video and answer reviews retained."
+        },
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent confirmation of the compiled answer set and unchanged pair."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/dried-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A metal spoon scrapes food from the pestle held over a small handleless mortar.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "A broad wooden spatula is dried with a purple cloth beside the sink.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The same broad wooden spatula stirs in a metal cooking vessel with one long handle; pressure operation, exact body material and model are not task requirements.",
+          "supported_by": [
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        },
+        {
+          "text": "Frozen peas are measured in a separate small metal cup and transferred to a bowl on the scale.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102413",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P04-20240415-181212__222-856",
+        "original_video_id": "P04-20240415-181212",
+        "media_start_seconds": 222,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P04-20240415-181212__222-856.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P04/P04-20240415-181212.mp4",
+        "record_ids": [
+          "P04-20240415-181212-106",
+          "P04-20240415-181212-257",
+          "P04-20240415-181212-325",
+          "P04-20240415-181212-326",
+          "P04-20240415-181212-346"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "seconds": [
+              223,
+              224
+            ],
+            "fact": "A metal spoon scrapes food from the pestle held over a small handleless mortar."
+          },
+          {
+            "seconds": [
+              555,
+              556
+            ],
+            "fact": "A broad wooden spatula is dried with a purple cloth beside the sink."
+          },
+          {
+            "seconds": [
+              654,
+              655,
+              852,
+              853
+            ],
+            "fact": "The same broad wooden spatula stirs in a metal cooking vessel with one long handle; pressure operation, exact body material and model are not task requirements."
+          },
+          {
+            "seconds": [
+              819,
+              820
+            ],
+            "fact": "Frozen peas are measured in a separate small metal cup and transferred to a bowl on the scale."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact original retail identity, brand, capacity or dimensions.",
+          "The future use described by the constructed instruction is not an observed video event."
+        ]
+      },
+      "screening": {
+        "real_user_need": "Keep one matching extra vessel available to prepare two batches side by side.",
+        "scope_note": "New independent recording; independent final answer audit pending. Both conditions deliver the same full physical reference upfront.",
+        "proposed_instruction": "Next time I want to prepare two batches side by side. Add one spare food-preparation vessel with the same broad handle layout as one of the vessels I used here; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_223.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_224.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_555.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_556.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_819.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_820.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_852.jpg",
+            "data/experiments/variants/span/dried-tool-vessel/frames/source_853.jpg"
+          ],
+          "timestamps_seconds": [
+            223,
+            224,
+            555,
+            556,
+            819,
+            820,
+            852,
+            853
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the model link the identifying action and the actual tool-container use when more observed events separate these necessary facts?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The handleless mortar used with a metal spoon and the cooking vessel used with the wooden spatula are both possible vessels.",
+        "belief_after": "The wooden spatula dried with the cloth is subsequently used in the vessel with a single long handle.",
+        "required_behavior_change": "Link the two necessary observed events and buy one spare matching the referenced object.",
+        "no_update_failure": "Without the physical reference, two observed objects are plausible. The same reference is supplied upfront in both Span conditions.",
+        "overupdate_failure": "Buying both candidate objects or multiple items violates the request for one spare.",
+        "visual_dependency_claim": "Neither the identifying action nor the tool-container relation alone determines the requested object; both must be linked across the source sequence.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Next time I want to prepare two batches side by side. Add one spare food-preparation vessel with the same broad handle layout as one of the vessels I used here; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine.",
+          "oracle_instruction": "Next time I want to prepare two batches side by side. Add one spare food-preparation vessel with the same broad handle layout as the vessel I used with the utensil I dried with the cloth; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "target_vessel",
+            "other_vessel"
+          ],
+          "hidden_target_role": "target_vessel",
+          "valid_slot": "sequence",
+          "canonical_question": "Which food-preparation vessel do you mean?",
+          "canonical_answer": "The one I used with the utensil I dried with the cloth.",
+          "environment_role_ids": {
+            "target_vessel": "p_b4f66bba3ada",
+            "other_vessel": "p_6afb3ad7e2f9"
+          },
+          "equivalent_role_ids": {
+            "target_vessel": [
+              "p_e4c213f731db",
+              "p_d84468ad7cb6",
+              "p_8c9106c838a4",
+              "p_474f66cdaadb",
+              "p_90d6a79f82ec",
+              "p_7da97dbcebd7",
+              "p_0802715445c9",
+              "p_35891ce25591",
+              "p_b8345bebc403",
+              "p_16718393e530",
+              "p_5d23fbc6dbd3",
+              "p_dae7c3250db2",
+              "p_0b6bf574f507",
+              "p_530c061f0f4e",
+              "p_781b7f160535",
+              "p_596c8dd60338",
+              "p_1b0b8d3205cc",
+              "p_8ac2aa95f987",
+              "p_4071df1ef202",
+              "p_e2bd008d96c2",
+              "p_84eeea1266bd",
+              "p_d6581e004a26",
+              "p_450857ca86f8",
+              "p_93957f087fcd",
+              "p_0a9569e0b3b6",
+              "p_572c64c4da65",
+              "p_85969c942a99",
+              "p_d4b544b0c6f7",
+              "p_000fb369c5a8",
+              "p_ba3045225ef0",
+              "p_605a093cbb69",
+              "p_aa59c5888271",
+              "p_e803252f5e33",
+              "p_19457bb0ac99",
+              "p_2e5d98b5884d",
+              "p_4dc65526ebb0",
+              "p_bc3112c437d5",
+              "p_fd7bbbe336bd",
+              "p_46518f72bdd3",
+              "p_e4b5cf9afbd0",
+              "p_519888de602b",
+              "p_05e8791c6734"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "single round bowl",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026101706--after_change.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-2026101706",
+              "result_entity_ids": [
+                "p_b1203bcb9b41",
+                "p_3db30a4c7df3",
+                "p_c736b815b22d",
+                "p_974c315c0ddf",
+                "p_e15c1831362b",
+                "p_4970c7aa7dea",
+                "p_c3006f800343",
+                "p_83fb7735c857",
+                "p_92eb99a6ce50",
+                "p_094c2d797572",
+                "p_4049be28e96a",
+                "p_45e9df3a6f89",
+                "p_038177ea7c4c",
+                "p_d1e2c1b4504a",
+                "p_7f09a58ca5e5",
+                "p_02f7f87d5b5f",
+                "p_10b51218457d",
+                "p_6afb3ad7e2f9",
+                "p_b447b3fb5d2a",
+                "p_4e49288631df",
+                "p_9917c580f3b1",
+                "p_99cad0791444",
+                "p_947649f1a87a",
+                "p_aa2053e18e40",
+                "p_f93ad21f4c6a",
+                "p_38bdfc6c797f",
+                "p_a8f4de5dd79c",
+                "p_fe81fa221b11",
+                "p_d6ef9bb344ae",
+                "p_a826b72fd51f",
+                "p_0ad099710d8e",
+                "p_c4ddf091f748",
+                "p_164c309c14d1",
+                "p_e0b44c7e2c0e",
+                "p_4642732ec754",
+                "p_7933da5cb09a",
+                "p_e911998c71c9",
+                "p_541c95e06aaf",
+                "p_6d70350b03ae",
+                "p_f9d2404a8a20",
+                "p_ad0a7d869085",
+                "p_4280c20066d9",
+                "p_c682e079daae",
+                "p_0e80cedb1cba",
+                "p_3f8ca123c8f6",
+                "p_9ec7488e594b",
+                "p_53b289e54d3e",
+                "p_d65bcaf918eb"
+              ],
+              "snapshot_stage": "after_change"
+            },
+            {
+              "stage": "after_change",
+              "query": "nonstick skillet pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-17.json",
+              "snapshot_task_id": "candidate-mart-graft-p-17",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_e4c213f731db",
+                "p_d84468ad7cb6",
+                "p_b4f66bba3ada",
+                "p_8c9106c838a4",
+                "p_e4b5cf9afbd0",
+                "p_474f66cdaadb",
+                "p_90d6a79f82ec",
+                "p_7da97dbcebd7",
+                "p_0802715445c9",
+                "p_35891ce25591",
+                "p_b8345bebc403",
+                "p_898c19b4d988",
+                "p_16718393e530",
+                "p_519888de602b",
+                "p_5d23fbc6dbd3",
+                "p_dae7c3250db2",
+                "p_05e8791c6734",
+                "p_d9e00e35d551",
+                "p_f01720b69037",
+                "p_0b6bf574f507",
+                "p_530c061f0f4e",
+                "p_781b7f160535",
+                "p_596c8dd60338",
+                "p_1b0b8d3205cc",
+                "p_8ac2aa95f987",
+                "p_4071df1ef202",
+                "p_cd0e3c1f3e91",
+                "p_e2bd008d96c2",
+                "p_84eeea1266bd",
+                "p_d6581e004a26",
+                "p_450857ca86f8",
+                "p_93957f087fcd",
+                "p_0a9569e0b3b6",
+                "p_572c64c4da65",
+                "p_85969c942a99",
+                "p_d4b544b0c6f7",
+                "p_000fb369c5a8",
+                "p_ba3045225ef0",
+                "p_716b6cceb6fe",
+                "p_605a093cbb69",
+                "p_aa59c5888271",
+                "p_e803252f5e33",
+                "p_19457bb0ac99",
+                "p_2e5d98b5884d",
+                "p_4dc65526ebb0",
+                "p_bc3112c437d5",
+                "p_fd7bbbe336bd",
+                "p_46518f72bdd3"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_4071df1ef202",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_0a9569e0b3b6",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_898c19b4d988",
+            "p_d9e00e35d551",
+            "p_f01720b69037"
+          ],
+          "related_entity_ids": [
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb",
+            "p_cd0e3c1f3e91",
+            "p_716b6cceb6fe"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_b1203bcb9b41",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3db30a4c7df3",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c736b815b22d",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_974c315c0ddf",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e15c1831362b",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4970c7aa7dea",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c3006f800343",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_83fb7735c857",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_92eb99a6ce50",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_094c2d797572",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4049be28e96a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_45e9df3a6f89",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_038177ea7c4c",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d1e2c1b4504a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7f09a58ca5e5",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_02f7f87d5b5f",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_10b51218457d",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6afb3ad7e2f9",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b447b3fb5d2a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4e49288631df",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9917c580f3b1",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_99cad0791444",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_947649f1a87a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aa2053e18e40",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f93ad21f4c6a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_38bdfc6c797f",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a8f4de5dd79c",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fe81fa221b11",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d6ef9bb344ae",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a826b72fd51f",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0ad099710d8e",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c4ddf091f748",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_164c309c14d1",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e0b44c7e2c0e",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4642732ec754",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7933da5cb09a",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e911998c71c9",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_541c95e06aaf",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6d70350b03ae",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f9d2404a8a20",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ad0a7d869085",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4280c20066d9",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c682e079daae",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0e80cedb1cba",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3f8ca123c8f6",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9ec7488e594b",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_53b289e54d3e",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d65bcaf918eb",
+              "ring": "related",
+              "reason": "The listing is a bowl, cup, sink or storage container, not a single-long-handle cooking pan.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_898c19b4d988",
+              "ring": "core",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d9e00e35d551",
+              "ring": "core",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f01720b69037",
+              "ring": "core",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cd0e3c1f3e91",
+              "ring": "related",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_716b6cceb6fe",
+              "ring": "related",
+              "reason": "The listing contains more than one pan body.",
+              "why_plausible": "A nearby kitchen offer in the same real search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "All public images and titles inspected; complete matrix recorded in construction-evidence.json."
+          }
+        },
+        "decision": {
+          "candidates": {
+            "target_vessel": "p_b4f66bba3ada",
+            "other_vessel": "p_6afb3ad7e2f9"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "target_vessel",
+                "other_vessel"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "target_vessel"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The wooden spatula dried with the cloth is subsequently used in the vessel with a single long handle."
+            }
+          ],
+          "established_by": "Constructing agent /root/expand_span20; independent review pending",
+          "established_at": "2026-10-24"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-25",
+          "scope": "wording_only",
+          "reason": "Bind the requested handle layout explicitly to the vessel, not the nearby utensil noun.",
+          "previous_instructions": {
+            "ambiguous": "Next time I want to prepare two batches side by side. Add a spare like one of the food-preparation vessels I used here. Match its broad handle layout; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine.",
+            "oracle": "Next time I want to prepare two batches side by side. Add a spare like the food-preparation vessel I used with the utensil I dried with the cloth. Match its broad handle layout; small auxiliary grips do not need to match. Brand, colour, material and size can differ. Just one vessel, not a set; a lid is fine."
+          },
+          "semantic_review": "/root/span_review_current targeted wording judgment; prior video and answer reviews retained."
+        },
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent confirmation of the compiled answer set and unchanged pair."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/dried-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A metal spoon scrapes food from the pestle held over a small handleless mortar.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "A broad wooden spatula is dried with a purple cloth beside the sink.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The same broad wooden spatula stirs in a metal cooking vessel with one long handle; pressure operation, exact body material and model are not task requirements.",
+          "supported_by": [
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        },
+        {
+          "text": "Frozen peas are measured in a separate small metal cup and transferred to a bowl on the scale.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        }
+      ]
+    }
+  ]
+}

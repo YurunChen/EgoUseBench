@@ -1,0 +1,534 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "CaptainCook4D",
+    "source_root": "reference/sources/CaptainCook4D/videos/360p"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-p-42",
+      "status": "retired_missing_evidence",
+      "family": "graft",
+      "subtype": "augment",
+      "source": {
+        "record_ids": [
+          "10_46/step-113",
+          "10_46/step-111"
+        ],
+        "media_id": "10_46",
+        "original_video_id": "10_46",
+        "media_start_seconds": 0,
+        "media_sha256": "c176635fd9faf773a0fc5cc59256fd7fcf378fbeeaa1706a5de1878759fc89f6",
+        "original_annotations": [
+          "Scoop nut butter from the jar.",
+          "Later scoop jelly from the jar."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              27,
+              65
+            ],
+            "role": "first_item",
+            "description": "The wearer scoops peanut butter from a red-lid jar."
+          },
+          {
+            "interval_seconds": [
+              142,
+              182
+            ],
+            "role": "later_item",
+            "description": "The wearer later scoops jelly from a purple bottle."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The ordered frames show a red-lid peanut-butter jar used first and a purple jelly bottle used later; the wording names neither product.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent preserve an earlier visually grounded cart goal while adding a different item grounded by a later procedure stage?",
+        "divergence_source": "intention",
+        "event_origin": "annotation_derived_redesign",
+        "belief_before": "The cart needs the spread used in the first procedure stage.",
+        "belief_after": "The cart must retain the first spread and add the different spread used later.",
+        "required_behavior_change": "Preserve the first selection and add the second visually grounded selection.",
+        "no_update_failure": "The Agent submits only the first spread after the update.",
+        "overupdate_failure": "The Agent replaces the first spread instead of preserving it.",
+        "visual_dependency_claim": "The ordered frames show a red-lid peanut-butter jar used first and a purple jelly bottle used later; the wording names neither product.",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "site": "egomart",
+          "instructions": {
+            "a": "Add the spread I scoop first to the cart.",
+            "b": "Also add the spread I squeeze from the bottle later, and keep the first one.",
+            "bundled": "Add both spreads I use: the one I scoop first and the one I squeeze from the bottle later."
+          },
+          "initial_goal_roles": [
+            [
+              "first_item"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "first_item",
+              "later_item"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "first_item": "p_a1be0ab7ca20",
+            "later_item": "p_575e6093db90"
+          }
+        },
+        "decision": {
+          "candidates": {
+            "first_only": [
+              "p_a1be0ab7ca20"
+            ],
+            "both_items": [
+              "p_a1be0ab7ca20",
+              "p_575e6093db90"
+            ]
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "first_only",
+                "both_items"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "both_items"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The update adds the later visually grounded spread while retaining the first one."
+            }
+          ],
+          "established_by": "codex-gpt-5",
+          "established_at": "2026-08-24"
+        },
+        "decision_point_provenance": "expansion_v3_captaincook_redesign_20260824",
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "Great Value creamy peanut butter",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-42.json",
+              "result_entity_ids": [
+                "p_633493c4c5b0",
+                "p_db94ea5b5c88",
+                "p_4bec287ffc8f",
+                "p_1f5bda27579e",
+                "p_a1be0ab7ca20",
+                "p_7cf1dd8f47f8",
+                "p_d21788072601",
+                "p_9212c1fd5796",
+                "p_50a80134e93e",
+                "p_d390651ea60c",
+                "p_0ca13d7c84cb",
+                "p_c47872b2ec5e",
+                "p_a2b1c41f6a28",
+                "p_dc4d6caabd96",
+                "p_1338d93da3c5",
+                "p_1b32f20646a7",
+                "p_fbf242634d7e",
+                "p_afb54002486a",
+                "p_c7d676be1967",
+                "p_b4e662094165",
+                "p_fb2ab297af6b",
+                "p_eb3f9f05bcfb",
+                "p_548ea54f8903",
+                "p_bbd8af413b9f",
+                "p_dabf82ca77b9",
+                "p_4966233c84db",
+                "p_e94ba7f30279",
+                "p_5ed186aa965e",
+                "p_e2cefc77e417",
+                "p_aae03cc3a301",
+                "p_9f6e71ccf275",
+                "p_ea75467ad9d6",
+                "p_706c4733545a",
+                "p_d902c7318be8",
+                "p_9f69661f55db",
+                "p_0ed71fe88bea",
+                "p_b891b43e8602",
+                "p_2d38c33a343e",
+                "p_8caf117180fe",
+                "p_535736a27896",
+                "p_63939d78d8f0",
+                "p_6b2cb9a1d1a9",
+                "p_b0d786693e27",
+                "p_0bb43902f971",
+                "p_aceafe4d8f38",
+                "p_9b70ae9d3026",
+                "p_e24adf89c53f",
+                "p_e939d29c01ed"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "Smucker's squeeze grape jelly",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-42.json",
+              "result_entity_ids": [
+                "p_c65f3eade7ce",
+                "p_fbd694e96aaf",
+                "p_c59efa1aa147",
+                "p_90c00b4579d4",
+                "p_ecbc0c34323e",
+                "p_bed62be09586",
+                "p_314705e53d5e",
+                "p_de5676a26f94",
+                "p_7828d49a25a4",
+                "p_9a28b6732b6b",
+                "p_f322306d2788",
+                "p_87df43e78132",
+                "p_19e605f6c04f",
+                "p_8d5bba6a0974",
+                "p_7c87f5f5e2c2",
+                "p_f65d15d4eba4",
+                "p_575e6093db90",
+                "p_a99f4ede2fb1",
+                "p_7f13ec9a7056",
+                "p_4bfcb397d23e",
+                "p_8dfa39153b3f",
+                "p_3372b71f6530",
+                "p_47cdc467bb5a",
+                "p_8d4e80041762",
+                "p_72567797db55"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_633493c4c5b0",
+            "p_db94ea5b5c88",
+            "p_4bec287ffc8f",
+            "p_1f5bda27579e",
+            "p_a1be0ab7ca20",
+            "p_7cf1dd8f47f8",
+            "p_d21788072601",
+            "p_9212c1fd5796",
+            "p_50a80134e93e",
+            "p_d390651ea60c",
+            "p_0ca13d7c84cb",
+            "p_c47872b2ec5e",
+            "p_a2b1c41f6a28",
+            "p_dc4d6caabd96",
+            "p_1338d93da3c5",
+            "p_1b32f20646a7",
+            "p_fbf242634d7e",
+            "p_afb54002486a",
+            "p_c7d676be1967",
+            "p_b4e662094165",
+            "p_fb2ab297af6b",
+            "p_eb3f9f05bcfb",
+            "p_548ea54f8903",
+            "p_bbd8af413b9f",
+            "p_dabf82ca77b9",
+            "p_4966233c84db",
+            "p_e94ba7f30279",
+            "p_5ed186aa965e",
+            "p_e2cefc77e417",
+            "p_aae03cc3a301",
+            "p_9f6e71ccf275",
+            "p_ea75467ad9d6",
+            "p_706c4733545a",
+            "p_d902c7318be8",
+            "p_9f69661f55db",
+            "p_0ed71fe88bea",
+            "p_b891b43e8602",
+            "p_2d38c33a343e",
+            "p_8caf117180fe",
+            "p_535736a27896",
+            "p_63939d78d8f0",
+            "p_6b2cb9a1d1a9",
+            "p_b0d786693e27",
+            "p_0bb43902f971",
+            "p_aceafe4d8f38",
+            "p_9b70ae9d3026",
+            "p_e24adf89c53f",
+            "p_e939d29c01ed",
+            "p_c65f3eade7ce",
+            "p_fbd694e96aaf",
+            "p_c59efa1aa147",
+            "p_90c00b4579d4",
+            "p_ecbc0c34323e",
+            "p_bed62be09586",
+            "p_314705e53d5e",
+            "p_de5676a26f94",
+            "p_7828d49a25a4",
+            "p_9a28b6732b6b",
+            "p_f322306d2788",
+            "p_87df43e78132",
+            "p_19e605f6c04f",
+            "p_8d5bba6a0974",
+            "p_7c87f5f5e2c2",
+            "p_f65d15d4eba4",
+            "p_575e6093db90",
+            "p_a99f4ede2fb1",
+            "p_7f13ec9a7056",
+            "p_4bfcb397d23e",
+            "p_8dfa39153b3f",
+            "p_3372b71f6530",
+            "p_47cdc467bb5a",
+            "p_8d4e80041762",
+            "p_72567797db55"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_633493c4c5b0",
+            "p_4bec287ffc8f",
+            "p_c65f3eade7ce",
+            "p_bed62be09586"
+          ],
+          "related_entity_ids": [
+            "p_db94ea5b5c88",
+            "p_1f5bda27579e",
+            "p_7cf1dd8f47f8",
+            "p_d21788072601",
+            "p_9212c1fd5796",
+            "p_50a80134e93e",
+            "p_d390651ea60c",
+            "p_0ca13d7c84cb",
+            "p_c47872b2ec5e",
+            "p_a2b1c41f6a28",
+            "p_dc4d6caabd96",
+            "p_1338d93da3c5",
+            "p_1b32f20646a7",
+            "p_fbf242634d7e",
+            "p_afb54002486a",
+            "p_c7d676be1967"
+          ],
+          "ambient_entity_ids": [
+            "p_b4e662094165",
+            "p_fb2ab297af6b",
+            "p_eb3f9f05bcfb",
+            "p_548ea54f8903",
+            "p_bbd8af413b9f",
+            "p_dabf82ca77b9",
+            "p_4966233c84db",
+            "p_e94ba7f30279",
+            "p_5ed186aa965e",
+            "p_e2cefc77e417",
+            "p_aae03cc3a301",
+            "p_9f6e71ccf275",
+            "p_ea75467ad9d6",
+            "p_706c4733545a",
+            "p_d902c7318be8",
+            "p_9f69661f55db",
+            "p_0ed71fe88bea",
+            "p_b891b43e8602",
+            "p_2d38c33a343e",
+            "p_8caf117180fe",
+            "p_535736a27896",
+            "p_63939d78d8f0",
+            "p_6b2cb9a1d1a9",
+            "p_b0d786693e27",
+            "p_0bb43902f971",
+            "p_aceafe4d8f38",
+            "p_9b70ae9d3026",
+            "p_e24adf89c53f",
+            "p_e939d29c01ed",
+            "p_fbd694e96aaf",
+            "p_c59efa1aa147",
+            "p_90c00b4579d4",
+            "p_ecbc0c34323e",
+            "p_314705e53d5e",
+            "p_de5676a26f94",
+            "p_7828d49a25a4",
+            "p_9a28b6732b6b",
+            "p_f322306d2788",
+            "p_87df43e78132",
+            "p_19e605f6c04f",
+            "p_8d5bba6a0974",
+            "p_7c87f5f5e2c2",
+            "p_f65d15d4eba4",
+            "p_a99f4ede2fb1",
+            "p_7f13ec9a7056",
+            "p_4bfcb397d23e",
+            "p_8dfa39153b3f",
+            "p_3372b71f6530",
+            "p_47cdc467bb5a",
+            "p_8d4e80041762",
+            "p_72567797db55"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_633493c4c5b0",
+              "ring": "core",
+              "reason": "商品图是绿盖 Kraft Only Peanuts，和画面中可见的红盖 Jif 包装不同。",
+              "why_plausible": "它是单罐顺滑花生酱，类别和第一阶段用途相同。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_4bec287ffc8f",
+              "ring": "core",
+              "reason": "详情与商品图显示为两罐装，用户只要求补充画面中的一罐商品。",
+              "why_plausible": "它同样是红盖 Jif creamy 花生酱，视觉上很接近。",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_c65f3eade7ce",
+              "ring": "core",
+              "reason": "商品为玻璃罐，不是后续画面中直接挤出的紫色挤压瓶。",
+              "why_plausible": "它是 Concord grape jelly，口味与后续食物一致。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_bed62be09586",
+              "ring": "core",
+              "reason": "瓶身与详情明确为 strawberry，不是画面中的紫色葡萄果冻。",
+              "why_plausible": "它是同品牌、同样采用倒置挤压瓶的果酱。",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        },
+        "landing_semantic_review": {
+          "status": "coding_agent_accepted",
+          "confidence": "high",
+          "review_reference": "data/sources/landing_semantic_reviews.json"
+        },
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            31,
+            40,
+            50,
+            60,
+            152,
+            160,
+            170,
+            180
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-p-42/V0_00.jpg",
+            "data/observations/candidate-mart-graft-p-42/V0_01.jpg",
+            "data/observations/candidate-mart-graft-p-42/V0_02.jpg",
+            "data/observations/candidate-mart-graft-p-42/V0_03.jpg",
+            "data/observations/candidate-mart-graft-p-42/V0_04.jpg",
+            "data/observations/candidate-mart-graft-p-42/V0_05.jpg",
+            "data/observations/candidate-mart-graft-p-42/V0_06.jpg",
+            "data/observations/candidate-mart-graft-p-42/V0_07.jpg"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [
+        "画面后段是带白色圆点的紫色挤压瓶。目录里没有这只瓶子，现有果酱瓶和果酱包都对不上。"
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "action_order_required",
+        "reason": "The ordered frames show a red-lid peanut-butter jar used first and a purple jelly bottle used later; the wording names neither product."
+      }
+    }
+  ]
+}

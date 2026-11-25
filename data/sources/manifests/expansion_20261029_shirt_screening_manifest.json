@@ -1,0 +1,1270 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "EgoSchema",
+    "source_root": "reference/sources/EgoSchema/videos",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Dataset authorization confirmed by user; local research only, no public redistribution."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-refresh-retain-2026102906",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "EgoSchema/3a4f4d5c-c8fa-4bb1-8e80-7c22cab54116",
+          "Ego4D/c836b5f5-eaa8-4720-b9d0-1d528207eafa/330-510"
+        ],
+        "media_id": "3a4f4d5c-c8fa-4bb1-8e80-7c22cab54116",
+        "media_start_seconds": 0,
+        "media_sha256": "f5533343f65999c19b8d55fa01a79c03957ede0ec05c0a275ecd9fba9151c930",
+        "google_drive_id": "1jOyXRRAxmy1pjbTtcvDrIi1jH36mgPsH",
+        "original_video_id": "c836b5f5-eaa8-4720-b9d0-1d528207eafa",
+        "original_interval_seconds": [
+          330,
+          510
+        ],
+        "source_cluster_id": "ego4d-c836b5f5-eaa8-4720-b9d0-1d528207eafa",
+        "original_annotations": [
+          "EgoSchema question (retrieval only): Keeping in mind the ability to compress information, what would be a concise explanation for the main objective and key decisions behind c's actions during the video?",
+          "Public subset answer (retrieval only): The wearer is deciding what clothes to wear."
+        ],
+        "discovery_annotation": {
+          "question": "Keeping in mind the ability to compress information, what would be a concise explanation for the main objective and key decisions behind c's actions during the video?",
+          "public_answer_summary": "The wearer is deciding what clothes to wear.",
+          "ground_truth_use": "retrieval_only"
+        },
+        "observed_events": [
+          {
+            "local_interval_seconds": [
+              56,
+              59
+            ],
+            "global_interval_seconds": [
+              386,
+              389
+            ],
+            "role": "A",
+            "description": "The wearer examines a navy-and-white large-check plaid shirt."
+          },
+          {
+            "local_interval_seconds": [
+              66.5,
+              70.5
+            ],
+            "global_interval_seconds": [
+              396.5,
+              400.5
+            ],
+            "role": "later_distractor",
+            "description": "The wearer then examines a red-and-black plaid shirt."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            56,
+            57,
+            58,
+            59
+          ],
+          "frame_paths": [
+            "data/observations/seed-refresh-retain-egoschema-03/V0_00.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V0_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V0_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            66.5,
+            68.5,
+            69.5,
+            70.5
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-retain-2026102906/V1_onset_66_5.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V1_01.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V1_02.jpg",
+            "data/observations/seed-refresh-retain-egoschema-03/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a light-white and dark navy/black checked shirt. Later V1 shows a red-and-black checked shirt; the earlier colour-style comparison remains the user request. No exact brand, material, clothing size or fitting claim is made.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent retain an earlier grounded clothing-style choice when a later same-category visual distractor appears?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "belief_before": "The style-comparison request is grounded in the early dark-and-white checked shirt.",
+        "belief_after": "The user handles a red-and-black checked shirt later, without changing the earlier request.",
+        "required_behavior_change": "Keep a matching early-colour shirt option; do not chase the later red shirt or leave two options.",
+        "no_update_failure": "No replacement is needed; retaining the earlier valid option is correct.",
+        "overupdate_failure": "Replace the valid earlier colour combination with the later red-and-black shirt.",
+        "visual_dependency_claim": "The request names no shirt colours. Both colour families and multiple nonmatching garment types are present on the site; the earlier observed shirt identifies the still-valid family.",
+        "task_blueprint": {
+          "site": "egomart",
+          "instruction": "I'm comparing shirt styles. Add one long-sleeved checked shirt in the same main colours as the one I'm holding up now to the cart, so I can look at that option later. The brand, exact check size and fit need not match.",
+          "initial_target_role": "early_shirt",
+          "final_target_role": "early_shirt",
+          "later_distractor_role": "later_shirt",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "early_shirt": "p_0ebad91b552f",
+            "later_shirt": "p_935028f52bde"
+          },
+          "equivalent_role_ids": {
+            "early_shirt": [
+              "p_de40d7b5298d",
+              "p_cb50117b20f4",
+              "p_9e630363ee26",
+              "p_134081f2fa88",
+              "p_52ec4852d261",
+              "p_f892f059266f",
+              "p_b7f7de8e58b5",
+              "p_999fabc15bf5",
+              "p_02162adce2ec",
+              "p_d9d691208f1f",
+              "p_69b728c239d0",
+              "p_1477928bda8e",
+              "p_666402ff4973",
+              "p_7ec2b5bd4a86",
+              "p_03a396c2e74c",
+              "p_ad7c23732e5e",
+              "p_5bbaf834c119",
+              "p_e0d548cc23fa",
+              "p_3b0e25b131ab",
+              "p_82f8b68fc53f",
+              "p_ad1478e97a8f",
+              "p_cc14354d075f",
+              "p_4d2247e94262"
+            ],
+            "later_shirt": [
+              "p_c534053b717d",
+              "p_a976874f6835",
+              "p_b24d971bc103",
+              "p_d63c8b5bbca0",
+              "p_ac320c2ed6a0",
+              "p_1f136ad7c36a",
+              "p_2a25422f9369",
+              "p_bd0da2cb80ea",
+              "p_644fa8207c51",
+              "p_80ca2c08f4da",
+              "p_c763854033e2",
+              "p_503c2c3a9fa1",
+              "p_efe07a5adb0d",
+              "p_84151d23bac1",
+              "p_c301d7d71f2e",
+              "p_ecdf6caf0a2b",
+              "p_21e468395d11",
+              "p_768c84934c76",
+              "p_a8810e66aee1",
+              "p_a0185d896e08",
+              "p_6ab52375ab68",
+              "p_1b5847cda179",
+              "p_3f24d2d2aa94",
+              "p_bc79daa20be3",
+              "p_a0dc3c6af5c6",
+              "p_a8bd254ef528",
+              "p_e9e22bf4aaa1"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "early_shirt": "p_0ebad91b552f",
+            "later_shirt": "p_935028f52bde"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "early_shirt"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The original held-up shirt has navy-blue and white main checks, with pale blue-grey crossings."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "early_shirt"
+              ],
+              "why": "A red checked shirt is examined later but does not change the anchored comparison request."
+            }
+          ],
+          "recording": "key_events",
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-29"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "blue white plaid shirt men",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026102906.json",
+              "result_entity_ids": [
+                "p_0ebad91b552f",
+                "p_3a6c4a23927a",
+                "p_de40d7b5298d",
+                "p_b3a468d25657",
+                "p_cb50117b20f4",
+                "p_9e630363ee26",
+                "p_134081f2fa88",
+                "p_52ec4852d261",
+                "p_f892f059266f",
+                "p_b7f7de8e58b5",
+                "p_999fabc15bf5",
+                "p_02162adce2ec",
+                "p_410f8959c29a",
+                "p_d9d691208f1f",
+                "p_69b728c239d0",
+                "p_1477928bda8e",
+                "p_666402ff4973",
+                "p_7bc125ce1100",
+                "p_550bcde269e8",
+                "p_34a631cd0a1a",
+                "p_aa32f478d0f3",
+                "p_939048284c10",
+                "p_d1785b246a8e",
+                "p_7ec2b5bd4a86",
+                "p_4f2cc9fced58",
+                "p_6c2ef701ec78",
+                "p_f199f8c719b0",
+                "p_03a396c2e74c",
+                "p_ad7c23732e5e",
+                "p_441c5da7e7ac",
+                "p_2b57d81fc45d",
+                "p_29206910346f",
+                "p_6e69b85a2a67",
+                "p_6fd75a1f79e9",
+                "p_5bbaf834c119",
+                "p_c9defec0849e",
+                "p_901e568d6188",
+                "p_e0d548cc23fa",
+                "p_37bb1adea873",
+                "p_22e345d7a53a",
+                "p_3b0e25b131ab",
+                "p_2d585bd5fd47",
+                "p_82f8b68fc53f",
+                "p_c757445bbb26",
+                "p_3a4015a5b6b1",
+                "p_ad1478e97a8f",
+                "p_cc14354d075f",
+                "p_4ce55845c8da"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "red black buffalo plaid shirt men",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026102906.json",
+              "result_entity_ids": [
+                "p_935028f52bde",
+                "p_c534053b717d",
+                "p_a976874f6835",
+                "p_b24d971bc103",
+                "p_d63c8b5bbca0",
+                "p_ac320c2ed6a0",
+                "p_1f136ad7c36a",
+                "p_6fdfdc2f8638",
+                "p_96bf450a62e4",
+                "p_86c31a2b534b",
+                "p_2a25422f9369",
+                "p_bd0da2cb80ea",
+                "p_644fa8207c51",
+                "p_80ca2c08f4da",
+                "p_c763854033e2",
+                "p_3b2eab99622b",
+                "p_f199f8c719b0",
+                "p_1bf179c19a5b",
+                "p_503c2c3a9fa1",
+                "p_efe07a5adb0d",
+                "p_84151d23bac1",
+                "p_c301d7d71f2e",
+                "p_9f22b0d345ea",
+                "p_80105b757f71",
+                "p_2a67fef9670e",
+                "p_ecdf6caf0a2b",
+                "p_bf6afe9f1574",
+                "p_3fcea799faa3",
+                "p_21e468395d11",
+                "p_15b2051ca9bc",
+                "p_af4dafaf99ce",
+                "p_5e76e2eaff1f",
+                "p_c4b5e4111328",
+                "p_768c84934c76",
+                "p_a8810e66aee1",
+                "p_a0185d896e08",
+                "p_6ab52375ab68",
+                "p_1b5847cda179",
+                "p_3f24d2d2aa94",
+                "p_bc79daa20be3",
+                "p_a0dc3c6af5c6",
+                "p_a8bd254ef528",
+                "p_7159e47bd68f",
+                "p_e9e22bf4aaa1",
+                "p_ef6c8b45362b",
+                "p_4d2247e94262",
+                "p_f9f91cc97621",
+                "p_2a8961813df4"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_0ebad91b552f",
+            "p_3a6c4a23927a",
+            "p_de40d7b5298d",
+            "p_b3a468d25657",
+            "p_cb50117b20f4",
+            "p_9e630363ee26",
+            "p_134081f2fa88",
+            "p_52ec4852d261",
+            "p_f892f059266f",
+            "p_b7f7de8e58b5",
+            "p_999fabc15bf5",
+            "p_02162adce2ec",
+            "p_410f8959c29a",
+            "p_d9d691208f1f",
+            "p_69b728c239d0",
+            "p_1477928bda8e",
+            "p_666402ff4973",
+            "p_7bc125ce1100",
+            "p_550bcde269e8",
+            "p_34a631cd0a1a",
+            "p_aa32f478d0f3",
+            "p_939048284c10",
+            "p_d1785b246a8e",
+            "p_7ec2b5bd4a86",
+            "p_4f2cc9fced58",
+            "p_6c2ef701ec78",
+            "p_f199f8c719b0",
+            "p_03a396c2e74c",
+            "p_ad7c23732e5e",
+            "p_441c5da7e7ac",
+            "p_2b57d81fc45d",
+            "p_29206910346f",
+            "p_6e69b85a2a67",
+            "p_6fd75a1f79e9",
+            "p_5bbaf834c119",
+            "p_c9defec0849e",
+            "p_901e568d6188",
+            "p_e0d548cc23fa",
+            "p_37bb1adea873",
+            "p_22e345d7a53a",
+            "p_3b0e25b131ab",
+            "p_2d585bd5fd47",
+            "p_82f8b68fc53f",
+            "p_c757445bbb26",
+            "p_3a4015a5b6b1",
+            "p_ad1478e97a8f",
+            "p_cc14354d075f",
+            "p_4ce55845c8da",
+            "p_935028f52bde",
+            "p_c534053b717d",
+            "p_a976874f6835",
+            "p_b24d971bc103",
+            "p_d63c8b5bbca0",
+            "p_ac320c2ed6a0",
+            "p_1f136ad7c36a",
+            "p_6fdfdc2f8638",
+            "p_96bf450a62e4",
+            "p_86c31a2b534b",
+            "p_2a25422f9369",
+            "p_bd0da2cb80ea",
+            "p_644fa8207c51",
+            "p_80ca2c08f4da",
+            "p_c763854033e2",
+            "p_3b2eab99622b",
+            "p_1bf179c19a5b",
+            "p_503c2c3a9fa1",
+            "p_efe07a5adb0d",
+            "p_84151d23bac1",
+            "p_c301d7d71f2e",
+            "p_9f22b0d345ea",
+            "p_80105b757f71",
+            "p_2a67fef9670e",
+            "p_ecdf6caf0a2b",
+            "p_bf6afe9f1574",
+            "p_3fcea799faa3",
+            "p_21e468395d11",
+            "p_15b2051ca9bc",
+            "p_af4dafaf99ce",
+            "p_5e76e2eaff1f",
+            "p_c4b5e4111328",
+            "p_768c84934c76",
+            "p_a8810e66aee1",
+            "p_a0185d896e08",
+            "p_6ab52375ab68",
+            "p_1b5847cda179",
+            "p_3f24d2d2aa94",
+            "p_bc79daa20be3",
+            "p_a0dc3c6af5c6",
+            "p_a8bd254ef528",
+            "p_7159e47bd68f",
+            "p_e9e22bf4aaa1",
+            "p_ef6c8b45362b",
+            "p_4d2247e94262",
+            "p_f9f91cc97621",
+            "p_2a8961813df4"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_935028f52bde",
+            "p_3a6c4a23927a",
+            "p_4f2cc9fced58",
+            "p_80105b757f71",
+            "p_5e76e2eaff1f"
+          ],
+          "related_entity_ids": [
+            "p_b3a468d25657",
+            "p_410f8959c29a",
+            "p_7bc125ce1100",
+            "p_550bcde269e8",
+            "p_34a631cd0a1a",
+            "p_aa32f478d0f3",
+            "p_939048284c10",
+            "p_6c2ef701ec78",
+            "p_f199f8c719b0",
+            "p_441c5da7e7ac",
+            "p_2b57d81fc45d",
+            "p_29206910346f",
+            "p_6e69b85a2a67",
+            "p_6fd75a1f79e9",
+            "p_c9defec0849e",
+            "p_901e568d6188",
+            "p_22e345d7a53a",
+            "p_6fdfdc2f8638",
+            "p_d1785b246a8e",
+            "p_2d585bd5fd47",
+            "p_37bb1adea873"
+          ],
+          "ambient_entity_ids": [
+            "p_c757445bbb26",
+            "p_3a4015a5b6b1",
+            "p_4ce55845c8da",
+            "p_c534053b717d",
+            "p_a976874f6835",
+            "p_b24d971bc103",
+            "p_d63c8b5bbca0",
+            "p_ac320c2ed6a0",
+            "p_1f136ad7c36a",
+            "p_96bf450a62e4",
+            "p_86c31a2b534b",
+            "p_2a25422f9369",
+            "p_bd0da2cb80ea",
+            "p_644fa8207c51",
+            "p_80ca2c08f4da",
+            "p_c763854033e2",
+            "p_3b2eab99622b",
+            "p_1bf179c19a5b",
+            "p_503c2c3a9fa1",
+            "p_efe07a5adb0d",
+            "p_84151d23bac1",
+            "p_c301d7d71f2e",
+            "p_9f22b0d345ea",
+            "p_2a67fef9670e",
+            "p_ecdf6caf0a2b",
+            "p_bf6afe9f1574",
+            "p_3fcea799faa3",
+            "p_21e468395d11",
+            "p_15b2051ca9bc",
+            "p_af4dafaf99ce",
+            "p_c4b5e4111328",
+            "p_768c84934c76",
+            "p_a8810e66aee1",
+            "p_a0185d896e08",
+            "p_6ab52375ab68",
+            "p_1b5847cda179",
+            "p_3f24d2d2aa94",
+            "p_bc79daa20be3",
+            "p_a0dc3c6af5c6",
+            "p_a8bd254ef528",
+            "p_7159e47bd68f",
+            "p_e9e22bf4aaa1",
+            "p_ef6c8b45362b",
+            "p_f9f91cc97621",
+            "p_2a8961813df4"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_3a6c4a23927a",
+              "ring": "core",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_b3a468d25657",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_410f8959c29a",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_7bc125ce1100",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_550bcde269e8",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_34a631cd0a1a",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_aa32f478d0f3",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_939048284c10",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_4f2cc9fced58",
+              "ring": "core",
+              "reason": "Plain or striped rather than the checked style shown.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_pattern"
+              ]
+            },
+            {
+              "entity_id": "p_6c2ef701ec78",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_f199f8c719b0",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_441c5da7e7ac",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_2b57d81fc45d",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_29206910346f",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_6e69b85a2a67",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_6fd75a1f79e9",
+              "ring": "related",
+              "reason": "Plain or striped rather than the checked style shown.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_pattern"
+              ]
+            },
+            {
+              "entity_id": "p_c9defec0849e",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_901e568d6188",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_c757445bbb26",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_3a4015a5b6b1",
+              "ring": "related",
+              "reason": "Plain or striped rather than the checked style shown.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_pattern"
+              ]
+            },
+            {
+              "entity_id": "p_4ce55845c8da",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_935028f52bde",
+              "ring": "core",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_c534053b717d",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_a976874f6835",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_b24d971bc103",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_d63c8b5bbca0",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_ac320c2ed6a0",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_1f136ad7c36a",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_96bf450a62e4",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_86c31a2b534b",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_2a25422f9369",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_bd0da2cb80ea",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_644fa8207c51",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_80ca2c08f4da",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_c763854033e2",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_3b2eab99622b",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_1bf179c19a5b",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_503c2c3a9fa1",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_efe07a5adb0d",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_84151d23bac1",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_c301d7d71f2e",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_9f22b0d345ea",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_80105b757f71",
+              "ring": "core",
+              "reason": "Pyjamas or hooded/zip outerwear rather than the requested ordinary checked shirt.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_garment_type"
+              ]
+            },
+            {
+              "entity_id": "p_2a67fef9670e",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_ecdf6caf0a2b",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_bf6afe9f1574",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_3fcea799faa3",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_21e468395d11",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_15b2051ca9bc",
+              "ring": "related",
+              "reason": "Short or missing sleeves, not the explicitly requested long-sleeved option.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_sleeve_type"
+              ]
+            },
+            {
+              "entity_id": "p_af4dafaf99ce",
+              "ring": "related",
+              "reason": "Pyjamas or hooded/zip outerwear rather than the requested ordinary checked shirt.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_garment_type"
+              ]
+            },
+            {
+              "entity_id": "p_5e76e2eaff1f",
+              "ring": "core",
+              "reason": "Pyjamas or hooded/zip outerwear rather than the requested ordinary checked shirt.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_garment_type"
+              ]
+            },
+            {
+              "entity_id": "p_c4b5e4111328",
+              "ring": "related",
+              "reason": "Pyjamas or hooded/zip outerwear rather than the requested ordinary checked shirt.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_garment_type"
+              ]
+            },
+            {
+              "entity_id": "p_768c84934c76",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_a8810e66aee1",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_a0185d896e08",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_6ab52375ab68",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_1b5847cda179",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_3f24d2d2aa94",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_bc79daa20be3",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_a0dc3c6af5c6",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_a8bd254ef528",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_7159e47bd68f",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_e9e22bf4aaa1",
+              "ring": "related",
+              "reason": "Pyjamas or hooded/zip outerwear rather than the requested ordinary checked shirt.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_garment_type"
+              ]
+            },
+            {
+              "entity_id": "p_ef6c8b45362b",
+              "ring": "related",
+              "reason": "Pyjamas or hooded/zip outerwear rather than the requested ordinary checked shirt.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_garment_type"
+              ]
+            },
+            {
+              "entity_id": "p_f9f91cc97621",
+              "ring": "related",
+              "reason": "The displayed variant has mainly red/black, brown, green or two dark blue colours, not the earlier light-white and dark-blue/black colour combination.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_2a8961813df4",
+              "ring": "related",
+              "reason": "Pyjamas or hooded/zip outerwear rather than the requested ordinary checked shirt.",
+              "why_plausible": "A genuine result in the complete native blue/white or red/black plaid shirt window.",
+              "failure_predicates": [
+                "wrong_garment_type"
+              ]
+            },
+            {
+              "entity_id": "p_22e345d7a53a",
+              "ring": "related",
+              "reason": "The published image shows green bands and neutral dark/white checks rather than a blue-and-white main colour combination.",
+              "why_plausible": "A native search result for checked shirts with a similar contrast or colour family.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_6fdfdc2f8638",
+              "ring": "related",
+              "reason": "The published image shows black-and-white checks, without blue as a main colour.",
+              "why_plausible": "A native search result for checked shirts with a similar contrast or colour family.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_d1785b246a8e",
+              "ring": "related",
+              "reason": "The published image shows black-and-white checks, without blue as a main colour.",
+              "why_plausible": "A native search result for checked shirts with a similar contrast or colour family.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_2d585bd5fd47",
+              "ring": "related",
+              "reason": "The published image shows black-and-white checks, without blue as a main colour.",
+              "why_plausible": "A native search result for checked shirts with a similar contrast or colour family.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            },
+            {
+              "entity_id": "p_37bb1adea873",
+              "ring": "related",
+              "reason": "The published image shows a navy heather base with greige/tan pinlines, not white as a main check colour.",
+              "why_plausible": "A native search result for checked shirts with a similar contrast or colour family.",
+              "failure_predicates": [
+                "wrong_main_colours"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ],
+          "answer_boundary_review": {
+            "status": "closed",
+            "reviewer": "Coding Agent /root/statistics",
+            "unresolved_candidates": [],
+            "native_image_evidence": [
+              {
+                "entity_id": "p_b7f7de8e58b5",
+                "asin": "B0GXHBS1DT",
+                "url": "https://m.media-amazon.com/images/I/71doY96gdJL.jpg"
+              },
+              {
+                "entity_id": "p_82f8b68fc53f",
+                "asin": "B0GLP43G2Y",
+                "url": "https://m.media-amazon.com/images/I/91iaaSfbByL.jpg"
+              }
+            ]
+          }
+        },
+        "catalogue_assessment": {
+          "rule": "One long-sleeved checked shirt with blue (including navy) and white as its main colours. Small secondary stripes are allowed. Brand, exact check size, fit, gender labelling and size do not narrow the set. Pure black and white, blue and another dark or tan colour without white, and red and black do not match.",
+          "initial_accepted": [
+            "p_0ebad91b552f",
+            "p_de40d7b5298d",
+            "p_cb50117b20f4",
+            "p_9e630363ee26",
+            "p_134081f2fa88",
+            "p_52ec4852d261",
+            "p_f892f059266f",
+            "p_b7f7de8e58b5",
+            "p_999fabc15bf5",
+            "p_02162adce2ec",
+            "p_d9d691208f1f",
+            "p_69b728c239d0",
+            "p_1477928bda8e",
+            "p_666402ff4973",
+            "p_7ec2b5bd4a86",
+            "p_03a396c2e74c",
+            "p_ad7c23732e5e",
+            "p_5bbaf834c119",
+            "p_e0d548cc23fa",
+            "p_3b0e25b131ab",
+            "p_82f8b68fc53f",
+            "p_ad1478e97a8f",
+            "p_cc14354d075f",
+            "p_4d2247e94262"
+          ],
+          "final_accepted": [
+            "p_0ebad91b552f",
+            "p_de40d7b5298d",
+            "p_cb50117b20f4",
+            "p_9e630363ee26",
+            "p_134081f2fa88",
+            "p_52ec4852d261",
+            "p_f892f059266f",
+            "p_b7f7de8e58b5",
+            "p_999fabc15bf5",
+            "p_02162adce2ec",
+            "p_d9d691208f1f",
+            "p_69b728c239d0",
+            "p_1477928bda8e",
+            "p_666402ff4973",
+            "p_7ec2b5bd4a86",
+            "p_03a396c2e74c",
+            "p_ad7c23732e5e",
+            "p_5bbaf834c119",
+            "p_e0d548cc23fa",
+            "p_3b0e25b131ab",
+            "p_82f8b68fc53f",
+            "p_ad1478e97a8f",
+            "p_cc14354d075f",
+            "p_4d2247e94262"
+          ],
+          "evidence": "Independent targeted recheck of all 95 public listings. Five previously accepted colourways are contradicted by the frozen images. The two ambiguous thumbnails were resolved using same-asset native Amazon CDN images, now served by EgoMart. The source question and first blind solution are retained."
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "replaces_candidate_id": "seed-refresh-retain-egoschema-03",
+      "replacement_reason": "The old exact-entity requirement had several plausible plaid shirts. The new useful need is comparing one similar shirt style, accepts all matching broad colour combinations, and does not invent an exact brand, fit or SKU from the video.",
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Original eight frames inspected; prior interval facts retained.",
+        "missing": "Independent review and one valid development trial."
+      },
+      "repair_history": [
+        {
+          "date": "2026-11-05",
+          "scope": "Refresh replay window and V1 onset only. The request, the original opening frame packet and the later three frames are unchanged. The former 67.5 s V1 opening followed the first definite change of attention at 66.5 s.",
+          "previous_v1_onset_seconds": 67.5,
+          "previous_v1_onset_frame": "data/observations/seed-refresh-retain-egoschema-03/V1_00.jpg"
+        },
+        {
+          "date": "2026-11-05",
+          "scope": "Correct the same initial and final blue/white product set without changing the request or site scope. Preserve the sealed original solution and correct five false-positive colourways.",
+          "removed_entity_ids": [
+            "p_22e345d7a53a",
+            "p_6fdfdc2f8638",
+            "p_d1785b246a8e",
+            "p_2d585bd5fd47",
+            "p_37bb1adea873"
+          ],
+          "retained_after_native_image_check": [
+            "p_b7f7de8e58b5",
+            "p_82f8b68fc53f"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          56.0,
+          71.5
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-refresh-retain-2026102906/review.json"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import unittest
 
-from tools.mine_divergence_events import mine
+from tools.mine.mine_divergence_events import mine
 
 
 def _row(identifier: int, instruction: str) -> dict:
@@ -14,11 +14,15 @@ def _row(identifier: int, instruction: str) -> dict:
 
 class RefreshMiningTest(unittest.TestCase):
     def test_separates_selection_from_replacement_evidence(self) -> None:
-        report = mine([
-            _row(1, "Find the second snack picked up by the shopper in the video."),
-            _row(2, "The shopper put the item back before choosing another product."),
-            _row(3, "Report the final price shown on the product page."),
-        ])
+        report = mine(
+            [
+                _row(1, "Find the second snack picked up by the shopper in the video."),
+                _row(
+                    2, "The shopper put the item back before choosing another product."
+                ),
+                _row(3, "Report the final price shown on the product page."),
+            ]
+        )
 
         refresh = report["refresh"]
         self.assertEqual(refresh["physical_selection_ids"], [1])

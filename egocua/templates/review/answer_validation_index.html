@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EgoUseBench · 人工答案核验</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
+</head>
+<body>
+<header class="topbar"><strong>EgoUseBench / 人工答案核验</strong><span>{{ '组织者预览 · 不计入正式结果' if preview else participant }}</span></header>
+<main class="page">
+<section class="hero"><div><h1>看材料，选择符合要求的结果</h1><p>无需搜索关键词或操作网站。每题查看画面、请求和候选，按最终要求作答。</p><p class="hint">需要确认指代时可以提问。选择一组满足最终要求的结果，可多选并填写数量；也可以说明没有符合项或信息不足。提交后保留首次答案。</p></div></section>
+<p>已提交 {{ rows|selectattr('submitted')|list|length }} / {{ rows|length }} 题 · 本地自动保存，可退出后继续</p>
+<section class="task-list">
+{% for row in rows %}<a class="task-row" href="{{ url_for('validation_case', item=row.item) }}"><span>任务 {{ '%02d'|format(row.item) }}</span><span>{{ '已提交' if row.submitted else ('作答中' if row.started else '未开始') }}</span></a>{% endfor %}
+</section>
+<p><a href="{{ url_for('validation_export') }}">导出本人作答记录</a></p>
+</main></body></html>

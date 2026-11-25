@@ -1,0 +1,2460 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official HD-EPIC data record, CC BY 4.0; one targeted continuous excerpt."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110509",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240203-132119__10-81",
+        "original_video_id": "P01-20240203-132119",
+        "media_start_seconds": 10,
+        "media_sha256": "c35cec3a0c2a9f791f6c924bcb82feaec3b0c424001ad311db752e1cf07e9dfe",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              13,
+              20
+            ],
+            "description": "The wearer stirs orange carrot pieces and pale chopped aromatics in an open saucepan. No substantial broth is visible. The other vessel stays covered."
+          },
+          {
+            "interval_seconds": [
+              31,
+              36
+            ],
+            "description": "The wearer pours clear liquid from the kettle into the same saucepan until it covers the visible vegetables."
+          },
+          {
+            "interval_seconds": [
+              43,
+              52
+            ],
+            "description": "The wearer stirs the same carrots in a substantial quantity of liquid and leaves the pan on the stove."
+          },
+          {
+            "interval_seconds": [
+              69,
+              76
+            ],
+            "description": "The wearer unwraps a small seasoning cube and reaches to the same saucepan. No finished serving or blending is shown."
+          }
+        ],
+        "acquisition_receipt": "data/sources/provenance/expansion_20261105_carrot_soup_frame_provenance.json::source_acquisition"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            13,
+            15,
+            17,
+            19
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110509/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110509/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110509/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110509/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            31,
+            33,
+            35,
+            37
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110509/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110509/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110509/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110509/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          13.0,
+          76.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110509/review.json",
+        "wearer_max_image_edge": 1280
+      },
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "screening": {
+        "proposed_instruction": "Could you save a recipe video for what I’m stirring?",
+        "source_continuity": "Continuous HD-EPIC source window 13–76 s with no skipped footage or new user request."
+      },
+      "supported_claims": [
+        {
+          "text": "Carrot pieces and pale chopped aromatics are stirred in one saucepan. The opening does not establish a soup.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "Clear liquid is poured into that same pan and covers the vegetables; the continued cooking in broth differs from serving a pan-cooked carrot side.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [],
+      "construct": {
+        "research_question": "Can an agent revise an initially applicable recipe when adding liquid changes the way the same food is cooked and served?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "belief_before": "The wearer stirs carrots and pale aromatics in an open saucepan, with no substantial liquid yet visible.",
+        "belief_after": "The same pan receives enough liquid to cover the vegetables; the wearer continues stirring them in the broth.",
+        "required_behavior_change": "Replace an applicable carrot-side-only recipe if saved, and retain a matching carrot-based stovetop soup recipe.",
+        "no_update_failure": "Keep a finished sautéed carrot or glazed carrot side rather than a complete carrot soup recipe after the liquid-based preparation is visible.",
+        "overupdate_failure": "Reject a complete matching soup because it is blended, uses a different seasoning, or also teaches another method; save additional unrelated videos.",
+        "visual_dependency_claim": "The request identifies the mixture by the wearer's stirring action, not by the ingredient, appliance or method. A complete stovetop carrot side is reasonable from the dry preparation. The subsequent addition leaves carrots cooking in substantial liquid; a side-only guide no longer teaches the dish.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a recipe video for what I’m stirring?",
+          "target_granularity": "category",
+          "initial_target_role": "plausible_carrot_preparation",
+          "final_target_role": "stovetop_carrot_soup",
+          "environment_role_ids": {
+            "plausible_carrot_preparation": "m_34f61d4ca00b",
+            "stovetop_carrot_soup": "m_8a74d7069fce"
+          },
+          "equivalent_role_ids": {
+            "plausible_carrot_preparation": [
+              "m_65499e4e2017",
+              "m_098ff15ff0f9",
+              "m_6e23a4d026a1",
+              "m_0af58fda94eb",
+              "m_d4fdba10556c",
+              "m_05378f90b5ac",
+              "m_c54e075d47a6",
+              "m_5dc6e35939f6",
+              "m_d5e68ee23b24",
+              "m_ff28d7bfcc63",
+              "m_b3136471c5f3",
+              "m_c5accf47fefe",
+              "m_af4cffc709e3",
+              "m_87639755c148",
+              "m_8a74d7069fce",
+              "m_f4eb66d764f3",
+              "m_2275d698fa19",
+              "m_dbcbbec836e5",
+              "m_53f4d21c1d1c",
+              "m_e53113855627",
+              "m_111062b3d60f"
+            ],
+            "stovetop_carrot_soup": [
+              "m_f4eb66d764f3",
+              "m_2275d698fa19",
+              "m_dbcbbec836e5",
+              "m_53f4d21c1d1c",
+              "m_e53113855627"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "carrot_side": "m_34f61d4ca00b",
+            "carrot_soup": "m_8a74d7069fce"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "carrot_side",
+                "carrot_soup"
+              ],
+              "why": "The wearer is stirring orange carrot pieces and light aromatics; the dry stage alone permits a complete side or the early stage of soup."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "carrot_side",
+                "carrot_soup"
+              ],
+              "why": "The kettle starts pouring; a brief addition on its own could still be a deglaze."
+            },
+            {
+              "frame": "V1:2",
+              "live": [
+                "carrot_soup"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "Enough liquid now covers the vegetables in the same pan, and it remains the cooking medium."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "sauteed carrots and onion recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110509.json",
+              "snapshot_stage": "sauteed_carrots",
+              "result_entity_ids": [
+                "m_65499e4e2017",
+                "m_098ff15ff0f9",
+                "m_34f61d4ca00b",
+                "m_7dee1d8e7c8a",
+                "m_6e23a4d026a1",
+                "m_ee402af58b5d",
+                "m_80e889989598",
+                "m_0af58fda94eb",
+                "m_0ee0947cb3c7",
+                "m_d4fdba10556c",
+                "m_14d031ab2cb3",
+                "m_05378f90b5ac",
+                "m_c54e075d47a6",
+                "m_5dc6e35939f6",
+                "m_d5e68ee23b24",
+                "m_d07f5eb686fc",
+                "m_ff28d7bfcc63",
+                "m_a0970bb37107",
+                "m_b3136471c5f3",
+                "m_3ebe5d79df59",
+                "m_8bf31a9309ce",
+                "m_62a217b1072f",
+                "m_63b0e10c4627",
+                "m_709d94fe9f55",
+                "m_63c51693a8da",
+                "m_7a033de3643c",
+                "m_3be8525d36f9",
+                "m_af9e3df8809f",
+                "m_013c084762e7",
+                "m_57c93a1ee15a",
+                "m_5b7c44b08f43",
+                "m_c3b895f7ef49",
+                "m_c5accf47fefe",
+                "m_2c87a0ad6890",
+                "m_5ebb86c96d91",
+                "m_5390cfe28337",
+                "m_af4cffc709e3",
+                "m_4a6d17792923",
+                "m_87639755c148",
+                "m_2b93e184fe68"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "carrot soup stovetop recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110509.json",
+              "snapshot_stage": "stovetop_carrot_soup",
+              "result_entity_ids": [
+                "m_8a74d7069fce",
+                "m_f4eb66d764f3",
+                "m_2275d698fa19",
+                "m_dbcbbec836e5",
+                "m_53f4d21c1d1c",
+                "m_e53113855627",
+                "m_c67bd165f0a0",
+                "m_0ee0947cb3c7",
+                "m_c9670c146ff9",
+                "m_111062b3d60f",
+                "m_12ddc5c0d246",
+                "m_82da1fefb948",
+                "m_8bf31a9309ce",
+                "m_d48d9c7a8f56",
+                "m_80b5fd1e1c93",
+                "m_38d938fc32ca",
+                "m_3f37e3bec565",
+                "m_4594c47574ed",
+                "m_cd906244673f",
+                "m_406368f29a04",
+                "m_b3a7c5135697",
+                "m_9d7461939aa6",
+                "m_52a6dcd02d99",
+                "m_fa3be18daca4",
+                "m_e087d41f0727",
+                "m_90bd2c04dfec",
+                "m_ce6ffd7c47fb",
+                "m_b650be850ccf",
+                "m_2dd1a4f5244e",
+                "m_5319ef601fcb",
+                "m_77d977040f66",
+                "m_a27057183248",
+                "m_0ca44b0e6326",
+                "m_e9969832661a",
+                "m_fbd93093cc75",
+                "m_28b4cd431ba5",
+                "m_0e336263a9c8",
+                "m_05607903b1ae",
+                "m_d498a88366dd",
+                "m_63b8767adfce"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_65499e4e2017",
+            "m_098ff15ff0f9",
+            "m_34f61d4ca00b",
+            "m_7dee1d8e7c8a",
+            "m_6e23a4d026a1",
+            "m_ee402af58b5d",
+            "m_80e889989598",
+            "m_0af58fda94eb",
+            "m_0ee0947cb3c7",
+            "m_d4fdba10556c",
+            "m_14d031ab2cb3",
+            "m_05378f90b5ac",
+            "m_c54e075d47a6",
+            "m_5dc6e35939f6",
+            "m_d5e68ee23b24",
+            "m_d07f5eb686fc",
+            "m_ff28d7bfcc63",
+            "m_a0970bb37107",
+            "m_b3136471c5f3",
+            "m_3ebe5d79df59",
+            "m_8bf31a9309ce",
+            "m_62a217b1072f",
+            "m_63b0e10c4627",
+            "m_709d94fe9f55",
+            "m_63c51693a8da",
+            "m_7a033de3643c",
+            "m_3be8525d36f9",
+            "m_af9e3df8809f",
+            "m_013c084762e7",
+            "m_57c93a1ee15a",
+            "m_5b7c44b08f43",
+            "m_c3b895f7ef49",
+            "m_c5accf47fefe",
+            "m_2c87a0ad6890",
+            "m_5ebb86c96d91",
+            "m_5390cfe28337",
+            "m_af4cffc709e3",
+            "m_4a6d17792923",
+            "m_87639755c148",
+            "m_2b93e184fe68",
+            "m_8a74d7069fce",
+            "m_f4eb66d764f3",
+            "m_2275d698fa19",
+            "m_dbcbbec836e5",
+            "m_53f4d21c1d1c",
+            "m_e53113855627",
+            "m_c67bd165f0a0",
+            "m_c9670c146ff9",
+            "m_111062b3d60f",
+            "m_12ddc5c0d246",
+            "m_82da1fefb948",
+            "m_d48d9c7a8f56",
+            "m_80b5fd1e1c93",
+            "m_38d938fc32ca",
+            "m_3f37e3bec565",
+            "m_4594c47574ed",
+            "m_cd906244673f",
+            "m_406368f29a04",
+            "m_b3a7c5135697",
+            "m_9d7461939aa6",
+            "m_52a6dcd02d99",
+            "m_fa3be18daca4",
+            "m_e087d41f0727",
+            "m_90bd2c04dfec",
+            "m_ce6ffd7c47fb",
+            "m_b650be850ccf",
+            "m_2dd1a4f5244e",
+            "m_5319ef601fcb",
+            "m_77d977040f66",
+            "m_a27057183248",
+            "m_0ca44b0e6326",
+            "m_e9969832661a",
+            "m_fbd93093cc75",
+            "m_28b4cd431ba5",
+            "m_0e336263a9c8",
+            "m_05607903b1ae",
+            "m_d498a88366dd",
+            "m_63b8767adfce"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_65499e4e2017",
+            "m_098ff15ff0f9",
+            "m_34f61d4ca00b",
+            "m_7dee1d8e7c8a",
+            "m_6e23a4d026a1",
+            "m_ee402af58b5d",
+            "m_80e889989598",
+            "m_0af58fda94eb",
+            "m_0ee0947cb3c7",
+            "m_d4fdba10556c",
+            "m_14d031ab2cb3",
+            "m_05378f90b5ac",
+            "m_c54e075d47a6",
+            "m_5dc6e35939f6",
+            "m_d5e68ee23b24",
+            "m_d07f5eb686fc",
+            "m_ff28d7bfcc63",
+            "m_a0970bb37107",
+            "m_b3136471c5f3",
+            "m_3ebe5d79df59",
+            "m_8bf31a9309ce",
+            "m_62a217b1072f",
+            "m_63b0e10c4627",
+            "m_709d94fe9f55",
+            "m_63c51693a8da",
+            "m_7a033de3643c",
+            "m_3be8525d36f9",
+            "m_af9e3df8809f",
+            "m_013c084762e7",
+            "m_57c93a1ee15a",
+            "m_5b7c44b08f43",
+            "m_c3b895f7ef49",
+            "m_c5accf47fefe",
+            "m_2c87a0ad6890",
+            "m_5ebb86c96d91",
+            "m_5390cfe28337",
+            "m_af4cffc709e3",
+            "m_4a6d17792923",
+            "m_87639755c148",
+            "m_2b93e184fe68",
+            "m_c67bd165f0a0",
+            "m_c9670c146ff9",
+            "m_111062b3d60f",
+            "m_12ddc5c0d246",
+            "m_82da1fefb948",
+            "m_d48d9c7a8f56",
+            "m_80b5fd1e1c93",
+            "m_38d938fc32ca",
+            "m_3f37e3bec565",
+            "m_4594c47574ed",
+            "m_cd906244673f",
+            "m_406368f29a04",
+            "m_b3a7c5135697",
+            "m_9d7461939aa6",
+            "m_52a6dcd02d99",
+            "m_fa3be18daca4",
+            "m_e087d41f0727",
+            "m_90bd2c04dfec",
+            "m_ce6ffd7c47fb",
+            "m_b650be850ccf",
+            "m_2dd1a4f5244e",
+            "m_5319ef601fcb",
+            "m_77d977040f66",
+            "m_a27057183248",
+            "m_0ca44b0e6326",
+            "m_e9969832661a",
+            "m_fbd93093cc75",
+            "m_28b4cd431ba5",
+            "m_0e336263a9c8",
+            "m_05607903b1ae",
+            "m_d498a88366dd",
+            "m_63b8767adfce"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_65499e4e2017",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The original author teaches cooked carrots and green onions as a complete standalone side; aromatics may vary.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/LUO2ZEm4pc0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/LUO2ZEm4pc0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_098ff15ff0f9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Complete quick stovetop sautéed carrots; cuts and seasoning may differ.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/dNqiCTIQwkg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/dNqiCTIQwkg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_34f61d4ca00b",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Keep opening acceptance; description lists water but no quantity, so do not say “a little water” or claim detailed written cooking directions.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/L3c0bM7bD2A.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/L3c0bM7bD2A.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7dee1d8e7c8a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/v-bhA0GcoLM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/v-bhA0GcoLM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_6e23a4d026a1",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Author explicitly teaches a complete stovetop sautéed carrot and onion side; peppers are a recipe variation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5vWWs_XHtn8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5vWWs_XHtn8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ee402af58b5d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qYfoARhooHE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qYfoARhooHE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_80e889989598",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/av5jmh0D1Q0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/av5jmh0D1Q0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_0af58fda94eb",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Detailed native ingredient list and title teach a fried carrot-and-onion side; sweet chilli or shredded cut is not a requirement.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/d1mdpOzaQa0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/d1mdpOzaQa0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_0ee0947cb3c7",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Standalone carrots are explicitly finished in a glaze, not soup. Determine whether the initial carrot-specific pan cooking is close enough despite a distinct glaze step.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KzzviM5B4X8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/KzzviM5B4X8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d4fdba10556c",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The original title and image support sautéing carrots, peppers and onions; allow reasonable seasoning variants.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/myYTjRton_E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/myYTjRton_E.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_14d031ab2cb3",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/imWDu1Mw6vs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/imWDu1Mw6vs.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_05378f90b5ac",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Complete stovetop caramelized carrots and onion side; extra peppers need not be added to the wearer's version.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/CiPgVqnKJX4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/CiPgVqnKJX4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_c54e075d47a6",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Pan-fried carrots with garlic is a compatible cooked-carrot side, even if aroma differs.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Mjd4HWv2xCU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Mjd4HWv2xCU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5dc6e35939f6",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native page specifically teaches cooking carrots on a frying pan, a legitimate standalone side.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xqTok3t1rFw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xqTok3t1rFw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d5e68ee23b24",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Explicit 2:10–3:42 carrot cooking before 3:42–5:43 adding zucchini and seasoning; title names a finished carrot-led sautéed side. Zucchini variation is consistent with already admitted pepper and leek variations.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ZUZXjEMnbMA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ZUZXjEMnbMA.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d07f5eb686fc",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/BXAVBkwaTo4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/BXAVBkwaTo4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ff28d7bfcc63",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "A plain demonstration of sautéing carrots; accept a valid stove-pan side rather than insisting on onion.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SkZvLwiu9V8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SkZvLwiu9V8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a0970bb37107",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fcU2eFxJ4Tg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fcU2eFxJ4Tg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b3136471c5f3",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Author states this is a sautéed carrot-based vegetable side with peppers and onions.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IpqOFwnCS3I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/IpqOFwnCS3I.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3ebe5d79df59",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zDs9ggY-QUQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zDs9ggY-QUQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_8bf31a9309ce",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/meHfrktmvIo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/meHfrktmvIo.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_62a217b1072f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IBn2v_dhn8w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/IBn2v_dhn8w.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_63b0e10c4627",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/sPomzXp7M3k.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/sPomzXp7M3k.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_709d94fe9f55",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_QYE-khND8M.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_QYE-khND8M.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_63c51693a8da",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GvyNGw-kkbQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/GvyNGw-kkbQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7a033de3643c",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MZFyT8vDgkM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MZFyT8vDgkM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3be8525d36f9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FRq1iTkrda0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FRq1iTkrda0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_af9e3df8809f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TyOyHmr24lw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TyOyHmr24lw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_013c084762e7",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/shhxTqAqi1M.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/shhxTqAqi1M.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_57c93a1ee15a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5vt83q7CNZY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5vt83q7CNZY.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5b7c44b08f43",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Recipe first covers raw carrot slices with water and boils/simmers, drains, then glazes with butter/honey/sugar; neither initial dry-pan-first method nor finished soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ziMOODWTdgk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ziMOODWTdgk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_c3b895f7ef49",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/dZRma1xQoL8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/dZRma1xQoL8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_c5accf47fefe",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Keep opening acceptance; distinct side ingredients and a Preparing side dishes chapter, but the printed full method is for the meat braise, not the carrot side.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8CWDM-zuym0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8CWDM-zuym0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2c87a0ad6890",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/iWns-lSt7bM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/iWns-lSt7bM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5ebb86c96d91",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Nwp7Zc0QqKg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Nwp7Zc0QqKg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5390cfe28337",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The public record supports two preps (turkey stock and vegetables for freezing) and contains no complete side or finished carrot soup method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hSRmXjNjHhU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hSRmXjNjHhU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_af4cffc709e3",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "A true stovetop glazed carrot side from raw carrots; the author reduces the pan liquid to a glaze, not a serving broth.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/L-LDAOWb2Ng.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/L-LDAOWb2Ng.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_4a6d17792923",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4z0KCsap0-8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/4z0KCsap0-8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_87639755c148",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Stir-fried leeks and carrots as a complete side; a usable aromatic variation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-s-XV-UdxTk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-s-XV-UdxTk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2b93e184fe68",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rY--buXPdSo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rY--buXPdSo.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_c67bd165f0a0",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xM_eg_BnFZQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xM_eg_BnFZQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_c9670c146ff9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mdT3tFEug00.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mdT3tFEug00.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_111062b3d60f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Explicit native chapter 1:52–3:05 sautés carrots in butter before glazing and serving a standalone carrot side. Shared method, not soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/YQsd7p2Rjfc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/YQsd7p2Rjfc.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_12ddc5c0d246",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WAQeD3uxi64.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WAQeD3uxi64.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_82da1fefb948",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8eKqFJmRYh4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8eKqFJmRYh4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d48d9c7a8f56",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5uSBF_s7Pl4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5uSBF_s7Pl4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_80b5fd1e1c93",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ICFeolekyVQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ICFeolekyVQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_38d938fc32ca",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/bowDQL6nf7Y.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/bowDQL6nf7Y.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3f37e3bec565",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Y53zmu4NIMg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Y53zmu4NIMg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_4594c47574ed",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fa-PTXLTFCk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fa-PTXLTFCk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_cd906244673f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/06Vrqqo1SaU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/06Vrqqo1SaU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_406368f29a04",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yGN0M8_G4CQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yGN0M8_G4CQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b3a7c5135697",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3DoSbO29VI4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3DoSbO29VI4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_9d7461939aa6",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ojkZE8mTSgo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ojkZE8mTSgo.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_52a6dcd02d99",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Hd53fxoLlAo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Hd53fxoLlAo.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_fa3be18daca4",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/O_VxKl5Dm5I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/O_VxKl5Dm5I.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_e087d41f0727",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-QrQgd5fjqg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-QrQgd5fjqg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_90bd2c04dfec",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jHq0RXIjAfk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jHq0RXIjAfk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ce6ffd7c47fb",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/nghZ5kQR7Xs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/nghZ5kQR7Xs.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b650be850ccf",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0xR2cC6Tea8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/0xR2cC6Tea8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2dd1a4f5244e",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pXO1l9tZmic.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pXO1l9tZmic.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5319ef601fcb",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1yi4gZNMF3o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1yi4gZNMF3o.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_77d977040f66",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xFN7_Hhzq8g.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xFN7_Hhzq8g.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a27057183248",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/tlz6HIJtRA8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/tlz6HIJtRA8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_0ca44b0e6326",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8p-f9DcVkgE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8p-f9DcVkgE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_e9969832661a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/aBTXo-Vsi4g.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/aBTXo-Vsi4g.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_fbd93093cc75",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "Native chapters steam and drain before candying. A separate soup link does not make it a two-branch guide.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FXhutKD4e-U.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FXhutKD4e-U.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_28b4cd431ba5",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xudhMRXvJI0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xudhMRXvJI0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_0e336263a9c8",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EegEEbexskc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/EegEEbexskc.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_05607903b1ae",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/95yvDREmnZk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/95yvDREmnZk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d498a88366dd",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WCmZWtGXLNo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WCmZWtGXLNo.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_63b8767adfce",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native sautéed carrot or stovetop carrot soup result window.",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/s15TWYFp0Ck.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/s15TWYFp0Ck.json::public_chapters"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "native_id": "LUO2ZEm4pc0",
+              "entity_id": "m_65499e4e2017",
+              "title": "Sautéed Carrots and Green Onions",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The original author teaches cooked carrots and green onions as a complete standalone side; aromatics may vary.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/LUO2ZEm4pc0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/LUO2ZEm4pc0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "dNqiCTIQwkg",
+              "entity_id": "m_098ff15ff0f9",
+              "title": "Sautéed carrot | How to make quick Sautéed carrots",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Complete quick stovetop sautéed carrots; cuts and seasoning may differ.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/dNqiCTIQwkg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/dNqiCTIQwkg.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "L3c0bM7bD2A",
+              "entity_id": "m_34f61d4ca00b",
+              "title": "Fried Carrots and onions Recipe - How to Make #friedcarrots",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Keep opening acceptance; description lists water but no quantity, so do not say “a little water” or claim detailed written cooking directions.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/L3c0bM7bD2A.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/L3c0bM7bD2A.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "v-bhA0GcoLM",
+              "entity_id": "m_7dee1d8e7c8a",
+              "title": "How to Caramelize Onions Like a Pro | Food Network",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/v-bhA0GcoLM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/v-bhA0GcoLM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "5vWWs_XHtn8",
+              "entity_id": "m_6e23a4d026a1",
+              "title": "How To Make Sautéed Carrots And Onions Side Dish Recipe",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Author explicitly teaches a complete stovetop sautéed carrot and onion side; peppers are a recipe variation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5vWWs_XHtn8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5vWWs_XHtn8.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "qYfoARhooHE",
+              "entity_id": "m_ee402af58b5d",
+              "title": "Recipe: Honey Garlic Butter Roasted Carrots – Sweet, Savoury Oven-Roasted Goodness",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qYfoARhooHE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qYfoARhooHE.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "av5jmh0D1Q0",
+              "entity_id": "m_80e889989598",
+              "title": "Perfectly Roasted Potatoes with Garlic, Carrots & Onions",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/av5jmh0D1Q0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/av5jmh0D1Q0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "d1mdpOzaQa0",
+              "entity_id": "m_0af58fda94eb",
+              "title": "Sauteed Carrots Recipe | How to Cook Sauteed Carrots | Easy Fried Carrot Side Dish Recipe | Infoods",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Detailed native ingredient list and title teach a fried carrot-and-onion side; sweet chilli or shredded cut is not a requirement.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/d1mdpOzaQa0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/d1mdpOzaQa0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "KzzviM5B4X8",
+              "entity_id": "m_0ee0947cb3c7",
+              "title": "Honey Glazed Carrots | Chef Jean-Pierre",
+              "initial": "insufficient_evidence",
+              "final": "not_supported",
+              "reason": "Standalone carrots are explicitly finished in a glaze, not soup. Determine whether the initial carrot-specific pan cooking is close enough despite a distinct glaze step.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KzzviM5B4X8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/KzzviM5B4X8.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "myYTjRton_E",
+              "entity_id": "m_d4fdba10556c",
+              "title": "Sauteed Carrots peppers and onions",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The original title and image support sautéing carrots, peppers and onions; allow reasonable seasoning variants.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/myYTjRton_E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/myYTjRton_E.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "imWDu1Mw6vs",
+              "entity_id": "m_14d031ab2cb3",
+              "title": "Garlic Roasted Carrots",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/imWDu1Mw6vs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/imWDu1Mw6vs.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "CiPgVqnKJX4",
+              "entity_id": "m_05378f90b5ac",
+              "title": "Caramelized Carrots And Onions - Easy Vegetable Side Dish",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Complete stovetop caramelized carrots and onion side; extra peppers need not be added to the wearer's version.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/CiPgVqnKJX4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/CiPgVqnKJX4.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "Mjd4HWv2xCU",
+              "entity_id": "m_c54e075d47a6",
+              "title": "Pan fried Carrots + Garlic | Chinese food recipe",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Pan-fried carrots with garlic is a compatible cooked-carrot side, even if aroma differs.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Mjd4HWv2xCU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Mjd4HWv2xCU.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "xqTok3t1rFw",
+              "entity_id": "m_5dc6e35939f6",
+              "title": "Sauteed Carrots! 🥕 How To Cook Carrots - Easy Healthy Pan Fried Carrots Recipe",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native page specifically teaches cooking carrots on a frying pan, a legitimate standalone side.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xqTok3t1rFw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xqTok3t1rFw.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "ZUZXjEMnbMA",
+              "entity_id": "m_d5e68ee23b24",
+              "title": "Sauteed Carrots & Zucchini",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Explicit 2:10–3:42 carrot cooking before 3:42–5:43 adding zucchini and seasoning; title names a finished carrot-led sautéed side. Zucchini variation is consistent with already admitted pepper and leek variations.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ZUZXjEMnbMA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ZUZXjEMnbMA.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "BXAVBkwaTo4",
+              "entity_id": "m_d07f5eb686fc",
+              "title": "How to Cook Roasted Carrots",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/BXAVBkwaTo4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/BXAVBkwaTo4.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "SkZvLwiu9V8",
+              "entity_id": "m_ff28d7bfcc63",
+              "title": "Video  How to Saute Carrots",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "A plain demonstration of sautéing carrots; accept a valid stove-pan side rather than insisting on onion.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SkZvLwiu9V8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SkZvLwiu9V8.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "fcU2eFxJ4Tg",
+              "entity_id": "m_a0970bb37107",
+              "title": "SAUTE MIXED VEGGIES | How to saute mixed veggies | Broccoli, Carrots, Onions & Green Beans (Michiri)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fcU2eFxJ4Tg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fcU2eFxJ4Tg.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "IpqOFwnCS3I",
+              "entity_id": "m_b3136471c5f3",
+              "title": "Easy Healthy Side Dish Recipe. Sautéed Carrots & Red Peppers with Garlic",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Author states this is a sautéed carrot-based vegetable side with peppers and onions.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IpqOFwnCS3I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/IpqOFwnCS3I.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "zDs9ggY-QUQ",
+              "entity_id": "m_3ebe5d79df59",
+              "title": "How to Make Honey Roasted Carrots | The Stay At Home Chef",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zDs9ggY-QUQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zDs9ggY-QUQ.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "meHfrktmvIo",
+              "entity_id": "m_8bf31a9309ce",
+              "title": "3 Simple Tricks To Improve Your Roasted Carrots",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/meHfrktmvIo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/meHfrktmvIo.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "IBn2v_dhn8w",
+              "entity_id": "m_62a217b1072f",
+              "title": "How to make Roasted Potatoes and Carrots - Easy Cooking!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IBn2v_dhn8w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/IBn2v_dhn8w.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "sPomzXp7M3k",
+              "entity_id": "m_63b0e10c4627",
+              "title": "COOK WITH ME: Sautéed Carrots & Onions in the Oven for the Freezer!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/sPomzXp7M3k.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/sPomzXp7M3k.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "_QYE-khND8M",
+              "entity_id": "m_709d94fe9f55",
+              "title": "How to Cook Butter Glazed Carrots & Green Beans (French Beans) | Healthy, Easy & Delicious Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_QYE-khND8M.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_QYE-khND8M.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "GvyNGw-kkbQ",
+              "entity_id": "m_63c51693a8da",
+              "title": "Golden Potato Skillet 🥕 with Sautéed Carrots 🧅 Onion 🧄 Garlic 🧀 and Melted Cheese 🙂👨‍🍳🥕 🧄🧅🙂👨‍🍳🥔",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GvyNGw-kkbQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/GvyNGw-kkbQ.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "MZFyT8vDgkM",
+              "entity_id": "m_7a033de3643c",
+              "title": "BUTTER GARLIC POTATOES & CARROTS // QUICK & EASY SIDE DISH",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MZFyT8vDgkM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MZFyT8vDgkM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "FRq1iTkrda0",
+              "entity_id": "m_3be8525d36f9",
+              "title": "SPICY Vegetable Side Dish | Stir-Fried Carrots, Broccoli, and Bell Peppers Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FRq1iTkrda0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FRq1iTkrda0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "TyOyHmr24lw",
+              "entity_id": "m_af9e3df8809f",
+              "title": "Stir Fry Cabbage and Carrots Recipe You'll Want To Make Again And Again",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TyOyHmr24lw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TyOyHmr24lw.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "shhxTqAqi1M",
+              "entity_id": "m_013c084762e7",
+              "title": "Easy Oven Roasted Carrots Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/shhxTqAqi1M.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/shhxTqAqi1M.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "5vt83q7CNZY",
+              "entity_id": "m_57c93a1ee15a",
+              "title": "Perfect Roast Vegetables | Jamie Oliver",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5vt83q7CNZY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5vt83q7CNZY.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "ziMOODWTdgk",
+              "entity_id": "m_5b7c44b08f43",
+              "title": "Honey Glazed Carrots - sweet and sticky! | The Recipe Rebel",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Recipe first covers raw carrot slices with water and boils/simmers, drains, then glazes with butter/honey/sugar; neither initial dry-pan-first method nor finished soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ziMOODWTdgk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ziMOODWTdgk.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "dZRma1xQoL8",
+              "entity_id": "m_c3b895f7ef49",
+              "title": "Quick & Easy Potatoes and Carrots: Perfect Side Dish!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/dZRma1xQoL8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/dZRma1xQoL8.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "8CWDM-zuym0",
+              "entity_id": "m_c5accf47fefe",
+              "title": "Guinness Braised Short Ribs with Glazed Onions and Sautéed Carrots over White Cheddar Polenta",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Keep opening acceptance; distinct side ingredients and a Preparing side dishes chapter, but the printed full method is for the meat braise, not the carrot side.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8CWDM-zuym0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8CWDM-zuym0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "iWns-lSt7bM",
+              "entity_id": "m_2c87a0ad6890",
+              "title": "Mushrooms, Carrots, Bell pepper incredible RECIPE | New Recipe For Mushrooms",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/iWns-lSt7bM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/iWns-lSt7bM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "Nwp7Zc0QqKg",
+              "entity_id": "m_5ebb86c96d91",
+              "title": "Just Broccoli, Carrots and Onion! So Simple and Delicious!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Nwp7Zc0QqKg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Nwp7Zc0QqKg.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "hSRmXjNjHhU",
+              "entity_id": "m_5390cfe28337",
+              "title": "Prepping Homemade Turkey Stock and Sautéed Carrots/Onions for Freezing",
+              "initial": "insufficient_evidence",
+              "final": "not_supported",
+              "reason": "The public record supports two preps (turkey stock and vegetables for freezing) and contains no complete side or finished carrot soup method.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hSRmXjNjHhU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hSRmXjNjHhU.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "L-LDAOWb2Ng",
+              "entity_id": "m_af4cffc709e3",
+              "title": "How to cook: Glacé (Glazed) Carrots",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "A true stovetop glazed carrot side from raw carrots; the author reduces the pan liquid to a glaze, not a serving broth.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/L-LDAOWb2Ng.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/L-LDAOWb2Ng.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "4z0KCsap0-8",
+              "entity_id": "m_4a6d17792923",
+              "title": "Onion stir-fry with mushroom, carrots, and jalapeno pepper.  Template-based cooking.",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4z0KCsap0-8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/4z0KCsap0-8.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "-s-XV-UdxTk",
+              "entity_id": "m_87639755c148",
+              "title": "Stir Fry Leeks with Carrots 蒜苗萝卜 Quick & Easy 清淡隽永的家常菜，下饭配粥最好吃",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Stir-fried leeks and carrots as a complete side; a usable aromatic variation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-s-XV-UdxTk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-s-XV-UdxTk.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "rY--buXPdSo",
+              "entity_id": "m_2b93e184fe68",
+              "title": "Spicy Maple Carrots with Crispy Chickpeas and Yogurt Sauce",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rY--buXPdSo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rY--buXPdSo.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "LEEFjSZaTFI",
+              "entity_id": "m_8a74d7069fce",
+              "title": "How to Make Carrot Soup in a Vitamix or on the Stovetop",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Explicit complete carrot soup in a pot on the stove, with carrots, onion and stock; the optional blender-only method is not the reason to accept.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/LEEFjSZaTFI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/LEEFjSZaTFI.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "E-_vPEgmDHI",
+              "entity_id": "m_f4eb66d764f3",
+              "title": "Carrot Ginger Soup Recipe - Best EVER carrot soup!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Chapter 4:02–5:50 directly teaches a separate stovetop carrot, onion and broth soup method; optional ginger and texture are not required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/E-_vPEgmDHI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/E-_vPEgmDHI.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "9MNOQlP-H3Q",
+              "entity_id": "m_2275d698fa19",
+              "title": "Senken Sie Ihren Cholesterinspiegel! LINSEN-KAROTTEN-SUPPE | Reich an Ballaststoffen & Protein",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The author calls this carrot–lentil soup and gives an actual one-pot method: sauté onion, sauté two large carrots for 2–3 minutes, add 200 g dry lentils and water, simmer. Carrots are co-primary rather than a few incidental pieces. The recipe adds other ingredients but shows the relevant complete preparation. Other lentil-led recipes with supporting carrots remain excluded.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/9MNOQlP-H3Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/9MNOQlP-H3Q.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "Q-RFqHPX2D0",
+              "entity_id": "m_dbcbbec836e5",
+              "title": "CREAM OF CARROT SOUP | Healthy & Hearty | Organic SOUP Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Author cooks carrots and onions in stock in a saucepan, then finishes as cream of carrot soup. This matches the simmered carrot base; no visible constraint on texture.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Q-RFqHPX2D0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Q-RFqHPX2D0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "khQ68qPKf3Q",
+              "entity_id": "m_53f4d21c1d1c",
+              "title": "Gluten-Free Vegan Cashew Carrot Ginger Soup (Instant Pot + Stovetop) -- Super Creamy!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native recipe offers a stovetop carrot soup with water or broth, and cashew/ginger variations; the pressure cooker is optional.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/khQ68qPKf3Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/khQ68qPKf3Q.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "MDZPGGaTnVM",
+              "entity_id": "m_e53113855627",
+              "title": "The one and only VEGETABLE SOUP recipe you need for winter!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Keep both: explicit author-permitted vegetable swaps plus a fully taught carrot/onion mirepoix → broth → simmer method. The exact video is mixed vegetable soup; accepting this transferable complete recipe does not admit every soup with carrots on the ingredient list.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MDZPGGaTnVM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MDZPGGaTnVM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "xM_eg_BnFZQ",
+              "entity_id": "m_c67bd165f0a0",
+              "title": "How to Boil Baby Carrots Until Tender : Meals for Baby & Family",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xM_eg_BnFZQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xM_eg_BnFZQ.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "mdT3tFEug00",
+              "entity_id": "m_c9670c146ff9",
+              "title": "The Best Lentil Soup Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mdT3tFEug00.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mdT3tFEug00.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "YQsd7p2Rjfc",
+              "entity_id": "m_111062b3d60f",
+              "title": "How to Make Bourbon-Glazed Carrots",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Explicit native chapter 1:52–3:05 sautés carrots in butter before glazing and serving a standalone carrot side. Shared method, not soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/YQsd7p2Rjfc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/YQsd7p2Rjfc.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "WAQeD3uxi64",
+              "entity_id": "m_12ddc5c0d246",
+              "title": "Get Ready for the EASIEST 4 Ingredient Potato Soup Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WAQeD3uxi64.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WAQeD3uxi64.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "8eKqFJmRYh4",
+              "entity_id": "m_82da1fefb948",
+              "title": "Quick Sweet potato and coconut milk soup",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8eKqFJmRYh4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8eKqFJmRYh4.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "5uSBF_s7Pl4",
+              "entity_id": "m_d48d9c7a8f56",
+              "title": "30 Minute Broccoli Cheddar Soup (Better than Panera!)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5uSBF_s7Pl4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5uSBF_s7Pl4.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "ICFeolekyVQ",
+              "entity_id": "m_80b5fd1e1c93",
+              "title": "Skillet Potato Recipe With Lentils And Carrots",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ICFeolekyVQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ICFeolekyVQ.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "bowDQL6nf7Y",
+              "entity_id": "m_38d938fc32ca",
+              "title": "Gordon Ramsay's Soup Recipes | Part One",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/bowDQL6nf7Y.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/bowDQL6nf7Y.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "Y53zmu4NIMg",
+              "entity_id": "m_3f37e3bec565",
+              "title": "Easy Butternut Squash Soup for Cozy Fall Nights | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Y53zmu4NIMg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Y53zmu4NIMg.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "fa-PTXLTFCk",
+              "entity_id": "m_4594c47574ed",
+              "title": "How to Make the Best Chicken and Rice Soup at Home | One-Pot Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fa-PTXLTFCk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fa-PTXLTFCk.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "06Vrqqo1SaU",
+              "entity_id": "m_cd906244673f",
+              "title": "How To Make Easy Chicken Noodle Soup Recipe - Natasha's Kitchen",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/06Vrqqo1SaU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/06Vrqqo1SaU.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "yGN0M8_G4CQ",
+              "entity_id": "m_406368f29a04",
+              "title": "Perfect Roasted Maple Glazed Carrots Every Time",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recorded recipe is oven-roasted or uses a sheet tray; it does not teach the current stove-pan preparation or a matching carrot soup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yGN0M8_G4CQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yGN0M8_G4CQ.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "3DoSbO29VI4",
+              "entity_id": "m_b3a7c5135697",
+              "title": "Amazing Butternut Squash Soup Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3DoSbO29VI4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3DoSbO29VI4.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "ojkZE8mTSgo",
+              "entity_id": "m_9d7461939aa6",
+              "title": "How to Make Fresh Tomato Soup | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ojkZE8mTSgo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ojkZE8mTSgo.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "Hd53fxoLlAo",
+              "entity_id": "m_52a6dcd02d99",
+              "title": "The Best Chicken Noodle Soup Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Hd53fxoLlAo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Hd53fxoLlAo.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "O_VxKl5Dm5I",
+              "entity_id": "m_fa3be18daca4",
+              "title": "ITALIAN LENTIL & VEGETABLE SOUP RECIPE | easy + affordable",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/O_VxKl5Dm5I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/O_VxKl5Dm5I.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "-QrQgd5fjqg",
+              "entity_id": "m_e087d41f0727",
+              "title": "Greek Red Lentil Soup Recipe from The Mediterranean Dish",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-QrQgd5fjqg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-QrQgd5fjqg.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "jHq0RXIjAfk",
+              "entity_id": "m_90bd2c04dfec",
+              "title": "How to Make Potato Soup",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jHq0RXIjAfk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jHq0RXIjAfk.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "nghZ5kQR7Xs",
+              "entity_id": "m_ce6ffd7c47fb",
+              "title": "Easy Beef Stew Recipe (Stovetop, No Wine)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/nghZ5kQR7Xs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/nghZ5kQR7Xs.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "0xR2cC6Tea8",
+              "entity_id": "m_b650be850ccf",
+              "title": "How to Make Homemade Chicken Soup | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0xR2cC6Tea8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/0xR2cC6Tea8.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "pXO1l9tZmic",
+              "entity_id": "m_2dd1a4f5244e",
+              "title": "Pumpkin soup (a must try winter comfort food)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pXO1l9tZmic.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pXO1l9tZmic.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "1yi4gZNMF3o",
+              "entity_id": "m_5319ef601fcb",
+              "title": "5 BEST Lentil Recipes EVERYONE Should Know | Healthy, CHEAP & High-Protein (Why I Love Lentils!)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1yi4gZNMF3o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1yi4gZNMF3o.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "xFN7_Hhzq8g",
+              "entity_id": "m_77d977040f66",
+              "title": "STOVETOP  BROTH BEETS, CHARD AND BRUSSEL SPROUTS STEMS INCLUDING CARROTS SEASONED WITH ARUGULA SEEDS",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xFN7_Hhzq8g.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xFN7_Hhzq8g.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "tlz6HIJtRA8",
+              "entity_id": "m_a27057183248",
+              "title": "I Made Panera Bread’s Broccoli Cheddar Soup At Home | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/tlz6HIJtRA8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/tlz6HIJtRA8.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "8p-f9DcVkgE",
+              "entity_id": "m_0ca44b0e6326",
+              "title": "The BEST Beef Stew Recipe - Hundreds of 5-Star Reviews!!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8p-f9DcVkgE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8p-f9DcVkgE.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "aBTXo-Vsi4g",
+              "entity_id": "m_e9969832661a",
+              "title": "Easy Potato Soup Recipe for Cold Winter Days | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/aBTXo-Vsi4g.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/aBTXo-Vsi4g.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "FXhutKD4e-U",
+              "entity_id": "m_fbd93093cc75",
+              "title": "Honey Glazed Carrots",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native chapters steam and drain before candying. A separate soup link does not make it a two-branch guide.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FXhutKD4e-U.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FXhutKD4e-U.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "xudhMRXvJI0",
+              "entity_id": "m_28b4cd431ba5",
+              "title": "Chicken soup 101",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xudhMRXvJI0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xudhMRXvJI0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "EegEEbexskc",
+              "entity_id": "m_0e336263a9c8",
+              "title": "Broccoli Cheese Soup",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EegEEbexskc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/EegEEbexskc.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "95yvDREmnZk",
+              "entity_id": "m_05607903b1ae",
+              "title": "Super Quick Stir Fry Broccoli and Carrot Recipe | Broccoli Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/95yvDREmnZk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/95yvDREmnZk.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "WCmZWtGXLNo",
+              "entity_id": "m_d498a88366dd",
+              "title": "Carrot and Chickpea Skillet",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The visible title and available native detail do not establish the same carrot-based stove-pan dish or the final broth preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WCmZWtGXLNo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WCmZWtGXLNo.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "s15TWYFp0Ck",
+              "entity_id": "m_63b8767adfce",
+              "title": "Amazing Potato Soup Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native result centers another main ingredient/dish, or uses the carrots merely as supporting vegetables; no matching complete carrot-based stove recipe is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/s15TWYFp0Ck.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/s15TWYFp0Ck.json::public_chapters"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters",
+            "public_previews",
+            "linked_manufacturer_instructions"
+          ],
+          "answer_boundary_rule": "The recipe request is for the same mixture being stirred. Before new liquid is visible, a complete stove-pan carrot side or still-plausible carrot soup can serve the request; do not impose exact cut or aromatics. Once a large amount of liquid visibly covers the vegetables in the same pan and remains the cooking medium, require a substantial carrot-based stovetop soup, not a separately cooked carrot side, small glaze or serving broth without carrot as a main ingredient. Either chunky or blended soup is reasonable. Allow other spices and recipe variations, and keep a multi-method guide if a complete applicable stove-pan soup is actually taught.",
+          "landing_semantic_review": {
+            "status": "independent_boundary_repaired_and_verified",
+            "reviewer": "/root/blind_0509",
+            "scope": "Both full native search windows, plausible opening versus verified final variants and actual site search.",
+            "evidence_refs": [
+              "data/sources/search_snapshots/candidate-media-refresh-replace-2026110509.json",
+              ".scratch/refresh-20261105-batch/carrot/adversarial-review.json"
+            ]
+          }
+        }
+      },
+      "repair_history": [
+        {
+          "date": "2026-11-16",
+          "scope": "rendering_only",
+          "previous_stream": {
+            "session_seconds": [
+              13.0,
+              76.0
+            ],
+            "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110509/review.json"
+          },
+          "changes": {
+            "wearer_max_image_edge": 1280
+          },
+          "reason": "Preserve all source frames, timestamps, release times, requests and goals. Apply the tested rendering setting uniformly across models and affected conditions.",
+          "review_evidence": "artifacts/reports/source-review-evidence/render-diagnostics-20261116.json",
+          "native_trial": {
+            "study": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-150751-231971_任务诊断_图片负载_kimi-k2.6",
+            "run_id": "20261116-154002-940123-3588b3aa",
+            "archive": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-150751-231971_任务诊断_图片负载_kimi-k2.6/runs/20261116-154002-940123-3588b3aa",
+            "purpose": "task_validation"
+          }
+        }
+      ]
+    }
+  ]
+}

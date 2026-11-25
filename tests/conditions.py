@@ -1,0 +1,3 @@
+from egocua.timeline import STANDARD_CONDITIONS
+
+CONDITIONS = STANDARD_CONDITIONS

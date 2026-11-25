@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from tools.mine_cross_domain_extensions import mine
+from tools.mine.mine_cross_domain_extensions import mine
 
 
 def test_cross_domain_mining_preserves_annotations_without_approving_candidates(
@@ -19,29 +19,39 @@ def test_cross_domain_mining_preserves_annotations_without_approving_candidates(
         "visual_packets": [{"id": "V0", "frame_paths": ["frame.jpg"]}],
     }
     (tasks / "graft" / "graft-example.json").write_text(json.dumps(task))
-    (tmp_path / "source.json").write_text(json.dumps({
-        "tasks": [{
-            "task_id": "graft-example",
-            "source": {"media_id": "video-1"},
-        }],
-    }))
+    (tmp_path / "source.json").write_text(
+        json.dumps(
+            {
+                "tasks": [
+                    {
+                        "task_id": "graft-example",
+                        "source": {"media_id": "video-1"},
+                    }
+                ],
+            }
+        )
+    )
     annotation = "Open the matching tutorial and report its duration."
     ego2web = tmp_path / "ego2web.json"
-    ego2web.write_text(json.dumps([
-        {
-            "id": 7,
-            "vid": "video-1",
-            "instruction": annotation,
-            "domain": "Media Retrieval",
-            "visual_clues": ["00:00-00:05"],
-        },
-        {
-            "id": 8,
-            "vid": "video-1",
-            "instruction": "Buy the matching item.",
-            "domain": "E-Commerce",
-        },
-    ]))
+    ego2web.write_text(
+        json.dumps(
+            [
+                {
+                    "id": 7,
+                    "vid": "video-1",
+                    "instruction": annotation,
+                    "domain": "Media Retrieval",
+                    "visual_clues": ["00:00-00:05"],
+                },
+                {
+                    "id": 8,
+                    "vid": "video-1",
+                    "instruction": "Buy the matching item.",
+                    "domain": "E-Commerce",
+                },
+            ]
+        )
+    )
 
     result = mine(tasks, ego2web, root=tmp_path)
 

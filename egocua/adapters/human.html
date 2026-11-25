@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="human-session" content="{{ session_token }}">
+<title>EgoUseBench · 人工可解性</title>
+<style>
+:root { color-scheme: light; font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172b36; background: #f3f5f5; }
+* { box-sizing: border-box; } body { margin: 0; }
+header { height: 68px; padding: 12px 24px; background: #fff; border-bottom: 1px solid #dce3e5; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-size: 17px; font-weight: 650; } small { color: #64767d; font-size: 12px; }
+main { display: grid; grid-template-columns: minmax(340px, 34%) 1fr; height: calc(100vh - 68px); }
+aside { display: flex; flex-direction: column; min-height: 0; border-right: 1px solid #dce3e5; }
+.materials { flex: 1; min-height: 0; overflow: auto; padding: 22px; }
+h1 { font-size: 18px; margin: 0 0 8px; } h2 { font-size: 14px; margin: 22px 0 10px; }
+.instructions { color: #526770; font-size: 13px; margin: 0 0 18px; }
+#evidence p { white-space: pre-wrap; overflow-wrap: anywhere; padding: 12px; background: #fff; border-left: 3px solid #779a99; border-radius: 3px; }
+#evidence img { display: block; width: 100%; height: auto; margin: 8px 0; border-radius: 4px; cursor: zoom-in; }
+.controls { background: #fff; border-top: 1px solid #dce3e5; padding: 16px 20px; }
+#notice { margin: 0 0 10px; color: #335b64; font-size: 13px; } #error { color: #9d342c; font-size: 13px; }
+button { min-height: 40px; border: 1px solid #cad5d8; border-radius: 6px; background: #fff; padding: 9px 14px; color: inherit; font: inherit; cursor: pointer; }
+button:hover { background: #eef3f3; } button:disabled { opacity: .45; cursor: default; }
+button:focus-visible, textarea:focus-visible { outline: 3px solid #99c9d2; outline-offset: 2px; }
+.primary { background: #1b615f; border-color: #1b615f; color: #fff; width: 100%; }
+.primary:hover { background: #154f4d; }
+form { margin-bottom: 14px; } label { font-size: 13px; }
+.question-row { display: flex; gap: 8px; margin-top: 6px; }
+textarea { flex: 1; min-width: 0; min-height: 44px; resize: vertical; padding: 10px; font: inherit; border: 1px solid #cad5d8; border-radius: 6px; }
+.save-note { display: block; margin-top: 10px; }
+.website { position: relative; min-width: 0; } iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+#website-cover { position: absolute; inset: 0; display: grid; place-content: center; background: #f3f5f5e8; color: #335b64; font-size: 18px; }
+dialog { max-width: 96vw; max-height: 94vh; padding: 12px; border: 0; border-radius: 8px; }
+dialog::backdrop { background: #14262cd9; } dialog img { display: block; max-width: 90vw; max-height: 82vh; object-fit: contain; }
+dialog button { display: block; margin: 8px 0 0 auto; }
+[hidden] { display: none !important; }
+@media (max-width: 850px) { main { grid-template-columns: 320px minmax(430px, 1fr); } }
+</style>
+</head>
+<body>
+<header><div><div class="brand">EgoUseBench / 人工可解性</div><small>查看完整材料，自由操作网站</small></div><small id="step" aria-live="polite">正在连接…</small></header>
+<main>
+<aside>
+  <div class="materials"><h1>任务材料</h1><p class="instructions">以下提供完整画面和按时间排列的用户请求。请在右侧正常操作网站，完成最后的要求。操作次数不限。</p><div id="evidence"></div></div>
+  <div class="controls">
+    <p id="notice" role="status" aria-live="polite"></p><p id="error" role="alert" hidden></p>
+    <form id="question-form"><label for="question">需要确认指代时，向佩戴者提问</label><div class="question-row"><textarea id="question" rows="1" placeholder="输入问题" required></textarea><button id="ask" type="submit">提问</button></div></form>
+    <button class="primary" id="finish" type="button">完成任务</button>
+    <button id="download" type="button" hidden>导出操作记录</button>
+    <small class="save-note">操作自动保存至本机 · 无需模型 API</small>
+  </div>
+</aside>
+<div class="website"><iframe id="website" title="任务网站" data-site-url="{{ site_url }}/"></iframe><div id="website-cover">正在连接任务服务…</div></div>
+</main>
+<dialog id="image-dialog"><img id="large-image" alt="第一人称画面"><button type="button" id="close-image">关闭大图</button></dialog>
+<script>
+const token = document.querySelector('meta[name="human-session"]').content;
+const website = document.getElementById('website');
+let state = null;
+let busy = false;
+let connectionError = '';
+function controls() {
+  const unavailable = !state || state.status !== 'active' || !!connectionError;
+  for (const id of ['finish', 'ask', 'question']) document.getElementById(id).disabled = busy || unavailable || ((id === 'ask' || id === 'question') && !state.can_ask);
+  const cover = document.getElementById('website-cover');
+  cover.hidden = !busy && !unavailable;
+  cover.textContent = connectionError || (busy ? '正在保存…' : (state && state.status === 'finished' ? '任务已结束' : '正在连接任务服务…'));
+}
+function render(next) {
+  state = next; connectionError = '';
+  document.getElementById('step').textContent = state.status === 'active' ? '材料已全部提供 · 无步数限制' : '记录已保存';
+  document.getElementById('evidence').innerHTML = state.evidence || '';
+  document.getElementById('notice').textContent = [state.session_label, state.notice].filter(Boolean).join(' · ');
+  document.getElementById('question-form').hidden = !state.can_ask || state.status !== 'active';
+  document.getElementById('download').hidden = !state.record;
+  controls();
+}
+function fail(message) {
+  connectionError = message;
+  document.getElementById('error').textContent = message;
+  document.getElementById('error').hidden = false;
+  controls();
+}
+async function submit(action) {
+  if (busy || !state || state.status !== 'active' || connectionError) return;
+  busy = true; controls();
+  try {
+    const response = await fetch('/command', {method: 'POST', headers: {'Content-Type': 'application/json', 'X-Human-Session': token}, body: JSON.stringify({action, question: document.getElementById('question').value.trim(), revision: state.revision})});
+    const next = await response.json();
+    if (!response.ok) throw new Error(next.error || '操作未完成，请刷新核对状态。');
+    render(next);
+    if (action === 'ask') { document.getElementById('question').value = ''; document.querySelector('.materials').scrollTop = 0; }
+  } catch (error) { fail(error.message); }
+  finally { busy = false; controls(); }
+}
+document.getElementById('finish').addEventListener('click', () => submit('finish'));
+document.getElementById('question-form').addEventListener('submit', event => { event.preventDefault(); submit('ask'); });
+document.getElementById('evidence').addEventListener('click', event => { if (event.target.tagName !== 'IMG') return; document.getElementById('large-image').src = event.target.src; document.getElementById('image-dialog').showModal(); });
+document.getElementById('close-image').addEventListener('click', () => document.getElementById('image-dialog').close());
+document.getElementById('download').addEventListener('click', () => { const url = URL.createObjectURL(new Blob([JSON.stringify(state.record, null, 2)], {type: 'application/json'})); const link = document.createElement('a'); link.href = url; link.download = `human-${state.record.run_id}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); });
+controls();
+if (location.protocol === 'file:') {
+  document.getElementById('step').textContent = '请从启动入口打开';
+  document.getElementById('notice').textContent = '请双击项目根目录中的“启动人工执行.command”，启动后使用自动打开的本地网页。';
+  fail('尚未启动任务服务');
+} else {
+  fetch('/state').then(async response => { if (!response.ok) throw new Error('本地任务服务未启动或已关闭，请重新运行启动入口。'); render(await response.json()); website.src = website.dataset.siteUrl; }).catch(() => { document.getElementById('step').textContent = '连接未建立'; fail('无法连接任务服务，请重新运行启动入口。'); });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,2068 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official HD-EPIC data record, CC BY 4.0; one targeted excerpt."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110503",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P05-20240425-201444__904-938",
+        "original_video_id": "P05-20240425-201444",
+        "media_start_seconds": 904,
+        "media_sha256": "77a0ec34383f0e203dd65454a101b0b05bf2595aac69b06519c9e54abf88bd35",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              905,
+              912
+            ],
+            "description": "The same smooth brown mixture is already portioned into two small white ramekins on the counter, with no visible cooking or chilling method."
+          },
+          {
+            "interval_seconds": [
+              921,
+              934
+            ],
+            "description": "The wearer places the same filled ramekins onto a rack in the conventional range oven; no footage establishes a molten centre or other final texture."
+          }
+        ],
+        "acquisition_receipt": "data/sources/provenance/expansion_20261105_ramekin_oven_frame_provenance.json::source_acquisition"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            906,
+            908,
+            910,
+            912
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110503/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110503/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110503/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110503/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            928,
+            930,
+            932,
+            934
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110503/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110503/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110503/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110503/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          905.0,
+          934.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110503/review.json"
+      },
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "screening": {
+        "proposed_instruction": "Could you save a recipe video for the chocolate dessert I'm making?",
+        "source_continuity": "One continuous official HD-EPIC excerpt; source window 905–934 s, no wait cut and no second user request."
+      },
+      "supported_claims": [
+        {
+          "text": "The same smooth brown mixture is already portioned into two small white ramekins on the counter, with no visible cooking or chilling method.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The wearer places the same filled ramekins onto a rack in the conventional range oven; no footage establishes a molten centre or other final texture.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [],
+      "construct": {
+        "research_question": "Can an agent revise an initially applicable cooking tutorial when later observation establishes the actual cooking method?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "belief_before": "The shared chocolate mixture is already divided into small ramekins. Its cooking or chilling method is not yet visible.",
+        "belief_after": "The same filled ramekins enter a conventional oven. The final texture and precise recipe are still not visible.",
+        "required_behavior_change": "Replace a microwave-only, steam-only or chill-only tutorial if already saved; keep any applicable ramekin oven tutorial.",
+        "no_update_failure": "Leave a microwave-only, steamed or chilled ramekin dessert tutorial after oven placement.",
+        "overupdate_failure": "Replace a correct oven tutorial, save more than one item, or assume the cooked centre, quantities or garnish.",
+        "visual_dependency_claim": "The request names chocolate but not the vessel or method. Ramekin oven, microwave, steam and chilled guides all have independently verified opening witnesses. One oven-and-microwave tutorial legitimately remains eligible; it does not cover the other supported opening interpretations.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a recipe video for the chocolate dessert I'm making?",
+          "target_granularity": "category",
+          "initial_target_role": "individual_chocolate_dessert",
+          "final_target_role": "oven_ramekin_chocolate_dessert",
+          "environment_role_ids": {
+            "individual_chocolate_dessert": "m_9b6aa91977e9",
+            "oven_ramekin_chocolate_dessert": "m_dda1dd931fa8"
+          },
+          "equivalent_role_ids": {
+            "individual_chocolate_dessert": [
+              "m_0865925145cc",
+              "m_7926887c353c",
+              "m_ec872773f240",
+              "m_4019ee10eb2e",
+              "m_924a1abba716",
+              "m_272367230880",
+              "m_37c62cd3f355",
+              "m_1b288c072160",
+              "m_b2d81927d81a",
+              "m_4fe631d04b66",
+              "m_3d019be143b9",
+              "m_c713110cc264",
+              "m_2a889e0f7ee2",
+              "m_a5dcc2cb64f4",
+              "m_b61744009ce9",
+              "m_3ee736c8ddda",
+              "m_e47b82b9aab6",
+              "m_0ce0aad74ecf",
+              "m_778622dd3e3e",
+              "m_1f8cbdbe4efe",
+              "m_27fc9461e50a",
+              "m_96d72b0aad3e",
+              "m_f375a0203f88",
+              "m_c956b64042de",
+              "m_36736180db2e",
+              "m_e89f215482b9",
+              "m_8e36851208bd",
+              "m_eca917f8a848",
+              "m_dda1dd931fa8",
+              "m_5376dee98edc",
+              "m_06a276cdaf2e",
+              "m_6a11b48f6c1a",
+              "m_4e47c7c9ae08",
+              "m_57a2f5c8028d",
+              "m_9b867d7cb76f",
+              "m_995b8351e6c0",
+              "m_4f105929dde5",
+              "m_47ba6b352731",
+              "m_973f4cf52709",
+              "m_6eb4e9bb9d9f",
+              "m_10ab5cbff119",
+              "m_4e90b0e33b64",
+              "m_4fdbd6fa0c7e",
+              "m_619de5591c36",
+              "m_ec304cbd028b",
+              "m_49619a11558a"
+            ],
+            "oven_ramekin_chocolate_dessert": [
+              "m_924a1abba716",
+              "m_272367230880",
+              "m_c713110cc264",
+              "m_b61744009ce9",
+              "m_3ee736c8ddda",
+              "m_e47b82b9aab6",
+              "m_778622dd3e3e",
+              "m_1f8cbdbe4efe",
+              "m_27fc9461e50a",
+              "m_96d72b0aad3e",
+              "m_c956b64042de",
+              "m_36736180db2e",
+              "m_e89f215482b9",
+              "m_8e36851208bd",
+              "m_eca917f8a848",
+              "m_5376dee98edc",
+              "m_6a11b48f6c1a",
+              "m_4e47c7c9ae08",
+              "m_57a2f5c8028d",
+              "m_9b867d7cb76f",
+              "m_4f105929dde5",
+              "m_47ba6b352731",
+              "m_973f4cf52709",
+              "m_6eb4e9bb9d9f",
+              "m_10ab5cbff119",
+              "m_4e90b0e33b64",
+              "m_4fdbd6fa0c7e",
+              "m_619de5591c36",
+              "m_ec304cbd028b",
+              "m_49619a11558a"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "microwave": "m_9b6aa91977e9",
+            "oven": "m_dda1dd931fa8",
+            "chilled": "m_3d019be143b9",
+            "steam": "m_f375a0203f88"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "microwave",
+                "oven",
+                "chilled",
+                "steam"
+              ],
+              "why": "Brown chocolate mixture is already portioned into short white ramekins; no heating or cooling method is shown."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "oven"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The first filled ramekin is resting on the oven rack while the wearer carries the second."
+            }
+          ],
+          "established_by": "/root/replacements",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "easy homemade chocolate dessert recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110503.json",
+              "snapshot_stage": "general_chocolate",
+              "result_entity_ids": [
+                "m_0865925145cc",
+                "m_789cfeb710ba",
+                "m_6a44922949cd",
+                "m_ebb14b3d8c7a",
+                "m_7926887c353c",
+                "m_7eebe688b915",
+                "m_5814e8e87463",
+                "m_bf6acca8707d",
+                "m_5d550b94332f",
+                "m_ec872773f240",
+                "m_4019ee10eb2e",
+                "m_8cd624cb7baa",
+                "m_896131ccc170",
+                "m_736007b532c1",
+                "m_924a1abba716",
+                "m_931efdbfbca9",
+                "m_8d4e77f896e9",
+                "m_3947c741aa5d",
+                "m_eeff369ec93e",
+                "m_e3f44557a104",
+                "m_272367230880",
+                "m_bcc8e78dec32",
+                "m_52c604d2d854",
+                "m_92405508e181",
+                "m_37c62cd3f355",
+                "m_a571b6581f52",
+                "m_e0c2842f957c",
+                "m_1b288c072160",
+                "m_b2d81927d81a",
+                "m_f1145e1f7198",
+                "m_4fe631d04b66",
+                "m_ae308ddca3f0",
+                "m_3d019be143b9",
+                "m_c8385b1bb1b3",
+                "m_1900e222f4f8",
+                "m_69cfe49a0e66",
+                "m_424ba321f768",
+                "m_b156941d641a",
+                "m_666d1cd5ca1e",
+                "m_ec6124a93bb7"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "chocolate dessert oven baking ramekin recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110503.json",
+              "snapshot_stage": "small_oven_dessert",
+              "result_entity_ids": [
+                "m_272367230880",
+                "m_c713110cc264",
+                "m_2a889e0f7ee2",
+                "m_a5dcc2cb64f4",
+                "m_b61744009ce9",
+                "m_3ee736c8ddda",
+                "m_e47b82b9aab6",
+                "m_0ce0aad74ecf",
+                "m_778622dd3e3e",
+                "m_1f8cbdbe4efe",
+                "m_27fc9461e50a",
+                "m_96d72b0aad3e",
+                "m_f375a0203f88",
+                "m_c956b64042de",
+                "m_36736180db2e",
+                "m_e89f215482b9",
+                "m_eaefd9ccb3b3",
+                "m_8e36851208bd",
+                "m_eca917f8a848",
+                "m_dda1dd931fa8",
+                "m_5376dee98edc",
+                "m_9b6aa91977e9",
+                "m_06a276cdaf2e",
+                "m_6a11b48f6c1a",
+                "m_0a2581910c9a",
+                "m_4e47c7c9ae08",
+                "m_6a44922949cd",
+                "m_57a2f5c8028d",
+                "m_9b867d7cb76f",
+                "m_995b8351e6c0",
+                "m_4f105929dde5",
+                "m_47ba6b352731",
+                "m_973f4cf52709",
+                "m_6eb4e9bb9d9f",
+                "m_10ab5cbff119",
+                "m_4e90b0e33b64",
+                "m_4fdbd6fa0c7e",
+                "m_619de5591c36",
+                "m_ec304cbd028b",
+                "m_49619a11558a"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_0865925145cc",
+            "m_789cfeb710ba",
+            "m_6a44922949cd",
+            "m_ebb14b3d8c7a",
+            "m_7926887c353c",
+            "m_7eebe688b915",
+            "m_5814e8e87463",
+            "m_bf6acca8707d",
+            "m_5d550b94332f",
+            "m_ec872773f240",
+            "m_4019ee10eb2e",
+            "m_8cd624cb7baa",
+            "m_896131ccc170",
+            "m_736007b532c1",
+            "m_924a1abba716",
+            "m_931efdbfbca9",
+            "m_8d4e77f896e9",
+            "m_3947c741aa5d",
+            "m_eeff369ec93e",
+            "m_e3f44557a104",
+            "m_272367230880",
+            "m_bcc8e78dec32",
+            "m_52c604d2d854",
+            "m_92405508e181",
+            "m_37c62cd3f355",
+            "m_a571b6581f52",
+            "m_e0c2842f957c",
+            "m_1b288c072160",
+            "m_b2d81927d81a",
+            "m_f1145e1f7198",
+            "m_4fe631d04b66",
+            "m_ae308ddca3f0",
+            "m_3d019be143b9",
+            "m_c8385b1bb1b3",
+            "m_1900e222f4f8",
+            "m_69cfe49a0e66",
+            "m_424ba321f768",
+            "m_b156941d641a",
+            "m_666d1cd5ca1e",
+            "m_ec6124a93bb7",
+            "m_c713110cc264",
+            "m_2a889e0f7ee2",
+            "m_a5dcc2cb64f4",
+            "m_b61744009ce9",
+            "m_3ee736c8ddda",
+            "m_e47b82b9aab6",
+            "m_0ce0aad74ecf",
+            "m_778622dd3e3e",
+            "m_1f8cbdbe4efe",
+            "m_27fc9461e50a",
+            "m_96d72b0aad3e",
+            "m_f375a0203f88",
+            "m_c956b64042de",
+            "m_36736180db2e",
+            "m_e89f215482b9",
+            "m_eaefd9ccb3b3",
+            "m_8e36851208bd",
+            "m_eca917f8a848",
+            "m_dda1dd931fa8",
+            "m_5376dee98edc",
+            "m_9b6aa91977e9",
+            "m_06a276cdaf2e",
+            "m_6a11b48f6c1a",
+            "m_0a2581910c9a",
+            "m_4e47c7c9ae08",
+            "m_57a2f5c8028d",
+            "m_9b867d7cb76f",
+            "m_995b8351e6c0",
+            "m_4f105929dde5",
+            "m_47ba6b352731",
+            "m_973f4cf52709",
+            "m_6eb4e9bb9d9f",
+            "m_10ab5cbff119",
+            "m_4e90b0e33b64",
+            "m_4fdbd6fa0c7e",
+            "m_619de5591c36",
+            "m_ec304cbd028b",
+            "m_49619a11558a"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_0865925145cc",
+            "m_789cfeb710ba",
+            "m_6a44922949cd",
+            "m_ebb14b3d8c7a",
+            "m_7926887c353c",
+            "m_7eebe688b915",
+            "m_5814e8e87463",
+            "m_bf6acca8707d",
+            "m_5d550b94332f",
+            "m_ec872773f240",
+            "m_4019ee10eb2e",
+            "m_8cd624cb7baa",
+            "m_896131ccc170",
+            "m_736007b532c1",
+            "m_931efdbfbca9",
+            "m_8d4e77f896e9",
+            "m_3947c741aa5d",
+            "m_eeff369ec93e",
+            "m_e3f44557a104",
+            "m_bcc8e78dec32",
+            "m_52c604d2d854",
+            "m_92405508e181",
+            "m_37c62cd3f355",
+            "m_a571b6581f52",
+            "m_e0c2842f957c",
+            "m_1b288c072160",
+            "m_b2d81927d81a",
+            "m_f1145e1f7198",
+            "m_4fe631d04b66",
+            "m_ae308ddca3f0",
+            "m_3d019be143b9",
+            "m_c8385b1bb1b3",
+            "m_1900e222f4f8",
+            "m_69cfe49a0e66",
+            "m_424ba321f768",
+            "m_b156941d641a",
+            "m_666d1cd5ca1e",
+            "m_ec6124a93bb7",
+            "m_2a889e0f7ee2",
+            "m_a5dcc2cb64f4",
+            "m_0ce0aad74ecf",
+            "m_f375a0203f88",
+            "m_eaefd9ccb3b3",
+            "m_9b6aa91977e9",
+            "m_06a276cdaf2e",
+            "m_0a2581910c9a",
+            "m_995b8351e6c0"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_0865925145cc",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者公开章节教巧克力布丁调配、冷却；封面显示小杯分份，初始状态相符。不是普通烤箱烘烤。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Fz95m_nrvmE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Fz95m_nrvmE.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_0865925145cc.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_789cfeb710ba",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "配方把面糊倒入两个直径9英寸的大蛋糕模，烤后做层蛋糕；没有小烤盅方法。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EaljSnLrJW8.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_6a44922949cd",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生配方有调巧克力蛋糕基底，但先烤8英寸整模，再叠慕斯填层。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1u-0tNFMamg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1u-0tNFMamg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ebb14b3d8c7a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "调匀的牛奶巧克力基底冷藏凝固，是开场可能的制作路径，没进烤箱。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KEqpwpfFfhE.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_7926887c353c",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者标题与原料说明为巧克力慕斯，封面显示装在两只小份杯里；冷制巧克力甜点开场合理，后续烤箱已排除。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0SnkzE_DxiQ.json::description",
+                "sites/egomedia/static/thumbnails/upstream/m_7926887c353c.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_7eebe688b915",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "公开章节把调匀的巧克力糊倒进大模，烤、切半并做层蛋糕。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Jsj17-XmvTM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Jsj17-XmvTM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5814e8e87463",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "官方预览从蛋和巧克力调棕色糊，整片铺在烘焙纸上，成品为卷蛋糕。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/utf1GFk6c4U.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/utf1GFk6c4U.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bf6acca8707d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "配方以混匀巧克力糊烤10×5英寸整盘布朗尼，再加奶油；没有单份烤盅。代表V0合理但会失效的选择。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8GxfnU5gVII.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_5d550b94332f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者把整块面糊倒入一个铺纸容器，隔水加热后冷藏切块；没有在加热前分装到独立小盅。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/72WSqlUXWJU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/72WSqlUXWJU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ec872773f240",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节从融化巧克力和打奶油到分杯并冷藏两至三小时；公开封面显示成对小份杯。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/I50-1ktP5gA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/I50-1ktP5gA.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_ec872773f240.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_4019ee10eb2e",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "完整合集的最后一段是独立份免烤可可慕斯，公开封面给出小杯成品；没有烤箱装盅版本。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qw5J4Gl_sXs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qw5J4Gl_sXs.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_4019ee10eb2e.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_8cd624cb7baa",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "配方的饼干填充和融化巧克力外壳分开制备，松露也用剩下的饼干填料；不是图中单碗棕色主糊的做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/2abwOJGILDc.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_896131ccc170",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节分别做饼干底、白色芝士馅和巧克力甘纳许装饰；棕色混合物不是甜点的主要面糊。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/wbc0pTyow6c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/wbc0pTyow6c.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_736007b532c1",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "公开说明是把巧克力糊放入9或10英寸容器用微波炉加热，不是分装烤箱。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/olHw-8py9K0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/olHw-8py9K0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_931efdbfbca9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节给两个9英寸整模，配普通蛋糕糊后用烤箱烤成大蛋糕。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/wfPt0r0Nl5o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/wfPt0r0Nl5o.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_8d4e77f896e9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生食谱把调匀巧克力混合物倒进一个6英寸模具，不分入独立烤盅烤。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zatqQEjT2rg.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_3947c741aa5d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "公开配方调糊后整模烤制，未演示小烤盅分份版本。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Dtu1mqAv6O8.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_eeff369ec93e",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节调巧克力面糊、组装并烤成整份 cobbler，不以小陶瓷烤盅分别盛糊。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yFpvhZjetfY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yFpvhZjetfY.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_e3f44557a104",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生食谱调制巧克力甘纳许与奶油层，将其用在甜点盒中；标题写流心但完整做法不是把糊分入烤盅进炉。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4ZSxRthcPhc.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_bcc8e78dec32",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "用混匀的巧克力甘纳许做甜点主体，最后取小球冷却滚粉，不在陶瓷小盅内烤。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-PrYjVvpuJw.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_52c604d2d854",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节包含将巧克力混入芝士馅，放进饼干底的大模并水浴烤制。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vX-xLI1UVEo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vX-xLI1UVEo.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_92405508e181",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生配方做牛奶巧克力混合物，制作冷藏成型的松露巧克力。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/LMPqAMfKakI.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_37c62cd3f355",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节明确把巧克力慕斯分份冷却定型，封面为两只小杯。开场可用，后续入烤箱方法不同。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/kqoDcoOEaqc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/kqoDcoOEaqc.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_37c62cd3f355.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_a571b6581f52",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者把巧克力蛋糕糊倒进8英寸整模，烘烤后叠奶油和甘纳许层。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/bT1Qnk1B8Oo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/bT1Qnk1B8Oo.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_e0c2842f957c",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "公开食谱和章节为大模巧克力蛋糕和霜层组装，不含烤盅做法。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zsig3vgWb8E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zsig3vgWb8E.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_1b288c072160",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生步骤明确将调好巧克力慕斯冷藏定型，公开封面是小份甜点盅；小份盛装可用，但没有普通烤箱步骤。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3eXycW1fZEI.json::description",
+                "sites/egomedia/static/thumbnails/upstream/m_1b288c072160.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_b2d81927d81a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者指明10×10厘米容器，宽马克杯或茶杯也可。开场为已分份的巧克力糊，微波布朗尼合理；后续入普通烤箱使这一单一微波方法不适用。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TacPranx5cw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TacPranx5cw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_f1145e1f7198",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生用可可粉、炼乳拌成巧克力主体，再冷藏做松露巧克力，不入烤箱。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4_YBELE4LpM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/4_YBELE4LpM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_4fe631d04b66",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节含巧克力慕斯从调配到装杯，公开封面是单份杯；未见加热方式时合理，后续无普通烤箱方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MYn-rnW81Qs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MYn-rnW81Qs.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_4fe631d04b66.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_ae308ddca3f0",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者明确为混合巧克力糊并烤成整盘薄蛋糕；变体是蛋糕的配方/配料，不见独立烤盅。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5Rwl1sA3lFM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5Rwl1sA3lFM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3d019be143b9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节直接写分杯并冷藏巧克力慕斯；公开封面显示数只单份杯，不含烤箱做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Nx-6MlgTpNA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Nx-6MlgTpNA.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_3d019be143b9.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_c8385b1bb1b3",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节做巧克力海绵蛋糕、镜面和整蛋糕组装，没有分份小盅。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/l8nC5VZolTs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/l8nC5VZolTs.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_1900e222f4f8",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生配方主要做法是泡芙壳、卡仕达填馅并加巧克力釉；未教以一碗巧克力主糊做甜点。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6GIGcq8SCpE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6GIGcq8SCpE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_69cfe49a0e66",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "制作巧克力基底、混入饼干，再放入一个大模免烤定型。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/u1sFrSRg7Rk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/u1sFrSRg7Rk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_424ba321f768",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生食谱和章节烤并组装含糖霜的整层巧克力蛋糕，不演示单份烤盅。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mcbej7umoqE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mcbej7umoqE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b156941d641a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生配方明确单碗混糊、用9×13英寸整盘烤，再装饰；没有分盅进炉。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/dUwZ2R64FrI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/dUwZ2R64FrI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_666d1cd5ca1e",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生章节把巧克力和奶制品调成布丁并入模凝固，无烤箱做法。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GhnsB6yGc2c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/GhnsB6yGc2c.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ec6124a93bb7",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生公开为巧克力奶油/布丁和已有蛋糕叠层，做成免烤冷甜点。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rL4-mkbZXb8.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_2a889e0f7ee2",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者明示为单份巧克力杯装蛋糕并在微波炉中加热。小容器合理替换，但与后续普通烤箱方法不同。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/2at7z3ZX_lI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/2at7z3ZX_lI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a5dcc2cb64f4",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "公开封面是装入两个白色小烤盅的巧克力甜点，作者写明仅在微波炉加热两分钟。容器和开场一致，后续加热方法不同。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EPhyg7cCFso.json::description",
+                "sites/egomedia/static/thumbnails/upstream/m_a5dcc2cb64f4.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_0ce0aad74ecf",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "公开原生预览直接显示调巧克力糊、分入白色小烤盅并脱模，但从生糊跳到完成品，现有网站信息未展示用什么设备加热。V0可用，V1的普通烤箱没有验证。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pbnAK80IN-I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pbnAK80IN-I.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_f375a0203f88",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生官方示范把巧克力熔岩蛋糕面糊分入小盅并用Varoma设备蒸熟。开场只见装盅时仍可能；实际放进普通烤箱后不匹配。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/PcxQrKDrJSs.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_eaefd9ccb3b3",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "配方主体是白巧克力、黄油和糖，成品与面糊均浅色；不对应源中明确的棕色巧克力糊。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/oK6qQxvouRw.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_9b6aa91977e9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者给出先从大碗刮出巧克力布朗尼糊、装进小烤盅，再放微波炉一分钟的完整步骤。开场可用；普通烤箱已明确后不再适用。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/edxXJEKIU3Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/edxXJEKIU3Q.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_06a276cdaf2e",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "原生预览在小盅搅拌巧克力与咖啡原料，镜头随后直接切到可吃成品；现有信息没有证明进普通烤箱。V0可用，V1加热方式证据不足。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xK8LhlBCpB8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xK8LhlBCpB8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_0a2581910c9a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者教在小盅铺酥皮和坚果巧克力层来做巴克拉瓦，不是把混匀巧克力面糊分进小盅。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VIBpz2sHgfk.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_995b8351e6c0",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native chocolate dessert or individual oven dessert result window.",
+              "reason": "作者分巧克力糊到两个可微波杯，再微波60秒。已分份尚未见加热设备时可用；后续不匹配普通烤箱。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_answer_boundary_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xzIoewI1At0.json::description"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "native_id": "Fz95m_nrvmE",
+              "entity_id": "m_0865925145cc",
+              "title": "Easy Chocolate Pudding Recipe",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "作者公开章节教巧克力布丁调配、冷却；封面显示小杯分份，初始状态相符。不是普通烤箱烘烤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Fz95m_nrvmE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Fz95m_nrvmE.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_0865925145cc.jpg"
+              ]
+            },
+            {
+              "native_id": "EaljSnLrJW8",
+              "entity_id": "m_789cfeb710ba",
+              "title": "Moist & Fudgy Chocolate Cake with Everyday Ingredients",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "配方把面糊倒入两个直径9英寸的大蛋糕模，烤后做层蛋糕；没有小烤盅方法。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EaljSnLrJW8.json::description"
+              ]
+            },
+            {
+              "native_id": "1u-0tNFMamg",
+              "entity_id": "m_6a44922949cd",
+              "title": "From Simple Ingredients to Chocolate Heaven: Silky & Decadent Mousse Cake",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生配方有调巧克力蛋糕基底，但先烤8英寸整模，再叠慕斯填层。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1u-0tNFMamg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1u-0tNFMamg.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "KEqpwpfFfhE",
+              "entity_id": "m_ebb14b3d8c7a",
+              "title": "Just Need Chocolate and Milk Make This Delicious Dessert",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "调匀的牛奶巧克力基底冷藏凝固，是开场可能的制作路径，没进烤箱。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KEqpwpfFfhE.json::description"
+              ]
+            },
+            {
+              "native_id": "0SnkzE_DxiQ",
+              "entity_id": "m_7926887c353c",
+              "title": "Chocolate Mousse Recipe | Easy Chocolate Dessert",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "作者标题与原料说明为巧克力慕斯，封面显示装在两只小份杯里；冷制巧克力甜点开场合理，后续烤箱已排除。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0SnkzE_DxiQ.json::description",
+                "sites/egomedia/static/thumbnails/upstream/m_7926887c353c.jpg"
+              ]
+            },
+            {
+              "native_id": "Jsj17-XmvTM",
+              "entity_id": "m_7eebe688b915",
+              "title": "How to Make the Easiest Chocolate Cake From Scratch | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开章节把调匀的巧克力糊倒进大模，烤、切半并做层蛋糕。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Jsj17-XmvTM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Jsj17-XmvTM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "utf1GFk6c4U",
+              "entity_id": "m_5814e8e87463",
+              "title": "The chocolate dessert that everyone is talking about! Simple and delicious",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览从蛋和巧克力调棕色糊，整片铺在烘焙纸上，成品为卷蛋糕。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/utf1GFk6c4U.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/utf1GFk6c4U.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "8GxfnU5gVII",
+              "entity_id": "m_bf6acca8707d",
+              "title": "Delicious Chocolate Brownie Dessert",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "配方以混匀巧克力糊烤10×5英寸整盘布朗尼，再加奶油；没有单份烤盅。代表V0合理但会失效的选择。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8GxfnU5gVII.json::description"
+              ]
+            },
+            {
+              "native_id": "72WSqlUXWJU",
+              "entity_id": "m_5d550b94332f",
+              "title": "No Oven Brownies Recipe for Beginners! (Easy No Bake Brownies Recipe)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "作者把整块面糊倒入一个铺纸容器，隔水加热后冷藏切块；没有在加热前分装到独立小盅。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/72WSqlUXWJU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/72WSqlUXWJU.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "I50-1ktP5gA",
+              "entity_id": "m_ec872773f240",
+              "title": "Only 2 Ingredients Chocolate Mousse in 15 Minutes | Chocolate Dessert Recipe | Chocolate Mousse",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节从融化巧克力和打奶油到分杯并冷藏两至三小时；公开封面显示成对小份杯。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/I50-1ktP5gA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/I50-1ktP5gA.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_ec872773f240.jpg"
+              ]
+            },
+            {
+              "native_id": "qw5J4Gl_sXs",
+              "entity_id": "m_4019ee10eb2e",
+              "title": "3 Easy No-Bake Chocolate Desserts Perfect for Valentine’s Day | Allrecipes",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "完整合集的最后一段是独立份免烤可可慕斯，公开封面给出小杯成品；没有烤箱装盅版本。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qw5J4Gl_sXs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qw5J4Gl_sXs.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_4019ee10eb2e.jpg"
+              ]
+            },
+            {
+              "native_id": "2abwOJGILDc",
+              "entity_id": "m_8cd624cb7baa",
+              "title": "Stop Buying Expensive Chocolates! Make These Easy No-Bake Biscoff Chocolate & Truffles at Home!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "配方的饼干填充和融化巧克力外壳分开制备，松露也用剩下的饼干填料；不是图中单碗棕色主糊的做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/2abwOJGILDc.json::description"
+              ]
+            },
+            {
+              "native_id": "wbc0pTyow6c",
+              "entity_id": "m_896131ccc170",
+              "title": "Can't believe how EASY it is to make this NO-BAKE dessert!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节分别做饼干底、白色芝士馅和巧克力甘纳许装饰；棕色混合物不是甜点的主要面糊。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/wbc0pTyow6c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/wbc0pTyow6c.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "olHw-8py9K0",
+              "entity_id": "m_736007b532c1",
+              "title": "5 Minute CHOCOLATE CAKE ! NO Oven - NO Pan - Easy Chocolate Cake Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开说明是把巧克力糊放入9或10英寸容器用微波炉加热，不是分装烤箱。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/olHw-8py9K0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/olHw-8py9K0.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "mMqaAfy6ot4",
+              "entity_id": "m_924a1abba716",
+              "title": "15  Easy Chocolate Desserts",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "保留多配方合集。约3:42教整模巧克力蛋糕；约7:53另教六个烤盅抹油、分入面糊、烘烤和脱模。官方整组预览直接显示两个独立做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mMqaAfy6ot4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mMqaAfy6ot4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/mMqaAfy6ot4.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "wfPt0r0Nl5o",
+              "entity_id": "m_931efdbfbca9",
+              "title": "The Easiest Chocolate Cake Of All Time",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节给两个9英寸整模，配普通蛋糕糊后用烤箱烤成大蛋糕。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/wfPt0r0Nl5o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/wfPt0r0Nl5o.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "zatqQEjT2rg",
+              "entity_id": "m_8d4e77f896e9",
+              "title": "2 INGREDIENTS DELICIOUS CHOCOLATE DESSERT RECIPE | SOFT & CREAMY CHOCOLATE DESSERT | N'Oven",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生食谱把调匀巧克力混合物倒进一个6英寸模具，不分入独立烤盅烤。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zatqQEjT2rg.json::description"
+              ]
+            },
+            {
+              "native_id": "Dtu1mqAv6O8",
+              "entity_id": "m_3947c741aa5d",
+              "title": "The best & Easiest chocolate cake ever! Super moist & irresistible 🍫",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开配方调糊后整模烤制，未演示小烤盅分份版本。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Dtu1mqAv6O8.json::description"
+              ]
+            },
+            {
+              "native_id": "yFpvhZjetfY",
+              "entity_id": "m_eeff369ec93e",
+              "title": "MeMe's Recipes | Chocolate Cobbler",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节调巧克力面糊、组装并烤成整份 cobbler，不以小陶瓷烤盅分别盛糊。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yFpvhZjetfY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yFpvhZjetfY.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "4ZSxRthcPhc",
+              "entity_id": "m_e3f44557a104",
+              "title": "Chocolate Dessert Box with Choco Lava Recipe by Food Fusion",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生食谱调制巧克力甘纳许与奶油层，将其用在甜点盒中；标题写流心但完整做法不是把糊分入烤盅进炉。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4ZSxRthcPhc.json::description"
+              ]
+            },
+            {
+              "native_id": "gW3JtHpuzrk",
+              "entity_id": "m_272367230880",
+              "title": "Easy Chocolate Lava Cake Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "公开章节从备烤盅、融化巧克力、调面糊到烘烤出炉，作者描述明确为单份巧克力甜点。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/gW3JtHpuzrk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/gW3JtHpuzrk.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "-PrYjVvpuJw",
+              "entity_id": "m_bcc8e78dec32",
+              "title": "EASY Chocolate Truffles Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "用混匀的巧克力甘纳许做甜点主体，最后取小球冷却滚粉，不在陶瓷小盅内烤。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-PrYjVvpuJw.json::description"
+              ]
+            },
+            {
+              "native_id": "vX-xLI1UVEo",
+              "entity_id": "m_52c604d2d854",
+              "title": "Silky Triple Chocolate Cheesecake (Foolproof Recipe)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节包含将巧克力混入芝士馅，放进饼干底的大模并水浴烤制。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vX-xLI1UVEo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vX-xLI1UVEo.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "LMPqAMfKakI",
+              "entity_id": "m_92405508e181",
+              "title": "How to make chocolate truffles with milk at home(Subtitle on)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生配方做牛奶巧克力混合物，制作冷藏成型的松露巧克力。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/LMPqAMfKakI.json::description"
+              ]
+            },
+            {
+              "native_id": "kqoDcoOEaqc",
+              "entity_id": "m_37c62cd3f355",
+              "title": "Best Chocolate Mousse Recipe",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节明确把巧克力慕斯分份冷却定型，封面为两只小杯。开场可用，后续入烤箱方法不同。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/kqoDcoOEaqc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/kqoDcoOEaqc.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_37c62cd3f355.jpg"
+              ]
+            },
+            {
+              "native_id": "bT1Qnk1B8Oo",
+              "entity_id": "m_a571b6581f52",
+              "title": "Chocolate Cake That’s Moist, Creamy & Effortless — Like Magic",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "作者把巧克力蛋糕糊倒进8英寸整模，烘烤后叠奶油和甘纳许层。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/bT1Qnk1B8Oo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/bT1Qnk1B8Oo.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "zsig3vgWb8E",
+              "entity_id": "m_e0c2842f957c",
+              "title": "The Ultimate Chocolate Cake Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开食谱和章节为大模巧克力蛋糕和霜层组装，不含烤盅做法。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zsig3vgWb8E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zsig3vgWb8E.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "3eXycW1fZEI",
+              "entity_id": "m_1b288c072160",
+              "title": "How to Make the BEST Chocolate Mousse Recipe EVER! | Tastemade Staff Picks",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生步骤明确将调好巧克力慕斯冷藏定型，公开封面是小份甜点盅；小份盛装可用，但没有普通烤箱步骤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3eXycW1fZEI.json::description",
+                "sites/egomedia/static/thumbnails/upstream/m_1b288c072160.jpg"
+              ]
+            },
+            {
+              "native_id": "TacPranx5cw",
+              "entity_id": "m_b2d81927d81a",
+              "title": "1 Minute Microwave BROWNIE ! The EASIEST Chocolate Brownie Recipe",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "作者指明10×10厘米容器，宽马克杯或茶杯也可。开场为已分份的巧克力糊，微波布朗尼合理；后续入普通烤箱使这一单一微波方法不适用。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TacPranx5cw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TacPranx5cw.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "4_YBELE4LpM",
+              "entity_id": "m_f1145e1f7198",
+              "title": "Condensed Milk Chocolate Truffles Easy Recipe [2 Ingredients]",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生用可可粉、炼乳拌成巧克力主体，再冷藏做松露巧克力，不入烤箱。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4_YBELE4LpM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/4_YBELE4LpM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "MYn-rnW81Qs",
+              "entity_id": "m_4fe631d04b66",
+              "title": "Chocolate Mousse for Beginners (and Experts) | Food Wishes",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节含巧克力慕斯从调配到装杯，公开封面是单份杯；未见加热方式时合理，后续无普通烤箱方法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MYn-rnW81Qs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MYn-rnW81Qs.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_4fe631d04b66.jpg"
+              ]
+            },
+            {
+              "native_id": "5Rwl1sA3lFM",
+              "entity_id": "m_ae308ddca3f0",
+              "title": "My Go-To Chocolate Cake (The Best & Easiest Ever!)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "作者明确为混合巧克力糊并烤成整盘薄蛋糕；变体是蛋糕的配方/配料，不见独立烤盅。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5Rwl1sA3lFM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5Rwl1sA3lFM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "Nx-6MlgTpNA",
+              "entity_id": "m_3d019be143b9",
+              "title": "EASY CHOCOLATE MOUSSE (No Eggs, No Baking!)",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节直接写分杯并冷藏巧克力慕斯；公开封面显示数只单份杯，不含烤箱做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Nx-6MlgTpNA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Nx-6MlgTpNA.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_3d019be143b9.jpg"
+              ]
+            },
+            {
+              "native_id": "l8nC5VZolTs",
+              "entity_id": "m_c8385b1bb1b3",
+              "title": "You Need This Chocolate Cake Recipe | Mary Berry Everyday | Mary Berry",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节做巧克力海绵蛋糕、镜面和整蛋糕组装，没有分份小盅。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/l8nC5VZolTs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/l8nC5VZolTs.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "6GIGcq8SCpE",
+              "entity_id": "m_1900e222f4f8",
+              "title": "Best Chocolate Eclair Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生配方主要做法是泡芙壳、卡仕达填馅并加巧克力釉；未教以一碗巧克力主糊做甜点。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6GIGcq8SCpE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6GIGcq8SCpE.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "u1sFrSRg7Rk",
+              "entity_id": "m_69cfe49a0e66",
+              "title": "Chocolate Biscuit Cake (The Queen’s Favorite No-Bake Dessert)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "制作巧克力基底、混入饼干，再放入一个大模免烤定型。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/u1sFrSRg7Rk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/u1sFrSRg7Rk.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "mcbej7umoqE",
+              "entity_id": "m_424ba321f768",
+              "title": "CHOCOLATE CAKE better than Bruce's mom's! | Practical Peculiarities",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生食谱和章节烤并组装含糖霜的整层巧克力蛋糕，不演示单份烤盅。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mcbej7umoqE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mcbej7umoqE.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "dUwZ2R64FrI",
+              "entity_id": "m_b156941d641a",
+              "title": "Easy Chocolate Cake (9x13 pan)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生配方明确单碗混糊、用9×13英寸整盘烤，再装饰；没有分盅进炉。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/dUwZ2R64FrI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/dUwZ2R64FrI.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "GhnsB6yGc2c",
+              "entity_id": "m_666d1cd5ca1e",
+              "title": "Eggless Chocolate Pudding | No Oven No Maida | आसान चॉकलेट रेसिपी घर पे | Kunal Kapur Dessert Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节把巧克力和奶制品调成布丁并入模凝固，无烤箱做法。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GhnsB6yGc2c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/GhnsB6yGc2c.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "rL4-mkbZXb8",
+              "entity_id": "m_ec6124a93bb7",
+              "title": "Sabse Asaan , Sabse Tasty Pudding |  Chocolate Delight | Black Forest  Dessert | No Bake Dessert",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生公开为巧克力奶油/布丁和已有蛋糕叠层，做成免烤冷甜点。 本题开场已明确看到同一混合物分在独立小盅中；没有这个分份准备的配方现在也不作开场答案。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rL4-mkbZXb8.json::description"
+              ]
+            },
+            {
+              "native_id": "HA49Ya0LIh4",
+              "entity_id": "m_c713110cc264",
+              "title": "Chocolate Lava Cakes | Sally's Baking",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者以烤盅为标准版本，并在官方食谱提供无烤盅时的马芬模替代；公开说明和烘焙标题明确针对分份巧克力熔岩蛋糕。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/HA49Ya0LIh4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/HA49Ya0LIh4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/HA49Ya0LIh4.json::linked_manufacturer_instructions"
+              ]
+            },
+            {
+              "native_id": "2at7z3ZX_lI",
+              "entity_id": "m_2a889e0f7ee2",
+              "title": "How to Make a Mug Cake",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "作者明示为单份巧克力杯装蛋糕并在微波炉中加热。小容器合理替换，但与后续普通烤箱方法不同。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/2at7z3ZX_lI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/2at7z3ZX_lI.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "EPhyg7cCFso",
+              "entity_id": "m_a5dcc2cb64f4",
+              "title": "RAMEKIN CHOCOLATE DESSERT l Microwave Dessert in 2 Minutes l 3 Layer Dessert",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "公开封面是装入两个白色小烤盅的巧克力甜点，作者写明仅在微波炉加热两分钟。容器和开场一致，后续加热方法不同。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EPhyg7cCFso.json::description",
+                "sites/egomedia/static/thumbnails/upstream/m_a5dcc2cb64f4.jpg"
+              ]
+            },
+            {
+              "native_id": "hlN2uAg7G_M",
+              "entity_id": "m_b61744009ce9",
+              "title": "Mini Chocolate Cakes - Dessert For Two - Season 3, Episode 5",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生配方喷油准备两个6盎司烤盅，把巧克力面糊分进去，在烤盘上入炉烤成单份。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hlN2uAg7G_M.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hlN2uAg7G_M.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "8-YgU4vr_cY",
+              "entity_id": "m_3ee736c8ddda",
+              "title": "Chocolate Lava Cake 🍫 | Easy Recipe with a Gooey Molten Center!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者说明为四个小烤盅，并要求放进预热至220°C的烤箱；公开原生预览支持。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8-YgU4vr_cY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8-YgU4vr_cY.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "eqtI4OWPk_Q",
+              "entity_id": "m_e47b82b9aab6",
+              "title": "Chocolate Soufflé Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "明确将巧克力糊分入涂油的独立烤盅、用烤箱烤熟。无面粉舒芙蕾是可用变体。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/eqtI4OWPk_Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/eqtI4OWPk_Q.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "pbnAK80IN-I",
+              "entity_id": "m_0ce0aad74ecf",
+              "title": "Chocolate Ramekin Cakes Recipe",
+              "initial": "accepted",
+              "final": "insufficient_evidence",
+              "reason": "公开原生预览直接显示调巧克力糊、分入白色小烤盅并脱模，但从生糊跳到完成品，现有网站信息未展示用什么设备加热。V0可用，V1的普通烤箱没有验证。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pbnAK80IN-I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pbnAK80IN-I.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "FV_fTA1WQkE",
+              "entity_id": "m_778622dd3e3e",
+              "title": "How to Make Chocolate Lava Cakes Recipe | Molten Chocolate Cake",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者列出涂油防粘的四个烤盅；原生章节包括预热炉、调制巧克力面糊和烘烤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FV_fTA1WQkE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FV_fTA1WQkE.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "ZWfUmCm2tww",
+              "entity_id": "m_1f8cbdbe4efe",
+              "title": "Molten Chocolate Lava Cakes Recipe | Easy Step-by-Step Dessert",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生配方将巧克力面糊分入四个抹油洒可可粉的烤盅，在预热烤箱烘烤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ZWfUmCm2tww.json::description"
+              ]
+            },
+            {
+              "native_id": "2uYHHhp4yxw",
+              "entity_id": "m_27fc9461e50a",
+              "title": "Easy Chocolate Souffle Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生章节包含备烤盅、混合巧克力糊、装盅烘烤；舒芙蕾充气方式不影响分盅入炉方法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/2uYHHhp4yxw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/2uYHHhp4yxw.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "3yUD3MkPhJQ",
+              "entity_id": "m_96d72b0aad3e",
+              "title": "Chocolate Lava Cake 🍰  Easy Molten Chocolate Cake Recipe!  Tasty Pop",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方预览约71秒在小烤盅分面糊、79秒把两个装满的烤盅送入烤箱。作者描述给出相同做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3yUD3MkPhJQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3yUD3MkPhJQ.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "PcxQrKDrJSs",
+              "entity_id": "m_f375a0203f88",
+              "title": "Steamed Chocolate Lava Cakes | Thermomix® Varoma® Ramekins in Action",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生官方示范把巧克力熔岩蛋糕面糊分入小盅并用Varoma设备蒸熟。开场只见装盅时仍可能；实际放进普通烤箱后不匹配。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/PcxQrKDrJSs.json::description"
+              ]
+            },
+            {
+              "native_id": "_hQAjxefiGQ",
+              "entity_id": "m_c956b64042de",
+              "title": "Chocolate Lava Cake",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "预烤盅、调糊和烤制章节为单份巧克力熔岩蛋糕；作者步骤和烤盅配方均给出。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_hQAjxefiGQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_hQAjxefiGQ.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "oVWI_agRprY",
+              "entity_id": "m_36736180db2e",
+              "title": "How I make chocolate molten lava cake using ramekins and cupcake/muffin tray!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "演示烤盅与马芬模两种烤箱版本，其中烤盅版本适用，不能因为同时教别的做法而拒绝。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/oVWI_agRprY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/oVWI_agRprY.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "93s2H7Yli1A",
+              "entity_id": "m_e89f215482b9",
+              "title": "I Can’t Stop Making This Chocolate Lava Cake | The Recipe (Air Fryer / Oven)",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者配方用10厘米陶瓷烤盅，明确有分盅入普通烤箱的做法；也给空气炸锅选项，不影响烤箱版本。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/93s2H7Yli1A.json::description"
+              ]
+            },
+            {
+              "native_id": "oK6qQxvouRw",
+              "entity_id": "m_eaefd9ccb3b3",
+              "title": "White Chocolate Lava Cakes 🤍🍰 | Easy & Indulgent Dessert You Can Cook Along With!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "配方主体是白巧克力、黄油和糖，成品与面糊均浅色；不对应源中明确的棕色巧克力糊。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/oK6qQxvouRw.json::description"
+              ]
+            },
+            {
+              "native_id": "jaL-Tyu3YlM",
+              "entity_id": "m_8e36851208bd",
+              "title": "Chocolate Lava Cake – Oven vs Microwave",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生章节分别演示调糊、装烤盅、烤箱版和微波版，其中烤箱版可用。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jaL-Tyu3YlM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jaL-Tyu3YlM.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "ujxfP9iFKUs",
+              "entity_id": "m_eca917f8a848",
+              "title": "Chocolate Lava Cake in Ramekins | Easy & Gooey Choco Lava Cake Recipe | NI Cooking World",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生官方预览约72秒将巧克力面糊分入小白烤盅，随后在身后烤箱中烘烤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ujxfP9iFKUs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ujxfP9iFKUs.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "xNwUEBzmlIk",
+              "entity_id": "m_dda1dd931fa8",
+              "title": "CookingWithRy - Chocolate Ramekin Cakes",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者明确先给两个烤盅抹油撒粉、分糊，在450°F烤箱烘烤，再倒扣出模；对应现场的方法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xNwUEBzmlIk.json::description"
+              ]
+            },
+            {
+              "native_id": "_7ZaGeL9E6E",
+              "entity_id": "m_5376dee98edc",
+              "title": "Molten Chocolate Lava Cake — The Perfect Gooey Center | Cozy Anime Cooking (No Talking)",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "虽然为动画，原生步骤和连续预览完整演示巧克力面糊装抹油烤盅、入炉、出炉及脱模，用户没有要求真人教程。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_7ZaGeL9E6E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_7ZaGeL9E6E.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "edxXJEKIU3Q",
+              "entity_id": "m_9b6aa91977e9",
+              "title": "1 Minute Chocolate Ramekin Brownie | How to make an easy chocolate brownie | Spices & More",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "作者给出先从大碗刮出巧克力布朗尼糊、装进小烤盅，再放微波炉一分钟的完整步骤。开场可用；普通烤箱已明确后不再适用。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/edxXJEKIU3Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/edxXJEKIU3Q.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "xK8LhlBCpB8",
+              "entity_id": "m_06a276cdaf2e",
+              "title": "Chocolate Coffee Ramekin Cake",
+              "initial": "accepted",
+              "final": "insufficient_evidence",
+              "reason": "原生预览在小盅搅拌巧克力与咖啡原料，镜头随后直接切到可吃成品；现有信息没有证明进普通烤箱。V0可用，V1加热方式证据不足。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xK8LhlBCpB8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xK8LhlBCpB8.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "sPwmQYZncTo",
+              "entity_id": "m_6a11b48f6c1a",
+              "title": "*Viral TikTok Baked Oats* Brownie Baked Oats- 210 Calories Only",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者将磨碎燕麦与可可混成巧克力糊，装7盎司独立烤盅在180°C烤箱烤。燕麦与香蕉属于允许的配方变化。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/sPwmQYZncTo.json::description"
+              ]
+            },
+            {
+              "native_id": "VIBpz2sHgfk",
+              "entity_id": "m_0a2581910c9a",
+              "title": "#13 Chocolate Baklava | #30 Day Ramekin Dessert Challenge",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "作者教在小盅铺酥皮和坚果巧克力层来做巴克拉瓦，不是把混匀巧克力面糊分进小盅。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VIBpz2sHgfk.json::description"
+              ]
+            },
+            {
+              "native_id": "8T0tiO_B5FE",
+              "entity_id": "m_4e47c7c9ae08",
+              "title": "Chocolate Lava Cake Recipe | Molten Chocolate Centers, Easy Homemade Dessert | Cake | Recipe Wecipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生描述明确教配料、融化巧克力、装独立烤盅和烘烤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8T0tiO_B5FE.json::description"
+              ]
+            },
+            {
+              "native_id": "XbO_qCNea3A",
+              "entity_id": "m_57a2f5c8028d",
+              "title": "The Best Chocolate Soufflé You’ll Ever Make",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者给出巧克力面糊分装烤盅、入烤箱的完整舒芙蕾配方，不把蓬松度设为现场硬条件。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/XbO_qCNea3A.json::description"
+              ]
+            },
+            {
+              "native_id": "u1S_nDkwF9U",
+              "entity_id": "m_9b867d7cb76f",
+              "title": "The PERFECT Chocolate Lava Cake 🍫😍 | Rich, Gooey & Easy Homemade Dessert!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方连续预览约72秒将棕色巧克力糊倒进抹油的独立陶瓷烤盅，79秒明确入炉。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/u1S_nDkwF9U.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/u1S_nDkwF9U.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "xzIoewI1At0",
+              "entity_id": "m_995b8351e6c0",
+              "title": "Microwave Chocolate Lava Cake",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "作者分巧克力糊到两个可微波杯，再微波60秒。已分份尚未见加热设备时可用；后续不匹配普通烤箱。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xzIoewI1At0.json::description"
+              ]
+            },
+            {
+              "native_id": "0gS6qZYxik0",
+              "entity_id": "m_4f105929dde5",
+              "title": "Perfect Chocolate Lava Cake At Home",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "公开章节依次备烤盅、调蛋糕糊、烤制；作者的覆盆子酱为可选搭配。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0gS6qZYxik0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/0gS6qZYxik0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/0gS6qZYxik0.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "X1pGa_xPdW0",
+              "entity_id": "m_47ba6b352731",
+              "title": "Low Calorie Chocolate Dessert Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生配方为巧克力风味香蕉可可糊，明确装小烤盅烤8–10分钟；配方差异不是排除项。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/X1pGa_xPdW0.json::description"
+              ]
+            },
+            {
+              "native_id": "MJ5CxVZ41S8",
+              "entity_id": "m_973f4cf52709",
+              "title": "I BAKED A 15 MINUTE CHOCOLATE DESSERT!! EASY QUARANTINE RECIPE REVEALED!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者公布预热425°F、烤盅抹油撒粉、融化巧克力、装盅和烤制的完整步骤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MJ5CxVZ41S8.json::description"
+              ]
+            },
+            {
+              "native_id": "mFnLRAH2MZY",
+              "entity_id": "m_6eb4e9bb9d9f",
+              "title": "🍫 Gordon Ramsay-Inspired Chocolate Fondant (Simplified)",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "公开配方把巧克力糊分在四个预先抹油的烤盅，明确190°C入炉，吻合。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mFnLRAH2MZY.json::description"
+              ]
+            },
+            {
+              "native_id": "YjfxPWeiQ0Q",
+              "entity_id": "m_10ab5cbff119",
+              "title": "CHOCOLATE LAVA CAKE",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者说明9–10个小烤盅及450°F烤箱时间，公开预览也展示多个小容器同烤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/YjfxPWeiQ0Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/YjfxPWeiQ0Q.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "t8Q5NMnQ_0U",
+              "entity_id": "m_4e90b0e33b64",
+              "title": "Chocolate Lava Cakes 🍫❤️ | Easy Valentine’s Day Dessert You Can Cook Along With!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生配方明确说明普通烤箱、分入小烤盅和烤制，不因额外提供马芬盘备选而排除。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/t8Q5NMnQ_0U.json::description"
+              ]
+            },
+            {
+              "native_id": "6P2ucH8gB-Q",
+              "entity_id": "m_4fdbd6fa0c7e",
+              "title": "Chocolate Lava Cake — Easy Homemade Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生描述及连续预览显示多个小烤盅分别盛巧克力糊，再放入普通烤箱。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6P2ucH8gB-Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6P2ucH8gB-Q.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "krh_RAaMHHs",
+              "entity_id": "m_619de5591c36",
+              "title": "Chocolate Lava Cake Recipe | Exclusively Food",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生分量及步骤是独立小烤盅烘烤巧克力糊至外层凝固，不要求现场看不见的流心程度。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/krh_RAaMHHs.json::description"
+              ]
+            },
+            {
+              "native_id": "RD3ZBBXMn4c",
+              "entity_id": "m_ec304cbd028b",
+              "title": "Chocolate Lava Cake Recipe | How to Make Molten Chocolate Lava Cake",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "原生分段从给六个烤盅抹油、混糊到分装入炉。独立上传与合集同作者，但仍是不同真实可保存结果。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RD3ZBBXMn4c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RD3ZBBXMn4c.json::public_chapters"
+              ]
+            },
+            {
+              "native_id": "-FHWZGbfaH8",
+              "entity_id": "m_49619a11558a",
+              "title": "Amazing CHOCOLATE LAVA CAKE in less than 30 mins!",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者章节分开讲备烤盅、调巧克力糊、烤制和上桌；配料和呈现允许合理变化。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-FHWZGbfaH8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-FHWZGbfaH8.json::public_chapters"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters",
+            "public_previews",
+            "linked_manufacturer_instructions"
+          ],
+          "answer_boundary_rule": "The V0 evidence already fixes individual portions of a brown chocolate dessert in small serving vessels, but not the heating route. Accept verified small-portion oven, microwave, steam and chill-set tutorials, including genuine interchangeable serving vessels. V1 directly shows the same containers entering an oven: require an applicable individual oven-baked chocolate recipe, without prescribing texture, exact serving count, optional flavours, or oven brand. Preserve any multi-method tutorial that actually teaches an applicable oven method. Recipes with unsupported heating are not verified as V1 legal.",
+          "landing_semantic_review": {
+            "status": "independent_answer_boundary_verified",
+            "reviewer": "/root/blind_0503",
+            "scope": "Both full native search windows, plausible opening versus verified final variants and actual site search.",
+            "evidence_refs": [
+              "data/sources/search_snapshots/candidate-media-refresh-replace-2026110503.json",
+              ".scratch/refresh-replacements-scout/p05-heat-preinstall/adversarial-review.json"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

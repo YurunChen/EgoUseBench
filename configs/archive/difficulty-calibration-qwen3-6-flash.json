@@ -1,0 +1,30 @@
+{
+  "schema_version": 3,
+  "experiment_id": "difficulty-screening-qwen3-6-flash-20260901-v1",
+  "default_release_step": 12,
+  "reference_steps": null,
+  "reference_condition": "online",
+  "conditions": [
+    {
+      "name": "online",
+      "schedule": "online",
+      "scope": "full",
+      "ask": "allowed",
+      "release_at": null
+    }
+  ],
+  "tracks": {
+    "graft": ["online"],
+    "refresh": ["online"],
+    "clarify": ["online"]
+  },
+  "replicate_ids": [0],
+  "runtime": {
+    "adapter": "browsergym",
+    "model": "qwen3.6-flash",
+    "model_version": "qwen3.6-flash",
+    "max_steps": 40,
+    "release_trigger": "first_native_commitment"
+  },
+  "scheduler_seed": 20260901
+}

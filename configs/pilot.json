@@ -1,17 +1,95 @@
 {
-  "schema_version": 2,
-  "experiment_id": "glass-use-seed-pilot-v1",
-  "arms": {
-    "graft": ["injected"],
-    "refresh": ["stream"],
-    "clarify": ["interactive"]
+  "schema_version": 3,
+  "experiment_id": "glass-use-pilot",
+  "default_release_step": 4,
+  "reference_steps": null,
+  "reference_condition": "online",
+  "conditions": [
+    {
+      "name": "online",
+      "schedule": "online",
+      "scope": "full",
+      "ask": "allowed",
+      "release_at": null
+    },
+    {
+      "name": "upfront",
+      "schedule": "upfront",
+      "scope": "full",
+      "ask": "allowed",
+      "release_at": null
+    },
+    {
+      "name": "initial_only",
+      "schedule": "online",
+      "scope": "initial_only",
+      "ask": "allowed",
+      "release_at": null
+    },
+    {
+      "name": "no_ask",
+      "schedule": "online",
+      "scope": "full",
+      "ask": "denied",
+      "release_at": null
+    },
+    {
+      "name": "first_frame",
+      "schedule": "online",
+      "scope": "first_frame",
+      "ask": "allowed",
+      "release_at": null
+    },
+    {
+      "name": "text_only",
+      "schedule": "online",
+      "scope": "none",
+      "ask": "allowed",
+      "release_at": null
+    }
+  ],
+  "tracks": {
+    "graft": [
+      "online",
+      "upfront",
+      "initial_only"
+    ],
+    "refresh": [
+      "online",
+      "upfront",
+      "initial_only"
+    ],
+    "clarify": [
+      "online",
+      "upfront",
+      "no_ask"
+    ]
   },
-  "replicate_ids": [0, 1, 2],
+  "probes": {
+    "graft": [
+      "first_frame",
+      "text_only"
+    ],
+    "refresh": [
+      "first_frame",
+      "text_only"
+    ],
+    "clarify": [
+      "first_frame",
+      "text_only"
+    ]
+  },
+  "replicate_ids": [
+    0,
+    1,
+    2
+  ],
   "runtime": {
-    "adapter": "browser-use",
+    "adapter": "browsergym",
     "model": "gpt-5.4-mini",
     "model_version": "gpt-5.4-mini",
-    "max_steps": 40
+    "max_steps": 40,
+    "release_trigger": "first_native_commitment"
   },
-  "scheduler_seed": 20260809
+  "scheduler_seed": 20260819
 }

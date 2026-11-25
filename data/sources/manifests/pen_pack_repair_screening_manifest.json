@@ -1,0 +1,3180 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "license_or_access_note": "Local source videos and annotations are retained under the upstream Ego2Web research-use terms; only source-grounded candidate evidence is compiled.",
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-refine-2026101707",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "refine",
+      "replaces_candidate_id": "candidate-mart-refresh-retain-04",
+      "replacement_reason": "旧0–15秒仅开盒、抽笔、翻包装，没有真实后续干扰；改为同源可读产品系列加真实五人小组包装数要求，不将同一对象变清楚冒充retain。",
+      "source": {
+        "media_id": "ce662af8-7108-4ae9-b073-48a5d59e87e6",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "description": "拿起、打开同一盒绘图笔并抽出笔，翻看印有PIGMA的包装；区间内没有落纸绘画。",
+            "interval_seconds": [
+              0,
+              15
+            ],
+            "role": "opened_pen_line"
+          }
+        ],
+        "original_annotations": [
+          "Please find the 8-piece set of painting tools shown in the video on Amazon with a rating of 4.8 stars or higher, and report its price.",
+          "Find the same fineliner pen item the person handles in the video on both amazon.com and walmart.com. Open both product pages and tell me which retailer has the lower current price. Provide both URLs and the prices."
+        ],
+        "record_ids": [
+          29,
+          120
+        ],
+        "media_sha256": "1bbb146f93440489387813c1f007a101942f5dafd1195cb07ee8c3cf77926c86"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-retain-04/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-retain-04/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-retain-04/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-retain-04/V0_03.jpg",
+            "data/observations/candidate-mart-refresh-retain-04/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-retain-04/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-retain-04/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-retain-04/V1_03.jpg"
+          ],
+          "timestamps_seconds": [
+            0,
+            2,
+            4,
+            6,
+            9,
+            11,
+            13,
+            15
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "盒面在11/13秒明确读作PIGMA；系列与墨色应来自开盒画面与包装文字。五支装来自口播五人需求，不是画面读数。",
+          "supported_by": [
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "commitment_surface": "cart",
+        "event_origin": "counterfactual_recombination",
+        "evidence_type": "in_view_deixis",
+        "divergence_source": "intention",
+        "research_question": "能否保留画面确定的笔产品系列，并按随后五人需求收紧可购买包装？",
+        "belief_before": "PIGMA系列的黑墨笔包装均可；不要求同笔杆、笔尖、型号或无附件。",
+        "belief_after": "保留同系列和全部笔为黑墨，包装须含五支笔；附带铅笔不算第六支笔，也不自动使其失效。",
+        "required_behavior_change": "若先选五支以外的合法包装，需要移除并换为含五支黑墨笔的同系列包装；已选五支时保留。",
+        "no_update_failure": "保持十二支或四支等A合法包装，无法按B给五人每人一支且总计五支笔。",
+        "overupdate_failure": "换为五支黑墨Sharpie，仅追随人数而丢失画面产品系列。",
+        "visual_dependency_claim": "PIGMA由开盒画面读出；公开站同时有五支黑色Sharpie，题面和人数不能替代系列识别。",
+        "task_blueprint": {
+          "site": "egomart",
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "pack_1": "p_880a4b282e5f",
+            "pack_2": "p_95e7dd803f01",
+            "pack_3": "p_16ed1e5bb281",
+            "pack_4": "p_13b0d0eccc22",
+            "pack_5": "p_cf3eab5ab0b2",
+            "pack_6": "p_2cd3eb1d5cea",
+            "pack_7": "p_a516ce6ca6c7",
+            "pack_8": "p_2dcb4495ab36",
+            "pack_9": "p_dbb4fcd0a91b",
+            "pack_10": "p_ab3aab1e44ad",
+            "pack_11": "p_0ba57c3f4cf3",
+            "pack_12": "p_82310921c010",
+            "pack_13": "p_9018e33892b2",
+            "pack_14": "p_89cfef92aec3",
+            "pack_15": "p_777ddc4d131f",
+            "pack_16": "p_0d75966b1e24",
+            "pack_17": "p_436b0d2e8507",
+            "pack_18": "p_581475490c6a",
+            "pack_19": "p_6dd831970b6c",
+            "pack_20": "p_bb8f7c935797",
+            "pack_21": "p_2d5ae20b0244",
+            "pack_22": "p_d6a9d31da00b",
+            "pack_23": "p_4818e67fd6ff",
+            "pack_24": "p_f1406ae739ed",
+            "pack_25": "p_5807e22790f5",
+            "pack_26": "p_8d3f2a8e0165",
+            "pack_27": "p_71a981947b74",
+            "pack_28": "p_aceb977eb1dc",
+            "pack_29": "p_0118e97012bd",
+            "pack_30": "p_501d8929bd77",
+            "pack_31": "p_c0ca8313d349",
+            "pack_32": "p_3cceb189214d",
+            "pack_33": "p_abff7f24a1fc",
+            "pack_34": "p_5adfba8f3c30",
+            "pack_35": "p_c2f23f5d7247",
+            "pack_36": "p_7bd32b0ac5fc"
+          },
+          "initial_goal_roles": [
+            [
+              "pack_1"
+            ],
+            [
+              "pack_2"
+            ],
+            [
+              "pack_3"
+            ],
+            [
+              "pack_4"
+            ],
+            [
+              "pack_5"
+            ],
+            [
+              "pack_6"
+            ],
+            [
+              "pack_7"
+            ],
+            [
+              "pack_8"
+            ],
+            [
+              "pack_9"
+            ],
+            [
+              "pack_10"
+            ],
+            [
+              "pack_11"
+            ],
+            [
+              "pack_12"
+            ],
+            [
+              "pack_13"
+            ],
+            [
+              "pack_14"
+            ],
+            [
+              "pack_15"
+            ],
+            [
+              "pack_16"
+            ],
+            [
+              "pack_17"
+            ],
+            [
+              "pack_18"
+            ],
+            [
+              "pack_19"
+            ],
+            [
+              "pack_20"
+            ],
+            [
+              "pack_21"
+            ],
+            [
+              "pack_22"
+            ],
+            [
+              "pack_23"
+            ],
+            [
+              "pack_24"
+            ],
+            [
+              "pack_25"
+            ],
+            [
+              "pack_26"
+            ],
+            [
+              "pack_27"
+            ],
+            [
+              "pack_28"
+            ],
+            [
+              "pack_29"
+            ],
+            [
+              "pack_30"
+            ],
+            [
+              "pack_31"
+            ],
+            [
+              "pack_32"
+            ],
+            [
+              "pack_33"
+            ],
+            [
+              "pack_34"
+            ],
+            [
+              "pack_35"
+            ],
+            [
+              "pack_36"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "pack_13"
+            ],
+            [
+              "pack_31"
+            ],
+            [
+              "pack_32"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "equivalent_role_ids": {
+            "pack_2": [
+              "p_bf792ee7a0a0"
+            ],
+            "pack_21": [
+              "p_bf792ee7a0a0"
+            ],
+            "pack_7": [
+              "p_e3e7235bccf8",
+              "p_5a35babe3899",
+              "p_7e737c439bd6"
+            ],
+            "pack_17": [
+              "p_5a6ed75e2d54"
+            ],
+            "pack_18": [
+              "p_5a6ed75e2d54"
+            ],
+            "pack_5": [
+              "p_5a35babe3899",
+              "p_7e737c439bd6"
+            ],
+            "pack_16": [
+              "p_5a35babe3899",
+              "p_7e737c439bd6"
+            ],
+            "pack_35": [
+              "p_5a35babe3899",
+              "p_7e737c439bd6"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "initial_goal": {
+              "goal_ref": "initial"
+            },
+            "five_pen_goal": {
+              "goal_ref": "final"
+            }
+          },
+          "established_at": "2026-10-17",
+          "established_by": "/root/worklight_fresh_blind",
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "initial_goal",
+                "five_pen_goal"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "five_pen_goal"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "B明确为五人选择含五支笔的包装；PIGMA系列仍由V0决定。"
+            }
+          ]
+        },
+        "difficulty": {
+          "level": "L2",
+          "basis": "最简合法解需结合画面产品系列、全黑墨、包装真实笔数；商品标题总件数不能直接替代笔数。"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "Sakura Pigma Micron Fineliner black set",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-04.json",
+              "result_entity_ids": [
+                "p_3cceb189214d",
+                "p_2d5ae20b0244",
+                "p_9018e33892b2",
+                "p_d6a9d31da00b",
+                "p_e89de98823eb",
+                "p_a516ce6ca6c7",
+                "p_89cfef92aec3",
+                "p_95e7dd803f01",
+                "p_49e41e5d2269",
+                "p_f1406ae739ed",
+                "p_581475490c6a",
+                "p_d0398478caf1",
+                "p_c2f23f5d7247",
+                "p_0d75966b1e24",
+                "p_2dcb4495ab36",
+                "p_abc7dcac74f1",
+                "p_501d8929bd77",
+                "p_13b0d0eccc22",
+                "p_ab3aab1e44ad",
+                "p_aceb977eb1dc",
+                "p_cf3eab5ab0b2",
+                "p_5adfba8f3c30",
+                "p_71a981947b74",
+                "p_dbb4fcd0a91b",
+                "p_0118e97012bd",
+                "p_4818e67fd6ff",
+                "p_0ba57c3f4cf3",
+                "p_c0ca8313d349",
+                "p_9bed3b9069f7",
+                "p_8d3f2a8e0165",
+                "p_bb8f7c935797",
+                "p_6dd831970b6c",
+                "p_abff7f24a1fc",
+                "p_16ed1e5bb281",
+                "p_2cd3eb1d5cea",
+                "p_7bd32b0ac5fc",
+                "p_777ddc4d131f",
+                "p_880a4b282e5f",
+                "p_5807e22790f5",
+                "p_82310921c010",
+                "p_436b0d2e8507",
+                "p_ec0f6902d281",
+                "p_5adc88bda2e5",
+                "p_95b011892bfc",
+                "p_21b1ba88d2c9",
+                "p_e1bb5f3396ac",
+                "p_0ac683df078e",
+                "p_85ae83caf217"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-retain-04",
+              "snapshot_stage": "before_change"
+            },
+            {
+              "stage": "after_change",
+              "query": "AmazonBasics Ultra Fine Point Permanent Marker black",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-04.json",
+              "result_entity_ids": [
+                "p_160eefa3cada",
+                "p_107d1532d83c",
+                "p_8d3cc4368ae5",
+                "p_f3ee73ea41ec",
+                "p_4da90698410f",
+                "p_75a0078f5a62",
+                "p_ae5b9c5c286d",
+                "p_bb66f21a3e9e",
+                "p_2eb0c1d6c0d6",
+                "p_1ee23f0434ae",
+                "p_c82833935703",
+                "p_cfc7b3d08ca7",
+                "p_c3659bf66d63",
+                "p_1bf010a5c204",
+                "p_b600a934c737",
+                "p_8149a36f32d8",
+                "p_0d8d993007e3",
+                "p_660d83662e31",
+                "p_e6bd6fde45a8",
+                "p_c966f180ee1a",
+                "p_430e5e239258",
+                "p_63184919611f",
+                "p_100de976821b",
+                "p_5b60eabe9f51",
+                "p_e7b49593a63b",
+                "p_8350dbfa860b",
+                "p_8bc90e3c2fb8",
+                "p_9474f1b9053d",
+                "p_4382dd3e7f81",
+                "p_d6b979ca39e0",
+                "p_e8d0408513b9",
+                "p_4f7f08915920",
+                "p_8cebcd2ce7bd",
+                "p_4e97f941fc37",
+                "p_8cb58e9e1da4",
+                "p_adb9c786ed85",
+                "p_93841b9e7e20",
+                "p_bbcbf8c88663",
+                "p_abbd3a4401a6",
+                "p_002aa3e49743",
+                "p_9e1d57a44310",
+                "p_7d6f7bae2a64",
+                "p_f593db916e95",
+                "p_1d81ed43ffe4",
+                "p_f8a5c4281285",
+                "p_ca4bcee7f368",
+                "p_7e2bab8aeebd",
+                "p_1f0d8fb72316",
+                "p_e768331a83e5",
+                "p_0e220c377fc0",
+                "p_6d214e633f20",
+                "p_ed397c0b9210",
+                "p_abf2f4d82dfa",
+                "p_9a4be7a33cd3",
+                "p_c349199b789e",
+                "p_db9dd5619168",
+                "p_86eb7d7b824d",
+                "p_fc081b6c39ad"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-retain-04",
+              "snapshot_stage": "after_change"
+            },
+            {
+              "stage": "natural_broad_1_20261031c",
+              "query": "micron fineliner pens",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-refine-2026101707.json",
+              "result_entity_ids": [
+                "p_89cfef92aec3",
+                "p_2d5ae20b0244",
+                "p_a516ce6ca6c7",
+                "p_aceb977eb1dc",
+                "p_307825e1f892",
+                "p_3f517886dc24",
+                "p_d0398478caf1",
+                "p_53c6e1011112",
+                "p_85ae83caf217",
+                "p_da1202640462",
+                "p_7f17fa60c6dd",
+                "p_b1e1ea39cb98",
+                "p_bb0538f8adcd",
+                "p_7f69e63c1c5a",
+                "p_21b1ba88d2c9",
+                "p_dbb4fcd0a91b",
+                "p_abc7dcac74f1",
+                "p_bf792ee7a0a0",
+                "p_25a3143e054a",
+                "p_0ba57c3f4cf3",
+                "p_7bd32b0ac5fc",
+                "p_95e7dd803f01",
+                "p_24715cfa21bf",
+                "p_d6a9d31da00b",
+                "p_e3e7235bccf8",
+                "p_71a981947b74",
+                "p_13b0d0eccc22",
+                "p_b3e3c755e6fa",
+                "p_03f2a9255197",
+                "p_c2f23f5d7247",
+                "p_abff7f24a1fc",
+                "p_da959e8111b9",
+                "p_4327af0d41c2",
+                "p_06a81ca618c3",
+                "p_2dcb4495ab36",
+                "p_581475490c6a",
+                "p_5490726a019d",
+                "p_5a6ed75e2d54",
+                "p_e89de98823eb",
+                "p_ec1077a9f709",
+                "p_a3bc6b07b3f3",
+                "p_91fa48b3a465",
+                "p_5be47e9c4798",
+                "p_0d75966b1e24",
+                "p_4818e67fd6ff",
+                "p_5a35babe3899",
+                "p_c8e5299abbff",
+                "p_0ac683df078e"
+              ]
+            },
+            {
+              "stage": "natural_broad_2_20261031c",
+              "query": "archival ink drawing pens set",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-refine-2026101707.json",
+              "result_entity_ids": [
+                "p_89cfef92aec3",
+                "p_06a81ca618c3",
+                "p_2d5ae20b0244",
+                "p_ac7d2bbe1f93",
+                "p_e1af091727be",
+                "p_53c6e1011112",
+                "p_cf36e8034d09",
+                "p_b1e1ea39cb98",
+                "p_784e63be2823",
+                "p_85ae83caf217",
+                "p_307825e1f892",
+                "p_c2f23f5d7247",
+                "p_03f2a9255197",
+                "p_ec1077a9f709",
+                "p_aa0e23fc6e49",
+                "p_a3bc6b07b3f3",
+                "p_d0398478caf1",
+                "p_4327af0d41c2",
+                "p_abc7dcac74f1",
+                "p_e3ad89d39895",
+                "p_7e737c439bd6",
+                "p_ad14b120fc34",
+                "p_c8e5299abbff",
+                "p_21b1ba88d2c9",
+                "p_eecc820e6d41",
+                "p_e3e7235bccf8",
+                "p_da959e8111b9",
+                "p_bf792ee7a0a0",
+                "p_3f517886dc24",
+                "p_40f83524daee",
+                "p_20b528dc022a",
+                "p_0d75966b1e24",
+                "p_c0ca8313d349",
+                "p_344150fb5eff",
+                "p_791ba7112ed9",
+                "p_bb0538f8adcd",
+                "p_0ac683df078e",
+                "p_95b011892bfc",
+                "p_04ba1e630d43",
+                "p_2a74055ab8f7",
+                "p_59beefe6ee3c",
+                "p_af3f1e9926b6",
+                "p_5e3ea314ee80",
+                "p_d3d71d6a71b2",
+                "p_70b2dd3edb24",
+                "p_5a6ed75e2d54",
+                "p_18f70678d2b5",
+                "p_cd90f2141d52"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_3cceb189214d",
+            "p_2d5ae20b0244",
+            "p_9018e33892b2",
+            "p_d6a9d31da00b",
+            "p_e89de98823eb",
+            "p_a516ce6ca6c7",
+            "p_89cfef92aec3",
+            "p_95e7dd803f01",
+            "p_49e41e5d2269",
+            "p_f1406ae739ed",
+            "p_581475490c6a",
+            "p_d0398478caf1",
+            "p_c2f23f5d7247",
+            "p_0d75966b1e24",
+            "p_2dcb4495ab36",
+            "p_abc7dcac74f1",
+            "p_501d8929bd77",
+            "p_13b0d0eccc22",
+            "p_ab3aab1e44ad",
+            "p_aceb977eb1dc",
+            "p_cf3eab5ab0b2",
+            "p_5adfba8f3c30",
+            "p_71a981947b74",
+            "p_dbb4fcd0a91b",
+            "p_0118e97012bd",
+            "p_4818e67fd6ff",
+            "p_0ba57c3f4cf3",
+            "p_c0ca8313d349",
+            "p_9bed3b9069f7",
+            "p_8d3f2a8e0165",
+            "p_bb8f7c935797",
+            "p_6dd831970b6c",
+            "p_abff7f24a1fc",
+            "p_16ed1e5bb281",
+            "p_2cd3eb1d5cea",
+            "p_7bd32b0ac5fc",
+            "p_777ddc4d131f",
+            "p_880a4b282e5f",
+            "p_5807e22790f5",
+            "p_82310921c010",
+            "p_436b0d2e8507",
+            "p_ec0f6902d281",
+            "p_5adc88bda2e5",
+            "p_95b011892bfc",
+            "p_21b1ba88d2c9",
+            "p_e1bb5f3396ac",
+            "p_0ac683df078e",
+            "p_85ae83caf217",
+            "p_160eefa3cada",
+            "p_107d1532d83c",
+            "p_8d3cc4368ae5",
+            "p_f3ee73ea41ec",
+            "p_4da90698410f",
+            "p_75a0078f5a62",
+            "p_ae5b9c5c286d",
+            "p_bb66f21a3e9e",
+            "p_2eb0c1d6c0d6",
+            "p_1ee23f0434ae",
+            "p_c82833935703",
+            "p_cfc7b3d08ca7",
+            "p_c3659bf66d63",
+            "p_1bf010a5c204",
+            "p_b600a934c737",
+            "p_8149a36f32d8",
+            "p_0d8d993007e3",
+            "p_660d83662e31",
+            "p_e6bd6fde45a8",
+            "p_c966f180ee1a",
+            "p_430e5e239258",
+            "p_63184919611f",
+            "p_100de976821b",
+            "p_5b60eabe9f51",
+            "p_e7b49593a63b",
+            "p_8350dbfa860b",
+            "p_8bc90e3c2fb8",
+            "p_9474f1b9053d",
+            "p_4382dd3e7f81",
+            "p_d6b979ca39e0",
+            "p_e8d0408513b9",
+            "p_4f7f08915920",
+            "p_8cebcd2ce7bd",
+            "p_4e97f941fc37",
+            "p_8cb58e9e1da4",
+            "p_adb9c786ed85",
+            "p_93841b9e7e20",
+            "p_bbcbf8c88663",
+            "p_abbd3a4401a6",
+            "p_002aa3e49743",
+            "p_9e1d57a44310",
+            "p_7d6f7bae2a64",
+            "p_f593db916e95",
+            "p_1d81ed43ffe4",
+            "p_f8a5c4281285",
+            "p_ca4bcee7f368",
+            "p_7e2bab8aeebd",
+            "p_1f0d8fb72316",
+            "p_e768331a83e5",
+            "p_0e220c377fc0",
+            "p_6d214e633f20",
+            "p_ed397c0b9210",
+            "p_abf2f4d82dfa",
+            "p_9a4be7a33cd3",
+            "p_c349199b789e",
+            "p_db9dd5619168",
+            "p_86eb7d7b824d",
+            "p_fc081b6c39ad",
+            "p_307825e1f892",
+            "p_3f517886dc24",
+            "p_53c6e1011112",
+            "p_da1202640462",
+            "p_7f17fa60c6dd",
+            "p_b1e1ea39cb98",
+            "p_bb0538f8adcd",
+            "p_7f69e63c1c5a",
+            "p_bf792ee7a0a0",
+            "p_25a3143e054a",
+            "p_24715cfa21bf",
+            "p_e3e7235bccf8",
+            "p_b3e3c755e6fa",
+            "p_03f2a9255197",
+            "p_da959e8111b9",
+            "p_4327af0d41c2",
+            "p_06a81ca618c3",
+            "p_5490726a019d",
+            "p_5a6ed75e2d54",
+            "p_ec1077a9f709",
+            "p_a3bc6b07b3f3",
+            "p_91fa48b3a465",
+            "p_5be47e9c4798",
+            "p_5a35babe3899",
+            "p_c8e5299abbff",
+            "p_ac7d2bbe1f93",
+            "p_e1af091727be",
+            "p_cf36e8034d09",
+            "p_784e63be2823",
+            "p_aa0e23fc6e49",
+            "p_e3ad89d39895",
+            "p_7e737c439bd6",
+            "p_ad14b120fc34",
+            "p_eecc820e6d41",
+            "p_40f83524daee",
+            "p_20b528dc022a",
+            "p_344150fb5eff",
+            "p_791ba7112ed9",
+            "p_04ba1e630d43",
+            "p_2a74055ab8f7",
+            "p_59beefe6ee3c",
+            "p_af3f1e9926b6",
+            "p_5e3ea314ee80",
+            "p_d3d71d6a71b2",
+            "p_70b2dd3edb24",
+            "p_18f70678d2b5",
+            "p_cd90f2141d52"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_aceb977eb1dc",
+            "p_82310921c010",
+            "p_cf3eab5ab0b2",
+            "p_1ee23f0434ae"
+          ],
+          "related_entity_ids": [
+            "p_2d5ae20b0244",
+            "p_d6a9d31da00b",
+            "p_e89de98823eb",
+            "p_a516ce6ca6c7",
+            "p_89cfef92aec3",
+            "p_95e7dd803f01",
+            "p_49e41e5d2269",
+            "p_f1406ae739ed",
+            "p_581475490c6a",
+            "p_d0398478caf1",
+            "p_c2f23f5d7247",
+            "p_0d75966b1e24",
+            "p_2dcb4495ab36",
+            "p_abc7dcac74f1",
+            "p_501d8929bd77",
+            "p_13b0d0eccc22",
+            "p_ab3aab1e44ad",
+            "p_5adfba8f3c30",
+            "p_71a981947b74",
+            "p_dbb4fcd0a91b",
+            "p_0118e97012bd",
+            "p_4818e67fd6ff",
+            "p_0ba57c3f4cf3",
+            "p_9bed3b9069f7",
+            "p_8d3f2a8e0165",
+            "p_bb8f7c935797",
+            "p_6dd831970b6c",
+            "p_abff7f24a1fc",
+            "p_16ed1e5bb281",
+            "p_2cd3eb1d5cea",
+            "p_7bd32b0ac5fc",
+            "p_777ddc4d131f",
+            "p_880a4b282e5f",
+            "p_5807e22790f5",
+            "p_436b0d2e8507",
+            "p_ec0f6902d281",
+            "p_5adc88bda2e5",
+            "p_95b011892bfc",
+            "p_21b1ba88d2c9",
+            "p_e1bb5f3396ac",
+            "p_0ac683df078e",
+            "p_85ae83caf217",
+            "p_160eefa3cada",
+            "p_107d1532d83c",
+            "p_8d3cc4368ae5",
+            "p_f3ee73ea41ec",
+            "p_4da90698410f",
+            "p_75a0078f5a62",
+            "p_ae5b9c5c286d",
+            "p_bb66f21a3e9e",
+            "p_2eb0c1d6c0d6",
+            "p_c82833935703",
+            "p_cfc7b3d08ca7",
+            "p_c3659bf66d63",
+            "p_1bf010a5c204",
+            "p_b600a934c737",
+            "p_8149a36f32d8",
+            "p_0d8d993007e3",
+            "p_660d83662e31",
+            "p_e6bd6fde45a8",
+            "p_c966f180ee1a",
+            "p_430e5e239258",
+            "p_63184919611f",
+            "p_100de976821b",
+            "p_5b60eabe9f51",
+            "p_e7b49593a63b",
+            "p_8350dbfa860b",
+            "p_8bc90e3c2fb8",
+            "p_9474f1b9053d",
+            "p_4382dd3e7f81",
+            "p_d6b979ca39e0",
+            "p_e8d0408513b9",
+            "p_4f7f08915920",
+            "p_8cebcd2ce7bd",
+            "p_4e97f941fc37",
+            "p_8cb58e9e1da4",
+            "p_adb9c786ed85",
+            "p_93841b9e7e20",
+            "p_bbcbf8c88663",
+            "p_abbd3a4401a6",
+            "p_002aa3e49743",
+            "p_9e1d57a44310",
+            "p_7d6f7bae2a64",
+            "p_f593db916e95",
+            "p_1d81ed43ffe4",
+            "p_f8a5c4281285",
+            "p_ca4bcee7f368",
+            "p_7e2bab8aeebd",
+            "p_1f0d8fb72316",
+            "p_e768331a83e5",
+            "p_0e220c377fc0",
+            "p_6d214e633f20",
+            "p_ed397c0b9210",
+            "p_abf2f4d82dfa",
+            "p_9a4be7a33cd3",
+            "p_c349199b789e",
+            "p_db9dd5619168",
+            "p_86eb7d7b824d",
+            "p_fc081b6c39ad",
+            "p_5a6ed75e2d54"
+          ],
+          "ambient_entity_ids": [
+            "p_307825e1f892",
+            "p_3f517886dc24",
+            "p_53c6e1011112",
+            "p_da1202640462",
+            "p_7f17fa60c6dd",
+            "p_b1e1ea39cb98",
+            "p_bb0538f8adcd",
+            "p_7f69e63c1c5a",
+            "p_bf792ee7a0a0",
+            "p_25a3143e054a",
+            "p_24715cfa21bf",
+            "p_e3e7235bccf8",
+            "p_b3e3c755e6fa",
+            "p_03f2a9255197",
+            "p_da959e8111b9",
+            "p_4327af0d41c2",
+            "p_06a81ca618c3",
+            "p_5490726a019d",
+            "p_ec1077a9f709",
+            "p_a3bc6b07b3f3",
+            "p_91fa48b3a465",
+            "p_5be47e9c4798",
+            "p_5a35babe3899",
+            "p_c8e5299abbff",
+            "p_ac7d2bbe1f93",
+            "p_e1af091727be",
+            "p_cf36e8034d09",
+            "p_784e63be2823",
+            "p_aa0e23fc6e49",
+            "p_e3ad89d39895",
+            "p_7e737c439bd6",
+            "p_ad14b120fc34",
+            "p_eecc820e6d41",
+            "p_40f83524daee",
+            "p_20b528dc022a",
+            "p_344150fb5eff",
+            "p_791ba7112ed9",
+            "p_04ba1e630d43",
+            "p_2a74055ab8f7",
+            "p_59beefe6ee3c",
+            "p_af3f1e9926b6",
+            "p_5e3ea314ee80",
+            "p_d3d71d6a71b2",
+            "p_70b2dd3edb24",
+            "p_18f70678d2b5",
+            "p_cd90f2141d52"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_2d5ae20b0244",
+              "ring": "related",
+              "reason": "同系全黑墨包装含10支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2d5ae20b0244.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d6a9d31da00b",
+              "ring": "related",
+              "reason": "同系全黑墨包装含7支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d6a9d31da00b.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e89de98823eb",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e89de98823eb.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a516ce6ca6c7",
+              "ring": "related",
+              "reason": "同系全黑墨包装含8支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a516ce6ca6c7.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_89cfef92aec3",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_89cfef92aec3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_95e7dd803f01",
+              "ring": "related",
+              "reason": "同系全黑墨包装含10支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_95e7dd803f01.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_49e41e5d2269",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_49e41e5d2269.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_f1406ae739ed",
+              "ring": "related",
+              "reason": "同系全黑墨包装含72支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_f1406ae739ed.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_581475490c6a",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_581475490c6a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d0398478caf1",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d0398478caf1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c2f23f5d7247",
+              "ring": "related",
+              "reason": "同系全黑墨包装含8支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c2f23f5d7247.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0d75966b1e24",
+              "ring": "related",
+              "reason": "同系全黑墨包装含8支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0d75966b1e24.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2dcb4495ab36",
+              "ring": "related",
+              "reason": "同系全黑墨包装含4支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2dcb4495ab36.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_abc7dcac74f1",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_abc7dcac74f1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_501d8929bd77",
+              "ring": "related",
+              "reason": "同系全黑墨包装含4支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_501d8929bd77.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_13b0d0eccc22",
+              "ring": "related",
+              "reason": "同系全黑墨包装含3支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_13b0d0eccc22.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ab3aab1e44ad",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ab3aab1e44ad.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_aceb977eb1dc",
+              "ring": "core",
+              "reason": "同系全黑墨包装含4支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_aceb977eb1dc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_cf3eab5ab0b2",
+              "ring": "core",
+              "reason": "同系全黑墨包装含7支笔和一支铅笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_cf3eab5ab0b2.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5adfba8f3c30",
+              "ring": "related",
+              "reason": "同系全黑墨包装含8支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5adfba8f3c30.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_71a981947b74",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_71a981947b74.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_dbb4fcd0a91b",
+              "ring": "related",
+              "reason": "同系全黑墨包装含4支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_dbb4fcd0a91b.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0118e97012bd",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0118e97012bd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4818e67fd6ff",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4818e67fd6ff.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0ba57c3f4cf3",
+              "ring": "related",
+              "reason": "同系全黑墨包装含3支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0ba57c3f4cf3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9bed3b9069f7",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9bed3b9069f7.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8d3f2a8e0165",
+              "ring": "related",
+              "reason": "同系全黑墨包装含3支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8d3f2a8e0165.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bb8f7c935797",
+              "ring": "related",
+              "reason": "同系全黑墨包装含10支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bb8f7c935797.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6dd831970b6c",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6dd831970b6c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_abff7f24a1fc",
+              "ring": "related",
+              "reason": "同系全黑墨包装含3支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_abff7f24a1fc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_16ed1e5bb281",
+              "ring": "related",
+              "reason": "同系全黑墨包装含3支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_16ed1e5bb281.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2cd3eb1d5cea",
+              "ring": "related",
+              "reason": "同系全黑墨包装含3支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2cd3eb1d5cea.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7bd32b0ac5fc",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7bd32b0ac5fc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_777ddc4d131f",
+              "ring": "related",
+              "reason": "同系全黑墨包装含16支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_777ddc4d131f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_880a4b282e5f",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_880a4b282e5f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5807e22790f5",
+              "ring": "related",
+              "reason": "同系全黑墨包装含8支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5807e22790f5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_82310921c010",
+              "ring": "core",
+              "reason": "同系全黑墨包装含12支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_82310921c010.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_436b0d2e8507",
+              "ring": "related",
+              "reason": "同系全黑墨包装含6支笔，A合法但不满足B的五支笔。",
+              "why_plausible": "同一PIGMA系列黑墨包装，A阶段合法，须按真实笔数判断B。",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_436b0d2e8507.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ec0f6902d281",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ec0f6902d281.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5adc88bda2e5",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5adc88bda2e5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_95b011892bfc",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_95b011892bfc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_21b1ba88d2c9",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_21b1ba88d2c9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e1bb5f3396ac",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e1bb5f3396ac.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0ac683df078e",
+              "ring": "related",
+              "reason": "公开商品图显示混合墨色（p_5adc88bda2e5含白色Gelly Roll），不满足所有笔均黑墨；不能把笔杆颜色当墨色。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_ink_color"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0ac683df078e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_85ae83caf217",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_85ae83caf217.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_160eefa3cada",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_160eefa3cada.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_107d1532d83c",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_107d1532d83c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8d3cc4368ae5",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8d3cc4368ae5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_f3ee73ea41ec",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_f3ee73ea41ec.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4da90698410f",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4da90698410f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_75a0078f5a62",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_75a0078f5a62.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ae5b9c5c286d",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ae5b9c5c286d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bb66f21a3e9e",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bb66f21a3e9e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2eb0c1d6c0d6",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2eb0c1d6c0d6.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1ee23f0434ae",
+              "ring": "core",
+              "reason": "原图是五支黑色Sharpie Ultra Fine，不是开盒画面可读的PIGMA产品系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1ee23f0434ae.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c82833935703",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c82833935703.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_cfc7b3d08ca7",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_cfc7b3d08ca7.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c3659bf66d63",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c3659bf66d63.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1bf010a5c204",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1bf010a5c204.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b600a934c737",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b600a934c737.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8149a36f32d8",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8149a36f32d8.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0d8d993007e3",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0d8d993007e3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_660d83662e31",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_660d83662e31.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e6bd6fde45a8",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e6bd6fde45a8.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c966f180ee1a",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c966f180ee1a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_430e5e239258",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_430e5e239258.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_63184919611f",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_63184919611f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_100de976821b",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_100de976821b.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5b60eabe9f51",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5b60eabe9f51.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e7b49593a63b",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e7b49593a63b.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8350dbfa860b",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8350dbfa860b.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8bc90e3c2fb8",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8bc90e3c2fb8.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9474f1b9053d",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9474f1b9053d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4382dd3e7f81",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4382dd3e7f81.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d6b979ca39e0",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d6b979ca39e0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e8d0408513b9",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e8d0408513b9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4f7f08915920",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4f7f08915920.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8cebcd2ce7bd",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8cebcd2ce7bd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4e97f941fc37",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4e97f941fc37.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8cb58e9e1da4",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8cb58e9e1da4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_adb9c786ed85",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_adb9c786ed85.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_93841b9e7e20",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_93841b9e7e20.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bbcbf8c88663",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bbcbf8c88663.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_abbd3a4401a6",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_abbd3a4401a6.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_002aa3e49743",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_002aa3e49743.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9e1d57a44310",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9e1d57a44310.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7d6f7bae2a64",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7d6f7bae2a64.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_f593db916e95",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_f593db916e95.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1d81ed43ffe4",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1d81ed43ffe4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_f8a5c4281285",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_f8a5c4281285.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ca4bcee7f368",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ca4bcee7f368.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7e2bab8aeebd",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7e2bab8aeebd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1f0d8fb72316",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1f0d8fb72316.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e768331a83e5",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e768331a83e5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0e220c377fc0",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0e220c377fc0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6d214e633f20",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6d214e633f20.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ed397c0b9210",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ed397c0b9210.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_abf2f4d82dfa",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_abf2f4d82dfa.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9a4be7a33cd3",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9a4be7a33cd3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c349199b789e",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c349199b789e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_db9dd5619168",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_db9dd5619168.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_86eb7d7b824d",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_86eb7d7b824d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_fc081b6c39ad",
+              "ring": "related",
+              "reason": "公开图的系列为Sharpie、Staedtler、BIC、Tombow、CHARSOCO或其他品牌系列，不是画面可读PIGMA；即便五支黑墨也不匹配系列。",
+              "why_plausible": "与墨线绘图相关或同为黑色细笔商品，不能只靠文字类别选中。",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/manifests/pen_pack_repair_screening_manifest.json#tasks/candidate-mart-graft-refine-2026101707/repair",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_fc081b6c39ad.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_307825e1f892",
+              "ring": "ambient",
+              "reason": "Assorted colors 8-count not ink-sketch black-line pack roles.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_3f517886dc24",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_53c6e1011112",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_da1202640462",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_7f17fa60c6dd",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_b1e1ea39cb98",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_bb0538f8adcd",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_7f69e63c1c5a",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_bf792ee7a0a0",
+              "ring": "ambient",
+              "reason": "Sakura Pigma Micron 10-pack black fineliner set.",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_25a3143e054a",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_24715cfa21bf",
+              "ring": "ambient",
+              "reason": "Pack of 2 single-nib pens not matching role counts.",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_e3e7235bccf8",
+              "ring": "ambient",
+              "reason": "Micron drawing pen assorted nibs set—8 count class.",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_b3e3c755e6fa",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_03f2a9255197",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_da959e8111b9",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_4327af0d41c2",
+              "ring": "ambient",
+              "reason": "Pack count not established for any pack role.",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_06a81ca618c3",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5490726a019d",
+              "ring": "ambient",
+              "reason": "Pack count not established for any pack role.",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_ec1077a9f709",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_a3bc6b07b3f3",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_91fa48b3a465",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5be47e9c4798",
+              "ring": "ambient",
+              "reason": "Pack count 4 does not match any declared pack role size.",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5a35babe3899",
+              "ring": "ambient",
+              "reason": "Sakura Pigma Micron pack with 8 pens matches pack role(s).",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_c8e5299abbff",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_ac7d2bbe1f93",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_e1af091727be",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_cf36e8034d09",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_784e63be2823",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_aa0e23fc6e49",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_e3ad89d39895",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_7e737c439bd6",
+              "ring": "ambient",
+              "reason": "Sakura Pigma Micron pack with 8 pens matches pack role(s).",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_ad14b120fc34",
+              "ring": "ambient",
+              "reason": "Pack count not established for any pack role.",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_eecc820e6d41",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_40f83524daee",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_20b528dc022a",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_344150fb5eff",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_791ba7112ed9",
+              "ring": "ambient",
+              "reason": "Pack count 3 does not match any declared pack role size.",
+              "failure_predicates": [
+                "wrong_pack_count"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_04ba1e630d43",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_2a74055ab8f7",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_59beefe6ee3c",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_af3f1e9926b6",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5e3ea314ee80",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_d3d71d6a71b2",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_70b2dd3edb24",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_18f70678d2b5",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_cd90f2141d52",
+              "ring": "ambient",
+              "reason": "Not Sakura Pigma Micron product line from opened box.",
+              "failure_predicates": [
+                "wrong_product_line"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5a6ed75e2d54",
+              "ring": "related",
+              "reason": "Satisfies the earlier request as pack_17; the later change replaces that role in the final state.",
+              "why_plausible": "It is an accepted pack_17 answer for the earlier request.",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            }
+          ],
+          "rejection_history": [
+            {
+              "entity_id": "p_5a6ed75e2d54",
+              "ring": "related",
+              "reason": "Satisfies the earlier request as pack_17; the later change replaces that role in the final state.",
+              "why_plausible": "It is an accepted pack_17 answer for the earlier request.",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5a6ed75e2d54",
+              "ring": "related",
+              "reason": "Satisfies the earlier request as pack_18; the later change replaces that role in the final state.",
+              "why_plausible": "It is an accepted pack_18 answer for the earlier request.",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5a6ed75e2d54",
+              "ring": "related",
+              "reason": "Satisfies the earlier request as pack_18; the later change replaces that role in the final state.",
+              "why_plausible": "It is an accepted pack_18 answer for the earlier request.",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            }
+          ]
+        },
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ]
+      },
+      "repair": {
+        "reviewer": {
+          "agent_id": "/root/worklight_fresh_blind",
+          "context_id": "/root/worklight_fresh_blind"
+        },
+        "stage": "construction_repair_not_independent_review",
+        "prior_review": "artifacts/reports/coding-agent-task-assessments.json::candidate-mart-refresh-retain-04",
+        "source_evidence_inherited": [
+          "原封存blind的visual_evidence/causal_contract具体0–15秒451帧30fps完整顺序检查仅继承未变画面事实；原五支p_ace数量错误和submitted要求均不继承。",
+          "本轮重新实际查看4/11/13秒480x360原图，PIGMA可读；0–180秒每5秒定位帧仅用于找后段可用干扰，未声称全片无变化或连续全片检查。"
+        ],
+        "source_change": "同源旧已检查区间，发布帧重组为单V0；无持续使用/新干扰断言。",
+        "website_check": {
+          "scope": 106,
+          "actual_images_inspected": 106,
+          "initial_legal_entities": [
+            "p_880a4b282e5f",
+            "p_95e7dd803f01",
+            "p_16ed1e5bb281",
+            "p_13b0d0eccc22",
+            "p_cf3eab5ab0b2",
+            "p_2cd3eb1d5cea",
+            "p_a516ce6ca6c7",
+            "p_2dcb4495ab36",
+            "p_dbb4fcd0a91b",
+            "p_ab3aab1e44ad",
+            "p_0ba57c3f4cf3",
+            "p_82310921c010",
+            "p_9018e33892b2",
+            "p_89cfef92aec3",
+            "p_777ddc4d131f",
+            "p_0d75966b1e24",
+            "p_436b0d2e8507",
+            "p_581475490c6a",
+            "p_6dd831970b6c",
+            "p_bb8f7c935797",
+            "p_2d5ae20b0244",
+            "p_d6a9d31da00b",
+            "p_4818e67fd6ff",
+            "p_f1406ae739ed",
+            "p_5807e22790f5",
+            "p_8d3f2a8e0165",
+            "p_71a981947b74",
+            "p_aceb977eb1dc",
+            "p_0118e97012bd",
+            "p_501d8929bd77",
+            "p_c0ca8313d349",
+            "p_3cceb189214d",
+            "p_abff7f24a1fc",
+            "p_5adfba8f3c30",
+            "p_c2f23f5d7247",
+            "p_7bd32b0ac5fc"
+          ],
+          "final_legal_entities": [
+            "p_3cceb189214d",
+            "p_9018e33892b2",
+            "p_c0ca8313d349"
+          ],
+          "explicit_exclusions": [
+            "p_9bed3b9069f7",
+            "p_e89de98823eb",
+            "p_e1bb5f3396ac",
+            "p_abc7dcac74f1",
+            "p_49e41e5d2269",
+            "p_95b011892bfc",
+            "p_0ac683df078e",
+            "p_21b1ba88d2c9",
+            "p_d0398478caf1",
+            "p_5adc88bda2e5"
+          ],
+          "detail_snapshots": [
+            "data/sources/upstream_detail_snapshots/amazon/B07GRL1W8K.json",
+            "data/sources/upstream_detail_snapshots/amazon/B08KFYR17D.json",
+            "data/sources/upstream_detail_snapshots/amazon/B074LRVPHP.json",
+            "data/sources/upstream_detail_snapshots/amazon/B004N98UIS.json",
+            "data/sources/upstream_detail_snapshots/amazon/B003RL0C0M.json"
+          ],
+          "important_findings": [
+            "p_aceb977eb1dc实际四支，不再沿用错误五支事实。",
+            "p_9018e33892b2包装明确5PCS/BLACK，可作为五支答案。",
+            "p_c0ca8313d349原页列五支Pigma黑笔+一铅笔，符合五人各一笔；不能因6 Pack标题或附带铅笔而裁掉。",
+            "p_82310921c010原页明确12支，关闭原未知数量。",
+            "p_777ddc4d131f原页明确16支黑墨；不同笔尾图案不代表彩墨。",
+            "p_1ee23f0434ae图为五支黑色Sharpie，支持移除画面仍有真实竞争系列。"
+          ],
+          "initial_pack_facts": [
+            {
+              "entity_id": "p_880a4b282e5f",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_880a4b282e5f.jpg"
+            },
+            {
+              "entity_id": "p_95e7dd803f01",
+              "pen_count": 10,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_95e7dd803f01.jpg"
+            },
+            {
+              "entity_id": "p_16ed1e5bb281",
+              "pen_count": 3,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_16ed1e5bb281.jpg",
+              "detail_snapshot": "data/sources/upstream_detail_snapshots/amazon/B074LRVPHP.json"
+            },
+            {
+              "entity_id": "p_13b0d0eccc22",
+              "pen_count": 3,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_13b0d0eccc22.jpg"
+            },
+            {
+              "entity_id": "p_cf3eab5ab0b2",
+              "pen_count": 7,
+              "non_pen_accessories": "one 0.7 mm pencil",
+              "evidence": "sites/egomart/static/products/upstream/p_cf3eab5ab0b2.jpg",
+              "detail_snapshot": "data/sources/upstream_detail_snapshots/amazon/B004N98UIS.json"
+            },
+            {
+              "entity_id": "p_2cd3eb1d5cea",
+              "pen_count": 3,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_2cd3eb1d5cea.jpg"
+            },
+            {
+              "entity_id": "p_a516ce6ca6c7",
+              "pen_count": 8,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_a516ce6ca6c7.jpg"
+            },
+            {
+              "entity_id": "p_2dcb4495ab36",
+              "pen_count": 4,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_2dcb4495ab36.jpg"
+            },
+            {
+              "entity_id": "p_dbb4fcd0a91b",
+              "pen_count": 4,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_dbb4fcd0a91b.jpg"
+            },
+            {
+              "entity_id": "p_ab3aab1e44ad",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_ab3aab1e44ad.jpg"
+            },
+            {
+              "entity_id": "p_0ba57c3f4cf3",
+              "pen_count": 3,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_0ba57c3f4cf3.jpg"
+            },
+            {
+              "entity_id": "p_82310921c010",
+              "pen_count": 12,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_82310921c010.jpg",
+              "detail_snapshot": "data/sources/upstream_detail_snapshots/amazon/B07GRL1W8K.json"
+            },
+            {
+              "entity_id": "p_9018e33892b2",
+              "pen_count": 5,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_9018e33892b2.jpg"
+            },
+            {
+              "entity_id": "p_89cfef92aec3",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_89cfef92aec3.jpg"
+            },
+            {
+              "entity_id": "p_777ddc4d131f",
+              "pen_count": 16,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_777ddc4d131f.jpg",
+              "detail_snapshot": "data/sources/upstream_detail_snapshots/amazon/B08KFYR17D.json"
+            },
+            {
+              "entity_id": "p_0d75966b1e24",
+              "pen_count": 8,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_0d75966b1e24.jpg"
+            },
+            {
+              "entity_id": "p_436b0d2e8507",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_436b0d2e8507.jpg"
+            },
+            {
+              "entity_id": "p_581475490c6a",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_581475490c6a.jpg"
+            },
+            {
+              "entity_id": "p_6dd831970b6c",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_6dd831970b6c.jpg"
+            },
+            {
+              "entity_id": "p_bb8f7c935797",
+              "pen_count": 10,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_bb8f7c935797.jpg"
+            },
+            {
+              "entity_id": "p_2d5ae20b0244",
+              "pen_count": 10,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_2d5ae20b0244.jpg"
+            },
+            {
+              "entity_id": "p_d6a9d31da00b",
+              "pen_count": 7,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_d6a9d31da00b.jpg"
+            },
+            {
+              "entity_id": "p_4818e67fd6ff",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_4818e67fd6ff.jpg"
+            },
+            {
+              "entity_id": "p_f1406ae739ed",
+              "pen_count": 72,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_f1406ae739ed.jpg"
+            },
+            {
+              "entity_id": "p_5807e22790f5",
+              "pen_count": 8,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_5807e22790f5.jpg"
+            },
+            {
+              "entity_id": "p_8d3f2a8e0165",
+              "pen_count": 3,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_8d3f2a8e0165.jpg"
+            },
+            {
+              "entity_id": "p_71a981947b74",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_71a981947b74.jpg"
+            },
+            {
+              "entity_id": "p_aceb977eb1dc",
+              "pen_count": 4,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_aceb977eb1dc.jpg"
+            },
+            {
+              "entity_id": "p_0118e97012bd",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_0118e97012bd.jpg"
+            },
+            {
+              "entity_id": "p_501d8929bd77",
+              "pen_count": 4,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_501d8929bd77.jpg"
+            },
+            {
+              "entity_id": "p_c0ca8313d349",
+              "pen_count": 5,
+              "non_pen_accessories": "one 0.7 mm pencil",
+              "evidence": "sites/egomart/static/products/upstream/p_c0ca8313d349.jpg",
+              "detail_snapshot": "data/sources/upstream_detail_snapshots/amazon/B003RL0C0M.json"
+            },
+            {
+              "entity_id": "p_3cceb189214d",
+              "pen_count": 5,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_3cceb189214d.jpg"
+            },
+            {
+              "entity_id": "p_abff7f24a1fc",
+              "pen_count": 3,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_abff7f24a1fc.jpg"
+            },
+            {
+              "entity_id": "p_5adfba8f3c30",
+              "pen_count": 8,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_5adfba8f3c30.jpg"
+            },
+            {
+              "entity_id": "p_c2f23f5d7247",
+              "pen_count": 8,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_c2f23f5d7247.jpg"
+            },
+            {
+              "entity_id": "p_7bd32b0ac5fc",
+              "pen_count": 6,
+              "non_pen_accessories": "none visible or declared",
+              "evidence": "sites/egomart/static/products/upstream/p_7bd32b0ac5fc.jpg"
+            }
+          ]
+        },
+        "pending": [
+          "新上下文独立两阶段审核",
+          "经授权的有效开发试跑与轨迹核查"
+        ]
+      },
+      "repair_history": [
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary (second batch): neutralised leaking wording and/or added natural broader real search rounds",
+          "constructor": "constructor-sr2-3",
+          "necessity_review_path": ".scratch/necessity-20261031/reviews/candidate-mart-graft-refine-2026101707.json",
+          "proposal_path": ".scratch/shortcut-repair-2/proposals/candidate-mart-graft-refine-2026101707.json",
+          "previous_words": {
+            "a": "I am restocking pens for ink sketching. Add one pack of pens from the product line on the box I am opening to my cart. All the pens should have black ink.",
+            "bundled": "I am restocking pens for ink sketching. Add one pack of pens from the product line on the box I am opening to my cart. All the pens should have black ink. There are five of us in the sketching group, so choose a pack containing five pens, one for each person. Different nib sizes or models within that product line are fine."
+          },
+          "new_words": {
+            "a": "I am restocking pens for ink sketching. Add one pack of pens from the product line on the box I am opening to my cart.",
+            "bundled": "I am restocking pens for ink sketching. Add one pack of pens from the product line on the box I am opening to my cart. There are five of us in the sketching group, so choose a pack containing five pens, one for each person. Different nib sizes or models within that product line are fine."
+          },
+          "source_text_changes_applied": [
+            "supported_claims[0].text"
+          ],
+          "source_text_changes_skipped": [
+            {
+              "field_path": "construct.task_blueprint.instructions.a",
+              "why": "field not present in record"
+            },
+            {
+              "field_path": "construct.task_blueprint.instructions.bundled",
+              "why": "field not present in record"
+            }
+          ],
+          "planned_queries": [
+            {
+              "stage": "natural_broad_1_20261031c",
+              "query": "micron fineliner pens"
+            },
+            {
+              "stage": "natural_broad_2_20261031c",
+              "query": "archival ink drawing pens set"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary (second batch): judged new results of natural broader real search rounds and/or neutralised leaking wording",
+          "constructor": "constructor-judge-b5",
+          "decision_path": ".scratch/shortcut-repair-2/decisions/candidate-mart-graft-refine-2026101707.json",
+          "necessity_review_path": ".scratch/necessity-20261031/reviews/candidate-mart-graft-refine-2026101707.json",
+          "new_query_rounds": [
+            {
+              "stage": "natural_broad_1_20261031c",
+              "query": "micron fineliner pens"
+            },
+            {
+              "stage": "natural_broad_2_20261031c",
+              "query": "archival ink drawing pens set"
+            }
+          ],
+          "accepted_new": 5,
+          "rejected_new": 42,
+          "changed_existing": 0,
+          "residual_shortcut_check": {
+            "text_only_query": "Sakura Pigma Micron pen pack",
+            "text_only_accept_fraction_estimate": "~60% first-page picks match some pack role",
+            "scene_decides": true,
+            "remaining_issue": "Opened Pigma box in frames still needed to pick line; five-person pack needs B clause.",
+            "proposed_fix": "None beyond broader search already added."
+          },
+          "addressed_review": [
+            "画面必要性审核（2026-10-31 第二批）：独立无画面复核认定仅凭文字即可选中答案；已改写措辞和/或补充更宽的真实搜索，待构造者裁决新结果并复核。依据 .scratch/necessity-20261031/reviews/candidate-mart-graft-refine-2026101707.json"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          0.0,
+          79.0
+        ],
+        "update_onset_seconds": 9.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-refine-2026101707/review.json"
+      }
+    }
+  ]
+}

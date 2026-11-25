@@ -1,0 +1,4063 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Ego2Web source videos are retained locally for research screening under the upstream dataset terms. These mined rows are not release tasks; frame redistribution and product-asset licensing must be reviewed before any public benchmark release."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-p-43",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "augment",
+      "replaces_candidate_id": "candidate-mart-graft-p-14",
+      "replacement_reason": "Human review corrected a concrete-block answer that replaced the shown hand tool. Current repair retains the real level and pointed-leaf mortar-tool purpose, accepts practical same-category alternatives, and removes unsupported exact blade-subtype,grip and length exclusions. Original judgements and keys remain in construct.practical_substitute_repair_20261018.",
+      "source": {
+        "record_ids": [
+          84,
+          85
+        ],
+        "media_id": "124c3e5f-1fd3-4d97-bdcd-cd442fd2be9b",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Walmart, locate and open a product page for the same type and size of hollow concrete masonry unit used in the video. It should be a single standard unit with nominal dimensions matching the blocks shown and intended for wall construction.",
+          "On Amazon, open two product pages: (1) a spirit/box level whose length matches the one used while laying the wall in the video, and (2) a masonry trowel of the same general blade style used for spreading mortar on the blocks. Ensure the level’s stated length and the trowel type/spec match what is shown."
+        ],
+        "media_sha256": "fd77ebb3f39e75afbd4292eb4ce2cf6156ebf8fc4f463a10fab5683a99ab2ac6"
+      },
+      "screening": {
+        "proposed_visible_referent": "blue beam-type level and pointed leaf-shaped masonry hand tool at the shown block course",
+        "proposed_update_hypothesis": "keep the spare level and add a spare for the pictured mortar-spreading tool",
+        "source_audit": "data/sources/audits/graft_expansion_source_audit.json",
+        "preliminary_contact_sheet": "artifacts/screening/contact-sheets/124c3e5f-1fd3-4d97-bdcd-cd442fd2be9b.jpg"
+      },
+      "supported_claims": [
+        {
+          "text": "The frames show a blue beam-type level and a flat pointed leaf-shaped hand tool with a rear offset handle carrying/spreading mortar. They establish basic tool identity and visible color/working-face form, not exact maker,length,alloy or named blade subtype.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent keep a visually grounded spare-level choice and add a replacement for the shown mortar-spreading hand tool?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "A same-color practical spare level; length and beam style may differ.",
+        "belief_after": "Keep the spare level and add a mortar hand tool with the same general pointed-leaf working face.",
+        "required_behavior_change": "Keep the level and add the newly requested hand tool.",
+        "no_update_failure": "Only the level remains in the cart after B adds the hand-tool obligation.",
+        "overupdate_failure": "The level is removed when the masonry hand tool is added.",
+        "visual_dependency_claim": "The frames identify the level color/basic identity and the mortar tool working face; the text does not name either visible property. No use-order assertion is needed.",
+        "task_blueprint": {
+          "instructions": {
+            "a": "Add a spare level like the one I'm using here, in the same color. The length and beam style can differ.",
+            "b": "Also add a spare for the hand tool I use on the mortar here, with the same general blade shape. Keep the level.",
+            "bundled": "Add a spare level in the same color as the one I'm using here; the length and beam style can differ. Also add a spare for the hand tool I use on the mortar here, with the same general blade shape, and keep the level."
+          },
+          "initial_goal_roles": [
+            [
+              "earlier_blue_level"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "earlier_blue_level",
+              "later_masonry_trowel"
+            ]
+          ],
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "earlier_blue_level": "p_ee71e7a05ec1",
+            "later_masonry_trowel": "p_07ca5f10dbac"
+          },
+          "equivalent_role_ids": {
+            "earlier_blue_level": [
+              "p_967df0710bc3",
+              "p_66d46dfb47c1",
+              "p_f88a8106230b",
+              "p_ac0014e8e011",
+              "p_74617fb182bd",
+              "p_0115b415f58e",
+              "p_3fb1464b311e",
+              "p_ed7a03e2afe5",
+              "p_a04737aa4995",
+              "p_dd4d14546f0a"
+            ],
+            "later_masonry_trowel": [
+              "p_a88098cfc60a",
+              "p_8948a54d2b29",
+              "p_70c9e2ee0f13",
+              "p_80c42eb34845",
+              "p_e9671ebc60cc",
+              "p_0ea9eaad49ca",
+              "p_53f362e98286",
+              "p_0f0824ff08d3",
+              "p_d769ddcabafb",
+              "p_5441f3e51253",
+              "p_c1f6de816271",
+              "p_81963735a949",
+              "p_c10f6118e60d",
+              "p_0dc1dceab83e",
+              "p_563637b765c4",
+              "p_a1236ab39be7",
+              "p_edbbbbe3e212",
+              "p_f3802d35d5d9",
+              "p_2cc25bd12dd9",
+              "p_1e3e065e4460",
+              "p_5852bca73041",
+              "p_787b9b24de22",
+              "p_629c25d0e700",
+              "p_8f1213a82ac1",
+              "p_e949d0923d8e",
+              "p_b4f14a46fae3",
+              "p_94f028aeaa42",
+              "p_e03491117d10",
+              "p_00c7914f69a5",
+              "p_7cb8d73b4ef7",
+              "p_cda28fa28dc7",
+              "p_de7044cd5860",
+              "p_141549b3b741",
+              "p_dfb89b486233",
+              "p_e3511960655f",
+              "p_7963910b4dad",
+              "p_d0f325e9f2d5",
+              "p_949b74df647f",
+              "p_e2663ba2de94",
+              "p_a8a493ba518a",
+              "p_14557d4966fa",
+              "p_cf8b93ba157b",
+              "p_5bf1c4c96895",
+              "p_934d3d9fc4c9",
+              "p_72e0c1450ea2",
+              "p_34ba21e08d23",
+              "p_0bd6ec6e2cb8",
+              "p_50ac530d16a4",
+              "p_fb180a064c60",
+              "p_f90e38da839e"
+            ]
+          },
+          "site": "egomart"
+        },
+        "decision": {
+          "candidates": {
+            "level_only": [
+              "p_ee71e7a05ec1"
+            ],
+            "level_and_trowel": [
+              "p_ee71e7a05ec1",
+              "p_07ca5f10dbac"
+            ]
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "level_only",
+                "level_and_trowel"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "level_and_trowel"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The update retains the same-color level and adds the pictured mortar hand tool; no use-order inference is required."
+            }
+          ],
+          "established_by": "codex-gpt-5",
+          "established_at": "2026-08-25"
+        },
+        "decision_point_provenance": "practical_substitute_repair_20261018",
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "48 inch box level",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-43.json",
+              "result_entity_ids": [
+                "p_31b9dcdde34d",
+                "p_999713f34643",
+                "p_67e88a85eff8",
+                "p_36f966fd242c",
+                "p_ee71e7a05ec1",
+                "p_967df0710bc3",
+                "p_4afc837f659b",
+                "p_cc5ca4fd024b",
+                "p_695af6dd10d2",
+                "p_66d46dfb47c1",
+                "p_56381ea8d18a",
+                "p_41690e5b3aff",
+                "p_312dc8b4693b",
+                "p_20b5e8d480af",
+                "p_cf4f3d91e7b1",
+                "p_6f9f2228b407",
+                "p_54f843cd3535",
+                "p_f88a8106230b",
+                "p_d2c705583068",
+                "p_c366bbde9293",
+                "p_ac0014e8e011",
+                "p_209a85b5740f",
+                "p_0115b415f58e",
+                "p_4d1ae3251e45",
+                "p_a6f09cdde0e6",
+                "p_bab4e416c2bf",
+                "p_a04737aa4995",
+                "p_cc09b076a2a5",
+                "p_3fb1464b311e",
+                "p_c250d1cbb3fb",
+                "p_6f18a07ccd4e",
+                "p_8dcf3b22032d",
+                "p_f06f579bd29d",
+                "p_a8f546e949d3",
+                "p_f3ac6e653a30",
+                "p_a22626ea949a",
+                "p_3aa7894d660a",
+                "p_e371754433ab",
+                "p_ed7a03e2afe5",
+                "p_64fc7718883a",
+                "p_74617fb182bd",
+                "p_14f570d70ab6",
+                "p_6873441f8976",
+                "p_a11a96270021",
+                "p_cc0683466d19",
+                "p_01564c0c6fe3",
+                "p_cb8adf32aa94",
+                "p_2a7e4b61f449"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "10 inch brick trowel",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-43.json",
+              "result_entity_ids": [
+                "p_a88098cfc60a",
+                "p_8948a54d2b29",
+                "p_70c9e2ee0f13",
+                "p_80c42eb34845",
+                "p_e9671ebc60cc",
+                "p_0ea9eaad49ca",
+                "p_07ca5f10dbac",
+                "p_53f362e98286",
+                "p_0f0824ff08d3",
+                "p_d769ddcabafb",
+                "p_5441f3e51253",
+                "p_c1f6de816271",
+                "p_81963735a949",
+                "p_c10f6118e60d",
+                "p_0dc1dceab83e",
+                "p_563637b765c4",
+                "p_a1236ab39be7",
+                "p_edbbbbe3e212",
+                "p_f3802d35d5d9",
+                "p_2cc25bd12dd9",
+                "p_b890517cd877",
+                "p_1e3e065e4460",
+                "p_5852bca73041",
+                "p_787b9b24de22",
+                "p_629c25d0e700",
+                "p_58b965a5373a",
+                "p_8f1213a82ac1",
+                "p_e949d0923d8e",
+                "p_b4f14a46fae3",
+                "p_94f028aeaa42",
+                "p_e03491117d10",
+                "p_00c7914f69a5",
+                "p_7cb8d73b4ef7",
+                "p_cda28fa28dc7",
+                "p_de7044cd5860",
+                "p_141549b3b741",
+                "p_dfb89b486233",
+                "p_4a669ffb88ce",
+                "p_e3511960655f",
+                "p_7963910b4dad",
+                "p_d0f325e9f2d5",
+                "p_949b74df647f",
+                "p_e2663ba2de94",
+                "p_33ea472089f3",
+                "p_a8a493ba518a",
+                "p_436e861588c1",
+                "p_14557d4966fa",
+                "p_cf8b93ba157b"
+              ]
+            },
+            {
+              "stage": "natural_broad_level_20261031c",
+              "query": "spirit level",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-43.json",
+              "result_entity_ids": [
+                "p_cb8070b9e048",
+                "p_db24cb62ba9d",
+                "p_21ed1e0e9fb4",
+                "p_2466e46e2f59",
+                "p_289060e74ddd",
+                "p_8ac7e16a3133",
+                "p_7f4c036b3d4f",
+                "p_ebabec24aa1f",
+                "p_a9401ca35085",
+                "p_f363d4240f93",
+                "p_bab4e416c2bf",
+                "p_71f866fc8a43",
+                "p_86a452061ac9",
+                "p_cd58087a3eb7",
+                "p_41690e5b3aff",
+                "p_28c4e32a5685",
+                "p_f215ea2e541d",
+                "p_07ed13d99bb5",
+                "p_9dd826056742",
+                "p_cc5ca4fd024b",
+                "p_eba76e5d1be1",
+                "p_893835b15bc2",
+                "p_a8a3ade37276",
+                "p_b0bacf17b9ab",
+                "p_7912775126cb",
+                "p_a4ba40cf3b94",
+                "p_0864100a552f",
+                "p_6abb63788959",
+                "p_dd4d14546f0a",
+                "p_1bdf5b871b0e",
+                "p_5b2bc7950455",
+                "p_3bef5acc81fe",
+                "p_a2492a276fb4",
+                "p_7ef14fc40316",
+                "p_ee71e7a05ec1",
+                "p_d0d444eec886",
+                "p_b5e78f243e6b",
+                "p_a0d5bc3fb24d",
+                "p_5b10bfc944b1",
+                "p_fed4bedb306c",
+                "p_d94851a911d3",
+                "p_81075a8067ed",
+                "p_6a364ebe44df",
+                "p_38202dad57e8",
+                "p_6412a39f8d1d",
+                "p_992b31a271da",
+                "p_f1874280780b",
+                "p_6873441f8976"
+              ]
+            },
+            {
+              "stage": "natural_broad_trowel_20261031c",
+              "query": "brick trowel",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-43.json",
+              "result_entity_ids": [
+                "p_53f362e98286",
+                "p_07ca5f10dbac",
+                "p_8948a54d2b29",
+                "p_0ea9eaad49ca",
+                "p_e9671ebc60cc",
+                "p_00c7914f69a5",
+                "p_70c9e2ee0f13",
+                "p_f4111b1222f8",
+                "p_2cc25bd12dd9",
+                "p_c10f6118e60d",
+                "p_fb08c4ec35d2",
+                "p_687a1195f081",
+                "p_5bf1c4c96895",
+                "p_2f462a0d6fa2",
+                "p_9dbbb9edcb99",
+                "p_934d3d9fc4c9",
+                "p_629c25d0e700",
+                "p_2cdad0b70fbf",
+                "p_72e0c1450ea2",
+                "p_11dda5cf7e32",
+                "p_34ba21e08d23",
+                "p_6dd3fe6b1f98",
+                "p_0bd6ec6e2cb8",
+                "p_50ac530d16a4",
+                "p_46156f068a2d",
+                "p_1e808f67ccc7",
+                "p_2b95ef7cb6f1",
+                "p_1770d1f9f9d2",
+                "p_73897f7f9675",
+                "p_fb180a064c60",
+                "p_601c039925d2",
+                "p_b4f14a46fae3",
+                "p_80c42eb34845",
+                "p_8770b882049f",
+                "p_c56c2708c17e",
+                "p_84f6d4dc71f7",
+                "p_b87352b21716",
+                "p_f90e38da839e",
+                "p_7963910b4dad",
+                "p_dfb89b486233",
+                "p_8f1213a82ac1",
+                "p_28743967aec0",
+                "p_a88098cfc60a",
+                "p_a94da9e846cd",
+                "p_8d5c91fba121",
+                "p_ce3e39cb7621",
+                "p_30d0f48aa0ae",
+                "p_e1d9fd712f29"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_31b9dcdde34d",
+            "p_999713f34643",
+            "p_67e88a85eff8",
+            "p_36f966fd242c",
+            "p_ee71e7a05ec1",
+            "p_967df0710bc3",
+            "p_4afc837f659b",
+            "p_cc5ca4fd024b",
+            "p_695af6dd10d2",
+            "p_66d46dfb47c1",
+            "p_56381ea8d18a",
+            "p_41690e5b3aff",
+            "p_312dc8b4693b",
+            "p_20b5e8d480af",
+            "p_cf4f3d91e7b1",
+            "p_6f9f2228b407",
+            "p_54f843cd3535",
+            "p_f88a8106230b",
+            "p_d2c705583068",
+            "p_c366bbde9293",
+            "p_ac0014e8e011",
+            "p_209a85b5740f",
+            "p_0115b415f58e",
+            "p_4d1ae3251e45",
+            "p_a6f09cdde0e6",
+            "p_bab4e416c2bf",
+            "p_a04737aa4995",
+            "p_cc09b076a2a5",
+            "p_3fb1464b311e",
+            "p_c250d1cbb3fb",
+            "p_6f18a07ccd4e",
+            "p_8dcf3b22032d",
+            "p_f06f579bd29d",
+            "p_a8f546e949d3",
+            "p_f3ac6e653a30",
+            "p_a22626ea949a",
+            "p_3aa7894d660a",
+            "p_e371754433ab",
+            "p_ed7a03e2afe5",
+            "p_64fc7718883a",
+            "p_74617fb182bd",
+            "p_14f570d70ab6",
+            "p_6873441f8976",
+            "p_a11a96270021",
+            "p_cc0683466d19",
+            "p_01564c0c6fe3",
+            "p_cb8adf32aa94",
+            "p_2a7e4b61f449",
+            "p_a88098cfc60a",
+            "p_8948a54d2b29",
+            "p_70c9e2ee0f13",
+            "p_80c42eb34845",
+            "p_e9671ebc60cc",
+            "p_0ea9eaad49ca",
+            "p_07ca5f10dbac",
+            "p_53f362e98286",
+            "p_0f0824ff08d3",
+            "p_d769ddcabafb",
+            "p_5441f3e51253",
+            "p_c1f6de816271",
+            "p_81963735a949",
+            "p_c10f6118e60d",
+            "p_0dc1dceab83e",
+            "p_563637b765c4",
+            "p_a1236ab39be7",
+            "p_edbbbbe3e212",
+            "p_f3802d35d5d9",
+            "p_2cc25bd12dd9",
+            "p_b890517cd877",
+            "p_1e3e065e4460",
+            "p_5852bca73041",
+            "p_787b9b24de22",
+            "p_629c25d0e700",
+            "p_58b965a5373a",
+            "p_8f1213a82ac1",
+            "p_e949d0923d8e",
+            "p_b4f14a46fae3",
+            "p_94f028aeaa42",
+            "p_e03491117d10",
+            "p_00c7914f69a5",
+            "p_7cb8d73b4ef7",
+            "p_cda28fa28dc7",
+            "p_de7044cd5860",
+            "p_141549b3b741",
+            "p_dfb89b486233",
+            "p_4a669ffb88ce",
+            "p_e3511960655f",
+            "p_7963910b4dad",
+            "p_d0f325e9f2d5",
+            "p_949b74df647f",
+            "p_e2663ba2de94",
+            "p_33ea472089f3",
+            "p_a8a493ba518a",
+            "p_436e861588c1",
+            "p_14557d4966fa",
+            "p_cf8b93ba157b",
+            "p_cb8070b9e048",
+            "p_db24cb62ba9d",
+            "p_21ed1e0e9fb4",
+            "p_2466e46e2f59",
+            "p_289060e74ddd",
+            "p_8ac7e16a3133",
+            "p_7f4c036b3d4f",
+            "p_ebabec24aa1f",
+            "p_a9401ca35085",
+            "p_f363d4240f93",
+            "p_71f866fc8a43",
+            "p_86a452061ac9",
+            "p_cd58087a3eb7",
+            "p_28c4e32a5685",
+            "p_f215ea2e541d",
+            "p_07ed13d99bb5",
+            "p_9dd826056742",
+            "p_eba76e5d1be1",
+            "p_893835b15bc2",
+            "p_a8a3ade37276",
+            "p_b0bacf17b9ab",
+            "p_7912775126cb",
+            "p_a4ba40cf3b94",
+            "p_0864100a552f",
+            "p_6abb63788959",
+            "p_dd4d14546f0a",
+            "p_1bdf5b871b0e",
+            "p_5b2bc7950455",
+            "p_3bef5acc81fe",
+            "p_a2492a276fb4",
+            "p_7ef14fc40316",
+            "p_d0d444eec886",
+            "p_b5e78f243e6b",
+            "p_a0d5bc3fb24d",
+            "p_5b10bfc944b1",
+            "p_fed4bedb306c",
+            "p_d94851a911d3",
+            "p_81075a8067ed",
+            "p_6a364ebe44df",
+            "p_38202dad57e8",
+            "p_6412a39f8d1d",
+            "p_992b31a271da",
+            "p_f1874280780b",
+            "p_f4111b1222f8",
+            "p_fb08c4ec35d2",
+            "p_687a1195f081",
+            "p_5bf1c4c96895",
+            "p_2f462a0d6fa2",
+            "p_9dbbb9edcb99",
+            "p_934d3d9fc4c9",
+            "p_2cdad0b70fbf",
+            "p_72e0c1450ea2",
+            "p_11dda5cf7e32",
+            "p_34ba21e08d23",
+            "p_6dd3fe6b1f98",
+            "p_0bd6ec6e2cb8",
+            "p_50ac530d16a4",
+            "p_46156f068a2d",
+            "p_1e808f67ccc7",
+            "p_2b95ef7cb6f1",
+            "p_1770d1f9f9d2",
+            "p_73897f7f9675",
+            "p_fb180a064c60",
+            "p_601c039925d2",
+            "p_8770b882049f",
+            "p_c56c2708c17e",
+            "p_84f6d4dc71f7",
+            "p_b87352b21716",
+            "p_f90e38da839e",
+            "p_28743967aec0",
+            "p_a94da9e846cd",
+            "p_8d5c91fba121",
+            "p_ce3e39cb7621",
+            "p_30d0f48aa0ae",
+            "p_e1d9fd712f29"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_31b9dcdde34d",
+            "p_b890517cd877",
+            "p_58b965a5373a",
+            "p_33ea472089f3"
+          ],
+          "related_entity_ids": [
+            "p_999713f34643",
+            "p_67e88a85eff8",
+            "p_36f966fd242c",
+            "p_4afc837f659b",
+            "p_cc5ca4fd024b",
+            "p_695af6dd10d2",
+            "p_56381ea8d18a",
+            "p_41690e5b3aff",
+            "p_312dc8b4693b",
+            "p_20b5e8d480af",
+            "p_cf4f3d91e7b1",
+            "p_6f9f2228b407",
+            "p_54f843cd3535",
+            "p_d2c705583068",
+            "p_c366bbde9293"
+          ],
+          "ambient_entity_ids": [
+            "p_209a85b5740f",
+            "p_4d1ae3251e45",
+            "p_a6f09cdde0e6",
+            "p_bab4e416c2bf",
+            "p_cc09b076a2a5",
+            "p_c250d1cbb3fb",
+            "p_6f18a07ccd4e",
+            "p_8dcf3b22032d",
+            "p_f06f579bd29d",
+            "p_a8f546e949d3",
+            "p_f3ac6e653a30",
+            "p_a22626ea949a",
+            "p_3aa7894d660a",
+            "p_e371754433ab",
+            "p_64fc7718883a",
+            "p_14f570d70ab6",
+            "p_6873441f8976",
+            "p_a11a96270021",
+            "p_cc0683466d19",
+            "p_01564c0c6fe3",
+            "p_cb8adf32aa94",
+            "p_2a7e4b61f449",
+            "p_4a669ffb88ce",
+            "p_436e861588c1",
+            "p_cb8070b9e048",
+            "p_db24cb62ba9d",
+            "p_21ed1e0e9fb4",
+            "p_2466e46e2f59",
+            "p_289060e74ddd",
+            "p_8ac7e16a3133",
+            "p_7f4c036b3d4f",
+            "p_ebabec24aa1f",
+            "p_a9401ca35085",
+            "p_f363d4240f93",
+            "p_71f866fc8a43",
+            "p_86a452061ac9",
+            "p_cd58087a3eb7",
+            "p_28c4e32a5685",
+            "p_f215ea2e541d",
+            "p_07ed13d99bb5",
+            "p_9dd826056742",
+            "p_eba76e5d1be1",
+            "p_893835b15bc2",
+            "p_a8a3ade37276",
+            "p_b0bacf17b9ab",
+            "p_7912775126cb",
+            "p_a4ba40cf3b94",
+            "p_0864100a552f",
+            "p_6abb63788959",
+            "p_1bdf5b871b0e",
+            "p_5b2bc7950455",
+            "p_3bef5acc81fe",
+            "p_a2492a276fb4",
+            "p_7ef14fc40316",
+            "p_d0d444eec886",
+            "p_b5e78f243e6b",
+            "p_a0d5bc3fb24d",
+            "p_5b10bfc944b1",
+            "p_fed4bedb306c",
+            "p_d94851a911d3",
+            "p_81075a8067ed",
+            "p_6a364ebe44df",
+            "p_38202dad57e8",
+            "p_6412a39f8d1d",
+            "p_992b31a271da",
+            "p_f1874280780b",
+            "p_f4111b1222f8",
+            "p_fb08c4ec35d2",
+            "p_687a1195f081",
+            "p_2f462a0d6fa2",
+            "p_9dbbb9edcb99",
+            "p_2cdad0b70fbf",
+            "p_11dda5cf7e32",
+            "p_6dd3fe6b1f98",
+            "p_46156f068a2d",
+            "p_1e808f67ccc7",
+            "p_2b95ef7cb6f1",
+            "p_1770d1f9f9d2",
+            "p_73897f7f9675",
+            "p_601c039925d2",
+            "p_8770b882049f",
+            "p_c56c2708c17e",
+            "p_84f6d4dc71f7",
+            "p_b87352b21716",
+            "p_28743967aec0",
+            "p_a94da9e846cd",
+            "p_8d5c91fba121",
+            "p_ce3e39cb7621",
+            "p_30d0f48aa0ae",
+            "p_e1d9fd712f29"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_31b9dcdde34d",
+              "ring": "core",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_999713f34643",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_67e88a85eff8",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_36f966fd242c",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_4afc837f659b",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_cc5ca4fd024b",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_695af6dd10d2",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_56381ea8d18a",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_41690e5b3aff",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_312dc8b4693b",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_20b5e8d480af",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_cf4f3d91e7b1",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_6f9f2228b407",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_54f843cd3535",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_d2c705583068",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_c366bbde9293",
+              "ring": "related",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_209a85b5740f",
+              "ring": "ambient",
+              "reason": "普通直靠尺，无水平泡功能。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_4d1ae3251e45",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_a6f09cdde0e6",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_bab4e416c2bf",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_cc09b076a2a5",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_c250d1cbb3fb",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_6f18a07ccd4e",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_8dcf3b22032d",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_f06f579bd29d",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_a8f546e949d3",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_f3ac6e653a30",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_a22626ea949a",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_3aa7894d660a",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_e371754433ab",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_64fc7718883a",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_14f570d70ab6",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_6873441f8976",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_a11a96270021",
+              "ring": "ambient",
+              "reason": "只售收纳袋，不是水平尺。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_cc0683466d19",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_01564c0c6fe3",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_cb8adf32aa94",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_2a7e4b61f449",
+              "ring": "ambient",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_b890517cd877",
+              "ring": "core",
+              "reason": "矩形圆端工作面及上置柄，不是源尖端叶形、后置偏柄工具。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_58b965a5373a",
+              "ring": "core",
+              "reason": "原图和10x2英寸公开描述是平行窄条duckbill，不是叶形刀面。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_4a669ffb88ce",
+              "ring": "ambient",
+              "reason": "泥盘用于盛料，不是手持叶形工具。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_33ea472089f3",
+              "ring": "core",
+              "reason": "弯曲细条勾缝器不是承载砂浆的叶形工作面。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_436e861588c1",
+              "ring": "ambient",
+              "reason": "窄条修缝溜子不是叶形砂浆刀面。",
+              "why_plausible": "真实窗口中的水平尺或砌筑用品，类别词不替代实际颜色/工作面判断。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construct.practical_substitute_repair_20261018.actual_inspection"
+            },
+            {
+              "entity_id": "p_cb8070b9e048",
+              "ring": "ambient",
+              "reason": "Torpedo spirit level listing with no blue finish claim; scene shows a blue long level, not a small non-blue torpedo.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_db24cb62ba9d",
+              "ring": "ambient",
+              "reason": "Small magnetic torpedo level with no blue finish in the public title; does not match the blue level in frame.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_21ed1e0e9fb4",
+              "ring": "ambient",
+              "reason": "Amazon Basics torpedo level title specifies Black finish, not the blue level shown in frame.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_2466e46e2f59",
+              "ring": "ambient",
+              "reason": "6.2-inch aluminum torpedo/conduit level with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_289060e74ddd",
+              "ring": "ambient",
+              "reason": "24-inch CRAFTSMAN box-beam level title gives no blue finish; scene requires the same color as the blue level in frame.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_8ac7e16a3133",
+              "ring": "ambient",
+              "reason": "12-inch WORKPRO torpedo level with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_7f4c036b3d4f",
+              "ring": "ambient",
+              "reason": "PREXISO 2-in-1 laser alignment tool, not a conventional spirit level spare for the blue bubble level in scene.",
+              "failure_predicates": [
+                "wrong_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_ebabec24aa1f",
+              "ring": "ambient",
+              "reason": "Franklin electronic light-based leveler, not a spirit-level body matching the blue level in frame.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_a9401ca35085",
+              "ring": "ambient",
+              "reason": "Six-pack of round bubble vials only, not a handheld spirit level tool.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_f363d4240f93",
+              "ring": "ambient",
+              "reason": "Milwaukee Redstick slim level title specifies Red/Black, not blue.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_71f866fc8a43",
+              "ring": "ambient",
+              "reason": "Huepar rechargeable laser leveling tool with light, not a standalone blue spirit level matching scene.",
+              "failure_predicates": [
+                "wrong_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_86a452061ac9",
+              "ring": "ambient",
+              "reason": "Generic 24-inch aluminum level title gives no blue finish matching the scene level.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_cd58087a3eb7",
+              "ring": "ambient",
+              "reason": "Six mini square bubble levels, not a full spirit level body.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_28c4e32a5685",
+              "ring": "ambient",
+              "reason": "CRAFTSMAN 9-inch torpedo level with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_f215ea2e541d",
+              "ring": "ambient",
+              "reason": "Stabila pocket level title specifies Yellow.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_07ed13d99bb5",
+              "ring": "ambient",
+              "reason": "Digital angle finder/level hybrid without a blue long spirit-level body like the scene tool.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_9dd826056742",
+              "ring": "ambient",
+              "reason": "Small circular bubble component, not a complete spirit level.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_eba76e5d1be1",
+              "ring": "ambient",
+              "reason": "Milwaukee minibox level listing gives no blue finish matching the scene.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_893835b15bc2",
+              "ring": "ambient",
+              "reason": "Nine-piece mini pocket bubble level assortment, not one blue spare level.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_a8a3ade37276",
+              "ring": "ambient",
+              "reason": "3-inch Johnson line level hook, not a long blue spirit/box level.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_b0bacf17b9ab",
+              "ring": "ambient",
+              "reason": "Stabila 10-inch magnetic level title specifies Yellow.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_7912775126cb",
+              "ring": "ambient",
+              "reason": "Four-pack RV bubble levels, not a blue construction spirit level matching scene.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_a4ba40cf3b94",
+              "ring": "ambient",
+              "reason": "8.8-inch torpedo level with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_0864100a552f",
+              "ring": "ambient",
+              "reason": "Two-pack torpedo levels with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_6abb63788959",
+              "ring": "ambient",
+              "reason": "Round bullseye bubble only, not a spirit level body.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_1bdf5b871b0e",
+              "ring": "ambient",
+              "reason": "Two-piece mini pocket spirit level set without blue finish claim.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5b2bc7950455",
+              "ring": "ambient",
+              "reason": "Firecore cross-line laser level, not the bubble level type shown in frame.",
+              "failure_predicates": [
+                "wrong_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_3bef5acc81fe",
+              "ring": "ambient",
+              "reason": "Four-pack Yellow torpedo levels explicitly not blue.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_a2492a276fb4",
+              "ring": "ambient",
+              "reason": "9-inch torpedo level with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_7ef14fc40316",
+              "ring": "ambient",
+              "reason": "Six circular bubble components, not a complete level.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_d0d444eec886",
+              "ring": "ambient",
+              "reason": "Stabila six-level set/case, not a single blue spare matching the scene level color rule.",
+              "failure_predicates": [
+                "set_not_single"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_b5e78f243e6b",
+              "ring": "ambient",
+              "reason": "Four mini pocket bubble levels without blue finish claim.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_a0d5bc3fb24d",
+              "ring": "ambient",
+              "reason": "STABILA Type 70 classic level line is yellow-bodied in public listings, not the blue level in frame.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5b10bfc944b1",
+              "ring": "ambient",
+              "reason": "6-inch Klein torpedo/conduit level with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_fed4bedb306c",
+              "ring": "ambient",
+              "reason": "Ten-pack torpedo level bulk pack without blue finish claim.",
+              "failure_predicates": [
+                "set_not_single"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_d94851a911d3",
+              "ring": "ambient",
+              "reason": "Four-pack RV T bubble levels, not a blue long spirit level.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_81075a8067ed",
+              "ring": "ambient",
+              "reason": "Three-piece torpedo/spirit level set without blue finish claim.",
+              "failure_predicates": [
+                "set_not_single"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_6a364ebe44df",
+              "ring": "ambient",
+              "reason": "Horizontal bubble card/band component, not a spirit level tool.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_38202dad57e8",
+              "ring": "ambient",
+              "reason": "18-inch Johnson aluminum level with rule, Silver, not blue.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_6412a39f8d1d",
+              "ring": "ambient",
+              "reason": "PREXISO magnetic digital protractor/level without blue long level body claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_992b31a271da",
+              "ring": "ambient",
+              "reason": "16-inch torpedo level with no blue finish claim.",
+              "failure_predicates": [
+                "wrong_colour"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_f1874280780b",
+              "ring": "ambient",
+              "reason": "Johnson Orange post & pipe level, wrong shape and orange color for the blue scene level.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_f4111b1222f8",
+              "ring": "ambient",
+              "reason": "MEISO tuck pointer trowel set; narrow jointing blades, not the leaf-shaped brick trowel used on mortar in frame.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_fb08c4ec35d2",
+              "ring": "ambient",
+              "reason": "Five-piece tuck pointer set with narrow cross sections for repointing, not a brick-trowel leaf blade.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_687a1195f081",
+              "ring": "ambient",
+              "reason": "Goldblatt pointing trowel 5-1/2 inch; narrow pointer, not Philadelphia/London brick-trowel leaf.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_2f462a0d6fa2",
+              "ring": "ambient",
+              "reason": "OX 7-inch bucket trowel with square blade for scooping, not the leaf mortar-spreading brick trowel in scene.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_9dbbb9edcb99",
+              "ring": "ambient",
+              "reason": "Brick jointer tool set for joint profiling, not a mortar-carrying brick trowel.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_2cdad0b70fbf",
+              "ring": "ambient",
+              "reason": "12-piece masonry kit centered on pointing/ laying accessories, not a single brick-trowel spare.",
+              "failure_predicates": [
+                "set_not_single"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_11dda5cf7e32",
+              "ring": "ambient",
+              "reason": "Brick laying mud scraper with scraper working edge, not a leaf brick trowel.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_6dd3fe6b1f98",
+              "ring": "ambient",
+              "reason": "Two-piece 6-inch pointing and gauging trowel set, not a full brick-trowel leaf.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_46156f068a2d",
+              "ring": "ambient",
+              "reason": "Handheld brick jointer, not a mortar-spreading brick trowel.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_1e808f67ccc7",
+              "ring": "ambient",
+              "reason": "Flylin barrel brick jointer for joints, not a leaf brick trowel.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_2b95ef7cb6f1",
+              "ring": "ambient",
+              "reason": "MARSHALLTOWN rounded-front finishing trowel for concrete finishing, not brick-trowel leaf shape.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_1770d1f9f9d2",
+              "ring": "ambient",
+              "reason": "Four-pack pointing/gauging/margin masonry hand tool set without a standalone brick trowel listing.",
+              "failure_predicates": [
+                "set_not_single"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_73897f7f9675",
+              "ring": "ambient",
+              "reason": "Seven-piece tuck pointer/jointer set with narrow blades for joints.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_601c039925d2",
+              "ring": "ambient",
+              "reason": "Three-piece tuck pointer set for mortar repair joints.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_8770b882049f",
+              "ring": "ambient",
+              "reason": "MARSHALLTOWN 8x3 mini finish trowel for concrete smoothing, not brick-trowel leaf.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_c56c2708c17e",
+              "ring": "ambient",
+              "reason": "Margin trowel with rectangular blade; frame tool is a pointed leaf brick trowel.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_84f6d4dc71f7",
+              "ring": "ambient",
+              "reason": "KSEIBI narrow bucket brick trowel with square tip for scooping, not leaf mortar spreader.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_b87352b21716",
+              "ring": "ambient",
+              "reason": "Single tuck pointing trowel with narrow 0.39-inch blade.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_28743967aec0",
+              "ring": "ambient",
+              "reason": "Double-ended brick jointer tools, not a brick trowel.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_a94da9e846cd",
+              "ring": "ambient",
+              "reason": "Three-piece tuck pointing/jointer stainless set.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_8d5c91fba121",
+              "ring": "ambient",
+              "reason": "Five-size tuck pointer trowel set.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_ce3e39cb7621",
+              "ring": "ambient",
+              "reason": "Replacement handle tip accessory only, not a trowel.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_30d0f48aa0ae",
+              "ring": "ambient",
+              "reason": "Five-piece professional masonry trowel set listing, not one brick-trowel spare.",
+              "failure_predicates": [
+                "set_not_single"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_e1d9fd712f29",
+              "ring": "ambient",
+              "reason": "Five-piece tuck pointer set with narrow blades.",
+              "failure_predicates": [
+                "wrong_object_kind"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            }
+          ],
+          "window_adjudication": [
+            {
+              "entity_id": "p_31b9dcdde34d",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_999713f34643",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_67e88a85eff8",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_36f966fd242c",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_ee71e7a05ec1",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_967df0710bc3",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_4afc837f659b",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_cc5ca4fd024b",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_695af6dd10d2",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_66d46dfb47c1",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_56381ea8d18a",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_41690e5b3aff",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_312dc8b4693b",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_20b5e8d480af",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_cf4f3d91e7b1",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_6f9f2228b407",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_54f843cd3535",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_f88a8106230b",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_d2c705583068",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_c366bbde9293",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_ac0014e8e011",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_209a85b5740f",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "普通直靠尺，无水平泡功能。"
+            },
+            {
+              "entity_id": "p_0115b415f58e",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_4d1ae3251e45",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_a6f09cdde0e6",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_bab4e416c2bf",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_a04737aa4995",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_cc09b076a2a5",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_3fb1464b311e",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_c250d1cbb3fb",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_6f18a07ccd4e",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_8dcf3b22032d",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_f06f579bd29d",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_a8f546e949d3",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_f3ac6e653a30",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_a22626ea949a",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_3aa7894d660a",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_e371754433ab",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_ed7a03e2afe5",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_64fc7718883a",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_74617fb182bd",
+              "initial": "accepted_level",
+              "final": "accepted_level_component",
+              "reason": "符合蓝梁式水平尺规则。"
+            },
+            {
+              "entity_id": "p_14f570d70ab6",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_6873441f8976",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_a11a96270021",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "只售收纳袋，不是水平尺。"
+            },
+            {
+              "entity_id": "p_cc0683466d19",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_01564c0c6fe3",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_cb8adf32aa94",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_2a7e4b61f449",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图尺或套装内尺均非蓝色；不因精确尺长或单支装排除。"
+            },
+            {
+              "entity_id": "p_a88098cfc60a",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_8948a54d2b29",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_70c9e2ee0f13",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_80c42eb34845",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_e9671ebc60cc",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_0ea9eaad49ca",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_07ca5f10dbac",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_53f362e98286",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_0f0824ff08d3",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_d769ddcabafb",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_5441f3e51253",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_c1f6de816271",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_81963735a949",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_c10f6118e60d",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_0dc1dceab83e",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_563637b765c4",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_a1236ab39be7",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_edbbbbe3e212",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_f3802d35d5d9",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_2cc25bd12dd9",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_b890517cd877",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "矩形圆端工作面及上置柄，不是源尖端叶形、后置偏柄工具。"
+            },
+            {
+              "entity_id": "p_1e3e065e4460",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_5852bca73041",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_787b9b24de22",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_629c25d0e700",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_58b965a5373a",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "原图和10x2英寸公开描述是平行窄条duckbill，不是叶形刀面。"
+            },
+            {
+              "entity_id": "p_8f1213a82ac1",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_e949d0923d8e",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_b4f14a46fae3",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_94f028aeaa42",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_e03491117d10",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_00c7914f69a5",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_7cb8d73b4ef7",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_cda28fa28dc7",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_de7044cd5860",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_141549b3b741",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_dfb89b486233",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_4a669ffb88ce",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "泥盘用于盛料，不是手持叶形工具。"
+            },
+            {
+              "entity_id": "p_e3511960655f",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_7963910b4dad",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_d0f325e9f2d5",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_949b74df647f",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_e2663ba2de94",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_33ea472089f3",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "弯曲细条勾缝器不是承载砂浆的叶形工作面。"
+            },
+            {
+              "entity_id": "p_a8a493ba518a",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_436e861588c1",
+              "initial": "not_matching_level",
+              "final": "not_matching_component",
+              "reason": "窄条修缝溜子不是叶形砂浆刀面。"
+            },
+            {
+              "entity_id": "p_14557d4966fa",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            },
+            {
+              "entity_id": "p_cf8b93ba157b",
+              "initial": "not_a_level",
+              "final": "accepted_masonry_component",
+              "reason": "实际图有适用尖端叶形刀面；含该工具的真实套装也接受。"
+            }
+          ]
+        },
+        "landing_semantic_review": {
+          "status": "coding_agent_accepted",
+          "confidence": "high",
+          "review_reference": "data/sources/landing_semantic_reviews.json"
+        },
+        "evidence_requirements": [],
+        "practical_substitute_repair_20261018": {
+          "owner": "/root/media_boundary_confirmation_1018",
+          "sealed_stage2": ".scratch/task-completion-20261018/remaining-mart-blind/candidate-mart-graft-p-43-stage2.json",
+          "previous_blueprint": {
+            "instructions": {
+              "a": "Add the long blue tool I use first in this part of the job.",
+              "b": "Also add the hand tool I use after it, and keep the first tool.",
+              "bundled": "Add both tools I use here: the long blue one first and the hand tool I use after it."
+            },
+            "initial_goal_roles": [
+              [
+                "earlier_blue_level"
+              ]
+            ],
+            "final_goal_roles": [
+              [
+                "earlier_blue_level",
+                "later_masonry_trowel"
+              ]
+            ],
+            "target_granularity": "category",
+            "environment_role_ids": {
+              "earlier_blue_level": "p_ee71e7a05ec1",
+              "later_masonry_trowel": "p_07ca5f10dbac"
+            },
+            "equivalent_role_ids": {
+              "earlier_blue_level": [
+                "p_967df0710bc3",
+                "p_66d46dfb47c1"
+              ]
+            }
+          },
+          "previous_authored": {
+            "a": "Add the level I use first while laying this course.",
+            "b": "Also add the masonry tool I use afterward to spread mortar, and keep the level.",
+            "bundled": "Add the level and the masonry tool I use afterward to spread mortar."
+          },
+          "previous_rejected": [
+            {
+              "entity_id": "p_f88a8106230b",
+              "ring": "core",
+              "reason": "商品图是无手柄槽的 I-beam 结构，画面中的水平尺有明显黑色穿透式手柄槽。",
+              "why_plausible": "它是蓝色 48 英寸三水准泡水平尺，长度、颜色和用途都接近画面。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_31b9dcdde34d",
+              "ring": "core",
+              "reason": "商品为黑色，和画面中高亮蓝色的水平尺不一致。",
+              "why_plausible": "它是 48 英寸专业铝制水平尺，尺寸和类别匹配。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_ac0014e8e011",
+              "ring": "core",
+              "reason": "公开详情为 24 英寸，画面和来源标注要求约 48 英寸的长水平尺。",
+              "why_plausible": "它是蓝色三水准泡铝制水平尺，外观和同类品牌都很接近。",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0ea9eaad49ca",
+              "ring": "core",
+              "reason": "商品是窄叶 London Style，画面 V0:4-V0:6 明确为宽叶 Philadelphia Style。",
+              "why_plausible": "它是 11 英寸 MARSHALLTOWN DuraSoft brick trowel，品牌、手柄和用途接近。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0115b415f58e",
+              "ring": "ambient",
+              "reason": "Irwin 2000 这把 48 英寸盒尺在商品图里是深紫色，不是画面里的亮蓝色水平尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_01564c0c6fe3",
+              "ring": "ambient",
+              "reason": "Johnson 1760-2400 这把 24 英寸橙色数显盒尺又短又不是亮蓝色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_14557d4966fa",
+              "ring": "ambient",
+              "reason": "这套 6、7、8 英寸木柄尖头勾缝抹子不是用来铺砂浆的宽叶费城式砌砖抹子。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: masonry, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_14f570d70ab6",
+              "ring": "ambient",
+              "reason": "Johnson 1611-4800 这把 48 英寸竹制水平尺不是画面里的蓝色金属盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_209a85b5740f",
+              "ring": "ambient",
+              "reason": "Johnson J48 是一根 48 英寸铝制靠尺，不是带水泡的盒式水平尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_312dc8b4693b",
+              "ring": "related",
+              "reason": "VEVOR 这套是 48、24、16、10 英寸四支水平尺，不是单支 48 英寸蓝色盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_33ea472089f3",
+              "ring": "ambient",
+              "reason": "这套三件双头砖缝勾缝器是用来修砖缝的，不是铺砂浆的宽叶砌砖抹子。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: masonry, tool.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_36f966fd242c",
+              "ring": "related",
+              "reason": "Kapro Apollo 这把 48 英寸盒尺在商品图里是红色，不是亮蓝色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_3fb1464b311e",
+              "ring": "ambient",
+              "reason": "IRWIN 2050 这把 48 英寸盒尺在商品图里是深紫色，不是画面里的亮蓝色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_41690e5b3aff",
+              "ring": "related",
+              "reason": "VEVOR 这套是 78 到 10 英寸六支水平尺，不是单支 48 英寸蓝色盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_436e861588c1",
+              "ring": "ambient",
+              "reason": "Marshalltown 这件 5/8×1/2 英寸砌砖溜子是修缝工具，不是铺砂浆的宽叶抹子。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: masonry, tool.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_54f843cd3535",
+              "ring": "related",
+              "reason": "Jorgensen 这把 48 英寸带灯盒尺在商品图里是橙色，不是亮蓝色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_56381ea8d18a",
+              "ring": "related",
+              "reason": "Johnson 1717-4800 这把 48 英寸盒尺标题写明是橙色，不是亮蓝色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_629c25d0e700",
+              "ring": "ambient",
+              "reason": "Marshalltown 这把 13 英寸伦敦式砌砖抹子是窄叶，不是画面里的宽叶费城式抹子。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: masonry, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6873441f8976",
+              "ring": "ambient",
+              "reason": "Johnson Structo-Cast 这把 36 英寸水平尺是橙色，而且短于约 48 英寸。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_695af6dd10d2",
+              "ring": "related",
+              "reason": "Johnson 1760-4800 这把 48 英寸数显盒尺标题写明是橙色，不是亮蓝色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6f9f2228b407",
+              "ring": "related",
+              "reason": "Johnson 这把是 48 到 80 英寸可伸缩水平尺，不是固定的约 48 英寸盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_74617fb182bd",
+              "ring": "ambient",
+              "reason": "OX Trade 这把是 72 英寸六英尺盒尺，不是约 48 英寸的长水平尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8dcf3b22032d",
+              "ring": "ambient",
+              "reason": "Johnson 1233-4800 这把 48 英寸黄色工字梁水平尺不是带手提孔的亮蓝色盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_999713f34643",
+              "ring": "related",
+              "reason": "Johnson 1253-4800 这把 48 英寸水平尺在商品图里是橙色工字梁，不是亮蓝色盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_a04737aa4995",
+              "ring": "ambient",
+              "reason": "OX 这件是带水泡的 48 英寸混凝土刮平尺，不是砌墙用的盒式水平尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_a11a96270021",
+              "ring": "ambient",
+              "reason": "Johnson 1240-4800 是 48 英寸水平尺软包，不是水平尺本身。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_a22626ea949a",
+              "ring": "ambient",
+              "reason": "Johnson 1721-4800 这把 48 英寸磁性盒尺标题写明是橙色，不是亮蓝色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_a8f546e949d3",
+              "ring": "ambient",
+              "reason": "VEVOR 这套是 48、24、16、10 英寸四支荧光水平尺，不是单支 48 英寸蓝色盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b4f14a46fae3",
+              "ring": "ambient",
+              "reason": "Marshalltown 这把 9.5 英寸伦敦式砌砖抹子是窄叶，不是画面里的宽叶费城式抹子。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: masonry, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b890517cd877",
+              "ring": "ambient",
+              "reason": "这把 10×3 英寸圆头泳池抹子是抹灰收光工具，不是尖头宽叶砌砖抹子。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: masonry, tool.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_bab4e416c2bf",
+              "ring": "ambient",
+              "reason": "VEVOR 这套最长只有 40 英寸，而且是四支装，不是单支约 48 英寸蓝色盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_cc0683466d19",
+              "ring": "ambient",
+              "reason": "VEVOR 这套是 78 到 10 英寸六支全磁性水平尺，不是单支 48 英寸蓝色盒尺。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_e9671ebc60cc",
+              "ring": "ambient",
+              "reason": "SHALL 这套是边抹子、尖头抹子和量尺抹子，不是一把宽叶费城式砌砖抹子。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: masonry, tool.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ed7a03e2afe5",
+              "ring": "ambient",
+              "reason": "IRWIN 1550 这把 48 英寸工字梁尺在商品图里是紫色，而且没有盒式手提孔。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: level, tool.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "The interval starts with the wearer using a long blue box level across the masonry course; later frames clearly show a masonry trowel being used on the mortar. Their action order cannot be recovered from one still image.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            }
+          ],
+          "previous_sensitivity": {
+            "policy": "strict_glass_use_necessity",
+            "decision": "pass",
+            "code": "action_order_required",
+            "reason": "A single still cannot establish that the long blue level is the first tool and the masonry trowel is the tool used afterward."
+          },
+          "actual_inspection": {
+            "source": "亲看发布8张480x360原图，蓝色长梁式尺；后段尖端叶形平刀面、后置偏柄工具持/铺砂浆。源图不支持精确品牌、48英寸或London/Philadelphia细类。",
+            "catalog": "亲看96个原生商品图并读名称：48水平尺相关、48砌筑工具相关；另读蓝IRWIN、OX带水泡刮尺的公开字段。",
+            "continuous": "旧core只记逐帧，source audit仅旧题20–35秒定位；没有可核完整0–38连续覆盖。保留原事实，不冒称已连续检验。采购备用工具不需要first/afterward，实际题面删除两词，不再提出时序断言。"
+          },
+          "matching_rules": [
+            "A同色、一般梁式水平测量工具：不要求原尺长、品牌、盒梁/I-beam细类或握孔数。24/48/72英寸均可；无孔蓝TUFF已接受，不得对其他同类施加握孔限制。",
+            "IRWIN公开Blue的两款与同图2000伙伴按蓝色族接受，不要求精确青色调。OX蓝梁刮尺公开配水平泡，能提供所需测量功能；附带刮平用途不是排除理由。",
+            "B按基本尖端叶形平工作面及后置偏柄判断，London、Wide London、Philadelphia及其他砖刀/pointing变体不因尺寸、柄材质或细类名排除。",
+            "真实套装内有适用叶形工具即可；题面未禁止附带工具，SHALL三件及三把pointing套装保留原包装纳入。矩形pool、窄条duckbill、泥盘和修缝棒按实际形态排除。"
+          ],
+          "initial_entity_ids": [
+            "p_ee71e7a05ec1",
+            "p_967df0710bc3",
+            "p_66d46dfb47c1",
+            "p_f88a8106230b",
+            "p_ac0014e8e011",
+            "p_74617fb182bd",
+            "p_0115b415f58e",
+            "p_3fb1464b311e",
+            "p_ed7a03e2afe5",
+            "p_a04737aa4995"
+          ],
+          "masonry_entity_ids": [
+            "p_a88098cfc60a",
+            "p_8948a54d2b29",
+            "p_70c9e2ee0f13",
+            "p_80c42eb34845",
+            "p_e9671ebc60cc",
+            "p_0ea9eaad49ca",
+            "p_07ca5f10dbac",
+            "p_53f362e98286",
+            "p_0f0824ff08d3",
+            "p_d769ddcabafb",
+            "p_5441f3e51253",
+            "p_c1f6de816271",
+            "p_81963735a949",
+            "p_c10f6118e60d",
+            "p_0dc1dceab83e",
+            "p_563637b765c4",
+            "p_a1236ab39be7",
+            "p_edbbbbe3e212",
+            "p_f3802d35d5d9",
+            "p_2cc25bd12dd9",
+            "p_1e3e065e4460",
+            "p_5852bca73041",
+            "p_787b9b24de22",
+            "p_629c25d0e700",
+            "p_8f1213a82ac1",
+            "p_e949d0923d8e",
+            "p_b4f14a46fae3",
+            "p_94f028aeaa42",
+            "p_e03491117d10",
+            "p_00c7914f69a5",
+            "p_7cb8d73b4ef7",
+            "p_cda28fa28dc7",
+            "p_de7044cd5860",
+            "p_141549b3b741",
+            "p_dfb89b486233",
+            "p_e3511960655f",
+            "p_7963910b4dad",
+            "p_d0f325e9f2d5",
+            "p_949b74df647f",
+            "p_e2663ba2de94",
+            "p_a8a493ba518a",
+            "p_14557d4966fa",
+            "p_cf8b93ba157b"
+          ],
+          "initial_states": 10,
+          "final_states": 430,
+          "unchanged": [
+            "8发布原图",
+            "96完整搜索窗口及顺序",
+            "网站图文事实",
+            "网站原生操作"
+          ],
+          "changed": [
+            "A/B/bundled去时序要求、明确备用目的及可不同尺长梁式",
+            "初末等价集合及角色/非答案矩阵"
+          ],
+          "independent_admission_claimed": false,
+          "paid_model_calls": 0,
+          "trial_scope": "公开题面已改；旧运行保留历史。交原reviewer定向复核，由主写决定当前输入试跑；不以私有重评分冒充新题面验证。",
+          "previous_catalog_semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          },
+          "previous_replacement_reason": "Human review found that the prior construction replaced the second source-grounded tool with a concrete block. Runtime review then confirmed the visible wide Philadelphia-style masonry trowel rather than the narrower London-style listing. Keep the source and restore the level-plus-visible-trowel semantics.",
+          "previous_decision_point_provenance": "human_review_ground_truth_repair_20260825",
+          "native_checks": {
+            "method": "Actual Flask details,cart/add,cart/remove across every10x43 pair; shared live-state evaluator rejects non-answers,missing,extra and duplicates.",
+            "positive_states_passed": 441,
+            "wrong_states_rejected": 444,
+            "failed": 0,
+            "source_compiled_authored_match": true,
+            "old_blind_primary_still_legal": true,
+            "new_model_run_performed": false
+          }
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            5.428571,
+            10.857143,
+            16.285714,
+            21.714286,
+            27.142857,
+            32.571429,
+            38
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-p-14/V0_00.jpg",
+            "data/observations/candidate-mart-graft-p-14/V0_01.jpg",
+            "data/observations/candidate-mart-graft-p-14/V0_02.jpg",
+            "data/observations/candidate-mart-graft-p-14/V0_03.jpg",
+            "data/observations/candidate-mart-graft-p-14/V0_04.jpg",
+            "data/observations/candidate-mart-graft-p-14/V0_05.jpg",
+            "data/observations/candidate-mart-graft-p-14/V0_06.jpg",
+            "data/observations/candidate-mart-graft-p-14/V0_07.jpg"
+          ]
+        }
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "visible_color_and_working_face",
+        "reason": "The retained words do not disclose level color or pointed-leaf versus rectangular/strip/jointing working face. B adds an obligation, without an ordering claim."
+      },
+      "repair_history": [
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary (second batch): neutralised leaking wording and/or added natural broader real search rounds",
+          "constructor": "constructor-sr2-1",
+          "necessity_review_path": ".scratch/necessity-20261031/reviews/candidate-mart-graft-p-43.json",
+          "proposal_path": ".scratch/shortcut-repair-2/proposals/candidate-mart-graft-p-43.json",
+          "previous_words": {
+            "b": "Also add a spare for the masonry hand tool I'm using to spread mortar, with the same general blade shape. Keep the level.",
+            "bundled": "Add a spare level in the same color as the one I'm using here; the length and beam style can differ. Also add a spare for the masonry hand tool I'm using to spread mortar, with the same general blade shape, and keep the level."
+          },
+          "new_words": {
+            "b": "Also add a spare for the hand tool I use on the mortar here, with the same general blade shape. Keep the level.",
+            "bundled": "Add a spare level in the same color as the one I'm using here; the length and beam style can differ. Also add a spare for the hand tool I use on the mortar here, with the same general blade shape, and keep the level."
+          },
+          "source_text_changes_applied": [
+            "construct.task_blueprint.instructions.b",
+            "construct.task_blueprint.instructions.bundled"
+          ],
+          "source_text_changes_skipped": [],
+          "planned_queries": [
+            {
+              "stage": "natural_broad_level_20261031c",
+              "query": "spirit level"
+            },
+            {
+              "stage": "natural_broad_trowel_20261031c",
+              "query": "brick trowel"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary (second batch): judged new results of natural broader real search rounds and/or neutralised leaking wording",
+          "constructor": "constructor-judge-b7",
+          "decision_path": ".scratch/shortcut-repair-2/decisions/candidate-mart-graft-p-43.json",
+          "necessity_review_path": ".scratch/necessity-20261031/reviews/candidate-mart-graft-p-43.json",
+          "new_query_rounds": [
+            {
+              "stage": "natural_broad_level_20261031c",
+              "query": "spirit level"
+            },
+            {
+              "stage": "natural_broad_trowel_20261031c",
+              "query": "brick trowel"
+            }
+          ],
+          "accepted_new": 9,
+          "rejected_new": 66,
+          "changed_existing": 0,
+          "residual_shortcut_check": {
+            "text_only_query": "blue spirit level and brick trowel spare",
+            "text_only_accept_fraction_estimate": "Level side still weak: most spirit-level hits in the new window lack an explicit blue finish, but wording says same color without naming blue, so a text agent may still pick many non-blue levels; brick trowel side remains broad (Philadelphia/London brick trowels dominate the new trowel search). Roughly 15–25% of naive text-only level picks and 40–55% of trowel picks would match accepted SKUs.",
+            "scene_decides": true,
+            "remaining_issue": "Broader spirit-level search still fills the window with non-blue torpedo and gadget levels; only scene color reliably excludes them. Trowel wording still allows London pattern though scene shows Philadelphia.",
+            "proposed_fix": "If shortcut persists on levels, add neutral frame-establishing color in instruction A (e.g. the visible finish) without naming brand; optional tighten B to Philadelphia-pattern only if scene should exclude London substitutes."
+          },
+          "addressed_review": [
+            "画面必要性审核（2026-10-31 第二批）：独立无画面复核认定仅凭文字即可选中答案；已改写措辞和/或补充更宽的真实搜索，待构造者裁决新结果并复核。依据 .scratch/necessity-20261031/reviews/candidate-mart-graft-p-43.json"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          0.0,
+          102.0
+        ],
+        "update_onset_seconds": 14.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-p-43/review.json"
+      }
+    },
+    {
+      "task_id": "candidate-mart-graft-p-44",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "replace",
+      "replaces_candidate_id": "candidate-mart-graft-p-15",
+      "replacement_reason": "Human review found that individual snack-bag listings were not present in the captured store results. The repaired task uses two real SunChips multipacks whose visible contents include the two grounded flavors, then applies a natural pack-size correction.",
+      "source": {
+        "record_ids": [
+          5
+        ],
+        "media_id": "48bd5e5f-825a-461a-a580-cd635b1f17bb",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Amazon, find the same 16-packed food item as the second one picked up by the person in the video. And report the price of single item.",
+          "On Amazon, find the same food item as the fourth one picked up by the person in the video. And report the Calories per serving.",
+          "On Amazon, find the same 24-packed food item as the sixth one picked up by the person in the video. And report the price of single item."
+        ],
+        "observed_events": [
+          {
+            "role": "picked_item_and_adjacent_item",
+            "description": "the orange SunChips bag picked up from the shelf and the red SunChips bag immediately to its left",
+            "interval_seconds": [
+              28.75,
+              30.5
+            ]
+          }
+        ]
+      },
+      "screening": {
+        "review_submission": "data/reviews/submissions/candidate-mart-graft-p-15/reviewer-a.json",
+        "product_pages": [
+          "https://www.sunchips.com/products/sunchips-harvest-cheddar-flavored-whole-grain-snacks",
+          "https://www.sunchips.com/products/sunchips-garden-salsa-flavored-whole-grain-snacks"
+        ],
+        "repair_check": "The task no longer guesses the flavor of the unclear yellow package. The new packet centers on a clearly visible orange SunChips pickup and its red same-brand neighbor; the mock listings use independent web product images, never video frames."
+      },
+      "supported_claims": [
+        {
+          "text": "The event-aligned packet shows an orange SunChips bag being picked up and a red SunChips bag immediately to its left; the wording does not name those flavor labels, so listing choice must verify both bags from product detail while the size update uses larger versus 30-count without speaking \"40-count\" in the bundled request.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent identify two visually grounded flavors inside a real multipack and then replace an initial 30-count choice after the user changes the requested size?",
+        "initial_answer_boundary_repair_20261018": {
+          "owner": "/root/media_boundary_confirmation_1018",
+          "stage2_reference": ".scratch/task-completion-20261018/remaining-mart-blind/candidate-mart-graft-p-44-stage2.json",
+          "previous_initial_entity_ids": [
+            "p_2e64d8aa69dd"
+          ],
+          "added_initial_entity_ids": [
+            "p_2ab8b59031a9"
+          ],
+          "final_entity_ids_unchanged": [
+            "p_e010228f2090"
+          ],
+          "previous_rejection": {
+            "entity_id": "p_2ab8b59031a9",
+            "reason": "The title specifies 'Variety Mix Box' without confirming the specific orange/red flavor combination required by the visual evidence, and it fails to update to the 40-count requirement in the second step.",
+            "failure_predicates": [
+              "website_detail_mismatch",
+              "later_change_mismatch"
+            ]
+          },
+          "actual_evidence": "Directly viewed the native images of both30-count boxes and the40-count box. Each30-count box visibly contains orange Harvest Cheddar and red Garden Salsa; the40-count box also visibly contains both. Reused the sealed independent source-frame and adjacency observations rather than rewatching unchanged video.",
+          "matching_rule": "Resolve count and flavor inclusion separately for A and B. The whole43-item window was checked by public name; its only SunChips pack candidates are these three and the Harvest Cheddar Minis three-canister pack. Other brands, different counts and the single-flavor canister pack do not meet A or B. Both30-count choices are legal before B and remain final non-answers after B.",
+          "unchanged_public_inputs": [
+            "authored instructions",
+            "8 source frames",
+            "43-entity captured window",
+            "site product text and images",
+            "native operations"
+          ],
+          "model_reexecution_required": false,
+          "native_checks": {
+            "reviewer": "/root/media_boundary_confirmation_1018",
+            "method": "Actual Flask product detail,cart/add,cart/remove plus shared final-state evaluator; no model call.",
+            "positive_states_passed": 4,
+            "wrong_states_rejected": 8,
+            "failed": 0,
+            "source_compiled_exact_match": true
+          },
+          "reason": "Only the hidden initial accepted set was incomplete; final scoring and all performer-visible inputs are unchanged. Preserve prior runs and update only affected initial-choice diagnostics. This construction repair is not independent admission.",
+          "previous_catalog_semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        },
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The cart contains the 30-count SunChips multipack that includes both visually grounded flavors.",
+        "belief_after": "The 30-count pack is replaced by the larger SunChips multipack that still includes both visually grounded bags from the shelf.",
+        "required_behavior_change": "Remove the 30-count pack and add the 40-count pack after the size correction.",
+        "no_update_failure": "The Agent leaves the 30-count pack in the cart after B arrives.",
+        "overupdate_failure": "The Agent keeps both pack sizes or chooses a pack that does not contain both visible flavors.",
+        "visual_dependency_claim": "The wording omits the flavor names; the frames identify the orange picked bag and red adjacent bag, while the real listing images and details establish flavor inclusion and pack count.",
+        "task_blueprint": {
+          "instructions": {
+            "a": "Add the 30-count SunChips multipack that includes both the bag I pick up and the one immediately to its left.",
+            "b": "Actually replace it with the larger pack that still includes both the bag I pick up and the one immediately to its left.",
+            "bundled": "Add the SunChips multipack that includes both the bag I pick up and the one immediately to its left—the larger count, not the 30-count pack."
+          },
+          "initial_goal_roles": [
+            [
+              "thirty_count_pack"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "forty_count_pack"
+            ]
+          ],
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "thirty_count_pack": "p_2e64d8aa69dd",
+            "forty_count_pack": "p_e010228f2090"
+          },
+          "equivalent_role_ids": {
+            "thirty_count_pack": [
+              "p_2ab8b59031a9",
+              "p_272377e8413c"
+            ]
+          },
+          "site": "egomart"
+        },
+        "decision": {
+          "candidates": {
+            "thirty_count_pack": [
+              "p_2e64d8aa69dd"
+            ],
+            "forty_count_pack": [
+              "p_e010228f2090"
+            ]
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "thirty_count_pack",
+                "forty_count_pack"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "forty_count_pack"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The update replaces the initial 30-count choice with the requested 40-count pack while preserving the two visually grounded flavor constraints."
+            }
+          ],
+          "established_by": "codex-gpt-5",
+          "established_at": "2026-08-26"
+        },
+        "decision_point_provenance": "human_review_visual_identity_repair_20260826",
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "SunChips variety pack 30 count",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-44.json",
+              "result_entity_ids": [
+                "p_2e64d8aa69dd",
+                "p_e010228f2090",
+                "p_7874e1c8f0a2",
+                "p_887ef6a01d32",
+                "p_47c17b9e2d71",
+                "p_50f74acd5fee",
+                "p_5f131c60649a",
+                "p_c948a926d3f4",
+                "p_98312464c6b8",
+                "p_c6d9c71c883c",
+                "p_2ab8b59031a9",
+                "p_c52439ba2199",
+                "p_1ba13ae883fd",
+                "p_33aa329d81bf",
+                "p_4a2e16c1ccda",
+                "p_c54cf5b480f1",
+                "p_a280b3dde338",
+                "p_ad8552589ec8",
+                "p_62358415f9a7",
+                "p_7fb140e59cc6",
+                "p_af095fc67a7c",
+                "p_23080c4a339e",
+                "p_68fc60222863",
+                "p_231f18a433d4",
+                "p_2f390443cbe0",
+                "p_5ac528b30ff5",
+                "p_235cacaf778b",
+                "p_51076b5ddc5d",
+                "p_e2738df8db3c",
+                "p_e31d96d8e549",
+                "p_a3971af1e038",
+                "p_175162cd4fee",
+                "p_eb7c293c7b45"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "SunChips variety pack 40 count",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-44.json",
+              "result_entity_ids": [
+                "p_e010228f2090",
+                "p_2e64d8aa69dd",
+                "p_c54cf5b480f1",
+                "p_887ef6a01d32",
+                "p_47c17b9e2d71",
+                "p_c154530c9f9c",
+                "p_6006fcf146bc",
+                "p_319e5edba83e",
+                "p_606a34b41667",
+                "p_c52439ba2199",
+                "p_ad8552589ec8",
+                "p_8b4a19309926",
+                "p_23080c4a339e",
+                "p_c63aee66173c",
+                "p_231f18a433d4",
+                "p_891017fa1f23",
+                "p_2a680156f39c",
+                "p_266149ffb851",
+                "p_b4b1ca0a87a5",
+                "p_e31d96d8e549",
+                "p_a3971af1e038"
+              ]
+            },
+            {
+              "stage": "natural_broad_sunchips_variety_20261031c",
+              "query": "SunChips variety multipack",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-44.json",
+              "result_entity_ids": [
+                "p_272377e8413c",
+                "p_2e64d8aa69dd",
+                "p_e010228f2090",
+                "p_0fd544049feb",
+                "p_47c17b9e2d71",
+                "p_7874e1c8f0a2",
+                "p_23080c4a339e",
+                "p_af095fc67a7c",
+                "p_606a34b41667",
+                "p_6006fcf146bc",
+                "p_0dc07ca960b5",
+                "p_1a3a6657e96d",
+                "p_dc1bfd0716b0",
+                "p_1ffd52d812ad",
+                "p_203c31c89102",
+                "p_3695a5e814aa",
+                "p_d716d11e3053",
+                "p_c154530c9f9c",
+                "p_74ddecb06413",
+                "p_c52439ba2199",
+                "p_75bfad622ae6",
+                "p_e31bac274183",
+                "p_9b4d2f7f64b1",
+                "p_1ba13ae883fd",
+                "p_f93e31a7e6be",
+                "p_c948a926d3f4",
+                "p_513dabf5b701",
+                "p_08e7a2df35c0",
+                "p_ce357339c360",
+                "p_4daa2d39dbf2",
+                "p_58faee4b7f5e",
+                "p_50f74acd5fee",
+                "p_b78dd30d6517",
+                "p_60e3af8ee9ba",
+                "p_c45f28c15062",
+                "p_0f63257aa012",
+                "p_f8d530bf62b4",
+                "p_c02cfadd1d8f",
+                "p_6cb4502302ec",
+                "p_f95d30adc76b",
+                "p_bf0bae3b3f57",
+                "p_773662fe2d99",
+                "p_11ee6f226c9c",
+                "p_2f390443cbe0",
+                "p_bf53549c8c38",
+                "p_5b1fc26d365a",
+                "p_d5919a3dfa29",
+                "p_11f9134e8270",
+                "p_5cf3b6ca6287"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_2e64d8aa69dd",
+            "p_e010228f2090",
+            "p_7874e1c8f0a2",
+            "p_887ef6a01d32",
+            "p_47c17b9e2d71",
+            "p_50f74acd5fee",
+            "p_5f131c60649a",
+            "p_c948a926d3f4",
+            "p_98312464c6b8",
+            "p_c6d9c71c883c",
+            "p_2ab8b59031a9",
+            "p_c52439ba2199",
+            "p_1ba13ae883fd",
+            "p_33aa329d81bf",
+            "p_4a2e16c1ccda",
+            "p_c54cf5b480f1",
+            "p_a280b3dde338",
+            "p_ad8552589ec8",
+            "p_62358415f9a7",
+            "p_7fb140e59cc6",
+            "p_af095fc67a7c",
+            "p_23080c4a339e",
+            "p_68fc60222863",
+            "p_231f18a433d4",
+            "p_2f390443cbe0",
+            "p_5ac528b30ff5",
+            "p_235cacaf778b",
+            "p_51076b5ddc5d",
+            "p_e2738df8db3c",
+            "p_e31d96d8e549",
+            "p_a3971af1e038",
+            "p_175162cd4fee",
+            "p_eb7c293c7b45",
+            "p_c154530c9f9c",
+            "p_6006fcf146bc",
+            "p_319e5edba83e",
+            "p_606a34b41667",
+            "p_8b4a19309926",
+            "p_c63aee66173c",
+            "p_891017fa1f23",
+            "p_2a680156f39c",
+            "p_266149ffb851",
+            "p_b4b1ca0a87a5",
+            "p_272377e8413c",
+            "p_0fd544049feb",
+            "p_0dc07ca960b5",
+            "p_1a3a6657e96d",
+            "p_dc1bfd0716b0",
+            "p_1ffd52d812ad",
+            "p_203c31c89102",
+            "p_3695a5e814aa",
+            "p_d716d11e3053",
+            "p_74ddecb06413",
+            "p_75bfad622ae6",
+            "p_e31bac274183",
+            "p_9b4d2f7f64b1",
+            "p_f93e31a7e6be",
+            "p_513dabf5b701",
+            "p_08e7a2df35c0",
+            "p_ce357339c360",
+            "p_4daa2d39dbf2",
+            "p_58faee4b7f5e",
+            "p_b78dd30d6517",
+            "p_60e3af8ee9ba",
+            "p_c45f28c15062",
+            "p_0f63257aa012",
+            "p_f8d530bf62b4",
+            "p_c02cfadd1d8f",
+            "p_6cb4502302ec",
+            "p_f95d30adc76b",
+            "p_bf0bae3b3f57",
+            "p_773662fe2d99",
+            "p_11ee6f226c9c",
+            "p_bf53549c8c38",
+            "p_5b1fc26d365a",
+            "p_d5919a3dfa29",
+            "p_11f9134e8270",
+            "p_5cf3b6ca6287"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_2ab8b59031a9",
+            "p_c54cf5b480f1",
+            "p_7fb140e59cc6",
+            "p_5f131c60649a"
+          ],
+          "related_entity_ids": [
+            "p_2e64d8aa69dd",
+            "p_7874e1c8f0a2",
+            "p_887ef6a01d32",
+            "p_47c17b9e2d71",
+            "p_50f74acd5fee",
+            "p_c948a926d3f4",
+            "p_98312464c6b8",
+            "p_c6d9c71c883c",
+            "p_c52439ba2199",
+            "p_1ba13ae883fd",
+            "p_33aa329d81bf",
+            "p_4a2e16c1ccda",
+            "p_a280b3dde338",
+            "p_ad8552589ec8",
+            "p_62358415f9a7",
+            "p_af095fc67a7c"
+          ],
+          "ambient_entity_ids": [
+            "p_23080c4a339e",
+            "p_68fc60222863",
+            "p_231f18a433d4",
+            "p_2f390443cbe0",
+            "p_5ac528b30ff5",
+            "p_235cacaf778b",
+            "p_51076b5ddc5d",
+            "p_e2738df8db3c",
+            "p_e31d96d8e549",
+            "p_a3971af1e038",
+            "p_175162cd4fee",
+            "p_eb7c293c7b45",
+            "p_c154530c9f9c",
+            "p_6006fcf146bc",
+            "p_319e5edba83e",
+            "p_606a34b41667",
+            "p_8b4a19309926",
+            "p_c63aee66173c",
+            "p_891017fa1f23",
+            "p_2a680156f39c",
+            "p_266149ffb851",
+            "p_b4b1ca0a87a5",
+            "p_272377e8413c",
+            "p_0fd544049feb",
+            "p_0dc07ca960b5",
+            "p_1a3a6657e96d",
+            "p_dc1bfd0716b0",
+            "p_1ffd52d812ad",
+            "p_203c31c89102",
+            "p_3695a5e814aa",
+            "p_d716d11e3053",
+            "p_74ddecb06413",
+            "p_75bfad622ae6",
+            "p_e31bac274183",
+            "p_9b4d2f7f64b1",
+            "p_f93e31a7e6be",
+            "p_513dabf5b701",
+            "p_08e7a2df35c0",
+            "p_ce357339c360",
+            "p_4daa2d39dbf2",
+            "p_58faee4b7f5e",
+            "p_b78dd30d6517",
+            "p_60e3af8ee9ba",
+            "p_c45f28c15062",
+            "p_0f63257aa012",
+            "p_f8d530bf62b4",
+            "p_c02cfadd1d8f",
+            "p_6cb4502302ec",
+            "p_f95d30adc76b",
+            "p_bf0bae3b3f57",
+            "p_773662fe2d99",
+            "p_11ee6f226c9c",
+            "p_bf53549c8c38",
+            "p_5b1fc26d365a",
+            "p_d5919a3dfa29",
+            "p_11f9134e8270",
+            "p_5cf3b6ca6287"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_c54cf5b480f1",
+              "ring": "core",
+              "reason": "It is a 'Nabisco Classic Mix' which does not match the 'SunChips' brand identified in the scene, failing the entity identity constraint.",
+              "why_plausible": "Matches the target '40 pk.' count required after the change and is a variety pack, fitting the category of the final goal.",
+              "failure_predicates": [
+                "wrong_object_same_method",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7fb140e59cc6",
+              "ring": "core",
+              "reason": "It is a Frito-Lay mix, not SunChips, and the count (50) does not match the specific 40-count requirement, failing both brand and size constraints.",
+              "why_plausible": "Is a 'Frito Lay Variety Pack' with a large count (50 bags) that might be confused with the 40-count target during a quick scan.",
+              "failure_predicates": [
+                "wrong_object_same_method",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_5f131c60649a",
+              "ring": "core",
+              "reason": "It is a 'Harvest Cheddar Minis' canister pack (3 pack), not a 30 or 40-count multipack containing the specific orange and red bags, failing the size and content verification.",
+              "why_plausible": "Contains 'Sunchips' in the title, matching the brand, and is a multipack, satisfying the initial search intent.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_272377e8413c",
+              "ring": "ambient",
+              "reason": "Listing SunChips Mix artwork shows Harvest Cheddar and Garden Salsa bags; 30-count tier is the smaller qualifying multipack.",
+              "failure_predicates": [
+                "insufficient_public_evidence"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_0fd544049feb",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_0dc07ca960b5",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_1a3a6657e96d",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_dc1bfd0716b0",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_1ffd52d812ad",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_203c31c89102",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_3695a5e814aa",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_d716d11e3053",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_74ddecb06413",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_75bfad622ae6",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_e31bac274183",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_9b4d2f7f64b1",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_f93e31a7e6be",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_513dabf5b701",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_08e7a2df35c0",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_ce357339c360",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_4daa2d39dbf2",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_58faee4b7f5e",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_b78dd30d6517",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_60e3af8ee9ba",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_c45f28c15062",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_0f63257aa012",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_f8d530bf62b4",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_c02cfadd1d8f",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_6cb4502302ec",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_f95d30adc76b",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_bf0bae3b3f57",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_773662fe2d99",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_11ee6f226c9c",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_bf53549c8c38",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5b1fc26d365a",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_d5919a3dfa29",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_11f9134e8270",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_5cf3b6ca6287",
+              "ring": "ambient",
+              "reason": "Not a SunChips multipack containing the two shelf flavours from the frames.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity"
+            },
+            {
+              "entity_id": "p_2ab8b59031a9",
+              "ring": "core",
+              "reason": "Smaller 30-count multipack whose listing art shows both shelf flavours: correct after the first request, but the later request replaces it with the larger pack.",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "constructor_20261031c_scene_necessity",
+              "why_plausible": "Same brand and both visible flavours; it satisfies the first request."
+            }
+          ]
+        },
+        "landing_semantic_review": {
+          "status": "coding_agent_accepted",
+          "confidence": "high",
+          "review_reference": "data/sources/landing_semantic_reviews.json"
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            28.75,
+            29.0,
+            29.25,
+            29.5,
+            29.75,
+            30.0,
+            30.25,
+            30.5
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-p-44/V0_00.jpg",
+            "data/observations/candidate-mart-graft-p-44/V0_01.jpg",
+            "data/observations/candidate-mart-graft-p-44/V0_02.jpg",
+            "data/observations/candidate-mart-graft-p-44/V0_03.jpg",
+            "data/observations/candidate-mart-graft-p-44/V0_04.jpg",
+            "data/observations/candidate-mart-graft-p-44/V0_05.jpg",
+            "data/observations/candidate-mart-graft-p-44/V0_06.jpg",
+            "data/observations/candidate-mart-graft-p-44/V0_07.jpg"
+          ]
+        }
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "action_and_relative_position_required",
+        "reason": "The released wording omits flavor names and colors; only the frames establish which bag is picked and which neighboring bag is immediately to its left."
+      },
+      "repair_history": [
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary (second batch): neutralised leaking wording and/or added natural broader real search rounds",
+          "constructor": "constructor-sr2-2",
+          "necessity_review_path": ".scratch/necessity-20261031/reviews/candidate-mart-graft-p-44.json",
+          "proposal_path": ".scratch/shortcut-repair-2/proposals/candidate-mart-graft-p-44.json",
+          "previous_words": {
+            "b": "Actually replace it with the 40-count pack that still includes both flavors.",
+            "bundled": "Add the 40-count SunChips multipack that includes both the bag I pick up and the one immediately to its left."
+          },
+          "new_words": {
+            "b": "Actually replace it with the larger pack that still includes both the bag I pick up and the one immediately to its left.",
+            "bundled": "Add the SunChips multipack that includes both the bag I pick up and the one immediately to its left—the larger count, not the 30-count pack."
+          },
+          "source_text_changes_applied": [
+            "construct.task_blueprint.instructions.b",
+            "construct.task_blueprint.instructions.bundled",
+            "construct.belief_after",
+            "supported_claims[0].text"
+          ],
+          "source_text_changes_skipped": [],
+          "planned_queries": [
+            {
+              "stage": "natural_broad_sunchips_variety_20261031c",
+              "query": "SunChips variety multipack"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary (second batch, follow-up): removed residual leaking wording",
+          "why": "Brand and pack count still let text alone pick the single 40-count SunChips multipack; the shelf bags now decide brand and flavours.",
+          "previous_words": {
+            "a": "Add the 30-count SunChips multipack that includes both the bag I pick up and the one immediately to its left.",
+            "b": "Actually replace it with the larger pack that still includes both the bag I pick up and the one immediately to its left.",
+            "bundled": "Add the SunChips multipack that includes both the bag I pick up and the one immediately to its left—the larger count, not the 30-count pack."
+          },
+          "new_words": {
+            "a": "Add the smaller multipack that includes both the bag I pick up and the one immediately to its left.",
+            "b": "Actually replace it with the larger pack that still includes both the bag I pick up and the one immediately to its left.",
+            "bundled": "Add the larger multipack that includes both the bag I pick up and the one immediately to its left."
+          }
+        },
+        {
+          "date": "2026-10-31",
+          "repair": "scene_not_necessary (second batch): judged new results of natural broader real search rounds and/or neutralised leaking wording",
+          "constructor": "constructor-judge-b4",
+          "decision_path": ".scratch/shortcut-repair-2/decisions/candidate-mart-graft-p-44.json",
+          "necessity_review_path": ".scratch/necessity-20261031/reviews/candidate-mart-graft-p-44.json",
+          "new_query_rounds": [
+            {
+              "stage": "natural_broad_sunchips_variety_20261031c",
+              "query": "SunChips variety multipack"
+            }
+          ],
+          "accepted_new": 1,
+          "rejected_new": 34,
+          "changed_existing": 1,
+          "residual_shortcut_check": {
+            "text_only_query": "SunChips variety multipack",
+            "text_only_accept_fraction_estimate": "Without frames, text search cannot require Harvest Cheddar plus Garden Salsa or smaller-vs-larger (~0% reliable role pick); with scene flavours, qualifying counts order as 30 (smaller) then 40 (larger).",
+            "scene_decides": true,
+            "remaining_issue": "Speech no longer states brand or counts; agent must read orange Harvest Cheddar and red Garden Salsa on shelf and match listing art/bullets—only four window SKUs qualify (three at 30, one at 40).",
+            "proposed_fix": "None if checker enforces dual-flavour public evidence; optional tighten search window to drop non-qualifying SunChips singles."
+          },
+          "addressed_review": [
+            "画面必要性审核（2026-10-31 第二批）：独立无画面复核认定仅凭文字即可选中答案；已改写措辞和/或补充更宽的真实搜索，待构造者裁决新结果并复核。依据 .scratch/necessity-20261031/reviews/candidate-mart-graft-p-44.json"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          28.75,
+          94.5
+        ],
+        "update_onset_seconds": 36.75,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-p-44/review.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{% extends "review/base.html" %}
+{% block title %}更新次数对照 · 变化部分审核{% endblock %}
+{% block content %}
+<section class="hero">
+  <div><p class="eyebrow">独立实验 · 只读核查</p><h1>更新次数对照</h1>
+  <p>同题多一次与少一次改口。原93题及成绩不变；画面、澄清和最终答案继承原题，只查新增或合并的要求。</p></div>
+  <div class="progress-number"><strong>{{ summary.tasks }}</strong><span> 对纳入</span><small>待付费试跑与轨迹核查</small></div>
+</section>
+<section class="stats update-count-stats">
+{% for status, label in status_labels.items() %}<div><strong>{{ summary.status_counts[status] }}</strong><span>{{ label }}</span></div>{% endfor %}
+</section>
+{% for case in cases %}
+<section class="panel update-count-case" id="{{ case.pair_id }}">
+  <h2>{{ case.pair_id }} · {{ '合并' if case.direction == 'merge' else '插入' }}</h2>
+  {% if not case.included %}<p class="notice">移出：{{ case.exclusion_reason }}</p>{% else %}
+  <p>{{ status_labels[case.lifecycle.status] }} · {{ '待授权开发试跑与轨迹核查' if case.lifecycle.next_action == 'run_development_trial' else case.lifecycle.reason }}</p>
+  {% endif %}
+  <details><summary>查看两版请求和审核</summary>
+    <h3>开场不变</h3><p>{{ case.opening }}</p>
+    <div class="table-wrap"><table class="event-table"><thead><tr><th>版本</th><th>源时间</th><th>事件</th></tr></thead><tbody>
+    {% for label, events in [('原题', case.original_events), ('变体', case.variant_events)] %}
+    {% for event in events %}<tr><td>{{ label }}</td><td>{{ event.onset_seconds }} s</td><td>{{ event.request if event.request else '画面更新（不变）' }}</td></tr>{% endfor %}
+    {% endfor %}</tbody></table></div>
+    <p>最终 {{ case.final_state_count }} 个合法终态均继承。来源：<code>{{ case.source_task_path }}</code></p>
+    {% if case.exclusion_witness %}<h3>中间改口的作用</h3><p>{{ case.exclusion_witness.prior_legality_evidence }}</p>
+    <p>排除状态：<code>{{ case.exclusion_witness.excluded_state }}</code></p><p>仍合法状态：<code>{{ case.exclusion_witness.retained_state }}</code></p>{% endif %}
+    {% if case.review.evidence %}<h3>变化部分评语</h3>
+    <p>{{ case.review.evidence.naturalness }}</p><p>{{ case.review.evidence.answers }}</p><p>审核者：{{ case.review.reviewer }}</p>
+    {% else %}<p>尚无通过的变化部分审核。</p>{% endif %}
+  </details>
+</section>
+{% endfor %}
+{% endblock %}

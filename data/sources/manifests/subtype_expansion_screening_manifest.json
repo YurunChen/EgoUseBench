@@ -1,0 +1,3089 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Local research access follows the Ego2Web dataset terms; this manifest records derived evidence but does not assume that source videos may be redistributed."
+  },
+  "tasks": [
+    {
+      "task_id": "seed-mart-graft-c-01",
+      "status": "needs_curve",
+      "family": "graft",
+      "subtype": "C",
+      "source": {
+        "record_ids": [
+          309,
+          310
+        ],
+        "media_id": "2341bb0a-92b7-488b-b0e1-364e2d4080cc",
+        "media_sha256": "b9f92d8543c0881eb6ad6cef16da7b9f52270ce228db4ab753bf893c59f78332",
+        "original_annotations": [
+          "On wikipedia.org, open the article for the exact tabletop game being played in the video and report how many pieces are in a standard retail set. Also state the name of the section where this count appears.",
+          "On amazon.com, find a product page for the same game set as in the video in its regular size (not miniature or oversized). It must be Prime-eligible and have an average rating of at least 4 stars. Provide the current price and the total number of customer ratings."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            5,
+            5.714286,
+            6.428571,
+            7.142857,
+            7.857143,
+            8.571429,
+            9.285714,
+            10
+          ],
+          "frame_paths": [
+            "data/observations/seed-mart-graft-c-01/V0_00.jpg",
+            "data/observations/seed-mart-graft-c-01/V0_01.jpg",
+            "data/observations/seed-mart-graft-c-01/V0_02.jpg",
+            "data/observations/seed-mart-graft-c-01/V0_03.jpg",
+            "data/observations/seed-mart-graft-c-01/V0_04.jpg",
+            "data/observations/seed-mart-graft-c-01/V0_05.jpg",
+            "data/observations/seed-mart-graft-c-01/V0_06.jpg",
+            "data/observations/seed-mart-graft-c-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The ordered packet clearly shows one wooden block-stacking game being played at a table, supporting the shared game referent without exposing any website rating information.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomart",
+          "instructions": {
+            "a": "Find the classic wooden stacking-block game I'm playing and add one to the cart.",
+            "b": "Pick the game with the smaller product dimensions.",
+            "bundled": "Find the classic wooden stacking-block game I'm playing and add the one with smaller dimensions to the cart."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_generic_plain_pine_tumbling_tower_30_pie"
+            ],
+            [
+              "initial_1_game_gallery_jumbling_tower_board_game"
+            ],
+            [
+              "initial_2_official_hasbro_jenga_game_with_more_way"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_2_official_hasbro_jenga_game_with_more_way"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "initial_0_generic_plain_pine_tumbling_tower_30_pie": "p_59fd97c8782a",
+            "initial_1_game_gallery_jumbling_tower_board_game": "p_69bba3dbed0b",
+            "initial_2_official_hasbro_jenga_game_with_more_way": "p_a96c83213705",
+            "auto_neighbor_1": "p_3eeb0beb88f2",
+            "auto_neighbor_2": "p_844649a43c99",
+            "auto_neighbor_3": "p_c8f7ea21444d",
+            "auto_neighbor_4": "p_0266eab35b7d",
+            "auto_neighbor_5": "p_0ad11aecc808",
+            "auto_neighbor_6": "p_0f1079baeff1"
+          }
+        },
+        "release_anchor_seconds": 8.571429,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "rejection_reason": null,
+      "rejection_code": null,
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "visual_not_necessary",
+        "reason": "One image grounds the block-stacking game and B only adds website attributes, so the same commitment does not require an unfolding glasses session."
+      },
+      "curve_note": "v3 screening only. The candidate survival curve this task claims has not been read off its frames, so it cannot compile. Establishing the curve returns it to video_screened without rescreening the clip."
+    },
+    {
+      "task_id": "seed-graft-c-trimmer-01",
+      "status": "rejected",
+      "family": "graft",
+      "subtype": "C",
+      "source": {
+        "record_ids": [
+          484,
+          485
+        ],
+        "media_id": "23cd32eb-5e7c-4e4f-b2bc-3fae85254044",
+        "media_sha256": "128a6b2286d1a4709f0c3bff5e08782dfac9f8f24de5b8927c7741d4548e683d",
+        "original_annotations": [
+          "On YouTube, find and open a step-by-step tutorial that shows how to reload the cutting line on the exact grass trimmer head shown in the video.",
+          "On ebay, locate and open a product page for a replacement pre-wound spool or complete trimmer head that matches the exact head used in the video."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            20,
+            21.428571,
+            22.857143,
+            24.285714,
+            25.714286,
+            27.142857,
+            28.571429,
+            30
+          ],
+          "frame_paths": [
+            "data/observations/seed-graft-c-trimmer-01/V0_00.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_01.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_02.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_03.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_04.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_05.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_06.jpg",
+            "data/observations/seed-graft-c-trimmer-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "All eight frames show the wearer opening and handling the same grass-trimmer head, supporting the grass-trimmer-head category but not a manufacturer or model.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": null,
+      "rejection_reason": "A single image of the trimmer head plus the complete install-and-reload request leads to the same tutorial choice and web action; delaying the second requirement changes only delivery time, not the Glass-Use decision.",
+      "rejection_code": "counterfactual_check_failed",
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "seed-mart-clarify-sequence-01",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          33,
+          34,
+          35
+        ],
+        "media_id": "de1d557a-e7c4-41fb-80a2-508354548c3d",
+        "media_sha256": "ce73e406fd7baaa8f38a27f1b05fff0c534eb4180d37e0ce18b253847ae40d06",
+        "original_annotations": [
+          "On Amazon, find the product listing that matches the second poster shown in the video.",
+          "Using Wikipedia, identify who created the second poster shown in the video.",
+          "On Quora, find a discussion about whether the second poster shown in the video is from WWI or WWII."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              85,
+              89.5
+            ],
+            "role": "first_candidate",
+            "description": "The wearer looks closely at the solar-system poster on the wall (sun and planet row filling the view)."
+          },
+          {
+            "interval_seconds": [
+              93,
+              94.5
+            ],
+            "role": "second_candidate",
+            "description": "The wearer turns to the framed Uncle Sam poster and looks at it close up."
+          },
+          {
+            "interval_seconds": [
+              95,
+              96.5
+            ],
+            "role": "both_in_view",
+            "description": "Turning back, the solar-system poster is visible on the far wall and the Uncle Sam poster at the left edge (96-96.5s)."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            88,
+            88.5,
+            89,
+            93.5,
+            94,
+            94.5,
+            95,
+            95.5
+          ],
+          "frame_paths": [
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_00.jpg",
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_01.jpg",
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_02.jpg",
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_03.jpg",
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_04.jpg",
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_05.jpg",
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_06.jpg",
+            "data/observations/seed-mart-clarify-sequence-01/stream-20261103/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "Within one 8 s batch the wearer looks at the solar-system poster first and the framed Uncle Sam poster second.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent detect that a request referring only to one of two successively examined posters is underdetermined and ask which ordinal position is intended?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either the solar-system poster or the Uncle Sam poster can satisfy the unqualified request.",
+        "belief_after": "The answer 'the second poster' uniquely selects the Uncle Sam poster.",
+        "required_behavior_change": "Ask before committing to a poster, then select the second poster after the answer.",
+        "no_update_failure": "The Agent guesses a poster before asking or selects the first poster after the answer.",
+        "overupdate_failure": "The Agent asks in the oracle arm even though the ordinal is already supplied.",
+        "visual_dependency_claim": "The packet supplies the two poster appearances and their temporal order; text alone does not identify either poster.",
+        "task_blueprint": {
+          "ambiguous_instruction": "Find the poster design I looked at in the room and add one matching paper poster print to the cart.",
+          "oracle_instruction": "Find the second poster design I looked at in the room and add one matching paper poster print to the cart.",
+          "candidate_roles": [
+            "solar_system_single_poster_print",
+            "uncle_sam_single_poster_print"
+          ],
+          "hidden_target_role": "uncle_sam_single_poster_print",
+          "valid_slot": "sequence",
+          "canonical_question": "Do you mean the first poster you just looked at or the second one?",
+          "canonical_answer": "I mean the second poster.",
+          "completion_claim": "The submitted cart contains exactly one print matching the second, Uncle Sam poster and no extra products.",
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "solar_system_single_poster_print": "p_0b9e3764d1bd",
+            "uncle_sam_single_poster_print": "p_c6c46cb9762a"
+          },
+          "equivalent_role_ids": {
+            "uncle_sam_single_poster_print": [
+              "p_1f8534c48975",
+              "p_564da33d7284",
+              "p_5f3f97585ff1",
+              "p_951613a7e744",
+              "p_9517a82ff208",
+              "p_b60117d1cc2c",
+              "p_bb36d26cbc92",
+              "p_d084b7229f5f",
+              "p_d51a89a0d33c",
+              "p_e3b871c8be5a",
+              "p_e46c922106ce",
+              "p_f023c69b5d0f",
+              "p_800bdb214daa",
+              "p_a8263231661d"
+            ]
+          },
+          "site": "egomart"
+        },
+        "decision": {
+          "candidates": {
+            "solar_system_single_poster_print": "p_0b9e3764d1bd",
+            "uncle_sam_single_poster_print": "p_c6c46cb9762a"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "solar_system_single_poster_print",
+                "uncle_sam_single_poster_print"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "solar_system_single_poster_print",
+                "uncle_sam_single_poster_print"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "uncle_sam_single_poster_print"
+              ],
+              "narrowed_by": "action_order",
+              "why": "Both posters were just looked at in the opening batch, solar system first and Uncle Sam second; 'the second poster' picks Uncle Sam."
+            }
+          ],
+          "established_by": "cursor-subagent claude-opus (sequence-clarify repairs, 2026-11-03)",
+          "established_at": "2026-11-03",
+          "note": "Rebuilt for immediate ambiguity (fixed-step-replay-immediate-ambiguity-20261103); evidence in the repair proposal.",
+          "recording": "key_events"
+        },
+        "decision_point_provenance": "authored_curve_20260823",
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "solar system poster print",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/seed-mart-clarify-sequence-01.json",
+              "result_entity_ids": [
+                "p_f3988e5428d2",
+                "p_8c128815082d",
+                "p_7c941638af48",
+                "p_eaa2ab06d690",
+                "p_668166ad4278",
+                "p_f3f3e9e4527d",
+                "p_752117c8cc58",
+                "p_88e0eece962b",
+                "p_167307ce7282",
+                "p_8a7d76c2d5e1",
+                "p_c5969e9f7d99",
+                "p_17c1d94d7087",
+                "p_1fd5a4f2f5c1",
+                "p_263de9474905",
+                "p_eb74453aef7b",
+                "p_745ddf7b417d",
+                "p_84d63e50db2e",
+                "p_65caa49ce7c4",
+                "p_53339356bb4f",
+                "p_4476e24f44ce",
+                "p_fbba60c8cc7b",
+                "p_44fde74fd0e6",
+                "p_48fd06470856",
+                "p_d60d56f5c2f8",
+                "p_0141681292d8",
+                "p_7b87986c838c",
+                "p_863e2d06e1e2",
+                "p_1e5558efc979",
+                "p_b2afc31cdf64",
+                "p_238448c3b7ed",
+                "p_974d633bba00",
+                "p_658e7b16a9d0",
+                "p_9186e46c5833",
+                "p_76ee517d3864",
+                "p_d4cdd1b35bf9",
+                "p_6e19cdd8e175",
+                "p_00a82dc55c13",
+                "p_a3cfe0ec3e0f",
+                "p_6c359450cae0",
+                "p_068c829810c1",
+                "p_017e8c989e47",
+                "p_02921b263ea1",
+                "p_79eae0187772",
+                "p_689636f7f4a9",
+                "p_0b9e3764d1bd",
+                "p_cdb7e09e4828",
+                "p_0a663c56d598",
+                "p_24b34c87e4bd"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "Uncle Sam I Want You poster print",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/seed-mart-clarify-sequence-01.json",
+              "result_entity_ids": [
+                "p_c6c46cb9762a",
+                "p_800bdb214daa",
+                "p_0b4181da34d2",
+                "p_c6b73c406ee2",
+                "p_93c4b73e7019",
+                "p_564da33d7284",
+                "p_edec38ca7c31",
+                "p_7218a1a6f13b",
+                "p_9517a82ff208",
+                "p_1f8534c48975",
+                "p_28dcc10eee0b",
+                "p_a38338fc2980",
+                "p_da0d3772969b",
+                "p_e46c922106ce",
+                "p_b070d74aeb5c",
+                "p_107d9a72fab6",
+                "p_b60117d1cc2c",
+                "p_5f3f97585ff1",
+                "p_d51a89a0d33c",
+                "p_e3b871c8be5a",
+                "p_f023c69b5d0f",
+                "p_a8263231661d",
+                "p_494dc8da55bf",
+                "p_014e4e9f7611",
+                "p_bb36d26cbc92",
+                "p_25043c525af4",
+                "p_951613a7e744",
+                "p_d084b7229f5f",
+                "p_a0379ddfe72d",
+                "p_c72aa016a2a5",
+                "p_7c322e4f3509",
+                "p_91991a30590c",
+                "p_a36723caed30",
+                "p_eaa8b6824c84",
+                "p_fed2f6a37541",
+                "p_6aa9e76011cf",
+                "p_abc07a5c570a",
+                "p_11230968ddbb",
+                "p_37949ce8f6cd",
+                "p_5562c36c8ded",
+                "p_8b3d1c02663f",
+                "p_55d04c3b6a96",
+                "p_dca70315327b",
+                "p_5e981818b9b9",
+                "p_29123ea5ca52",
+                "p_44a96191703a",
+                "p_3287f8cba951"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_f3988e5428d2",
+            "p_8c128815082d",
+            "p_7c941638af48",
+            "p_eaa2ab06d690",
+            "p_668166ad4278",
+            "p_f3f3e9e4527d",
+            "p_752117c8cc58",
+            "p_88e0eece962b",
+            "p_167307ce7282",
+            "p_8a7d76c2d5e1",
+            "p_c5969e9f7d99",
+            "p_17c1d94d7087",
+            "p_1fd5a4f2f5c1",
+            "p_263de9474905",
+            "p_eb74453aef7b",
+            "p_745ddf7b417d",
+            "p_84d63e50db2e",
+            "p_65caa49ce7c4",
+            "p_53339356bb4f",
+            "p_4476e24f44ce",
+            "p_fbba60c8cc7b",
+            "p_44fde74fd0e6",
+            "p_48fd06470856",
+            "p_d60d56f5c2f8",
+            "p_0141681292d8",
+            "p_7b87986c838c",
+            "p_863e2d06e1e2",
+            "p_1e5558efc979",
+            "p_b2afc31cdf64",
+            "p_238448c3b7ed",
+            "p_974d633bba00",
+            "p_658e7b16a9d0",
+            "p_9186e46c5833",
+            "p_76ee517d3864",
+            "p_d4cdd1b35bf9",
+            "p_6e19cdd8e175",
+            "p_00a82dc55c13",
+            "p_a3cfe0ec3e0f",
+            "p_6c359450cae0",
+            "p_068c829810c1",
+            "p_017e8c989e47",
+            "p_02921b263ea1",
+            "p_79eae0187772",
+            "p_689636f7f4a9",
+            "p_0b9e3764d1bd",
+            "p_cdb7e09e4828",
+            "p_0a663c56d598",
+            "p_24b34c87e4bd",
+            "p_c6c46cb9762a",
+            "p_800bdb214daa",
+            "p_0b4181da34d2",
+            "p_c6b73c406ee2",
+            "p_93c4b73e7019",
+            "p_564da33d7284",
+            "p_edec38ca7c31",
+            "p_7218a1a6f13b",
+            "p_9517a82ff208",
+            "p_1f8534c48975",
+            "p_28dcc10eee0b",
+            "p_a38338fc2980",
+            "p_da0d3772969b",
+            "p_e46c922106ce",
+            "p_b070d74aeb5c",
+            "p_107d9a72fab6",
+            "p_b60117d1cc2c",
+            "p_5f3f97585ff1",
+            "p_d51a89a0d33c",
+            "p_e3b871c8be5a",
+            "p_f023c69b5d0f",
+            "p_a8263231661d",
+            "p_494dc8da55bf",
+            "p_014e4e9f7611",
+            "p_bb36d26cbc92",
+            "p_25043c525af4",
+            "p_951613a7e744",
+            "p_d084b7229f5f",
+            "p_a0379ddfe72d",
+            "p_c72aa016a2a5",
+            "p_7c322e4f3509",
+            "p_91991a30590c",
+            "p_a36723caed30",
+            "p_eaa8b6824c84",
+            "p_fed2f6a37541",
+            "p_6aa9e76011cf",
+            "p_abc07a5c570a",
+            "p_11230968ddbb",
+            "p_37949ce8f6cd",
+            "p_5562c36c8ded",
+            "p_8b3d1c02663f",
+            "p_55d04c3b6a96",
+            "p_dca70315327b",
+            "p_5e981818b9b9",
+            "p_29123ea5ca52",
+            "p_44a96191703a",
+            "p_3287f8cba951"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_0b9e3764d1bd",
+            "p_8c128815082d",
+            "p_48fd06470856",
+            "p_014e4e9f7611"
+          ],
+          "related_entity_ids": [
+            "p_f3988e5428d2",
+            "p_7c941638af48",
+            "p_eaa2ab06d690",
+            "p_668166ad4278",
+            "p_f3f3e9e4527d",
+            "p_752117c8cc58",
+            "p_88e0eece962b",
+            "p_167307ce7282",
+            "p_8a7d76c2d5e1",
+            "p_c5969e9f7d99",
+            "p_17c1d94d7087",
+            "p_1fd5a4f2f5c1",
+            "p_263de9474905",
+            "p_eb74453aef7b",
+            "p_745ddf7b417d",
+            "p_84d63e50db2e",
+            "p_65caa49ce7c4",
+            "p_53339356bb4f",
+            "p_4476e24f44ce",
+            "p_fbba60c8cc7b",
+            "p_44fde74fd0e6",
+            "p_d60d56f5c2f8",
+            "p_0141681292d8",
+            "p_7b87986c838c",
+            "p_863e2d06e1e2",
+            "p_1e5558efc979",
+            "p_b2afc31cdf64",
+            "p_238448c3b7ed",
+            "p_974d633bba00",
+            "p_658e7b16a9d0",
+            "p_9186e46c5833",
+            "p_76ee517d3864",
+            "p_d4cdd1b35bf9",
+            "p_6e19cdd8e175",
+            "p_00a82dc55c13",
+            "p_a3cfe0ec3e0f",
+            "p_6c359450cae0",
+            "p_068c829810c1",
+            "p_017e8c989e47",
+            "p_02921b263ea1",
+            "p_79eae0187772",
+            "p_689636f7f4a9",
+            "p_cdb7e09e4828",
+            "p_0a663c56d598",
+            "p_24b34c87e4bd",
+            "p_0b4181da34d2",
+            "p_c6b73c406ee2",
+            "p_93c4b73e7019",
+            "p_edec38ca7c31",
+            "p_7218a1a6f13b",
+            "p_28dcc10eee0b",
+            "p_a38338fc2980",
+            "p_da0d3772969b",
+            "p_b070d74aeb5c",
+            "p_107d9a72fab6",
+            "p_494dc8da55bf",
+            "p_25043c525af4",
+            "p_a0379ddfe72d",
+            "p_7c322e4f3509",
+            "p_a36723caed30"
+          ],
+          "ambient_entity_ids": [
+            "p_c72aa016a2a5",
+            "p_91991a30590c",
+            "p_eaa8b6824c84",
+            "p_fed2f6a37541",
+            "p_6aa9e76011cf",
+            "p_abc07a5c570a",
+            "p_11230968ddbb",
+            "p_37949ce8f6cd",
+            "p_5562c36c8ded",
+            "p_8b3d1c02663f",
+            "p_55d04c3b6a96",
+            "p_dca70315327b",
+            "p_5e981818b9b9",
+            "p_29123ea5ca52",
+            "p_44a96191703a",
+            "p_3287f8cba951"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_f3988e5428d2",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8c128815082d",
+              "ring": "core",
+              "why_plausible": "The public title or image uses the Uncle Sam I Want You design.",
+              "reason": "Public title 'windfirestore Solar System Space Print Poster Outer Planets Painting Kids Astronomical Education Wall Art Decor 40X78Cm (Canvas With Frame)' is a metal/tin sign, not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7c941638af48",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_eaa2ab06d690",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_668166ad4278",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_f3f3e9e4527d",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_752117c8cc58",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_88e0eece962b",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_167307ce7282",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8a7d76c2d5e1",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_c5969e9f7d99",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_17c1d94d7087",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_1fd5a4f2f5c1",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_263de9474905",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_eb74453aef7b",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_745ddf7b417d",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_84d63e50db2e",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_65caa49ce7c4",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_53339356bb4f",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_4476e24f44ce",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_fbba60c8cc7b",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_44fde74fd0e6",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_48fd06470856",
+              "ring": "core",
+              "why_plausible": "The listing includes the Uncle Sam I Want You design.",
+              "reason": "Public title 'Sproutbrite 12 Pack 12\"x16\" Educational Science Posters Solar System Charts | Classroom Banners - Bulletin Board, Wall Decor & Space Poster for Preschool, Elementary & Middle School Themes' is a multi-print set, not one matching paper poster.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_d60d56f5c2f8",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0141681292d8",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7b87986c838c",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_863e2d06e1e2",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_1e5558efc979",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_b2afc31cdf64",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_238448c3b7ed",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_974d633bba00",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_658e7b16a9d0",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_9186e46c5833",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_76ee517d3864",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_d4cdd1b35bf9",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_6e19cdd8e175",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_00a82dc55c13",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_a3cfe0ec3e0f",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_6c359450cae0",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_068c829810c1",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_017e8c989e47",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_02921b263ea1",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_79eae0187772",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_689636f7f4a9",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0b9e3764d1bd",
+              "ring": "core",
+              "why_plausible": "Released frames show this solar-system poster as the first design examined.",
+              "reason": "The clarification selects the second poster. Choosing this keeps the pre-answer candidate.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_cdb7e09e4828",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0a663c56d598",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_24b34c87e4bd",
+              "ring": "related",
+              "why_plausible": "It is a solar-system educational poster in the before-change window.",
+              "reason": "The clarification selects the second, Uncle Sam poster.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0b4181da34d2",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'Desperate Enterprises Uncle Sam I Want You for U.S. Army Tin Sign - Nostalgic Vintage Metal Wall Decor - Made in USA' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_c6b73c406ee2",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'artprints1stop Canvas Print Wall Art - Vintage World War I Poster Uncle Sam I Want You for U.S. Army - 12x18 inches' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_93c4b73e7019",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'artprints1stop Canvas Print Wall Art - Vintage World War I Poster Uncle Sam I Want You for U.S. Army - 16x24 inches' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_edec38ca7c31",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'Vintage Uncle Sam Poster I Want You to Stay Inside Metal Sign Home Wall Tin Sign 30x20cm Decoration' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7218a1a6f13b",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'Tin Sign : Uncle Sam I Want You, Art Poster, 13x16' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_28dcc10eee0b",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'Vintage Framed Uncle Sam I Want You Wall Art Canvas Print Oil Paintings Reproduction World Classics Retro Artwork Poster Painting Art Print Wall Decor Trendy Decoration for Office Bar Apartment (Retro' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_a38338fc2980",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'artprints1stop Canvas Print Wall Art - Vintage World War I Poster Uncle Sam I Want You for U.S. Army - 32x48 inches' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_da0d3772969b",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'Uncle Sam I Want You US Army tin sign Vintage Patriotic Military Metal Sign Print Aesthetic for Garden Yard Bar Porch Home Bedroom Kitchen Wall Decor Decor Gift 8 x 12 inch' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_b070d74aeb5c",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'I Want You for U.S. Army Uncle Sam Metal Sign, Chic Vintage Tin Signs, Retro Rusty Traces Poster, Classic Designs, Stylish Funny, Decor Art Gifts 8 x 12 Inches' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_107d9a72fab6",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title '3dRose pc_162302_1 Uncle Sam I Want You Vintage Poster-Pillow Case, 16 by 16\"' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_494dc8da55bf",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'Canvas Print Wall Art - Vintage World War I Poster Uncle Sam I Want You for U.S. Army - 24x36 inches' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_014e4e9f7611",
+              "ring": "core",
+              "why_plausible": "Paper Uncle Sam print in the frozen window; the figure and layout differ from the released second poster.",
+              "reason": "Public image sites/egomart/static/products/upstream/p_014e4e9f7611.jpg is a Navy enlistment layout (NAVY! header, no red/navy double border, different face and hat), not the Flagg pointing Uncle Sam with star hat, red bow tie and red-outer/navy-inner border on the second poster. Title names a Poster Print, so material is not the defect.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_25043c525af4",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public image sites/egomart/static/products/upstream/p_25043c525af4.jpg adds a Franklin Roosevelt portrait and I WANT YOU F.D.R. / STAY AND FINISH THE JOB layout, not the single Flagg pointing figure with red/navy border. Title names a Poster Print, so material is not the defect.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a0379ddfe72d",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'I Want You for U.S Army - Uncle Sam - World War I - Vintage War Poster by James Montgomery Flagg c.1917 - Fine Art Rolled Canvas Print 16in x 20in' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_c72aa016a2a5",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'I Want To Believe TV Poster 12x18' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7c322e4f3509",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'Kexle Tin Sign Stripes Movie Poster I Want You Bill Murray Reproduction Metal Sign 8 x 12' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_91991a30590c",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'Generic: Facelift 12 x 18 inch Poster, Unframed, Landscape, Matte Finish, Grunge Style, Living Room Decor' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_a36723caed30",
+              "ring": "related",
+              "why_plausible": "It is Uncle Sam wall art in the frozen window.",
+              "reason": "Public title 'ERLOOD I Want You for U.S. Retro Vintage Decor Metal Tin Sign 12 X8 Inches' is not a paper poster print.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_eaa8b6824c84",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'Ways to Say I Love You Poster Vintage 70s Art Love Canvas Wall Art Trendy Minimalist Red Romance Prints Painting for Living Room Home Wall Decor 12x16in Unframed' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_fed2f6a37541",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'AAtkinPosters Rapper Singer Matte Finish Reprint Poster (Size: 12 x 18 Inch) (300 GSM) (Unframed) - Y998' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_6aa9e76011cf",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'AAtkinPosters Movies Matte Finish Reprint Poster (Size: 12 x 18 Inch) (300 GSM) (Unframed) - 4337' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_abc07a5c570a",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'Retro Black And White Newspaper Poster What If It All Works Out Canvas Wall Art Positive Affirming Quote Minimalist Prints Painting For Home Bedroom Dorm Wall Decor 12x16in Unframed' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_11230968ddbb",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'PosterNest Rock Band Poster Matte Finish Paper Print 12 x18 Inch (Multicolor) -4490' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_37949ce8f6cd",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'AAtkinPosters Movies Matte Finish Reprint Poster (Size: 12 x 18 Inch) (300 GSM) (Unframed) - N012' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_5562c36c8ded",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'PosterNest Rock Band Poster Matte Finish Paper Print 12 x18 Inch (Multicolor) -4528' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8b3d1c02663f",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'Season 1 - TV Poster (24 x 36 inches).' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_55d04c3b6a96",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'PosterNest Music Band Poster Matte Finish Paper Print 12 x18 Inch (Multicolor) -2391' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_dca70315327b",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'PosterNest Rock Band Poster Matte Finish Paper Print 12 x18 Inch (Multicolor) -5225' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_5e981818b9b9",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'AAtkinPosters Music Band Matte Finish Reprint Poster (Size: 12 x 18 Inch) (300 GSM) (Unframed) - C010' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_29123ea5ca52",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'AAtkinPosters Movies Matte Finish Reprint Poster (Size: 12 x 18 Inch) (300 GSM) (Unframed) - 405' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_44a96191703a",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'AAtkinPosters Anime Matte Finish Reprint Poster (Size: 12 x 18 Inch) (300 GSM) (Unframed) - A511' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_3287f8cba951",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen poster-print window.",
+              "reason": "Public title 'AAtkinPosters TV Series Matte Finish Reprint Poster (Size: 12 x 18 Inch) (300 GSM) (Unframed) - A553' is a different design from either released poster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "/root/current_b_repairs_review_1018",
+            "review_reference": "artifacts/reports/coding-agent-task-assessments.json::seed-mart-clarify-sequence-01::adversarial_falsification",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        }
+      },
+      "rejection_reason": null,
+      "rejection_code": null,
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-18",
+          "repairer": "/root",
+          "repair_kind": "native_public_evidence_answer_omission",
+          "added_entity_id": "p_800bdb214daa",
+          "affected_role": "uncle_sam_single_poster_print",
+          "evidence": "Native image already establishes the target Uncle Sam print within this listing. The current user did not forbid a multipack; a second print packaged in the same listing is not an extra selected website entity.",
+          "preserved": "Public inputs, windows, old assessments and runs. No claim that this answer expansion proves no-scene necessity."
+        },
+        {
+          "date": "2026-10-18",
+          "repairer": {
+            "agent_id": "/root/current_b_repairs_review_1018",
+            "context_id": "/root/current_b_repairs_review_1018:scoped-non-graft-followups-20261018"
+          },
+          "repair_kind": "scoped_question_resolution",
+          "review_reference": "artifacts/reports/coding-agent-task-assessments.json::seed-mart-clarify-sequence-01",
+          "source_question_reference": ".scratch/low-confidence-reasons-20261018/scoped-non-graft-followups.json::seed-mart-clarify-sequence-01",
+          "scope": "Retain original scene reviews and candidate-matrix unknowns. Only current deciding questions block the task."
+        },
+        {
+          "repair_id": "fixed-step-replay-immediate-ambiguity-20261103",
+          "date": "2026-11-03",
+          "reason": "Fixed-step replay speaks the first request with the first batch; V0 moves so the request is true and every candidate or change is reachable from the session start.",
+          "review_reference": ".scratch/stream-materials/repairs/seed-mart-clarify-sequence-01/proposal.json",
+          "previous_packets": [
+            {
+              "id": "V0",
+              "timestamps_seconds": [
+                85,
+                86.5,
+                88,
+                89.5,
+                93.5,
+                94,
+                94.5,
+                99.5
+              ],
+              "frame_paths": [
+                "data/observations/seed-mart-clarify-sequence-01/V0_00.jpg",
+                "data/observations/seed-mart-clarify-sequence-01/V0_01.jpg",
+                "data/observations/seed-mart-clarify-sequence-01/V0_02.jpg",
+                "data/observations/seed-mart-clarify-sequence-01/V0_03.jpg",
+                "data/observations/seed-mart-clarify-sequence-01/V0_04.jpg",
+                "data/observations/seed-mart-clarify-sequence-01/V0_05.jpg",
+                "data/observations/seed-mart-clarify-sequence-01/V0_06.jpg",
+                "data/observations/seed-mart-clarify-sequence-01/V0_07.jpg"
+              ]
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "The continuous packet shows two temporally ordered poster candidates: a solar-system poster first and an Uncle Sam poster second.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            }
+          ],
+          "previous_observed_events": null,
+          "previous_decision": {
+            "candidates": {
+              "solar_system_single_poster_print": "p_0b9e3764d1bd",
+              "uncle_sam_single_poster_print": "p_c6c46cb9762a"
+            },
+            "observed": [
+              {
+                "frame": "V0:0",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "V0:1",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "V0:2",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "V0:3",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "V0:4",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "V0:5",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "V0:6",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "V0:7",
+                "live": [
+                  "solar_system_single_poster_print",
+                  "uncle_sam_single_poster_print"
+                ]
+              },
+              {
+                "frame": "utterance",
+                "live": [
+                  "uncle_sam_single_poster_print"
+                ],
+                "narrowed_by": "action_order",
+                "why": "用户说「第二张」。V0:0–V0:3 看的是太阳系海报，V0:4–V0:7 看的是 Uncle Sam；「第二张」脱离佩戴者这段观看顺序就没有指代。"
+              }
+            ],
+            "established_by": "claude-opus-5",
+            "established_at": "2026-08-23",
+            "note": "两张海报都在同一段会话里被看过，帧本身分不出用户指哪张 —— 这正是 Clarify。"
+          },
+          "previous_canonical_question": "Do you mean the first poster I examined or the second one?",
+          "previous_stream": null
+        },
+        {
+          "repair_id": "uncle-sam-slogan-not-legible-20261103",
+          "date": "2026-11-03",
+          "repair_kind": "answer_boundary_undistinguished_variant",
+          "added_entity_id": "p_a8263231661d",
+          "affected_role": "uncle_sam_single_poster_print",
+          "evidence": "No V0 frame and no 1 fps frame in session [88, 159.5] makes a slogan below I WAN legible. Dense 0.05 s source frames at 93.10-93.40 s do show a smaller second line consistent with FOR U.S. ARMY, but those instants are not streamed (93.0 is motion blur; 94.0 crops below the bow tie). p_a8263231661d is a paper Wall Art Print of the same Flagg pointing figure and red/navy border as the second poster and as accepted p_c6c46cb9762a.",
+          "preserved": "Paper vs canvas/tin/pillow; Navy and FDR remain rejected for different figures/layouts. Scene order, solar distractor, authored wording, packets and stream window unchanged.",
+          "review_reference": ".scratch/stream-materials/repairs/seed-mart-clarify-sequence-01/boundary-proposal.json"
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          88.0,
+          159.5
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/seed-mart-clarify-sequence-01/review.json"
+      }
+    },
+    {
+      "task_id": "seed-mart-clarify-position-01",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          59
+        ],
+        "media_id": "001d2d1b-d2f9-4c39-810e-6e2087ff9d5a",
+        "media_sha256": "c4cb08c026d939ee3ca9109f4f84807b26e9ef3178b84e2b69cea8f9a37c14a7",
+        "original_annotations": [
+          "On walmart.com, find product pages for the exact energy drink variant the shopper grabs from the cooler and the energy drink beside the one shopper grabs."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            8,
+            8.8,
+            9.6,
+            10.4,
+            11.2,
+            12,
+            12.8,
+            13.6
+          ],
+          "frame_paths": [
+            "data/observations/seed-mart-clarify-position-01/V0_00.jpg",
+            "data/observations/seed-mart-clarify-position-01/V0_01.jpg",
+            "data/observations/seed-mart-clarify-position-01/V0_02.jpg",
+            "data/observations/seed-mart-clarify-position-01/V0_03.jpg",
+            "data/observations/seed-mart-clarify-position-01/V0_04.jpg",
+            "data/observations/seed-mart-clarify-position-01/V0_05.jpg",
+            "data/observations/seed-mart-clarify-position-01/V0_06.jpg",
+            "data/observations/seed-mart-clarify-position-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The packet stably shows a green Monster can as an anchor, black-and-gold Rockstar cans immediately to its left, and blue NOS cans immediately to its right.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent ask a one-slot position question before committing between two visually plausible candidates?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either neighbor of the green Monster can satisfies the ambiguous request.",
+        "belief_after": "The answer uniquely selects the blue NOS can on the right.",
+        "required_behavior_change": "Ask before committing, then select only the clarified right-side candidate.",
+        "no_update_failure": "The Agent commits before asking or selects the left Rockstar can after the answer.",
+        "overupdate_failure": "The Agent asks in the oracle arm despite the clarifying side wording.",
+        "visual_dependency_claim": "Released frames ground a green Monster anchor with Rockstar on the left and NOS on the right; the ambiguous beside-request alone selects neither neighbor.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Find the can beside the pair of green cans in the front row and add one visually matching can to the cart.",
+          "oracle_instruction": "Find the can immediately to the right of the pair of green cans in the front row and add one visually matching can to the cart.",
+          "candidate_roles": [
+            "rockstar_left_of_monster",
+            "nos_right_of_monster"
+          ],
+          "hidden_target_role": "nos_right_of_monster",
+          "valid_slot": "position",
+          "canonical_question": "Do you mean the can on the left or the right of the pair in the front row?",
+          "canonical_answer": "The one on the right.",
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "rockstar_left_of_monster": "p_23208d34a6fd",
+            "nos_right_of_monster": "p_2c0dafab0677"
+          },
+          "goal_fields": {},
+          "completion_claim": "The submitted cart contains exactly one blue NOS can and no extra products."
+        },
+        "decision_point_provenance": "authored_curve_20260823",
+        "decision": {
+          "candidates": {
+            "rockstar_left_of_monster": "p_23208d34a6fd",
+            "nos_right_of_monster": "p_2c0dafab0677"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "nos_right_of_monster",
+                "rockstar_left_of_monster"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "nos_right_of_monster"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "用户说「Monster 右边那罐」。V0:3、V0:5、V0:6 清楚显示冷柜里 Rockstar–Monster–NOS 三罐相邻，左右两侧都紧挨着 Monster；左右是货架上的相对位置，不是佩戴者的视点。"
+            }
+          ],
+          "established_by": "claude-opus-5",
+          "established_at": "2026-08-23",
+          "note": "「紧挨着绿色 Monster 的那罐」两边都成立，澄清靠货架方位。"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "Rockstar energy drink single can",
+              "provider": "amazon-us-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/seed-mart-clarify-position-01-v2.json",
+              "result_entity_ids": [
+                "p_23208d34a6fd",
+                "p_202b99e0a8cd",
+                "p_6ff1e7ccdf19",
+                "p_584c06754817",
+                "p_b8e84573cd6e",
+                "p_bdbed3d492ce",
+                "p_e7136e2eeb06",
+                "p_d079835693c9",
+                "p_632888e57dcc",
+                "p_52242e80285a",
+                "p_51714aaa18f7",
+                "p_b648d100c20e",
+                "p_f174c058dc09",
+                "p_0555faa878b7",
+                "p_e8601e43e5d5",
+                "p_a5836818690a",
+                "p_05f61b3fd89e",
+                "p_404570b03865",
+                "p_f4cac6cdf2ea",
+                "p_fbc1f72c2e37",
+                "p_8d869d6bac98",
+                "p_8c551aeff1de",
+                "p_57d6f2258452",
+                "p_0b731e6eca78",
+                "p_a2342cd67f16",
+                "p_65bd8ef54981",
+                "p_b8311cec7ca6",
+                "p_6f0e79aacd9b",
+                "p_bb261c2bd4de",
+                "p_5b4288d8d76a",
+                "p_bcb38caa5aa5",
+                "p_bb0e47bb1a67",
+                "p_a55ae5d152ff",
+                "p_62d221020b2f",
+                "p_6a621b3f53e1",
+                "p_c78f814d321c",
+                "p_791050625f5d",
+                "p_842fba830aab",
+                "p_4dcb5f217fa7",
+                "p_61bab32812b6",
+                "p_f9017ef5553a",
+                "p_82ad901fc806",
+                "p_96801cf9d202",
+                "p_7921c4c2cdc2",
+                "p_e558e00b21e5",
+                "p_8a8ac9a2bccf",
+                "p_293d2325dfc1",
+                "p_72c38b54c002"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "NOS energy drink single can",
+              "provider": "amazon-us-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/seed-mart-clarify-position-01-v2.json",
+              "result_entity_ids": [
+                "p_2c0dafab0677",
+                "p_fb9e4b0d8c1d",
+                "p_2988448450c1",
+                "p_dd604af26397",
+                "p_77dadf7c3cd5",
+                "p_945a4779e142",
+                "p_43e6cad61f10",
+                "p_ae5631a0d637",
+                "p_6ff1e7ccdf19",
+                "p_f26c6427efa3",
+                "p_99711f50702c",
+                "p_2e877cf23a52",
+                "p_019b5855056f",
+                "p_e316466f2caa",
+                "p_c238ff77e27d",
+                "p_aa92c8219f35",
+                "p_b5e3301ffbba",
+                "p_efa2aca3f620",
+                "p_13e359ea072e",
+                "p_ad84c94b4572",
+                "p_f1b214a9ec27",
+                "p_6968743501a3",
+                "p_8c1de35d9072",
+                "p_10701c27e827",
+                "p_46bbcc9dd9af",
+                "p_96bc2fc63890",
+                "p_16f51547052b",
+                "p_8651bf8614b9",
+                "p_2dfe214b8cec",
+                "p_3f887703e5a4",
+                "p_5acc2cc251c1",
+                "p_bb261c2bd4de",
+                "p_7e2b8069a083",
+                "p_f5144b754366",
+                "p_de787208308a",
+                "p_b902eac3c5c8"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_23208d34a6fd",
+            "p_202b99e0a8cd",
+            "p_6ff1e7ccdf19",
+            "p_584c06754817",
+            "p_b8e84573cd6e",
+            "p_bdbed3d492ce",
+            "p_e7136e2eeb06",
+            "p_d079835693c9",
+            "p_632888e57dcc",
+            "p_52242e80285a",
+            "p_51714aaa18f7",
+            "p_b648d100c20e",
+            "p_f174c058dc09",
+            "p_0555faa878b7",
+            "p_e8601e43e5d5",
+            "p_a5836818690a",
+            "p_05f61b3fd89e",
+            "p_404570b03865",
+            "p_f4cac6cdf2ea",
+            "p_fbc1f72c2e37",
+            "p_8d869d6bac98",
+            "p_8c551aeff1de",
+            "p_57d6f2258452",
+            "p_0b731e6eca78",
+            "p_a2342cd67f16",
+            "p_65bd8ef54981",
+            "p_b8311cec7ca6",
+            "p_6f0e79aacd9b",
+            "p_bb261c2bd4de",
+            "p_5b4288d8d76a",
+            "p_bcb38caa5aa5",
+            "p_bb0e47bb1a67",
+            "p_a55ae5d152ff",
+            "p_62d221020b2f",
+            "p_6a621b3f53e1",
+            "p_c78f814d321c",
+            "p_791050625f5d",
+            "p_842fba830aab",
+            "p_4dcb5f217fa7",
+            "p_61bab32812b6",
+            "p_f9017ef5553a",
+            "p_82ad901fc806",
+            "p_96801cf9d202",
+            "p_7921c4c2cdc2",
+            "p_e558e00b21e5",
+            "p_8a8ac9a2bccf",
+            "p_293d2325dfc1",
+            "p_72c38b54c002",
+            "p_2c0dafab0677",
+            "p_fb9e4b0d8c1d",
+            "p_2988448450c1",
+            "p_dd604af26397",
+            "p_77dadf7c3cd5",
+            "p_945a4779e142",
+            "p_43e6cad61f10",
+            "p_ae5631a0d637",
+            "p_f26c6427efa3",
+            "p_99711f50702c",
+            "p_2e877cf23a52",
+            "p_019b5855056f",
+            "p_e316466f2caa",
+            "p_c238ff77e27d",
+            "p_aa92c8219f35",
+            "p_b5e3301ffbba",
+            "p_efa2aca3f620",
+            "p_13e359ea072e",
+            "p_ad84c94b4572",
+            "p_f1b214a9ec27",
+            "p_6968743501a3",
+            "p_8c1de35d9072",
+            "p_10701c27e827",
+            "p_46bbcc9dd9af",
+            "p_96bc2fc63890",
+            "p_16f51547052b",
+            "p_8651bf8614b9",
+            "p_2dfe214b8cec",
+            "p_3f887703e5a4",
+            "p_5acc2cc251c1",
+            "p_7e2b8069a083",
+            "p_f5144b754366",
+            "p_de787208308a",
+            "p_b902eac3c5c8"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_23208d34a6fd",
+            "p_fb9e4b0d8c1d",
+            "p_945a4779e142",
+            "p_f174c058dc09"
+          ],
+          "related_entity_ids": [
+            "p_202b99e0a8cd",
+            "p_6ff1e7ccdf19",
+            "p_584c06754817",
+            "p_b8e84573cd6e",
+            "p_bdbed3d492ce",
+            "p_e7136e2eeb06",
+            "p_d079835693c9",
+            "p_632888e57dcc",
+            "p_52242e80285a",
+            "p_51714aaa18f7",
+            "p_b648d100c20e",
+            "p_0555faa878b7",
+            "p_e8601e43e5d5",
+            "p_f4cac6cdf2ea",
+            "p_fbc1f72c2e37",
+            "p_8d869d6bac98",
+            "p_57d6f2258452",
+            "p_0b731e6eca78",
+            "p_65bd8ef54981",
+            "p_bb261c2bd4de",
+            "p_5b4288d8d76a",
+            "p_bcb38caa5aa5",
+            "p_bb0e47bb1a67",
+            "p_62d221020b2f",
+            "p_6a621b3f53e1",
+            "p_791050625f5d",
+            "p_f9017ef5553a",
+            "p_96801cf9d202",
+            "p_e558e00b21e5",
+            "p_72c38b54c002",
+            "p_2988448450c1",
+            "p_dd604af26397",
+            "p_77dadf7c3cd5",
+            "p_b5e3301ffbba",
+            "p_efa2aca3f620",
+            "p_13e359ea072e",
+            "p_ad84c94b4572",
+            "p_6968743501a3",
+            "p_10701c27e827",
+            "p_8651bf8614b9",
+            "p_2dfe214b8cec",
+            "p_3f887703e5a4",
+            "p_5acc2cc251c1"
+          ],
+          "ambient_entity_ids": [
+            "p_a5836818690a",
+            "p_05f61b3fd89e",
+            "p_404570b03865",
+            "p_8c551aeff1de",
+            "p_a2342cd67f16",
+            "p_b8311cec7ca6",
+            "p_6f0e79aacd9b",
+            "p_a55ae5d152ff",
+            "p_c78f814d321c",
+            "p_842fba830aab",
+            "p_4dcb5f217fa7",
+            "p_61bab32812b6",
+            "p_82ad901fc806",
+            "p_7921c4c2cdc2",
+            "p_8a8ac9a2bccf",
+            "p_293d2325dfc1",
+            "p_43e6cad61f10",
+            "p_ae5631a0d637",
+            "p_f26c6427efa3",
+            "p_99711f50702c",
+            "p_2e877cf23a52",
+            "p_019b5855056f",
+            "p_e316466f2caa",
+            "p_c238ff77e27d",
+            "p_aa92c8219f35",
+            "p_f1b214a9ec27",
+            "p_8c1de35d9072",
+            "p_46bbcc9dd9af",
+            "p_96bc2fc63890",
+            "p_16f51547052b",
+            "p_7e2b8069a083",
+            "p_f5144b754366",
+            "p_de787208308a",
+            "p_b902eac3c5c8"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_23208d34a6fd",
+              "ring": "core",
+              "why_plausible": "Released frames show this Original Rockstar can immediately left of the green Monster can.",
+              "reason": "The clarification selects the can on the right. The left Rockstar remains the unchosen same-kind neighbor. US Amazon still exposes no Unit Count / Number of Items field for B08N6B3CXR; a singular title is not pack count.",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_202b99e0a8cd",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar Fruit Punch, 16 Fl Oz Can' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_6ff1e7ccdf19",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Punched Energy Drink, Fruit Punch, 16 Fl Oz (Pack of 12) (Packaging May Vary).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_584c06754817",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar Energy Drink Pure Zero, Silver Ice (16oz Can)' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_b8e84573cd6e",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar Energy Can Recovery, Orange, 16 Fl Oz' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_bdbed3d492ce",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink, Original, 16 Fl Oz Cans (Pack of 12).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_e7136e2eeb06",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar Energy Drink, Sugar Free, 16 Fl Oz Can' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_d079835693c9",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Fruit Punch, 16 Fl Oz Can (Pack of 3).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_632888e57dcc",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Punched Energy Drink, Pineapple, 16 Fl Oz Cans (Pack of 12).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_52242e80285a",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar, Boom Energy Drink with Caffeine and Taurine Packaging May Vary, Whipped Strawberry, 16 Fl Oz (Pack of 12).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_51714aaa18f7",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar Pure Zero Energy Drink, Tangerine Mango Guava Strawberryh, 0 Sugar, with Caffeine and Taurine, 16 Fl Oz (Pack of ...' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_b648d100c20e",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink Punched Hardcore Apple, 16oz Cans (12 Pack).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_f174c058dc09",
+              "ring": "core",
+              "why_plausible": "It is an energy-drink can in the frozen window.",
+              "reason": "Public title 'Monster Energy, 16 fl oz.' is not the original NOS can on the right of the green Monster.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0555faa878b7",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink, Boom Pina Colada 16 Fl Oz Cans (Pack of 12).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_e8601e43e5d5",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar Energy Drink, Recovery Lemonade, 16 Fl Oz Can' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_a5836818690a",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Monster Energy Drink, Ultra Sunrise, 16 fl oz' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_05f61b3fd89e",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Monster Energy Ultra Strawberry Dreams, Sugar Free Energy Drink, 16oz' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_404570b03865",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Monster Energy Drink, Green, Original, 16 Ounce (Pack of 15)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_f4cac6cdf2ea",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink, Throwback Edition: O.G., 16 Fl Oz (Pack of 12) - Packaging May Vary.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_fbc1f72c2e37",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Pure Zero Energy Drink,4 Flavor Pure Zero Variety Pack, 0 Sugar, with Caffeine and Taurine, 16oz Cans (12 Pack) (....",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8d869d6bac98",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Pure Zero Punched - 16fl oz (Pack of 8).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8c551aeff1de",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Red Bull Energy Drink, Watermelon, Red Edition | contains caffeine, taurine, B-vitamins, sugar, and water, 8.4 fl oz can' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_57d6f2258452",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink, Core 4 Flavor Variety Pack, 16oz Cans (12 Pack) (Packaging May Vary).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0b731e6eca78",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: 8 Pack - Rockstar Energy Drink - Original - 24oz..",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_a2342cd67f16",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Starbucks Iced Energy, Tropical Peach, Sparkling Energy Drink, 12 Fl Oz' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_65bd8ef54981",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar, Sugar Free Energy Drink, 12 Fl Oz' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_b8311cec7ca6",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Starbucks Iced Energy Drink, 3 Flavor Variety, 12 Fl Oz Cans (Pack of 12) | Zero Sugar Energy Drink, Plant Based Caffeine,...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_6f0e79aacd9b",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Mountain Dew Kickstart, Black Cherry, 92mg Caffeine, Vitamins B & C, 80 Calories, 5% Juice, 16 fl oz (12 Count)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_bb261c2bd4de",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Sugar Free Energy Drink, 16 Fl Oz Cans (Pack of 12) (Packaging May Vary).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_5b4288d8d76a",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink, Original, 12oz Sleek Cans (Pack of 8).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_bcb38caa5aa5",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Punched Energy Drink, Lime Freeze, 16 Fl Oz Cans (Pack of 12).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_bb0e47bb1a67",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink, Original, 12 fl oz Cans, (6 Pack).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_a55ae5d152ff",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title '(Sold By Beverage For You) Rock Star Energy Recovery Orangeade, 16 Oz Can, 12 Pack' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_62d221020b2f",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Energy Drink, Sugar Free, 12oz Sleek Cans (8 Pack).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_6a621b3f53e1",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Pure Zero Energy Drink, Fruit Punch, 0 Sugar, with Caffeine and Taurine, 16oz Cans (12 Pack) (Packaging May Vary).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_c78f814d321c",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Amazon Brand - Solimo Silver Energy Drink, Sugar-Free, Vegan, Low-Calorie, 16 fl oz (Pack of 12)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_791050625f5d",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Pure Zero Energy Drink, Silver Ice, 0 Sugar, with Caffeine and Taurine, 16oz Cans (Pack of 12) (Packaging May Vary).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_842fba830aab",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'C4 Performance Energy Drink with Zero Sugar, Strawberry Blast, 12pk | 200mg caffeine and performance ingredients deliver e...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_4dcb5f217fa7",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Mountain Dew Kickstart Energy Drink, Orange Citrus, 16 Fl Oz' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_61bab32812b6",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Monster Energy Juice Monster Variety Pack, PPMLPP, Energy Drink, 16 Ounce | Energy + Juice, Pack of 15' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_f9017ef5553a",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Pure Zero Energy Drink Variety- Silver Ice, Pure Zero Punched,#TMGS, Watermelon - 16fl.oz. (Pack of 16).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_82ad901fc806",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Monster Energy Juice Pipeline Punch 16 Oz Can' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_96801cf9d202",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: Rockstar Punched Energy Energy Drink, 16 Ounce (4 Cans).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7921c4c2cdc2",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Liquid Death Sparkling Energy - Scary Strawberry, Zero Sugar Energy Drink, Unextreme Caffeine 100mg, Essential Vitamins, 1...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_e558e00b21e5",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar energy-drink listing beside the left-side candidate.",
+              "reason": "Public title states a multi-can offer: New Rockstar Energy Drink Variety Pack - 16fl.oz. (Pack of 16).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8a8ac9a2bccf",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Monster Energy Ultra Fantasy Ruby Red, Sugar Free Energy Drink, 16 Ounce (Pack of 1)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_293d2325dfc1",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Monster Energy Ultra Variety Pack, PKZSD, Sugar Free Energy Drink, 16 Ounce | Pack of 15' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_72c38b54c002",
+              "ring": "related",
+              "why_plausible": "It is a Rockstar can in the before-change window.",
+              "reason": "Public title 'Rockstar, Energy Drink Sugar Free Silver Ice , 16 Fl Oz' is not the original black-and-gold left-side can, or it is not the clarified right-side NOS answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_fb9e4b0d8c1d",
+              "ring": "core",
+              "why_plausible": "It is a NOS listing in the after-change energy-drink window.",
+              "reason": "Public title states a multi-can offer (NOS Original: High Performance Energy Drink. 16 Fl oz | Pack of 15). The scene and request are one visually matching can.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_2988448450c1",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: NOS Grand Prix Guava: High Performance Energy Drink. 16 Fl oz (Pack of 15).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_dd604af26397",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: NOS Zero Sugar: High Performance Energy Drink. 16 Fl oz | Pack of 15.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_77dadf7c3cd5",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: NOS GT Grape: High Performance Energy Drink. 16 Fl oz | Pack of 15.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_945a4779e142",
+              "ring": "core",
+              "why_plausible": "It is a single NOS can in the after-change window.",
+              "reason": "Public US listing title and Units: 1 Count identify NOS Energy Drink Zero Sugar, not the original blue-and-silver NOS answer.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_43e6cad61f10",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Reign Total Body Fuel, White Haze, Fitness & Performance Drink, 16 Fl Oz (Pack of 1)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_ae5631a0d637",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'C4 Performance Energy Drink with Zero Sugar, Frozen Bombsicle, 12pk | 150mg caffeine and performance ingredients deliver e...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_f26c6427efa3",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'V8 Energy Peach Mango Energy Drink, 8 fl oz Can (12 Pack)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_99711f50702c",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'CELSIUS Fizz Free Peach Mango Green Tea, Sugar Free Energy Drink, 12 Fl Oz (Pack of 12)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_2e877cf23a52",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Red Bull Energy Drink | contains caffeine, taurine, B-vitamins, sugar, and water, 8.4 fl oz, 24 cans (6 packs of 4)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_019b5855056f",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'C4 Energy Brain & Body Variety Pack, 12 Pack | Variety pack with 150-200mg caffeine, Smart Energy & C4 Energy flavors for ...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_e316466f2caa",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'CELSIUS Sparkling Tropical Vibe, Functional Essential Energy Drink 12 Fl Oz (Pack of 12)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_c238ff77e27d",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Reign Total Body Fuel, Orange Dreamsicle, Fitness & Performance Drink, 16 Fl Oz (Pack of 12)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_aa92c8219f35",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Mountain Dew AMP Energy Drink, Original, 16 fl oz cans (12 Pack) | Energy Drink with Caffeine & B Vitamins, Packaging May ...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_b5e3301ffbba",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: Nos High Performance Energy Drink, Sonic Sour, 16 Oz Can (Pack of 12) | Pack of 12.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_efa2aca3f620",
+              "ring": "related",
+              "why_plausible": "It is a NOS can in the after-change window.",
+              "reason": "Public title 'NOS Energy Drink Can, 4 Pieces, Sonic Sour' is not the original blue-and-silver single-can answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_13e359ea072e",
+              "ring": "related",
+              "why_plausible": "It is a NOS can in the after-change window.",
+              "reason": "Public title 'NOS Energy Drink 24 Count Cases (Original)' is not the original blue-and-silver single-can answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_ad84c94b4572",
+              "ring": "related",
+              "why_plausible": "It is a NOS can in the after-change window.",
+              "reason": "Public title 'NOS, High Performance Energy Drink, 16 Ounce' is not the original blue-and-silver single-can answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_f1b214a9ec27",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Reign Total Body Fuel Razzle Berry, 16 Fl Oz Can' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_6968743501a3",
+              "ring": "related",
+              "why_plausible": "It is a NOS can in the after-change window.",
+              "reason": "Public title 'NOS High Performance Energy Drink 16 oz. cans, 24 pk. A1' is not the original blue-and-silver single-can answer.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8c1de35d9072",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'I.CANDY ENERGY Caffeine-Free Focus Drink Zero Sugar - 250mg Cognizin Citicoline & B-Vitamins for Mental Clarity & Memory, ...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_10701c27e827",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: BeeQ,(Pack of 12) NOS High Performance Energy Drink-16fl oz..",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_46bbcc9dd9af",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Amazon Brand - Solimo Red Energy Drink, Sugar-Free, Vegan, Low-Calorie, 16 fl oz (Pack of 12)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_96bc2fc63890",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Patria Energy Drink - Sugar Free, 12-Pack, Blue Raspberry Flavor, 16oz Cans - 100% Natural Flavor 200mg of Caffeine' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_16f51547052b",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'PRIME Energy ORIGINAL | Zero Sugar Energy Drink | Preworkout Energy | 200mg Caffeine with 355mg of Electrolytes and Coconu...' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_8651bf8614b9",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: NOS High Performance Energy Drink, 16oz Can (Pack of 6, Total of 96 Fl Oz).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_2dfe214b8cec",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: NOS Energy Drink, 24oz Cans - 8 Pack.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_3f887703e5a4",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: NOS Energy Drinks 24oz Twist Off Top Cans - 4 Pack.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_5acc2cc251c1",
+              "ring": "related",
+              "why_plausible": "It is a NOS listing in the after-change window.",
+              "reason": "Public title states a multi-can offer: Nos High Performance Energy Drink, 384 Fluid Ounce, 16 Fl Oz (Pack of 24).",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7e2b8069a083",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'CELSIUS Fitness Drink 4-Flavor Variety Pack, Zero Sugar, 12oz. Slim Can, 12 Pack' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_f5144b754366",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'CELSIUS Sparkling Wild Berry, Functional Essential Energy Drink 12 Fl Oz (Pack of 24)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_de787208308a",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'CELSIUS Peach Mango Green Tea, Functional Essential Energy Drink 12 Fl Oz (Pack of 24)' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_b902eac3c5c8",
+              "ring": "ambient",
+              "why_plausible": "It appears in the frozen energy-drink result window.",
+              "reason": "Public title 'Celsius Celsius - Peach Mango Green Tea, 12 - 12 fl oz (355mL) Cans' is a different brand or format from the two cooler neighbors.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        },
+        "repair_history": [
+          {
+            "date": "2026-10-18",
+            "reason": "Resolve the previously documented multiple-Monster anchor without changing any frames or product data.",
+            "task_blueprint": {
+              "site": "egomart",
+              "ambiguous_instruction": "Find the can directly beside the green Monster can and add one visually matching can to the cart.",
+              "oracle_instruction": "Find the energy drink on the right of the green Monster can and add one visually matching can to the cart.",
+              "candidate_roles": [
+                "rockstar_left_of_monster",
+                "nos_right_of_monster"
+              ],
+              "hidden_target_role": "nos_right_of_monster",
+              "valid_slot": "position",
+              "canonical_question": "Which side or position do you mean?",
+              "canonical_answer": "The one on the right.",
+              "target_granularity": "variant",
+              "environment_role_ids": {
+                "rockstar_left_of_monster": "p_23208d34a6fd",
+                "nos_right_of_monster": "p_2c0dafab0677"
+              },
+              "goal_fields": {},
+              "completion_claim": "The submitted cart contains exactly one blue NOS can and no extra products."
+            }
+          }
+        ],
+        "physical_anchor_repair_20261018": {
+          "reviewer": "/root/span_remaining_construction_1018",
+          "frames_checked": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ],
+          "observation": "At clear V0:3/5/6, two adjacent front-row black cans with green claw marks form one pair; a black/gold can lies immediately left of the pair and an original blue NOS can immediately right. Earlier hand motion does not turn each individual green can into a separate intended anchor. The answer still supplies only side, not brand.",
+          "reused_review": "artifacts/reports/coding-agent-task-assessments.json::seed-mart-clarify-position-01::history[0..1]",
+          "scope": "Only the physical pair anchor changed; single-can purchase and82-result boundary remain unchanged.",
+          "independent_confirmation": "pending_root_targeted_confirmation"
+        }
+      },
+      "rejection_reason": null,
+      "rejection_code": null,
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "visual_not_necessary",
+        "reason": "One static cooler photograph contains the anchor and both neighbors and produces the same left/right clarification decision."
+      },
+      "repair_history": [
+        {
+          "repair_type": "related_canonical_detail_capture",
+          "revised_at": "2026-10-15",
+          "closed": "related_canonical_detail_capture_pending",
+          "remaining": "left_single_can_offer_evidence_pending",
+          "evidence": {
+            "B0DKTSC515": "Units: 1 Count on the US Amazon listing; Zero Sugar flavor.",
+            "B08N6B3CXR": "No Unit Count / Number of Items / Pack-of field on the US Amazon listing."
+          }
+        },
+        {
+          "repair_type": "left_offer_variation_capture",
+          "revised_at": "2026-10-15",
+          "closed": "left_single_can_offer_evidence_pending",
+          "remaining": "independent_construct_review_pending",
+          "evidence": {
+            "B08N6B3CXR": "Page variation map: Original 16 Fl Oz (Pack of 1) is this ASIN; Pack of 12 is B08F84BT1G."
+          }
+        },
+        {
+          "revised_at": "2026-10-18",
+          "repair_type": "completed_current_single_can_and_anchor_review",
+          "closed": [
+            "independent_construct_review_pending"
+          ],
+          "prior_process_note": [
+            "Independent blind reconstruction and adversarial review must still assess the one-can mapping and the 82-entity US window. Old high-confidence reviews are historical only."
+          ],
+          "evidence": [
+            "artifacts/reports/coding-agent-task-assessments.json::seed-mart-clarify-position-01 current completed two-pass admit/high",
+            ".scratch/task-completion-20261018/seed-current-blind.json",
+            ".scratch/task-completion-20261018/prior-review-recovery-confirmations/seed-mart-clarify-position-01-independent.json"
+          ],
+          "remaining": "one effective current-wording development trial and trajectory review"
+        },
+        {
+          "revised_at": "2026-10-18",
+          "repair_type": "close_nonblocking_capture_notes_after_current_evidence_confirmation",
+          "prior_material_notes": [
+            "2026-10-15 US Amazon page for B08N6B3CXR / p_23208d34a6fd still has an empty product-overview table. Its variation map names this ASIN as Original 16 Fl Oz (Pack of 1). The 12-can offer remains the different ASIN B08F84BT1G.",
+            "Amazon B0DKTSC515 / p_945a4779e142 public US listing now exposes Units: 1 Count. It is a Zero Sugar can, so it is rejected as a related-window flavor variant of the original blue-and-silver NOS answer, not left uncaptured.",
+            "Walmart.com complete-window capture remains unavailable and was not silently inserted into the Amazon window."
+          ],
+          "resolution": [
+            "Left Rockstar listing variation map proves Original16FlOzPackof1; an empty duplicate overview table does not defeat the actual one-can listing.",
+            "Zero Sugar listing is explicitly a nonmatching variant, not an unresolved final answer.",
+            "Current task operates in EgoMart with verified Amazon result window; an unavailable Walmart window is historical source context, not required evidence."
+          ],
+          "evidence": [
+            ".scratch/task-completion-20261018/seed-current-blind.json",
+            ".scratch/task-completion-20261018/prior-review-recovery-confirmations/seed-mart-clarify-position-01-independent.json"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          8.0,
+          77.6
+        ],
+        "review_evidence": ".scratch/stream-materials/review/seed-mart-clarify-position-01/review.json"
+      }
+    },
+    {
+      "task_id": "rejected-clarify-sequence-lab-containers-01",
+      "status": "rejected",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          3
+        ],
+        "media_id": "a0a7b274-9632-4591-80f6-589e7dff6372",
+        "media_sha256": "535003baff024e440a2b4649c237724dab2559800645940a41fd4ad1b27a725d",
+        "original_annotations": [
+          "On YouTube, find a video that introduces or features the same type of glass container as the second one picked up by the person in the video."
+        ]
+      },
+      "rejection_code": "insufficient_candidate_ambiguity",
+      "rejection_reason": "Dense review of 40-60 seconds shows several bottles, flasks and glass vessels in the active workspace. Removing the ordinal does not yield exactly two stable same-type candidates, and an eight-frame packet cannot recover a unique two-candidate sequence without relying on the source answer.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-clarify-position-snack-shelf-01",
+      "status": "rejected",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          19,
+          20
+        ],
+        "media_id": "b1c71e68-f8f1-475a-9237-4c040a6ea586",
+        "media_sha256": "a8ffc0865bebcfd0c99d8cfa582efeeec3401218d13c7a1724c96665f8374791",
+        "original_annotations": [
+          "Please find on Amazon the first snack that the man touches in the video and report its average price.",
+          "Please find on Amazon the snack that is at left of the first snack that the man touches in the video and report its average price."
+        ]
+      },
+      "rejection_code": "event_not_visible",
+      "rejection_reason": "The 50-54 second interaction is partially occluded by another shopper and a phone, while the shelf contains several products on both sides. The actual first touched snack and a two-candidate left/right set cannot both be recovered reliably from the proposed eight images.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}

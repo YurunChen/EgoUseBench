@@ -1,0 +1,52 @@
+{% from "review/_detail.html" import detail %}
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="validation-session" content="{{ session_token }}">
+<title>任务 {{ '%02d'|format(item) }} · 人工答案核验</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='answer_validation.css') }}">
+</head>
+<body data-item="{{ item }}">
+<header class="topbar"><a href="{{ url_for('validation_index') }}">EgoUseBench / 人工答案核验</a><span>{{ '预览 · 不计入正式结果' if preview else participant }}</span><span>任务 {{ '%02d'|format(item) }} / {{ total }}</span></header>
+<main class="validation-layout">
+<aside class="validation-materials">
+<section class="panel"><h2>用户请求</h2><p class="verbatim">{{ instruction }}</p></section>
+{% if can_ask %}<section class="panel question-panel"><details {% if record.questions %}open{% endif %}><summary>需要确认指代？向佩戴者提问</summary><div id="answers">{% for question in record.questions %}<p>{{ question.question }}</p><p>佩戴者：{{ question.answer_event.payload }}</p>{% endfor %}</div><label for="question">需要确认什么？</label><textarea id="question" {% if record.submitted_at or record.questions %}disabled{% endif %}></textarea><button id="ask" type="button" {% if record.submitted_at or record.questions %}disabled{% endif %}>提问</button></details></section>{% endif %}
+<section class="panel"><h2>第一人称画面</h2><p class="hint">按源时间排列，点击可放大。</p><div class="frames">
+{% for image in images %}{% set src=url_for('validation_frame', item=item, batch=image.batch, image=image.image) %}<button class="frame-thumb" type="button" data-src="{{ src }}" data-caption="{{ image.label }}"><img src="{{ src }}" alt="{{ image.label }}" loading="lazy"><span>{{ image.label }}</span></button>{% endfor %}
+</div></section>
+
+</aside>
+<section class="validation-choices">
+<header class="section-heading"><h1>选择结果</h1><p class="hint">从 {{ entities|length }} 个候选中选出一组满足最终要求的结果。有多个可替代选项时，选其中一组即可；购物数量按所列包装计。</p></header>
+<form id="answer-form">
+<fieldset id="answer-fields" {% if record.submitted_at %}disabled{% endif %}>
+<div class="choices"><label><input type="radio" name="judgment" value="selected" {% if record.judgment=='selected' %}checked{% endif %}>选择候选</label><label><input type="radio" name="judgment" value="no_match" {% if record.judgment=='no_match' %}checked{% endif %}>没有符合项</label><label><input type="radio" name="judgment" value="insufficient" {% if record.judgment=='insufficient' %}checked{% endif %}>信息不足</label></div>
+<div id="selected-summary" class="selected-summary" aria-live="polite"></div>
+
+<div class="validation-candidates">
+{% for entity in entities %}{% set option=loop.index0|string %}
+<article class="entity-card" data-option="{{ option }}">
+<label class="candidate-choice"><input type="checkbox" value="{{ option }}" {% if option in record.choices %}checked{% endif %}><strong>候选 {{ loop.index }}</strong></label>
+{% set image=entity.image_path or entity.thumbnail_path or entity.photo_path %}
+{% if image %}<img src="{{ url_for('validation_asset', item=item, index=asset_indexes[image]) }}" alt="候选 {{ loop.index }} 图片" loading="lazy">{% endif %}
+<h3>{{ entity.title or entity.name }}</h3>
+<details class="entity-evidence"><summary>查看详情</summary>
+{% for key, value in entity.items() %}{% if key not in ['entity_id','item_id','name','title','image_path','thumbnail_path','photo_path','public_previews'] %}<div class="candidate-detail"><b>{{ key|replace('_',' ') }}</b>{{ detail(value) }}</div>{% endif %}{% endfor %}
+{% for image in entity.get('public_previews', []) %}<img src="{{ url_for('validation_asset', item=item, index=asset_indexes[image.image_path]) }}" alt="候选预览" loading="lazy">{% if image.caption %}<p>{{ image.caption }}</p>{% endif %}{% endfor %}
+</details>
+<label class="quantity">数量 <input type="number" min="1" max="10000" step="1" value="{{ record.choices.get(option, 1) }}" aria-label="候选 {{ loop.index }} 数量"></label>
+</article>{% endfor %}
+</div>
+{% for field in fields %}<label>{{ field|replace('_',' ') }}<input data-field="{{ field }}" value="{{ record.fields.get(field, '') }}"></label>{% endfor %}
+<label class="validation-note">说明（没有符合项或信息不足时必填）<textarea id="note">{{ record.note }}</textarea></label>
+</fieldset>
+<footer class="validation-footer"><div class="candidate-pagination"><button id="previous-page" type="button">上一页</button><span id="page-label"></span><button id="next-page" type="button">下一页</button></div><span id="save-status" role="status">{{ '首次提交已保存' if record.submitted_at else '修改后自动保存到本机' }}</span><button type="submit" class="primary" id="submit" {% if record.submitted_at %}disabled{% endif %}>提交本题</button>{% if item < total %}<a id="next" href="{{ url_for('validation_case', item=item+1) }}" {% if not record.submitted_at %}hidden{% endif %}>下一题 →</a>{% endif %}<a href="{{ url_for('validation_index') }}">任务列表</a></footer>
+</form>
+</section>
+</main>
+<script id="initial-record" type="application/json">{{ record|tojson }}</script>
+<script src="{{ url_for('static', filename='review.js') }}"></script>
+<script src="{{ url_for('static', filename='answer_validation.js') }}"></script>
+</body></html>

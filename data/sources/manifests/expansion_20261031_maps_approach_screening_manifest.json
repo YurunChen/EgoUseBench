@@ -1,0 +1,434 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Existing locally permitted Ego2Web source clip; no new source video downloaded. Public website photographs are retained only under their recorded local-research access or existing CC license."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-maps-refresh-replace-2026103104",
+      "status": "pending_semantic_design",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          498,
+          499
+        ],
+        "media_id": "6aca3039-dd0a-4ff5-a514-d46e4fcfeeba",
+        "original_video_id": "6aca3039-dd0a-4ff5-a514-d46e4fcfeeba",
+        "media_start_seconds": 930,
+        "original_annotations": [
+          "Using Google Maps, identify the exact public square shown near the end of the video and open its listing. Report the square's official name, full address, and current average Google rating.",
+          "On TripAdvisor, find a well-reviewed walking tour that explicitly visits both the exact square from the video and the narrow alley featured earlier. Provide the tour title, overall rating, and the lowest listed price."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              950,
+              980
+            ],
+            "role": "approach",
+            "description": "The wearer and the same walking companions proceed through ordinary La Candelaria streets before entering the narrow alley; no destination square is shown yet."
+          },
+          {
+            "interval_seconds": [
+              1070,
+              1108
+            ],
+            "role": "destination_reveal",
+            "description": "The same cobbled alley reaches an orange-red gateway, with a readable Chorro flag beside it; the wearer goes through to a small paved plaza with a circular low stone fountain."
+          }
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            985,
+            1105
+          ],
+          "decision": "Checked local55–90 and140–175 at1-second spacing, plus intermediate path frames at90/112.5/120/125/130/135. The same party follows one cobbled alley past the same blue wall and through its orange-red exit into the fountain plaza. No goal-change event or jump to another destination is asserted.",
+          "evidence_paths": [
+            ".scratch/refresh-expansion-20261031/maps-sources/ego498-transition-55.jpg",
+            ".scratch/refresh-expansion-20261031/maps-sources/ego498-transition-140.jpg",
+            ".scratch/refresh-expansion-20261031/maps-sources/ego498-continuity.jpg"
+          ]
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            950,
+            960,
+            975,
+            980
+          ],
+          "frame_paths": [
+            "data/observations/candidate-maps-refresh-replace-2026103104/V0_00.jpg",
+            "data/observations/candidate-maps-refresh-replace-2026103104/V0_01.jpg",
+            "data/observations/candidate-maps-refresh-replace-2026103104/V0_02.jpg",
+            "data/observations/candidate-maps-refresh-replace-2026103104/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            1080,
+            1090,
+            1100,
+            1108
+          ],
+          "frame_paths": [
+            "data/observations/candidate-maps-refresh-replace-2026103104/V1_00.jpg",
+            "data/observations/candidate-maps-refresh-replace-2026103104/V1_01.jpg",
+            "data/observations/candidate-maps-refresh-replace-2026103104/V1_02.jpg",
+            "data/observations/candidate-maps-refresh-replace-2026103104/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The later packet identifies the entered square by its orange-red gateway and circular stone fountain; the official/native Chorro photograph matches both.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The initial packet shows the preceding walking approach, not an already identified competing square.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        }
+      ],
+      "unresolved": [
+        "固定“正走向的广场”从始至终是同一目的地。V0仅普通街巷，把未见广场记成合法初态可能只是延迟识别而非Refresh-replace；未解决前不编译、不准入。"
+      ],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can the Agent narrow a provisional place commitment when later egocentric approach evidence identifies the same destination?",
+        "divergence_source": "grounding",
+        "event_origin": "observed",
+        "evidence_type": "place_approach",
+        "commitment_surface": "place_identity",
+        "belief_before": "The street approach and user-known neighborhood leave several concrete square listings unconfirmed. These are destination hypotheses, not several visible squares.",
+        "belief_after": "The orange-red gateway and stone fountain identify the same approached destination as Plazoleta Chorro de Quevedo.",
+        "required_behavior_change": "Keep the same useful revisit goal and narrow the saved place to the now-identified Chorro square, removing an earlier provisional square if needed.",
+        "no_update_failure": "A different provisional square remains saved after the destination is revealed.",
+        "overupdate_failure": "The Agent saves a shopping mall, the alley alone, or the whole neighborhood instead of the requested square.",
+        "visual_dependency_claim": "The request supplies only city, neighborhood and place type; the later entry and plaza architecture select the concrete native place.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "instruction": "I’m walking around La Candelaria in Bogotá. Save the square I’m heading into on EgoMaps so I can find it again later.",
+          "initial_target_role": "provisional_square",
+          "final_target_role": "arrived_square",
+          "target_granularity": "exact_instance",
+          "goal_fields": {},
+          "initial_goal_fields": {},
+          "environment_role_ids": {
+            "provisional_square": "l_d88b4092851d",
+            "arrived_square": "l_6a57ddb8937c"
+          },
+          "equivalent_role_ids": {
+            "provisional_square": [
+              "l_9ad7ad4f200d",
+              "l_6a57ddb8937c"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "bolivar": "l_d88b4092851d",
+            "armas": "l_9ad7ad4f200d",
+            "chorro": "l_6a57ddb8937c"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "bolivar",
+                "armas",
+                "chorro"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "bolivar",
+                "armas",
+                "chorro"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "bolivar",
+                "armas",
+                "chorro"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "bolivar",
+                "armas",
+                "chorro"
+              ]
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "chorro"
+              ],
+              "why": "The later view exposes the same alley exit, Chorro flag and square structure; the native Chorro photograph matches the orange-red gateway and circular stone fountain."
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "chorro"
+              ]
+            },
+            {
+              "frame": "V1:2",
+              "live": [
+                "chorro"
+              ]
+            },
+            {
+              "frame": "V1:3",
+              "live": [
+                "chorro"
+              ]
+            }
+          ],
+          "established_by": "source-constructor",
+          "established_at": "2026-10-31"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "plazas La Candelaria Bogotá",
+              "provider": "google-maps-native-search",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-refresh-replace-2026103104.json",
+              "result_entity_ids": [
+                "l_d88b4092851d",
+                "l_a631b0b71941",
+                "l_a49702249e67",
+                "l_6a57ddb8937c",
+                "l_9ad7ad4f200d",
+                "l_05cc51eee178",
+                "l_9c22111845eb",
+                "l_422f6789f872",
+                "l_f03c7ed8eca3",
+                "l_27797647d4b5"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "plazas La Candelaria Bogotá",
+              "provider": "google-maps-native-search",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-refresh-replace-2026103104.json",
+              "result_entity_ids": [
+                "l_d88b4092851d",
+                "l_a631b0b71941",
+                "l_a49702249e67",
+                "l_6a57ddb8937c",
+                "l_9ad7ad4f200d",
+                "l_05cc51eee178",
+                "l_9c22111845eb",
+                "l_422f6789f872",
+                "l_f03c7ed8eca3",
+                "l_27797647d4b5"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "l_d88b4092851d",
+            "l_a631b0b71941",
+            "l_a49702249e67",
+            "l_6a57ddb8937c",
+            "l_9ad7ad4f200d",
+            "l_05cc51eee178",
+            "l_9c22111845eb",
+            "l_422f6789f872",
+            "l_f03c7ed8eca3",
+            "l_27797647d4b5"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "l_d88b4092851d",
+            "l_9ad7ad4f200d"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [
+            "l_a631b0b71941",
+            "l_a49702249e67",
+            "l_05cc51eee178",
+            "l_9c22111845eb",
+            "l_422f6789f872",
+            "l_f03c7ed8eca3",
+            "l_27797647d4b5"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "kind",
+            "address",
+            "summary",
+            "photo_path",
+            "location"
+          ],
+          "rejected": [
+            {
+              "entity_id": "l_d88b4092851d",
+              "ring": "core",
+              "why_plausible": "A real square in the same La Candelaria native search window.",
+              "failure_predicates": [
+                "later_square_identity"
+              ],
+              "reason": "The native photograph shows the broad civic square and monumental cathedral complex, not the later small fountain plaza with the orange-red false facade.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=Plaza+de+Bol%C3%ADvar&query_place_id=ChIJj-XP7KeZP44RdhQ1NSu3nAk",
+                "sites/egomaps/static/photos/l_d88b4092851d--20261031.jpg"
+              ]
+            },
+            {
+              "entity_id": "l_a631b0b71941",
+              "ring": "ambient",
+              "why_plausible": "Returned by the unfiltered native plazas query.",
+              "failure_predicates": [
+                "requested_place_type_and_later_identity"
+              ],
+              "reason": "The native result identifies a shopping mall, not the outdoor square entered through the later orange-red gateway.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=Calle+Real+De+La+Candelaria+Shopping+Mall&query_place_id=ChIJ7fdnpaeZP44RrHm3K9P2b60",
+                "sites/egomaps/static/photos/l_a631b0b71941--20261031.png"
+              ]
+            },
+            {
+              "entity_id": "l_a49702249e67",
+              "ring": "ambient",
+              "why_plausible": "Returned by the unfiltered native plazas query.",
+              "failure_predicates": [
+                "requested_place_type_and_later_identity"
+              ],
+              "reason": "The native result identifies a market, not the outdoor square entered through the later orange-red gateway.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=District+Market+Square+La+Concordia&query_place_id=ChIJT4PgoqWZP44RDVL_JIhjr9U",
+                "sites/egomaps/static/photos/l_a49702249e67--20261031.png"
+              ]
+            },
+            {
+              "entity_id": "l_9ad7ad4f200d",
+              "ring": "core",
+              "why_plausible": "A real square in the same La Candelaria native search window.",
+              "failure_predicates": [
+                "later_square_identity"
+              ],
+              "reason": "The native listing identifies Plaza de Armas at Casa de Nariño and shows that presidential complex, not the Chorro orange-red entrance and stone fountain.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=Armas+Plaza&query_place_id=ChIJoRHbbxSZP44R1C0oOliPy2k",
+                "sites/egomaps/static/photos/l_9ad7ad4f200d--20261031.jpg"
+              ]
+            },
+            {
+              "entity_id": "l_05cc51eee178",
+              "ring": "ambient",
+              "why_plausible": "Returned by the unfiltered native plazas query.",
+              "failure_predicates": [
+                "requested_place_type_and_later_identity"
+              ],
+              "reason": "The native result identifies a museum, not the outdoor square entered through the later orange-red gateway.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=La+Candelaria&query_place_id=ChIJb89rlqiZP44RGyba8yA8M6E",
+                "sites/egomaps/static/photos/l_05cc51eee178--20261031.png"
+              ]
+            },
+            {
+              "entity_id": "l_9c22111845eb",
+              "ring": "ambient",
+              "why_plausible": "Returned by the unfiltered native plazas query.",
+              "failure_predicates": [
+                "requested_place_type_and_later_identity"
+              ],
+              "reason": "The native result identifies a market, not the outdoor square entered through the later orange-red gateway.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=La+Perseverancia+Distrital+Marketplace&query_place_id=ChIJ6evPsZqZP44RlRfeO2VNgmI",
+                "sites/egomaps/static/photos/l_9c22111845eb--20261031.png"
+              ]
+            },
+            {
+              "entity_id": "l_422f6789f872",
+              "ring": "ambient",
+              "why_plausible": "Returned by the unfiltered native plazas query.",
+              "failure_predicates": [
+                "requested_place_type_and_later_identity"
+              ],
+              "reason": "The native result identifies a shopping mall, not the outdoor square entered through the later orange-red gateway.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=CENTRO+COMERCIAL+CANDELARIA+PLAZA&query_place_id=ChIJF5uIbW2ZP44RM_-epG_ukOw",
+                "sites/egomaps/static/photos/l_422f6789f872--20261031.png"
+              ]
+            },
+            {
+              "entity_id": "l_f03c7ed8eca3",
+              "ring": "ambient",
+              "why_plausible": "Returned by the unfiltered native plazas query.",
+              "failure_predicates": [
+                "requested_place_type_and_later_identity"
+              ],
+              "reason": "The native result identifies a shopping mall, not the outdoor square entered through the later orange-red gateway.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=Mall+Plaza+de+las+Americas&query_place_id=ChIJox8ZyrqeP44RAHvzBd2aByg",
+                "sites/egomaps/static/photos/l_f03c7ed8eca3--20261031.png"
+              ]
+            },
+            {
+              "entity_id": "l_27797647d4b5",
+              "ring": "ambient",
+              "why_plausible": "Returned by the unfiltered native plazas query.",
+              "failure_predicates": [
+                "requested_place_type_and_later_identity"
+              ],
+              "reason": "The native result identifies a hotel, not the outdoor square entered through the later orange-red gateway.",
+              "evidence": [
+                "https://www.google.com/maps/search/?api=1&query=La+casa+de+las+plazas&query_place_id=ChIJ5-y8e1-ZP44RtJ_uhAy411Y",
+                "sites/egomaps/static/photos/l_27797647d4b5--20261031.png"
+              ]
+            }
+          ]
+        },
+        "source_evidence": {
+          "official_place_page": "https://visitbogota.co/es/que-hacer-en-bogota/cultura/plazoleta-del-chorro-de-quevedo",
+          "official_place_photo": "https://visitbogota.co/sites/default/files/styles/vn_hero/public/2025-09/1.%20Chorro%20de%20Quevedo_Ricardo%20B%C3%A1ez_0.jpg?itok=Qwhu3VHQ",
+          "official_entrance_page": "https://jbb.gov.co/historias-del-verde-urbano-el-chorro-de-quevedo-escribe-un-nuevo-capitulo-en-la-historia-de-su-paisaje/",
+          "photo_match": "Official photo was visually inspected; gateway, circular fountain, large tree and white storefronts match the source. The existing site photograph was separately inspected and shows the same gateway and fountain; its recorded license is CC BY-SA 3.0.",
+          "user_context": "Bogotá/La Candelaria is the user-known location context, not asserted as readable source text."
+        },
+        "counterexample_checks": {
+          "no_visual": "Three native square candidates remain in the same real broad-query window; no city or neighborhood listing can fulfill the exact square save.",
+          "no_update": "V0 does not show the gateway/fountain. Initial accepted states are evidence-consistent destination hypotheses, not a fabricated view of a wrong square. A blinded reviewer must test whether V0 can nevertheless be uniquely geolocated.",
+          "universal_answer": "Saving one exact place ID cannot cover the distinct square hypotheses; broad city/route entities are not accepted substitutes.",
+          "target_continuity": "Same party, same alley and same exit lead to the plaza, checked on source transitions.",
+          "initial_boundary": [
+            "l_d88b4092851d",
+            "l_9ad7ad4f200d",
+            "l_6a57ddb8937c"
+          ],
+          "final_boundary": [
+            "l_6a57ddb8937c"
+          ],
+          "text_only_baseline": "One of three square candidates would be a guess; actual success probability is not measured.",
+          "review_status": "Construction assertions only; no independent semantic verdict recorded."
+        }
+      }
+    }
+  ]
+}

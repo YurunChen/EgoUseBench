@@ -1,0 +1,3243 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110531",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240203-135502__781-944",
+        "media_start_seconds": 781,
+        "original_video_id": "P01-20240203-135502",
+        "canonical_parent_recording_group": "HD-EPIC:P01-20240203-135502",
+        "source_video_path": "reference/sources/HD-EPIC/clips-screened/P01-20240203-135502__781-944.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P01/P01-20240203-135502.mp4",
+        "source_acquisition": {
+          "source_interval_seconds": [
+            781,
+            944
+          ],
+          "method": "Official MP4 data ranges and source media index.",
+          "verification": "Source byte ranges verified against 206 Content-Range; contiguous native-resolution video decoded to completion."
+        },
+        "record_ids": [
+          "P01-20240203-135502/782-805/stovetop_chocolate_mixture",
+          "P01-20240203-135502/806-941/chocolate_biscuit_mixture"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              782,
+              801
+            ],
+            "description": "The wearer stirs a glossy dark chocolate mixture in a saucepan; the larger preparation is not yet visible."
+          },
+          {
+            "interval_seconds": [
+              806,
+              845
+            ],
+            "description": "The same saucepan is raised over broken biscuits and poured at807–808s, then the mixture is stirred together. Rich Tea packaging is clear by830–833s. Pressing and chilling are not shown in this revised interval."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            782,
+            787,
+            792,
+            797
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            806,
+            815,
+            830,
+            833
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110531/compatibility-20261113/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          782,
+          845
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110531/compatibility-20261113/review.json",
+        "wearer_max_image_edge": 1280,
+        "render_review_evidence": "artifacts/reports/source-review-evidence/render-limits-20261114.json"
+      },
+      "family": "refresh",
+      "subtype": "replace",
+      "status": "video_screened",
+      "supported_claims": [
+        {
+          "text": "Before combination, a standalone stovetop chocolate sauce is a reasonable interpretation of the mixture being made.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The same saucepan mixture is poured into broken biscuits and mixed; it is a binder in the larger chocolate-biscuit preparation, rather than evidence of a standalone sauce-only outcome.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "screening": {
+        "proposed_instruction": "Could you save a recipe video for what I’m making?",
+        "source_continuity": "Continuous [782, 941] seconds from one original recording."
+      },
+      "construct": {
+        "research_question": "Can the agent revise an initially reasonable recipe choice when the same preparation is used as a binder in a larger dish?",
+        "belief_before": "The visible preparation is the smooth, dark mixture being stirred in a small saucepan. A reusable cooked chocolate sauce recipe is a reasonable provisional choice.",
+        "belief_after": "The saucepan mixture is poured onto broken biscuits, mixed and pressed as one larger dessert.",
+        "required_behavior_change": "Save one recipe that teaches the chocolate and broken-biscuit preparation. Replace a sauce-only recipe if previously saved; preserve one that already covers both.",
+        "no_update_failure": "Keep a standalone sauce recipe or choose a dessert that uses biscuits solely as a crust, garnish or separate layer.",
+        "overupdate_failure": "Keep both a sauce-only and complete dessert recipe when the wearer asks for a recipe video.",
+        "visual_dependency_claim": "The request does not identify either recipe. Only the released frames connect the same dark saucepan mixture to the subsequent broken-biscuit preparation.",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a recipe video for what I’m making?",
+          "target_granularity": "category",
+          "initial_target_role": "provisional_item",
+          "final_target_role": "observed_item",
+          "environment_role_ids": {
+            "provisional_item": "m_a130059e8300",
+            "observed_item": "m_1177b3014bfc"
+          },
+          "equivalent_role_ids": {
+            "provisional_item": [
+              "m_2f8d10c7a192",
+              "m_dbefda15c922",
+              "m_654414b126ca",
+              "m_f784f13be30b",
+              "m_827486a7a7c9",
+              "m_b38c882d3fd4",
+              "m_2ec050cce4e3",
+              "m_9b9fa268e826",
+              "m_5c7153a3d9cf",
+              "m_37b8ef27dd5e",
+              "m_928e9716efe1",
+              "m_8569703c477c",
+              "m_2229cdaefe66",
+              "m_7829c3dc0607",
+              "m_84a9b8a66c0d",
+              "m_90d949cef50c",
+              "m_8e738eace88b",
+              "m_4988716fc399",
+              "m_1ad32f1d5572",
+              "m_ef46b29b7615",
+              "m_796bd4b1f5c5",
+              "m_bb777f9a6ff4",
+              "m_7d6802f848ef",
+              "m_fd473c3b5213",
+              "m_2d5d78b2378b",
+              "m_1f1c591f1c93",
+              "m_29aab6cb6afd",
+              "m_2627a63ba4dd",
+              "m_9b93702ddfa0",
+              "m_28e1a2d66e6e",
+              "m_9268f5797c9f",
+              "m_fed30b2d6d03",
+              "m_60d4ab9f2487",
+              "m_926cc293abb3",
+              "m_a571b6581f52",
+              "m_a7673033b4e5",
+              "m_34624b101f79",
+              "m_b0919d8213c0",
+              "m_7340ca7e4f26",
+              "m_d6b4cde7dc20",
+              "m_d64852fb86c5",
+              "m_2fd0074d8dd3",
+              "m_94436d7dcc28",
+              "m_78940ad4103b",
+              "m_0e79cb8ee7d3",
+              "m_337d9f283292",
+              "m_a2347829fe01",
+              "m_1177b3014bfc",
+              "m_2c0a2e4b2e3c",
+              "m_cc7cbd9428d1",
+              "m_d19135c27eb6",
+              "m_ee0decbbd82f",
+              "m_2e99b072686e",
+              "m_d7b1be7ba6f4",
+              "m_5044919760e2",
+              "m_640c8648988f",
+              "m_c2857dd89d5a",
+              "m_424ba321f768",
+              "m_70296b6ff04b",
+              "m_bf6acca8707d",
+              "m_57f9c69b6a03",
+              "m_470bc4ef6bea",
+              "m_e3f44557a104",
+              "m_701604605cc8"
+            ],
+            "observed_item": [
+              "m_2627a63ba4dd",
+              "m_9b93702ddfa0",
+              "m_9268f5797c9f",
+              "m_fed30b2d6d03",
+              "m_60d4ab9f2487",
+              "m_926cc293abb3",
+              "m_34624b101f79",
+              "m_b0919d8213c0",
+              "m_7340ca7e4f26",
+              "m_d6b4cde7dc20",
+              "m_d64852fb86c5",
+              "m_94436d7dcc28",
+              "m_78940ad4103b",
+              "m_0e79cb8ee7d3",
+              "m_597fa63289f8",
+              "m_62b434d21155",
+              "m_cc7cbd9428d1",
+              "m_d19135c27eb6",
+              "m_ee0decbbd82f",
+              "m_2e99b072686e",
+              "m_d7b1be7ba6f4",
+              "m_5044919760e2",
+              "m_640c8648988f"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "old": "m_a130059e8300",
+            "new": "m_1177b3014bfc"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "old"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The opening shot shows a smooth dark preparation being cooked in a saucepan; a recipe for a standalone cooked chocolate sauce can match the current evidence."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "new"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The same saucepan is moved above the crumbs at the start of the combination; the later frames identify the biscuits and show the combined mixture being pressed."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "stovetop chocolate dessert sauce recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110531.json",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "m_2f8d10c7a192",
+                "m_867122c34f60",
+                "m_dbefda15c922",
+                "m_126098841807",
+                "m_654414b126ca",
+                "m_a130059e8300",
+                "m_f784f13be30b",
+                "m_827486a7a7c9",
+                "m_b38c882d3fd4",
+                "m_2ec050cce4e3",
+                "m_bffe7b0d5b9b",
+                "m_9b9fa268e826",
+                "m_5c7153a3d9cf",
+                "m_37b8ef27dd5e",
+                "m_928e9716efe1",
+                "m_8569703c477c",
+                "m_a8b3da1c4e4a",
+                "m_2229cdaefe66",
+                "m_7a0b7780db3a",
+                "m_7829c3dc0607",
+                "m_84a9b8a66c0d",
+                "m_8339f4df4203",
+                "m_90d949cef50c",
+                "m_8e738eace88b",
+                "m_4988716fc399",
+                "m_1ad32f1d5572",
+                "m_ef46b29b7615",
+                "m_8b14c9f6aa5b",
+                "m_796bd4b1f5c5",
+                "m_bb777f9a6ff4",
+                "m_7d6802f848ef",
+                "m_fd3c8cf13fa9",
+                "m_fd473c3b5213",
+                "m_2d5d78b2378b",
+                "m_a0f7a031b15f",
+                "m_b9d2660fa837",
+                "m_1f1c591f1c93",
+                "m_29aab6cb6afd",
+                "m_9d6d6f16f53a",
+                "m_0865925145cc"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "chocolate biscuit cake recipe melted chocolate sauce",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110531.json",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "m_2627a63ba4dd",
+                "m_9b93702ddfa0",
+                "m_28e1a2d66e6e",
+                "m_9268f5797c9f",
+                "m_fed30b2d6d03",
+                "m_60d4ab9f2487",
+                "m_926cc293abb3",
+                "m_a571b6581f52",
+                "m_a7673033b4e5",
+                "m_34624b101f79",
+                "m_b0919d8213c0",
+                "m_4d3f4f06a08d",
+                "m_7340ca7e4f26",
+                "m_d6b4cde7dc20",
+                "m_d64852fb86c5",
+                "m_2fd0074d8dd3",
+                "m_94436d7dcc28",
+                "m_78940ad4103b",
+                "m_0e79cb8ee7d3",
+                "m_896131ccc170",
+                "m_dcb971c5f04c",
+                "m_597fa63289f8",
+                "m_8d4e77f896e9",
+                "m_337d9f283292",
+                "m_a2347829fe01",
+                "m_1177b3014bfc",
+                "m_2c0a2e4b2e3c",
+                "m_6a44922949cd",
+                "m_62b434d21155",
+                "m_cc7cbd9428d1",
+                "m_d19135c27eb6",
+                "m_08fe75c040f3",
+                "m_ee0decbbd82f",
+                "m_2e99b072686e",
+                "m_d5d366294bd9",
+                "m_d7b1be7ba6f4",
+                "m_5044919760e2",
+                "m_a08c98b7f2af",
+                "m_640c8648988f",
+                "m_c2857dd89d5a"
+              ]
+            },
+            {
+              "stage": "broad_comparison",
+              "query": "chocolate dessert recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110531.json",
+              "snapshot_stage": "broad_comparison",
+              "result_entity_ids": [
+                "m_0dea2b0869ed",
+                "m_0865925145cc",
+                "m_630f743e075f",
+                "m_5814e8e87463",
+                "m_12d10fd1ef87",
+                "m_ebb14b3d8c7a",
+                "m_924a1abba716",
+                "m_789cfeb710ba",
+                "m_6a44922949cd",
+                "m_424ba321f768",
+                "m_7926887c353c",
+                "m_70296b6ff04b",
+                "m_8d4e77f896e9",
+                "m_bf6acca8707d",
+                "m_dcb971c5f04c",
+                "m_071c9ca53312",
+                "m_7927cea204a7",
+                "m_cc166ec88005",
+                "m_ec872773f240",
+                "m_7eebe688b915",
+                "m_57f9c69b6a03",
+                "m_a571b6581f52",
+                "m_22312ada403b",
+                "m_d3d8d9f241c0",
+                "m_470bc4ef6bea",
+                "m_fc1bdc4d2030",
+                "m_754280e964c2",
+                "m_c8385b1bb1b3",
+                "m_e3f44557a104",
+                "m_ac8c66c41aef",
+                "m_4019ee10eb2e",
+                "m_e48f7712eeb9",
+                "m_38a3c8994a73",
+                "m_24cefde0180f",
+                "m_666d1cd5ca1e",
+                "m_896131ccc170",
+                "m_92405508e181",
+                "m_180b2cfbc3d4",
+                "m_701604605cc8",
+                "m_78edec856c5f"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_2f8d10c7a192",
+            "m_867122c34f60",
+            "m_dbefda15c922",
+            "m_126098841807",
+            "m_654414b126ca",
+            "m_a130059e8300",
+            "m_f784f13be30b",
+            "m_827486a7a7c9",
+            "m_b38c882d3fd4",
+            "m_2ec050cce4e3",
+            "m_bffe7b0d5b9b",
+            "m_9b9fa268e826",
+            "m_5c7153a3d9cf",
+            "m_37b8ef27dd5e",
+            "m_928e9716efe1",
+            "m_8569703c477c",
+            "m_a8b3da1c4e4a",
+            "m_2229cdaefe66",
+            "m_7a0b7780db3a",
+            "m_7829c3dc0607",
+            "m_84a9b8a66c0d",
+            "m_8339f4df4203",
+            "m_90d949cef50c",
+            "m_8e738eace88b",
+            "m_4988716fc399",
+            "m_1ad32f1d5572",
+            "m_ef46b29b7615",
+            "m_8b14c9f6aa5b",
+            "m_796bd4b1f5c5",
+            "m_bb777f9a6ff4",
+            "m_7d6802f848ef",
+            "m_fd3c8cf13fa9",
+            "m_fd473c3b5213",
+            "m_2d5d78b2378b",
+            "m_a0f7a031b15f",
+            "m_b9d2660fa837",
+            "m_1f1c591f1c93",
+            "m_29aab6cb6afd",
+            "m_9d6d6f16f53a",
+            "m_0865925145cc",
+            "m_2627a63ba4dd",
+            "m_9b93702ddfa0",
+            "m_28e1a2d66e6e",
+            "m_9268f5797c9f",
+            "m_fed30b2d6d03",
+            "m_60d4ab9f2487",
+            "m_926cc293abb3",
+            "m_a571b6581f52",
+            "m_a7673033b4e5",
+            "m_34624b101f79",
+            "m_b0919d8213c0",
+            "m_4d3f4f06a08d",
+            "m_7340ca7e4f26",
+            "m_d6b4cde7dc20",
+            "m_d64852fb86c5",
+            "m_2fd0074d8dd3",
+            "m_94436d7dcc28",
+            "m_78940ad4103b",
+            "m_0e79cb8ee7d3",
+            "m_896131ccc170",
+            "m_dcb971c5f04c",
+            "m_597fa63289f8",
+            "m_8d4e77f896e9",
+            "m_337d9f283292",
+            "m_a2347829fe01",
+            "m_1177b3014bfc",
+            "m_2c0a2e4b2e3c",
+            "m_6a44922949cd",
+            "m_62b434d21155",
+            "m_cc7cbd9428d1",
+            "m_d19135c27eb6",
+            "m_08fe75c040f3",
+            "m_ee0decbbd82f",
+            "m_2e99b072686e",
+            "m_d5d366294bd9",
+            "m_d7b1be7ba6f4",
+            "m_5044919760e2",
+            "m_a08c98b7f2af",
+            "m_640c8648988f",
+            "m_c2857dd89d5a",
+            "m_0dea2b0869ed",
+            "m_630f743e075f",
+            "m_5814e8e87463",
+            "m_12d10fd1ef87",
+            "m_ebb14b3d8c7a",
+            "m_924a1abba716",
+            "m_789cfeb710ba",
+            "m_424ba321f768",
+            "m_7926887c353c",
+            "m_70296b6ff04b",
+            "m_bf6acca8707d",
+            "m_071c9ca53312",
+            "m_7927cea204a7",
+            "m_cc166ec88005",
+            "m_ec872773f240",
+            "m_7eebe688b915",
+            "m_57f9c69b6a03",
+            "m_22312ada403b",
+            "m_d3d8d9f241c0",
+            "m_470bc4ef6bea",
+            "m_fc1bdc4d2030",
+            "m_754280e964c2",
+            "m_c8385b1bb1b3",
+            "m_e3f44557a104",
+            "m_ac8c66c41aef",
+            "m_4019ee10eb2e",
+            "m_e48f7712eeb9",
+            "m_38a3c8994a73",
+            "m_24cefde0180f",
+            "m_666d1cd5ca1e",
+            "m_92405508e181",
+            "m_180b2cfbc3d4",
+            "m_701604605cc8",
+            "m_78edec856c5f"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_2f8d10c7a192",
+            "m_867122c34f60",
+            "m_dbefda15c922",
+            "m_126098841807",
+            "m_654414b126ca",
+            "m_a130059e8300",
+            "m_f784f13be30b",
+            "m_827486a7a7c9",
+            "m_b38c882d3fd4",
+            "m_2ec050cce4e3",
+            "m_bffe7b0d5b9b",
+            "m_9b9fa268e826",
+            "m_5c7153a3d9cf",
+            "m_37b8ef27dd5e",
+            "m_928e9716efe1",
+            "m_8569703c477c",
+            "m_a8b3da1c4e4a",
+            "m_2229cdaefe66",
+            "m_7a0b7780db3a",
+            "m_7829c3dc0607",
+            "m_84a9b8a66c0d",
+            "m_8339f4df4203",
+            "m_90d949cef50c",
+            "m_8e738eace88b",
+            "m_4988716fc399",
+            "m_1ad32f1d5572",
+            "m_ef46b29b7615",
+            "m_8b14c9f6aa5b",
+            "m_796bd4b1f5c5",
+            "m_bb777f9a6ff4",
+            "m_7d6802f848ef",
+            "m_fd3c8cf13fa9",
+            "m_fd473c3b5213",
+            "m_2d5d78b2378b",
+            "m_a0f7a031b15f",
+            "m_b9d2660fa837",
+            "m_1f1c591f1c93",
+            "m_29aab6cb6afd",
+            "m_9d6d6f16f53a",
+            "m_0865925145cc",
+            "m_28e1a2d66e6e",
+            "m_a571b6581f52",
+            "m_a7673033b4e5",
+            "m_4d3f4f06a08d",
+            "m_2fd0074d8dd3",
+            "m_896131ccc170",
+            "m_dcb971c5f04c",
+            "m_8d4e77f896e9",
+            "m_337d9f283292",
+            "m_a2347829fe01",
+            "m_2c0a2e4b2e3c",
+            "m_6a44922949cd",
+            "m_08fe75c040f3",
+            "m_d5d366294bd9",
+            "m_a08c98b7f2af",
+            "m_c2857dd89d5a",
+            "m_0dea2b0869ed",
+            "m_630f743e075f",
+            "m_5814e8e87463",
+            "m_12d10fd1ef87",
+            "m_ebb14b3d8c7a",
+            "m_924a1abba716",
+            "m_789cfeb710ba",
+            "m_424ba321f768",
+            "m_7926887c353c",
+            "m_70296b6ff04b",
+            "m_bf6acca8707d",
+            "m_071c9ca53312",
+            "m_7927cea204a7",
+            "m_cc166ec88005",
+            "m_ec872773f240",
+            "m_7eebe688b915",
+            "m_57f9c69b6a03",
+            "m_22312ada403b",
+            "m_d3d8d9f241c0",
+            "m_470bc4ef6bea",
+            "m_fc1bdc4d2030",
+            "m_754280e964c2",
+            "m_c8385b1bb1b3",
+            "m_e3f44557a104",
+            "m_ac8c66c41aef",
+            "m_4019ee10eb2e",
+            "m_e48f7712eeb9",
+            "m_38a3c8994a73",
+            "m_24cefde0180f",
+            "m_666d1cd5ca1e",
+            "m_92405508e181",
+            "m_180b2cfbc3d4",
+            "m_701604605cc8",
+            "m_78edec856c5f"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_2f8d10c7a192",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2f8d10c7a192.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WkvIPRnOxts.json"
+              ]
+            },
+            {
+              "entity_id": "m_867122c34f60",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Oil-milk-cocoa liquid is mixed without saucepan sauce cooking; most becomes banana/egg/flour stovetop sponge and the remainder soaks that sponge. Not the filmed saucepan sauce or biscuit mixture.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_867122c34f60.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HUvueiEbo8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_dbefda15c922",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dbefda15c922.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DB9vpF1IYF8.json"
+              ]
+            },
+            {
+              "entity_id": "m_126098841807",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Baked/cooked sponge batter in frying pan. Cocoa and melted butter proceed into egg/flour batter, not an independent sauce.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_126098841807.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ru2NffZ9WRU.json"
+              ]
+            },
+            {
+              "entity_id": "m_654414b126ca",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_654414b126ca.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tZ0RqwO3Trw.json"
+              ]
+            },
+            {
+              "entity_id": "m_a130059e8300",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a130059e8300.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/q1jfAmis86k.json"
+              ]
+            },
+            {
+              "entity_id": "m_f784f13be30b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f784f13be30b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hViNlSJrvVI.json"
+              ]
+            },
+            {
+              "entity_id": "m_827486a7a7c9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_827486a7a7c9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vdZYVd8m9kg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b38c882d3fd4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b38c882d3fd4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hP53Ubkw60M.json"
+              ]
+            },
+            {
+              "entity_id": "m_2ec050cce4e3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2ec050cce4e3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YltNAkYHzeo.json"
+              ]
+            },
+            {
+              "entity_id": "m_bffe7b0d5b9b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Cooked chocolate sponge batter, not an independent sauce or a biscuit-bodied dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bffe7b0d5b9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3rQ2J3Ji0W4.json"
+              ]
+            },
+            {
+              "entity_id": "m_9b9fa268e826",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9b9fa268e826.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3pyzr-uCM5A.json"
+              ]
+            },
+            {
+              "entity_id": "m_5c7153a3d9cf",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5c7153a3d9cf.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AvCYIr1kRQA.json"
+              ]
+            },
+            {
+              "entity_id": "m_37b8ef27dd5e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_37b8ef27dd5e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KSdlVBxjPa8.json"
+              ]
+            },
+            {
+              "entity_id": "m_928e9716efe1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_928e9716efe1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UKPM9Pgzhec.json"
+              ]
+            },
+            {
+              "entity_id": "m_8569703c477c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8569703c477c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XgO6GwFxFmU.json"
+              ]
+            },
+            {
+              "entity_id": "m_a8b3da1c4e4a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official 20-second preview shows only bare chocolate melting by microwave or bain-marie.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a8b3da1c4e4a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fe0maRbdUz0.json"
+              ]
+            },
+            {
+              "entity_id": "m_2229cdaefe66",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2229cdaefe66.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WkiB5Iz3ySI.json"
+              ]
+            },
+            {
+              "entity_id": "m_7a0b7780db3a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Uses cubed bread, not biscuits. The separate cooked custard is pale; the dark chocolate binding is made for bread pudding, not shown as an independently quantified chocolate dessert sauce.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7a0b7780db3a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9NdrOX1Nql0.json"
+              ]
+            },
+            {
+              "entity_id": "m_7829c3dc0607",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7829c3dc0607.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1rdB9JusmrU.json"
+              ]
+            },
+            {
+              "entity_id": "m_84a9b8a66c0d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_84a9b8a66c0d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DO1OxD_jfL8.json"
+              ]
+            },
+            {
+              "entity_id": "m_8339f4df4203",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "A sponge cake cooked in a covered stovetop pan; no independent matching chocolate sauce taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8339f4df4203.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/C_oFgnoFkPI.json"
+              ]
+            },
+            {
+              "entity_id": "m_90d949cef50c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_90d949cef50c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qSMYGrUdW30.json"
+              ]
+            },
+            {
+              "entity_id": "m_8e738eace88b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8e738eace88b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qKiz_OwXI-g.json"
+              ]
+            },
+            {
+              "entity_id": "m_4988716fc399",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4988716fc399.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QzxRGo4LGwM.json"
+              ]
+            },
+            {
+              "entity_id": "m_1ad32f1d5572",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1ad32f1d5572.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xSZYr9p8Xq8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ef46b29b7615",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ef46b29b7615.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/35xvRx4XsFU.json"
+              ]
+            },
+            {
+              "entity_id": "m_8b14c9f6aa5b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Caramel sauce, no chocolate.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8b14c9f6aa5b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CdAp1nlwVC0.json"
+              ]
+            },
+            {
+              "entity_id": "m_796bd4b1f5c5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_796bd4b1f5c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tNwDJLfy7E8.json"
+              ]
+            },
+            {
+              "entity_id": "m_bb777f9a6ff4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bb777f9a6ff4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/V0fSo326pDE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7d6802f848ef",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7d6802f848ef.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-yO9ft0Jfd8.json"
+              ]
+            },
+            {
+              "entity_id": "m_fd3c8cf13fa9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher instructions and the complete storyboard show only melting a chocolate bar in a bowl over water, despite the sauce title.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fd3c8cf13fa9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BwyMdRlIKmg.json"
+              ]
+            },
+            {
+              "entity_id": "m_fd473c3b5213",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fd473c3b5213.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WBvtCpDyMi8.json"
+              ]
+            },
+            {
+              "entity_id": "m_2d5d78b2378b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2d5d78b2378b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8ckZn1Rgl6A.json"
+              ]
+            },
+            {
+              "entity_id": "m_a0f7a031b15f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The title mentions chocolate cake and sauce, but the published details, chapters and available storyboard do not establish a reusable sauce or a broken-biscuit preparation. The initial method remains unverified.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a0f7a031b15f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bRN_k2lVcEI.json"
+              ]
+            },
+            {
+              "entity_id": "m_b9d2660fa837",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Condensed-milk dulce de leche, no chocolate.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b9d2660fa837.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FPulikJJbY4.json"
+              ]
+            },
+            {
+              "entity_id": "m_1f1c591f1c93",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1f1c591f1c93.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-FevC9MslF8.json"
+              ]
+            },
+            {
+              "entity_id": "m_29aab6cb6afd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_29aab6cb6afd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lMlNKxQlVxw.json"
+              ]
+            },
+            {
+              "entity_id": "m_9d6d6f16f53a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Chocolate and coconut oil make a brittle shell on cold desserts, not an ordinary pourable chocolate sauce recipe.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9d6d6f16f53a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_SAVHu7fUhk.json"
+              ]
+            },
+            {
+              "entity_id": "m_0865925145cc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Chocolate pudding meant to set as a custard, not a reusable sauce or a biscuit dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0865925145cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Fz95m_nrvmE.json"
+              ]
+            },
+            {
+              "entity_id": "m_28e1a2d66e6e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Independently teaches cocoa/butter sauce, but whole coffee-soaked biscuits and the sauce are stacked in distinct layers.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_28e1a2d66e6e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/a_tp41j4eQo.json"
+              ]
+            },
+            {
+              "entity_id": "m_a571b6581f52",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Separate hot-cream/chocolate ganache is reusable; the rest makes baked flour/egg sponge and mascarpone layers.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a571b6581f52.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bT1Qnk1B8Oo.json"
+              ]
+            },
+            {
+              "entity_id": "m_a7673033b4e5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Stovetop tutorial grinds chocolate biscuits into an ingredient of a completed sauce. The native storyboard ends with this sauce poured into a serving dish, not a biscuit dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a7673033b4e5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oAVnMzBcXJ4.json"
+              ]
+            },
+            {
+              "entity_id": "m_4d3f4f06a08d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Whole milk-dipped biscuits are layered with thick starch custard; not a sauce-coated broken-biscuit mass.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4d3f4f06a08d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/D_zmYteOezM.json"
+              ]
+            },
+            {
+              "entity_id": "m_2fd0074d8dd3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Independent chocolate ganache sub-recipe, but Lotus biscuits, whipped filling and ganache are stacked as separate layers.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2fd0074d8dd3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2-LF8ylxkp0.json"
+              ]
+            },
+            {
+              "entity_id": "m_896131ccc170",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official text and storyboard show a biscuit base underneath a separate creamy cheesecake filling and top ganache, not a biscuit-chocolate-bodied dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_896131ccc170.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wbc0pTyow6c.json"
+              ]
+            },
+            {
+              "entity_id": "m_dcb971c5f04c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Storyboard shows cooked thick chocolate pudding, whole biscuits stacked over it, and crumbs used only for garnish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dcb971c5f04c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/r-ahf1Err9U.json"
+              ]
+            },
+            {
+              "entity_id": "m_8d4e77f896e9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Fridge-set chocolate-and-milk mixture, no biscuit body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8d4e77f896e9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zatqQEjT2rg.json"
+              ]
+            },
+            {
+              "entity_id": "m_337d9f283292",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_337d9f283292.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7g3nIbff3Hk.json"
+              ]
+            },
+            {
+              "entity_id": "m_a2347829fe01",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official storyboard uses ground Bourbon chocolate biscuits in a cooked glaze and ends at the glaze, without forming any biscuit-based dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a2347829fe01.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kko6a5i14rM.json"
+              ]
+            },
+            {
+              "entity_id": "m_2c0a2e4b2e3c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Reusable sauce ingredients and low-heat thickening are explicit, but the dessert is a baked flour sponge.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2c0a2e4b2e3c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ULeW1bm-GOI.json"
+              ]
+            },
+            {
+              "entity_id": "m_6a44922949cd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Baked mousse cake plus coffee syrup and a mousse-based finishing drizzle, not the featured sauce or a biscuit body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6a44922949cd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1u-0tNFMamg.json"
+              ]
+            },
+            {
+              "entity_id": "m_08fe75c040f3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Broken biscuits are bound with whipped cream, banana, butter and hazelnuts; chocolate is an optional finishing sauce, not the biscuit binder.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_08fe75c040f3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9v2wIA-hjKM.json"
+              ]
+            },
+            {
+              "entity_id": "m_d5d366294bd9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Grinds cream-filled Oreos for frosting, not a warm sauce or a set biscuit dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d5d366294bd9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1M36kJUhECA.json"
+              ]
+            },
+            {
+              "entity_id": "m_a08c98b7f2af",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Dipping already-prepared treats in melted/tempered chocolate. Does not teach the main biscuit and chocolate mass or a chocolate sauce recipe.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a08c98b7f2af.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nRxzmNp4khU.json"
+              ]
+            },
+            {
+              "entity_id": "m_c2857dd89d5a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches reusable chocolate-and-cream ganache, but the dessert is assembled from whole milk-dipped biscuits layered with pudding.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c2857dd89d5a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Wq2dBBBLGpM.json"
+              ]
+            },
+            {
+              "entity_id": "m_0dea2b0869ed",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher chapters: brownies, Brazilian truffles, peanut-butter cupcakes, brownie cookies, crepe cake. No biscuit-bodied chocolate dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0dea2b0869ed.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Umu5eJYmy0Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_630f743e075f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher chapters: brownies, chocolate crepe cake, tiramisu mousse and hot soufflé; none is the filmed preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_630f743e075f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tOAkMKhVbDQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_5814e8e87463",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5814e8e87463.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/utf1GFk6c4U.json"
+              ]
+            },
+            {
+              "entity_id": "m_12d10fd1ef87",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Published recipes for chocolate mousse, chocolate lava cake and baked brownie cookies, not a finished cocoa sauce and biscuit mass.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12d10fd1ef87.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PeX5PkRNHSA.json"
+              ]
+            },
+            {
+              "entity_id": "m_ebb14b3d8c7a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ebb14b3d8c7a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KEqpwpfFfhE.json"
+              ]
+            },
+            {
+              "entity_id": "m_924a1abba716",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher enumerates 15 recipes: biscuit material is cheesecake/tart crust, not a chocolate-biscuit body; no standalone saucepan sauce segment established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_924a1abba716.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mMqaAfy6ot4.json"
+              ]
+            },
+            {
+              "entity_id": "m_789cfeb710ba",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Baked sponge with egg/chocolate/cream frosting finished by whipping, not a separately finished dessert sauce or biscuit body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_789cfeb710ba.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EaljSnLrJW8.json"
+              ]
+            },
+            {
+              "entity_id": "m_424ba321f768",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The Matilda cake guide prepares a separate hot pourable fudge glaze in a saucepan; cake is baked flour sponge.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_424ba321f768.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mcbej7umoqE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7926887c353c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7926887c353c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0SnkzE_DxiQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_70296b6ff04b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Independently gives cream/chocolate ganache steps; the layered dessert uses baked brownie as the body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_70296b6ff04b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/y8P9ztUSV9E.json"
+              ]
+            },
+            {
+              "entity_id": "m_bf6acca8707d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher measures hot milk and chocolate and shows mixing for a separate glaze. Advertised biscuit links are different videos. Main dessert is baked brownie.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bf6acca8707d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8GxfnU5gVII.json"
+              ]
+            },
+            {
+              "entity_id": "m_071c9ca53312",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_071c9ca53312.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Pe1KrkiBDzE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7927cea204a7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Decorating compilation, not a verified complete chocolate-biscuit dessert; no reusable sauce recipe established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7927cea204a7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kS_xN6IfXAs.json"
+              ]
+            },
+            {
+              "entity_id": "m_cc166ec88005",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher chapters cover chocolate ball, tacos, and tart; official previews are not a complete mixed biscuit dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cc166ec88005.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mYWMcWv9KD8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ec872773f240",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ec872773f240.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/I50-1ktP5gA.json"
+              ]
+            },
+            {
+              "entity_id": "m_7eebe688b915",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7eebe688b915.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Jsj17-XmvTM.json"
+              ]
+            },
+            {
+              "entity_id": "m_57f9c69b6a03",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Separate ganache recipe is usable; rolling a thin egg-and-flour sponge after oven baking is not a biscuit mass.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57f9c69b6a03.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fCAPoX-rHr4.json"
+              ]
+            },
+            {
+              "entity_id": "m_22312ada403b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Crushed caramel biscuits are layered under separate whipped mousse in serving glasses; not combined as the chocolate-bound body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_22312ada403b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DGq7R0gnarU.json"
+              ]
+            },
+            {
+              "entity_id": "m_d3d8d9f241c0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d3d8d9f241c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/c-klSziwUng.json"
+              ]
+            },
+            {
+              "entity_id": "m_470bc4ef6bea",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher lists glaze ingredients, separate chapter, and method; flourless oven sponge contains no biscuit body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_470bc4ef6bea.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/H-PxDQf-_Zg.json"
+              ]
+            },
+            {
+              "entity_id": "m_fc1bdc4d2030",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Long cake/cupcake/decorating compilation, not a separately evidenced complete sauce-bound crushed biscuit dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fc1bdc4d2030.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pAzuRxNC-PA.json"
+              ]
+            },
+            {
+              "entity_id": "m_754280e964c2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official chapters and previews cover eclair, moist cake, hot cocoa, peanut-butter bars, truffles, brigadeiro and Nutella; not the filmed preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_754280e964c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8e9JtsMOcjQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_c8385b1bb1b3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official video storyboard and the publisher’s same recipe establish that this is a gelatin-set mirror glaze poured over baked sponge, not a reusable pourable dessert sauce or a broken-biscuit dessert.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c8385b1bb1b3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/l8nC5VZolTs.json"
+              ]
+            },
+            {
+              "entity_id": "m_e3f44557a104",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Separate microwave ganache is taught; soaked intact Choco Lava biscuits form layers with piped custard cream, not a mixed biscuit body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e3f44557a104.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4ZSxRthcPhc.json"
+              ]
+            },
+            {
+              "entity_id": "m_ac8c66c41aef",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ac8c66c41aef.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wg808UsbcAo.json"
+              ]
+            },
+            {
+              "entity_id": "m_4019ee10eb2e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Espresso cheesecake, layered éclair with glaze, and mousse; the chocolate-biscuit body is not taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4019ee10eb2e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qw5J4Gl_sXs.json"
+              ]
+            },
+            {
+              "entity_id": "m_e48f7712eeb9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e48f7712eeb9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9Fx8kfGz_Lk.json"
+              ]
+            },
+            {
+              "entity_id": "m_38a3c8994a73",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official storyboard shows separate pressed crumb layer and whipped creamy chocolate filling and top, not a crumb body held throughout with chocolate sauce.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_38a3c8994a73.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hc1LzG0BU1g.json"
+              ]
+            },
+            {
+              "entity_id": "m_24cefde0180f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_24cefde0180f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3nVnmjSWGfs.json"
+              ]
+            },
+            {
+              "entity_id": "m_666d1cd5ca1e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_666d1cd5ca1e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GhnsB6yGc2c.json"
+              ]
+            },
+            {
+              "entity_id": "m_92405508e181",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_92405508e181.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/LMPqAMfKakI.json"
+              ]
+            },
+            {
+              "entity_id": "m_180b2cfbc3d4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_180b2cfbc3d4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Oz3jorq9QKY.json"
+              ]
+            },
+            {
+              "entity_id": "m_701604605cc8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches microwave coffee-chocolate ganache; builds separate layers of pudding/soaked whole wheat bread and uses coated biscuits as decorations.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_701604605cc8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Oip9ff196do.json"
+              ]
+            },
+            {
+              "entity_id": "m_78edec856c5f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Baked flour cake and whipped cream cheese buttercream; no independent sauce or biscuit body.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_78edec856c5f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dsJtgmAhFF4.json"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_2f8d10c7a192",
+              "native_id": "WkvIPRnOxts",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2f8d10c7a192.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WkvIPRnOxts.json"
+              ]
+            },
+            {
+              "entity_id": "m_867122c34f60",
+              "native_id": "HUvueiEbo8I",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Oil-milk-cocoa liquid is mixed without saucepan sauce cooking; most becomes banana/egg/flour stovetop sponge and the remainder soaks that sponge. Not the filmed saucepan sauce or biscuit mixture.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_867122c34f60.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HUvueiEbo8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_dbefda15c922",
+              "native_id": "DB9vpF1IYF8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dbefda15c922.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DB9vpF1IYF8.json"
+              ]
+            },
+            {
+              "entity_id": "m_126098841807",
+              "native_id": "Ru2NffZ9WRU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Baked/cooked sponge batter in frying pan. Cocoa and melted butter proceed into egg/flour batter, not an independent sauce.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_126098841807.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ru2NffZ9WRU.json"
+              ]
+            },
+            {
+              "entity_id": "m_654414b126ca",
+              "native_id": "tZ0RqwO3Trw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_654414b126ca.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tZ0RqwO3Trw.json"
+              ]
+            },
+            {
+              "entity_id": "m_a130059e8300",
+              "native_id": "q1jfAmis86k",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a130059e8300.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/q1jfAmis86k.json"
+              ]
+            },
+            {
+              "entity_id": "m_f784f13be30b",
+              "native_id": "hViNlSJrvVI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f784f13be30b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hViNlSJrvVI.json"
+              ]
+            },
+            {
+              "entity_id": "m_827486a7a7c9",
+              "native_id": "vdZYVd8m9kg",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_827486a7a7c9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vdZYVd8m9kg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b38c882d3fd4",
+              "native_id": "hP53Ubkw60M",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b38c882d3fd4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hP53Ubkw60M.json"
+              ]
+            },
+            {
+              "entity_id": "m_2ec050cce4e3",
+              "native_id": "YltNAkYHzeo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2ec050cce4e3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YltNAkYHzeo.json"
+              ]
+            },
+            {
+              "entity_id": "m_bffe7b0d5b9b",
+              "native_id": "3rQ2J3Ji0W4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Cooked chocolate sponge batter, not an independent sauce or a biscuit-bodied dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bffe7b0d5b9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3rQ2J3Ji0W4.json"
+              ]
+            },
+            {
+              "entity_id": "m_9b9fa268e826",
+              "native_id": "3pyzr-uCM5A",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9b9fa268e826.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3pyzr-uCM5A.json"
+              ]
+            },
+            {
+              "entity_id": "m_5c7153a3d9cf",
+              "native_id": "AvCYIr1kRQA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5c7153a3d9cf.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AvCYIr1kRQA.json"
+              ]
+            },
+            {
+              "entity_id": "m_37b8ef27dd5e",
+              "native_id": "KSdlVBxjPa8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_37b8ef27dd5e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KSdlVBxjPa8.json"
+              ]
+            },
+            {
+              "entity_id": "m_928e9716efe1",
+              "native_id": "UKPM9Pgzhec",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_928e9716efe1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UKPM9Pgzhec.json"
+              ]
+            },
+            {
+              "entity_id": "m_8569703c477c",
+              "native_id": "XgO6GwFxFmU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8569703c477c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XgO6GwFxFmU.json"
+              ]
+            },
+            {
+              "entity_id": "m_a8b3da1c4e4a",
+              "native_id": "fe0maRbdUz0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official 20-second preview shows only bare chocolate melting by microwave or bain-marie.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a8b3da1c4e4a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fe0maRbdUz0.json"
+              ]
+            },
+            {
+              "entity_id": "m_2229cdaefe66",
+              "native_id": "WkiB5Iz3ySI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2229cdaefe66.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WkiB5Iz3ySI.json"
+              ]
+            },
+            {
+              "entity_id": "m_7a0b7780db3a",
+              "native_id": "9NdrOX1Nql0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Uses cubed bread, not biscuits. The separate cooked custard is pale; the dark chocolate binding is made for bread pudding, not shown as an independently quantified chocolate dessert sauce.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7a0b7780db3a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9NdrOX1Nql0.json"
+              ]
+            },
+            {
+              "entity_id": "m_7829c3dc0607",
+              "native_id": "1rdB9JusmrU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7829c3dc0607.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1rdB9JusmrU.json"
+              ]
+            },
+            {
+              "entity_id": "m_84a9b8a66c0d",
+              "native_id": "DO1OxD_jfL8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_84a9b8a66c0d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DO1OxD_jfL8.json"
+              ]
+            },
+            {
+              "entity_id": "m_8339f4df4203",
+              "native_id": "C_oFgnoFkPI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "A sponge cake cooked in a covered stovetop pan; no independent matching chocolate sauce taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8339f4df4203.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/C_oFgnoFkPI.json"
+              ]
+            },
+            {
+              "entity_id": "m_90d949cef50c",
+              "native_id": "qSMYGrUdW30",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_90d949cef50c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qSMYGrUdW30.json"
+              ]
+            },
+            {
+              "entity_id": "m_8e738eace88b",
+              "native_id": "qKiz_OwXI-g",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8e738eace88b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qKiz_OwXI-g.json"
+              ]
+            },
+            {
+              "entity_id": "m_4988716fc399",
+              "native_id": "QzxRGo4LGwM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4988716fc399.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QzxRGo4LGwM.json"
+              ]
+            },
+            {
+              "entity_id": "m_1ad32f1d5572",
+              "native_id": "xSZYr9p8Xq8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1ad32f1d5572.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xSZYr9p8Xq8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ef46b29b7615",
+              "native_id": "35xvRx4XsFU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ef46b29b7615.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/35xvRx4XsFU.json"
+              ]
+            },
+            {
+              "entity_id": "m_8b14c9f6aa5b",
+              "native_id": "CdAp1nlwVC0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Caramel sauce, no chocolate.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8b14c9f6aa5b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CdAp1nlwVC0.json"
+              ]
+            },
+            {
+              "entity_id": "m_796bd4b1f5c5",
+              "native_id": "tNwDJLfy7E8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_796bd4b1f5c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tNwDJLfy7E8.json"
+              ]
+            },
+            {
+              "entity_id": "m_bb777f9a6ff4",
+              "native_id": "V0fSo326pDE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bb777f9a6ff4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/V0fSo326pDE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7d6802f848ef",
+              "native_id": "-yO9ft0Jfd8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7d6802f848ef.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-yO9ft0Jfd8.json"
+              ]
+            },
+            {
+              "entity_id": "m_fd3c8cf13fa9",
+              "native_id": "BwyMdRlIKmg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Publisher instructions and the complete storyboard show only melting a chocolate bar in a bowl over water, despite the sauce title.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fd3c8cf13fa9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BwyMdRlIKmg.json"
+              ]
+            },
+            {
+              "entity_id": "m_fd473c3b5213",
+              "native_id": "WBvtCpDyMi8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fd473c3b5213.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WBvtCpDyMi8.json"
+              ]
+            },
+            {
+              "entity_id": "m_2d5d78b2378b",
+              "native_id": "8ckZn1Rgl6A",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2d5d78b2378b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8ckZn1Rgl6A.json"
+              ]
+            },
+            {
+              "entity_id": "m_a0f7a031b15f",
+              "native_id": "bRN_k2lVcEI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The title mentions chocolate cake and sauce, but the published details, chapters and available storyboard do not establish a reusable sauce or a broken-biscuit preparation. The initial method remains unverified.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a0f7a031b15f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bRN_k2lVcEI.json"
+              ]
+            },
+            {
+              "entity_id": "m_b9d2660fa837",
+              "native_id": "FPulikJJbY4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Condensed-milk dulce de leche, no chocolate.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b9d2660fa837.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FPulikJJbY4.json"
+              ]
+            },
+            {
+              "entity_id": "m_1f1c591f1c93",
+              "native_id": "-FevC9MslF8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1f1c591f1c93.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-FevC9MslF8.json"
+              ]
+            },
+            {
+              "entity_id": "m_29aab6cb6afd",
+              "native_id": "lMlNKxQlVxw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_29aab6cb6afd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lMlNKxQlVxw.json"
+              ]
+            },
+            {
+              "entity_id": "m_9d6d6f16f53a",
+              "native_id": "_SAVHu7fUhk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Chocolate and coconut oil make a brittle shell on cold desserts, not an ordinary pourable chocolate sauce recipe.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9d6d6f16f53a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_SAVHu7fUhk.json"
+              ]
+            },
+            {
+              "entity_id": "m_0865925145cc",
+              "native_id": "Fz95m_nrvmE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Chocolate pudding meant to set as a custard, not a reusable sauce or a biscuit dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0865925145cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Fz95m_nrvmE.json"
+              ]
+            },
+            {
+              "entity_id": "m_2627a63ba4dd",
+              "native_id": "aY_bTKxgE6c",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2627a63ba4dd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/aY_bTKxgE6c.json"
+              ]
+            },
+            {
+              "entity_id": "m_9b93702ddfa0",
+              "native_id": "vi0n-hFZ6MQ",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9b93702ddfa0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vi0n-hFZ6MQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_28e1a2d66e6e",
+              "native_id": "a_tp41j4eQo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Independently teaches cocoa/butter sauce, but whole coffee-soaked biscuits and the sauce are stacked in distinct layers.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_28e1a2d66e6e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/a_tp41j4eQo.json"
+              ]
+            },
+            {
+              "entity_id": "m_9268f5797c9f",
+              "native_id": "qD3dJXvW0xg",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9268f5797c9f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qD3dJXvW0xg.json"
+              ]
+            },
+            {
+              "entity_id": "m_fed30b2d6d03",
+              "native_id": "7HEY98mhHaY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fed30b2d6d03.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7HEY98mhHaY.json"
+              ]
+            },
+            {
+              "entity_id": "m_60d4ab9f2487",
+              "native_id": "QYlo7xAhUQg",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_60d4ab9f2487.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QYlo7xAhUQg.json"
+              ]
+            },
+            {
+              "entity_id": "m_926cc293abb3",
+              "native_id": "M739Cu9gpqY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_926cc293abb3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/M739Cu9gpqY.json"
+              ]
+            },
+            {
+              "entity_id": "m_a571b6581f52",
+              "native_id": "bT1Qnk1B8Oo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Separate hot-cream/chocolate ganache is reusable; the rest makes baked flour/egg sponge and mascarpone layers.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a571b6581f52.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bT1Qnk1B8Oo.json"
+              ]
+            },
+            {
+              "entity_id": "m_a7673033b4e5",
+              "native_id": "oAVnMzBcXJ4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Stovetop tutorial grinds chocolate biscuits into an ingredient of a completed sauce. The native storyboard ends with this sauce poured into a serving dish, not a biscuit dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a7673033b4e5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oAVnMzBcXJ4.json"
+              ]
+            },
+            {
+              "entity_id": "m_34624b101f79",
+              "native_id": "3ksZkZdX6gI",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_34624b101f79.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3ksZkZdX6gI.json"
+              ]
+            },
+            {
+              "entity_id": "m_b0919d8213c0",
+              "native_id": "BU-c189dmFE",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b0919d8213c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BU-c189dmFE.json"
+              ]
+            },
+            {
+              "entity_id": "m_4d3f4f06a08d",
+              "native_id": "D_zmYteOezM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Whole milk-dipped biscuits are layered with thick starch custard; not a sauce-coated broken-biscuit mass.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4d3f4f06a08d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/D_zmYteOezM.json"
+              ]
+            },
+            {
+              "entity_id": "m_7340ca7e4f26",
+              "native_id": "EmNcr1AQk_w",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7340ca7e4f26.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EmNcr1AQk_w.json"
+              ]
+            },
+            {
+              "entity_id": "m_d6b4cde7dc20",
+              "native_id": "Qk3iXfkxK5g",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d6b4cde7dc20.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Qk3iXfkxK5g.json"
+              ]
+            },
+            {
+              "entity_id": "m_d64852fb86c5",
+              "native_id": "qY9sM6eAspc",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d64852fb86c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qY9sM6eAspc.json"
+              ]
+            },
+            {
+              "entity_id": "m_2fd0074d8dd3",
+              "native_id": "2-LF8ylxkp0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Independent chocolate ganache sub-recipe, but Lotus biscuits, whipped filling and ganache are stacked as separate layers.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2fd0074d8dd3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2-LF8ylxkp0.json"
+              ]
+            },
+            {
+              "entity_id": "m_94436d7dcc28",
+              "native_id": "WWCPOPtTX5A",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_94436d7dcc28.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WWCPOPtTX5A.json"
+              ]
+            },
+            {
+              "entity_id": "m_78940ad4103b",
+              "native_id": "QOeGrLOZVZo",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_78940ad4103b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QOeGrLOZVZo.json"
+              ]
+            },
+            {
+              "entity_id": "m_0e79cb8ee7d3",
+              "native_id": "XM3dvTYDpO8",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0e79cb8ee7d3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XM3dvTYDpO8.json"
+              ]
+            },
+            {
+              "entity_id": "m_896131ccc170",
+              "native_id": "wbc0pTyow6c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official text and storyboard show a biscuit base underneath a separate creamy cheesecake filling and top ganache, not a biscuit-chocolate-bodied dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_896131ccc170.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wbc0pTyow6c.json"
+              ]
+            },
+            {
+              "entity_id": "m_dcb971c5f04c",
+              "native_id": "r-ahf1Err9U",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Storyboard shows cooked thick chocolate pudding, whole biscuits stacked over it, and crumbs used only for garnish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dcb971c5f04c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/r-ahf1Err9U.json"
+              ]
+            },
+            {
+              "entity_id": "m_597fa63289f8",
+              "native_id": "Bhn58HgyA1k",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Whole chocolate–Marie biscuit roll with cocoa and milk directly mixed into ground biscuit, shaped and chilled; no separate warm chocolate sauce taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_597fa63289f8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Bhn58HgyA1k.json"
+              ]
+            },
+            {
+              "entity_id": "m_8d4e77f896e9",
+              "native_id": "zatqQEjT2rg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Fridge-set chocolate-and-milk mixture, no biscuit body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8d4e77f896e9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zatqQEjT2rg.json"
+              ]
+            },
+            {
+              "entity_id": "m_337d9f283292",
+              "native_id": "7g3nIbff3Hk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public recipe makes a usable chocolate sauce but no biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_337d9f283292.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7g3nIbff3Hk.json"
+              ]
+            },
+            {
+              "entity_id": "m_a2347829fe01",
+              "native_id": "kko6a5i14rM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official storyboard uses ground Bourbon chocolate biscuits in a cooked glaze and ends at the glaze, without forming any biscuit-based dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a2347829fe01.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kko6a5i14rM.json"
+              ]
+            },
+            {
+              "entity_id": "m_1177b3014bfc",
+              "native_id": "eR3jZFB3wIc",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1177b3014bfc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eR3jZFB3wIc.json"
+              ]
+            },
+            {
+              "entity_id": "m_2c0a2e4b2e3c",
+              "native_id": "ULeW1bm-GOI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Reusable sauce ingredients and low-heat thickening are explicit, but the dessert is a baked flour sponge.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2c0a2e4b2e3c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ULeW1bm-GOI.json"
+              ]
+            },
+            {
+              "entity_id": "m_6a44922949cd",
+              "native_id": "1u-0tNFMamg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Baked mousse cake plus coffee syrup and a mousse-based finishing drizzle, not the featured sauce or a biscuit body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6a44922949cd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1u-0tNFMamg.json"
+              ]
+            },
+            {
+              "entity_id": "m_62b434d21155",
+              "native_id": "6Him_RZN5TU",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows broken Marie biscuits mixed with prepared chocolate syrup and compressed to set. Does not teach making the independent syrup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_62b434d21155.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6Him_RZN5TU.json"
+              ]
+            },
+            {
+              "entity_id": "m_cc7cbd9428d1",
+              "native_id": "8K9-KVI7B14",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cc7cbd9428d1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8K9-KVI7B14.json"
+              ]
+            },
+            {
+              "entity_id": "m_d19135c27eb6",
+              "native_id": "x8YGzjdldYg",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d19135c27eb6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/x8YGzjdldYg.json"
+              ]
+            },
+            {
+              "entity_id": "m_08fe75c040f3",
+              "native_id": "9v2wIA-hjKM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Broken biscuits are bound with whipped cream, banana, butter and hazelnuts; chocolate is an optional finishing sauce, not the biscuit binder.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_08fe75c040f3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9v2wIA-hjKM.json"
+              ]
+            },
+            {
+              "entity_id": "m_ee0decbbd82f",
+              "native_id": "Wl-HLh_ni64",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ee0decbbd82f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Wl-HLh_ni64.json"
+              ]
+            },
+            {
+              "entity_id": "m_2e99b072686e",
+              "native_id": "Hl1E1gIqov8",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2e99b072686e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hl1E1gIqov8.json"
+              ]
+            },
+            {
+              "entity_id": "m_d5d366294bd9",
+              "native_id": "1M36kJUhECA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Grinds cream-filled Oreos for frosting, not a warm sauce or a set biscuit dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d5d366294bd9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1M36kJUhECA.json"
+              ]
+            },
+            {
+              "entity_id": "m_d7b1be7ba6f4",
+              "native_id": "OA_8Pk03Rzo",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d7b1be7ba6f4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/OA_8Pk03Rzo.json"
+              ]
+            },
+            {
+              "entity_id": "m_5044919760e2",
+              "native_id": "A3QvkhUcRa4",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5044919760e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A3QvkhUcRa4.json"
+              ]
+            },
+            {
+              "entity_id": "m_a08c98b7f2af",
+              "native_id": "nRxzmNp4khU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Dipping already-prepared treats in melted/tempered chocolate. Does not teach the main biscuit and chocolate mass or a chocolate sauce recipe.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a08c98b7f2af.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nRxzmNp4khU.json"
+              ]
+            },
+            {
+              "entity_id": "m_640c8648988f",
+              "native_id": "cgMTdNmu60Q",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "both",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_640c8648988f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cgMTdNmu60Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_c2857dd89d5a",
+              "native_id": "Wq2dBBBLGpM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Teaches reusable chocolate-and-cream ganache, but the dessert is assembled from whole milk-dipped biscuits layered with pudding.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c2857dd89d5a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Wq2dBBBLGpM.json"
+              ]
+            },
+            {
+              "entity_id": "m_0dea2b0869ed",
+              "native_id": "Umu5eJYmy0Q",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Publisher chapters: brownies, Brazilian truffles, peanut-butter cupcakes, brownie cookies, crepe cake. No biscuit-bodied chocolate dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0dea2b0869ed.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Umu5eJYmy0Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_630f743e075f",
+              "native_id": "tOAkMKhVbDQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Publisher chapters: brownies, chocolate crepe cake, tiramisu mousse and hot soufflé; none is the filmed preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_630f743e075f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tOAkMKhVbDQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_5814e8e87463",
+              "native_id": "utf1GFk6c4U",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5814e8e87463.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/utf1GFk6c4U.json"
+              ]
+            },
+            {
+              "entity_id": "m_12d10fd1ef87",
+              "native_id": "PeX5PkRNHSA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Published recipes for chocolate mousse, chocolate lava cake and baked brownie cookies, not a finished cocoa sauce and biscuit mass.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12d10fd1ef87.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PeX5PkRNHSA.json"
+              ]
+            },
+            {
+              "entity_id": "m_ebb14b3d8c7a",
+              "native_id": "KEqpwpfFfhE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ebb14b3d8c7a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KEqpwpfFfhE.json"
+              ]
+            },
+            {
+              "entity_id": "m_924a1abba716",
+              "native_id": "mMqaAfy6ot4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Publisher enumerates 15 recipes: biscuit material is cheesecake/tart crust, not a chocolate-biscuit body; no standalone saucepan sauce segment established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_924a1abba716.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mMqaAfy6ot4.json"
+              ]
+            },
+            {
+              "entity_id": "m_789cfeb710ba",
+              "native_id": "EaljSnLrJW8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Baked sponge with egg/chocolate/cream frosting finished by whipping, not a separately finished dessert sauce or biscuit body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_789cfeb710ba.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EaljSnLrJW8.json"
+              ]
+            },
+            {
+              "entity_id": "m_424ba321f768",
+              "native_id": "mcbej7umoqE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The Matilda cake guide prepares a separate hot pourable fudge glaze in a saucepan; cake is baked flour sponge.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_424ba321f768.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mcbej7umoqE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7926887c353c",
+              "native_id": "0SnkzE_DxiQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7926887c353c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0SnkzE_DxiQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_70296b6ff04b",
+              "native_id": "y8P9ztUSV9E",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Independently gives cream/chocolate ganache steps; the layered dessert uses baked brownie as the body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_70296b6ff04b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/y8P9ztUSV9E.json"
+              ]
+            },
+            {
+              "entity_id": "m_bf6acca8707d",
+              "native_id": "8GxfnU5gVII",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher measures hot milk and chocolate and shows mixing for a separate glaze. Advertised biscuit links are different videos. Main dessert is baked brownie.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bf6acca8707d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8GxfnU5gVII.json"
+              ]
+            },
+            {
+              "entity_id": "m_071c9ca53312",
+              "native_id": "Pe1KrkiBDzE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_071c9ca53312.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Pe1KrkiBDzE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7927cea204a7",
+              "native_id": "kS_xN6IfXAs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Decorating compilation, not a verified complete chocolate-biscuit dessert; no reusable sauce recipe established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7927cea204a7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kS_xN6IfXAs.json"
+              ]
+            },
+            {
+              "entity_id": "m_cc166ec88005",
+              "native_id": "mYWMcWv9KD8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Publisher chapters cover chocolate ball, tacos, and tart; official previews are not a complete mixed biscuit dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cc166ec88005.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mYWMcWv9KD8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ec872773f240",
+              "native_id": "I50-1ktP5gA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ec872773f240.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/I50-1ktP5gA.json"
+              ]
+            },
+            {
+              "entity_id": "m_7eebe688b915",
+              "native_id": "Jsj17-XmvTM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7eebe688b915.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Jsj17-XmvTM.json"
+              ]
+            },
+            {
+              "entity_id": "m_57f9c69b6a03",
+              "native_id": "fCAPoX-rHr4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Separate ganache recipe is usable; rolling a thin egg-and-flour sponge after oven baking is not a biscuit mass.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57f9c69b6a03.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fCAPoX-rHr4.json"
+              ]
+            },
+            {
+              "entity_id": "m_22312ada403b",
+              "native_id": "DGq7R0gnarU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Crushed caramel biscuits are layered under separate whipped mousse in serving glasses; not combined as the chocolate-bound body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_22312ada403b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DGq7R0gnarU.json"
+              ]
+            },
+            {
+              "entity_id": "m_d3d8d9f241c0",
+              "native_id": "c-klSziwUng",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d3d8d9f241c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/c-klSziwUng.json"
+              ]
+            },
+            {
+              "entity_id": "m_470bc4ef6bea",
+              "native_id": "H-PxDQf-_Zg",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher lists glaze ingredients, separate chapter, and method; flourless oven sponge contains no biscuit body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_470bc4ef6bea.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/H-PxDQf-_Zg.json"
+              ]
+            },
+            {
+              "entity_id": "m_fc1bdc4d2030",
+              "native_id": "pAzuRxNC-PA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Long cake/cupcake/decorating compilation, not a separately evidenced complete sauce-bound crushed biscuit dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fc1bdc4d2030.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pAzuRxNC-PA.json"
+              ]
+            },
+            {
+              "entity_id": "m_754280e964c2",
+              "native_id": "8e9JtsMOcjQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official chapters and previews cover eclair, moist cake, hot cocoa, peanut-butter bars, truffles, brigadeiro and Nutella; not the filmed preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_754280e964c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8e9JtsMOcjQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_c8385b1bb1b3",
+              "native_id": "l8nC5VZolTs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official video storyboard and the publisher’s same recipe establish that this is a gelatin-set mirror glaze poured over baked sponge, not a reusable pourable dessert sauce or a broken-biscuit dessert.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c8385b1bb1b3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/l8nC5VZolTs.json"
+              ]
+            },
+            {
+              "entity_id": "m_e3f44557a104",
+              "native_id": "4ZSxRthcPhc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Separate microwave ganache is taught; soaked intact Choco Lava biscuits form layers with piped custard cream, not a mixed biscuit body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e3f44557a104.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4ZSxRthcPhc.json"
+              ]
+            },
+            {
+              "entity_id": "m_ac8c66c41aef",
+              "native_id": "wg808UsbcAo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ac8c66c41aef.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wg808UsbcAo.json"
+              ]
+            },
+            {
+              "entity_id": "m_4019ee10eb2e",
+              "native_id": "qw5J4Gl_sXs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Espresso cheesecake, layered éclair with glaze, and mousse; the chocolate-biscuit body is not taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4019ee10eb2e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qw5J4Gl_sXs.json"
+              ]
+            },
+            {
+              "entity_id": "m_e48f7712eeb9",
+              "native_id": "9Fx8kfGz_Lk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e48f7712eeb9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9Fx8kfGz_Lk.json"
+              ]
+            },
+            {
+              "entity_id": "m_38a3c8994a73",
+              "native_id": "hc1LzG0BU1g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official storyboard shows separate pressed crumb layer and whipped creamy chocolate filling and top, not a crumb body held throughout with chocolate sauce.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_38a3c8994a73.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hc1LzG0BU1g.json"
+              ]
+            },
+            {
+              "entity_id": "m_24cefde0180f",
+              "native_id": "3nVnmjSWGfs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_24cefde0180f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3nVnmjSWGfs.json"
+              ]
+            },
+            {
+              "entity_id": "m_666d1cd5ca1e",
+              "native_id": "GhnsB6yGc2c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_666d1cd5ca1e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GhnsB6yGc2c.json"
+              ]
+            },
+            {
+              "entity_id": "m_92405508e181",
+              "native_id": "LMPqAMfKakI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_92405508e181.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/LMPqAMfKakI.json"
+              ]
+            },
+            {
+              "entity_id": "m_180b2cfbc3d4",
+              "native_id": "Oz3jorq9QKY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public title, instructions and any chapters describe another chocolate dessert; no standalone chocolate sauce or mixed chocolate-biscuit body evidenced.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_180b2cfbc3d4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Oz3jorq9QKY.json"
+              ]
+            },
+            {
+              "entity_id": "m_701604605cc8",
+              "native_id": "Oip9ff196do",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Teaches microwave coffee-chocolate ganache; builds separate layers of pudding/soaked whole wheat bread and uses coated biscuits as decorations.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_701604605cc8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Oip9ff196do.json"
+              ]
+            },
+            {
+              "entity_id": "m_78edec856c5f",
+              "native_id": "dsJtgmAhFF4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Baked flour cake and whipped cream cheese buttercream; no independent sauce or biscuit body.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_78edec856c5f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dsJtgmAhFF4.json"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "summary",
+            "chapters",
+            "public_previews"
+          ],
+          "answer_boundary_rule": "Save one tutorial for an unbaked dessert in which a chocolate mixture binds broken biscuits as the main body, and the combined mixture is pressed, shaped or set. Chilling duration, final shape, biscuit brand and whether the binder is made in the tutorial are not constraints. A complete recipe with a reusable cooked sauce sub-recipe is legal in both phases. A standalone sauce, intact biscuit layers, a biscuit base alone, or a baked sponge with chocolate topping does not match the final preparation."
+        }
+      },
+      "repair_history": [
+        {
+          "date": "2026-11-13",
+          "scope": "continuous_input_capacity_revision",
+          "previous_stream": {
+            "session_seconds": [
+              782.0,
+              941.0
+            ],
+            "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110531/review.json"
+          },
+          "previous_packets": [
+            {
+              "id": "V0",
+              "timestamps_seconds": [
+                782,
+                787,
+                792,
+                797
+              ],
+              "frame_paths": [
+                "data/observations/candidate-media-refresh-replace-2026110531/V0_00.jpg",
+                "data/observations/candidate-media-refresh-replace-2026110531/V0_01.jpg",
+                "data/observations/candidate-media-refresh-replace-2026110531/V0_02.jpg",
+                "data/observations/candidate-media-refresh-replace-2026110531/V0_03.jpg"
+              ]
+            },
+            {
+              "id": "V1",
+              "timestamps_seconds": [
+                806,
+                833,
+                900,
+                941
+              ],
+              "frame_paths": [
+                "data/observations/candidate-media-refresh-replace-2026110531/V1_00.jpg",
+                "data/observations/candidate-media-refresh-replace-2026110531/V1_01.jpg",
+                "data/observations/candidate-media-refresh-replace-2026110531/V1_02.jpg",
+                "data/observations/candidate-media-refresh-replace-2026110531/V1_03.jpg"
+              ]
+            }
+          ],
+          "previous_observed_events": [
+            {
+              "interval_seconds": [
+                782,
+                805
+              ],
+              "description": "The wearer stirs a glossy dark chocolate mixture in a small saucepan on the hob; the full preparation is not yet visible."
+            },
+            {
+              "interval_seconds": [
+                806,
+                941
+              ],
+              "description": "The same saucepan is raised above coarse crumbs at 806 s and its contents are poured into them at 807–808 s. Rich Tea packaging is legible by 830–833 s. The wearer mixes and later presses the same chocolate-biscuit mixture."
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "Before combination, a standalone stovetop chocolate sauce is a reasonable interpretation of the mixture being made.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3"
+              ]
+            },
+            {
+              "text": "The same saucepan mixture is combined with broken biscuits and pressed; it is a binder in a larger preparation.",
+              "supported_by": [
+                "V1:0",
+                "V1:1",
+                "V1:2",
+                "V1:3"
+              ]
+            }
+          ],
+          "previous_frame_provenance": [
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V0",
+              "frame_index": 0,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 782.0,
+              "media_timestamp_seconds": 1.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V0_00.jpg",
+              "sha256": "4c7ea34e4338d129d033d4e49cc7b067b67c60c78aa03c2ac142e5521ce43383"
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V0",
+              "frame_index": 1,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 787.0,
+              "media_timestamp_seconds": 6.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V0_01.jpg",
+              "sha256": "201f2d34952df576957a5d9a73399a3550c7dc46191bdafff9baa8df2feb51c8"
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V0",
+              "frame_index": 2,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 792.0,
+              "media_timestamp_seconds": 11.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V0_02.jpg",
+              "sha256": "51fe56ca2cd325f86ce954ff29a2aab55bad84dca69da33383f18fba40a76f53"
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V0",
+              "frame_index": 3,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 797.0,
+              "media_timestamp_seconds": 16.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V0_03.jpg",
+              "sha256": "5b85d768afb64635d19fee6d0e1329f57f3719cc7b3d91bd19036be3c4fbcbab"
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V1",
+              "frame_index": 0,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 806.0,
+              "media_timestamp_seconds": 25.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V1_00.jpg",
+              "sha256": "c2b1ee1527a65ea61555ebca098848174a6eb4f55ca236a43241b81c33ed2c44"
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V1",
+              "frame_index": 1,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 833.0,
+              "media_timestamp_seconds": 52.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V1_01.jpg",
+              "sha256": "6e411f621cafbc8bb2380acb132683c05c03cb352ad375e136df8c823c32bf95"
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V1",
+              "frame_index": 2,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 900.0,
+              "media_timestamp_seconds": 119.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V1_02.jpg",
+              "sha256": "215fa5944459f6917be85ff2725a700b244bcaec4a6a81c5ff5c2e8b58026035"
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V1",
+              "frame_index": 3,
+              "media_id": "P01-20240203-135502__781-944",
+              "timestamp_seconds": 941.0,
+              "media_timestamp_seconds": 160.0,
+              "frame_path": "data/observations/candidate-media-refresh-replace-2026110531/V1_03.jpg",
+              "sha256": "07520ed62cbb4754290b16ea930f3ed8cf89ca4c7e846daaff3a920677e6cb78"
+            }
+          ],
+          "previous_packet_sampling": [
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V0",
+              "sampling_method": "uniform_inclusive_endpoints",
+              "frame_count": 4,
+              "start_seconds": 782.0,
+              "end_seconds": 797.0,
+              "inter_frame_seconds": 5.0,
+              "effective_hz": 0.2
+            },
+            {
+              "task_id": "candidate-media-refresh-replace-2026110531",
+              "packet_id": "V1",
+              "sampling_method": "event_aligned_timestamps",
+              "frame_count": 4,
+              "start_seconds": 806.0,
+              "end_seconds": 941.0
+            }
+          ],
+          "reason": "Keep the independently verified decision-changing biscuit evidence by833s and the continuous scene to845s; later pressing is unnecessary to the unchanged final recipe boundary. Provider acceptance remains an empirical check."
+        }
+      ]
+    }
+  ]
+}

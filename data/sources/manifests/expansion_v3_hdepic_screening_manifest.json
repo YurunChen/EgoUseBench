@@ -1,0 +1,1050 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-08",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          "P01-20240204-145458/spice-jar/first",
+          "P01-20240204-145458/spice-jar/second"
+        ],
+        "media_id": "P01-20240204-145458",
+        "original_video_id": "P01-20240204-145458",
+        "media_start_seconds": 0,
+        "media_sha256": "237cd9284387c8d82c09f0190ae26201698fc4818a1dc257e03d49600e86a796",
+        "original_annotations": [
+          "spice jar handled at 464.77-487.50",
+          "second spice jar handled at 506.43-515.70"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              464.77,
+              487.5
+            ],
+            "role": "first_spice",
+            "description": "The wearer takes and uses the larger clear pantry spice jar with the pale screw lid."
+          },
+          {
+            "interval_seconds": [
+              506.43,
+              515.7
+            ],
+            "role": "second_spice",
+            "description": "The wearer later takes a smaller clear pantry spice jar with a dark screw lid."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_candidates": [
+          "first_spice",
+          "second_spice"
+        ],
+        "proposed_hidden_target": "second_spice",
+        "proposed_ambiguous_instruction": "Replace my spice jars with refillable containers matching the spice jar I used.",
+        "proposed_valid_slot": "sequence"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            468,
+            472,
+            476,
+            484,
+            507,
+            509,
+            512,
+            515
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-sequence-08/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-sequence-08/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-sequence-08/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-sequence-08/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-sequence-08/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-sequence-08/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-sequence-08/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-sequence-08/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The ordered frames show two different pantry spice jars handled in one cooking episode, one first and the other later; only the sequence resolves the answer.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent use egocentric visual history to notice two sequential spice jars and ask which occurrence the user means?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either spice jar can satisfy the unqualified request.",
+        "belief_after": "The answer selecting the later occurrence uniquely identifies the second spice jar.",
+        "required_behavior_change": "Ask which occurrence is intended before committing, then select the second jar after the answer.",
+        "no_update_failure": "The Agent guesses a jar or ignores the answer.",
+        "overupdate_failure": "The Agent asks in the oracle arm even though the second occurrence is specified.",
+        "visual_dependency_claim": "The ordered frames show two different pantry spice jars handled in one cooking episode, one first and the other later; only the sequence resolves the answer.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Replace my spice jars with refillable containers matching the spice jar I used.",
+          "oracle_instruction": "Replace my spice jars with refillable containers matching the second spice jar I used.",
+          "candidate_roles": [
+            "first_spice",
+            "second_spice"
+          ],
+          "hidden_target_role": "second_spice",
+          "valid_slot": "sequence",
+          "canonical_question": "Do you mean the first spice jar I used or the second one?",
+          "canonical_answer": "The second one.",
+          "environment_role_ids": {
+            "first_spice": "p_bec1f4c5bc69",
+            "second_spice": "p_07e5b2ad1b4a"
+          },
+          "completion_claim": "The submitted cart contains exactly one pack of round clear glass spice jars with brown wood lids matching the second spice jar and no extra products.",
+          "target_granularity": "variant",
+          "goal_fields": {},
+          "equivalent_role_ids": {
+            "second_spice": [
+              "p_2191e2fcd17e",
+              "p_3fdc9da45206",
+              "p_b61c324aa21b"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "first_spice": "p_bec1f4c5bc69",
+            "second_spice": "p_07e5b2ad1b4a"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "first_spice",
+                "second_spice"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "second_spice"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The user says the second one; the released frames establish which distinct jar was handled later."
+            }
+          ],
+          "established_by": "codex-gpt-5",
+          "established_at": "2026-08-24"
+        },
+        "decision_point_provenance": "expansion_v3_hdepic_sequence_20260824",
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "round clear glass spice jars white lids",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-sequence-08.json",
+              "result_entity_ids": [
+                "p_bec1f4c5bc69",
+                "p_1b0357d1d2b8",
+                "p_7b5f5cbd00c6",
+                "p_63a392761a45",
+                "p_1a9808cb7479",
+                "p_8609bea30b65",
+                "p_412c4afdfe2b",
+                "p_500cbea81b3d",
+                "p_9e85afece84c",
+                "p_c8ea222fc139",
+                "p_eb2bb744e715",
+                "p_846365e34995",
+                "p_b382bef8331f",
+                "p_18495b02bac6",
+                "p_1d7e283eb9f4",
+                "p_338809e28921",
+                "p_45a297cd236a",
+                "p_67681c0f68da",
+                "p_5d93bb6c95f2",
+                "p_1e6b28d91673",
+                "p_858b4b05b40c",
+                "p_9dd2064fbf03",
+                "p_752eac976e26",
+                "p_6b2607e7c2bd",
+                "p_3945b54f22a2",
+                "p_0c804d2bd330",
+                "p_363248d001f1",
+                "p_8ad4d566bb20",
+                "p_68e460f1af82",
+                "p_6a4d3dd01b6e",
+                "p_d18051e4b332",
+                "p_ac9282b8e6b2",
+                "p_bf729692dc47",
+                "p_73817b0287ca",
+                "p_ad41a330e56e",
+                "p_53ad281dacc9",
+                "p_b182cdf90303",
+                "p_69f9bce8a895",
+                "p_e077ab75431b",
+                "p_8817f41cb5d3",
+                "p_7450e9f00f77",
+                "p_91373a715249",
+                "p_07e5b2ad1b4a",
+                "p_4cc93837d3fc",
+                "p_a167202cda48",
+                "p_42759925cb2b",
+                "p_59aaa229f438",
+                "p_062cb6ba78a1"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "6 pack round clear glass spice jars brown lids",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-sequence-08.json",
+              "result_entity_ids": [
+                "p_07e5b2ad1b4a",
+                "p_683698a571de",
+                "p_1e6b28d91673",
+                "p_6dfd174aeef2",
+                "p_a8ea49b1949f",
+                "p_895123db8a8d",
+                "p_b61c324aa21b",
+                "p_98db8326a02c",
+                "p_8a3a753d0507",
+                "p_c2cad1d11d1a",
+                "p_de1e07ffa1c4",
+                "p_edfcee76641e",
+                "p_1f4051f786b6",
+                "p_5e7008d7ecf3",
+                "p_bec1f4c5bc69",
+                "p_020fd1eb9e44",
+                "p_2191e2fcd17e",
+                "p_b8895ee57dc9",
+                "p_302b80cc3d33",
+                "p_34a8a322bdfc",
+                "p_3fdc9da45206",
+                "p_624fa00a992d",
+                "p_ac94f3c3728f",
+                "p_3801be0420ee",
+                "p_98518df31f82",
+                "p_80464189d54f",
+                "p_602728fb05c7",
+                "p_63a392761a45",
+                "p_446f05d1b45b",
+                "p_c30c975bdd48",
+                "p_cbdadee6c85c",
+                "p_ad2afe14cac0",
+                "p_5e8997735230",
+                "p_2f280c2317cd",
+                "p_fa8b26731d0a",
+                "p_fe24709cb116",
+                "p_5d3156e49b9c",
+                "p_f18cc709f3a8",
+                "p_c7c957168281",
+                "p_b927dcdcb73e",
+                "p_cbc4eadfcd9b",
+                "p_383a0d8939fc",
+                "p_5d7ff11623ea",
+                "p_7c4815ec2c86",
+                "p_8322eba0f757",
+                "p_0788da7e7155",
+                "p_10f911efa82f",
+                "p_d51293edc4ee"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_bec1f4c5bc69",
+            "p_1b0357d1d2b8",
+            "p_7b5f5cbd00c6",
+            "p_63a392761a45",
+            "p_1a9808cb7479",
+            "p_8609bea30b65",
+            "p_412c4afdfe2b",
+            "p_500cbea81b3d",
+            "p_9e85afece84c",
+            "p_c8ea222fc139",
+            "p_eb2bb744e715",
+            "p_846365e34995",
+            "p_b382bef8331f",
+            "p_18495b02bac6",
+            "p_1d7e283eb9f4",
+            "p_338809e28921",
+            "p_45a297cd236a",
+            "p_67681c0f68da",
+            "p_5d93bb6c95f2",
+            "p_1e6b28d91673",
+            "p_858b4b05b40c",
+            "p_9dd2064fbf03",
+            "p_752eac976e26",
+            "p_6b2607e7c2bd",
+            "p_3945b54f22a2",
+            "p_0c804d2bd330",
+            "p_363248d001f1",
+            "p_8ad4d566bb20",
+            "p_68e460f1af82",
+            "p_6a4d3dd01b6e",
+            "p_d18051e4b332",
+            "p_ac9282b8e6b2",
+            "p_bf729692dc47",
+            "p_73817b0287ca",
+            "p_ad41a330e56e",
+            "p_53ad281dacc9",
+            "p_b182cdf90303",
+            "p_69f9bce8a895",
+            "p_e077ab75431b",
+            "p_8817f41cb5d3",
+            "p_7450e9f00f77",
+            "p_91373a715249",
+            "p_07e5b2ad1b4a",
+            "p_4cc93837d3fc",
+            "p_a167202cda48",
+            "p_42759925cb2b",
+            "p_59aaa229f438",
+            "p_062cb6ba78a1",
+            "p_683698a571de",
+            "p_6dfd174aeef2",
+            "p_a8ea49b1949f",
+            "p_895123db8a8d",
+            "p_b61c324aa21b",
+            "p_98db8326a02c",
+            "p_8a3a753d0507",
+            "p_c2cad1d11d1a",
+            "p_de1e07ffa1c4",
+            "p_edfcee76641e",
+            "p_1f4051f786b6",
+            "p_5e7008d7ecf3",
+            "p_020fd1eb9e44",
+            "p_2191e2fcd17e",
+            "p_b8895ee57dc9",
+            "p_302b80cc3d33",
+            "p_34a8a322bdfc",
+            "p_3fdc9da45206",
+            "p_624fa00a992d",
+            "p_ac94f3c3728f",
+            "p_3801be0420ee",
+            "p_98518df31f82",
+            "p_80464189d54f",
+            "p_602728fb05c7",
+            "p_446f05d1b45b",
+            "p_c30c975bdd48",
+            "p_cbdadee6c85c",
+            "p_ad2afe14cac0",
+            "p_5e8997735230",
+            "p_2f280c2317cd",
+            "p_fa8b26731d0a",
+            "p_fe24709cb116",
+            "p_5d3156e49b9c",
+            "p_f18cc709f3a8",
+            "p_c7c957168281",
+            "p_b927dcdcb73e",
+            "p_cbc4eadfcd9b",
+            "p_383a0d8939fc",
+            "p_5d7ff11623ea",
+            "p_7c4815ec2c86",
+            "p_8322eba0f757",
+            "p_0788da7e7155",
+            "p_10f911efa82f",
+            "p_d51293edc4ee"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_1b0357d1d2b8",
+            "p_683698a571de",
+            "p_bec1f4c5bc69",
+            "p_7b5f5cbd00c6"
+          ],
+          "related_entity_ids": [
+            "p_63a392761a45",
+            "p_1a9808cb7479",
+            "p_8609bea30b65",
+            "p_412c4afdfe2b",
+            "p_500cbea81b3d",
+            "p_9e85afece84c",
+            "p_c8ea222fc139",
+            "p_eb2bb744e715",
+            "p_846365e34995",
+            "p_b382bef8331f",
+            "p_18495b02bac6",
+            "p_1d7e283eb9f4",
+            "p_338809e28921",
+            "p_45a297cd236a",
+            "p_67681c0f68da",
+            "p_5d93bb6c95f2"
+          ],
+          "ambient_entity_ids": [
+            "p_1e6b28d91673",
+            "p_858b4b05b40c",
+            "p_9dd2064fbf03",
+            "p_752eac976e26",
+            "p_6b2607e7c2bd",
+            "p_3945b54f22a2",
+            "p_0c804d2bd330",
+            "p_363248d001f1",
+            "p_8ad4d566bb20",
+            "p_68e460f1af82",
+            "p_6a4d3dd01b6e",
+            "p_d18051e4b332",
+            "p_ac9282b8e6b2",
+            "p_bf729692dc47",
+            "p_73817b0287ca",
+            "p_ad41a330e56e",
+            "p_53ad281dacc9",
+            "p_b182cdf90303",
+            "p_69f9bce8a895",
+            "p_e077ab75431b",
+            "p_8817f41cb5d3",
+            "p_7450e9f00f77",
+            "p_91373a715249",
+            "p_4cc93837d3fc",
+            "p_a167202cda48",
+            "p_42759925cb2b",
+            "p_59aaa229f438",
+            "p_062cb6ba78a1",
+            "p_6dfd174aeef2",
+            "p_a8ea49b1949f",
+            "p_895123db8a8d",
+            "p_98db8326a02c",
+            "p_8a3a753d0507",
+            "p_c2cad1d11d1a",
+            "p_de1e07ffa1c4",
+            "p_edfcee76641e",
+            "p_1f4051f786b6",
+            "p_5e7008d7ecf3",
+            "p_020fd1eb9e44",
+            "p_b8895ee57dc9",
+            "p_302b80cc3d33",
+            "p_34a8a322bdfc",
+            "p_624fa00a992d",
+            "p_ac94f3c3728f",
+            "p_3801be0420ee",
+            "p_98518df31f82",
+            "p_80464189d54f",
+            "p_602728fb05c7",
+            "p_446f05d1b45b",
+            "p_c30c975bdd48",
+            "p_cbdadee6c85c",
+            "p_ad2afe14cac0",
+            "p_5e8997735230",
+            "p_2f280c2317cd",
+            "p_fa8b26731d0a",
+            "p_fe24709cb116",
+            "p_5d3156e49b9c",
+            "p_f18cc709f3a8",
+            "p_c7c957168281",
+            "p_b927dcdcb73e",
+            "p_cbc4eadfcd9b",
+            "p_383a0d8939fc",
+            "p_5d7ff11623ea",
+            "p_7c4815ec2c86",
+            "p_8322eba0f757",
+            "p_0788da7e7155",
+            "p_10f911efa82f",
+            "p_d51293edc4ee"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_1b0357d1d2b8",
+              "ring": "core",
+              "reason": "它是 2oz、30 件套的小罐，不符合后续画面中的棕色木盖罐。",
+              "why_plausible": "同为圆形透明香料罐，且来自同一真实搜索窗口。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_683698a571de",
+              "ring": "core",
+              "reason": "详情是 4oz 带撒料孔的木盖罐，容量和盖子结构都与画面目标不同。",
+              "why_plausible": "品牌、六件套、圆形玻璃和木盖均与目标接近。",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_bec1f4c5bc69",
+              "ring": "core",
+              "reason": "它对应先使用的白盖罐，不是用户澄清后的第二个棕色木盖罐。",
+              "why_plausible": "它与第一段画面完全匹配，是澄清前的合理候选。",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_7b5f5cbd00c6",
+              "ring": "core",
+              "reason": "这是香料罐的塑料转换盖配件，不是可装香料的玻璃罐。",
+              "why_plausible": "标题含 4oz spice jars 和 lids，搜索卡片容易与整罐商品混淆。",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0788da7e7155",
+              "ring": "ambient",
+              "reason": "标题和图都是 6 盎司方形罐配浅色竹盖，V0:5 后用的是圆口玻璃罐，方身浅盖对不上。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_10f911efa82f",
+              "ring": "ambient",
+              "reason": "这套以 6 盎司浅竹盖罐为主，还混有更大的储物罐和木勺，不是后用的那只深色实心旋盖小罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_1a9808cb7479",
+              "ring": "related",
+              "reason": "标题写明 6 盎司塑料罐配白盖，图中也是白盖塑料罐，不是澄清后第二只透明玻璃深色旋盖罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_1e6b28d91673",
+              "ring": "ambient",
+              "reason": "标题写带撒料孔的竹盖，图中盖是浅木色，不是 V0:5 里旋开的深色实心盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_338809e28921",
+              "ring": "related",
+              "reason": "图中是口宽身矮的蜡烛罐配浅木盖，和 V0:5 里细长、带标签的小香料瓶不是同一外形。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_34a8a322bdfc",
+              "ring": "ambient",
+              "reason": "标题标明 6 盎司 16 只大方罐配竹盖，图中也是方形浅盖，对不上后用的圆形深色旋盖罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_363248d001f1",
+              "ring": "ambient",
+              "reason": "这是 2 盎司黑盖化妆品罐，图中盖是黑色塑料，不是后用香料罐的深色木旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_3801be0420ee",
+              "ring": "ambient",
+              "reason": "套装图混有大号浅竹盖储物罐和较小的竹盖瓶，不是单一的深色实心旋盖圆罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_3945b54f22a2",
+              "ring": "ambient",
+              "reason": "标题写琥珀色玻璃，图中是棕色遮光罐配黑盖，不是画面里的透明玻璃罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_412c4afdfe2b",
+              "ring": "related",
+              "reason": "标题是 8 盎司透明塑料罐配黑盖，图中也是黑盖塑料瓶，材质和盖色都不是玻璃木盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_42759925cb2b",
+              "ring": "ambient",
+              "reason": "这是 8 盎司梅森罐，图中是浅色金属旋盖，对应先用的浅盖大罐而不是后用的深色盖小罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "old_goal_only",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_446f05d1b45b",
+              "ring": "ambient",
+              "reason": "标题写 6 盎司方形罐配竹盖，图中方身浅盖，圆口深色旋盖对不上。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_45a297cd236a",
+              "ring": "related",
+              "reason": "标题写银色金属盖的梅森罐，图中盖是银色两片式盖，不是深色木旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_4cc93837d3fc",
+              "ring": "ambient",
+              "reason": "标题是 14 盎司广口透明塑料罐配黑盖，既不是玻璃，盖也不是深色木盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_500cbea81b3d",
+              "ring": "related",
+              "reason": "图中是一排方形浅竹盖调料瓶，方身浅盖对不上 V0:5 的圆口深色盖罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_59aaa229f438",
+              "ring": "ambient",
+              "reason": "虽是 3 盎司圆形透明玻璃，但标题和图都是银色金属盖，不是深棕色木旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5d7ff11623ea",
+              "ring": "ambient",
+              "reason": "标题是 6 盎司相思木盖，图中以一只贴着 CAYENNE 的大罐为主，旁边小罐也是方身，不是后用的细圆小罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5d93bb6c95f2",
+              "ring": "related",
+              "reason": "容量是 3 盎司六件套，但标题写不锈钢盖，图中是银色金属盖，不是棕色木盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5e7008d7ecf3",
+              "ring": "ambient",
+              "reason": "标题写竹盖并附撒料盖，图中浅色木盖上有倒料孔，不是深色实心旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5e8997735230",
+              "ring": "ambient",
+              "reason": "标题写明 20 盎司、尺寸 3.3×3.3×4.7 英寸并带木勺，是大号储物罐，不是手中的小香料罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_602728fb05c7",
+              "ring": "ambient",
+              "reason": "图中是 6 盎司方形玻璃罐配浅竹盖，方身浅盖都不是后用的圆形深色旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_624fa00a992d",
+              "ring": "ambient",
+              "reason": "标题是 250 毫升浅竹盖罐，图中罐身又高又大，不是后续画面里较小的深色盖香料罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_69f9bce8a895",
+              "ring": "ambient",
+              "reason": "商品是香料名称贴纸，图中没有可再装填的玻璃罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6a4d3dd01b6e",
+              "ring": "ambient",
+              "reason": "标题是 8 盎司带木勺的盖，图中罐子粗大并附勺子，不是小号实心旋盖香料瓶。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6dfd174aeef2",
+              "ring": "ambient",
+              "reason": "标题写 6 盎司方形木盖罐，图中瓶身是方的，对不上 V0:5 的圆口。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_7c4815ec2c86",
+              "ring": "ambient",
+              "reason": "图中是琥珀色压花玻璃罐配浅木盖，罐身不透明还有花纹，不是透明素玻璃小罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_846365e34995",
+              "ring": "related",
+              "reason": "图中是大量方形浅竹盖罐，方身浅盖对不上圆形深色旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8817f41cb5d3",
+              "ring": "ambient",
+              "reason": "标题写方形瓶配塑料盖，图中是黑色塑料盖方瓶，瓶身和盖都不符。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8ad4d566bb20",
+              "ring": "ambient",
+              "reason": "标题写 7 盎司磨砂白厚玻璃蜡烛罐，图中罐身不透明，不是透明香料瓶。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_98518df31f82",
+              "ring": "ambient",
+              "reason": "标题是 20 盎司/600 毫升大储物罐，图中是粗大的浅竹盖罐，不是手掌里的小罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_98db8326a02c",
+              "ring": "ambient",
+              "reason": "标题写 6 盎司方形瓶并带撒料盖，图中是方罐浅竹盖，不是圆罐深色实心盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_9e85afece84c",
+              "ring": "related",
+              "reason": "这是 2 盎司白盖化妆品罐，白盖对应先使用的浅盖罐，不是澄清后的第二只深色盖罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_a8ea49b1949f",
+              "ring": "ambient",
+              "reason": "标题写 4 盎司方形木盖罐，图中瓶身是方的，圆口对不上方形。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ad2afe14cac0",
+              "ring": "ambient",
+              "reason": "标题是 6 盎司方形并带撒料盖，图中也是方罐，不是后用的圆罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_bf729692dc47",
+              "ring": "ambient",
+              "reason": "商品是贴在盖子上的圆形香料标签，不是可装填的玻璃罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_c7c957168281",
+              "ring": "ambient",
+              "reason": "标题写 8 盎司加厚罐配竹盖，图中盖是浅木色高罐，浅盖不是后续画面的深色旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_cbdadee6c85c",
+              "ring": "ambient",
+              "reason": "图中是方形浅竹盖罐并标着 6 盎司，方身浅盖都对不上圆形深色旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_d51293edc4ee",
+              "ring": "ambient",
+              "reason": "标题写方形 6 盎司竹盖，图中也是方罐浅盖，不是圆口深色盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_fa8b26731d0a",
+              "ring": "ambient",
+              "reason": "标题是 5 毫升琥珀色小样罐配黑盖，图中是深色遮光化妆品罐，不是透明香料罐。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_fe24709cb116",
+              "ring": "ambient",
+              "reason": "标题写磨砂玻璃和仿木纹塑料盖，罐身不透明，盖也不是实心木旋盖。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: container, jar, spice.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        },
+        "landing_semantic_review": {
+          "status": "coding_agent_accepted",
+          "confidence": "high",
+          "review_reference": "data/sources/landing_semantic_reviews.json"
+        },
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ]
+      },
+      "rejection_reason": null,
+      "rejection_code": null,
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "action_order_required",
+        "reason": "The ordered frames show two different pantry spice jars handled in one cooking episode, one first and the other later; only the sequence resolves the answer."
+      }
+    }
+  ]
+}

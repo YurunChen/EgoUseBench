@@ -1,0 +1,44 @@
+{% extends "review/base.html" %}
+{% block title %}失败原因复核{% endblock %}
+{% block content %}
+  <a class="back" href="{{ url_for('review_index', view='all') }}">← 返回任务审核</a>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">模型评测 · 独立复核</p>
+      <h1>{{ '独立留出盲审' if progress.scope == 'validation' else '失败原因复核' }}</h1>
+      <p>结合历史画面、网页、动作和网站状态，判断最早且未恢复的失败原因。一名审核人独立提交，自动归因结论不在此展示。</p>
+    </div>
+    <div class="progress-number">
+      <strong>{{ progress.submitted }}</strong><span>/ {{ progress.total }}</span>
+      <small>已完成独立复核</small>
+    </div>
+  </section>
+  <section class="stats">
+    <div><strong>{{ progress.source_blocked }}</strong><span>缺少可信历史状态，暂不能归因</span></div>
+    <div><strong>{{ progress.todo }}</strong><span>待复核</span></div>
+    <div><strong>{{ progress.submitted }}</strong><span>已提交</span></div>
+  </section>
+  {% if progress.source_blocked %}
+    <section class="panel">
+      <p>{{ progress.source_blocked }} 次来源运行无法按当前评分协议重算，尚未进入失败归因。没有待复核条目不表示归因已完成。</p>
+      <details><summary>查看来源运行及缺失原因</summary>
+        <ul>{% for row in progress.source_exclusions %}<li>{{ row.task_id }} · {{ row.run_id }} · {{ row.reasons|join('、') }}</li>{% endfor %}</ul>
+      </details>
+    </section>
+  {% endif %}
+  <section class="task-list">
+    {% for row in progress.tasks %}
+      <a class="task-row" href="{{ url_for('failure_case', run_id=row.run_id, scope=progress.scope) }}">
+        <span class="task-main">
+          <span class="task-id">{{ row.task_id }}</span>
+          <span class="task-preview">{{ row.run_id }}</span>
+        </span>
+        <span class="pill">{{ row.track }}</span>
+        <span class="pill muted">{{ row.site }}</span>
+        <span class="status {{ row.status }}">{{ '已提交' if row.status == 'submitted' else '待复核' }}</span>
+      </a>
+    {% else %}
+      <p class="empty">还没有生成当前版本的归因复核材料。先运行失败归因报告。</p>
+    {% endfor %}
+  </section>
+{% endblock %}

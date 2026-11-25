@@ -1,0 +1,2521 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "HD-EPIC official Bristol research distribution; original recording attribution retained. User confirmed dataset authorization."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102401",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P03-20240218-190556__1954-2703",
+        "original_video_id": "P03-20240218-190556",
+        "media_start_seconds": 1954,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P03-20240218-190556__1954-2703.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P03/P03-20240218-190556.mp4",
+        "record_ids": [
+          "P03-20240218-190556-767",
+          "P03-20240218-190556-774",
+          "P03-20240218-190556-783",
+          "P03-20240218-190556-787",
+          "P03-20240218-190556-795",
+          "P03-20240218-190556-987"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "shallow-pan-dark-spatula",
+            "interval_seconds": [
+              1956,
+              1957
+            ],
+            "description": "A dark broad-headed spatula stirs onions in a low, wide single-long-handle frying pan."
+          },
+          {
+            "event_id": "deep-pan-wooden-spoon",
+            "interval_seconds": [
+              2002,
+              2004
+            ],
+            "description": "An oval wooden spoon stirs potatoes in the separate high-sided saucepan with a single long handle; the repeated later stirring shows the same relation."
+          },
+          {
+            "event_id": "recipe-tub",
+            "interval_seconds": [
+              2074,
+              2074
+            ],
+            "description": "The wearer takes a recipe tub; no active spoon-to-pan relation is shown. Both vessels and resting utensils are background reminders shared by both conditions."
+          },
+          {
+            "event_id": "mushroom-preparation",
+            "interval_seconds": [
+              2087,
+              2087
+            ],
+            "description": "The wearer turns toward prepared ingredients beside the cooker; no active spoon-to-pan relation is shown. The identical frame is shared across conditions."
+          },
+          {
+            "event_id": "spoon-scrapes-masher",
+            "interval_seconds": [
+              2696,
+              2698
+            ],
+            "description": "At another counter, the wooden oval spoon scrapes food off a perforated potato masher over a plate. Neither cooking vessel is in view."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact cookware brand, capacity, diameter or material",
+          "Physical retail identity of the wooden spoon",
+          "A new independent camera wearer; this is a new recording from existing HD-EPIC participant P03"
+        ]
+      },
+      "screening": {
+        "real_user_need": "Buy one spare matching the shape and handle arrangement of a pan used while cooking; the user refers to it through a later utensil action.",
+        "scope_note": "New recording; independent blind review pending. Near/far use the same fully specified instruction upfront.",
+        "proposed_instruction": "Next time I want to cook two batches at once. I would like a spare like one of the pans I cooked with here. Add one to my cart, matching its general shape and handle arrangement. Brand, colour, material and size can differ. One pan, not a multi-pan set; a lid is fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_1956.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_1957.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2002.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2004.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2074.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2087.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2696.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2698.jpg"
+          ],
+          "timestamps_seconds": [
+            1956,
+            1957,
+            2002,
+            2004,
+            2074,
+            2087,
+            2696,
+            2698
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does the model recover the earlier cookware-to-utensil relation when the identifying later action is separated from that relation by more observed cooking events?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "Both the shallow pan used with the broad dark spatula and the deep saucepan used with the oval wooden spoon are plausible cookware references.",
+        "belief_after": "The last action identifies the oval wooden spoon without showing cookware; earlier views identify its saucepan partner.",
+        "required_behavior_change": "Link the utensil in the final scraping action to its earlier cookware partner; add one matching pan.",
+        "no_update_failure": "Without the physical reference either cooking vessel is plausible; the experiment supplies this same reference upfront to both conditions.",
+        "overupdate_failure": "Buying both vessels or buying the utensil instead of cookware does not satisfy the one-pan request.",
+        "visual_dependency_claim": "The binding views identify which utensil was used in which vessel. The final counter views identify the requested utensil but omit cookware. Neither fact set alone identifies the requested vessel.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Next time I want to cook two batches at once. I would like a spare like one of the pans I cooked with here. Add one to my cart, matching its general shape and handle arrangement. Brand, colour, material and size can differ. One pan, not a multi-pan set; a lid is fine.",
+          "oracle_instruction": "Next time I want to cook two batches at once. I would like a spare like the pan I used with the utensil I use to scrape food off the masher at the end. Add one to my cart, matching its general shape and handle arrangement. Brand, colour, material and size can differ. One pan, not a multi-pan set; a lid is fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "shallow_pan",
+            "deep_pan"
+          ],
+          "hidden_target_role": "deep_pan",
+          "valid_slot": "sequence",
+          "canonical_question": "Which of the pans you used do you mean?",
+          "canonical_answer": "The one I used with the utensil I use to scrape food off the masher at the end.",
+          "environment_role_ids": {
+            "shallow_pan": "p_b4f66bba3ada",
+            "deep_pan": "p_75b7c3d32064"
+          },
+          "equivalent_role_ids": {
+            "deep_pan": [
+              "p_dca6cf284177",
+              "p_67ad92c7ca79",
+              "p_7dab4bd53291",
+              "p_aaf1fd8992d3",
+              "p_f33e8fdb0203",
+              "p_bdaab6f7b20e",
+              "p_463391eef1d0",
+              "p_925d48eae1d0",
+              "p_c270b5ad837c",
+              "p_50516d2ab20d",
+              "p_60c45165486e",
+              "p_e8ade946ab59",
+              "p_afb27c727a48",
+              "p_199d97b2ce79",
+              "p_09ffd52d20eb",
+              "p_dd8d2e15e957",
+              "p_24febde16ee9",
+              "p_fd832a6ea1d1",
+              "p_86701cbb052d",
+              "p_f61598ad5750",
+              "p_c1368a31f2ce",
+              "p_cc5a6e9efafa",
+              "p_da9f622d4957",
+              "p_c7dbef0151b5",
+              "p_21a79492b817",
+              "p_8c8ec40c8d36",
+              "p_ccb4dd7a70b9",
+              "p_9dec0b38a527",
+              "p_0272c8bd74a1",
+              "p_9a1f7f1816bd",
+              "p_ee31efaa7e06",
+              "p_ecb82bc26b7d",
+              "p_5ef827341784",
+              "p_1cbb9520abd5",
+              "p_7fb4edd665c5",
+              "p_4e4a83fc2b83",
+              "p_631787f2abeb",
+              "p_3f528fa175fd",
+              "p_5a1450c3f002"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "steel saucepan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-08.json",
+              "snapshot_task_id": "candidate-mart-clarify-appearance-08",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_75b7c3d32064",
+                "p_dca6cf284177",
+                "p_67ad92c7ca79",
+                "p_7dab4bd53291",
+                "p_aaf1fd8992d3",
+                "p_f33e8fdb0203",
+                "p_bdaab6f7b20e",
+                "p_463391eef1d0",
+                "p_925d48eae1d0",
+                "p_c270b5ad837c",
+                "p_50516d2ab20d",
+                "p_60c45165486e",
+                "p_e8ade946ab59",
+                "p_afb27c727a48",
+                "p_199d97b2ce79",
+                "p_09ffd52d20eb",
+                "p_dd8d2e15e957",
+                "p_24febde16ee9",
+                "p_3bb8bca125dc",
+                "p_fd832a6ea1d1",
+                "p_86701cbb052d",
+                "p_6e957c3c1b0f",
+                "p_f61598ad5750",
+                "p_c1368a31f2ce",
+                "p_cc5a6e9efafa",
+                "p_da9f622d4957",
+                "p_d081d04f6f29",
+                "p_c7dbef0151b5",
+                "p_21a79492b817",
+                "p_8c8ec40c8d36",
+                "p_ccb4dd7a70b9",
+                "p_eb527f5c988f",
+                "p_195ac020efc9",
+                "p_9dec0b38a527",
+                "p_0272c8bd74a1",
+                "p_9a1f7f1816bd",
+                "p_ee31efaa7e06",
+                "p_ecb82bc26b7d",
+                "p_5ef827341784",
+                "p_1cbb9520abd5",
+                "p_7fb4edd665c5",
+                "p_b7a0d5ca7a41",
+                "p_4e4a83fc2b83",
+                "p_631787f2abeb",
+                "p_2f6ed90e7d98",
+                "p_b46e3259f155",
+                "p_3f528fa175fd",
+                "p_5a1450c3f002"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "nonstick skillet pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-17.json",
+              "snapshot_task_id": "candidate-mart-graft-p-17",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_e4c213f731db",
+                "p_d84468ad7cb6",
+                "p_b4f66bba3ada",
+                "p_8c9106c838a4",
+                "p_e4b5cf9afbd0",
+                "p_474f66cdaadb",
+                "p_90d6a79f82ec",
+                "p_7da97dbcebd7",
+                "p_0802715445c9",
+                "p_35891ce25591",
+                "p_b8345bebc403",
+                "p_898c19b4d988",
+                "p_16718393e530",
+                "p_519888de602b",
+                "p_5d23fbc6dbd3",
+                "p_dae7c3250db2",
+                "p_05e8791c6734",
+                "p_d9e00e35d551",
+                "p_f01720b69037",
+                "p_0b6bf574f507",
+                "p_530c061f0f4e",
+                "p_781b7f160535",
+                "p_596c8dd60338",
+                "p_1b0b8d3205cc",
+                "p_8ac2aa95f987",
+                "p_4071df1ef202",
+                "p_cd0e3c1f3e91",
+                "p_e2bd008d96c2",
+                "p_84eeea1266bd",
+                "p_d6581e004a26",
+                "p_450857ca86f8",
+                "p_93957f087fcd",
+                "p_0a9569e0b3b6",
+                "p_572c64c4da65",
+                "p_85969c942a99",
+                "p_d4b544b0c6f7",
+                "p_000fb369c5a8",
+                "p_ba3045225ef0",
+                "p_716b6cceb6fe",
+                "p_605a093cbb69",
+                "p_aa59c5888271",
+                "p_e803252f5e33",
+                "p_19457bb0ac99",
+                "p_2e5d98b5884d",
+                "p_4dc65526ebb0",
+                "p_bc3112c437d5",
+                "p_fd7bbbe336bd",
+                "p_46518f72bdd3"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_75b7c3d32064",
+            "p_dca6cf284177",
+            "p_67ad92c7ca79",
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_463391eef1d0",
+            "p_925d48eae1d0",
+            "p_c270b5ad837c",
+            "p_50516d2ab20d",
+            "p_60c45165486e",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_09ffd52d20eb",
+            "p_dd8d2e15e957",
+            "p_24febde16ee9",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce",
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_21a79492b817",
+            "p_8c8ec40c8d36",
+            "p_ccb4dd7a70b9",
+            "p_eb527f5c988f",
+            "p_195ac020efc9",
+            "p_9dec0b38a527",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_5ef827341784",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_4071df1ef202",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_0a9569e0b3b6",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_3bb8bca125dc",
+            "p_eb527f5c988f",
+            "p_90d6a79f82ec",
+            "p_4071df1ef202",
+            "p_0a9569e0b3b6"
+          ],
+          "related_entity_ids": [
+            "p_6e957c3c1b0f",
+            "p_d081d04f6f29",
+            "p_195ac020efc9",
+            "p_b7a0d5ca7a41",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_3bb8bca125dc",
+              "ring": "core",
+              "reason": "The actual public image shows a tall round vessel with short side loop handles, not the source pan's projecting long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_6e957c3c1b0f",
+              "ring": "related",
+              "reason": "The actual public image shows a tall cylindrical milk vessel with a short vertical side grip, not a projecting saucepan long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d081d04f6f29",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_eb527f5c988f",
+              "ring": "core",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_195ac020efc9",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b7a0d5ca7a41",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_2f6ed90e7d98",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b46e3259f155",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4c213f731db",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d84468ad7cb6",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b4f66bba3ada",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_8c9106c838a4",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4b5cf9afbd0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_474f66cdaadb",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_90d6a79f82ec",
+              "ring": "core",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_7da97dbcebd7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_0802715445c9",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_35891ce25591",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b8345bebc403",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_898c19b4d988",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_16718393e530",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_519888de602b",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_5d23fbc6dbd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_dae7c3250db2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_05e8791c6734",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d9e00e35d551",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_f01720b69037",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_0b6bf574f507",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_530c061f0f4e",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_781b7f160535",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_596c8dd60338",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_1b0b8d3205cc",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_8ac2aa95f987",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_4071df1ef202",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_cd0e3c1f3e91",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e2bd008d96c2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_84eeea1266bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d6581e004a26",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_450857ca86f8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_93957f087fcd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_0a9569e0b3b6",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_572c64c4da65",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_85969c942a99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d4b544b0c6f7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_000fb369c5a8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_ba3045225ef0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_716b6cceb6fe",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_605a093cbb69",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_aa59c5888271",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e803252f5e33",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_19457bb0ac99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_2e5d98b5884d",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_4dc65526ebb0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_bc3112c437d5",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_fd7bbbe336bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_46518f72bdd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ],
+          "semantic_review": {
+            "status": "new_source_match_pending_independent_review"
+          },
+          "equivalence_review": {
+            "reviewer": "/root/span_remaining_construction_1018",
+            "method": "Reuse the public geometry partition of the same 96 entities from the cited existing review. That review establishes product properties only; matching the new recording P03-20240218-190556 to this geometry class remains pending independent review.",
+            "accepted_entity_ids": [
+              "p_75b7c3d32064",
+              "p_dca6cf284177",
+              "p_67ad92c7ca79",
+              "p_7dab4bd53291",
+              "p_aaf1fd8992d3",
+              "p_f33e8fdb0203",
+              "p_bdaab6f7b20e",
+              "p_463391eef1d0",
+              "p_925d48eae1d0",
+              "p_c270b5ad837c",
+              "p_50516d2ab20d",
+              "p_60c45165486e",
+              "p_e8ade946ab59",
+              "p_afb27c727a48",
+              "p_199d97b2ce79",
+              "p_09ffd52d20eb",
+              "p_dd8d2e15e957",
+              "p_24febde16ee9",
+              "p_fd832a6ea1d1",
+              "p_86701cbb052d",
+              "p_f61598ad5750",
+              "p_c1368a31f2ce",
+              "p_cc5a6e9efafa",
+              "p_da9f622d4957",
+              "p_c7dbef0151b5",
+              "p_21a79492b817",
+              "p_8c8ec40c8d36",
+              "p_ccb4dd7a70b9",
+              "p_9dec0b38a527",
+              "p_0272c8bd74a1",
+              "p_9a1f7f1816bd",
+              "p_ee31efaa7e06",
+              "p_ecb82bc26b7d",
+              "p_5ef827341784",
+              "p_1cbb9520abd5",
+              "p_7fb4edd665c5",
+              "p_4e4a83fc2b83",
+              "p_631787f2abeb",
+              "p_3f528fa175fd",
+              "p_5a1450c3f002"
+            ],
+            "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json",
+            "pending_entity_ids": []
+          }
+        },
+        "decision": {
+          "candidates": {
+            "shallow_pan": "p_b4f66bba3ada",
+            "deep_pan": "p_75b7c3d32064"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "deep_pan"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The final utensil scraping the masher is the oval wooden spoon; the earlier active relation pairs that spoon with the high-sided single-long-handle saucepan."
+            }
+          ],
+          "established_by": "Constructing agent /root/expand_span20; independent review pending",
+          "established_at": "2026-10-24"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and source-to-public-pan boundary confirmation are pending."
+          ],
+          "evidence_reference": "data/experiments/variants/span/potato-masher-cookware/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A dark broad-headed spatula stirs onions in a low, wide single-long-handle frying pan.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "An oval wooden spoon stirs potatoes in the separate high-sided saucepan with a single long handle; the repeated later stirring shows the same relation.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The wearer takes a recipe tub; no active spoon-to-pan relation is shown. Both vessels and resting utensils are background reminders shared by both conditions.",
+          "supported_by": [
+            "V0:4"
+          ]
+        },
+        {
+          "text": "The wearer turns toward prepared ingredients beside the cooker; no active spoon-to-pan relation is shown. The identical frame is shared across conditions.",
+          "supported_by": [
+            "V0:5"
+          ]
+        },
+        {
+          "text": "At another counter, the wooden oval spoon scrapes food off a perforated potato masher over a plate. Neither cooking vessel is in view.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102402",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P03-20240218-190556__1954-2703",
+        "original_video_id": "P03-20240218-190556",
+        "media_start_seconds": 1954,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P03-20240218-190556__1954-2703.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P03/P03-20240218-190556.mp4",
+        "record_ids": [
+          "P03-20240218-190556-767",
+          "P03-20240218-190556-774",
+          "P03-20240218-190556-783",
+          "P03-20240218-190556-787",
+          "P03-20240218-190556-795",
+          "P03-20240218-190556-987"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "shallow-pan-dark-spatula",
+            "interval_seconds": [
+              1956,
+              1957
+            ],
+            "description": "A dark broad-headed spatula stirs onions in a low, wide single-long-handle frying pan."
+          },
+          {
+            "event_id": "deep-pan-wooden-spoon",
+            "interval_seconds": [
+              2140,
+              2142
+            ],
+            "description": "An oval wooden spoon stirs potatoes in the separate high-sided saucepan with a single long handle; the repeated later stirring shows the same relation."
+          },
+          {
+            "event_id": "recipe-tub",
+            "interval_seconds": [
+              2074,
+              2074
+            ],
+            "description": "The wearer takes a recipe tub; no active spoon-to-pan relation is shown. Both vessels and resting utensils are background reminders shared by both conditions."
+          },
+          {
+            "event_id": "mushroom-preparation",
+            "interval_seconds": [
+              2087,
+              2087
+            ],
+            "description": "The wearer turns toward prepared ingredients beside the cooker; no active spoon-to-pan relation is shown. The identical frame is shared across conditions."
+          },
+          {
+            "event_id": "spoon-scrapes-masher",
+            "interval_seconds": [
+              2696,
+              2698
+            ],
+            "description": "At another counter, the wooden oval spoon scrapes food off a perforated potato masher over a plate. Neither cooking vessel is in view."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact cookware brand, capacity, diameter or material",
+          "Physical retail identity of the wooden spoon",
+          "A new independent camera wearer; this is a new recording from existing HD-EPIC participant P03"
+        ]
+      },
+      "screening": {
+        "real_user_need": "Buy one spare matching the shape and handle arrangement of a pan used while cooking; the user refers to it through a later utensil action.",
+        "scope_note": "New recording; independent blind review pending. Near/far use the same fully specified instruction upfront.",
+        "proposed_instruction": "Next time I want to cook two batches at once. I would like a spare like one of the pans I cooked with here. Add one to my cart, matching its general shape and handle arrangement. Brand, colour, material and size can differ. One pan, not a multi-pan set; a lid is fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_1956.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_1957.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2074.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2087.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2140.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2142.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2696.jpg",
+            "data/experiments/variants/span/potato-masher-cookware/frames/source_2698.jpg"
+          ],
+          "timestamps_seconds": [
+            1956,
+            1957,
+            2074,
+            2087,
+            2140,
+            2142,
+            2696,
+            2698
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does the model recover the earlier cookware-to-utensil relation when the identifying later action is separated from that relation by more observed cooking events?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "Both the shallow pan used with the broad dark spatula and the deep saucepan used with the oval wooden spoon are plausible cookware references.",
+        "belief_after": "The last action identifies the oval wooden spoon without showing cookware; earlier views identify its saucepan partner.",
+        "required_behavior_change": "Link the utensil in the final scraping action to its earlier cookware partner; add one matching pan.",
+        "no_update_failure": "Without the physical reference either cooking vessel is plausible; the experiment supplies this same reference upfront to both conditions.",
+        "overupdate_failure": "Buying both vessels or buying the utensil instead of cookware does not satisfy the one-pan request.",
+        "visual_dependency_claim": "The binding views identify which utensil was used in which vessel. The final counter views identify the requested utensil but omit cookware. Neither fact set alone identifies the requested vessel.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Next time I want to cook two batches at once. I would like a spare like one of the pans I cooked with here. Add one to my cart, matching its general shape and handle arrangement. Brand, colour, material and size can differ. One pan, not a multi-pan set; a lid is fine.",
+          "oracle_instruction": "Next time I want to cook two batches at once. I would like a spare like the pan I used with the utensil I use to scrape food off the masher at the end. Add one to my cart, matching its general shape and handle arrangement. Brand, colour, material and size can differ. One pan, not a multi-pan set; a lid is fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "shallow_pan",
+            "deep_pan"
+          ],
+          "hidden_target_role": "deep_pan",
+          "valid_slot": "sequence",
+          "canonical_question": "Which of the pans you used do you mean?",
+          "canonical_answer": "The one I used with the utensil I use to scrape food off the masher at the end.",
+          "environment_role_ids": {
+            "shallow_pan": "p_b4f66bba3ada",
+            "deep_pan": "p_75b7c3d32064"
+          },
+          "equivalent_role_ids": {
+            "deep_pan": [
+              "p_dca6cf284177",
+              "p_67ad92c7ca79",
+              "p_7dab4bd53291",
+              "p_aaf1fd8992d3",
+              "p_f33e8fdb0203",
+              "p_bdaab6f7b20e",
+              "p_463391eef1d0",
+              "p_925d48eae1d0",
+              "p_c270b5ad837c",
+              "p_50516d2ab20d",
+              "p_60c45165486e",
+              "p_e8ade946ab59",
+              "p_afb27c727a48",
+              "p_199d97b2ce79",
+              "p_09ffd52d20eb",
+              "p_dd8d2e15e957",
+              "p_24febde16ee9",
+              "p_fd832a6ea1d1",
+              "p_86701cbb052d",
+              "p_f61598ad5750",
+              "p_c1368a31f2ce",
+              "p_cc5a6e9efafa",
+              "p_da9f622d4957",
+              "p_c7dbef0151b5",
+              "p_21a79492b817",
+              "p_8c8ec40c8d36",
+              "p_ccb4dd7a70b9",
+              "p_9dec0b38a527",
+              "p_0272c8bd74a1",
+              "p_9a1f7f1816bd",
+              "p_ee31efaa7e06",
+              "p_ecb82bc26b7d",
+              "p_5ef827341784",
+              "p_1cbb9520abd5",
+              "p_7fb4edd665c5",
+              "p_4e4a83fc2b83",
+              "p_631787f2abeb",
+              "p_3f528fa175fd",
+              "p_5a1450c3f002"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "steel saucepan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-08.json",
+              "snapshot_task_id": "candidate-mart-clarify-appearance-08",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_75b7c3d32064",
+                "p_dca6cf284177",
+                "p_67ad92c7ca79",
+                "p_7dab4bd53291",
+                "p_aaf1fd8992d3",
+                "p_f33e8fdb0203",
+                "p_bdaab6f7b20e",
+                "p_463391eef1d0",
+                "p_925d48eae1d0",
+                "p_c270b5ad837c",
+                "p_50516d2ab20d",
+                "p_60c45165486e",
+                "p_e8ade946ab59",
+                "p_afb27c727a48",
+                "p_199d97b2ce79",
+                "p_09ffd52d20eb",
+                "p_dd8d2e15e957",
+                "p_24febde16ee9",
+                "p_3bb8bca125dc",
+                "p_fd832a6ea1d1",
+                "p_86701cbb052d",
+                "p_6e957c3c1b0f",
+                "p_f61598ad5750",
+                "p_c1368a31f2ce",
+                "p_cc5a6e9efafa",
+                "p_da9f622d4957",
+                "p_d081d04f6f29",
+                "p_c7dbef0151b5",
+                "p_21a79492b817",
+                "p_8c8ec40c8d36",
+                "p_ccb4dd7a70b9",
+                "p_eb527f5c988f",
+                "p_195ac020efc9",
+                "p_9dec0b38a527",
+                "p_0272c8bd74a1",
+                "p_9a1f7f1816bd",
+                "p_ee31efaa7e06",
+                "p_ecb82bc26b7d",
+                "p_5ef827341784",
+                "p_1cbb9520abd5",
+                "p_7fb4edd665c5",
+                "p_b7a0d5ca7a41",
+                "p_4e4a83fc2b83",
+                "p_631787f2abeb",
+                "p_2f6ed90e7d98",
+                "p_b46e3259f155",
+                "p_3f528fa175fd",
+                "p_5a1450c3f002"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "nonstick skillet pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-17.json",
+              "snapshot_task_id": "candidate-mart-graft-p-17",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_e4c213f731db",
+                "p_d84468ad7cb6",
+                "p_b4f66bba3ada",
+                "p_8c9106c838a4",
+                "p_e4b5cf9afbd0",
+                "p_474f66cdaadb",
+                "p_90d6a79f82ec",
+                "p_7da97dbcebd7",
+                "p_0802715445c9",
+                "p_35891ce25591",
+                "p_b8345bebc403",
+                "p_898c19b4d988",
+                "p_16718393e530",
+                "p_519888de602b",
+                "p_5d23fbc6dbd3",
+                "p_dae7c3250db2",
+                "p_05e8791c6734",
+                "p_d9e00e35d551",
+                "p_f01720b69037",
+                "p_0b6bf574f507",
+                "p_530c061f0f4e",
+                "p_781b7f160535",
+                "p_596c8dd60338",
+                "p_1b0b8d3205cc",
+                "p_8ac2aa95f987",
+                "p_4071df1ef202",
+                "p_cd0e3c1f3e91",
+                "p_e2bd008d96c2",
+                "p_84eeea1266bd",
+                "p_d6581e004a26",
+                "p_450857ca86f8",
+                "p_93957f087fcd",
+                "p_0a9569e0b3b6",
+                "p_572c64c4da65",
+                "p_85969c942a99",
+                "p_d4b544b0c6f7",
+                "p_000fb369c5a8",
+                "p_ba3045225ef0",
+                "p_716b6cceb6fe",
+                "p_605a093cbb69",
+                "p_aa59c5888271",
+                "p_e803252f5e33",
+                "p_19457bb0ac99",
+                "p_2e5d98b5884d",
+                "p_4dc65526ebb0",
+                "p_bc3112c437d5",
+                "p_fd7bbbe336bd",
+                "p_46518f72bdd3"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_75b7c3d32064",
+            "p_dca6cf284177",
+            "p_67ad92c7ca79",
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_463391eef1d0",
+            "p_925d48eae1d0",
+            "p_c270b5ad837c",
+            "p_50516d2ab20d",
+            "p_60c45165486e",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_09ffd52d20eb",
+            "p_dd8d2e15e957",
+            "p_24febde16ee9",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce",
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_21a79492b817",
+            "p_8c8ec40c8d36",
+            "p_ccb4dd7a70b9",
+            "p_eb527f5c988f",
+            "p_195ac020efc9",
+            "p_9dec0b38a527",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_5ef827341784",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_4071df1ef202",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_0a9569e0b3b6",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_3bb8bca125dc",
+            "p_eb527f5c988f",
+            "p_90d6a79f82ec",
+            "p_4071df1ef202",
+            "p_0a9569e0b3b6"
+          ],
+          "related_entity_ids": [
+            "p_6e957c3c1b0f",
+            "p_d081d04f6f29",
+            "p_195ac020efc9",
+            "p_b7a0d5ca7a41",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_3bb8bca125dc",
+              "ring": "core",
+              "reason": "The actual public image shows a tall round vessel with short side loop handles, not the source pan's projecting long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_6e957c3c1b0f",
+              "ring": "related",
+              "reason": "The actual public image shows a tall cylindrical milk vessel with a short vertical side grip, not a projecting saucepan long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d081d04f6f29",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_eb527f5c988f",
+              "ring": "core",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_195ac020efc9",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b7a0d5ca7a41",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_2f6ed90e7d98",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b46e3259f155",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4c213f731db",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d84468ad7cb6",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b4f66bba3ada",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_8c9106c838a4",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4b5cf9afbd0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_474f66cdaadb",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_90d6a79f82ec",
+              "ring": "core",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_7da97dbcebd7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_0802715445c9",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_35891ce25591",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_b8345bebc403",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_898c19b4d988",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_16718393e530",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_519888de602b",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_5d23fbc6dbd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_dae7c3250db2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_05e8791c6734",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d9e00e35d551",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_f01720b69037",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_0b6bf574f507",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_530c061f0f4e",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_781b7f160535",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_596c8dd60338",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_1b0b8d3205cc",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_8ac2aa95f987",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_4071df1ef202",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_cd0e3c1f3e91",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e2bd008d96c2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_84eeea1266bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d6581e004a26",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_450857ca86f8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_93957f087fcd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_0a9569e0b3b6",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_572c64c4da65",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_85969c942a99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_d4b544b0c6f7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_000fb369c5a8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_ba3045225ef0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_716b6cceb6fe",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_605a093cbb69",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_aa59c5888271",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_e803252f5e33",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_19457bb0ac99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_2e5d98b5884d",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_4dc65526ebb0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_bc3112c437d5",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_fd7bbbe336bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            },
+            {
+              "entity_id": "p_46518f72bdd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json"
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ],
+          "semantic_review": {
+            "status": "new_source_match_pending_independent_review"
+          },
+          "equivalence_review": {
+            "reviewer": "/root/span_remaining_construction_1018",
+            "method": "Reuse the public geometry partition of the same 96 entities from the cited existing review. That review establishes product properties only; matching the new recording P03-20240218-190556 to this geometry class remains pending independent review.",
+            "accepted_entity_ids": [
+              "p_75b7c3d32064",
+              "p_dca6cf284177",
+              "p_67ad92c7ca79",
+              "p_7dab4bd53291",
+              "p_aaf1fd8992d3",
+              "p_f33e8fdb0203",
+              "p_bdaab6f7b20e",
+              "p_463391eef1d0",
+              "p_925d48eae1d0",
+              "p_c270b5ad837c",
+              "p_50516d2ab20d",
+              "p_60c45165486e",
+              "p_e8ade946ab59",
+              "p_afb27c727a48",
+              "p_199d97b2ce79",
+              "p_09ffd52d20eb",
+              "p_dd8d2e15e957",
+              "p_24febde16ee9",
+              "p_fd832a6ea1d1",
+              "p_86701cbb052d",
+              "p_f61598ad5750",
+              "p_c1368a31f2ce",
+              "p_cc5a6e9efafa",
+              "p_da9f622d4957",
+              "p_c7dbef0151b5",
+              "p_21a79492b817",
+              "p_8c8ec40c8d36",
+              "p_ccb4dd7a70b9",
+              "p_9dec0b38a527",
+              "p_0272c8bd74a1",
+              "p_9a1f7f1816bd",
+              "p_ee31efaa7e06",
+              "p_ecb82bc26b7d",
+              "p_5ef827341784",
+              "p_1cbb9520abd5",
+              "p_7fb4edd665c5",
+              "p_4e4a83fc2b83",
+              "p_631787f2abeb",
+              "p_3f528fa175fd",
+              "p_5a1450c3f002"
+            ],
+            "review_reference": "data/experiments/variants/span/front-pan-natural-order/pan-relation/review.json",
+            "pending_entity_ids": []
+          }
+        },
+        "decision": {
+          "candidates": {
+            "shallow_pan": "p_b4f66bba3ada",
+            "deep_pan": "p_75b7c3d32064"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "shallow_pan",
+                "deep_pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "deep_pan"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The final utensil scraping the masher is the oval wooden spoon; the earlier active relation pairs that spoon with the high-sided single-long-handle saucepan."
+            }
+          ],
+          "established_by": "Constructing agent /root/expand_span20; independent review pending",
+          "established_at": "2026-10-24"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and source-to-public-pan boundary confirmation are pending."
+          ],
+          "evidence_reference": "data/experiments/variants/span/potato-masher-cookware/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A dark broad-headed spatula stirs onions in a low, wide single-long-handle frying pan.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "An oval wooden spoon stirs potatoes in the separate high-sided saucepan with a single long handle; the repeated later stirring shows the same relation.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The wearer takes a recipe tub; no active spoon-to-pan relation is shown. Both vessels and resting utensils are background reminders shared by both conditions.",
+          "supported_by": [
+            "V0:2"
+          ]
+        },
+        {
+          "text": "The wearer turns toward prepared ingredients beside the cooker; no active spoon-to-pan relation is shown. The identical frame is shared across conditions.",
+          "supported_by": [
+            "V0:3"
+          ]
+        },
+        {
+          "text": "At another counter, the wooden oval spoon scrapes food off a perforated potato masher over a plate. Neither cooking vessel is in view.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    }
+  ]
+}

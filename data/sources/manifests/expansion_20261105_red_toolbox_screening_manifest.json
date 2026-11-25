@@ -1,0 +1,3892 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HoloAssist",
+    "source_root": "reference/sources/HoloAssist/clips",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official HoloAssist compressed video release under CDLA-Permissive-2.0: https://cdla.dev/permissive-2-0/."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-refresh-replace-2026110524",
+      "source": {
+        "dataset": "HoloAssist",
+        "media_id": "R066-15July-Circuit-Breaker-part2",
+        "media_start_seconds": 0,
+        "original_video_id": "R066-15July-Circuit-Breaker-part2",
+        "canonical_parent_recording_group": "HoloAssist:R066-15July-Circuit-Breaker-part2",
+        "source_video_path": "reference/sources/HoloAssist/clips/R066-15July-Circuit-Breaker-part2.mp4",
+        "original_video_url": "https://hl2data.z5.web.core.windows.net/holoassist-data-release/video_compress.tar",
+        "source_acquisition": {
+          "archive_member": "R066-15July-Circuit-Breaker-part2/Export_py/Video_compress.mp4",
+          "response_status": 206,
+          "content_range": "bytes 7498153472-7565487242/155285145600",
+          "archive_byte_offset": 7498153472,
+          "archive_member_size": 67333771,
+          "verification": "Declared first-party range matches the local full source member byte length."
+        },
+        "record_ids": [
+          "R066-15July-Circuit-Breaker-part2/10.2-22.2/portable_toolbox",
+          "R066-15July-Circuit-Breaker-part2/29.2-43.2/workbench_chest"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              10.2,
+              22.2
+            ],
+            "description": "During the ongoing search for a part, the wearer handles a red portable top-opening toolbox with a carry handle, and leaves it without retrieving the part."
+          },
+          {
+            "interval_seconds": [
+              29.2,
+              43.2
+            ],
+            "description": "The wearer approaches a different red workbench tool chest, opens the hinged top above its drawers, and lifts the part from the upper compartment."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            10.2,
+            13.2,
+            15.2,
+            24.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026110524/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110524/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110524/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110524/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            38.2,
+            40.2,
+            42.2,
+            43.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026110524/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110524/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110524/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110524/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          10.2,
+          43.2
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-refresh-replace-2026110524/review.json"
+      },
+      "family": "refresh",
+      "subtype": "replace",
+      "status": "video_screened",
+      "supported_claims": [
+        {
+          "text": "The visible earlier candidate is a hand-carry red case with a top handle and no visible drawer bank.",
+          "supported_by": [
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The wearer opens the top compartment above the drawers of a different red tool chest and retrieves the part there.",
+          "supported_by": [
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "screening": {
+        "proposed_instruction": "Could you add a toolbox like the one I’m getting the part from? Match its color and layout, and keep it roughly the same size.",
+        "source_continuity": "Continuous [10.2, 43.2] seconds from one original recording."
+      },
+      "construct": {
+        "research_question": "Can the agent distinguish an initially plausible case from the different actual storage container as the wearer retrieves the part?",
+        "belief_before": "The wearer handles a red hand-carry toolbox. It is a reasonable provisional referent.",
+        "belief_after": "The wearer retrieves the part from the hinged top compartment of a different workbench chest with drawers.",
+        "required_behavior_change": "Leave a red chest with a similar top compartment, drawer layout and practical scale. Remove the old carry box if it was already selected.",
+        "no_update_failure": "Keep a carry box, a mini desktop chest, a drawer-only unit without top storage, or another nonmatching item.",
+        "overupdate_failure": "Select a matching chest but leave the portable case or an extra listing in the cart.",
+        "visual_dependency_claim": "The utterance requests matching color, layout and scale but gives no values. The reviewed frames establish the actual chest and the compartment used.",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "site": "egomart",
+          "instruction": "Could you add a toolbox like the one I’m getting the part from? Match its color and layout, and keep it roughly the same size.",
+          "target_granularity": "category",
+          "initial_target_role": "provisional_item",
+          "final_target_role": "observed_item",
+          "environment_role_ids": {
+            "provisional_item": "p_0b32d591b927",
+            "observed_item": "p_cc0e511d208a"
+          },
+          "equivalent_role_ids": {
+            "provisional_item": [
+              "p_b022c6cf742c",
+              "p_29dfb8669b32",
+              "p_6d54d5d5bfef",
+              "p_7f2ace8c27b0",
+              "p_e1980ecd397d",
+              "p_23ed9eb0d612",
+              "p_bbd03e485bfc",
+              "p_e8dd37d72d03",
+              "p_ecbb7665a8a1",
+              "p_eea9ca05729d",
+              "p_eb35da6a8e95",
+              "p_c828e54b6a41",
+              "p_926c000d3a95",
+              "p_776b7bcd4ecb",
+              "p_b31e0f9bf746",
+              "p_beb30356ec98",
+              "p_5f1a7eddaf0e",
+              "p_a575821c6e07",
+              "p_3363e13fc597",
+              "p_88016e4f00af",
+              "p_55554e3c637e",
+              "p_5579ac1b91bc",
+              "p_5042565065f5",
+              "p_957fbf8a3836",
+              "p_dfb02dcc2815",
+              "p_76d2384e46f4",
+              "p_732569d700f0",
+              "p_120c21338c9e"
+            ],
+            "observed_item": [
+              "p_ae2bfc66fe31",
+              "p_5a6ca050fd79",
+              "p_5b2ca02be849",
+              "p_dc708b8fd02d",
+              "p_b36d652cc103",
+              "p_c6fe95314b2c",
+              "p_d2691a92af34",
+              "p_d11c51bc8a06",
+              "p_4cb563f02bb9",
+              "p_f63e12de1f34",
+              "p_10626fbc2551",
+              "p_ed89bc148833",
+              "p_d50dc80327a2",
+              "p_b3dedd838be8",
+              "p_01f76ff6c5d1",
+              "p_858ea5487917",
+              "p_9291cc2dae4e",
+              "p_c9526ace6a46",
+              "p_c438b243e335",
+              "p_bec193a137f0",
+              "p_e72487d2b1b5",
+              "p_7adf26a56ef4",
+              "p_0aeecd0bdd24",
+              "p_03d579146df4",
+              "p_c31b2d719533",
+              "p_6213ed265d4e",
+              "p_835dd321b4b5",
+              "p_13a4e50ae7fe",
+              "p_58e0f405a87c",
+              "p_4cc2d3d2dd4d",
+              "p_85464a1d1039",
+              "p_7c7e764fd167"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "old": "p_0b32d591b927",
+            "new": "p_cc0e511d208a"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "old"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The red portable case is being handled during the ongoing search; the other chest has not become the actual source of the part."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "new"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "At this frame the wearer opens the visible storage lid of the different red drawer chest, exposing the sought parts. Later released frames show the part lifted from this chest."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "red portable metal toolbox carry handle",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110524.json",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_0d00b579dc57",
+                "p_b022c6cf742c",
+                "p_27348bb3ebcd",
+                "p_cffc96cebaa4",
+                "p_8f54653a2068",
+                "p_8ad98ab9da98",
+                "p_ae2bfc66fe31",
+                "p_29dfb8669b32",
+                "p_bf67ad352335",
+                "p_6d54d5d5bfef",
+                "p_7f2ace8c27b0",
+                "p_ff5284acc595",
+                "p_e1980ecd397d",
+                "p_23ed9eb0d612",
+                "p_9482962311d1",
+                "p_31bf0b6f712f",
+                "p_bbd03e485bfc",
+                "p_763172cfeb53",
+                "p_e8dd37d72d03",
+                "p_ecbb7665a8a1",
+                "p_150e05398fd5",
+                "p_0b32d591b927",
+                "p_eea9ca05729d",
+                "p_eb35da6a8e95",
+                "p_5a6ca050fd79",
+                "p_c828e54b6a41",
+                "p_926c000d3a95",
+                "p_98330048db29",
+                "p_5b2ca02be849",
+                "p_dc708b8fd02d",
+                "p_776b7bcd4ecb",
+                "p_b31e0f9bf746",
+                "p_ed748f93a575",
+                "p_b36d652cc103",
+                "p_beb30356ec98",
+                "p_385e867ab0ed",
+                "p_bfb578cccef4",
+                "p_5f1a7eddaf0e",
+                "p_2505ebcd9d01",
+                "p_c027bb7adfe9",
+                "p_35ff9556c83f",
+                "p_a575821c6e07",
+                "p_02c0d699e10d",
+                "p_98084aa27364",
+                "p_c6fe95314b2c",
+                "p_3363e13fc597",
+                "p_88016e4f00af",
+                "p_55554e3c637e"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "red mechanic tool chest drawers top lid",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110524.json",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_d2691a92af34",
+                "p_cc0e511d208a",
+                "p_d11c51bc8a06",
+                "p_4cb563f02bb9",
+                "p_0c9235df4d8d",
+                "p_f63e12de1f34",
+                "p_10626fbc2551",
+                "p_ed89bc148833",
+                "p_21697e71aad3",
+                "p_ab069295b4d1",
+                "p_7e7f609b2b83",
+                "p_d50dc80327a2",
+                "p_b3dedd838be8",
+                "p_01f76ff6c5d1",
+                "p_858ea5487917",
+                "p_c52cf22d9b6a",
+                "p_1dcdaee68c4f",
+                "p_410557a19067",
+                "p_9291cc2dae4e",
+                "p_c9526ace6a46",
+                "p_c438b243e335",
+                "p_bec193a137f0",
+                "p_e72487d2b1b5",
+                "p_5641a98efeea",
+                "p_2aebd4b8f19c",
+                "p_7adf26a56ef4",
+                "p_0aeecd0bdd24",
+                "p_03d579146df4",
+                "p_2c6c081aa345",
+                "p_5b2ca02be849",
+                "p_c31b2d719533",
+                "p_5579ac1b91bc",
+                "p_1b79e304a8ca",
+                "p_a2abc65ead7f",
+                "p_97c15b4edd53",
+                "p_6213ed265d4e",
+                "p_835dd321b4b5",
+                "p_b82f3298439a",
+                "p_13a4e50ae7fe",
+                "p_51ca54ab7bba",
+                "p_b36d652cc103",
+                "p_58e0f405a87c",
+                "p_00595733d7b4",
+                "p_4cc2d3d2dd4d",
+                "p_85464a1d1039",
+                "p_2dcc02f7bd93",
+                "p_0097d81b408d",
+                "p_5164168308e5"
+              ]
+            },
+            {
+              "stage": "broad_comparison",
+              "query": "toolbox",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110524.json",
+              "snapshot_stage": "broad_comparison",
+              "result_entity_ids": [
+                "p_a430744f013f",
+                "p_ff5284acc595",
+                "p_007cf0b4f9ae",
+                "p_bfb578cccef4",
+                "p_6c212388553c",
+                "p_86ae22dcb272",
+                "p_358217e96afd",
+                "p_b39d4d972d46",
+                "p_536f8ee3f599",
+                "p_e16cde98245e",
+                "p_10626fbc2551",
+                "p_1b4355dacec0",
+                "p_3ce98387cf15",
+                "p_588bca908edd",
+                "p_e1b0f72a73bf",
+                "p_81dc0ffd10d6",
+                "p_7f82beb00a21",
+                "p_54673260f3a0",
+                "p_5b6626895a4e",
+                "p_a0f3ed838591",
+                "p_84f8c4364376",
+                "p_439bf22b4b84",
+                "p_897784ccc78a",
+                "p_659bb3048780",
+                "p_792489779cf7",
+                "p_629029833fc9",
+                "p_376d5dac1826",
+                "p_3f6e49a1ec1a",
+                "p_448f482d20c3",
+                "p_4213769433fe",
+                "p_180b9b8fa6c5",
+                "p_b616909a9909",
+                "p_1ca7fa7c2776",
+                "p_78c38af893bc",
+                "p_43be4ef54384",
+                "p_890696343aba",
+                "p_8ad98ab9da98",
+                "p_d3bc9e6ccb0d",
+                "p_2d91512c0c12",
+                "p_5531b559e291",
+                "p_920f6ad19e3d",
+                "p_b832edc9d8ef",
+                "p_3a59e193640c",
+                "p_98084aa27364",
+                "p_b18805507aa5",
+                "p_4369b12fa396",
+                "p_8c8419e832a5",
+                "p_bed496a65024"
+              ]
+            },
+            {
+              "stage": "broad_color",
+              "query": "red toolbox",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110524.json",
+              "snapshot_stage": "broad_color",
+              "result_entity_ids": [
+                "p_ff5284acc595",
+                "p_8f54653a2068",
+                "p_27348bb3ebcd",
+                "p_5579ac1b91bc",
+                "p_5a6ca050fd79",
+                "p_0d00b579dc57",
+                "p_a802d6602cef",
+                "p_5042565065f5",
+                "p_29dfb8669b32",
+                "p_eea9ca05729d",
+                "p_23ed9eb0d612",
+                "p_d2691a92af34",
+                "p_10626fbc2551",
+                "p_6163cf436b1f",
+                "p_7f82beb00a21",
+                "p_b1e9d382d056",
+                "p_aab40667312f",
+                "p_a4de309f2541",
+                "p_1dcdaee68c4f",
+                "p_9291cc2dae4e",
+                "p_957fbf8a3836",
+                "p_dfb02dcc2815",
+                "p_76d2384e46f4",
+                "p_16d0617c4e18",
+                "p_dfeffc8ce247",
+                "p_5b2ca02be849",
+                "p_ccddcb013bf1",
+                "p_bbd03e485bfc",
+                "p_0b32d591b927",
+                "p_98084aa27364",
+                "p_b31e0f9bf746",
+                "p_6213ed265d4e",
+                "p_b36d652cc103",
+                "p_bfb578cccef4",
+                "p_f071ffc40092",
+                "p_7f6e198571a9",
+                "p_07ae36112a2c",
+                "p_9e34df18109c",
+                "p_b832edc9d8ef",
+                "p_e01c2b6cc227",
+                "p_e1980ecd397d",
+                "p_732569d700f0",
+                "p_120c21338c9e",
+                "p_7c7e764fd167",
+                "p_639712d5972a",
+                "p_926c000d3a95",
+                "p_75e1b1b67953",
+                "p_658cfd6f2a8d"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_0d00b579dc57",
+            "p_b022c6cf742c",
+            "p_27348bb3ebcd",
+            "p_cffc96cebaa4",
+            "p_8f54653a2068",
+            "p_8ad98ab9da98",
+            "p_ae2bfc66fe31",
+            "p_29dfb8669b32",
+            "p_bf67ad352335",
+            "p_6d54d5d5bfef",
+            "p_7f2ace8c27b0",
+            "p_ff5284acc595",
+            "p_e1980ecd397d",
+            "p_23ed9eb0d612",
+            "p_9482962311d1",
+            "p_31bf0b6f712f",
+            "p_bbd03e485bfc",
+            "p_763172cfeb53",
+            "p_e8dd37d72d03",
+            "p_ecbb7665a8a1",
+            "p_150e05398fd5",
+            "p_0b32d591b927",
+            "p_eea9ca05729d",
+            "p_eb35da6a8e95",
+            "p_5a6ca050fd79",
+            "p_c828e54b6a41",
+            "p_926c000d3a95",
+            "p_98330048db29",
+            "p_5b2ca02be849",
+            "p_dc708b8fd02d",
+            "p_776b7bcd4ecb",
+            "p_b31e0f9bf746",
+            "p_ed748f93a575",
+            "p_b36d652cc103",
+            "p_beb30356ec98",
+            "p_385e867ab0ed",
+            "p_bfb578cccef4",
+            "p_5f1a7eddaf0e",
+            "p_2505ebcd9d01",
+            "p_c027bb7adfe9",
+            "p_35ff9556c83f",
+            "p_a575821c6e07",
+            "p_02c0d699e10d",
+            "p_98084aa27364",
+            "p_c6fe95314b2c",
+            "p_3363e13fc597",
+            "p_88016e4f00af",
+            "p_55554e3c637e",
+            "p_d2691a92af34",
+            "p_cc0e511d208a",
+            "p_d11c51bc8a06",
+            "p_4cb563f02bb9",
+            "p_0c9235df4d8d",
+            "p_f63e12de1f34",
+            "p_10626fbc2551",
+            "p_ed89bc148833",
+            "p_21697e71aad3",
+            "p_ab069295b4d1",
+            "p_7e7f609b2b83",
+            "p_d50dc80327a2",
+            "p_b3dedd838be8",
+            "p_01f76ff6c5d1",
+            "p_858ea5487917",
+            "p_c52cf22d9b6a",
+            "p_1dcdaee68c4f",
+            "p_410557a19067",
+            "p_9291cc2dae4e",
+            "p_c9526ace6a46",
+            "p_c438b243e335",
+            "p_bec193a137f0",
+            "p_e72487d2b1b5",
+            "p_5641a98efeea",
+            "p_2aebd4b8f19c",
+            "p_7adf26a56ef4",
+            "p_0aeecd0bdd24",
+            "p_03d579146df4",
+            "p_2c6c081aa345",
+            "p_c31b2d719533",
+            "p_5579ac1b91bc",
+            "p_1b79e304a8ca",
+            "p_a2abc65ead7f",
+            "p_97c15b4edd53",
+            "p_6213ed265d4e",
+            "p_835dd321b4b5",
+            "p_b82f3298439a",
+            "p_13a4e50ae7fe",
+            "p_51ca54ab7bba",
+            "p_58e0f405a87c",
+            "p_00595733d7b4",
+            "p_4cc2d3d2dd4d",
+            "p_85464a1d1039",
+            "p_2dcc02f7bd93",
+            "p_0097d81b408d",
+            "p_5164168308e5",
+            "p_a430744f013f",
+            "p_007cf0b4f9ae",
+            "p_6c212388553c",
+            "p_86ae22dcb272",
+            "p_358217e96afd",
+            "p_b39d4d972d46",
+            "p_536f8ee3f599",
+            "p_e16cde98245e",
+            "p_1b4355dacec0",
+            "p_3ce98387cf15",
+            "p_588bca908edd",
+            "p_e1b0f72a73bf",
+            "p_81dc0ffd10d6",
+            "p_7f82beb00a21",
+            "p_54673260f3a0",
+            "p_5b6626895a4e",
+            "p_a0f3ed838591",
+            "p_84f8c4364376",
+            "p_439bf22b4b84",
+            "p_897784ccc78a",
+            "p_659bb3048780",
+            "p_792489779cf7",
+            "p_629029833fc9",
+            "p_376d5dac1826",
+            "p_3f6e49a1ec1a",
+            "p_448f482d20c3",
+            "p_4213769433fe",
+            "p_180b9b8fa6c5",
+            "p_b616909a9909",
+            "p_1ca7fa7c2776",
+            "p_78c38af893bc",
+            "p_43be4ef54384",
+            "p_890696343aba",
+            "p_d3bc9e6ccb0d",
+            "p_2d91512c0c12",
+            "p_5531b559e291",
+            "p_920f6ad19e3d",
+            "p_b832edc9d8ef",
+            "p_3a59e193640c",
+            "p_b18805507aa5",
+            "p_4369b12fa396",
+            "p_8c8419e832a5",
+            "p_bed496a65024",
+            "p_a802d6602cef",
+            "p_5042565065f5",
+            "p_6163cf436b1f",
+            "p_b1e9d382d056",
+            "p_aab40667312f",
+            "p_a4de309f2541",
+            "p_957fbf8a3836",
+            "p_dfb02dcc2815",
+            "p_76d2384e46f4",
+            "p_16d0617c4e18",
+            "p_dfeffc8ce247",
+            "p_ccddcb013bf1",
+            "p_f071ffc40092",
+            "p_7f6e198571a9",
+            "p_07ae36112a2c",
+            "p_9e34df18109c",
+            "p_e01c2b6cc227",
+            "p_732569d700f0",
+            "p_120c21338c9e",
+            "p_7c7e764fd167",
+            "p_639712d5972a",
+            "p_75e1b1b67953",
+            "p_658cfd6f2a8d"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_0d00b579dc57",
+            "p_b022c6cf742c",
+            "p_27348bb3ebcd",
+            "p_cffc96cebaa4",
+            "p_8f54653a2068",
+            "p_8ad98ab9da98",
+            "p_29dfb8669b32",
+            "p_bf67ad352335",
+            "p_6d54d5d5bfef",
+            "p_7f2ace8c27b0",
+            "p_ff5284acc595",
+            "p_e1980ecd397d",
+            "p_23ed9eb0d612",
+            "p_9482962311d1",
+            "p_31bf0b6f712f",
+            "p_bbd03e485bfc",
+            "p_763172cfeb53",
+            "p_e8dd37d72d03",
+            "p_ecbb7665a8a1",
+            "p_150e05398fd5",
+            "p_0b32d591b927",
+            "p_eea9ca05729d",
+            "p_eb35da6a8e95",
+            "p_c828e54b6a41",
+            "p_926c000d3a95",
+            "p_98330048db29",
+            "p_776b7bcd4ecb",
+            "p_b31e0f9bf746",
+            "p_ed748f93a575",
+            "p_beb30356ec98",
+            "p_385e867ab0ed",
+            "p_bfb578cccef4",
+            "p_5f1a7eddaf0e",
+            "p_2505ebcd9d01",
+            "p_c027bb7adfe9",
+            "p_35ff9556c83f",
+            "p_a575821c6e07",
+            "p_02c0d699e10d",
+            "p_98084aa27364",
+            "p_3363e13fc597",
+            "p_88016e4f00af",
+            "p_55554e3c637e",
+            "p_0c9235df4d8d",
+            "p_21697e71aad3",
+            "p_ab069295b4d1",
+            "p_7e7f609b2b83",
+            "p_c52cf22d9b6a",
+            "p_1dcdaee68c4f",
+            "p_410557a19067",
+            "p_5641a98efeea",
+            "p_2aebd4b8f19c",
+            "p_2c6c081aa345",
+            "p_5579ac1b91bc",
+            "p_1b79e304a8ca",
+            "p_a2abc65ead7f",
+            "p_97c15b4edd53",
+            "p_b82f3298439a",
+            "p_51ca54ab7bba",
+            "p_00595733d7b4",
+            "p_2dcc02f7bd93",
+            "p_0097d81b408d",
+            "p_5164168308e5",
+            "p_a430744f013f",
+            "p_007cf0b4f9ae",
+            "p_6c212388553c",
+            "p_86ae22dcb272",
+            "p_358217e96afd",
+            "p_b39d4d972d46",
+            "p_536f8ee3f599",
+            "p_e16cde98245e",
+            "p_1b4355dacec0",
+            "p_3ce98387cf15",
+            "p_588bca908edd",
+            "p_e1b0f72a73bf",
+            "p_81dc0ffd10d6",
+            "p_7f82beb00a21",
+            "p_54673260f3a0",
+            "p_5b6626895a4e",
+            "p_a0f3ed838591",
+            "p_84f8c4364376",
+            "p_439bf22b4b84",
+            "p_897784ccc78a",
+            "p_659bb3048780",
+            "p_792489779cf7",
+            "p_629029833fc9",
+            "p_376d5dac1826",
+            "p_3f6e49a1ec1a",
+            "p_448f482d20c3",
+            "p_4213769433fe",
+            "p_180b9b8fa6c5",
+            "p_b616909a9909",
+            "p_1ca7fa7c2776",
+            "p_78c38af893bc",
+            "p_43be4ef54384",
+            "p_890696343aba",
+            "p_d3bc9e6ccb0d",
+            "p_2d91512c0c12",
+            "p_5531b559e291",
+            "p_920f6ad19e3d",
+            "p_b832edc9d8ef",
+            "p_3a59e193640c",
+            "p_b18805507aa5",
+            "p_4369b12fa396",
+            "p_8c8419e832a5",
+            "p_bed496a65024",
+            "p_a802d6602cef",
+            "p_5042565065f5",
+            "p_6163cf436b1f",
+            "p_b1e9d382d056",
+            "p_aab40667312f",
+            "p_a4de309f2541",
+            "p_957fbf8a3836",
+            "p_dfb02dcc2815",
+            "p_76d2384e46f4",
+            "p_16d0617c4e18",
+            "p_dfeffc8ce247",
+            "p_ccddcb013bf1",
+            "p_f071ffc40092",
+            "p_7f6e198571a9",
+            "p_07ae36112a2c",
+            "p_9e34df18109c",
+            "p_e01c2b6cc227",
+            "p_732569d700f0",
+            "p_120c21338c9e",
+            "p_639712d5972a",
+            "p_75e1b1b67953",
+            "p_658cfd6f2a8d"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_0d00b579dc57",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0d00b579dc57.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b022c6cf742c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b022c6cf742c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_27348bb3ebcd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Visible split fold-out/cantilever trays instead of a single top-lidded hand box or a hinged top compartment with a front drawer bank.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_27348bb3ebcd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_cffc96cebaa4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_cffc96cebaa4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8f54653a2068",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Visible split fold-out/cantilever trays instead of a single top-lidded hand box or a hinged top compartment with a front drawer bank.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8f54653a2068.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8ad98ab9da98",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8ad98ab9da98.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_29dfb8669b32",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_29dfb8669b32.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bf67ad352335",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bf67ad352335.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6d54d5d5bfef",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6d54d5d5bfef.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7f2ace8c27b0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7f2ace8c27b0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ff5284acc595",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ff5284acc595.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e1980ecd397d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e1980ecd397d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_23ed9eb0d612",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_23ed9eb0d612.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9482962311d1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9482962311d1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_31bf0b6f712f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_31bf0b6f712f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bbd03e485bfc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bbd03e485bfc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_763172cfeb53",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Open tote or loose magnetic tool holders, not the required enclosed toolbox or mechanic chest.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_763172cfeb53.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e8dd37d72d03",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e8dd37d72d03.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ecbb7665a8a1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ecbb7665a8a1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_150e05398fd5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_150e05398fd5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0b32d591b927",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0b32d591b927.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_eea9ca05729d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_eea9ca05729d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_eb35da6a8e95",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_eb35da6a8e95.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c828e54b6a41",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c828e54b6a41.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_926c000d3a95",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_926c000d3a95.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_98330048db29",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_98330048db29.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_776b7bcd4ecb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_776b7bcd4ecb.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b31e0f9bf746",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b31e0f9bf746.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ed748f93a575",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ed748f93a575.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_beb30356ec98",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_beb30356ec98.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_385e867ab0ed",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_385e867ab0ed.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bfb578cccef4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bfb578cccef4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5f1a7eddaf0e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5f1a7eddaf0e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2505ebcd9d01",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2505ebcd9d01.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c027bb7adfe9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c027bb7adfe9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_35ff9556c83f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_35ff9556c83f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a575821c6e07",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a575821c6e07.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_02c0d699e10d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_02c0d699e10d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_98084aa27364",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_98084aa27364.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3363e13fc597",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3363e13fc597.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_88016e4f00af",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_88016e4f00af.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_55554e3c637e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_55554e3c637e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0c9235df4d8d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0c9235df4d8d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_21697e71aad3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_21697e71aad3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ab069295b4d1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ab069295b4d1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7e7f609b2b83",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7e7f609b2b83.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c52cf22d9b6a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c52cf22d9b6a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1dcdaee68c4f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1dcdaee68c4f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_410557a19067",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_410557a19067.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5641a98efeea",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5641a98efeea.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2aebd4b8f19c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2aebd4b8f19c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2c6c081aa345",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2c6c081aa345.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5579ac1b91bc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5579ac1b91bc-gallery-03.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1b79e304a8ca",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The red detachable chest and front drawers are established, but its native image set and feature bullets do not establish a storage compartment under a lift-up lid.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1b79e304a8ca.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a2abc65ead7f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a2abc65ead7f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_97c15b4edd53",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_97c15b4edd53.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b82f3298439a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b82f3298439a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_51ca54ab7bba",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_51ca54ab7bba.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_00595733d7b4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_00595733d7b4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2dcc02f7bd93",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2dcc02f7bd93.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0097d81b408d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0097d81b408d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5164168308e5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Amazon listing identifies the selected product as black and actual specification photos are black, despite a contradictory red hero image.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5164168308e5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a430744f013f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a430744f013f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_007cf0b4f9ae",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_007cf0b4f9ae.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6c212388553c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6c212388553c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_86ae22dcb272",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_86ae22dcb272.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_358217e96afd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_358217e96afd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b39d4d972d46",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b39d4d972d46.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_536f8ee3f599",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_536f8ee3f599.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e16cde98245e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e16cde98245e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1b4355dacec0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1b4355dacec0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3ce98387cf15",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3ce98387cf15.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_588bca908edd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_588bca908edd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e1b0f72a73bf",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e1b0f72a73bf.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_81dc0ffd10d6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_81dc0ffd10d6.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7f82beb00a21",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7f82beb00a21.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_54673260f3a0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_54673260f3a0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5b6626895a4e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5b6626895a4e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a0f3ed838591",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a0f3ed838591.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_84f8c4364376",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_84f8c4364376.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_439bf22b4b84",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_439bf22b4b84.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_897784ccc78a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_897784ccc78a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_659bb3048780",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_659bb3048780.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_792489779cf7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_792489779cf7.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_629029833fc9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_629029833fc9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_376d5dac1826",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_376d5dac1826.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3f6e49a1ec1a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3f6e49a1ec1a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_448f482d20c3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_448f482d20c3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4213769433fe",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4213769433fe.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_180b9b8fa6c5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_180b9b8fa6c5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b616909a9909",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b616909a9909.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1ca7fa7c2776",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1ca7fa7c2776.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_78c38af893bc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_78c38af893bc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_43be4ef54384",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_43be4ef54384.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_890696343aba",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_890696343aba.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d3bc9e6ccb0d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d3bc9e6ccb0d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2d91512c0c12",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2d91512c0c12.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5531b559e291",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5531b559e291.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_920f6ad19e3d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_920f6ad19e3d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b832edc9d8ef",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Visible split fold-out/cantilever trays instead of a single top-lidded hand box or a hinged top compartment with a front drawer bank.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b832edc9d8ef.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3a59e193640c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3a59e193640c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b18805507aa5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b18805507aa5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4369b12fa396",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4369b12fa396.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8c8419e832a5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8c8419e832a5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bed496a65024",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bed496a65024.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a802d6602cef",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a802d6602cef.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5042565065f5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5042565065f5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6163cf436b1f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6163cf436b1f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b1e9d382d056",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b1e9d382d056.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_aab40667312f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_aab40667312f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a4de309f2541",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a4de309f2541.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_957fbf8a3836",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_957fbf8a3836.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_dfb02dcc2815",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_dfb02dcc2815.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_76d2384e46f4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_76d2384e46f4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_16d0617c4e18",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_16d0617c4e18.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_dfeffc8ce247",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_dfeffc8ce247.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ccddcb013bf1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official closed gallery shows a flat case with latch but no top carry handle; matches neither observed layout.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ccddcb013bf1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_f071ffc40092",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_f071ffc40092.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7f6e198571a9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7f6e198571a9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_07ae36112a2c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_07ae36112a2c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9e34df18109c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9e34df18109c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e01c2b6cc227",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Open tote or loose magnetic tool holders, not the required enclosed toolbox or mechanic chest.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e01c2b6cc227.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_732569d700f0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_732569d700f0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_120c21338c9e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_120c21338c9e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_639712d5972a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_639712d5972a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_75e1b1b67953",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_75e1b1b67953.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_658cfd6f2a8d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_658cfd6f2a8d.jpg"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "p_0d00b579dc57",
+              "native_id": "B0DNSSGXBT",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0d00b579dc57.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b022c6cf742c",
+              "native_id": "B0GXFJVFHV",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b022c6cf742c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_27348bb3ebcd",
+              "native_id": "B0DSP99P7R",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Visible split fold-out/cantilever trays instead of a single top-lidded hand box or a hinged top compartment with a front drawer bank.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_27348bb3ebcd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_cffc96cebaa4",
+              "native_id": "B08L6TMZJS",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_cffc96cebaa4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8f54653a2068",
+              "native_id": "B0DSP37248",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Visible split fold-out/cantilever trays instead of a single top-lidded hand box or a hinged top compartment with a front drawer bank.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8f54653a2068.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8ad98ab9da98",
+              "native_id": "B0DNST5677",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8ad98ab9da98.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ae2bfc66fe31",
+              "native_id": "B0FW9YC2QC",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ae2bfc66fe31.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_29dfb8669b32",
+              "native_id": "B0FCBWMW9D",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_29dfb8669b32.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bf67ad352335",
+              "native_id": "B0GXFWT4CP",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bf67ad352335.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6d54d5d5bfef",
+              "native_id": "B0HJNMVF52",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6d54d5d5bfef.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7f2ace8c27b0",
+              "native_id": "B0HLS19Z92",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7f2ace8c27b0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ff5284acc595",
+              "native_id": "B09BDK7YG6",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ff5284acc595.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e1980ecd397d",
+              "native_id": "B0026T3YC4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e1980ecd397d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_23ed9eb0d612",
+              "native_id": "B0CLTM2SDC",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_23ed9eb0d612.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9482962311d1",
+              "native_id": "B082PCX35K",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9482962311d1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_31bf0b6f712f",
+              "native_id": "B0GXFWVQRR",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_31bf0b6f712f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bbd03e485bfc",
+              "native_id": "B0DKBXST6L",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bbd03e485bfc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_763172cfeb53",
+              "native_id": "B0DYDFB1V1",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Open tote or loose magnetic tool holders, not the required enclosed toolbox or mechanic chest.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_763172cfeb53.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e8dd37d72d03",
+              "native_id": "B0HLSBHTWK",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e8dd37d72d03.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ecbb7665a8a1",
+              "native_id": "B0HLWFM47Z",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ecbb7665a8a1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_150e05398fd5",
+              "native_id": "B0CN8ZQP8H",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_150e05398fd5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0b32d591b927",
+              "native_id": "B0FD8DNMK4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0b32d591b927.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_eea9ca05729d",
+              "native_id": "B0GK8V8NWS",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_eea9ca05729d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_eb35da6a8e95",
+              "native_id": "B0HLWP8FMF",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_eb35da6a8e95.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5a6ca050fd79",
+              "native_id": "B0CGZQHDY7",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5a6ca050fd79.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c828e54b6a41",
+              "native_id": "B0FZV6ZX41",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c828e54b6a41.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_926c000d3a95",
+              "native_id": "B0DK7C9ZS3",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_926c000d3a95.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_98330048db29",
+              "native_id": "B089JM5SNS",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_98330048db29.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5b2ca02be849",
+              "native_id": "B09N9LKJQT",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5b2ca02be849.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_dc708b8fd02d",
+              "native_id": "B0DT9B5ZJ9",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_dc708b8fd02d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_776b7bcd4ecb",
+              "native_id": "B0HM86GFP9",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_776b7bcd4ecb.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b31e0f9bf746",
+              "native_id": "B0BBL2Z6NP",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b31e0f9bf746.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ed748f93a575",
+              "native_id": "B0BP82QSWQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ed748f93a575.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b36d652cc103",
+              "native_id": "B08DVFN6TQ",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b36d652cc103.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_beb30356ec98",
+              "native_id": "B0H4Q3NH6R",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_beb30356ec98.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_385e867ab0ed",
+              "native_id": "B0GN3DZY4N",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_385e867ab0ed.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bfb578cccef4",
+              "native_id": "B09C8YTWG5",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bfb578cccef4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5f1a7eddaf0e",
+              "native_id": "B0HM82M8ZT",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5f1a7eddaf0e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2505ebcd9d01",
+              "native_id": "B0DKSXLYDP",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2505ebcd9d01.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c027bb7adfe9",
+              "native_id": "B0FVDP7MGY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c027bb7adfe9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_35ff9556c83f",
+              "native_id": "B0D4D33X2R",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_35ff9556c83f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a575821c6e07",
+              "native_id": "B0002JN3B2",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a575821c6e07.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_02c0d699e10d",
+              "native_id": "B0HQ779MFF",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_02c0d699e10d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_98084aa27364",
+              "native_id": "B0DR7XLPPQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_98084aa27364.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c6fe95314b2c",
+              "native_id": "B0D2CF4S3W",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c6fe95314b2c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3363e13fc597",
+              "native_id": "B0HM88C5KR",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3363e13fc597.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_88016e4f00af",
+              "native_id": "B08D11G1X9",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_88016e4f00af.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_55554e3c637e",
+              "native_id": "B0HNF6RZNH",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_55554e3c637e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d2691a92af34",
+              "native_id": "B0CBMNTP9C",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d2691a92af34.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_cc0e511d208a",
+              "native_id": "B0G3P93CS2",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_cc0e511d208a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d11c51bc8a06",
+              "native_id": "B0F37M27G5",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d11c51bc8a06.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4cb563f02bb9",
+              "native_id": "B078HHDVTY",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4cb563f02bb9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0c9235df4d8d",
+              "native_id": "B0HD5Q8QKJ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0c9235df4d8d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_f63e12de1f34",
+              "native_id": "B0FH4LN5W2",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_f63e12de1f34.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_10626fbc2551",
+              "native_id": "B0FGXQHVNR",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_10626fbc2551.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ed89bc148833",
+              "native_id": "B0CXTG1TDM",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ed89bc148833.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_21697e71aad3",
+              "native_id": "B0FH6GZWYY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_21697e71aad3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ab069295b4d1",
+              "native_id": "B0FGXND6VS",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ab069295b4d1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7e7f609b2b83",
+              "native_id": "B0FRMF1VTM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7e7f609b2b83.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d50dc80327a2",
+              "native_id": "B000K6HBPG",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d50dc80327a2.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b3dedd838be8",
+              "native_id": "B000K6DLI2",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b3dedd838be8.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_01f76ff6c5d1",
+              "native_id": "B0D78TXXTD",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_01f76ff6c5d1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_858ea5487917",
+              "native_id": "B0C85HQ4V2",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_858ea5487917.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c52cf22d9b6a",
+              "native_id": "B0HDSW4WDZ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c52cf22d9b6a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1dcdaee68c4f",
+              "native_id": "B0D2ZPWRJS",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1dcdaee68c4f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_410557a19067",
+              "native_id": "B0GXDG6WLM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_410557a19067.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9291cc2dae4e",
+              "native_id": "B01JRYV6L6",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9291cc2dae4e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c9526ace6a46",
+              "native_id": "B0CB5K2GF2",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c9526ace6a46.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c438b243e335",
+              "native_id": "B0DYHQKRMC",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c438b243e335.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bec193a137f0",
+              "native_id": "B0CBMMM7N9",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bec193a137f0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e72487d2b1b5",
+              "native_id": "B0FPC2DNB8",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e72487d2b1b5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5641a98efeea",
+              "native_id": "B0FC6Z5WCS",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5641a98efeea.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2aebd4b8f19c",
+              "native_id": "B0HJCPT8MS",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2aebd4b8f19c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7adf26a56ef4",
+              "native_id": "B0FFMWBSB6",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7adf26a56ef4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0aeecd0bdd24",
+              "native_id": "B0G24YHCBG",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0aeecd0bdd24-gallery-07.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_03d579146df4",
+              "native_id": "B0C85G3X7Q",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_03d579146df4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2c6c081aa345",
+              "native_id": "B0HBPDD757",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2c6c081aa345.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_c31b2d719533",
+              "native_id": "B0HGWWGPS6",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_c31b2d719533.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5579ac1b91bc",
+              "native_id": "B0787CN4FM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5579ac1b91bc-gallery-03.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1b79e304a8ca",
+              "native_id": "B0GG8LN4JX",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The red detachable chest and front drawers are established, but its native image set and feature bullets do not establish a storage compartment under a lift-up lid.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1b79e304a8ca.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a2abc65ead7f",
+              "native_id": "B0FL2P3TYW",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a2abc65ead7f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_97c15b4edd53",
+              "native_id": "B0F37NFK4L",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_97c15b4edd53.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6213ed265d4e",
+              "native_id": "B0B4NSF66M",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6213ed265d4e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_835dd321b4b5",
+              "native_id": "B0FQ9GV3V6",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_835dd321b4b5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b82f3298439a",
+              "native_id": "B0HJGR9FZQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b82f3298439a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_13a4e50ae7fe",
+              "native_id": "B0H8794NDW",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_13a4e50ae7fe.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_51ca54ab7bba",
+              "native_id": "B0D9PW57LK",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_51ca54ab7bba.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_58e0f405a87c",
+              "native_id": "B0HPMY9Z9T",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_58e0f405a87c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_00595733d7b4",
+              "native_id": "B0D2Z1XHSP",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_00595733d7b4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4cc2d3d2dd4d",
+              "native_id": "B0H87C72JZ",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4cc2d3d2dd4d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_85464a1d1039",
+              "native_id": "B0FZRF1HHX",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_85464a1d1039.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2dcc02f7bd93",
+              "native_id": "B0GK6SZ3MY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2dcc02f7bd93.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0097d81b408d",
+              "native_id": "B0HGK63514",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0097d81b408d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5164168308e5",
+              "native_id": "B0HQ6ZKNX5",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Amazon listing identifies the selected product as black and actual specification photos are black, despite a contradictory red hero image.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5164168308e5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a430744f013f",
+              "native_id": "B00CBY2EIO",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a430744f013f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_007cf0b4f9ae",
+              "native_id": "B00B6K4V80",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_007cf0b4f9ae.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6c212388553c",
+              "native_id": "B0BBKCB3RW",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6c212388553c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_86ae22dcb272",
+              "native_id": "B0D499778D",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_86ae22dcb272.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_358217e96afd",
+              "native_id": "B0HFW1MZ1Q",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_358217e96afd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b39d4d972d46",
+              "native_id": "B01NCJTSW7",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b39d4d972d46.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_536f8ee3f599",
+              "native_id": "B0BXC81MFC",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_536f8ee3f599.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e16cde98245e",
+              "native_id": "B08DVF7MNF",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e16cde98245e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1b4355dacec0",
+              "native_id": "B0BMPMZ98L",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1b4355dacec0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3ce98387cf15",
+              "native_id": "B096TGB757",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3ce98387cf15.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_588bca908edd",
+              "native_id": "B0723914V1",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_588bca908edd.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e1b0f72a73bf",
+              "native_id": "B09WCV1YVP",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e1b0f72a73bf.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_81dc0ffd10d6",
+              "native_id": "B00B6K4VDK",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_81dc0ffd10d6.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7f82beb00a21",
+              "native_id": "B0BBKK2J3C",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7f82beb00a21.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_54673260f3a0",
+              "native_id": "B09GYTGJ8T",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_54673260f3a0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5b6626895a4e",
+              "native_id": "B0FR4WTVZW",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5b6626895a4e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a0f3ed838591",
+              "native_id": "B08TQLRZ6W",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a0f3ed838591.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_84f8c4364376",
+              "native_id": "B0B3WTS82D",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_84f8c4364376.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_439bf22b4b84",
+              "native_id": "B08KTR1CFQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_439bf22b4b84.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_897784ccc78a",
+              "native_id": "B08DVFLT5P",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_897784ccc78a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_659bb3048780",
+              "native_id": "B08MQ2ZG5Q",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_659bb3048780.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_792489779cf7",
+              "native_id": "B0GL4XGG8V",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_792489779cf7.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_629029833fc9",
+              "native_id": "B0C661MP3F",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_629029833fc9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_376d5dac1826",
+              "native_id": "B00Q4T1EPQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_376d5dac1826.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3f6e49a1ec1a",
+              "native_id": "B0051QIHRG",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3f6e49a1ec1a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_448f482d20c3",
+              "native_id": "B0F5B7RYK2",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_448f482d20c3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4213769433fe",
+              "native_id": "B0GC2LJ2X3",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4213769433fe.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_180b9b8fa6c5",
+              "native_id": "B0CJ2SB7NT",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_180b9b8fa6c5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b616909a9909",
+              "native_id": "B07Z6XBYJT",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b616909a9909.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_1ca7fa7c2776",
+              "native_id": "B002A5S3ZM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_1ca7fa7c2776.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_78c38af893bc",
+              "native_id": "B08JTS77Z4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_78c38af893bc.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_43be4ef54384",
+              "native_id": "B0DG1RZYMP",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_43be4ef54384.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_890696343aba",
+              "native_id": "B0FG12LD2R",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_890696343aba.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_d3bc9e6ccb0d",
+              "native_id": "B0GHN5684H",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_d3bc9e6ccb0d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2d91512c0c12",
+              "native_id": "B00PVQED0Q",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2d91512c0c12.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5531b559e291",
+              "native_id": "B0C2BVVTF2",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5531b559e291.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_920f6ad19e3d",
+              "native_id": "B0BGKZR77L",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_920f6ad19e3d.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b832edc9d8ef",
+              "native_id": "B09STCLSFY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Visible split fold-out/cantilever trays instead of a single top-lidded hand box or a hinged top compartment with a front drawer bank.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b832edc9d8ef.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_3a59e193640c",
+              "native_id": "B0BZ4KHBYH",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_3a59e193640c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b18805507aa5",
+              "native_id": "B0CNC74CVR",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b18805507aa5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_4369b12fa396",
+              "native_id": "B0DTHRS34T",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_4369b12fa396.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8c8419e832a5",
+              "native_id": "B00NOI33X6",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8c8419e832a5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_bed496a65024",
+              "native_id": "B0CCD5124Y",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_bed496a65024.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a802d6602cef",
+              "native_id": "B0DT8Q7SWL",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a802d6602cef.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_5042565065f5",
+              "native_id": "B0DKNJMDM6",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_5042565065f5.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_6163cf436b1f",
+              "native_id": "B0B11V2274",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_6163cf436b1f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_b1e9d382d056",
+              "native_id": "B00HE7B4R0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_b1e9d382d056.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_aab40667312f",
+              "native_id": "B0BTYP8MSF",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_aab40667312f.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_a4de309f2541",
+              "native_id": "B0F2M37MDT",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_a4de309f2541.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_957fbf8a3836",
+              "native_id": "B002A5TOY6",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_957fbf8a3836.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_dfb02dcc2815",
+              "native_id": "B0HD9QBZY7",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_dfb02dcc2815.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_76d2384e46f4",
+              "native_id": "B0CSY4H64V",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_76d2384e46f4.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_16d0617c4e18",
+              "native_id": "B0DBMWMQ2V",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_16d0617c4e18.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_dfeffc8ce247",
+              "native_id": "B097SNNY3P",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_dfeffc8ce247.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_ccddcb013bf1",
+              "native_id": "B0D2VG694S",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official closed gallery shows a flat case with latch but no top carry handle; matches neither observed layout.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_ccddcb013bf1.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_f071ffc40092",
+              "native_id": "B0DWSHNFSW",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_f071ffc40092.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7f6e198571a9",
+              "native_id": "B0GQDB5624",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7f6e198571a9.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_07ae36112a2c",
+              "native_id": "B0FQ9X4W8R",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_07ae36112a2c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_9e34df18109c",
+              "native_id": "B0GFT37JV8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Red drawer unit, but the public photographs show a fixed or open worktop instead of the observed lift-up storage lid.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_9e34df18109c.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_e01c2b6cc227",
+              "native_id": "B0BW3NPRQ8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Open tote or loose magnetic tool holders, not the required enclosed toolbox or mechanic chest.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e01c2b6cc227.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_732569d700f0",
+              "native_id": "B09JHPF288",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_732569d700f0.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_120c21338c9e",
+              "native_id": "B0FZVCSDCT",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Red-dominant, practical hand-carry toolbox with one closed, single top-opening body and top handle. A removable tray or slight roof profile is fine; color of fittings, brand, and exact dimensions are immaterial.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_120c21338c9e.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_7c7e764fd167",
+              "native_id": "B0CCD3D1W3",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Red-dominant, workbench-scale mechanic chest with a usable compartment under a hinged top and a bank of front drawers. Side or top handles, drawer color or count variation, and inclusion of a larger base are fine. Judge the red upper chest used for storage; no exact width or branding is inferred.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_7c7e764fd167.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_639712d5972a",
+              "native_id": "B0H4QRKXGK",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Desktop/palm-size or tiny accessories storage; not a roughly comparable toolbox or workbench chest. This is a difference in practical scale, not an exact inch cutoff.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_639712d5972a.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_75e1b1b67953",
+              "native_id": "B0DNSTW8XR",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_75e1b1b67953.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_658cfd6f2a8d",
+              "native_id": "B0C1P55WV2",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Captured selected item is not a red-dominant match for either observed box or is an unrelated tool kit, organizer, truck box or accessory.",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_658cfd6f2a8d.jpg"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ],
+          "answer_boundary_rule": "Add exactly one red-dominant workbench-scale chest with a hinged usable top compartment and front drawers. A complete bundle that includes this upper chest is valid. Do not impose an exact width, drawer count, brand or hardware color. The earlier red portable top-opening carry toolbox is a reasonable provisional match but is invalid once the different source of the part is visible."
+        }
+      }
+    }
+  ]
+}

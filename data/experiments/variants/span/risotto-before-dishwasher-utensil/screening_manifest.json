@@ -1,0 +1,2695 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Authorized HD-EPIC public research distribution; original recording identity and start offset retained."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102583",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P07-20240529-194518__1360-1690",
+        "original_video_id": "P07-20240529-194518",
+        "media_start_seconds": 1360,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P07-20240529-194518__1360-1690.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P07/P07-20240529-194518.mp4",
+        "record_ids": [
+          "P07-20240529-194518__1360-1690"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "pre-dishwasher-use",
+            "source_occurrences_seconds": [
+              [
+                1361,
+                1363
+              ],
+              [
+                1616,
+                1618
+              ]
+            ],
+            "description": "A wooden broad cooking spatula is actively used to stir the contents of the frying pan."
+          },
+          {
+            "event_id": "herbs-fridge",
+            "source_occurrences_seconds": [
+              [
+                1382,
+                1382
+              ]
+            ],
+            "description": "The fridge is open and a hand reaches into its lower drawer for herbs; the target spatula and frying pan are outside the image."
+          },
+          {
+            "event_id": "write-notes",
+            "source_occurrences_seconds": [
+              [
+                1450,
+                1450
+              ]
+            ],
+            "description": "A pen writes on paper beside the sink and window; neither candidate utensil is visible."
+          },
+          {
+            "event_id": "dishwasher-bowls",
+            "source_occurrences_seconds": [
+              [
+                1636,
+                1638
+              ]
+            ],
+            "description": "Two small bowls are put face down in the upper dishwasher rack; neither candidate utensil is used."
+          },
+          {
+            "event_id": "post-dishwasher-use",
+            "source_occurrences_seconds": [
+              [
+                1683,
+                1685
+              ]
+            ],
+            "description": "A metal teaspoon takes rice from the frying pan for tasting."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact retail identity, brand, dimensions and material are not matching conditions."
+        ]
+      },
+      "screening": {
+        "real_user_need": "A kitchen spare of the referenced cooking utensil type.",
+        "scope_note": "Experiment-only independent original recording; same full temporal reference supplied upfront to both conditions.",
+        "proposed_instruction": "I would like a spare like one of the utensils I used in the frying pan here. Add one of the same basic utensil type to my cart. Brand, exact size and material can differ. Choose a single utensil, not a multi-utensil pack or set."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1361.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1363.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1382.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1450.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1636.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1638.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1683.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1685.jpg"
+          ],
+          "timestamps_seconds": [
+            1361,
+            1363,
+            1382,
+            1450,
+            1636,
+            1638,
+            1683,
+            1685
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does binding a genuine utensil use to the later dishwasher-loading anchor change with additional real intervening events?",
+        "belief_before": "Two different utensils are used in the same frying pan, before and after the two-bowl dishwasher loading.",
+        "belief_after": "The temporal reference selects the cooking spatula used before the two bowls were loaded, not the later tasting spoon.",
+        "required_behavior_change": "Link loading the bowls into the dishwasher with the correct earlier utensil use and select one spare.",
+        "no_update_failure": "The oracle resolves the temporal reference upfront; no proactive-question difference.",
+        "overupdate_failure": "Selecting both utensil types violates the one-utensil request.",
+        "visual_dependency_claim": "The anchor frames show bowls and dishwasher, not an active utensil-pan relation. Both utensils actually work in the same pan. Both common intermediate frames are target-free: inside the fridge and writing beside the sink.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I would like a spare like one of the utensils I used in the frying pan here. Add one of the same basic utensil type to my cart. Brand, exact size and material can differ. Choose a single utensil, not a multi-utensil pack or set.",
+          "oracle_instruction": "I would like a spare of the type of utensil I used in the frying pan before I put the two small bowls into the dishwasher. Add one of the same basic utensil type to my cart. Brand, exact size and material can differ. Choose a single utensil, not a multi-utensil pack or set.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "cooking_spatula",
+            "tasting_spoon"
+          ],
+          "hidden_target_role": "cooking_spatula",
+          "valid_slot": "sequence",
+          "canonical_question": "Which utensil used in the frying pan do you mean?",
+          "canonical_answer": "The one I used in the frying pan before I put the two small bowls into the dishwasher.",
+          "environment_role_ids": {
+            "cooking_spatula": "p_3b0006834183",
+            "tasting_spoon": "p_bc472a13acf4"
+          },
+          "equivalent_role_ids": {
+            "cooking_spatula": [
+              "p_beb0b592f0e9",
+              "p_e75c961ddb5f",
+              "p_7ccbe810fa54",
+              "p_17cdbba53f0e",
+              "p_893235bc8302",
+              "p_b7ec85560f80",
+              "p_276839f41452",
+              "p_50d8ed0a5c99",
+              "p_bd75bf06d2e6",
+              "p_9f7854b72854",
+              "p_b52021a7bd15",
+              "p_14571318e5cd",
+              "p_d9f01ef76b01"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "cooking_spatula": "p_3b0006834183",
+            "tasting_spoon": "p_bc472a13acf4"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "cooking_spatula"
+              ],
+              "narrowed_by": "action_order",
+              "why": "Full reference selects the utensil actively used in the frying pan before the bowls were loaded into the dishwasher."
+            }
+          ],
+          "established_by": "Constructing agent; independent review pending",
+          "established_at": "2026-10-25"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "wooden solid spatula single",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-08.json",
+              "snapshot_task_id": "candidate-mart-refresh-retain-08",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_3b0006834183",
+                "p_d8145d6dc70e",
+                "p_2316b92d1588",
+                "p_f44f2b506b9c",
+                "p_1b80426b4542",
+                "p_beb0b592f0e9",
+                "p_e75c961ddb5f",
+                "p_7ccbe810fa54",
+                "p_ed7747fa1b4f",
+                "p_97f8f89cb349",
+                "p_28db0031e6b1",
+                "p_17cdbba53f0e",
+                "p_c280bbbc368d",
+                "p_893235bc8302",
+                "p_ec69ae9c9518",
+                "p_0637751560e2",
+                "p_73e876011944",
+                "p_e530feeddba4",
+                "p_69d94689f9dd",
+                "p_a0ee56470eb9",
+                "p_2aceb113170f",
+                "p_aaff725260fe",
+                "p_a36860777174",
+                "p_51b8eca35b82",
+                "p_920769e464ea",
+                "p_b7ec85560f80",
+                "p_276839f41452",
+                "p_2dce8f717cc4",
+                "p_4fb136a2f2ea",
+                "p_a49d56aeb789",
+                "p_50d8ed0a5c99",
+                "p_61fe6f11442f",
+                "p_c402aa6aa626",
+                "p_45ed6cc3a596",
+                "p_b4fdd9baf652",
+                "p_9b67f5f6c69a",
+                "p_a00898285415",
+                "p_bd75bf06d2e6",
+                "p_9f7854b72854",
+                "p_bfb320681648",
+                "p_b52021a7bd15",
+                "p_14571318e5cd",
+                "p_1e2ed421dd4a",
+                "p_2086bba41f74",
+                "p_bc40e91f208f",
+                "p_6f8183f3c1f4",
+                "p_6543c61be536",
+                "p_c9db40f736ce"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "wooden cooking spoon single",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-08.json",
+              "snapshot_task_id": "candidate-mart-refresh-retain-08",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_b444b338acfe",
+                "p_622f255d0d73",
+                "p_bc2450fa2616",
+                "p_87924fd70d27",
+                "p_a97796245395",
+                "p_0e90b39398bb",
+                "p_2dce8f717cc4",
+                "p_d3e63668302b",
+                "p_9ebe0d20e7f8",
+                "p_fc11fc015ced",
+                "p_1a4c62fb6e4c",
+                "p_bc472a13acf4",
+                "p_920769e464ea",
+                "p_f82d20d2a120",
+                "p_6b3200fe7b15",
+                "p_035bf6f86bb8",
+                "p_43e9a70ea162",
+                "p_4977b672af95",
+                "p_329426380ae7",
+                "p_e554f281c7aa",
+                "p_28db0031e6b1",
+                "p_bc958f91915c",
+                "p_d9f01ef76b01",
+                "p_6c13195c7112",
+                "p_2bc6852fba94",
+                "p_471ecbf1ebd7",
+                "p_41251c241570",
+                "p_5bd6c708585e",
+                "p_8f13ec2ffe84",
+                "p_4ce5b3d0ae98",
+                "p_d8145d6dc70e",
+                "p_b0854bb382ed",
+                "p_3fb8eef752d5",
+                "p_6c0fab73775b",
+                "p_5882b9545d30",
+                "p_276839f41452",
+                "p_7396a59f9348",
+                "p_d3dec1f190fc",
+                "p_d8cbcea1ca30",
+                "p_92fa5013e6fa",
+                "p_c402aa6aa626",
+                "p_750818c5fc28",
+                "p_400003db8621",
+                "p_40d29bb0eabd",
+                "p_fb86064b07ae",
+                "p_5334b2dffd29",
+                "p_76d06c04873d",
+                "p_4036b02fb3a2"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_3b0006834183",
+            "p_d8145d6dc70e",
+            "p_2316b92d1588",
+            "p_f44f2b506b9c",
+            "p_1b80426b4542",
+            "p_beb0b592f0e9",
+            "p_e75c961ddb5f",
+            "p_7ccbe810fa54",
+            "p_ed7747fa1b4f",
+            "p_97f8f89cb349",
+            "p_28db0031e6b1",
+            "p_17cdbba53f0e",
+            "p_c280bbbc368d",
+            "p_893235bc8302",
+            "p_ec69ae9c9518",
+            "p_0637751560e2",
+            "p_73e876011944",
+            "p_e530feeddba4",
+            "p_69d94689f9dd",
+            "p_a0ee56470eb9",
+            "p_2aceb113170f",
+            "p_aaff725260fe",
+            "p_a36860777174",
+            "p_51b8eca35b82",
+            "p_920769e464ea",
+            "p_b7ec85560f80",
+            "p_276839f41452",
+            "p_2dce8f717cc4",
+            "p_4fb136a2f2ea",
+            "p_a49d56aeb789",
+            "p_50d8ed0a5c99",
+            "p_61fe6f11442f",
+            "p_c402aa6aa626",
+            "p_45ed6cc3a596",
+            "p_b4fdd9baf652",
+            "p_9b67f5f6c69a",
+            "p_a00898285415",
+            "p_bd75bf06d2e6",
+            "p_9f7854b72854",
+            "p_bfb320681648",
+            "p_b52021a7bd15",
+            "p_14571318e5cd",
+            "p_1e2ed421dd4a",
+            "p_2086bba41f74",
+            "p_bc40e91f208f",
+            "p_6f8183f3c1f4",
+            "p_6543c61be536",
+            "p_c9db40f736ce",
+            "p_b444b338acfe",
+            "p_622f255d0d73",
+            "p_bc2450fa2616",
+            "p_87924fd70d27",
+            "p_a97796245395",
+            "p_0e90b39398bb",
+            "p_d3e63668302b",
+            "p_9ebe0d20e7f8",
+            "p_fc11fc015ced",
+            "p_1a4c62fb6e4c",
+            "p_bc472a13acf4",
+            "p_f82d20d2a120",
+            "p_6b3200fe7b15",
+            "p_035bf6f86bb8",
+            "p_43e9a70ea162",
+            "p_4977b672af95",
+            "p_329426380ae7",
+            "p_e554f281c7aa",
+            "p_bc958f91915c",
+            "p_d9f01ef76b01",
+            "p_6c13195c7112",
+            "p_2bc6852fba94",
+            "p_471ecbf1ebd7",
+            "p_41251c241570",
+            "p_5bd6c708585e",
+            "p_8f13ec2ffe84",
+            "p_4ce5b3d0ae98",
+            "p_b0854bb382ed",
+            "p_3fb8eef752d5",
+            "p_6c0fab73775b",
+            "p_5882b9545d30",
+            "p_7396a59f9348",
+            "p_d3dec1f190fc",
+            "p_d8cbcea1ca30",
+            "p_92fa5013e6fa",
+            "p_750818c5fc28",
+            "p_400003db8621",
+            "p_40d29bb0eabd",
+            "p_fb86064b07ae",
+            "p_5334b2dffd29",
+            "p_76d06c04873d",
+            "p_4036b02fb3a2"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_bc472a13acf4",
+            "p_0e90b39398bb",
+            "p_1b80426b4542",
+            "p_4fb136a2f2ea"
+          ],
+          "related_entity_ids": [
+            "p_d8145d6dc70e",
+            "p_2316b92d1588",
+            "p_f44f2b506b9c",
+            "p_ed7747fa1b4f",
+            "p_97f8f89cb349",
+            "p_28db0031e6b1",
+            "p_c280bbbc368d",
+            "p_ec69ae9c9518",
+            "p_0637751560e2",
+            "p_73e876011944",
+            "p_e530feeddba4",
+            "p_69d94689f9dd",
+            "p_a0ee56470eb9",
+            "p_2aceb113170f",
+            "p_aaff725260fe",
+            "p_a36860777174",
+            "p_51b8eca35b82",
+            "p_920769e464ea",
+            "p_2dce8f717cc4",
+            "p_a49d56aeb789",
+            "p_61fe6f11442f",
+            "p_c402aa6aa626",
+            "p_45ed6cc3a596",
+            "p_b4fdd9baf652",
+            "p_9b67f5f6c69a",
+            "p_a00898285415",
+            "p_bfb320681648",
+            "p_1e2ed421dd4a",
+            "p_2086bba41f74",
+            "p_bc40e91f208f",
+            "p_6f8183f3c1f4",
+            "p_6543c61be536",
+            "p_c9db40f736ce",
+            "p_b444b338acfe",
+            "p_622f255d0d73",
+            "p_bc2450fa2616",
+            "p_87924fd70d27",
+            "p_a97796245395",
+            "p_d3e63668302b",
+            "p_9ebe0d20e7f8",
+            "p_fc11fc015ced",
+            "p_1a4c62fb6e4c",
+            "p_f82d20d2a120",
+            "p_6b3200fe7b15",
+            "p_035bf6f86bb8",
+            "p_43e9a70ea162",
+            "p_4977b672af95",
+            "p_329426380ae7",
+            "p_e554f281c7aa",
+            "p_bc958f91915c",
+            "p_6c13195c7112",
+            "p_2bc6852fba94",
+            "p_471ecbf1ebd7",
+            "p_41251c241570",
+            "p_5bd6c708585e",
+            "p_8f13ec2ffe84",
+            "p_4ce5b3d0ae98",
+            "p_b0854bb382ed",
+            "p_3fb8eef752d5",
+            "p_6c0fab73775b",
+            "p_5882b9545d30",
+            "p_7396a59f9348",
+            "p_d3dec1f190fc",
+            "p_d8cbcea1ca30",
+            "p_92fa5013e6fa",
+            "p_750818c5fc28",
+            "p_400003db8621",
+            "p_40d29bb0eabd",
+            "p_fb86064b07ae",
+            "p_5334b2dffd29",
+            "p_76d06c04873d",
+            "p_4036b02fb3a2"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_d8145d6dc70e",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2316b92d1588",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f44f2b506b9c",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1b80426b4542",
+              "ring": "core",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ed7747fa1b4f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_97f8f89cb349",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_28db0031e6b1",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c280bbbc368d",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ec69ae9c9518",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0637751560e2",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_73e876011944",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e530feeddba4",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_69d94689f9dd",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a0ee56470eb9",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2aceb113170f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aaff725260fe",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a36860777174",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_51b8eca35b82",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_920769e464ea",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2dce8f717cc4",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4fb136a2f2ea",
+              "ring": "core",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a49d56aeb789",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_61fe6f11442f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c402aa6aa626",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_45ed6cc3a596",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b4fdd9baf652",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9b67f5f6c69a",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a00898285415",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bfb320681648",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1e2ed421dd4a",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2086bba41f74",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc40e91f208f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6f8183f3c1f4",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6543c61be536",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c9db40f736ce",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b444b338acfe",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_622f255d0d73",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc2450fa2616",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_87924fd70d27",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a97796245395",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0e90b39398bb",
+              "ring": "core",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d3e63668302b",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9ebe0d20e7f8",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fc11fc015ced",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1a4c62fb6e4c",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc472a13acf4",
+              "ring": "core",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f82d20d2a120",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6b3200fe7b15",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_035bf6f86bb8",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_43e9a70ea162",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4977b672af95",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_329426380ae7",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e554f281c7aa",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc958f91915c",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6c13195c7112",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2bc6852fba94",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_471ecbf1ebd7",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_41251c241570",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5bd6c708585e",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8f13ec2ffe84",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4ce5b3d0ae98",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b0854bb382ed",
+              "ring": "related",
+              "reason": "Native public detail establishes Unit count 2 and Package List 2 x spoons. This is a two-utensil offer, explicitly disallowed by single utensil/not a multi-utensil pack or set. Proof: .scratch/expand-variables-20261025/risotto-review/B0CQZB5HRD-public.txt",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3fb8eef752d5",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6c0fab73775b",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5882b9545d30",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7396a59f9348",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d3dec1f190fc",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d8cbcea1ca30",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_92fa5013e6fa",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_750818c5fc28",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_400003db8621",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_40d29bb0eabd",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fb86064b07ae",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5334b2dffd29",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_76d06c04873d",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4036b02fb3a2",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "90 unique public product images and native fields checked; complete stable-ID answer matrix retained."
+          }
+        },
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding"
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and public answer-boundary review."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/risotto-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A wooden broad cooking spatula is actively used to stir the contents of the frying pan.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "The fridge is open and a hand reaches into its lower drawer for herbs; the target spatula and frying pan are outside the image.",
+          "supported_by": [
+            "V0:2"
+          ]
+        },
+        {
+          "text": "A pen writes on paper beside the sink and window; neither candidate utensil is visible.",
+          "supported_by": [
+            "V0:3"
+          ]
+        },
+        {
+          "text": "Two small bowls are put face down in the upper dishwasher rack; neither candidate utensil is used.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "A metal teaspoon takes rice from the frying pan for tasting.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102584",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P07-20240529-194518__1360-1690",
+        "original_video_id": "P07-20240529-194518",
+        "media_start_seconds": 1360,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P07-20240529-194518__1360-1690.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P07/P07-20240529-194518.mp4",
+        "record_ids": [
+          "P07-20240529-194518__1360-1690"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "pre-dishwasher-use",
+            "source_occurrences_seconds": [
+              [
+                1361,
+                1363
+              ],
+              [
+                1616,
+                1618
+              ]
+            ],
+            "description": "A wooden broad cooking spatula is actively used to stir the contents of the frying pan."
+          },
+          {
+            "event_id": "herbs-fridge",
+            "source_occurrences_seconds": [
+              [
+                1382,
+                1382
+              ]
+            ],
+            "description": "The fridge is open and a hand reaches into its lower drawer for herbs; the target spatula and frying pan are outside the image."
+          },
+          {
+            "event_id": "write-notes",
+            "source_occurrences_seconds": [
+              [
+                1450,
+                1450
+              ]
+            ],
+            "description": "A pen writes on paper beside the sink and window; neither candidate utensil is visible."
+          },
+          {
+            "event_id": "dishwasher-bowls",
+            "source_occurrences_seconds": [
+              [
+                1636,
+                1638
+              ]
+            ],
+            "description": "Two small bowls are put face down in the upper dishwasher rack; neither candidate utensil is used."
+          },
+          {
+            "event_id": "post-dishwasher-use",
+            "source_occurrences_seconds": [
+              [
+                1683,
+                1685
+              ]
+            ],
+            "description": "A metal teaspoon takes rice from the frying pan for tasting."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact retail identity, brand, dimensions and material are not matching conditions."
+        ]
+      },
+      "screening": {
+        "real_user_need": "A kitchen spare of the referenced cooking utensil type.",
+        "scope_note": "Experiment-only independent original recording; same full temporal reference supplied upfront to both conditions.",
+        "proposed_instruction": "I would like a spare like one of the utensils I used in the frying pan here. Add one of the same basic utensil type to my cart. Brand, exact size and material can differ. Choose a single utensil, not a multi-utensil pack or set."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1382.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1450.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1616.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1618.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1636.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1638.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1683.jpg",
+            "data/experiments/variants/span/risotto-before-dishwasher-utensil/frames/source_1685.jpg"
+          ],
+          "timestamps_seconds": [
+            1382,
+            1450,
+            1616,
+            1618,
+            1636,
+            1638,
+            1683,
+            1685
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does binding a genuine utensil use to the later dishwasher-loading anchor change with additional real intervening events?",
+        "belief_before": "Two different utensils are used in the same frying pan, before and after the two-bowl dishwasher loading.",
+        "belief_after": "The temporal reference selects the cooking spatula used before the two bowls were loaded, not the later tasting spoon.",
+        "required_behavior_change": "Link loading the bowls into the dishwasher with the correct earlier utensil use and select one spare.",
+        "no_update_failure": "The oracle resolves the temporal reference upfront; no proactive-question difference.",
+        "overupdate_failure": "Selecting both utensil types violates the one-utensil request.",
+        "visual_dependency_claim": "The anchor frames show bowls and dishwasher, not an active utensil-pan relation. Both utensils actually work in the same pan. Both common intermediate frames are target-free: inside the fridge and writing beside the sink.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I would like a spare like one of the utensils I used in the frying pan here. Add one of the same basic utensil type to my cart. Brand, exact size and material can differ. Choose a single utensil, not a multi-utensil pack or set.",
+          "oracle_instruction": "I would like a spare of the type of utensil I used in the frying pan before I put the two small bowls into the dishwasher. Add one of the same basic utensil type to my cart. Brand, exact size and material can differ. Choose a single utensil, not a multi-utensil pack or set.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "cooking_spatula",
+            "tasting_spoon"
+          ],
+          "hidden_target_role": "cooking_spatula",
+          "valid_slot": "sequence",
+          "canonical_question": "Which utensil used in the frying pan do you mean?",
+          "canonical_answer": "The one I used in the frying pan before I put the two small bowls into the dishwasher.",
+          "environment_role_ids": {
+            "cooking_spatula": "p_3b0006834183",
+            "tasting_spoon": "p_bc472a13acf4"
+          },
+          "equivalent_role_ids": {
+            "cooking_spatula": [
+              "p_beb0b592f0e9",
+              "p_e75c961ddb5f",
+              "p_7ccbe810fa54",
+              "p_17cdbba53f0e",
+              "p_893235bc8302",
+              "p_b7ec85560f80",
+              "p_276839f41452",
+              "p_50d8ed0a5c99",
+              "p_bd75bf06d2e6",
+              "p_9f7854b72854",
+              "p_b52021a7bd15",
+              "p_14571318e5cd",
+              "p_d9f01ef76b01"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "cooking_spatula": "p_3b0006834183",
+            "tasting_spoon": "p_bc472a13acf4"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "cooking_spatula",
+                "tasting_spoon"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "cooking_spatula"
+              ],
+              "narrowed_by": "action_order",
+              "why": "Full reference selects the utensil actively used in the frying pan before the bowls were loaded into the dishwasher."
+            }
+          ],
+          "established_by": "Constructing agent; independent review pending",
+          "established_at": "2026-10-25"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "wooden solid spatula single",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-08.json",
+              "snapshot_task_id": "candidate-mart-refresh-retain-08",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_3b0006834183",
+                "p_d8145d6dc70e",
+                "p_2316b92d1588",
+                "p_f44f2b506b9c",
+                "p_1b80426b4542",
+                "p_beb0b592f0e9",
+                "p_e75c961ddb5f",
+                "p_7ccbe810fa54",
+                "p_ed7747fa1b4f",
+                "p_97f8f89cb349",
+                "p_28db0031e6b1",
+                "p_17cdbba53f0e",
+                "p_c280bbbc368d",
+                "p_893235bc8302",
+                "p_ec69ae9c9518",
+                "p_0637751560e2",
+                "p_73e876011944",
+                "p_e530feeddba4",
+                "p_69d94689f9dd",
+                "p_a0ee56470eb9",
+                "p_2aceb113170f",
+                "p_aaff725260fe",
+                "p_a36860777174",
+                "p_51b8eca35b82",
+                "p_920769e464ea",
+                "p_b7ec85560f80",
+                "p_276839f41452",
+                "p_2dce8f717cc4",
+                "p_4fb136a2f2ea",
+                "p_a49d56aeb789",
+                "p_50d8ed0a5c99",
+                "p_61fe6f11442f",
+                "p_c402aa6aa626",
+                "p_45ed6cc3a596",
+                "p_b4fdd9baf652",
+                "p_9b67f5f6c69a",
+                "p_a00898285415",
+                "p_bd75bf06d2e6",
+                "p_9f7854b72854",
+                "p_bfb320681648",
+                "p_b52021a7bd15",
+                "p_14571318e5cd",
+                "p_1e2ed421dd4a",
+                "p_2086bba41f74",
+                "p_bc40e91f208f",
+                "p_6f8183f3c1f4",
+                "p_6543c61be536",
+                "p_c9db40f736ce"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "wooden cooking spoon single",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-08.json",
+              "snapshot_task_id": "candidate-mart-refresh-retain-08",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_b444b338acfe",
+                "p_622f255d0d73",
+                "p_bc2450fa2616",
+                "p_87924fd70d27",
+                "p_a97796245395",
+                "p_0e90b39398bb",
+                "p_2dce8f717cc4",
+                "p_d3e63668302b",
+                "p_9ebe0d20e7f8",
+                "p_fc11fc015ced",
+                "p_1a4c62fb6e4c",
+                "p_bc472a13acf4",
+                "p_920769e464ea",
+                "p_f82d20d2a120",
+                "p_6b3200fe7b15",
+                "p_035bf6f86bb8",
+                "p_43e9a70ea162",
+                "p_4977b672af95",
+                "p_329426380ae7",
+                "p_e554f281c7aa",
+                "p_28db0031e6b1",
+                "p_bc958f91915c",
+                "p_d9f01ef76b01",
+                "p_6c13195c7112",
+                "p_2bc6852fba94",
+                "p_471ecbf1ebd7",
+                "p_41251c241570",
+                "p_5bd6c708585e",
+                "p_8f13ec2ffe84",
+                "p_4ce5b3d0ae98",
+                "p_d8145d6dc70e",
+                "p_b0854bb382ed",
+                "p_3fb8eef752d5",
+                "p_6c0fab73775b",
+                "p_5882b9545d30",
+                "p_276839f41452",
+                "p_7396a59f9348",
+                "p_d3dec1f190fc",
+                "p_d8cbcea1ca30",
+                "p_92fa5013e6fa",
+                "p_c402aa6aa626",
+                "p_750818c5fc28",
+                "p_400003db8621",
+                "p_40d29bb0eabd",
+                "p_fb86064b07ae",
+                "p_5334b2dffd29",
+                "p_76d06c04873d",
+                "p_4036b02fb3a2"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_3b0006834183",
+            "p_d8145d6dc70e",
+            "p_2316b92d1588",
+            "p_f44f2b506b9c",
+            "p_1b80426b4542",
+            "p_beb0b592f0e9",
+            "p_e75c961ddb5f",
+            "p_7ccbe810fa54",
+            "p_ed7747fa1b4f",
+            "p_97f8f89cb349",
+            "p_28db0031e6b1",
+            "p_17cdbba53f0e",
+            "p_c280bbbc368d",
+            "p_893235bc8302",
+            "p_ec69ae9c9518",
+            "p_0637751560e2",
+            "p_73e876011944",
+            "p_e530feeddba4",
+            "p_69d94689f9dd",
+            "p_a0ee56470eb9",
+            "p_2aceb113170f",
+            "p_aaff725260fe",
+            "p_a36860777174",
+            "p_51b8eca35b82",
+            "p_920769e464ea",
+            "p_b7ec85560f80",
+            "p_276839f41452",
+            "p_2dce8f717cc4",
+            "p_4fb136a2f2ea",
+            "p_a49d56aeb789",
+            "p_50d8ed0a5c99",
+            "p_61fe6f11442f",
+            "p_c402aa6aa626",
+            "p_45ed6cc3a596",
+            "p_b4fdd9baf652",
+            "p_9b67f5f6c69a",
+            "p_a00898285415",
+            "p_bd75bf06d2e6",
+            "p_9f7854b72854",
+            "p_bfb320681648",
+            "p_b52021a7bd15",
+            "p_14571318e5cd",
+            "p_1e2ed421dd4a",
+            "p_2086bba41f74",
+            "p_bc40e91f208f",
+            "p_6f8183f3c1f4",
+            "p_6543c61be536",
+            "p_c9db40f736ce",
+            "p_b444b338acfe",
+            "p_622f255d0d73",
+            "p_bc2450fa2616",
+            "p_87924fd70d27",
+            "p_a97796245395",
+            "p_0e90b39398bb",
+            "p_d3e63668302b",
+            "p_9ebe0d20e7f8",
+            "p_fc11fc015ced",
+            "p_1a4c62fb6e4c",
+            "p_bc472a13acf4",
+            "p_f82d20d2a120",
+            "p_6b3200fe7b15",
+            "p_035bf6f86bb8",
+            "p_43e9a70ea162",
+            "p_4977b672af95",
+            "p_329426380ae7",
+            "p_e554f281c7aa",
+            "p_bc958f91915c",
+            "p_d9f01ef76b01",
+            "p_6c13195c7112",
+            "p_2bc6852fba94",
+            "p_471ecbf1ebd7",
+            "p_41251c241570",
+            "p_5bd6c708585e",
+            "p_8f13ec2ffe84",
+            "p_4ce5b3d0ae98",
+            "p_b0854bb382ed",
+            "p_3fb8eef752d5",
+            "p_6c0fab73775b",
+            "p_5882b9545d30",
+            "p_7396a59f9348",
+            "p_d3dec1f190fc",
+            "p_d8cbcea1ca30",
+            "p_92fa5013e6fa",
+            "p_750818c5fc28",
+            "p_400003db8621",
+            "p_40d29bb0eabd",
+            "p_fb86064b07ae",
+            "p_5334b2dffd29",
+            "p_76d06c04873d",
+            "p_4036b02fb3a2"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_bc472a13acf4",
+            "p_0e90b39398bb",
+            "p_1b80426b4542",
+            "p_4fb136a2f2ea"
+          ],
+          "related_entity_ids": [
+            "p_d8145d6dc70e",
+            "p_2316b92d1588",
+            "p_f44f2b506b9c",
+            "p_ed7747fa1b4f",
+            "p_97f8f89cb349",
+            "p_28db0031e6b1",
+            "p_c280bbbc368d",
+            "p_ec69ae9c9518",
+            "p_0637751560e2",
+            "p_73e876011944",
+            "p_e530feeddba4",
+            "p_69d94689f9dd",
+            "p_a0ee56470eb9",
+            "p_2aceb113170f",
+            "p_aaff725260fe",
+            "p_a36860777174",
+            "p_51b8eca35b82",
+            "p_920769e464ea",
+            "p_2dce8f717cc4",
+            "p_a49d56aeb789",
+            "p_61fe6f11442f",
+            "p_c402aa6aa626",
+            "p_45ed6cc3a596",
+            "p_b4fdd9baf652",
+            "p_9b67f5f6c69a",
+            "p_a00898285415",
+            "p_bfb320681648",
+            "p_1e2ed421dd4a",
+            "p_2086bba41f74",
+            "p_bc40e91f208f",
+            "p_6f8183f3c1f4",
+            "p_6543c61be536",
+            "p_c9db40f736ce",
+            "p_b444b338acfe",
+            "p_622f255d0d73",
+            "p_bc2450fa2616",
+            "p_87924fd70d27",
+            "p_a97796245395",
+            "p_d3e63668302b",
+            "p_9ebe0d20e7f8",
+            "p_fc11fc015ced",
+            "p_1a4c62fb6e4c",
+            "p_f82d20d2a120",
+            "p_6b3200fe7b15",
+            "p_035bf6f86bb8",
+            "p_43e9a70ea162",
+            "p_4977b672af95",
+            "p_329426380ae7",
+            "p_e554f281c7aa",
+            "p_bc958f91915c",
+            "p_6c13195c7112",
+            "p_2bc6852fba94",
+            "p_471ecbf1ebd7",
+            "p_41251c241570",
+            "p_5bd6c708585e",
+            "p_8f13ec2ffe84",
+            "p_4ce5b3d0ae98",
+            "p_b0854bb382ed",
+            "p_3fb8eef752d5",
+            "p_6c0fab73775b",
+            "p_5882b9545d30",
+            "p_7396a59f9348",
+            "p_d3dec1f190fc",
+            "p_d8cbcea1ca30",
+            "p_92fa5013e6fa",
+            "p_750818c5fc28",
+            "p_400003db8621",
+            "p_40d29bb0eabd",
+            "p_fb86064b07ae",
+            "p_5334b2dffd29",
+            "p_76d06c04873d",
+            "p_4036b02fb3a2"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_d8145d6dc70e",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2316b92d1588",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f44f2b506b9c",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1b80426b4542",
+              "ring": "core",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ed7747fa1b4f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_97f8f89cb349",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_28db0031e6b1",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c280bbbc368d",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ec69ae9c9518",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0637751560e2",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_73e876011944",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e530feeddba4",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_69d94689f9dd",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a0ee56470eb9",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2aceb113170f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aaff725260fe",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a36860777174",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_51b8eca35b82",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_920769e464ea",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2dce8f717cc4",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4fb136a2f2ea",
+              "ring": "core",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a49d56aeb789",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_61fe6f11442f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c402aa6aa626",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_45ed6cc3a596",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b4fdd9baf652",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9b67f5f6c69a",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a00898285415",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bfb320681648",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1e2ed421dd4a",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2086bba41f74",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc40e91f208f",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6f8183f3c1f4",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6543c61be536",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c9db40f736ce",
+              "ring": "related",
+              "reason": "Native image and fields show a multiple-utensil offer rather than the requested one utensil.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b444b338acfe",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_622f255d0d73",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc2450fa2616",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_87924fd70d27",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a97796245395",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0e90b39398bb",
+              "ring": "core",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d3e63668302b",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9ebe0d20e7f8",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fc11fc015ced",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1a4c62fb6e4c",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc472a13acf4",
+              "ring": "core",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f82d20d2a120",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6b3200fe7b15",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_035bf6f86bb8",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_43e9a70ea162",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4977b672af95",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_329426380ae7",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e554f281c7aa",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bc958f91915c",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6c13195c7112",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2bc6852fba94",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_471ecbf1ebd7",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_41251c241570",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5bd6c708585e",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8f13ec2ffe84",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4ce5b3d0ae98",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b0854bb382ed",
+              "ring": "related",
+              "reason": "Native public detail establishes Unit count 2 and Package List 2 x spoons. This is a two-utensil offer, explicitly disallowed by single utensil/not a multi-utensil pack or set. Proof: .scratch/expand-variables-20261025/risotto-review/B0CQZB5HRD-public.txt",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3fb8eef752d5",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6c0fab73775b",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5882b9545d30",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7396a59f9348",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d3dec1f190fc",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d8cbcea1ca30",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_92fa5013e6fa",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_750818c5fc28",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_400003db8621",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_40d29bb0eabd",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fb86064b07ae",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5334b2dffd29",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_76d06c04873d",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4036b02fb3a2",
+              "ring": "related",
+              "reason": "Native image/fields show a bowl-shaped spoon or a multiple-utensil offer rather than one flat-head cooking spatula/paddle; full listing retained for independent boundary review.",
+              "why_plausible": "Same full public spatula and table-spoon query windows, with multiple-tool offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "90 unique public product images and native fields checked; complete stable-ID answer matrix retained."
+          }
+        },
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding"
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and public answer-boundary review."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/risotto-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A wooden broad cooking spatula is actively used to stir the contents of the frying pan.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The fridge is open and a hand reaches into its lower drawer for herbs; the target spatula and frying pan are outside the image.",
+          "supported_by": [
+            "V0:0"
+          ]
+        },
+        {
+          "text": "A pen writes on paper beside the sink and window; neither candidate utensil is visible.",
+          "supported_by": [
+            "V0:1"
+          ]
+        },
+        {
+          "text": "Two small bowls are put face down in the upper dishwasher rack; neither candidate utensil is used.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "A metal teaspoon takes rice from the frying pan for tasting.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    }
+  ]
+}

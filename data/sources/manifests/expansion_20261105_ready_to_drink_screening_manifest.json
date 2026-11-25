@@ -1,0 +1,2235 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HoloAssist",
+    "source_root": "reference/sources/HoloAssist/clips",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official CDLA Permissive 2.0 compressed excerpt; acquisition record reference/sources/HoloAssist/acquisition.json."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-refresh-replace-2026110501",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "dataset": "HoloAssist",
+        "media_id": "z111-aug-02-22-espresso__74-123",
+        "original_video_id": "z111-aug-02-22-espresso",
+        "media_start_seconds": 74,
+        "annotation_reference": "https://hl2data.z5.web.core.windows.net/holoassist-data-release/data-annotation-trainval-v1_1.json::z111-aug-02-22-espresso",
+        "observed_events": [
+          {
+            "time": 79,
+            "description": "The coffee machine dispenses plain coffee into a small white cup."
+          },
+          {
+            "time": 101.9,
+            "description": "The wearer pours a light liquid from the white bottle into the same cup."
+          },
+          {
+            "time": 114,
+            "description": "The wearer stirs the coffee and the addition together."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            78.9,
+            81.9,
+            84.9,
+            87.9
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026110501/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110501/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110501/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110501/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            101.9,
+            105.9,
+            109.9,
+            113.9
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026110501/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110501/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110501/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026110501/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The same white cup initially contains only freshly dispensed coffee.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "Later the wearer pours milk or a milk-like liquid into the same white cup and stirs. The compressed visual input does not support a particular kind of milk, ratio or branded ingredient.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [],
+      "construct": {
+        "research_question": "Can the agent replace a reasonable black ready-to-drink coffee after an ingredient is added to the same drink?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "cart",
+        "belief_before": "The machine dispenses plain coffee into the wearer’s white cup.",
+        "belief_after": "The wearer pours milk or a milk-like liquid into the same cup and mixes it.",
+        "required_behavior_change": "If an unflavored black ready-to-drink coffee was added, remove it and leave one matching coffee with milk or a milk alternative.",
+        "no_update_failure": "Leave the plain coffee in the cart after the cup has become a milk-added coffee.",
+        "overupdate_failure": "Add multiple competing products or impose an unsupported milk source, ratio, brand or exact coffee-extraction method.",
+        "visual_dependency_claim": "The request identifies coffee but not its current ingredients. Both black and milk-added ready-to-drink choices are offered in native search; no one packaged drink matches both states. The same cup can stay black or receive the ingredient, and the closed bottle does not settle that until the pour.",
+        "task_blueprint": {
+          "site": "egomart",
+          "instruction": "Could you add a ready-to-drink coffee like the one I'm making to my cart? I'd like to take it to work.",
+          "target_granularity": "category",
+          "initial_target_role": "plain_coffee",
+          "final_target_role": "coffee_with_milk",
+          "environment_role_ids": {
+            "plain_coffee": "p_e29e880f6a09",
+            "coffee_with_milk": "p_e9f14bc7f086"
+          },
+          "equivalent_role_ids": {
+            "plain_coffee": [
+              "p_17e3671c80dd"
+            ],
+            "coffee_with_milk": [
+              "p_0535c61ff0c9",
+              "p_0f9c95be45aa",
+              "p_133048ce6c9c",
+              "p_735ad4431b7a",
+              "p_34628fd82df8",
+              "p_30e75ff73199"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "plain_coffee": "p_e29e880f6a09",
+            "coffee_with_milk": "p_e9f14bc7f086"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "plain_coffee"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "Black coffee dispenses directly into the white cup."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "coffee_with_milk"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "A light milk-like liquid is poured into that same cup."
+            },
+            {
+              "frame": "V1:3",
+              "live": [
+                "coffee_with_milk"
+              ],
+              "why": "The added liquid is stirred into the coffee."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "ready to drink canned coffee",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json",
+              "result_entity_ids": [
+                "p_12af0f0ac9b5",
+                "p_30e75ff73199",
+                "p_32c83c76cf71",
+                "p_e49f730efd4e",
+                "p_17e3671c80dd",
+                "p_133048ce6c9c",
+                "p_0f9c95be45aa",
+                "p_0535c61ff0c9",
+                "p_9a57414c627b",
+                "p_3bfea551adb8",
+                "p_e29e880f6a09",
+                "p_107cdc449803",
+                "p_f8536ed1e50b",
+                "p_6b2ea790f876",
+                "p_071505ffb490",
+                "p_ac4cb73a63ed",
+                "p_ebb2adb39d7f",
+                "p_cd4a843ea92c",
+                "p_612d97061193",
+                "p_eda3aa3ddfe4",
+                "p_88359bbc612c",
+                "p_6ff05c6cd18a",
+                "p_e0b3d74f5ede",
+                "p_e5ade0c997db",
+                "p_3b8c09b8f324",
+                "p_6902134991d1",
+                "p_3ff6780d20e2",
+                "p_891b173495b5",
+                "p_2de24a3d959d",
+                "p_39f0632ab8d6",
+                "p_2e1109745d4f",
+                "p_038b5e10456a",
+                "p_e9f14bc7f086",
+                "p_e42963a75a84",
+                "p_735ad4431b7a",
+                "p_b362bb6b78da",
+                "p_e27178d58aa0",
+                "p_37d558ed3d8c",
+                "p_a64ba41c89d2",
+                "p_d0f96cadf9ed",
+                "p_b4fb44c70dce",
+                "p_80a55558c1af"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "ready to drink espresso coffee",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json",
+              "result_entity_ids": [
+                "p_9a57414c627b",
+                "p_133048ce6c9c",
+                "p_34628fd82df8",
+                "p_107cdc449803",
+                "p_071505ffb490",
+                "p_2d5b49bb3a88",
+                "p_b3cfa24c7f8a",
+                "p_b02ab6fc0fe7",
+                "p_cce5d40f1c8b",
+                "p_e29e880f6a09",
+                "p_12af0f0ac9b5",
+                "p_f8536ed1e50b",
+                "p_3a13e950b24a",
+                "p_abfe1ef47796",
+                "p_9c0d8d8a39c6",
+                "p_dfe21e09130f",
+                "p_ebf3492eb41c",
+                "p_878ea01c3c9b",
+                "p_d89334581600",
+                "p_1f41d9cca884",
+                "p_97bb1f9a97f1",
+                "p_a14682576cd5",
+                "p_f0fccba2ded5",
+                "p_c086c407e022",
+                "p_a07c1466c3da",
+                "p_2e1109745d4f",
+                "p_f6a00db6e994",
+                "p_b85fdac788b5",
+                "p_287d174bcfa9",
+                "p_2424bf8952af",
+                "p_12ee2ecf290d",
+                "p_7f9e0879448a",
+                "p_12e08dec5464",
+                "p_da117ede134c",
+                "p_b0f22d57b504",
+                "p_3ff6780d20e2",
+                "p_7a189baa787e",
+                "p_415314365140",
+                "p_f217abb90642",
+                "p_cbb25591cec7",
+                "p_038b5e10456a",
+                "p_6353cae6f9e1",
+                "p_1d574fb34c6f",
+                "p_99b0090de61e",
+                "p_d1b992bb7ef9",
+                "p_5285524dc7fa",
+                "p_8d43ec224a91",
+                "p_056b33d83f6e"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_12af0f0ac9b5",
+            "p_30e75ff73199",
+            "p_32c83c76cf71",
+            "p_e49f730efd4e",
+            "p_17e3671c80dd",
+            "p_133048ce6c9c",
+            "p_0f9c95be45aa",
+            "p_0535c61ff0c9",
+            "p_9a57414c627b",
+            "p_3bfea551adb8",
+            "p_e29e880f6a09",
+            "p_107cdc449803",
+            "p_f8536ed1e50b",
+            "p_6b2ea790f876",
+            "p_071505ffb490",
+            "p_ac4cb73a63ed",
+            "p_ebb2adb39d7f",
+            "p_cd4a843ea92c",
+            "p_612d97061193",
+            "p_eda3aa3ddfe4",
+            "p_88359bbc612c",
+            "p_6ff05c6cd18a",
+            "p_e0b3d74f5ede",
+            "p_e5ade0c997db",
+            "p_3b8c09b8f324",
+            "p_6902134991d1",
+            "p_3ff6780d20e2",
+            "p_891b173495b5",
+            "p_2de24a3d959d",
+            "p_39f0632ab8d6",
+            "p_2e1109745d4f",
+            "p_038b5e10456a",
+            "p_e9f14bc7f086",
+            "p_e42963a75a84",
+            "p_735ad4431b7a",
+            "p_b362bb6b78da",
+            "p_e27178d58aa0",
+            "p_37d558ed3d8c",
+            "p_a64ba41c89d2",
+            "p_d0f96cadf9ed",
+            "p_b4fb44c70dce",
+            "p_80a55558c1af",
+            "p_34628fd82df8",
+            "p_2d5b49bb3a88",
+            "p_b3cfa24c7f8a",
+            "p_b02ab6fc0fe7",
+            "p_cce5d40f1c8b",
+            "p_3a13e950b24a",
+            "p_abfe1ef47796",
+            "p_9c0d8d8a39c6",
+            "p_dfe21e09130f",
+            "p_ebf3492eb41c",
+            "p_878ea01c3c9b",
+            "p_d89334581600",
+            "p_1f41d9cca884",
+            "p_97bb1f9a97f1",
+            "p_a14682576cd5",
+            "p_f0fccba2ded5",
+            "p_c086c407e022",
+            "p_a07c1466c3da",
+            "p_f6a00db6e994",
+            "p_b85fdac788b5",
+            "p_287d174bcfa9",
+            "p_2424bf8952af",
+            "p_12ee2ecf290d",
+            "p_7f9e0879448a",
+            "p_12e08dec5464",
+            "p_da117ede134c",
+            "p_b0f22d57b504",
+            "p_7a189baa787e",
+            "p_415314365140",
+            "p_f217abb90642",
+            "p_cbb25591cec7",
+            "p_6353cae6f9e1",
+            "p_1d574fb34c6f",
+            "p_99b0090de61e",
+            "p_d1b992bb7ef9",
+            "p_5285524dc7fa",
+            "p_8d43ec224a91",
+            "p_056b33d83f6e"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_12af0f0ac9b5",
+            "p_32c83c76cf71",
+            "p_e49f730efd4e",
+            "p_9a57414c627b",
+            "p_3bfea551adb8",
+            "p_6b2ea790f876",
+            "p_88359bbc612c",
+            "p_e5ade0c997db",
+            "p_2de24a3d959d",
+            "p_038b5e10456a",
+            "p_e42963a75a84",
+            "p_2d5b49bb3a88",
+            "p_cce5d40f1c8b",
+            "p_878ea01c3c9b",
+            "p_17e3671c80dd",
+            "p_e29e880f6a09"
+          ],
+          "related_entity_ids": [
+            "p_107cdc449803",
+            "p_f8536ed1e50b",
+            "p_071505ffb490",
+            "p_ac4cb73a63ed",
+            "p_ebb2adb39d7f",
+            "p_cd4a843ea92c",
+            "p_612d97061193",
+            "p_eda3aa3ddfe4",
+            "p_6ff05c6cd18a",
+            "p_e0b3d74f5ede",
+            "p_3b8c09b8f324",
+            "p_6902134991d1",
+            "p_3ff6780d20e2",
+            "p_891b173495b5",
+            "p_39f0632ab8d6",
+            "p_2e1109745d4f",
+            "p_b362bb6b78da",
+            "p_e27178d58aa0",
+            "p_37d558ed3d8c",
+            "p_a64ba41c89d2",
+            "p_d0f96cadf9ed",
+            "p_b4fb44c70dce",
+            "p_80a55558c1af",
+            "p_b3cfa24c7f8a",
+            "p_b02ab6fc0fe7",
+            "p_3a13e950b24a",
+            "p_abfe1ef47796",
+            "p_9c0d8d8a39c6",
+            "p_dfe21e09130f",
+            "p_ebf3492eb41c",
+            "p_d89334581600",
+            "p_1f41d9cca884",
+            "p_97bb1f9a97f1",
+            "p_a14682576cd5",
+            "p_f0fccba2ded5",
+            "p_c086c407e022",
+            "p_a07c1466c3da",
+            "p_f6a00db6e994",
+            "p_b85fdac788b5",
+            "p_287d174bcfa9",
+            "p_2424bf8952af",
+            "p_12ee2ecf290d",
+            "p_7f9e0879448a",
+            "p_12e08dec5464",
+            "p_da117ede134c",
+            "p_b0f22d57b504",
+            "p_7a189baa787e",
+            "p_415314365140",
+            "p_f217abb90642",
+            "p_cbb25591cec7",
+            "p_6353cae6f9e1",
+            "p_1d574fb34c6f",
+            "p_99b0090de61e",
+            "p_d1b992bb7ef9",
+            "p_5285524dc7fa",
+            "p_8d43ec224a91",
+            "p_056b33d83f6e"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_12af0f0ac9b5",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_32c83c76cf71",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0HJ6FJJZ2.json"
+              ]
+            },
+            {
+              "entity_id": "p_e49f730efd4e",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_9a57414c627b",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_3bfea551adb8",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_107cdc449803",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f8536ed1e50b",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6b2ea790f876",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_071505ffb490",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_ac4cb73a63ed",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_ebb2adb39d7f",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_cd4a843ea92c",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_612d97061193",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_eda3aa3ddfe4",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_88359bbc612c",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6ff05c6cd18a",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e0b3d74f5ede",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e5ade0c997db",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_3b8c09b8f324",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6902134991d1",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_3ff6780d20e2",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_891b173495b5",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_2de24a3d959d",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_39f0632ab8d6",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_2e1109745d4f",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_038b5e10456a",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e42963a75a84",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "High-protein dark-roast coffee contains added milk protein isolates rather than a milk/cream ingredient used as in the shown drink, and is sold as a protein coffee rather than a plain black coffee.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B09L9PCGX5.json"
+              ]
+            },
+            {
+              "entity_id": "p_b362bb6b78da",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e27178d58aa0",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_37d558ed3d8c",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_a64ba41c89d2",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_d0f96cadf9ed",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b4fb44c70dce",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_80a55558c1af",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_2d5b49bb3a88",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b3cfa24c7f8a",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b02ab6fc0fe7",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_cce5d40f1c8b",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B09ZHXRWXH.json"
+              ]
+            },
+            {
+              "entity_id": "p_3a13e950b24a",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_abfe1ef47796",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_9c0d8d8a39c6",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_dfe21e09130f",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_ebf3492eb41c",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_878ea01c3c9b",
+              "ring": "core",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0DLDJGT45.json"
+              ]
+            },
+            {
+              "entity_id": "p_d89334581600",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_1f41d9cca884",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_97bb1f9a97f1",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_a14682576cd5",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f0fccba2ded5",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_c086c407e022",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_a07c1466c3da",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f6a00db6e994",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b85fdac788b5",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_287d174bcfa9",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_2424bf8952af",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_12ee2ecf290d",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_7f9e0879448a",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_12e08dec5464",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_da117ede134c",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b0f22d57b504",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_7a189baa787e",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_415314365140",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f217abb90642",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_cbb25591cec7",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6353cae6f9e1",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_1d574fb34c6f",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_99b0090de61e",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_d1b992bb7ef9",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_5285524dc7fa",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_8d43ec224a91",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_056b33d83f6e",
+              "ring": "related",
+              "why_plausible": "Native result returned by a broad coffee search.",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_17e3671c80dd",
+              "ring": "core",
+              "why_plausible": "A native ready-to-drink black coffee is legitimate before the wearer adds milk.",
+              "reason": "Plain unflavored black coffee sold in a ready-to-drink can. It fits the coffee before the pour, but contains no milk or milk alternative to match the cup after the pour.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0DLD4XRK1.json"
+              ]
+            },
+            {
+              "entity_id": "p_e29e880f6a09",
+              "ring": "core",
+              "why_plausible": "A native ready-to-drink black coffee is legitimate before the wearer adds milk.",
+              "reason": "Plain unflavored black coffee sold in a ready-to-drink can. It fits the coffee before the pour, but contains no milk or milk alternative to match the cup after the pour.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0DLDGFSGT.json"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "p_12af0f0ac9b5",
+              "title": "Mr. Brown Canned Coffee, Cold Brew in Chocolate Flavor, Instant Coffee Drinks, 240 ml x 24 Cans",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_30e75ff73199",
+              "title": "Mr. Brown Canned Coffee, Cold Brew in Blue Mountain Flavor, Instant Coffee Drinks, 240 ml x 24 Cans",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "A native packaged coffee beverage that can be drunk as sold, with milk or a milk alternative already blended in. It fits the cup after the pour, but not the initial plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B004SF38G6.json",
+                "https://www.loblaws.ca/en/iced-coffee-blue-mountain/p/20310359003_EA"
+              ]
+            },
+            {
+              "entity_id": "p_32c83c76cf71",
+              "title": "Victor Allen's Cinnamon Toast Crunch Iced Coffee, 8 fl.oz",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0HJ6FJJZ2.json"
+              ]
+            },
+            {
+              "entity_id": "p_e49f730efd4e",
+              "title": "Starbucks",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_17e3671c80dd",
+              "title": "Hatch Nitro Cold Brew Black, 330ml - Made in Canada",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Plain unflavored black coffee sold in a ready-to-drink can. It fits the coffee before the pour, but contains no milk or milk alternative to match the cup after the pour.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0DLD4XRK1.json"
+              ]
+            },
+            {
+              "entity_id": "p_133048ce6c9c",
+              "title": "Hatch Cold Shot White - Oatado, 100ml - Made in Canada",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "A native packaged coffee beverage that can be drunk as sold, with milk or a milk alternative already blended in. It fits the cup after the pour, but not the initial plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0DL6RWS18.json",
+                "https://hatchcrafted.com/shop/cold-shots-white"
+              ]
+            },
+            {
+              "entity_id": "p_0f9c95be45aa",
+              "title": "Mr. Brown Iced Coffee (Original) Pack of 24 cans",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "A native packaged coffee beverage that can be drunk as sold, with milk or a milk alternative already blended in. It fits the cup after the pour, but not the initial plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B004I24MXC.json"
+              ]
+            },
+            {
+              "entity_id": "p_0535c61ff0c9",
+              "title": "Mr. Brown Canned Coffee, Cold Brew Original With Milk, Instant Coffee Drinks, 240 ml x 24 Cans",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "A native packaged coffee beverage that can be drunk as sold, with milk or a milk alternative already blended in. It fits the cup after the pour, but not the initial plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B01D1QC624.json"
+              ]
+            },
+            {
+              "entity_id": "p_9a57414c627b",
+              "title": "NESCAFE Espresso Black, Coffee Concentrate, 500 ml",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_3bfea551adb8",
+              "title": "Hatch Mini Can Chocoatado, 100ml - Made in Canada",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e29e880f6a09",
+              "title": "Hatch Cold Shot - Espresso Black, 100ml - Made in Canada",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Plain unflavored black coffee sold in a ready-to-drink can. It fits the coffee before the pour, but contains no milk or milk alternative to match the cup after the pour.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0DLDGFSGT.json"
+              ]
+            },
+            {
+              "entity_id": "p_107cdc449803",
+              "title": "NESCAFE Sweet & Creamy Instant Coffee Mix, 342 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f8536ed1e50b",
+              "title": "STARBUCKS Crema Collection Salted Caramel Premium Instant Coffee Mix, 202 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6b2ea790f876",
+              "title": "High Brew Coffee Coffee - Ready To Drink - Dark Chocolate Mocha - 8 Oz - Case Of 12",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_071505ffb490",
+              "title": "NESCAFE Sweet & Creamy French Vanilla Flavoured Instant Coffee Mix, 342 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_ac4cb73a63ed",
+              "title": "Norse Brew Nitro Cold Brew Green Tea with Lemon, Brewed in Canada, 355ml can",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_ebb2adb39d7f",
+              "title": "Tim Hortons Café Mocha Packets, 8 Count",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_cd4a843ea92c",
+              "title": "NESCAFE GOLD Espresso Premium Instant Coffee, 200 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_612d97061193",
+              "title": "RAW",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_eda3aa3ddfe4",
+              "title": "Maxwell House Hazelnut Iced Latte with Foam Drink Mix, 165 g, 12 Packets",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_88359bbc612c",
+              "title": "BRÜST PROTEIN COFFEE FRENCH VANILLA LATTE - Smooth, indulgent, with velvety notes of vanilla (30g Protein, 50mg Caffeine, 150 Calories), slightly sweetened, 325mL, 12 Pack, lactose free ultrafiltered milk - AS SEEN ON DRAGON'S DEN",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6ff05c6cd18a",
+              "title": "Maxwell House Suisse Mocha Instant Coffee Beverage Mix, 205 g Canister",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e0b3d74f5ede",
+              "title": "Norse Brew Nitro Cold Brew Green Tea with Lemon, Brewed in Canada, 355ml can x 12-Pack",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e5ade0c997db",
+              "title": "Starbucks Nitro Cold Brew, Vanilla Sweet Cream 9.6 fl oz Can (8 Pack) (Packaging May Vary)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_3b8c09b8f324",
+              "title": "Tim Hortons Double Double Packets, 8 Count",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6902134991d1",
+              "title": "Tim Hortons Beef, Barley & Vegetable Soup, Ready to Serve, 540mL Can",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_3ff6780d20e2",
+              "title": "Medaglia D'oro Italian Roast Espresso Coffee, 10 Ounce",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_891b173495b5",
+              "title": "NESCAFE RICH Instant Coffee, Just Add Hot Water, 475 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_2de24a3d959d",
+              "title": "Starbucks Mocha Frappuccino Medium Roast Coffee Drink 15x281ml",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_39f0632ab8d6",
+              "title": "Arabica Coffee Beans 100g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_2e1109745d4f",
+              "title": "NEW TAZO Espresso Chai Latte Concentrate, 946 ML (Pack of 1), At Home Café Experience, Smooth and Rich Flavors, Caffeinated, Enjoy Hot or Iced",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_038b5e10456a",
+              "title": "Starbucks Doubleshot, Salted Caramel, 6.5 Ounce, 12 Count",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e9f14bc7f086",
+              "title": "Costa Latte, 4 x 250 ml",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "A native packaged coffee beverage that can be drunk as sold, with milk or a milk alternative already blended in. It fits the cup after the pour, but not the initial plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B09G6NKXB2.json",
+                "https://a.storyblok.com/f/43212/x/1ea1660f1c/product-information-sheet-costa-latte-gb.pdf"
+              ]
+            },
+            {
+              "entity_id": "p_e42963a75a84",
+              "title": "BRÜST PROTEIN COFFEE DARK ROAST - UNSWEETENED - 12 Pack (20g Protein, 175mg Caffeine, 100 Calories) Full Bodied, Rich, and Black, 330mL, Brust Cold Brew Iced Coffee - AS SEEN ON DRAGON'S DEN",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "High-protein dark-roast coffee contains added milk protein isolates rather than a milk/cream ingredient used as in the shown drink, and is sold as a protein coffee rather than a plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B09L9PCGX5.json"
+              ]
+            },
+            {
+              "entity_id": "p_735ad4431b7a",
+              "title": "High Brew Coffee Double Espresso, 8 Fl Oz (12 Count)",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "A native packaged coffee beverage that can be drunk as sold, with milk or a milk alternative already blended in. It fits the cup after the pour, but not the initial plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B01GW3M6EQ.json",
+                "https://www.highbrewcoffee.com/products/double-espresso"
+              ]
+            },
+            {
+              "entity_id": "p_b362bb6b78da",
+              "title": "Maxwell House French Vanilla Instant Coffee Beverage Mix, 240 g Canister",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_e27178d58aa0",
+              "title": "Tim Hortons Variety Mix, Hot Chocolate & French Vanilla Cappuccino Packets/Sachets, 24 Count",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_37d558ed3d8c",
+              "title": "Nescafe Sweet & Creamy Iced Original Instant Coffee Mix 16x16 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_a64ba41c89d2",
+              "title": "Maxwell House Original Roast Ground Coffee, 864 g Canister",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_d0f96cadf9ed",
+              "title": "NESCAFÉ Sweet and Creamy Mocha Instant Coffee Mix",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b4fb44c70dce",
+              "title": "Maxwell House Caramel Iced Latte with Foam Drink Mix, 6 packets, 165 g box",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_80a55558c1af",
+              "title": "Portable Clear Canned Drink Bottles for Beverages, Set of 2",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_34628fd82df8",
+              "title": "High Brew Coffee Coffee - Ready To Drink - Double Espresso - 8 Oz - Case Of 12",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "A native packaged coffee beverage that can be drunk as sold, with milk or a milk alternative already blended in. It fits the cup after the pour, but not the initial plain black coffee.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B00TAC61T8.json",
+                "https://www.highbrewcoffee.com/products/double-espresso"
+              ]
+            },
+            {
+              "entity_id": "p_2d5b49bb3a88",
+              "title": "NESCAFE Espresso Sweet Vanilla, Flavoured Coffee Concentrate, Add Milk and Ice to Create Vanilla Flavoured Coffees & Lattes, Also Used For Hot Drinks, Recyclable, Contains Caffeine, 0.5 L (Pack of 2)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b3cfa24c7f8a",
+              "title": "Nescafé Espresso Concentrate Black Coffee, 2 × 500 mL | Ready-to-Mix Espresso Concentrate",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b02ab6fc0fe7",
+              "title": "Mr.Viet Espresso Black Instant Coffee, 20 sticks, 40g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_cce5d40f1c8b",
+              "title": "Pocket Coffee Espresso To Go da 64,8 ml - Confezioni Contenenti 3 Pezzi",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B09ZHXRWXH.json"
+              ]
+            },
+            {
+              "entity_id": "p_3a13e950b24a",
+              "title": "STARBUCKS Crema Collection Madagascar Vanilla Coffee Mix, 202 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_abfe1ef47796",
+              "title": "Tim Hortons Instant Iced Coffee, 100g Glass Jar, Dissolves in Cold Water or Milk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_9c0d8d8a39c6",
+              "title": "Kopiko Cafe Blanca Coffee 10X30g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_dfe21e09130f",
+              "title": "illy Ground Coffee Espresso - 100% Arabica Coffee Ground – Intenso Dark Roast – Warm Notes of Cocoa & Dried Fruit - Rich Aromatic Profile - Precise Roast - No Preservatives – 250g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_ebf3492eb41c",
+              "title": "Kimbo Antica Tradizione Ground Espresso Coffee | Medium Roast 9/13 | 250 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_878ea01c3c9b",
+              "title": "Hatch - Nitro Pop Cold Brew Coffee, 220ml - Made in Canada",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds",
+                "data/sources/upstream_detail_snapshots/amazon/B0DLDJGT45.json"
+              ]
+            },
+            {
+              "entity_id": "p_d89334581600",
+              "title": "illy Ground Espresso Coffee - 100% Arabica – Classico Medium Roast - Notes of Caramel, Orange Blossom & Jasmine - No Preservatives – 250 g (Pack of 1)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_1f41d9cca884",
+              "title": "NESCAFE Cappuccino Instant Coffee Mix, 6 Pack, 672 g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_97bb1f9a97f1",
+              "title": "Rowland Medaglia D' Oro Instant Espresso Coffee 2 ounce",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_a14682576cd5",
+              "title": "Cafés Mers du Sud Triple Crema Italian Espresso Whole Coffee Beans 1.134 kg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f0fccba2ded5",
+              "title": "L'amant Café Premium Medium-Dark Roast Espresso Whole Coffee Beans 2.2 LBs (1kg), Perfect for Espresso, Cappuccino, Iced Coffee, Café Latte, Vietnamese Iced Milk Coffee, Number 2- Premium 60% Arabica 40% Robusta Blend, Balanced Crema & Rich Aroma With Brown Sugar & Chocalate Notes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_c086c407e022",
+              "title": "VISION Espresso Ground Coffee Medium Roast | Café William 300g (3pack)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_a07c1466c3da",
+              "title": "Café Bustelo Espresso Style Dark Roast Coffee, Keurig K-Cup Pods, 10 Count Box",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f6a00db6e994",
+              "title": "VISION Organic Espresso Coffee Beans Medium Roast|Café William 340g (3pack)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b85fdac788b5",
+              "title": "Café Bustelo Espresso Dark Roast Ground Coffee Brick, 6 Ounces (Pack of 12)",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_287d174bcfa9",
+              "title": "Mount Hagen Organic Instant Coffee Packets, Single Serve Sticks, 25 Count",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_2424bf8952af",
+              "title": "Nespresso Vertuo Melozio Coffee Pods, Medium Roast, Intensity 6, 60 Pods",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_12ee2ecf290d",
+              "title": "Nespresso Original Italian Bestsellers Variety Pack Coffee Pods, 50 Pods",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_7f9e0879448a",
+              "title": "Avalanche Cafe Style Cappucino, 10 Sachets",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_12e08dec5464",
+              "title": "VALUBNDL: Premium Instant Espresso Crema Intense (3-Pack) – 270g Total (Three 90g Jars) – Rich & Bold Dark Roast – Velvety Crema Finish – VALUBNDL Signature Bundle",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_da117ede134c",
+              "title": "Moccona Espresso Style Freeze Instant Coffee 200gm",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_b0f22d57b504",
+              "title": "Happy Chicory French Roasted Chicory - Brew Like Coffee, All-Purpose Grind, Prebiotic Coffee Alternative, Caffeine Free, Gluten Free, 250g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_7a189baa787e",
+              "title": "MAXIMUM SLIM ESPRESSO:Gourmet - 100% Arabica Coffee,Certified Organic,NON-GMO.VEGAN-PROMOTE FAT BURNING,ENERGY&FOCUS-GARCINIA CAMBOGIA- GREEN COFFEE BEAN EXTRACT- GANODERMA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_415314365140",
+              "title": "Maud's Cappuccino Coffee Pods Variety Pack, 56ct, 8 Assorted Flavors",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_f217abb90642",
+              "title": "Rosebud Korean Instant Coffee Mix, Original Espresso, 100 Sticks",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_cbb25591cec7",
+              "title": "Equator Coffee Roasters Freakin’ Good Coffee – Fair Trade & Organic – Specialty Grade – Locally Roasted – Ethically Sourced Arabica Beans",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_6353cae6f9e1",
+              "title": "Caffè Vergnano Venezia Ground, 340 Grams",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_1d574fb34c6f",
+              "title": "Maxwell House Half Caff Original Medium Roast Instant Coffee, 150 g Jar",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_99b0090de61e",
+              "title": "VitaCup Hydration Medium Roast Instant Coffee Packets, 18ct",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_d1b992bb7ef9",
+              "title": "Premium Coffee Capsules O-Line Variety Pack, 50 Pods | Assorted Flavours at Least 3 Different Blends | Compatible with Popular Original Line Capsule Machines",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_5285524dc7fa",
+              "title": "[12oz-200count] Disposable White Paper Cups, 200 Pack – Leakproof Hot Coffee Cup, Party Hot or Cold Beverage Heavy Duty Cups for Tea, Espresso, Office, Cafés & to-Go Drinks",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This native result is not publicly supported as a plain or milk-added ready-to-drink coffee matching either phase.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_8d43ec224a91",
+              "title": "Maxwell House Decaffeinated Ground Coffee, 631 g Canister",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            },
+            {
+              "entity_id": "p_056b33d83f6e",
+              "title": "Lavazza Crema E Gusto Ground Coffee Blend, Espresso Dark Roast, 250 g Brick - Authentic Italian, Blended And Roasted in Italy, Non GMO, Full bodied with rich aftertaste",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This is an ingredient, a concentrate, or a brewing/mixing product rather than a coffee that can be drunk as sold.",
+              "evidence_refs": [
+                "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json::rounds"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ],
+          "answer_boundary_rule": "One ready-to-drink product comparable to the drink shown. Initial black coffee contains no added milk or milk alternative. Final unflavored coffee has added milk, cream or milk alternative; brewing method, cup/pack count, brand, ordinary sweetening and milk source are not fixed. Exclude drink powders, mandatory-to-mix concentrates, separately flavored dessert coffees and protein-enriched substitutes. No mixed bundle establishes a single matching drink.",
+          "landing_semantic_review": {
+            "status": "constructor_checked_pending_independent_review",
+            "reviewer": "/root",
+            "scope": "Complete 80-ASIN union; native product details checked for plausible RTD options, conflicts resolved from the matching manufacturer or retailer data.",
+            "evidence_refs": [
+              "data/sources/search_snapshots/candidate-mart-refresh-replace-2026110501.json"
+            ]
+          }
+        }
+      },
+      "screening": {
+        "proposed_instruction": "Could you add a ready-to-drink coffee like the one I'm making to my cart? I'd like to take it to work.",
+        "source_visual_review": "The same cup remains in view from extraction to the pale-liquid pour and stir. No use of milk is visible in the first two batches; a closed bottle on the table does not establish the recipe. Do not promote the source transcript’s soy label to an observable requirement.",
+        "source_continuity": "One original recording; continuous official source excerpt. Session runs 78.9–122s and the decisive pour frame at 101.9s is in the third 8-second batch."
+      },
+      "stream": {
+        "session_seconds": [
+          78.9,
+          122.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-refresh-replace-2026110501/review.json"
+      }
+    }
+  ]
+}

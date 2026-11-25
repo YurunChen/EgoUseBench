@@ -1,0 +1,3775 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing dataset research permission confirmed by user; no public redistribution."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-position-2026102902",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          176
+        ],
+        "media_id": "77510400-92e3-4ee6-85f0-2d9a6bda45b5",
+        "original_video_id": "77510400-92e3-4ee6-85f0-2d9a6bda45b5",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              25,
+              32
+            ],
+            "description": "The wearer hand-stitches a red knitted item with a needle; a pair of scissors rests to the right on the dark mat. The answer resolves a spatial referent, not a web title."
+          }
+        ],
+        "scope_note": "The original Ego2Web annotation is retrieval evidence only. Construction uses inspected actual frames and native website facts."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102902/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The wearer hand-stitches a red knitted item with a needle; a pair of scissors rests to the right on the dark mat. The answer resolves a spatial referent, not a web title.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent resolve a practical spare-item request from the actual spatial or temporal relation and select a useful website product?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "belief_before": "Either of the two physical referents could be the intended spare.",
+        "belief_after": "The wearer hand-stitches a red knitted item with a needle; a pair of scissors rests to the right on the dark mat. The answer resolves a spatial referent, not a web title.",
+        "required_behavior_change": "Combine the answer with the scene and retain exactly one accepted website product, without an extra selection.",
+        "no_update_failure": "Choose the other physical referent without using the answer.",
+        "overupdate_failure": "Buy both kinds or an unwanted mixed kit.",
+        "visual_dependency_claim": "The answer gives only a position or event order. The website has both categories and does not reveal which physical item occupied that relation.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I'd like a spare of one of these sewing tools, either the one I'm holding or the one resting just to the right of my work. Add one product of the same general manual tool type to the cart. A pack of that type is fine, but not a general-purpose sewing kit. Any brand, size or colour is fine.",
+          "oracle_instruction": "I'd like a spare of the sewing tool resting just to the right of my work. Add one product of the same general manual tool type to the cart. A pack of that type is fine, but not a general-purpose sewing kit. Any brand, size or colour is fine.",
+          "candidate_roles": [
+            "needle",
+            "cutters"
+          ],
+          "hidden_target_role": "cutters",
+          "valid_slot": "position",
+          "canonical_question": "Do you mean the tool in your hand or the tool resting to the right of your work?",
+          "canonical_answer": "The one resting to the right of my work.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "needle": "p_619d17234d7f",
+            "cutters": "p_2a6bc52424eb"
+          },
+          "equivalent_role_ids": {
+            "needle": [
+              "p_ae68d3e5c153",
+              "p_d8f724ca8d3d",
+              "p_52e565318d3a",
+              "p_a9e9558f3926",
+              "p_9426a3f4070d",
+              "p_a1338598bc0d",
+              "p_7402d5638cde",
+              "p_2db47a3175e7",
+              "p_d9c43cb2b0b5",
+              "p_d976047630c2",
+              "p_3d5d175e59d7",
+              "p_77baeb7958a6",
+              "p_30657cf4a57a",
+              "p_22ef754cf68d",
+              "p_6117068bcc48",
+              "p_6f03d6bf477a",
+              "p_971349808340",
+              "p_51a3f166a775",
+              "p_88d57e7ad61b",
+              "p_e3fc65000ee2",
+              "p_3fbd8b2324b8",
+              "p_b80ee565bf4d",
+              "p_0f9e9a3d3444",
+              "p_9d6b31ccfe41",
+              "p_4f22c9ef12f5",
+              "p_99a0bbe7f700",
+              "p_ce1389c8b218",
+              "p_4ef980a8b4a5",
+              "p_7967cc5c3884",
+              "p_028412bd28f8",
+              "p_4e1ea4e90985",
+              "p_95dea829de8b",
+              "p_9bd57874e95f",
+              "p_d530a7cac9dd",
+              "p_e439c4347450",
+              "p_da72e213f81a",
+              "p_9c81f1a44cf2",
+              "p_0a0d1ce24bd9",
+              "p_507cc2709e0c",
+              "p_2c266a697b93",
+              "p_ac298b060f2e",
+              "p_3a1d5afec479",
+              "p_dcb623a0504f"
+            ],
+            "cutters": [
+              "p_96209ab58b35",
+              "p_892b3144ebd8",
+              "p_da3d2a962380",
+              "p_c434de7583c2",
+              "p_6c72043c0751",
+              "p_521fb1130fd0",
+              "p_6950a6f394d3",
+              "p_83d5cf1c3360",
+              "p_f4d01ab4fe99",
+              "p_ddad9d996686",
+              "p_3d56f471ba5b",
+              "p_ce5c6501aec4",
+              "p_53c0df75c90c",
+              "p_ea9122fcdecf",
+              "p_e93b60db7d35",
+              "p_412e6a1f2800",
+              "p_a9763f0ff857",
+              "p_96626190b1a4",
+              "p_6ce551bf0a1c",
+              "p_a1c2efa61dc4",
+              "p_81aa6596b9e6",
+              "p_42be3f428957",
+              "p_81aa17df5e5d",
+              "p_4d39a5d9b480",
+              "p_c14400e245c8",
+              "p_87e24809d713",
+              "p_35ac21d0d784",
+              "p_6153944f344a",
+              "p_c33842e3d2a0",
+              "p_4575e08b7267",
+              "p_fe0edae07ddc",
+              "p_f3037988eef8",
+              "p_52b2ae91e1ed",
+              "p_e5180eb86e5f",
+              "p_c3f4988e9c71",
+              "p_cf609dae8ebd",
+              "p_a79ac8ba3725",
+              "p_18994e21aa41",
+              "p_ff2958a9c106",
+              "p_969cb729fbd3",
+              "p_df05f9e9ad55",
+              "p_f9f6121d6480",
+              "p_992551d04d39",
+              "p_789de65f17c3",
+              "p_42ecf17602c1",
+              "p_e3f954c968a8"
+            ]
+          },
+          "completion_claim": "One manual sewing-cutting product: scissors or thread snips, including same-category multipacks and scissors-led bundles with incidental small sewing accessories. Accept all manual cutter listings in this window; reject the powered cutter. The restriction on general-purpose sewing kits excludes needle-led comprehensive kits, not a scissors-led listing merely called With Sewing Tools."
+        },
+        "decision": {
+          "candidates": {
+            "needle": "p_619d17234d7f",
+            "cutters": "p_2a6bc52424eb"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "cutters"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The wearer hand-stitches a red knitted item with a needle; a pair of scissors rests to the right on the dark mat. The answer resolves a spatial referent, not a web title."
+            }
+          ],
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-29",
+          "note": "Construction judgement, awaiting independent review."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "hand sewing needles",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102902.json",
+              "result_entity_ids": [
+                "p_619d17234d7f",
+                "p_ae68d3e5c153",
+                "p_d8f724ca8d3d",
+                "p_52e565318d3a",
+                "p_a9e9558f3926",
+                "p_9426a3f4070d",
+                "p_a1338598bc0d",
+                "p_7402d5638cde",
+                "p_2db47a3175e7",
+                "p_d9c43cb2b0b5",
+                "p_d976047630c2",
+                "p_3d5d175e59d7",
+                "p_77baeb7958a6",
+                "p_30657cf4a57a",
+                "p_22ef754cf68d",
+                "p_56d9ecff3ec3",
+                "p_6117068bcc48",
+                "p_6f03d6bf477a",
+                "p_971349808340",
+                "p_51a3f166a775",
+                "p_88d57e7ad61b",
+                "p_e3fc65000ee2",
+                "p_3fbd8b2324b8",
+                "p_b80ee565bf4d",
+                "p_0f9e9a3d3444",
+                "p_9d6b31ccfe41",
+                "p_4f22c9ef12f5",
+                "p_99a0bbe7f700",
+                "p_f9e376ce44f0",
+                "p_ce1389c8b218",
+                "p_4ef980a8b4a5",
+                "p_7967cc5c3884",
+                "p_028412bd28f8",
+                "p_4e1ea4e90985",
+                "p_95dea829de8b",
+                "p_9bd57874e95f",
+                "p_d530a7cac9dd",
+                "p_7e8d57e0d371",
+                "p_e439c4347450",
+                "p_da72e213f81a",
+                "p_9c81f1a44cf2",
+                "p_0a0d1ce24bd9",
+                "p_507cc2709e0c",
+                "p_6d3caa1ff3f5",
+                "p_2c266a697b93",
+                "p_ac298b060f2e",
+                "p_3a1d5afec479",
+                "p_dcb623a0504f"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "single fabric sewing scissors",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102902.json",
+              "result_entity_ids": [
+                "p_2a6bc52424eb",
+                "p_96209ab58b35",
+                "p_892b3144ebd8",
+                "p_da3d2a962380",
+                "p_c434de7583c2",
+                "p_6c72043c0751",
+                "p_521fb1130fd0",
+                "p_6950a6f394d3",
+                "p_83d5cf1c3360",
+                "p_f4d01ab4fe99",
+                "p_ddad9d996686",
+                "p_3d56f471ba5b",
+                "p_ce5c6501aec4",
+                "p_53c0df75c90c",
+                "p_ea9122fcdecf",
+                "p_e93b60db7d35",
+                "p_412e6a1f2800",
+                "p_a9763f0ff857",
+                "p_96626190b1a4",
+                "p_6ce551bf0a1c",
+                "p_a1c2efa61dc4",
+                "p_81aa6596b9e6",
+                "p_42be3f428957",
+                "p_6c40ac6c1f32",
+                "p_81aa17df5e5d",
+                "p_4d39a5d9b480",
+                "p_c14400e245c8",
+                "p_87e24809d713",
+                "p_35ac21d0d784",
+                "p_6153944f344a",
+                "p_c33842e3d2a0",
+                "p_4575e08b7267",
+                "p_fe0edae07ddc",
+                "p_f3037988eef8",
+                "p_52b2ae91e1ed",
+                "p_e5180eb86e5f",
+                "p_c3f4988e9c71",
+                "p_cf609dae8ebd",
+                "p_a79ac8ba3725",
+                "p_18994e21aa41",
+                "p_ff2958a9c106",
+                "p_969cb729fbd3",
+                "p_df05f9e9ad55",
+                "p_f9f6121d6480",
+                "p_992551d04d39",
+                "p_789de65f17c3",
+                "p_42ecf17602c1",
+                "p_e3f954c968a8"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_619d17234d7f",
+            "p_ae68d3e5c153",
+            "p_d8f724ca8d3d",
+            "p_52e565318d3a",
+            "p_a9e9558f3926",
+            "p_9426a3f4070d",
+            "p_a1338598bc0d",
+            "p_7402d5638cde",
+            "p_2db47a3175e7",
+            "p_d9c43cb2b0b5",
+            "p_d976047630c2",
+            "p_3d5d175e59d7",
+            "p_77baeb7958a6",
+            "p_30657cf4a57a",
+            "p_22ef754cf68d",
+            "p_56d9ecff3ec3",
+            "p_6117068bcc48",
+            "p_6f03d6bf477a",
+            "p_971349808340",
+            "p_51a3f166a775",
+            "p_88d57e7ad61b",
+            "p_e3fc65000ee2",
+            "p_3fbd8b2324b8",
+            "p_b80ee565bf4d",
+            "p_0f9e9a3d3444",
+            "p_9d6b31ccfe41",
+            "p_4f22c9ef12f5",
+            "p_99a0bbe7f700",
+            "p_f9e376ce44f0",
+            "p_ce1389c8b218",
+            "p_4ef980a8b4a5",
+            "p_7967cc5c3884",
+            "p_028412bd28f8",
+            "p_4e1ea4e90985",
+            "p_95dea829de8b",
+            "p_9bd57874e95f",
+            "p_d530a7cac9dd",
+            "p_7e8d57e0d371",
+            "p_e439c4347450",
+            "p_da72e213f81a",
+            "p_9c81f1a44cf2",
+            "p_0a0d1ce24bd9",
+            "p_507cc2709e0c",
+            "p_6d3caa1ff3f5",
+            "p_2c266a697b93",
+            "p_ac298b060f2e",
+            "p_3a1d5afec479",
+            "p_dcb623a0504f",
+            "p_2a6bc52424eb",
+            "p_96209ab58b35",
+            "p_892b3144ebd8",
+            "p_da3d2a962380",
+            "p_c434de7583c2",
+            "p_6c72043c0751",
+            "p_521fb1130fd0",
+            "p_6950a6f394d3",
+            "p_83d5cf1c3360",
+            "p_f4d01ab4fe99",
+            "p_ddad9d996686",
+            "p_3d56f471ba5b",
+            "p_ce5c6501aec4",
+            "p_53c0df75c90c",
+            "p_ea9122fcdecf",
+            "p_e93b60db7d35",
+            "p_412e6a1f2800",
+            "p_a9763f0ff857",
+            "p_96626190b1a4",
+            "p_6ce551bf0a1c",
+            "p_a1c2efa61dc4",
+            "p_81aa6596b9e6",
+            "p_42be3f428957",
+            "p_6c40ac6c1f32",
+            "p_81aa17df5e5d",
+            "p_4d39a5d9b480",
+            "p_c14400e245c8",
+            "p_87e24809d713",
+            "p_35ac21d0d784",
+            "p_6153944f344a",
+            "p_c33842e3d2a0",
+            "p_4575e08b7267",
+            "p_fe0edae07ddc",
+            "p_f3037988eef8",
+            "p_52b2ae91e1ed",
+            "p_e5180eb86e5f",
+            "p_c3f4988e9c71",
+            "p_cf609dae8ebd",
+            "p_a79ac8ba3725",
+            "p_18994e21aa41",
+            "p_ff2958a9c106",
+            "p_969cb729fbd3",
+            "p_df05f9e9ad55",
+            "p_f9f6121d6480",
+            "p_992551d04d39",
+            "p_789de65f17c3",
+            "p_42ecf17602c1",
+            "p_e3f954c968a8"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_619d17234d7f",
+            "p_2db47a3175e7",
+            "p_f9e376ce44f0",
+            "p_6d3caa1ff3f5",
+            "p_6c40ac6c1f32"
+          ],
+          "related_entity_ids": [
+            "p_ae68d3e5c153",
+            "p_d8f724ca8d3d",
+            "p_52e565318d3a",
+            "p_a9e9558f3926",
+            "p_9426a3f4070d",
+            "p_a1338598bc0d",
+            "p_7402d5638cde",
+            "p_d9c43cb2b0b5",
+            "p_d976047630c2",
+            "p_3d5d175e59d7",
+            "p_77baeb7958a6",
+            "p_30657cf4a57a",
+            "p_22ef754cf68d",
+            "p_56d9ecff3ec3",
+            "p_6117068bcc48",
+            "p_6f03d6bf477a"
+          ],
+          "ambient_entity_ids": [
+            "p_971349808340",
+            "p_51a3f166a775",
+            "p_88d57e7ad61b",
+            "p_e3fc65000ee2",
+            "p_3fbd8b2324b8",
+            "p_b80ee565bf4d",
+            "p_0f9e9a3d3444",
+            "p_9d6b31ccfe41",
+            "p_4f22c9ef12f5",
+            "p_99a0bbe7f700",
+            "p_ce1389c8b218",
+            "p_4ef980a8b4a5",
+            "p_7967cc5c3884",
+            "p_028412bd28f8",
+            "p_4e1ea4e90985",
+            "p_95dea829de8b",
+            "p_9bd57874e95f",
+            "p_d530a7cac9dd",
+            "p_7e8d57e0d371",
+            "p_e439c4347450",
+            "p_da72e213f81a",
+            "p_9c81f1a44cf2",
+            "p_0a0d1ce24bd9",
+            "p_507cc2709e0c",
+            "p_2c266a697b93",
+            "p_ac298b060f2e",
+            "p_3a1d5afec479",
+            "p_dcb623a0504f"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_619d17234d7f",
+              "ring": "core",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ae68d3e5c153",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d8f724ca8d3d",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_52e565318d3a",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a9e9558f3926",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9426a3f4070d",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a1338598bc0d",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7402d5638cde",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2db47a3175e7",
+              "ring": "core",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d9c43cb2b0b5",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d976047630c2",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3d5d175e59d7",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_77baeb7958a6",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_30657cf4a57a",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_22ef754cf68d",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_56d9ecff3ec3",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_6117068bcc48",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6f03d6bf477a",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_971349808340",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_51a3f166a775",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_88d57e7ad61b",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_e3fc65000ee2",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3fbd8b2324b8",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_b80ee565bf4d",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_0f9e9a3d3444",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9d6b31ccfe41",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4f22c9ef12f5",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_99a0bbe7f700",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_f9e376ce44f0",
+              "ring": "core",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_ce1389c8b218",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4ef980a8b4a5",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7967cc5c3884",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_028412bd28f8",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4e1ea4e90985",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_95dea829de8b",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9bd57874e95f",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d530a7cac9dd",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7e8d57e0d371",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_e439c4347450",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_da72e213f81a",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9c81f1a44cf2",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_0a0d1ce24bd9",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_507cc2709e0c",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6d3caa1ff3f5",
+              "ring": "core",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_2c266a697b93",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ac298b060f2e",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3a1d5afec479",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_dcb623a0504f",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6c40ac6c1f32",
+              "ring": "core",
+              "reason": "Powered cutter, not a manual sewing tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "powered_tool"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ]
+        },
+        "catalogue_assessment": {
+          "rule": "One manual sewing-cutting product: scissors or thread snips, including same-category multipacks and scissors-led bundles with incidental small sewing accessories. Accept all manual cutter listings in this window; reject the powered cutter. The restriction on general-purpose sewing kits excludes needle-led comprehensive kits, not a scissors-led listing merely called With Sewing Tools.",
+          "initial_accepted": [
+            "p_619d17234d7f",
+            "p_ae68d3e5c153",
+            "p_d8f724ca8d3d",
+            "p_52e565318d3a",
+            "p_a9e9558f3926",
+            "p_9426a3f4070d",
+            "p_a1338598bc0d",
+            "p_7402d5638cde",
+            "p_2db47a3175e7",
+            "p_d9c43cb2b0b5",
+            "p_d976047630c2",
+            "p_3d5d175e59d7",
+            "p_77baeb7958a6",
+            "p_30657cf4a57a",
+            "p_22ef754cf68d",
+            "p_6117068bcc48",
+            "p_6f03d6bf477a",
+            "p_971349808340",
+            "p_51a3f166a775",
+            "p_88d57e7ad61b",
+            "p_e3fc65000ee2",
+            "p_3fbd8b2324b8",
+            "p_b80ee565bf4d",
+            "p_0f9e9a3d3444",
+            "p_9d6b31ccfe41",
+            "p_4f22c9ef12f5",
+            "p_99a0bbe7f700",
+            "p_ce1389c8b218",
+            "p_4ef980a8b4a5",
+            "p_7967cc5c3884",
+            "p_028412bd28f8",
+            "p_4e1ea4e90985",
+            "p_95dea829de8b",
+            "p_9bd57874e95f",
+            "p_d530a7cac9dd",
+            "p_e439c4347450",
+            "p_da72e213f81a",
+            "p_9c81f1a44cf2",
+            "p_0a0d1ce24bd9",
+            "p_507cc2709e0c",
+            "p_2c266a697b93",
+            "p_ac298b060f2e",
+            "p_3a1d5afec479",
+            "p_dcb623a0504f",
+            "p_2a6bc52424eb",
+            "p_96209ab58b35",
+            "p_892b3144ebd8",
+            "p_da3d2a962380",
+            "p_c434de7583c2",
+            "p_6c72043c0751",
+            "p_521fb1130fd0",
+            "p_6950a6f394d3",
+            "p_83d5cf1c3360",
+            "p_f4d01ab4fe99",
+            "p_ddad9d996686",
+            "p_3d56f471ba5b",
+            "p_ce5c6501aec4",
+            "p_53c0df75c90c",
+            "p_ea9122fcdecf",
+            "p_e93b60db7d35",
+            "p_412e6a1f2800",
+            "p_a9763f0ff857",
+            "p_96626190b1a4",
+            "p_6ce551bf0a1c",
+            "p_a1c2efa61dc4",
+            "p_81aa6596b9e6",
+            "p_42be3f428957",
+            "p_81aa17df5e5d",
+            "p_4d39a5d9b480",
+            "p_c14400e245c8",
+            "p_87e24809d713",
+            "p_35ac21d0d784",
+            "p_6153944f344a",
+            "p_c33842e3d2a0",
+            "p_4575e08b7267",
+            "p_fe0edae07ddc",
+            "p_f3037988eef8",
+            "p_52b2ae91e1ed",
+            "p_e5180eb86e5f",
+            "p_c3f4988e9c71",
+            "p_cf609dae8ebd",
+            "p_a79ac8ba3725",
+            "p_18994e21aa41",
+            "p_ff2958a9c106",
+            "p_969cb729fbd3",
+            "p_df05f9e9ad55",
+            "p_f9f6121d6480",
+            "p_992551d04d39",
+            "p_789de65f17c3",
+            "p_42ecf17602c1",
+            "p_e3f954c968a8"
+          ],
+          "final_accepted": [
+            "p_2a6bc52424eb",
+            "p_96209ab58b35",
+            "p_892b3144ebd8",
+            "p_da3d2a962380",
+            "p_c434de7583c2",
+            "p_6c72043c0751",
+            "p_521fb1130fd0",
+            "p_6950a6f394d3",
+            "p_83d5cf1c3360",
+            "p_f4d01ab4fe99",
+            "p_ddad9d996686",
+            "p_3d56f471ba5b",
+            "p_ce5c6501aec4",
+            "p_53c0df75c90c",
+            "p_ea9122fcdecf",
+            "p_e93b60db7d35",
+            "p_412e6a1f2800",
+            "p_a9763f0ff857",
+            "p_96626190b1a4",
+            "p_6ce551bf0a1c",
+            "p_a1c2efa61dc4",
+            "p_81aa6596b9e6",
+            "p_42be3f428957",
+            "p_81aa17df5e5d",
+            "p_4d39a5d9b480",
+            "p_c14400e245c8",
+            "p_87e24809d713",
+            "p_35ac21d0d784",
+            "p_6153944f344a",
+            "p_c33842e3d2a0",
+            "p_4575e08b7267",
+            "p_fe0edae07ddc",
+            "p_f3037988eef8",
+            "p_52b2ae91e1ed",
+            "p_e5180eb86e5f",
+            "p_c3f4988e9c71",
+            "p_cf609dae8ebd",
+            "p_a79ac8ba3725",
+            "p_18994e21aa41",
+            "p_ff2958a9c106",
+            "p_969cb729fbd3",
+            "p_df05f9e9ad55",
+            "p_f9f6121d6480",
+            "p_992551d04d39",
+            "p_789de65f17c3",
+            "p_42ecf17602c1",
+            "p_e3f954c968a8"
+          ],
+          "evidence": "All captured titles and public listing images checked; broad usable alternatives retained, no hidden exact brand, gauge, size or appearance."
+        }
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Original-resolution frame sequences and full three-minute overview inspected.",
+        "missing": "Independent review and one valid development trial."
+      },
+      "repair": {
+        "reviewer": "coding-agent/root",
+        "reason": "Independent review found omitted equivalent manual scissors-led bundles; all such bundles now follow the same primary-product rule. No extra user restriction introduced.",
+        "affected_scope": [
+          "catalogue_answer_boundary"
+        ],
+        "retained": [
+          "all source frames",
+          "physical referents",
+          "user wording",
+          "blind reconstruction"
+        ]
+      },
+      "stream": {
+        "session_seconds": [
+          25.0,
+          96.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-position-2026102902/review.json"
+      }
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102903",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          202
+        ],
+        "media_id": "45c95c87-bb4f-4e86-bd5e-73e389f1f4bf",
+        "original_video_id": "45c95c87-bb4f-4e86-bd5e-73e389f1f4bf",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              26,
+              29.5
+            ],
+            "role": "first_candidate",
+            "description": "A small round steel bowl is washed at the sink and set aside."
+          },
+          {
+            "interval_seconds": [
+              30,
+              56
+            ],
+            "role": "second_candidate",
+            "description": "A dark round frying pan with one long handle is washed in the same sink."
+          }
+        ],
+        "scope_note": "The original Ego2Web annotation is retrieval evidence only. Construction uses inspected actual frames and native website facts."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            26,
+            27,
+            27.5,
+            28.5,
+            30,
+            31,
+            32,
+            33
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102903/stream-20261103/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A small round steel bowl is washed and set aside first.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "A dark round frying pan with one long handle is washed next.",
+          "supported_by": [
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent resolve a practical spare-item request from the actual spatial or temporal relation and select a useful website product?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "belief_before": "Either of the two physical referents could be the intended spare.",
+        "belief_after": "The first four frames show a small round metal bowl being washed. The later four show a dark round frying pan with one long handle being washed. The source order, not the query or website title, identifies the second item.",
+        "required_behavior_change": "Combine the answer with the scene and retain exactly one accepted website product, without an extra selection.",
+        "no_update_failure": "Choose the other physical referent without using the answer.",
+        "overupdate_failure": "Buy both kinds or an unwanted mixed kit.",
+        "visual_dependency_claim": "The answer gives only a position or event order. The website has both categories and does not reveal which physical item occupied that relation.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I'd like a spare of one of the two kitchen items I'm washing here. Add one individual item of the same general type and shape to the cart, not a set of multiple vessels. Any brand, size or colour is fine; a lid or other accessory is fine.",
+          "oracle_instruction": "I'd like a spare of the second kitchen item I wash here. Add one individual item of the same general type and shape to the cart, not a set of multiple vessels. Any brand, size or colour is fine; a lid or other accessory is fine.",
+          "candidate_roles": [
+            "bowl",
+            "pan"
+          ],
+          "hidden_target_role": "pan",
+          "valid_slot": "sequence",
+          "canonical_question": "Do you mean the first item you washed or the second one?",
+          "canonical_answer": "The second one.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "bowl": "p_88e43c3b5832",
+            "pan": "p_027259fe74fb"
+          },
+          "equivalent_role_ids": {
+            "bowl": [
+              "p_f56a3ac89c15",
+              "p_b9aacb150edc",
+              "p_e91e36003f96",
+              "p_6afb3ad7e2f9",
+              "p_38c40fca4276",
+              "p_7cf1f0ac3801",
+              "p_2d4187041356",
+              "p_fc3d5f11705e",
+              "p_467912d7e8a0",
+              "p_2403e970aba1",
+              "p_93b0f174bfb6",
+              "p_41d24864602a",
+              "p_2867eb7ca61f",
+              "p_d198e61ddb8b",
+              "p_daff1b686504",
+              "p_0f2c5d9f90d5"
+            ],
+            "pan": [
+              "p_48d38c4a07ef",
+              "p_c5f91af54fe9",
+              "p_1eaa7488b8ff",
+              "p_586d57e59626",
+              "p_71a8d25134c8",
+              "p_4a11fd74f5bd",
+              "p_b4f66bba3ada",
+              "p_5df5da31a47f",
+              "p_28bad4916ffe",
+              "p_3a1c31f83747",
+              "p_7da97dbcebd7",
+              "p_52b7d3cb6bd5",
+              "p_5d62c813619b",
+              "p_1c56f3c49037",
+              "p_8a7eaa9a2b25",
+              "p_7ef4e1071d78",
+              "p_d46e6c04114e",
+              "p_d6581e004a26",
+              "p_8ac2aa95f987",
+              "p_e87b235c05d9",
+              "p_d1636b6a84a8",
+              "p_88b5f89f5059",
+              "p_2686a72a79e1",
+              "p_9d2c32f55827",
+              "p_f1b2195ffbb9",
+              "p_30722570c55e",
+              "p_2764ceb0b506",
+              "p_1f7b4584830d",
+              "p_8c9106c838a4",
+              "p_3ae2fcd64d6d",
+              "p_effa872ccdba",
+              "p_9afa3926ee98",
+              "p_528e3fb5822a",
+              "p_6d74c0b8a7fa",
+              "p_e2bd008d96c2",
+              "p_f3e1bd1f2006",
+              "p_797ad579167f",
+              "p_b8dcce75138c",
+              "p_212cc8f2feb8",
+              "p_9bd2b58157d1",
+              "p_2f0d33087538"
+            ]
+          },
+          "completion_claim": "One round frying pan/skillet with a long handle; lids and other accessories (including a spatula) do not add another pan. All sizes, brands, colours and materials are allowed. Reject multi-pan sets, divided egg pans, square pans and deep saucepans. The initial alternative is one round metal bowl, including a handled metal bowl; no multi-bowl sets."
+        },
+        "decision": {
+          "candidates": {
+            "bowl": "p_88e43c3b5832",
+            "pan": "p_027259fe74fb"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "bowl",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "bowl",
+                "pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "pan"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The bowl and then the pan are washed within the opening batch; only the order selects the pan."
+            }
+          ],
+          "established_by": "cursor-subagent/claude-opus sequence-clarify-repair 2026-11-03",
+          "established_at": "2026-11-03",
+          "note": "Rebuilt for immediate ambiguity (fixed-step-replay-immediate-ambiguity-20261103); evidence in the repair proposal.",
+          "recording": "key_events"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "stainless steel mixing bowl single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-sequence-2026102903.json",
+              "result_entity_ids": [
+                "p_88e43c3b5832",
+                "p_13427fe4f3a2",
+                "p_f56a3ac89c15",
+                "p_b9aacb150edc",
+                "p_e91e36003f96",
+                "p_104f3c73ed5c",
+                "p_6afb3ad7e2f9",
+                "p_38c40fca4276",
+                "p_6c37c5fee5c7",
+                "p_7cf1f0ac3801",
+                "p_2d4187041356",
+                "p_fc3d5f11705e",
+                "p_6c0e7361e18d",
+                "p_67b3b77413d7",
+                "p_4ffe184ee2a5",
+                "p_b45a1261cd3d",
+                "p_96b30c522e86",
+                "p_408d85293a4f",
+                "p_467912d7e8a0",
+                "p_8e06af18ec6e",
+                "p_348b5b1e6520",
+                "p_2666084dfb8a",
+                "p_976429820ec5",
+                "p_2403e970aba1",
+                "p_df4a45d68af8",
+                "p_e84011e564b9",
+                "p_ad068453769f",
+                "p_790637d56362",
+                "p_dbc2ca13da1d",
+                "p_93b0f174bfb6",
+                "p_2d618bcf267a",
+                "p_614f321c8f23",
+                "p_41d24864602a",
+                "p_2867eb7ca61f",
+                "p_5717995a26cb",
+                "p_b9dce23717f9",
+                "p_d198e61ddb8b",
+                "p_78fc9f3f809e",
+                "p_daff1b686504",
+                "p_0f2c5d9f90d5",
+                "p_61bc8033b077",
+                "p_c0770208139f",
+                "p_9f6ba05ab162",
+                "p_bf2195369ca1",
+                "p_0dfbe2230b93",
+                "p_cdaa24c6a4f8",
+                "p_2e594fc327f9",
+                "p_75e9bdad736f"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "single black frying pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-sequence-2026102903.json",
+              "result_entity_ids": [
+                "p_027259fe74fb",
+                "p_48d38c4a07ef",
+                "p_c5f91af54fe9",
+                "p_1eaa7488b8ff",
+                "p_586d57e59626",
+                "p_71a8d25134c8",
+                "p_4a11fd74f5bd",
+                "p_b4f66bba3ada",
+                "p_5df5da31a47f",
+                "p_28bad4916ffe",
+                "p_3a1c31f83747",
+                "p_7da97dbcebd7",
+                "p_52b7d3cb6bd5",
+                "p_5d62c813619b",
+                "p_1c56f3c49037",
+                "p_8a7eaa9a2b25",
+                "p_7ef4e1071d78",
+                "p_156abb6963df",
+                "p_d46e6c04114e",
+                "p_d6581e004a26",
+                "p_8ac2aa95f987",
+                "p_e87b235c05d9",
+                "p_d1636b6a84a8",
+                "p_88b5f89f5059",
+                "p_2686a72a79e1",
+                "p_9d2c32f55827",
+                "p_f1b2195ffbb9",
+                "p_30722570c55e",
+                "p_2764ceb0b506",
+                "p_a5f6d31c62c6",
+                "p_1f7b4584830d",
+                "p_8c9106c838a4",
+                "p_3ae2fcd64d6d",
+                "p_effa872ccdba",
+                "p_9afa3926ee98",
+                "p_097edf76d373",
+                "p_528e3fb5822a",
+                "p_6d74c0b8a7fa",
+                "p_e2bd008d96c2",
+                "p_f3e1bd1f2006",
+                "p_797ad579167f",
+                "p_5d8de116d98f",
+                "p_b8dcce75138c",
+                "p_212cc8f2feb8",
+                "p_9bd2b58157d1",
+                "p_2f0d33087538",
+                "p_9973f5ab4a13",
+                "p_d39011dd26cf"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_88e43c3b5832",
+            "p_13427fe4f3a2",
+            "p_f56a3ac89c15",
+            "p_b9aacb150edc",
+            "p_e91e36003f96",
+            "p_104f3c73ed5c",
+            "p_6afb3ad7e2f9",
+            "p_38c40fca4276",
+            "p_6c37c5fee5c7",
+            "p_7cf1f0ac3801",
+            "p_2d4187041356",
+            "p_fc3d5f11705e",
+            "p_6c0e7361e18d",
+            "p_67b3b77413d7",
+            "p_4ffe184ee2a5",
+            "p_b45a1261cd3d",
+            "p_96b30c522e86",
+            "p_408d85293a4f",
+            "p_467912d7e8a0",
+            "p_8e06af18ec6e",
+            "p_348b5b1e6520",
+            "p_2666084dfb8a",
+            "p_976429820ec5",
+            "p_2403e970aba1",
+            "p_df4a45d68af8",
+            "p_e84011e564b9",
+            "p_ad068453769f",
+            "p_790637d56362",
+            "p_dbc2ca13da1d",
+            "p_93b0f174bfb6",
+            "p_2d618bcf267a",
+            "p_614f321c8f23",
+            "p_41d24864602a",
+            "p_2867eb7ca61f",
+            "p_5717995a26cb",
+            "p_b9dce23717f9",
+            "p_d198e61ddb8b",
+            "p_78fc9f3f809e",
+            "p_daff1b686504",
+            "p_0f2c5d9f90d5",
+            "p_61bc8033b077",
+            "p_c0770208139f",
+            "p_9f6ba05ab162",
+            "p_bf2195369ca1",
+            "p_0dfbe2230b93",
+            "p_cdaa24c6a4f8",
+            "p_2e594fc327f9",
+            "p_75e9bdad736f",
+            "p_027259fe74fb",
+            "p_48d38c4a07ef",
+            "p_c5f91af54fe9",
+            "p_1eaa7488b8ff",
+            "p_586d57e59626",
+            "p_71a8d25134c8",
+            "p_4a11fd74f5bd",
+            "p_b4f66bba3ada",
+            "p_5df5da31a47f",
+            "p_28bad4916ffe",
+            "p_3a1c31f83747",
+            "p_7da97dbcebd7",
+            "p_52b7d3cb6bd5",
+            "p_5d62c813619b",
+            "p_1c56f3c49037",
+            "p_8a7eaa9a2b25",
+            "p_7ef4e1071d78",
+            "p_156abb6963df",
+            "p_d46e6c04114e",
+            "p_d6581e004a26",
+            "p_8ac2aa95f987",
+            "p_e87b235c05d9",
+            "p_d1636b6a84a8",
+            "p_88b5f89f5059",
+            "p_2686a72a79e1",
+            "p_9d2c32f55827",
+            "p_f1b2195ffbb9",
+            "p_30722570c55e",
+            "p_2764ceb0b506",
+            "p_a5f6d31c62c6",
+            "p_1f7b4584830d",
+            "p_8c9106c838a4",
+            "p_3ae2fcd64d6d",
+            "p_effa872ccdba",
+            "p_9afa3926ee98",
+            "p_097edf76d373",
+            "p_528e3fb5822a",
+            "p_6d74c0b8a7fa",
+            "p_e2bd008d96c2",
+            "p_f3e1bd1f2006",
+            "p_797ad579167f",
+            "p_5d8de116d98f",
+            "p_b8dcce75138c",
+            "p_212cc8f2feb8",
+            "p_9bd2b58157d1",
+            "p_2f0d33087538",
+            "p_9973f5ab4a13",
+            "p_d39011dd26cf"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_88e43c3b5832",
+            "p_13427fe4f3a2",
+            "p_a5f6d31c62c6",
+            "p_5d8de116d98f",
+            "p_9973f5ab4a13"
+          ],
+          "related_entity_ids": [
+            "p_f56a3ac89c15",
+            "p_b9aacb150edc",
+            "p_e91e36003f96",
+            "p_104f3c73ed5c",
+            "p_6afb3ad7e2f9",
+            "p_38c40fca4276",
+            "p_6c37c5fee5c7",
+            "p_7cf1f0ac3801",
+            "p_2d4187041356",
+            "p_fc3d5f11705e",
+            "p_6c0e7361e18d",
+            "p_67b3b77413d7",
+            "p_4ffe184ee2a5",
+            "p_b45a1261cd3d",
+            "p_96b30c522e86",
+            "p_408d85293a4f"
+          ],
+          "ambient_entity_ids": [
+            "p_467912d7e8a0",
+            "p_8e06af18ec6e",
+            "p_348b5b1e6520",
+            "p_2666084dfb8a",
+            "p_976429820ec5",
+            "p_2403e970aba1",
+            "p_df4a45d68af8",
+            "p_e84011e564b9",
+            "p_ad068453769f",
+            "p_790637d56362",
+            "p_dbc2ca13da1d",
+            "p_93b0f174bfb6",
+            "p_2d618bcf267a",
+            "p_614f321c8f23",
+            "p_41d24864602a",
+            "p_2867eb7ca61f",
+            "p_5717995a26cb",
+            "p_b9dce23717f9",
+            "p_d198e61ddb8b",
+            "p_78fc9f3f809e",
+            "p_daff1b686504",
+            "p_0f2c5d9f90d5",
+            "p_61bc8033b077",
+            "p_c0770208139f",
+            "p_9f6ba05ab162",
+            "p_bf2195369ca1",
+            "p_0dfbe2230b93",
+            "p_cdaa24c6a4f8",
+            "p_2e594fc327f9",
+            "p_75e9bdad736f",
+            "p_156abb6963df",
+            "p_097edf76d373",
+            "p_d39011dd26cf"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_88e43c3b5832",
+              "ring": "core",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_13427fe4f3a2",
+              "ring": "core",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_f56a3ac89c15",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_b9aacb150edc",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_e91e36003f96",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_104f3c73ed5c",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_6afb3ad7e2f9",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_38c40fca4276",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6c37c5fee5c7",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_7cf1f0ac3801",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2d4187041356",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_fc3d5f11705e",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6c0e7361e18d",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_67b3b77413d7",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_4ffe184ee2a5",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_b45a1261cd3d",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_96b30c522e86",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_408d85293a4f",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_467912d7e8a0",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_8e06af18ec6e",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_348b5b1e6520",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_2666084dfb8a",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_976429820ec5",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_2403e970aba1",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_df4a45d68af8",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_e84011e564b9",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_ad068453769f",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_790637d56362",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_dbc2ca13da1d",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_93b0f174bfb6",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2d618bcf267a",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_614f321c8f23",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_41d24864602a",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2867eb7ca61f",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_5717995a26cb",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_b9dce23717f9",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_d198e61ddb8b",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_78fc9f3f809e",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_daff1b686504",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_0f2c5d9f90d5",
+              "ring": "related",
+              "reason": "The other physical referent, not the one resolved by the user answer.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_61bc8033b077",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_c0770208139f",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_9f6ba05ab162",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_bf2195369ca1",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_0dfbe2230b93",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_cdaa24c6a4f8",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_2e594fc327f9",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_75e9bdad736f",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_156abb6963df",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            },
+            {
+              "entity_id": "p_a5f6d31c62c6",
+              "ring": "core",
+              "reason": "Divided or square cooking surface, not the round undivided pan shown.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "different_shape"
+              ]
+            },
+            {
+              "entity_id": "p_097edf76d373",
+              "ring": "related",
+              "reason": "Divided or square cooking surface, not the round undivided pan shown.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "different_shape"
+              ]
+            },
+            {
+              "entity_id": "p_5d8de116d98f",
+              "ring": "core",
+              "reason": "Deep saucepan rather than the shallow round frying pan.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "wrong_vessel_type"
+              ]
+            },
+            {
+              "entity_id": "p_9973f5ab4a13",
+              "ring": "core",
+              "reason": "Divided or square cooking surface, not the round undivided pan shown.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "different_shape"
+              ]
+            },
+            {
+              "entity_id": "p_d39011dd26cf",
+              "ring": "related",
+              "reason": "Multi-vessel set or general-purpose mixed-tool kit, outside the requested single vessel or one kind of tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "mixed_or_multiple_items"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ]
+        },
+        "catalogue_assessment": {
+          "rule": "One round frying pan/skillet with a long handle; lids and other accessories (including a spatula) do not add another pan. All sizes, brands, colours and materials are allowed. Reject multi-pan sets, divided egg pans, square pans and deep saucepans. The initial alternative is one round metal bowl, including a handled metal bowl; no multi-bowl sets.",
+          "initial_accepted": [
+            "p_88e43c3b5832",
+            "p_f56a3ac89c15",
+            "p_b9aacb150edc",
+            "p_e91e36003f96",
+            "p_6afb3ad7e2f9",
+            "p_38c40fca4276",
+            "p_7cf1f0ac3801",
+            "p_2d4187041356",
+            "p_fc3d5f11705e",
+            "p_467912d7e8a0",
+            "p_2403e970aba1",
+            "p_93b0f174bfb6",
+            "p_41d24864602a",
+            "p_2867eb7ca61f",
+            "p_d198e61ddb8b",
+            "p_daff1b686504",
+            "p_0f2c5d9f90d5",
+            "p_027259fe74fb",
+            "p_48d38c4a07ef",
+            "p_c5f91af54fe9",
+            "p_1eaa7488b8ff",
+            "p_586d57e59626",
+            "p_71a8d25134c8",
+            "p_4a11fd74f5bd",
+            "p_b4f66bba3ada",
+            "p_5df5da31a47f",
+            "p_28bad4916ffe",
+            "p_3a1c31f83747",
+            "p_7da97dbcebd7",
+            "p_52b7d3cb6bd5",
+            "p_5d62c813619b",
+            "p_1c56f3c49037",
+            "p_8a7eaa9a2b25",
+            "p_7ef4e1071d78",
+            "p_d46e6c04114e",
+            "p_d6581e004a26",
+            "p_8ac2aa95f987",
+            "p_e87b235c05d9",
+            "p_d1636b6a84a8",
+            "p_88b5f89f5059",
+            "p_2686a72a79e1",
+            "p_9d2c32f55827",
+            "p_f1b2195ffbb9",
+            "p_30722570c55e",
+            "p_2764ceb0b506",
+            "p_1f7b4584830d",
+            "p_8c9106c838a4",
+            "p_3ae2fcd64d6d",
+            "p_effa872ccdba",
+            "p_9afa3926ee98",
+            "p_528e3fb5822a",
+            "p_6d74c0b8a7fa",
+            "p_e2bd008d96c2",
+            "p_f3e1bd1f2006",
+            "p_797ad579167f",
+            "p_b8dcce75138c",
+            "p_212cc8f2feb8",
+            "p_9bd2b58157d1",
+            "p_2f0d33087538"
+          ],
+          "final_accepted": [
+            "p_027259fe74fb",
+            "p_48d38c4a07ef",
+            "p_c5f91af54fe9",
+            "p_1eaa7488b8ff",
+            "p_586d57e59626",
+            "p_71a8d25134c8",
+            "p_4a11fd74f5bd",
+            "p_b4f66bba3ada",
+            "p_5df5da31a47f",
+            "p_28bad4916ffe",
+            "p_3a1c31f83747",
+            "p_7da97dbcebd7",
+            "p_52b7d3cb6bd5",
+            "p_5d62c813619b",
+            "p_1c56f3c49037",
+            "p_8a7eaa9a2b25",
+            "p_7ef4e1071d78",
+            "p_d46e6c04114e",
+            "p_d6581e004a26",
+            "p_8ac2aa95f987",
+            "p_e87b235c05d9",
+            "p_d1636b6a84a8",
+            "p_88b5f89f5059",
+            "p_2686a72a79e1",
+            "p_9d2c32f55827",
+            "p_f1b2195ffbb9",
+            "p_30722570c55e",
+            "p_2764ceb0b506",
+            "p_1f7b4584830d",
+            "p_8c9106c838a4",
+            "p_3ae2fcd64d6d",
+            "p_effa872ccdba",
+            "p_9afa3926ee98",
+            "p_528e3fb5822a",
+            "p_6d74c0b8a7fa",
+            "p_e2bd008d96c2",
+            "p_f3e1bd1f2006",
+            "p_797ad579167f",
+            "p_b8dcce75138c",
+            "p_212cc8f2feb8",
+            "p_9bd2b58157d1",
+            "p_2f0d33087538"
+          ],
+          "evidence": "All captured titles and public listing images checked; broad usable alternatives retained, no hidden exact brand, gauge, size or appearance."
+        }
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Original-resolution frame sequences and full three-minute overview inspected.",
+        "missing": "Independent review and one valid development trial."
+      },
+      "repair": {
+        "reviewer": "coding-agent/root",
+        "reason": "The spare-vessel purpose does not need to exclude an accompanying spatula. Wording now restricts multiple vessels and allows ordinary accessories; final answer boundary unchanged.",
+        "affected_scope": [
+          "package wording"
+        ],
+        "retained": [
+          "all source frames",
+          "physical referents and order",
+          "all final accepted products",
+          "blind reconstruction"
+        ]
+      },
+      "repair_history": [
+        {
+          "repair_id": "fixed-step-replay-immediate-ambiguity-20261103",
+          "date": "2026-11-03",
+          "reason": "Fixed-step replay speaks the first request with the first batch; V0 moves so the request is true and every candidate or change is reachable from the session start.",
+          "review_reference": ".scratch/stream-materials/repairs/candidate-mart-clarify-sequence-2026102903/proposal.json",
+          "previous_packets": [
+            {
+              "id": "V0",
+              "timestamps_seconds": [
+                0,
+                1,
+                2,
+                3,
+                30,
+                31,
+                32,
+                33
+              ],
+              "frame_paths": [
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_00.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_01.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_02.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_03.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_04.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_05.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_06.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026102903/V0_07.jpg"
+              ]
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "The first four frames show a small round metal bowl being washed. The later four show a dark round frying pan with one long handle being washed. The source order, not the query or website title, identifies the second item.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            }
+          ],
+          "previous_observed_events": [
+            {
+              "interval_seconds": [
+                0,
+                33
+              ],
+              "description": "The first four frames show a small round metal bowl being washed. The later four show a dark round frying pan with one long handle being washed. The source order, not the query or website title, identifies the second item."
+            }
+          ],
+          "previous_decision": {
+            "candidates": {
+              "bowl": "p_88e43c3b5832",
+              "pan": "p_027259fe74fb"
+            },
+            "observed": [
+              {
+                "frame": "V0:0",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "V0:1",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "V0:2",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "V0:3",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "V0:4",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "V0:5",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "V0:6",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "V0:7",
+                "live": [
+                  "bowl",
+                  "pan"
+                ]
+              },
+              {
+                "frame": "utterance",
+                "live": [
+                  "pan"
+                ],
+                "narrowed_by": "user_utterance",
+                "why": "The first four frames show a small round metal bowl being washed. The later four show a dark round frying pan with one long handle being washed. The source order, not the query or website title, identifies the second item."
+              }
+            ],
+            "established_by": "coding-agent/root",
+            "established_at": "2026-10-29",
+            "note": "Construction judgement, awaiting independent review."
+          },
+          "previous_canonical_question": "Do you mean the first item you washed or the second one?",
+          "previous_stream": null
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          26.0,
+          71.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-sequence-2026102903/review.json"
+      }
+    },
+    {
+      "task_id": "candidate-mart-clarify-position-2026102904",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          216
+        ],
+        "media_id": "77a26997-2507-4402-8263-a8da549e8bf7",
+        "original_video_id": "77a26997-2507-4402-8263-a8da549e8bf7",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              68,
+              75
+            ],
+            "description": "The wearer sews a small felt/fabric piece with a thread-bearing hand needle. The long orange/red piece is part of the craft work, not a proven crochet hook. Small finger-loop scissors rest above the hands on the yellow mat."
+          }
+        ],
+        "scope_note": "The original Ego2Web annotation is retrieval evidence only. Construction uses inspected actual frames and native website facts."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102904/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The wearer sews a small felt/fabric piece with a thread-bearing hand needle. The long orange/red piece is part of the craft work, not a proven crochet hook. Small finger-loop scissors rest above the hands on the yellow mat.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent resolve a practical spare-item request from the actual spatial or temporal relation and select a useful website product?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "belief_before": "Either of the two physical referents could be the intended spare.",
+        "belief_after": "The position answer identifies the scissors resting above the hands; the held sewing needle is the other referent.",
+        "required_behavior_change": "Combine the answer with the scene and retain exactly one accepted website product, without an extra selection.",
+        "no_update_failure": "Choose the other physical referent without using the answer.",
+        "overupdate_failure": "Buy both kinds or an unwanted mixed kit.",
+        "visual_dependency_claim": "The answer gives only a position or event order. The website has both categories and does not reveal which physical item occupied that relation.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I'd like a spare of one of these two craft tools, either the one I'm holding or the one resting above my hands on the mat. Add one product of the same general manual tool type to the cart. A pack of that type is fine, but not a general-purpose craft kit. Any brand, size or colour is fine.",
+          "oracle_instruction": "I'd like a spare of the craft tool resting above my hands on the mat. Add one product of the same general manual tool type to the cart. A pack of that type is fine, but not a general-purpose craft kit. Any brand, size or colour is fine.",
+          "candidate_roles": [
+            "needle",
+            "cutters"
+          ],
+          "hidden_target_role": "cutters",
+          "valid_slot": "position",
+          "canonical_question": "Do you mean the tool you are holding or the tool resting above your hands?",
+          "canonical_answer": "The one resting above my hands.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "cutters": "p_6950a6f394d3",
+            "needle": "p_619d17234d7f"
+          },
+          "equivalent_role_ids": {
+            "cutters": [
+              "p_4d39a5d9b480",
+              "p_91c8fa96ddbf",
+              "p_fe0edae07ddc",
+              "p_df05f9e9ad55",
+              "p_a7c8abe4dade",
+              "p_9043ea44c8fe",
+              "p_d233274678c6",
+              "p_992551d04d39",
+              "p_bf289e48aefd",
+              "p_46d9b4b15822",
+              "p_42be3f428957",
+              "p_96b0abec54f6",
+              "p_d08d8e60b3a6",
+              "p_86f0a29b23d1",
+              "p_43da317b39d6",
+              "p_6ce551bf0a1c",
+              "p_d705cf14b856",
+              "p_5dc9b4abb6c1",
+              "p_4b6b242c5d48",
+              "p_59816bdb7e42",
+              "p_94504fd41c41",
+              "p_ca7993000b61",
+              "p_47619f11083c",
+              "p_29a3a950727f",
+              "p_36c42a91a6be",
+              "p_70e0a07e4529",
+              "p_7b8b0f6853b2",
+              "p_94153e6d0ebd",
+              "p_1d3250069730",
+              "p_c14400e245c8",
+              "p_0f524e593ee8",
+              "p_7376d24391d4",
+              "p_a13ec91687a4",
+              "p_bee7271b636d",
+              "p_061e22fdd3e6",
+              "p_c3d5de47d73f",
+              "p_ed5d33153a7d",
+              "p_f2525d49d404",
+              "p_d8a1e8823a5e",
+              "p_bd471d5e6bef",
+              "p_d2ccccf225d4",
+              "p_ce5c6501aec4",
+              "p_57fcfb6ae16c",
+              "p_5573c2baddd9",
+              "p_240c66767c7c",
+              "p_d9db6e23edbb",
+              "p_dcfd545845fd",
+              "p_2a6bc52424eb",
+              "p_96209ab58b35",
+              "p_892b3144ebd8",
+              "p_da3d2a962380",
+              "p_c434de7583c2",
+              "p_6c72043c0751",
+              "p_521fb1130fd0",
+              "p_83d5cf1c3360",
+              "p_f4d01ab4fe99",
+              "p_ddad9d996686",
+              "p_3d56f471ba5b",
+              "p_53c0df75c90c",
+              "p_ea9122fcdecf",
+              "p_e93b60db7d35",
+              "p_412e6a1f2800",
+              "p_a9763f0ff857",
+              "p_96626190b1a4",
+              "p_a1c2efa61dc4",
+              "p_81aa6596b9e6",
+              "p_81aa17df5e5d",
+              "p_87e24809d713",
+              "p_35ac21d0d784",
+              "p_6153944f344a",
+              "p_c33842e3d2a0",
+              "p_4575e08b7267",
+              "p_f3037988eef8",
+              "p_52b2ae91e1ed",
+              "p_e5180eb86e5f",
+              "p_c3f4988e9c71",
+              "p_cf609dae8ebd",
+              "p_a79ac8ba3725",
+              "p_18994e21aa41",
+              "p_ff2958a9c106",
+              "p_969cb729fbd3",
+              "p_f9f6121d6480",
+              "p_789de65f17c3",
+              "p_42ecf17602c1",
+              "p_e3f954c968a8"
+            ],
+            "needle": [
+              "p_ae68d3e5c153",
+              "p_d8f724ca8d3d",
+              "p_52e565318d3a",
+              "p_a9e9558f3926",
+              "p_9426a3f4070d",
+              "p_a1338598bc0d",
+              "p_7402d5638cde",
+              "p_2db47a3175e7",
+              "p_d9c43cb2b0b5",
+              "p_d976047630c2",
+              "p_3d5d175e59d7",
+              "p_77baeb7958a6",
+              "p_30657cf4a57a",
+              "p_22ef754cf68d",
+              "p_6117068bcc48",
+              "p_6f03d6bf477a",
+              "p_971349808340",
+              "p_51a3f166a775",
+              "p_88d57e7ad61b",
+              "p_e3fc65000ee2",
+              "p_3fbd8b2324b8",
+              "p_b80ee565bf4d",
+              "p_0f9e9a3d3444",
+              "p_9d6b31ccfe41",
+              "p_4f22c9ef12f5",
+              "p_99a0bbe7f700",
+              "p_ce1389c8b218",
+              "p_4ef980a8b4a5",
+              "p_7967cc5c3884",
+              "p_028412bd28f8",
+              "p_4e1ea4e90985",
+              "p_95dea829de8b",
+              "p_9bd57874e95f",
+              "p_d530a7cac9dd",
+              "p_e439c4347450",
+              "p_da72e213f81a",
+              "p_9c81f1a44cf2",
+              "p_0a0d1ce24bd9",
+              "p_507cc2709e0c",
+              "p_2c266a697b93",
+              "p_ac298b060f2e",
+              "p_3a1d5afec479",
+              "p_dcb623a0504f"
+            ]
+          },
+          "completion_claim": "One product of manual cutting tools usable for yarn or craft thread, including scissors and thread snips, same-kind multipacks and cases. Incidental small accessories of a scissors-led product are allowed; no hidden colour, brand or exact size. The other physical referent is a hand sewing needle; needle-led comprehensive sewing kits are not a spare product of that kind."
+        },
+        "decision": {
+          "candidates": {
+            "cutters": "p_6950a6f394d3",
+            "needle": "p_619d17234d7f"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "needle",
+                "cutters"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "cutters"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The wearer sews a small felt/fabric piece with a thread-bearing hand needle. The long orange/red piece is part of the craft work, not a proven crochet hook. Small finger-loop scissors rest above the hands on the yellow mat."
+            }
+          ],
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-29",
+          "note": "Construction judgement, awaiting independent review."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "hand sewing needles",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102904.json",
+              "result_entity_ids": [
+                "p_619d17234d7f",
+                "p_ae68d3e5c153",
+                "p_d8f724ca8d3d",
+                "p_52e565318d3a",
+                "p_a9e9558f3926",
+                "p_9426a3f4070d",
+                "p_a1338598bc0d",
+                "p_7402d5638cde",
+                "p_2db47a3175e7",
+                "p_d9c43cb2b0b5",
+                "p_d976047630c2",
+                "p_3d5d175e59d7",
+                "p_77baeb7958a6",
+                "p_30657cf4a57a",
+                "p_22ef754cf68d",
+                "p_56d9ecff3ec3",
+                "p_6117068bcc48",
+                "p_6f03d6bf477a",
+                "p_971349808340",
+                "p_51a3f166a775",
+                "p_88d57e7ad61b",
+                "p_e3fc65000ee2",
+                "p_3fbd8b2324b8",
+                "p_b80ee565bf4d",
+                "p_0f9e9a3d3444",
+                "p_9d6b31ccfe41",
+                "p_4f22c9ef12f5",
+                "p_99a0bbe7f700",
+                "p_f9e376ce44f0",
+                "p_ce1389c8b218",
+                "p_4ef980a8b4a5",
+                "p_7967cc5c3884",
+                "p_028412bd28f8",
+                "p_4e1ea4e90985",
+                "p_95dea829de8b",
+                "p_9bd57874e95f",
+                "p_d530a7cac9dd",
+                "p_7e8d57e0d371",
+                "p_e439c4347450",
+                "p_da72e213f81a",
+                "p_9c81f1a44cf2",
+                "p_0a0d1ce24bd9",
+                "p_507cc2709e0c",
+                "p_6d3caa1ff3f5",
+                "p_2c266a697b93",
+                "p_ac298b060f2e",
+                "p_3a1d5afec479",
+                "p_dcb623a0504f"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "small embroidery scissors single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102904.json",
+              "result_entity_ids": [
+                "p_6950a6f394d3",
+                "p_4d39a5d9b480",
+                "p_91c8fa96ddbf",
+                "p_fe0edae07ddc",
+                "p_df05f9e9ad55",
+                "p_a7c8abe4dade",
+                "p_9043ea44c8fe",
+                "p_d233274678c6",
+                "p_992551d04d39",
+                "p_bf289e48aefd",
+                "p_46d9b4b15822",
+                "p_42be3f428957",
+                "p_96b0abec54f6",
+                "p_d08d8e60b3a6",
+                "p_86f0a29b23d1",
+                "p_43da317b39d6",
+                "p_6ce551bf0a1c",
+                "p_d705cf14b856",
+                "p_5dc9b4abb6c1",
+                "p_4b6b242c5d48",
+                "p_59816bdb7e42",
+                "p_94504fd41c41",
+                "p_ca7993000b61",
+                "p_47619f11083c",
+                "p_29a3a950727f",
+                "p_36c42a91a6be",
+                "p_70e0a07e4529",
+                "p_7b8b0f6853b2",
+                "p_94153e6d0ebd",
+                "p_1d3250069730",
+                "p_c14400e245c8",
+                "p_0f524e593ee8",
+                "p_7376d24391d4",
+                "p_a13ec91687a4",
+                "p_bee7271b636d",
+                "p_061e22fdd3e6",
+                "p_c3d5de47d73f",
+                "p_ed5d33153a7d",
+                "p_f2525d49d404",
+                "p_d8a1e8823a5e",
+                "p_bd471d5e6bef",
+                "p_d2ccccf225d4",
+                "p_ce5c6501aec4",
+                "p_57fcfb6ae16c",
+                "p_5573c2baddd9",
+                "p_240c66767c7c",
+                "p_d9db6e23edbb",
+                "p_dcfd545845fd"
+              ]
+            },
+            {
+              "stage": "related_cutters",
+              "query": "single fabric sewing scissors",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102904.json",
+              "result_entity_ids": [
+                "p_2a6bc52424eb",
+                "p_96209ab58b35",
+                "p_892b3144ebd8",
+                "p_da3d2a962380",
+                "p_c434de7583c2",
+                "p_6c72043c0751",
+                "p_521fb1130fd0",
+                "p_6950a6f394d3",
+                "p_83d5cf1c3360",
+                "p_f4d01ab4fe99",
+                "p_ddad9d996686",
+                "p_3d56f471ba5b",
+                "p_ce5c6501aec4",
+                "p_53c0df75c90c",
+                "p_ea9122fcdecf",
+                "p_e93b60db7d35",
+                "p_412e6a1f2800",
+                "p_a9763f0ff857",
+                "p_96626190b1a4",
+                "p_6ce551bf0a1c",
+                "p_a1c2efa61dc4",
+                "p_81aa6596b9e6",
+                "p_42be3f428957",
+                "p_6c40ac6c1f32",
+                "p_81aa17df5e5d",
+                "p_4d39a5d9b480",
+                "p_c14400e245c8",
+                "p_87e24809d713",
+                "p_35ac21d0d784",
+                "p_6153944f344a",
+                "p_c33842e3d2a0",
+                "p_4575e08b7267",
+                "p_fe0edae07ddc",
+                "p_f3037988eef8",
+                "p_52b2ae91e1ed",
+                "p_e5180eb86e5f",
+                "p_c3f4988e9c71",
+                "p_cf609dae8ebd",
+                "p_a79ac8ba3725",
+                "p_18994e21aa41",
+                "p_ff2958a9c106",
+                "p_969cb729fbd3",
+                "p_df05f9e9ad55",
+                "p_f9f6121d6480",
+                "p_992551d04d39",
+                "p_789de65f17c3",
+                "p_42ecf17602c1",
+                "p_e3f954c968a8"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_619d17234d7f",
+            "p_ae68d3e5c153",
+            "p_d8f724ca8d3d",
+            "p_52e565318d3a",
+            "p_a9e9558f3926",
+            "p_9426a3f4070d",
+            "p_a1338598bc0d",
+            "p_7402d5638cde",
+            "p_2db47a3175e7",
+            "p_d9c43cb2b0b5",
+            "p_d976047630c2",
+            "p_3d5d175e59d7",
+            "p_77baeb7958a6",
+            "p_30657cf4a57a",
+            "p_22ef754cf68d",
+            "p_56d9ecff3ec3",
+            "p_6117068bcc48",
+            "p_6f03d6bf477a",
+            "p_971349808340",
+            "p_51a3f166a775",
+            "p_88d57e7ad61b",
+            "p_e3fc65000ee2",
+            "p_3fbd8b2324b8",
+            "p_b80ee565bf4d",
+            "p_0f9e9a3d3444",
+            "p_9d6b31ccfe41",
+            "p_4f22c9ef12f5",
+            "p_99a0bbe7f700",
+            "p_f9e376ce44f0",
+            "p_ce1389c8b218",
+            "p_4ef980a8b4a5",
+            "p_7967cc5c3884",
+            "p_028412bd28f8",
+            "p_4e1ea4e90985",
+            "p_95dea829de8b",
+            "p_9bd57874e95f",
+            "p_d530a7cac9dd",
+            "p_7e8d57e0d371",
+            "p_e439c4347450",
+            "p_da72e213f81a",
+            "p_9c81f1a44cf2",
+            "p_0a0d1ce24bd9",
+            "p_507cc2709e0c",
+            "p_6d3caa1ff3f5",
+            "p_2c266a697b93",
+            "p_ac298b060f2e",
+            "p_3a1d5afec479",
+            "p_dcb623a0504f",
+            "p_6950a6f394d3",
+            "p_4d39a5d9b480",
+            "p_91c8fa96ddbf",
+            "p_fe0edae07ddc",
+            "p_df05f9e9ad55",
+            "p_a7c8abe4dade",
+            "p_9043ea44c8fe",
+            "p_d233274678c6",
+            "p_992551d04d39",
+            "p_bf289e48aefd",
+            "p_46d9b4b15822",
+            "p_42be3f428957",
+            "p_96b0abec54f6",
+            "p_d08d8e60b3a6",
+            "p_86f0a29b23d1",
+            "p_43da317b39d6",
+            "p_6ce551bf0a1c",
+            "p_d705cf14b856",
+            "p_5dc9b4abb6c1",
+            "p_4b6b242c5d48",
+            "p_59816bdb7e42",
+            "p_94504fd41c41",
+            "p_ca7993000b61",
+            "p_47619f11083c",
+            "p_29a3a950727f",
+            "p_36c42a91a6be",
+            "p_70e0a07e4529",
+            "p_7b8b0f6853b2",
+            "p_94153e6d0ebd",
+            "p_1d3250069730",
+            "p_c14400e245c8",
+            "p_0f524e593ee8",
+            "p_7376d24391d4",
+            "p_a13ec91687a4",
+            "p_bee7271b636d",
+            "p_061e22fdd3e6",
+            "p_c3d5de47d73f",
+            "p_ed5d33153a7d",
+            "p_f2525d49d404",
+            "p_d8a1e8823a5e",
+            "p_bd471d5e6bef",
+            "p_d2ccccf225d4",
+            "p_ce5c6501aec4",
+            "p_57fcfb6ae16c",
+            "p_5573c2baddd9",
+            "p_240c66767c7c",
+            "p_d9db6e23edbb",
+            "p_dcfd545845fd",
+            "p_2a6bc52424eb",
+            "p_96209ab58b35",
+            "p_892b3144ebd8",
+            "p_da3d2a962380",
+            "p_c434de7583c2",
+            "p_6c72043c0751",
+            "p_521fb1130fd0",
+            "p_83d5cf1c3360",
+            "p_f4d01ab4fe99",
+            "p_ddad9d996686",
+            "p_3d56f471ba5b",
+            "p_53c0df75c90c",
+            "p_ea9122fcdecf",
+            "p_e93b60db7d35",
+            "p_412e6a1f2800",
+            "p_a9763f0ff857",
+            "p_96626190b1a4",
+            "p_a1c2efa61dc4",
+            "p_81aa6596b9e6",
+            "p_6c40ac6c1f32",
+            "p_81aa17df5e5d",
+            "p_87e24809d713",
+            "p_35ac21d0d784",
+            "p_6153944f344a",
+            "p_c33842e3d2a0",
+            "p_4575e08b7267",
+            "p_f3037988eef8",
+            "p_52b2ae91e1ed",
+            "p_e5180eb86e5f",
+            "p_c3f4988e9c71",
+            "p_cf609dae8ebd",
+            "p_a79ac8ba3725",
+            "p_18994e21aa41",
+            "p_ff2958a9c106",
+            "p_969cb729fbd3",
+            "p_f9f6121d6480",
+            "p_789de65f17c3",
+            "p_42ecf17602c1",
+            "p_e3f954c968a8"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_619d17234d7f",
+            "p_2db47a3175e7",
+            "p_56d9ecff3ec3",
+            "p_f9e376ce44f0",
+            "p_6d3caa1ff3f5",
+            "p_6c40ac6c1f32"
+          ],
+          "related_entity_ids": [
+            "p_ae68d3e5c153",
+            "p_d8f724ca8d3d",
+            "p_52e565318d3a",
+            "p_a9e9558f3926",
+            "p_9426a3f4070d",
+            "p_a1338598bc0d",
+            "p_7402d5638cde",
+            "p_d9c43cb2b0b5",
+            "p_d976047630c2",
+            "p_3d5d175e59d7",
+            "p_77baeb7958a6",
+            "p_30657cf4a57a",
+            "p_22ef754cf68d",
+            "p_6117068bcc48",
+            "p_6f03d6bf477a",
+            "p_971349808340"
+          ],
+          "ambient_entity_ids": [
+            "p_51a3f166a775",
+            "p_88d57e7ad61b",
+            "p_e3fc65000ee2",
+            "p_3fbd8b2324b8",
+            "p_b80ee565bf4d",
+            "p_0f9e9a3d3444",
+            "p_9d6b31ccfe41",
+            "p_4f22c9ef12f5",
+            "p_99a0bbe7f700",
+            "p_ce1389c8b218",
+            "p_4ef980a8b4a5",
+            "p_7967cc5c3884",
+            "p_028412bd28f8",
+            "p_4e1ea4e90985",
+            "p_95dea829de8b",
+            "p_9bd57874e95f",
+            "p_d530a7cac9dd",
+            "p_7e8d57e0d371",
+            "p_e439c4347450",
+            "p_da72e213f81a",
+            "p_9c81f1a44cf2",
+            "p_0a0d1ce24bd9",
+            "p_507cc2709e0c",
+            "p_2c266a697b93",
+            "p_ac298b060f2e",
+            "p_3a1d5afec479",
+            "p_dcb623a0504f"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_619d17234d7f",
+              "ring": "core",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ae68d3e5c153",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d8f724ca8d3d",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_52e565318d3a",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a9e9558f3926",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9426a3f4070d",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a1338598bc0d",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7402d5638cde",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2db47a3175e7",
+              "ring": "core",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d9c43cb2b0b5",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d976047630c2",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3d5d175e59d7",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_77baeb7958a6",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_30657cf4a57a",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_22ef754cf68d",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_56d9ecff3ec3",
+              "ring": "core",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A comprehensive mixed sewing kit, not a spare product of one tool kind.",
+              "failure_predicates": [
+                "mixed_tool_kit"
+              ]
+            },
+            {
+              "entity_id": "p_6117068bcc48",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6f03d6bf477a",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_971349808340",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_51a3f166a775",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_88d57e7ad61b",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_e3fc65000ee2",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3fbd8b2324b8",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_b80ee565bf4d",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_0f9e9a3d3444",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9d6b31ccfe41",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4f22c9ef12f5",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_99a0bbe7f700",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_f9e376ce44f0",
+              "ring": "core",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A comprehensive mixed sewing kit, not a spare product of one tool kind.",
+              "failure_predicates": [
+                "mixed_tool_kit"
+              ]
+            },
+            {
+              "entity_id": "p_ce1389c8b218",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4ef980a8b4a5",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7967cc5c3884",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_028412bd28f8",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4e1ea4e90985",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_95dea829de8b",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9bd57874e95f",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d530a7cac9dd",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7e8d57e0d371",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A comprehensive mixed sewing kit, not a spare product of one tool kind.",
+              "failure_predicates": [
+                "mixed_tool_kit"
+              ]
+            },
+            {
+              "entity_id": "p_e439c4347450",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_da72e213f81a",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9c81f1a44cf2",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_0a0d1ce24bd9",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_507cc2709e0c",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6d3caa1ff3f5",
+              "ring": "core",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A comprehensive mixed sewing kit, not a spare product of one tool kind.",
+              "failure_predicates": [
+                "mixed_tool_kit"
+              ]
+            },
+            {
+              "entity_id": "p_2c266a697b93",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ac298b060f2e",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3a1d5afec479",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_dcb623a0504f",
+              "ring": "related",
+              "why_plausible": "Real full native hand-sewing-needle result window matching the other physical referent.",
+              "reason": "A hand-needle product is the other referent, not the scissors resolved above the hands.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6c40ac6c1f32",
+              "ring": "core",
+              "reason": "Powered cutter, not a manual sewing tool.",
+              "why_plausible": "A real row in the complete native result window.",
+              "failure_predicates": [
+                "powered_tool"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ]
+        },
+        "catalogue_assessment": {
+          "rule": "One product of manual cutting tools usable for yarn or craft thread, including scissors and thread snips, same-kind multipacks and cases. Incidental small accessories of a scissors-led product are allowed; no hidden colour, brand or exact size. The other physical referent is a hand sewing needle; needle-led comprehensive sewing kits are not a spare product of that kind.",
+          "initial_accepted": [
+            "p_619d17234d7f",
+            "p_ae68d3e5c153",
+            "p_d8f724ca8d3d",
+            "p_52e565318d3a",
+            "p_a9e9558f3926",
+            "p_9426a3f4070d",
+            "p_a1338598bc0d",
+            "p_7402d5638cde",
+            "p_2db47a3175e7",
+            "p_d9c43cb2b0b5",
+            "p_d976047630c2",
+            "p_3d5d175e59d7",
+            "p_77baeb7958a6",
+            "p_30657cf4a57a",
+            "p_22ef754cf68d",
+            "p_6117068bcc48",
+            "p_6f03d6bf477a",
+            "p_971349808340",
+            "p_51a3f166a775",
+            "p_88d57e7ad61b",
+            "p_e3fc65000ee2",
+            "p_3fbd8b2324b8",
+            "p_b80ee565bf4d",
+            "p_0f9e9a3d3444",
+            "p_9d6b31ccfe41",
+            "p_4f22c9ef12f5",
+            "p_99a0bbe7f700",
+            "p_ce1389c8b218",
+            "p_4ef980a8b4a5",
+            "p_7967cc5c3884",
+            "p_028412bd28f8",
+            "p_4e1ea4e90985",
+            "p_95dea829de8b",
+            "p_9bd57874e95f",
+            "p_d530a7cac9dd",
+            "p_e439c4347450",
+            "p_da72e213f81a",
+            "p_9c81f1a44cf2",
+            "p_0a0d1ce24bd9",
+            "p_507cc2709e0c",
+            "p_2c266a697b93",
+            "p_ac298b060f2e",
+            "p_3a1d5afec479",
+            "p_dcb623a0504f",
+            "p_6950a6f394d3",
+            "p_4d39a5d9b480",
+            "p_91c8fa96ddbf",
+            "p_fe0edae07ddc",
+            "p_df05f9e9ad55",
+            "p_a7c8abe4dade",
+            "p_9043ea44c8fe",
+            "p_d233274678c6",
+            "p_992551d04d39",
+            "p_bf289e48aefd",
+            "p_46d9b4b15822",
+            "p_42be3f428957",
+            "p_96b0abec54f6",
+            "p_d08d8e60b3a6",
+            "p_86f0a29b23d1",
+            "p_43da317b39d6",
+            "p_6ce551bf0a1c",
+            "p_d705cf14b856",
+            "p_5dc9b4abb6c1",
+            "p_4b6b242c5d48",
+            "p_59816bdb7e42",
+            "p_94504fd41c41",
+            "p_ca7993000b61",
+            "p_47619f11083c",
+            "p_29a3a950727f",
+            "p_36c42a91a6be",
+            "p_70e0a07e4529",
+            "p_7b8b0f6853b2",
+            "p_94153e6d0ebd",
+            "p_1d3250069730",
+            "p_c14400e245c8",
+            "p_0f524e593ee8",
+            "p_7376d24391d4",
+            "p_a13ec91687a4",
+            "p_bee7271b636d",
+            "p_061e22fdd3e6",
+            "p_c3d5de47d73f",
+            "p_ed5d33153a7d",
+            "p_f2525d49d404",
+            "p_d8a1e8823a5e",
+            "p_bd471d5e6bef",
+            "p_d2ccccf225d4",
+            "p_ce5c6501aec4",
+            "p_57fcfb6ae16c",
+            "p_5573c2baddd9",
+            "p_240c66767c7c",
+            "p_d9db6e23edbb",
+            "p_dcfd545845fd",
+            "p_2a6bc52424eb",
+            "p_96209ab58b35",
+            "p_892b3144ebd8",
+            "p_da3d2a962380",
+            "p_c434de7583c2",
+            "p_6c72043c0751",
+            "p_521fb1130fd0",
+            "p_83d5cf1c3360",
+            "p_f4d01ab4fe99",
+            "p_ddad9d996686",
+            "p_3d56f471ba5b",
+            "p_53c0df75c90c",
+            "p_ea9122fcdecf",
+            "p_e93b60db7d35",
+            "p_412e6a1f2800",
+            "p_a9763f0ff857",
+            "p_96626190b1a4",
+            "p_a1c2efa61dc4",
+            "p_81aa6596b9e6",
+            "p_81aa17df5e5d",
+            "p_87e24809d713",
+            "p_35ac21d0d784",
+            "p_6153944f344a",
+            "p_c33842e3d2a0",
+            "p_4575e08b7267",
+            "p_f3037988eef8",
+            "p_52b2ae91e1ed",
+            "p_e5180eb86e5f",
+            "p_c3f4988e9c71",
+            "p_cf609dae8ebd",
+            "p_a79ac8ba3725",
+            "p_18994e21aa41",
+            "p_ff2958a9c106",
+            "p_969cb729fbd3",
+            "p_f9f6121d6480",
+            "p_789de65f17c3",
+            "p_42ecf17602c1",
+            "p_e3f954c968a8"
+          ],
+          "final_accepted": [
+            "p_6950a6f394d3",
+            "p_4d39a5d9b480",
+            "p_91c8fa96ddbf",
+            "p_fe0edae07ddc",
+            "p_df05f9e9ad55",
+            "p_a7c8abe4dade",
+            "p_9043ea44c8fe",
+            "p_d233274678c6",
+            "p_992551d04d39",
+            "p_bf289e48aefd",
+            "p_46d9b4b15822",
+            "p_42be3f428957",
+            "p_96b0abec54f6",
+            "p_d08d8e60b3a6",
+            "p_86f0a29b23d1",
+            "p_43da317b39d6",
+            "p_6ce551bf0a1c",
+            "p_d705cf14b856",
+            "p_5dc9b4abb6c1",
+            "p_4b6b242c5d48",
+            "p_59816bdb7e42",
+            "p_94504fd41c41",
+            "p_ca7993000b61",
+            "p_47619f11083c",
+            "p_29a3a950727f",
+            "p_36c42a91a6be",
+            "p_70e0a07e4529",
+            "p_7b8b0f6853b2",
+            "p_94153e6d0ebd",
+            "p_1d3250069730",
+            "p_c14400e245c8",
+            "p_0f524e593ee8",
+            "p_7376d24391d4",
+            "p_a13ec91687a4",
+            "p_bee7271b636d",
+            "p_061e22fdd3e6",
+            "p_c3d5de47d73f",
+            "p_ed5d33153a7d",
+            "p_f2525d49d404",
+            "p_d8a1e8823a5e",
+            "p_bd471d5e6bef",
+            "p_d2ccccf225d4",
+            "p_ce5c6501aec4",
+            "p_57fcfb6ae16c",
+            "p_5573c2baddd9",
+            "p_240c66767c7c",
+            "p_d9db6e23edbb",
+            "p_dcfd545845fd",
+            "p_2a6bc52424eb",
+            "p_96209ab58b35",
+            "p_892b3144ebd8",
+            "p_da3d2a962380",
+            "p_c434de7583c2",
+            "p_6c72043c0751",
+            "p_521fb1130fd0",
+            "p_83d5cf1c3360",
+            "p_f4d01ab4fe99",
+            "p_ddad9d996686",
+            "p_3d56f471ba5b",
+            "p_53c0df75c90c",
+            "p_ea9122fcdecf",
+            "p_e93b60db7d35",
+            "p_412e6a1f2800",
+            "p_a9763f0ff857",
+            "p_96626190b1a4",
+            "p_a1c2efa61dc4",
+            "p_81aa6596b9e6",
+            "p_81aa17df5e5d",
+            "p_87e24809d713",
+            "p_35ac21d0d784",
+            "p_6153944f344a",
+            "p_c33842e3d2a0",
+            "p_4575e08b7267",
+            "p_f3037988eef8",
+            "p_52b2ae91e1ed",
+            "p_e5180eb86e5f",
+            "p_c3f4988e9c71",
+            "p_cf609dae8ebd",
+            "p_a79ac8ba3725",
+            "p_18994e21aa41",
+            "p_ff2958a9c106",
+            "p_969cb729fbd3",
+            "p_f9f6121d6480",
+            "p_789de65f17c3",
+            "p_42ecf17602c1",
+            "p_e3f954c968a8"
+          ],
+          "evidence": "All captured titles and public listing images checked; broad usable alternatives retained, no hidden exact brand, gauge, size or appearance."
+        }
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Original-resolution frame sequences and full three-minute overview inspected.",
+        "missing": "Independent review and one valid development trial."
+      },
+      "repair": {
+        "reviewer": "coding-agent/root",
+        "reason": "Independent continuous-source inspection identified hand sewing, not a demonstrated crochet hook. Replaced unsupported initial hook mapping by a complete native hand-needle result window.",
+        "affected_scope": [
+          "initial physical-to-website mapping",
+          "public result window"
+        ],
+        "retained": [
+          "actual source frames",
+          "user wording",
+          "final scissors target",
+          "48 final accepted cutter products",
+          "sealed correct scissors blind ending"
+        ]
+      },
+      "stream": {
+        "session_seconds": [
+          68.0,
+          130.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-position-2026102904/review.json"
+      }
+    }
+  ]
+}

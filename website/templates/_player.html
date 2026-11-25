@@ -1,0 +1,97 @@
+{% set player = content.player %}
+{% set first = content.data.samples[0] %}
+{% set run = first.runs[0] %}
+<section class="player" id="player" aria-label="Archived runs replayed through the wearer's glasses">
+  <script type="application/json" id="player-data">{{ {
+    "seconds": content.data.seconds_per_step,
+    "samples": content.data.samples,
+    "labels": player.labels,
+    "notes": player.notes,
+    "targets": player.targets,
+    "lanes": player.lanes,
+    "sites": content.site_names,
+    "base": url_for('static', filename='samples/'),
+  }|tojson }}</script>
+
+  <div class="hero-stage hero-stage-live">
+    <div class="hero-inner">
+      {% include "_hero_intro.html" %}
+      <div class="hero-optics">
+        <svg class="optical-floor" viewBox="0 0 840 220" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M362 0 28 220 M384 0 170 220 M402 0 298 220 M420 0v220 M438 0l104 220 M456 0l214 220 M478 0l334 220 M346 10h148 M316 30h208 M272 56h296 M212 91h416 M133 139h574 M25 204h790"/>
+        </svg>
+        <div class="glasses">
+          <div class="frame">
+            <div class="lens-media" style="--lens: url('{{ url_for('static', filename='lens.svg') }}')">
+              <video data-video muted playsinline preload="auto"
+                     poster="{{ url_for('static', filename='samples/' ~ run.id ~ '/poster.jpg') }}"
+                     src="{{ url_for('static', filename='samples/' ~ run.id ~ '/wearer.mp4') }}"></video>
+            </div>
+            <svg class="rim" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M500 52C430 18 300 10 170 14C60 18 14 60 12 150C10 260 40 380 140 420C240 458 360 452 420 400C450 372 470 330 500 326C530 330 550 372 580 400C640 452 760 458 860 420C960 380 990 260 988 150C986 60 940 18 830 14C700 10 570 18 500 52Z"/>
+            </svg>
+            <p class="hud" aria-hidden="true"><i class="rec"></i>Wearer view <span data-clock>step 01</span></p>
+          </div>
+          <div class="talk" data-talk aria-live="polite">
+            <p class="msg msg-wearer">{{ run.steps[0].messages[0].text }}</p>
+          </div>
+
+          <figure class="browser">
+            <div class="chrome">
+              <span class="url"><b data-host>egomart</b><span data-url>{{ run.steps[0].path }}</span></span>
+              <span class="cart" data-cart-box>Cart <b data-cart>0</b></span>
+            </div>
+            <div class="viewport" data-viewport>
+              <img src="{{ url_for('static', filename='samples/' ~ run.id ~ '/page-1.jpg') }}" class="is-on"
+                   alt="EgoMart page the agent saw at step 1" width="1134" height="600">
+              <span class="cursor" data-cursor aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 2l15 9-6.5 1.6L16 20l-3 1.4-3.4-7.3L4 18z"/></svg>
+              </span>
+              <span class="typing" data-typing aria-hidden="true"></span>
+              <p class="standby" data-standby>{{ player.standby_note }}</p>
+            </div>
+            <figcaption class="log" data-log>step 01</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deck">
+    <div class="picker">
+      <p class="deck-label" id="task-label">Task</p>
+      <ol class="tasks" role="tablist" aria-labelledby="task-label" data-tasks>
+        {% for sample in content.data.samples %}
+        <li><button type="button" role="tab" data-task="{{ loop.index0 }}" aria-selected="{{ 'true' if loop.first else 'false' }}">
+          <span class="track track-{{ sample.track }}">{{ sample.track|capitalize }}</span>
+          <span class="task-name">{{ player.labels.get(sample.task_id, sample.task_id) }}</span>
+        </button></li>
+        {% endfor %}
+      </ol>
+    </div>
+    <div class="runs-col">
+      <p class="deck-label" id="run-label">Agent</p>
+      <div class="runs" role="tablist" aria-labelledby="run-label" data-runs></div>
+      <p class="meta" data-meta></p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <button class="play" type="button" data-play aria-label="Pause replay">
+      <svg class="i-pause" viewBox="0 0 16 16" width="12" height="12"><path d="M4 2h3v12H4zM9 2h3v12H9z"/></svg>
+      <svg class="i-play" viewBox="0 0 16 16" width="12" height="12"><path d="M4 2l10 6-10 6z"/></svg>
+    </button>
+    <div class="lanes-scroll">
+      <div class="lanes" data-lanes></div>
+    </div>
+  </div>
+  <section class="outcome" aria-labelledby="final-cart-title">
+    <div class="outcome-head">
+      <h2 id="final-cart-title">Final cart <span data-cart-count></span></h2>
+      <span class="outcome-result" data-outcome></span>
+    </div>
+    <p class="outcome-note" data-outcome-note></p>
+    <ul class="cart-items" data-cart-items></ul>
+    <p class="cart-empty" data-cart-empty hidden>The cart is empty.</p>
+  </section>
+</section>

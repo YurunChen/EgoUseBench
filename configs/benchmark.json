@@ -1,0 +1,96 @@
+{
+  "schema_version": 3,
+  "experiment_id": "benchmark",
+  "default_release_step": 4,
+  "reference_steps": null,
+  "reference_condition": "online",
+  "conditions": [
+    {
+      "name": "online",
+      "schedule": "online",
+      "scope": "full",
+      "ask": "open",
+      "release_at": null,
+      "frame_interval_seconds": 1,
+      "wearer_frames_per_image": 4,
+      "wearer_jpeg_quality": 85,
+      "frame_delivery_steps": 1,
+      "replay_timing": "action_aligned",
+      "batch_seconds": 8,
+      "visual_history": "compressed"
+    },
+    {
+      "name": "text_only",
+      "schedule": "online",
+      "scope": "none",
+      "ask": "open",
+      "release_at": null,
+      "frame_interval_seconds": 1,
+      "frame_delivery_steps": 1,
+      "replay_timing": "action_aligned",
+      "batch_seconds": 8
+    },
+    {
+      "name": "upfront",
+      "schedule": "upfront",
+      "scope": "full",
+      "ask": "open",
+      "release_at": null,
+      "frame_interval_seconds": 1,
+      "wearer_frames_per_image": 4,
+      "wearer_jpeg_quality": 85,
+      "frame_delivery_steps": 1,
+      "replay_timing": "action_aligned",
+      "batch_seconds": 8,
+      "visual_history": "compressed"
+    },
+    {
+      "name": "initial_only",
+      "schedule": "online",
+      "scope": "initial_only",
+      "ask": "open",
+      "release_at": null,
+      "frame_interval_seconds": 1,
+      "wearer_frames_per_image": 4,
+      "wearer_jpeg_quality": 85,
+      "frame_delivery_steps": 1,
+      "replay_timing": "action_aligned",
+      "batch_seconds": 8,
+      "visual_history": "compressed"
+    },
+    {
+      "name": "no_ask",
+      "schedule": "online",
+      "scope": "full",
+      "ask": "denied",
+      "release_at": null,
+      "frame_interval_seconds": 1,
+      "wearer_frames_per_image": 4,
+      "wearer_jpeg_quality": 85,
+      "frame_delivery_steps": 1,
+      "replay_timing": "action_aligned",
+      "batch_seconds": 8,
+      "visual_history": "compressed"
+    }
+  ],
+  "tracks": {
+    "graft": ["online"],
+    "refresh": ["online"],
+    "clarify": ["online"]
+  },
+  "probes": {
+    "graft": ["text_only", "upfront", "initial_only"],
+    "refresh": ["text_only", "upfront", "initial_only"],
+    "clarify": ["text_only", "upfront", "no_ask"]
+  },
+  "replicate_ids": [0],
+  "runtime": {
+    "adapter": "browsergym",
+    "model": "qwen3.5-flash",
+    "model_version": "qwen3.5-flash",
+    "max_steps": 20,
+    "composite_max_steps": 30,
+    "release_trigger": "timeline_step"
+  },
+  "scheduler_seed": 20260819
+}

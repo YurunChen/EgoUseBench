@@ -1,0 +1,2593 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "license_or_access_note": "HD-EPIC is released by the University of Bristol under CC BY 4.0. This source-aligned research clip was downloaded from the official data.bris.ac.uk record. A Benchmark Release must retain attribution and separately review redistribution of source frames."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-appearance-08",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "variant",
+      "source": {
+        "record_ids": [
+          "P03-20240218-094452-78",
+          "P03-20240218-094452-79",
+          "P03-20240218-094452-80",
+          "P03-20240218-094452-81",
+          "P03-20240218-094452/e7840252be57868f/8ea70fa0e98efbe6",
+          "P03-20240218-094452/3a5a53c78d86b2a7/6bf0922feb0741bc"
+        ],
+        "media_id": "P03-20240218-094452__150-180",
+        "media_start_seconds": 150,
+        "media_sha256": "787aa2149e368d23e9b6a7c5efce284351c2ecb272e03e45d342b7830fe3e9dc",
+        "original_video_id": "P03-20240218-094452",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P03/P03-20240218-094452.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Grab the small saucepan from the dishwasher's bottom rack and turn it. [159.19, 160.46]",
+          "While holding the small saucepan in my right hand, using my left hand, grab another larger saucepan from the dishwasher bottom rack. [160.56, 161.32]",
+          "Stack the small saucepan that I'm holding in my right hand on top of the larger saucepan that I'm holding in my left hand. [161.78, 162.26]",
+          "Having changed my mind about stacking the two pans, I put the smaller saucepan that was on top of the stack on the countertop next to the washing machine. [161.45, 164.50]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "3a5a53c78d86b2a7",
+            "name": "smaller saucepan",
+            "track_id": "6bf0922feb0741bc",
+            "time_segment_seconds": [
+              159.3,
+              164.5333334
+            ],
+            "role": "candidate_small"
+          },
+          {
+            "association_id": "e7840252be57868f",
+            "name": "another larger saucepan",
+            "track_id": "8ea70fa0e98efbe6",
+            "time_segment_seconds": [
+              160.6666668,
+              176.2666668
+            ],
+            "role": "candidate_large"
+          }
+        ]
+      },
+      "screening": {
+        "proposed_candidates": [
+          "smaller_stainless_saucepan",
+          "larger_stainless_saucepan"
+        ],
+        "proposed_hidden_target": "smaller_stainless_saucepan",
+        "proposed_ambiguous_instruction": "Find the stainless-steel saucepan I was holding. Add one visually matching saucepan to the cart and submit it.",
+        "proposed_valid_slot": "appearance",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/c8e261ba00aeead7eaba8deb55335da69a74db12a339282c9576eba134df7b53.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            160.7,
+            160.928571,
+            161.157143,
+            161.385714,
+            161.614286,
+            161.842857,
+            162.071429,
+            162.3
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-appearance-08/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-appearance-08/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-appearance-08/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-appearance-08/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-appearance-08/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-appearance-08/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-appearance-08/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-appearance-08/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The released frames show two different silver-coloured saucepans with uncoated-looking silver interiors and broad black handles joined to the pan by short silver necks. Relative size distinguishes the two physical candidates; no legible brand or capacity marking is visible.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        },
+        {
+          "text": "The source annotations record separate physical-object tracks for the two saucepans. This is historical annotation evidence, not a capacity measurement from the released pixels; the one-quart value is supplied only by the fixed clarification answer.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "rejection_code": null,
+      "rejection_reason": null,
+      "construct": {
+        "research_question": "Can an Agent ask a one-slot appearance question before a Candidate Commitment between two visually plausible candidates?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either candidate satisfies the ambiguous request.",
+        "belief_after": "The clarification uniquely selects smaller_stainless_saucepan.",
+        "required_behavior_change": "Resolve the intended physical pan from the fixed answer and leave exactly one matching product in the ending cart; question and early-commitment timing are separate process measures.",
+        "no_update_failure": "The ending cart contains the wrong physical branch or a product that fails the released matching requirement, or contains missing/extra products. Not asking alone is not an ending-state failure.",
+        "overupdate_failure": "Keeping both candidate products or another unrequested product leaves extra content in the ending cart; asking in the oracle arm is measured separately.",
+        "visual_dependency_claim": "The scene supplies the silver saucepan body and black-handle appearance that the words steel saucepan and one quart do not specify. The fixed answer resolves relative size and supplies capacity; website details verify that capacity. All-metal and woodgrain handles remain visibly different even when a product is one quart.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Find the steel saucepan I'm holding and add one that matches it to the cart.",
+          "oracle_instruction": "Find the smaller one-quart steel saucepan I'm holding and add one that matches it to the cart.",
+          "candidate_roles": [
+            "smaller_stainless_saucepan",
+            "larger_stainless_saucepan"
+          ],
+          "hidden_target_role": "smaller_stainless_saucepan",
+          "valid_slot": "appearance",
+          "canonical_question": "Which appearance do you mean?",
+          "canonical_answer": "The smaller steel saucepan—the one-quart one.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "smaller_stainless_saucepan": "p_67ad92c7ca79",
+            "larger_stainless_saucepan": "p_75b7c3d32064"
+          },
+          "equivalent_role_ids": {
+            "smaller_stainless_saucepan": [
+              "p_09ffd52d20eb",
+              "p_60c45165486e",
+              "p_c270b5ad837c",
+              "p_9dec0b38a527",
+              "p_dca6cf284177",
+              "p_8c8ec40c8d36",
+              "p_5ef827341784",
+              "p_0e88e1acc698",
+              "p_eabf887434c8",
+              "p_df52730016e4",
+              "p_5d25637dabb4"
+            ],
+            "larger_stainless_saucepan": [
+              "p_631787f2abeb"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision_point_provenance": "authored_curve_20260823",
+        "decision": {
+          "candidates": {
+            "smaller_stainless_saucepan": "p_67ad92c7ca79",
+            "larger_stainless_saucepan": "p_75b7c3d32064"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "larger_stainless_saucepan",
+                "smaller_stainless_saucepan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "smaller_stainless_saucepan"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "用户固定回答选择较小的钢锅并提供1QT容量；源图提供相对大小、银色锅身/内面和黑柄外观，公开商品详情验证容量。"
+            }
+          ],
+          "established_by": "claude-opus-5",
+          "established_at": "2026-08-23",
+          "note": "「我手里的那个钢锅」在帧里有两解，澄清靠尺寸描述。"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "steel saucepan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-08.json",
+              "result_entity_ids": [
+                "p_75b7c3d32064",
+                "p_dca6cf284177",
+                "p_67ad92c7ca79",
+                "p_7dab4bd53291",
+                "p_aaf1fd8992d3",
+                "p_f33e8fdb0203",
+                "p_bdaab6f7b20e",
+                "p_463391eef1d0",
+                "p_925d48eae1d0",
+                "p_c270b5ad837c",
+                "p_50516d2ab20d",
+                "p_60c45165486e",
+                "p_e8ade946ab59",
+                "p_afb27c727a48",
+                "p_199d97b2ce79",
+                "p_09ffd52d20eb",
+                "p_dd8d2e15e957",
+                "p_24febde16ee9",
+                "p_3bb8bca125dc",
+                "p_fd832a6ea1d1",
+                "p_86701cbb052d",
+                "p_6e957c3c1b0f",
+                "p_f61598ad5750",
+                "p_c1368a31f2ce",
+                "p_cc5a6e9efafa",
+                "p_da9f622d4957",
+                "p_d081d04f6f29",
+                "p_c7dbef0151b5",
+                "p_21a79492b817",
+                "p_8c8ec40c8d36",
+                "p_ccb4dd7a70b9",
+                "p_eb527f5c988f",
+                "p_195ac020efc9",
+                "p_9dec0b38a527",
+                "p_0272c8bd74a1",
+                "p_9a1f7f1816bd",
+                "p_ee31efaa7e06",
+                "p_ecb82bc26b7d",
+                "p_5ef827341784",
+                "p_1cbb9520abd5",
+                "p_7fb4edd665c5",
+                "p_b7a0d5ca7a41",
+                "p_4e4a83fc2b83",
+                "p_631787f2abeb",
+                "p_2f6ed90e7d98",
+                "p_b46e3259f155",
+                "p_3f528fa175fd",
+                "p_5a1450c3f002"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "1 quart stainless steel saucepan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-08.json",
+              "result_entity_ids": [
+                "p_67ad92c7ca79",
+                "p_bdaab6f7b20e",
+                "p_aaf1fd8992d3",
+                "p_e8ade946ab59",
+                "p_09ffd52d20eb",
+                "p_9a1f7f1816bd",
+                "p_60c45165486e",
+                "p_c270b5ad837c",
+                "p_4e4a83fc2b83",
+                "p_24febde16ee9",
+                "p_555a8e7fdbf3",
+                "p_9dec0b38a527",
+                "p_dca6cf284177",
+                "p_0d992eeade9a",
+                "p_da9f622d4957",
+                "p_8c8ec40c8d36",
+                "p_06c116a5b717",
+                "p_195ac020efc9",
+                "p_5ef827341784",
+                "p_f99f79592343",
+                "p_0e88e1acc698",
+                "p_f33e8fdb0203",
+                "p_4837f75477f4",
+                "p_377e7ab834aa",
+                "p_6036d1cc1a2b",
+                "p_eabf887434c8",
+                "p_193ba74174b3",
+                "p_f1a438100c5e",
+                "p_76ef1f6b6985",
+                "p_b57a66cfe78d",
+                "p_d081d04f6f29",
+                "p_86701cbb052d",
+                "p_50516d2ab20d",
+                "p_df52730016e4",
+                "p_e885cf7f24d4",
+                "p_dabca9d9cb2d",
+                "p_91f3eb71292f",
+                "p_c39d22ecd31c",
+                "p_df773990b22d",
+                "p_eb28bb14f8ab",
+                "p_ee4b295a99a5",
+                "p_506aa0a86442",
+                "p_bac7e3bcc932",
+                "p_e1723a22040c",
+                "p_88f35921a1bc",
+                "p_fdc9324eee36",
+                "p_5d25637dabb4",
+                "p_706c01690d96"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_75b7c3d32064",
+            "p_dca6cf284177",
+            "p_67ad92c7ca79",
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_463391eef1d0",
+            "p_925d48eae1d0",
+            "p_c270b5ad837c",
+            "p_50516d2ab20d",
+            "p_60c45165486e",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_09ffd52d20eb",
+            "p_dd8d2e15e957",
+            "p_24febde16ee9",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce",
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_21a79492b817",
+            "p_8c8ec40c8d36",
+            "p_ccb4dd7a70b9",
+            "p_eb527f5c988f",
+            "p_195ac020efc9",
+            "p_9dec0b38a527",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_5ef827341784",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_555a8e7fdbf3",
+            "p_0d992eeade9a",
+            "p_06c116a5b717",
+            "p_f99f79592343",
+            "p_0e88e1acc698",
+            "p_4837f75477f4",
+            "p_377e7ab834aa",
+            "p_6036d1cc1a2b",
+            "p_eabf887434c8",
+            "p_193ba74174b3",
+            "p_f1a438100c5e",
+            "p_76ef1f6b6985",
+            "p_b57a66cfe78d",
+            "p_df52730016e4",
+            "p_e885cf7f24d4",
+            "p_dabca9d9cb2d",
+            "p_91f3eb71292f",
+            "p_c39d22ecd31c",
+            "p_df773990b22d",
+            "p_eb28bb14f8ab",
+            "p_ee4b295a99a5",
+            "p_506aa0a86442",
+            "p_bac7e3bcc932",
+            "p_e1723a22040c",
+            "p_88f35921a1bc",
+            "p_fdc9324eee36",
+            "p_5d25637dabb4",
+            "p_706c01690d96"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_75b7c3d32064",
+            "p_24febde16ee9",
+            "p_463391eef1d0",
+            "p_06c116a5b717"
+          ],
+          "related_entity_ids": [
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_925d48eae1d0",
+            "p_50516d2ab20d",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_dd8d2e15e957",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce"
+          ],
+          "ambient_entity_ids": [
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_21a79492b817",
+            "p_ccb4dd7a70b9",
+            "p_eb527f5c988f",
+            "p_195ac020efc9",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_555a8e7fdbf3",
+            "p_0d992eeade9a",
+            "p_f99f79592343",
+            "p_4837f75477f4",
+            "p_377e7ab834aa",
+            "p_6036d1cc1a2b",
+            "p_193ba74174b3",
+            "p_f1a438100c5e",
+            "p_76ef1f6b6985",
+            "p_b57a66cfe78d",
+            "p_e885cf7f24d4",
+            "p_dabca9d9cb2d",
+            "p_91f3eb71292f",
+            "p_c39d22ecd31c",
+            "p_df773990b22d",
+            "p_eb28bb14f8ab",
+            "p_ee4b295a99a5",
+            "p_506aa0a86442",
+            "p_bac7e3bcc932",
+            "p_e1723a22040c",
+            "p_88f35921a1bc",
+            "p_fdc9324eee36",
+            "p_706c01690d96"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_75b7c3d32064",
+              "ring": "core",
+              "reason": "公开规范详情为2QT；黑柄银锅身接近，但不满足固定回答的一夸脱容量。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "capacity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_24febde16ee9",
+              "ring": "core",
+              "reason": "公开原图和详情显示全银不锈钢长柄；虽然容量为1QT，但与源画面的宽黑柄不同。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "handle_appearance_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_463391eef1d0",
+              "ring": "core",
+              "reason": "公开规范标题和详情为3Qt，且原图是全金属柄；不满足固定回答的1QT及画面黑柄。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "capacity_mismatch",
+                "handle_appearance_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_06c116a5b717",
+              "ring": "core",
+              "reason": "公开原图和标题为蓝色锅身与深色内面，不是源画面的银色锅身和银色内面。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "body_appearance_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_195ac020efc9",
+              "ring": "ambient",
+              "reason": "标题是 1+2+3 夸脱三件套，商品图为三口全金属长柄锅，不是单独一只一夸脱宽黑柄小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_199d97b2ce79",
+              "ring": "related",
+              "reason": "Cuisinart 标题写明 4 夸脱，商品图是全钢长柄大锅，容量和柄都不是画面里的一夸脱黑柄小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_1cbb9520abd5",
+              "ring": "ambient",
+              "reason": "标题为 2 夸脱碳钢花岗岩涂层且无盖，商品图是黑白斑点锅身，不是一夸脱银色锅身。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_21a79492b817",
+              "ring": "ambient",
+              "reason": "标题为 1.2 夸脱雪平锅配蒸屉，商品图是锤纹锅身加木柄，容量和手柄都与一夸脱宽黑柄钢锅不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_2f6ed90e7d98",
+              "ring": "ambient",
+              "reason": "MICHELANGELO 标题同时包含 1QT、2QT 和 3QT，商品图是三口不同大小的锅，不是只要较小的那一只。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_377e7ab834aa",
+              "ring": "ambient",
+              "reason": "标题为 1Qt 与 2Qt 两件套，商品图两口锅都是全金属柄，不是单独的一夸脱黑柄锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_3bb8bca125dc",
+              "ring": "related",
+              "reason": "标题写明 2 Qt，商品图是带侧耳提手的直筒计量锅，没有长黑柄，容量也不是一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_3f528fa175fd",
+              "ring": "ambient",
+              "reason": "HaSteeL 标题为 2 QT，商品图是全金属长柄，对应较大那口而不是澄清后的一夸脱小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_4837f75477f4",
+              "ring": "ambient",
+              "reason": "HaSteeL 标题虽是 1 QT，但商品图长柄通体是不锈钢，不是 V0 里右手握住的宽黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_4e4a83fc2b83",
+              "ring": "ambient",
+              "reason": "KOCH 标题为一夸脱，商品图锅柄是带挂孔的全钢柄，与画面中黑色塑料宽柄不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_50516d2ab20d",
+              "ring": "related",
+              "reason": "标题为 2QT 复合不粘锅，商品图内壁是蜂窝纹且柄为全钢，容量和内壁都不符一夸脱亮银小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_506aa0a86442",
+              "ring": "ambient",
+              "reason": "标题虽写 1 Quart，商品图是灰色花岗岩涂层锅身配银色钢柄，不是银色锅身加宽黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_555a8e7fdbf3",
+              "ring": "ambient",
+              "reason": "P&P CHEF 标题为一夸脱，但商品图长柄是抛光不锈钢，而不是画面里的黑色宽柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6036d1cc1a2b",
+              "ring": "ambient",
+              "reason": "Herogo 标题是 1 夸脱加 2 夸脱两件套，商品图同时卖大小两口锅，不是只要较小的那一只。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_631787f2abeb",
+              "ring": "ambient",
+              "reason": "LIANYU 标题写明 2QT，虽是黑柄银锅，但容量是两夸脱，不是澄清指定的一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6e957c3c1b0f",
+              "ring": "related",
+              "reason": "标题为 1.5 夸脱，商品图是双耳筒锅配滤盖和粉色勺，没有长黑柄，容量也不是一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_76ef1f6b6985",
+              "ring": "ambient",
+              "reason": "标题写明蓝色陶瓷不粘，商品图锅身和内壁都是蓝色且柄为钢柄，不是银色锅身和银色内壁。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_7dab4bd53291",
+              "ring": "related",
+              "reason": "MICHELANGELO 标题为 1.5 夸脱，商品图是全钢长柄，容量大于澄清要求的一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_7fb4edd665c5",
+              "ring": "ambient",
+              "reason": "标题写 20 盎司（600 毫升），商品图是带倒嘴的全钢小奶锅，容量不到一夸脱且没有黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_86701cbb052d",
+              "ring": "related",
+              "reason": "Meyer Nouvelle 未标明一夸脱，商品图是全不锈钢长柄，与画面中的宽黑柄不符。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_88f35921a1bc",
+              "ring": "ambient",
+              "reason": "标题虽是 1 qt，商品图手柄是深色木头短柄，不是画面中的黑色塑料宽柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_91f3eb71292f",
+              "ring": "ambient",
+              "reason": "标题为四件套且含 1QT 与 2QT，商品图是两口全钢柄锅，不是单只一夸脱黑柄锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_925d48eae1d0",
+              "ring": "related",
+              "reason": "Lagostina 标题写明 18 厘米、2 升，商品图是全钢长柄，容量约两夸脱而不是一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_9a1f7f1816bd",
+              "ring": "ambient",
+              "reason": "HaSteeL 标题为 1 QT，商品图长柄是不锈钢且盖钮带红圈，不是画面里的宽黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_aaf1fd8992d3",
+              "ring": "related",
+              "reason": "DELARLO 标题为一夸脱，商品图是柄身一体的银色钢柄，与 V0 中黑色宽柄不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_afb27c727a48",
+              "ring": "related",
+              "reason": "MICHELANGELO 标题为 3 夸脱，商品图是大口全钢柄锅，远大于澄清要求的一夸脱小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b46e3259f155",
+              "ring": "ambient",
+              "reason": "标题是 1、2、3 夸脱三件套，商品图三口锅都是白头钢柄，不是单独一只黑柄一夸脱锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b57a66cfe78d",
+              "ring": "ambient",
+              "reason": "TeamFar 标题为 1qt，但商品图是通体抛光钢柄，不是画面中铆接的宽黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b7a0d5ca7a41",
+              "ring": "ambient",
+              "reason": "标题是 18 厘米与 20 厘米两口锅加可拆手柄的套装，商品图手柄是分开的，不是固定宽黑柄的单只一夸脱锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_bac7e3bcc932",
+              "ring": "ambient",
+              "reason": "标题含 1QT、2QT、3QT 三件套，商品图三口锅均为钢柄，不是只要的那一只一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_c1368a31f2ce",
+              "ring": "related",
+              "reason": "P&P CHEF 标题为 2 Qt，商品图是全钢长柄，容量是两夸脱而不是一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_c39d22ecd31c",
+              "ring": "ambient",
+              "reason": "标题写薄荷绿 1 QT，商品图外壁是浅绿色且柄为钢柄，不是银色锅身黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_c7dbef0151b5",
+              "ring": "ambient",
+              "reason": "标题只标 16 厘米不粘锅且未写一夸脱，商品图内壁是蜂窝纹、柄为钢柄，与亮银内壁和黑柄不符。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_cc5a6e9efafa",
+              "ring": "ambient",
+              "reason": "Meyer Confederation 未标明一夸脱，商品图是全不锈钢长柄带盖锅，柄色与画面黑柄不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ccb4dd7a70b9",
+              "ring": "ambient",
+              "reason": "Cyrosa 标题为 3.5 夸脱带滤盖，商品图是带刻度的全钢柄大锅，容量远大于一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_d081d04f6f29",
+              "ring": "ambient",
+              "reason": "标题是 1 QT 与 3 QT 四件套，商品图两口锅都是钢柄，不是单只一夸脱黑柄锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_da9f622d4957",
+              "ring": "ambient",
+              "reason": "LIANYU 标题为一夸脱直身锅，商品图长柄是抛光不锈钢，不是画面里的宽黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_dabca9d9cb2d",
+              "ring": "ambient",
+              "reason": "标题同时包含 1QT 与 2QT，商品图是两口红圈盖钮的钢柄锅，不是单独的一夸脱黑柄锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_dd8d2e15e957",
+              "ring": "related",
+              "reason": "Ciwete 标题为 3 Qt 带滤网玻璃盖，商品图是全钢柄大锅，容量不是一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_df773990b22d",
+              "ring": "ambient",
+              "reason": "KOCH 标题虽是 1 Quart，商品图手柄是木纹短柄，不是 V0 里的黑色宽柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_e885cf7f24d4",
+              "ring": "ambient",
+              "reason": "Cuisinart Professional 标题为 1 夸脱，商品图是镜面钢柄，与画面黑色塑料宽柄不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_e8ade946ab59",
+              "ring": "related",
+              "reason": "VENTION 标题为一夸脱并带倒嘴，商品图长柄是一体银色钢柄，不是画面中的宽黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_eb527f5c988f",
+              "ring": "ambient",
+              "reason": "标题是 1.1 夸脱与 1.7 夸脱两件套，商品图两口锅都是深色短柄，容量都不是一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ee31efaa7e06",
+              "ring": "ambient",
+              "reason": "标题写明 0.8 夸脱黄油锅，商品图内壁有 0.5 与 0.75 升刻度和双倒口，容量小于一夸脱且是全钢柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ee4b295a99a5",
+              "ring": "ambient",
+              "reason": "HaSteeL 标题为 2 QT 三层锅，商品图是全钢柄配红圈盖，容量是两夸脱而不是一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f1a438100c5e",
+              "ring": "ambient",
+              "reason": "标题为 1QT、2QT、3QT 六件套，商品图三口锅均为钢柄，不是单只一夸脱黑柄小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f33e8fdb0203",
+              "ring": "related",
+              "reason": "DELARLO 标题为 2 夸脱，商品图是全钢长柄，容量大于澄清指定的一夸脱。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f61598ad5750",
+              "ring": "related",
+              "reason": "Tramontina 标题为 3 夸脱，商品图是全钢长柄带盖锅，不是一夸脱小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f99f79592343",
+              "ring": "ambient",
+              "reason": "Lagostina 标题只写 5.5 英寸直径、未标一夸脱，商品图是全钢长柄，与画面宽黑柄不符。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: saucepan, steel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_fd832a6ea1d1",
+              "ring": "related",
+              "reason": "公开详情只写 16 厘米直径，没有 1 夸脱容量，不能当作那口 1 夸脱锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: .",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            }
+          ],
+          "semantic_review": {
+            "status": "pending_coding_agent",
+            "confidence": "unassessed",
+            "reviewer": "skill-executing-coding-agent",
+            "note": "明确错收和有证据的漏收已修正，整题仍有具体未解候选；核心拒绝仅依赖当前公开图文，不代表全窗口已完成闭包。",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          },
+          "answer_boundary_review": {
+            "revision": "bounded-canonical-review-20260914",
+            "status": "resolved",
+            "selection_rule": "Keep the unchanged user instruction and canonical clarification answer; match the scene-visible body/handle appearance and publicly documented quantity/size without inventing brand, coating or exact-instance requirements.",
+            "accepted_entity_ids": [
+              "p_67ad92c7ca79",
+              "p_09ffd52d20eb",
+              "p_60c45165486e",
+              "p_c270b5ad837c",
+              "p_9dec0b38a527",
+              "p_dca6cf284177",
+              "p_8c8ec40c8d36",
+              "p_5ef827341784",
+              "p_0e88e1acc698",
+              "p_eabf887434c8",
+              "p_df52730016e4",
+              "p_5d25637dabb4"
+            ],
+            "unresolved_candidates": [],
+            "unresolved_candidate_policy": "These candidates are not certified rejections; the provisional executable answer set must not be released until their boundary is resolved.",
+            "surface_limitations": "原始商品图逐项核查；未对暗光源帧推断精确材质、品牌、容量或细微表面纹理。",
+            "required_followup": "Resolve the named candidate boundaries, recompile, invalidate only this task, and rerun both independent Coding-Agent passes.",
+            "primary_mapping_verification": {
+              "entity_id": "p_67ad92c7ca79",
+              "evidence_reference": "data/sources/upstream_detail_snapshots/amazon/B0CJRB6RD5.json",
+              "finding": "Joyfair规范标题为1QT，feature_5明确1Qt/0.95L；原图支持银色锅身/内面和黑柄。未把16cm未决候选当成主答案。"
+            },
+            "bounded_review_evidence": {
+              "date": "2026-09-14",
+              "source_frames": [
+                "V0:0",
+                "V0:3",
+                "V0:6"
+              ],
+              "primary_product_image": "sites/egomart/static/products/upstream/p_67ad92c7ca79.jpg",
+              "named_candidate_images": [
+                "sites/egomart/static/products/upstream/p_fd832a6ea1d1.jpg"
+              ],
+              "scope": "Existing-source inspection only; no broad re-search and no new product facts authored."
+            }
+          }
+        },
+        "landing_semantic_review": {
+          "status": "pending_coding_agent",
+          "confidence": "unassessed",
+          "note": "修复改变当前实体映射；旧整体通过结论已留在repair_history，不沿用为当前准入。"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "visual_not_necessary",
+        "reason": "The smaller and larger saucepans are simultaneously visible in the wearer's hands, and their relative size is recoverable from one frame. A static task-start photo preserves the same ambiguity, size question, answer, and shopping action, so continuous glasses context is not required."
+      },
+      "repair_history": [
+        {
+          "revision": "entity-mapping-repair-20260906-01",
+          "repair_kind": "answer_boundary_correction_same_commitment",
+          "reason": "双轮审核确认旧1QT接受集合混入全金属柄，并遗漏黑柄1QT；源画面和用户购物要求不变，只修正可见外形与公开容量约束下的实体映射。旧较大锅映射也为全金属柄，改为有规范2QT证据的黑柄锅。",
+          "instruction_changed": false,
+          "source_interval_changed": false,
+          "previous_task_blueprint": {
+            "site": "egomart",
+            "ambiguous_instruction": "Find the steel saucepan I'm holding and add one that matches it to the cart.",
+            "oracle_instruction": "Find the smaller one-quart steel saucepan I'm holding and add one that matches it to the cart.",
+            "candidate_roles": [
+              "smaller_stainless_saucepan",
+              "larger_stainless_saucepan"
+            ],
+            "hidden_target_role": "smaller_stainless_saucepan",
+            "valid_slot": "appearance",
+            "canonical_question": "Which appearance do you mean?",
+            "canonical_answer": "The smaller steel saucepan—the one-quart one.",
+            "target_granularity": "category",
+            "environment_role_ids": {
+              "smaller_stainless_saucepan": "p_67ad92c7ca79",
+              "larger_stainless_saucepan": "p_ecb82bc26b7d"
+            },
+            "equivalent_role_ids": {
+              "smaller_stainless_saucepan": [
+                "p_bdaab6f7b20e",
+                "p_aaf1fd8992d3",
+                "p_e8ade946ab59",
+                "p_09ffd52d20eb",
+                "p_9a1f7f1816bd",
+                "p_60c45165486e",
+                "p_c270b5ad837c",
+                "p_4e4a83fc2b83",
+                "p_24febde16ee9",
+                "p_555a8e7fdbf3",
+                "p_9dec0b38a527",
+                "p_dca6cf284177",
+                "p_0d992eeade9a",
+                "p_da9f622d4957",
+                "p_8c8ec40c8d36",
+                "p_5ef827341784"
+              ]
+            },
+            "goal_fields": {}
+          },
+          "previous_decision_candidates": {
+            "smaller_stainless_saucepan": "p_67ad92c7ca79",
+            "larger_stainless_saucepan": "p_ecb82bc26b7d"
+          },
+          "previous_supported_claims": [
+            {
+              "text": "The packet shows a smaller stainless-steel saucepan and a visibly larger stainless-steel saucepan being held as the same two-object interaction.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            },
+            {
+              "text": "HD-EPIC assigns the smaller and larger saucepans different physical-object association and track identifiers over the released interval.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            }
+          ],
+          "previous_catalog_semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          },
+          "previous_landing_semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "review_reference": "data/sources/landing_semantic_reviews.json"
+          },
+          "failed_review_reference": "artifacts/reports/coding-agent-task-assessments.json",
+          "failed_review_task_id": "candidate-mart-clarify-appearance-08",
+          "remaining_boundary_issues": [
+            {
+              "entity_id": "p_fd832a6ea1d1",
+              "reason": "Maharaja B088KTVSFK的规范详情仅给16cm直径，没有容量；不能用直径代替1QT，也不能把未知容量当作反例。Canadian Tire同名1.5qt条目尚未核实型号/UPC同一性。",
+              "evidence_reference": "data/sources/upstream_detail_snapshots/amazon/B088KTVSFK.json",
+              "status": "public_capacity_unresolved"
+            }
+          ]
+        },
+        {
+          "revision": "bounded-canonical-review-20260914",
+          "repair_kind": "evidence_and_process_attribution_correction_same_commitment",
+          "instruction_changed": false,
+          "source_interval_changed": false,
+          "previous_process_claims": {
+            "required_behavior_change": "Ask before a Candidate Commitment, then select only the clarified candidate.",
+            "no_update_failure": "The Agent commits before asking or ignores the answer.",
+            "overupdate_failure": "The Agent asks in the oracle arm despite the clarifying wording."
+          },
+          "previous_utterance": {
+            "frame": "utterance",
+            "live": [
+              "smaller_stainless_saucepan"
+            ],
+            "narrowed_by": "user_utterance",
+            "why": "用户固定回答选择较小的钢锅并提供1QT容量；源图提供相对大小、银色锅身/内面和黑柄外观，公开商品详情验证容量。"
+          },
+          "previous_unresolved_candidates": [
+            {
+              "entity_id": "p_fd832a6ea1d1",
+              "reason": "Maharaja B088KTVSFK的规范详情仅给16cm直径，没有容量；不能用直径代替1QT，也不能把未知容量当作反例。Canadian Tire同名1.5qt条目尚未核实型号/UPC同一性。",
+              "evidence_reference": "data/sources/upstream_detail_snapshots/amazon/B088KTVSFK.json",
+              "status": "public_capacity_unresolved"
+            }
+          ],
+          "reviewed_source_frames": [
+            "V0:0",
+            "V0:3",
+            "V0:6"
+          ],
+          "reason": "本轮只核已有源帧、公开详情和商品原图；区分终态结果与是否先问，修正证据归因。保持真实未解容量、颜色匹配及近似尺寸边界，不通过重写用户需求消除它们。"
+        },
+        {
+          "reviewed_at": "2026-10-15",
+          "reviewer": "skill-executing-coding-agent",
+          "kind": "catalog_answer_closure",
+          "finding": "Live Amazon.ca page for B088KTVSFK lists Capacity 1.5 quarts and Size 1.5 Quarts. Rejected p_fd832a6ea1d1 from the 1QT smaller-saucepan role. Canadian Tire identity check is unnecessary once the canonical ASIN states 1.5QT."
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          160.7,
+          179.6
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-appearance-08/review.json"
+      }
+    },
+    {
+      "task_id": "candidate-mart-clarify-appearance-09",
+      "status": "retired_missing_evidence",
+      "family": "clarify",
+      "subtype": "variant",
+      "source": {
+        "record_ids": [
+          "P01-20240202-161354-112",
+          "P01-20240202-161354-113",
+          "P01-20240202-161354-114",
+          "P01-20240202-161354/adbb354796919372/f1fe45706d956235",
+          "P01-20240202-161354/1bbc046ab570a67f/de4304e0bf2d3cca"
+        ],
+        "media_id": "P01-20240202-161354__190-210",
+        "media_start_seconds": 190,
+        "media_sha256": "a3680c747d84be02a184d8f196b26b8cf58dfa8bcc7d16ddd365577239d4d325",
+        "original_video_id": "P01-20240202-161354",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P01/P01-20240202-161354.mp4",
+        "annotations_revision": "aa1f833febdfa14253328d11d0585c9eb1fe0b72",
+        "original_annotations": [
+          "Pick up two pans from the upper shelf of the cupboard using the right hand. The pans are piling on top of one another. [197.99, 199.83]",
+          "Separate the two pans by holding the lower one with the left hand, the upper one with the right hand. [200.38, 201.15]",
+          "Return the pan in the right hand to the upper shelf of the cupboard. [200.77, 201.53]"
+        ],
+        "observed_movements": [
+          {
+            "association_id": "adbb354796919372",
+            "name": "pan2",
+            "track_id": "f1fe45706d956235",
+            "time_segment_seconds": [
+              199.753,
+              203.5127
+            ],
+            "role": "candidate_large_black"
+          },
+          {
+            "association_id": "1bbc046ab570a67f",
+            "name": "Track 31 (skipped)",
+            "track_id": "de4304e0bf2d3cca",
+            "time_segment_seconds": [
+              199.735,
+              201.00345
+            ],
+            "role": "candidate_small_black"
+          }
+        ]
+      },
+      "screening": {
+        "proposed_candidates": [
+          "larger_black_pan",
+          "smaller_black_pan"
+        ],
+        "proposed_hidden_target": "smaller_black_pan",
+        "proposed_ambiguous_instruction": "Find the pan I was holding. Add one visually matching pan to the cart and submit it.",
+        "proposed_valid_slot": "appearance",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/3e602fc30fbee5e4e3ae6248b490af3d5dbab07f89f135830f033726dd90c4df.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            200,
+            200.2,
+            200.4,
+            200.6,
+            200.8,
+            201,
+            201.2,
+            201.4
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-appearance-09/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-appearance-09/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-appearance-09/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-appearance-09/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-appearance-09/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-appearance-09/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-appearance-09/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-appearance-09/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The early released frames show two stacked round pans with dark interiors and black handles with silver connector sections. They are separated between the hands in V0:2–V0:4; later frames show the right-hand pan moving into the cupboard. The frames do not establish an exact brand or diameter.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        },
+        {
+          "text": "The original source narration describes two piled pans and their separation, and the annotations provide two tracks. Those annotations are historical evidence rather than released narration or a measurement. Relative size comes from the scene; about 20 centimeters is supplied by the fixed clarification answer.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5"
+          ]
+        }
+      ],
+      "rejection_code": null,
+      "rejection_reason": null,
+      "construct": {
+        "research_question": "Can an Agent ask a one-slot appearance question before a Candidate Commitment between two visually plausible candidates?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either candidate satisfies the ambiguous request.",
+        "belief_after": "The clarification uniquely selects smaller_black_pan.",
+        "required_behavior_change": "Resolve the intended physical pan from the fixed answer and leave exactly one matching product in the ending cart; question and early-commitment timing are separate process measures.",
+        "no_update_failure": "The ending cart contains the wrong physical branch or a product that fails the released matching requirement, or contains missing/extra products. Not asking alone is not an ending-state failure.",
+        "overupdate_failure": "Keeping both candidate products or another unrequested product leaves extra content in the ending cart; asking in the oracle arm is measured separately.",
+        "visual_dependency_claim": "The scene provides black handles and dark round frying-pan appearance that the words black frying pan and about 20 centimeters do not fully specify. The answer resolves the smaller physical referent; public dimensions determine the corresponding approximate-size product. The dark source frames do not justify an exact coating, brand, fine texture or logo requirement.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Find the black frying pan I'm holding and add one that matches it to the cart.",
+          "oracle_instruction": "Find the smaller black pan I'm holding, the one that's about 20 centimeters across, and add one that matches it to the cart.",
+          "candidate_roles": [
+            "larger_black_pan",
+            "smaller_black_pan"
+          ],
+          "hidden_target_role": "smaller_black_pan",
+          "valid_slot": "appearance",
+          "canonical_question": "Which appearance do you mean?",
+          "canonical_answer": "I mean the smaller one—the pan that's about 20 centimeters across.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "larger_black_pan": "p_572c64c4da65",
+            "smaller_black_pan": "p_cbf8dc35e620"
+          },
+          "equivalent_role_ids": {
+            "smaller_black_pan": [
+              "p_d6581e004a26",
+              "p_b4f66bba3ada",
+              "p_6c98392b73c6",
+              "p_b18da852733a",
+              "p_1d1a97e486f8",
+              "p_11b34c608615"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision_point_provenance": "authored_curve_20260823",
+        "decision": {
+          "candidates": {
+            "larger_black_pan": "p_572c64c4da65",
+            "smaller_black_pan": "p_cbf8dc35e620"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "larger_black_pan",
+                "smaller_black_pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "smaller_black_pan"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "用户固定回答选择较小的锅并提供约20cm直径；源图提供相对大小、深色内面和黑柄，公开商品资料验证尺寸。"
+            }
+          ],
+          "established_by": "claude-opus-5",
+          "established_at": "2026-08-23",
+          "note": "「我手里那个黑色平底锅」在帧里有两解。"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "black frying pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-09.json",
+              "result_entity_ids": [
+                "p_ef3b43d04c3e",
+                "p_88b5f89f5059",
+                "p_ed7ad45085ef",
+                "p_c5f91af54fe9",
+                "p_9428c8b67838",
+                "p_df0cc9a8c1da",
+                "p_027259fe74fb",
+                "p_d6581e004a26",
+                "p_0a9569e0b3b6",
+                "p_e4c213f731db",
+                "p_b20ad51d8438",
+                "p_097edf76d373",
+                "p_05e8791c6734",
+                "p_201bdeb65223",
+                "p_1f7b4584830d",
+                "p_212cc8f2feb8",
+                "p_8117dda6b44c",
+                "p_0fb249b6b00b",
+                "p_d9e00e35d551",
+                "p_572c64c4da65",
+                "p_b58fde09f15e",
+                "p_1e6bea214c31",
+                "p_de07f77ae44f",
+                "p_cbf8dc35e620",
+                "p_aa59c5888271",
+                "p_5d145e0e1296",
+                "p_f4beac999eac",
+                "p_8586c935854d",
+                "p_bd5dca0f7aa9",
+                "p_92cd22aa760e",
+                "p_b8dcce75138c",
+                "p_cbeeec1712c6",
+                "p_80107a9ee1ea",
+                "p_530c061f0f4e",
+                "p_7da97dbcebd7",
+                "p_898c19b4d988",
+                "p_1fe349d7a95c",
+                "p_b6bdfc48f8cb",
+                "p_2bb2917fe615",
+                "p_8796ba0c2c34",
+                "p_6597e3a57fc5",
+                "p_90bfb8ee08f1",
+                "p_03bd5a90354c",
+                "p_836e41227bb6",
+                "p_8e9715dfe2b3",
+                "p_ca01fef59d8c",
+                "p_611fbe182172",
+                "p_7897abf5a73d"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "20 cm 8 inch black nonstick frying pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-09.json",
+              "result_entity_ids": [
+                "p_0802715445c9",
+                "p_201bdeb65223",
+                "p_8e9715dfe2b3",
+                "p_b8345bebc403",
+                "p_b4f66bba3ada",
+                "p_e87b235c05d9",
+                "p_88b5f89f5059",
+                "p_92cd22aa760e",
+                "p_d6581e004a26",
+                "p_ed7ad45085ef",
+                "p_bc3112c437d5",
+                "p_c5d4854ce2f0",
+                "p_dd0239a204f8",
+                "p_8ac1e541ed2e",
+                "p_500e735a0e69",
+                "p_9f6a6124acdd",
+                "p_a55a16d32455",
+                "p_6c98392b73c6",
+                "p_35891ce25591",
+                "p_530c061f0f4e",
+                "p_37e089373455",
+                "p_f8fd57401f56",
+                "p_df0cc9a8c1da",
+                "p_a6cd48e312dc",
+                "p_44914ed65a8a",
+                "p_528e3fb5822a",
+                "p_aa59c5888271",
+                "p_2fe93b9fa892",
+                "p_6c6b43ef915d",
+                "p_b18da852733a",
+                "p_06f3e5a215a9",
+                "p_1f8f3619192a",
+                "p_e2bd008d96c2",
+                "p_4e8713707041",
+                "p_1d1a97e486f8",
+                "p_212cc8f2feb8",
+                "p_93957f087fcd",
+                "p_1f0a0e2c4bd4",
+                "p_3d485bd31a6a",
+                "p_56bcd38905fc",
+                "p_85969c942a99",
+                "p_11b34c608615",
+                "p_13953ebe1e16",
+                "p_60f4924575c8",
+                "p_7f26d3c8171d",
+                "p_e803252f5e33",
+                "p_e56d48347308",
+                "p_6c6bf362d91e",
+                "p_da2e7da2e113",
+                "p_000fb369c5a8",
+                "p_cb4cd4b9cd17",
+                "p_30722570c55e",
+                "p_8d21b928eda2",
+                "p_e7ae3677fe47",
+                "p_c5f1f1d92f81",
+                "p_e4c213f731db",
+                "p_9973f5ab4a13",
+                "p_67cfd3adc4e5",
+                "p_009dbd66e0ab"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_ef3b43d04c3e",
+            "p_88b5f89f5059",
+            "p_ed7ad45085ef",
+            "p_c5f91af54fe9",
+            "p_9428c8b67838",
+            "p_df0cc9a8c1da",
+            "p_027259fe74fb",
+            "p_d6581e004a26",
+            "p_0a9569e0b3b6",
+            "p_e4c213f731db",
+            "p_b20ad51d8438",
+            "p_097edf76d373",
+            "p_05e8791c6734",
+            "p_201bdeb65223",
+            "p_1f7b4584830d",
+            "p_212cc8f2feb8",
+            "p_8117dda6b44c",
+            "p_0fb249b6b00b",
+            "p_d9e00e35d551",
+            "p_572c64c4da65",
+            "p_b58fde09f15e",
+            "p_1e6bea214c31",
+            "p_de07f77ae44f",
+            "p_cbf8dc35e620",
+            "p_aa59c5888271",
+            "p_5d145e0e1296",
+            "p_f4beac999eac",
+            "p_8586c935854d",
+            "p_bd5dca0f7aa9",
+            "p_92cd22aa760e",
+            "p_b8dcce75138c",
+            "p_cbeeec1712c6",
+            "p_80107a9ee1ea",
+            "p_530c061f0f4e",
+            "p_7da97dbcebd7",
+            "p_898c19b4d988",
+            "p_1fe349d7a95c",
+            "p_b6bdfc48f8cb",
+            "p_2bb2917fe615",
+            "p_8796ba0c2c34",
+            "p_6597e3a57fc5",
+            "p_90bfb8ee08f1",
+            "p_03bd5a90354c",
+            "p_836e41227bb6",
+            "p_8e9715dfe2b3",
+            "p_ca01fef59d8c",
+            "p_611fbe182172",
+            "p_7897abf5a73d",
+            "p_0802715445c9",
+            "p_b8345bebc403",
+            "p_b4f66bba3ada",
+            "p_e87b235c05d9",
+            "p_bc3112c437d5",
+            "p_c5d4854ce2f0",
+            "p_dd0239a204f8",
+            "p_8ac1e541ed2e",
+            "p_500e735a0e69",
+            "p_9f6a6124acdd",
+            "p_a55a16d32455",
+            "p_6c98392b73c6",
+            "p_35891ce25591",
+            "p_37e089373455",
+            "p_f8fd57401f56",
+            "p_a6cd48e312dc",
+            "p_44914ed65a8a",
+            "p_528e3fb5822a",
+            "p_2fe93b9fa892",
+            "p_6c6b43ef915d",
+            "p_b18da852733a",
+            "p_06f3e5a215a9",
+            "p_1f8f3619192a",
+            "p_e2bd008d96c2",
+            "p_4e8713707041",
+            "p_1d1a97e486f8",
+            "p_93957f087fcd",
+            "p_1f0a0e2c4bd4",
+            "p_3d485bd31a6a",
+            "p_56bcd38905fc",
+            "p_85969c942a99",
+            "p_11b34c608615",
+            "p_13953ebe1e16",
+            "p_60f4924575c8",
+            "p_7f26d3c8171d",
+            "p_e803252f5e33",
+            "p_e56d48347308",
+            "p_6c6bf362d91e",
+            "p_da2e7da2e113",
+            "p_000fb369c5a8",
+            "p_cb4cd4b9cd17",
+            "p_30722570c55e",
+            "p_8d21b928eda2",
+            "p_e7ae3677fe47",
+            "p_c5f1f1d92f81",
+            "p_9973f5ab4a13",
+            "p_67cfd3adc4e5",
+            "p_009dbd66e0ab"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_c5f91af54fe9",
+            "p_ed7ad45085ef",
+            "p_201bdeb65223",
+            "p_9f6a6124acdd"
+          ],
+          "related_entity_ids": [
+            "p_ef3b43d04c3e",
+            "p_88b5f89f5059",
+            "p_9428c8b67838",
+            "p_df0cc9a8c1da",
+            "p_027259fe74fb",
+            "p_0a9569e0b3b6",
+            "p_e4c213f731db",
+            "p_b20ad51d8438",
+            "p_097edf76d373",
+            "p_05e8791c6734",
+            "p_1f7b4584830d",
+            "p_8117dda6b44c",
+            "p_0fb249b6b00b",
+            "p_d9e00e35d551",
+            "p_572c64c4da65",
+            "p_212cc8f2feb8"
+          ],
+          "ambient_entity_ids": [
+            "p_b58fde09f15e",
+            "p_1e6bea214c31",
+            "p_de07f77ae44f",
+            "p_aa59c5888271",
+            "p_5d145e0e1296",
+            "p_f4beac999eac",
+            "p_8586c935854d",
+            "p_bd5dca0f7aa9",
+            "p_92cd22aa760e",
+            "p_b8dcce75138c",
+            "p_cbeeec1712c6",
+            "p_80107a9ee1ea",
+            "p_530c061f0f4e",
+            "p_7da97dbcebd7",
+            "p_898c19b4d988",
+            "p_1fe349d7a95c",
+            "p_b6bdfc48f8cb",
+            "p_2bb2917fe615",
+            "p_8796ba0c2c34",
+            "p_6597e3a57fc5",
+            "p_90bfb8ee08f1",
+            "p_03bd5a90354c",
+            "p_836e41227bb6",
+            "p_8e9715dfe2b3",
+            "p_ca01fef59d8c",
+            "p_611fbe182172",
+            "p_7897abf5a73d",
+            "p_0802715445c9",
+            "p_b8345bebc403",
+            "p_e87b235c05d9",
+            "p_bc3112c437d5",
+            "p_c5d4854ce2f0",
+            "p_dd0239a204f8",
+            "p_8ac1e541ed2e",
+            "p_500e735a0e69",
+            "p_a55a16d32455",
+            "p_35891ce25591",
+            "p_37e089373455",
+            "p_f8fd57401f56",
+            "p_a6cd48e312dc",
+            "p_44914ed65a8a",
+            "p_528e3fb5822a",
+            "p_2fe93b9fa892",
+            "p_6c6b43ef915d",
+            "p_06f3e5a215a9",
+            "p_1f8f3619192a",
+            "p_e2bd008d96c2",
+            "p_4e8713707041",
+            "p_93957f087fcd",
+            "p_1f0a0e2c4bd4",
+            "p_3d485bd31a6a",
+            "p_56bcd38905fc",
+            "p_85969c942a99",
+            "p_13953ebe1e16",
+            "p_60f4924575c8",
+            "p_7f26d3c8171d",
+            "p_e803252f5e33",
+            "p_e56d48347308",
+            "p_6c6bf362d91e",
+            "p_da2e7da2e113",
+            "p_000fb369c5a8",
+            "p_cb4cd4b9cd17",
+            "p_30722570c55e",
+            "p_8d21b928eda2",
+            "p_e7ae3677fe47",
+            "p_c5f1f1d92f81",
+            "p_9973f5ab4a13",
+            "p_67cfd3adc4e5",
+            "p_009dbd66e0ab"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_c5f91af54fe9",
+              "ring": "core",
+              "reason": "公开原图显示浅棕色木纹长柄，源画面为黑柄；此排除不依赖尚未补实的6英寸文字。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "handle_appearance_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_ed7ad45085ef",
+              "ring": "core",
+              "reason": "公开原图显示棕色木纹长柄，源画面为黑柄；不再借未知9.5英寸详情声称它就是画面较大的锅。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "handle_appearance_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_201bdeb65223",
+              "ring": "core",
+              "reason": "公开规范详情为8英寸和10英寸两口锅的套装，会额外购买一口未要求的锅。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "quantity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_9f6a6124acdd",
+              "ring": "core",
+              "reason": "公开原图显示白色内外锅身和木纹柄，与源画面的深色锅和黑柄不同。",
+              "why_plausible": "真实搜索窗口中的单柄锅或包含同类锅的商品，类别或公开尺寸与目标接近。",
+              "failure_predicates": [
+                "body_appearance_mismatch",
+                "handle_appearance_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_027259fe74fb",
+              "ring": "related",
+              "reason": "公开标题为 4.6 英寸迷你煎锅，直径远小于澄清所说的约 20 厘米（8 英寸档）。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_03bd5a90354c",
+              "ring": "ambient",
+              "reason": "主图是 11×11 英寸方形平板煎盘，不是画面里那口圆形单柄煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_05e8791c6734",
+              "ring": "related",
+              "reason": "公开标题为 11 英寸、4 夸脱带玻璃盖的深煎锅，不是约 20 厘米的浅口小煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_06f3e5a215a9",
+              "ring": "ambient",
+              "reason": "虽是 8 英寸，但主图长柄为深色木纹，源画面较小的那口锅是黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_097edf76d373",
+              "ring": "related",
+              "reason": "主图是四只圆形凹槽的方形鸡蛋锅，并配木纹柄，不是画面中的圆形黑柄煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_0a9569e0b3b6",
+              "ring": "related",
+              "reason": "公开标题为 12 英寸深煎锅，约 30 厘米，不是澄清指定的约 20 厘米小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_0fb249b6b00b",
+              "ring": "related",
+              "reason": "公开标题为 5 英寸（12 厘米）迷你蛋锅，短于澄清所说的约 20 厘米。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_1f7b4584830d",
+              "ring": "related",
+              "reason": "标题虽为 8 英寸黑色煎锅并带盖，但主图长柄是银色不锈钢，源画面较小的锅是黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_1fe349d7a95c",
+              "ring": "ambient",
+              "reason": "8 英寸规格符合，但主图长柄是浅色木纹，与源画面的黑柄不符。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_2bb2917fe615",
+              "ring": "ambient",
+              "reason": "公开标题为 10 英寸碳钢煎锅，主图长柄为裸金属，既不是约 20 厘米，也不是黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5d145e0e1296",
+              "ring": "ambient",
+              "reason": "公开标题为 8、9.5、11 英寸三件套，主图同时展示三口银柄锅，会多买未要求的锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_60f4924575c8",
+              "ring": "ambient",
+              "reason": "标题写明 20 厘米黑色煎锅，但主图长柄是银色金属，源画面较小的锅是黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6597e3a57fc5",
+              "ring": "ambient",
+              "reason": "主图是四格煎蛋锅，木纹柄上有红色按钮，锅型不是画面中的单圆煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6c6bf362d91e",
+              "ring": "ambient",
+              "reason": "8 英寸黑色锅身尺寸相符，但主图是通体不锈钢长柄，不是源画面的黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_7897abf5a73d",
+              "ring": "ambient",
+              "reason": "公开标题为 10 英寸煎锅，约 25 厘米，大于澄清指定的约 20 厘米这一档。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_80107a9ee1ea",
+              "ring": "ambient",
+              "reason": "标题为 10 英寸四杯鸡蛋锅，主图是四凹槽方锅，尺寸和锅型都不对。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8117dda6b44c",
+              "ring": "related",
+              "reason": "公开标题为 20.3、25.4 与 30.5 厘米三件套，主图三口锅一起卖，不是只要一口约 20 厘米的锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8586c935854d",
+              "ring": "ambient",
+              "reason": "标题为 11 英寸 5 夸脱深锅，主图还带蒸格和玻璃盖，不是约 20 厘米的单柄煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8796ba0c2c34",
+              "ring": "ambient",
+              "reason": "公开标题为 12 英寸煎锅，约 30 厘米，对应更大的锅而不是约 20 厘米的小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_88b5f89f5059",
+              "ring": "related",
+              "reason": "8 英寸黑色锅身带玻璃盖，但主图长柄是棕色木纹，源画面黑柄对不上。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8ac1e541ed2e",
+              "ring": "ambient",
+              "reason": "标题写明 8 英寸/20 厘米，但主图长柄是银色金属环孔柄，不是源画面的黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_8e9715dfe2b3",
+              "ring": "ambient",
+              "reason": "公开标题为五件套，主图含两口带盖锅和一口敞口锅，不是单买一口煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_90bfb8ee08f1",
+              "ring": "ambient",
+              "reason": "主图同时展示两口不同大小的不锈钢柄煎锅，标题也是套装，不是只要一口约 20 厘米的锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_9428c8b67838",
+              "ring": "related",
+              "reason": "标题写明 8、9.5 和 11 英寸三件套，主图三口黑柄锅一起出售，会带上更大的锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_aa59c5888271",
+              "ring": "ambient",
+              "reason": "标题为 8 英寸黑色煎锅，但主图长柄是银色不锈钢，与源画面黑柄不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b20ad51d8438",
+              "ring": "related",
+              "reason": "公开标题为 10 英寸 The Rock 煎锅，大于澄清的约 20 厘米（8 英寸）档。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b58fde09f15e",
+              "ring": "ambient",
+              "reason": "标题为 9.5 英寸（约 24 厘米），且主图长柄为木纹，尺寸和柄色都不是较小的黑柄锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b6bdfc48f8cb",
+              "ring": "ambient",
+              "reason": "主图是四格早餐锅，分格煎蛋、松饼和培根，不是画面中的单圆煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ca01fef59d8c",
+              "ring": "ambient",
+              "reason": "标题为 10 英寸与 12 英寸两件套，主图两口不锈钢柄煎锅，没有约 20 厘米的单锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_da2e7da2e113",
+              "ring": "ambient",
+              "reason": "虽标 8 英寸，但主图内壁是米白色、长柄为银色金属，源画面是深色锅身配黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_df0cc9a8c1da",
+              "ring": "related",
+              "reason": "公开标题为 11 英寸 The Rock 煎锅，是更大一档，不是约 20 厘米的小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_e87b235c05d9",
+              "ring": "ambient",
+              "reason": "标题为 8 英寸黑色煎锅，但主图长柄是深棕色木纹，源画面较小的锅是黑柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: 20cm, black, frying, pan.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ef3b43d04c3e",
+              "ring": "related",
+              "reason": "公开标题为 24 厘米（9.5 英寸），比澄清的约 20 厘米大出相邻的一档。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f4beac999eac",
+              "ring": "ambient",
+              "reason": "公开标题为 5 英寸（12 厘米）迷你煎锅，直径大约只有 20 厘米的一半。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: black, frying, pan.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_212cc8f2feb8",
+              "ring": "window",
+              "reason": "标题写 Blue，商品图外壁是深蓝，不是要求的黑色煎锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: .",
+              "failure_predicates": [
+                "website_detail_mismatch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_bd5dca0f7aa9",
+              "ring": "ambient",
+              "reason": "标题写的是 18 厘米黑色蛋煎锅，不是约 20 厘米的那口小锅。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: .",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            }
+          ],
+          "semantic_review": {
+            "status": "pending_coding_agent",
+            "confidence": "unassessed",
+            "reviewer": "skill-executing-coding-agent",
+            "note": "明确错收和有证据的漏收已修正，整题仍有具体未解候选；核心拒绝仅依赖当前公开图文，不代表全窗口已完成闭包。",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          },
+          "answer_boundary_review": {
+            "revision": "bounded-canonical-review-20260914",
+            "status": "resolved",
+            "selection_rule": "Keep the unchanged user instruction and canonical clarification answer; match the scene-visible body/handle appearance and publicly documented quantity/size without inventing brand, coating or exact-instance requirements.",
+            "accepted_entity_ids": [
+              "p_cbf8dc35e620",
+              "p_d6581e004a26",
+              "p_b4f66bba3ada",
+              "p_6c98392b73c6",
+              "p_b18da852733a",
+              "p_1d1a97e486f8",
+              "p_11b34c608615",
+              "p_212cc8f2feb8"
+            ],
+            "unresolved_candidates": [],
+            "unresolved_candidate_policy": "These candidates are not certified rejections; the provisional executable answer set must not be released until their boundary is resolved.",
+            "surface_limitations": "原始商品图逐项核查；未对暗光源帧推断精确材质、品牌、容量或细微表面纹理。",
+            "required_followup": "Resolve the named candidate boundaries, recompile, invalidate only this task, and rerun both independent Coding-Agent passes.",
+            "primary_mapping_verification": {
+              "entity_id": "p_cbf8dc35e620",
+              "finding": "OXO规范标题为8英寸、Black；商品原图为深色内面/锅身和黑柄。8英寸换算20.32cm，不依赖将18cm强行视作20cm。"
+            },
+            "bounded_review_evidence": {
+              "date": "2026-09-14",
+              "source_frames": [
+                "V0:0",
+                "V0:3",
+                "V0:6"
+              ],
+              "primary_product_image": "sites/egomart/static/products/upstream/p_cbf8dc35e620.jpg",
+              "named_candidate_images": [
+                "sites/egomart/static/products/upstream/p_212cc8f2feb8.jpg",
+                "sites/egomart/static/products/upstream/p_bd5dca0f7aa9.jpg"
+              ],
+              "scope": "Existing-source inspection only; no broad re-search and no new product facts authored."
+            }
+          }
+        },
+        "landing_semantic_review": {
+          "status": "pending_coding_agent",
+          "confidence": "unassessed",
+          "note": "修复改变当前实体映射；旧整体通过结论已留在repair_history，不沿用为当前准入。"
+        },
+        "blocking_checks": []
+      },
+      "blocking_checks": [],
+      "unresolved": [
+        "画面太暗，看不出手里那口黑锅的牌子和直径。约 20 厘米的黑锅不止一口，已接受的一套还带锅铲。"
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "visual_not_necessary",
+        "reason": "The two black pans are simultaneously held and their relative size is visible in one frame. That static photo supports the same two candidates, clarification question, answer, and web choice, so the task does not test egocentric history."
+      },
+      "repair_history": [
+        {
+          "revision": "entity-mapping-repair-20260906-01",
+          "repair_kind": "answer_boundary_correction_same_commitment",
+          "reason": "双轮审核确认旧接受集合包含木纹柄和全金属柄。保留原画面、about20厘米回答和购物要求；删除明确外形错收，纳入有8英寸/20厘米公开证据的黑柄候选。不根据暗光中的细纹、品牌或Logo强行缩窄。",
+          "instruction_changed": false,
+          "source_interval_changed": false,
+          "previous_task_blueprint": {
+            "site": "egomart",
+            "ambiguous_instruction": "Find the black frying pan I'm holding and add one that matches it to the cart.",
+            "oracle_instruction": "Find the smaller black pan I'm holding, the one that's about 20 centimeters across, and add one that matches it to the cart.",
+            "candidate_roles": [
+              "larger_black_pan",
+              "smaller_black_pan"
+            ],
+            "hidden_target_role": "smaller_black_pan",
+            "valid_slot": "appearance",
+            "canonical_question": "Which appearance do you mean?",
+            "canonical_answer": "I mean the smaller one—the pan that's about 20 centimeters across.",
+            "target_granularity": "category",
+            "environment_role_ids": {
+              "larger_black_pan": "p_572c64c4da65",
+              "smaller_black_pan": "p_d6581e004a26"
+            },
+            "equivalent_role_ids": {
+              "smaller_black_pan": [
+                "p_b4f66bba3ada",
+                "p_e87b235c05d9",
+                "p_88b5f89f5059",
+                "p_92cd22aa760e",
+                "p_bc3112c437d5",
+                "p_8ac1e541ed2e",
+                "p_500e735a0e69",
+                "p_a55a16d32455",
+                "p_6c98392b73c6"
+              ]
+            },
+            "goal_fields": {}
+          },
+          "previous_decision_candidates": {
+            "larger_black_pan": "p_572c64c4da65",
+            "smaller_black_pan": "p_d6581e004a26"
+          },
+          "previous_supported_claims": [
+            {
+              "text": "The packet shows the same two-pan interaction throughout: a larger black pan and a smaller black pan are held together and then separated between the wearer's hands.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            },
+            {
+              "text": "The released narration explicitly describes two piled pans followed by separating the lower and upper pans; HD-EPIC supplies two distinct movement tracks over the overlap interval.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5"
+              ]
+            }
+          ],
+          "previous_catalog_semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          },
+          "previous_landing_semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "review_reference": "data/sources/landing_semantic_reviews.json"
+          },
+          "failed_review_reference": "artifacts/reports/coding-agent-task-assessments.json",
+          "failed_review_task_id": "candidate-mart-clarify-appearance-09",
+          "remaining_boundary_issues": [
+            {
+              "entity_id": "p_212cc8f2feb8",
+              "reason": "GoodCook B0026RHIHI的同一规范详情标题写Blue，而Colour和feature写Black；原图为黑内面/黑柄但外壁偏蓝，不能任选一个字段维持答案。7.8/7.88英寸已核实，未解的是颜色/变体同一性。",
+              "evidence_reference": "data/sources/upstream_detail_snapshots/amazon/B0026RHIHI.json",
+              "status": "canonical_variant_conflict"
+            },
+            {
+              "entity_id": "p_bd5dca0f7aa9",
+              "reason": "公开标题是18cm的黑色单柄煎锅；about20是否覆盖18cm仍是语义边界，不把固定用户要求改成恰好20cm，也不把此候选视为已证伪。",
+              "status": "approximate_size_boundary_unresolved"
+            }
+          ]
+        },
+        {
+          "revision": "bounded-canonical-review-20260914",
+          "repair_kind": "evidence_and_process_attribution_correction_same_commitment",
+          "instruction_changed": false,
+          "source_interval_changed": false,
+          "previous_process_claims": {
+            "required_behavior_change": "Ask before a Candidate Commitment, then select only the clarified candidate.",
+            "no_update_failure": "The Agent commits before asking or ignores the answer.",
+            "overupdate_failure": "The Agent asks in the oracle arm despite the clarifying wording."
+          },
+          "previous_utterance": {
+            "frame": "utterance",
+            "live": [
+              "smaller_black_pan"
+            ],
+            "narrowed_by": "user_utterance",
+            "why": "用户固定回答选择较小的锅并提供约20cm直径；源图提供相对大小、深色内面和黑柄，公开商品资料验证尺寸。"
+          },
+          "previous_unresolved_candidates": [
+            {
+              "entity_id": "p_212cc8f2feb8",
+              "reason": "同一GoodCook公开商品图支持深蓝外壁、黑色内面和黑柄；标题Blue与Colour/feature Black可能描述不同部位，不足以断言变体冲突。7.8/7.88英寸与约20cm相近已确认。源帧暗光下外壁颜色不够明确，原需求black pan是否接受这种外蓝内黑外观仍需独立语义复核，不能任选字段放行或排除。",
+              "evidence_reference": "data/sources/upstream_detail_snapshots/amazon/B0026RHIHI.json",
+              "status": "physical_colour_match_unresolved"
+            },
+            {
+              "entity_id": "p_bd5dca0f7aa9",
+              "reason": "公开标题是18cm的黑色单柄煎锅；about20是否覆盖18cm仍是语义边界，不把固定用户要求改成恰好20cm，也不把此候选视为已证伪。",
+              "status": "approximate_size_boundary_unresolved"
+            }
+          ],
+          "reviewed_source_frames": [
+            "V0:0",
+            "V0:3",
+            "V0:6"
+          ],
+          "reason": "本轮只核已有源帧、公开详情和商品原图；区分终态结果与是否先问，修正证据归因。保持真实未解颜色匹配及近似尺寸边界，不通过重写用户需求消除它们。"
+        },
+        {
+          "reviewed_at": "2026-10-15",
+          "reviewer": "skill-executing-coding-agent",
+          "kind": "catalog_answer_closure",
+          "finding": "Accepted p_212cc8f2feb8: public Colour is Black, listing image is a dark navy/black 7.8-inch (~19.8cm) pan with black interior and handle; source frames under warm dim light do not show a distinct bright-blue exterior. Title word Blue names that navy exterior, not a conflicting variant. Rejected p_bd5dca0f7aa9: 18cm is the adjacent sold size class, not 'about 20 centimeters'."
+        }
+      ]
+    }
+  ]
+}

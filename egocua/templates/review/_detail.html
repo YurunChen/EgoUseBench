@@ -1,0 +1,5 @@
+{% macro detail(value) -%}
+{% if value is mapping %}<dl>{% for key, child in value.items() %}<dt>{{ key|replace('_',' ') }}</dt><dd>{{ detail(child) }}</dd>{% endfor %}</dl>
+{% elif value is sequence and value is not string %}<ul>{% for child in value %}<li>{{ detail(child) }}</li>{% endfor %}</ul>
+{% else %}{{ value }}{% endif %}
+{%- endmacro %}

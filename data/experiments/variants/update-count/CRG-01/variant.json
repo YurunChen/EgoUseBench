@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "pair_id": "CRG-01",
+  "id": "CRG-01-update-count",
+  "source_task_path": "data/experiments/composite/CRG-01.json",
+  "direction": "insert",
+  "subtype": "quantity_revision",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 693.0,
+      "request": "Make that two units of the adhesive in all. A multipack is fine. I still only need one cutting tool."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 724.0
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 725.0,
+      "request": "Actually, make that three in all. A multipack is fine. I have a few more of these to make."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "p_e526f4b2eef4",
+        "p_0fa74c91ef40"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "p_e526f4b2eef4",
+        "p_0fa74c91ef40",
+        "p_0fa74c91ef40"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "693秒早于724秒胶带Refresh，沿用开场瓶胶与原C黑橙刀。单只5oz瓶胶加一把刀是原完整合法状态；两份耗材要求排除一瓶并保留两瓶，不用未来透明胶带作初期数量依据。",
+    "public_facts": [
+      {
+        "entity_id": "p_0fa74c91ef40",
+        "path": [
+          "name"
+        ],
+        "equals": "AmazonBasics Washable Liquid School Glue, 5 oz Bottle, Clear"
+      },
+      {
+        "entity_id": "p_e526f4b2eef4",
+        "path": [
+          "name"
+        ],
+        "equals": "AmazonBasics Comfort Grip Utility Knife - Retractable 3-Position Locking Blade with 4 Replacement Blades"
+      },
+      {
+        "entity_id": "p_0fa74c91ef40",
+        "path": [
+          "name"
+        ],
+        "equals": "AmazonBasics Washable Liquid School Glue, 5 oz Bottle, Clear"
+      }
+    ],
+    "constraint": {
+      "kind": "quantity",
+      "units": {
+        "p_0fa74c91ef40": 1
+      },
+      "operator": "==",
+      "value": 2
+    },
+    "original_request_effect": "724秒后同一数量条件作用于透明办公胶带，刀+两卷p_3289c798be8f仍合中间数量；原725秒三份请求再排除两卷，原三卷终态不变。"
+  }
+}

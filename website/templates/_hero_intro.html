@@ -1,0 +1,15 @@
+<div class="hero-intro">
+  <h1>{{ content.title }}</h1>
+  <p class="sub">{{ content.subtitle }}</p>
+  <ul class="credits" aria-label="Authors" role="list">
+    {% for author in content.authors %}
+    <li>{% if author.url %}<a href="{{ author.url }}">{{ author.name }}</a>{% else %}{{ author.name }}{% endif %}</li>
+    {% endfor %}
+  </ul>
+  <nav class="hero-links" aria-label="Project resources">
+    <a class="button" href="{{ content.paper_url or '#abstract' }}"{% if content.paper_url %} target="_blank" rel="noopener"{% endif %}>Paper</a>
+    <a class="button" href="{{ content.code_url }}" target="_blank" rel="noopener">Code</a>
+    <a class="button" href="{{ content.dataset_url }}" target="_blank" rel="noopener">Dataset</a>
+    <a class="button" href="{{ content.lab_url }}" target="_blank" rel="noopener">{{ content.lab }}</a>
+  </nav>
+</div>

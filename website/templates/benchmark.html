@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Benchmark · {{ content.title }}{% endblock %}
+{% block main %}
+<h1>Benchmark</h1>
+<p class="lede">Three records move on their own clocks. The final website state decides whether the task is done.</p>
+<section class="index">
+  {% for state in content.states %}
+  <article>
+    <h2>{{ state.name }}</h2>
+    <p>{{ state.summary }}</p>
+  </article>
+  {% endfor %}
+</section>
+<h2 class="section">How information changes</h2>
+<section class="index">
+  {% for item in content.task_types %}
+  <article class="change-{{ item.name|lower }}">
+    <h2><span class="track track-{{ item.name|lower }}">{{ item.name }}</span></h2>
+    <p>{{ item.summary }}</p>
+  </article>
+  {% endfor %}
+</section>
+<h2 class="section">Websites</h2>
+<section class="index">
+  {% for domain in content.domains %}
+  <article>
+    <h2>{{ domain.name }}</h2>
+    <p>{{ domain.summary }}</p>
+  </article>
+  {% endfor %}
+</section>
+<h2 class="section">Main evaluation</h2>
+<p>The main Online evaluation uses {{ content.main_eval.online_tasks }} tasks: {{ content.main_eval.graft }} Graft, {{ content.main_eval.refresh }} Refresh, and {{ content.main_eval.clarify }} Clarify. Each task runs once per condition for at most {{ content.main_eval.steps }} steps. The same {{ content.main_eval.paired }} tasks are also run as Computer-Use and as Offline Ego Use.</p>
+<ul class="settings">
+  {% for setting in content.settings %}
+  <li><strong>{{ setting.name }}.</strong> {{ setting.summary }}</li>
+  {% endfor %}
+</ul>
+<p>{{ content.main_eval.composite }}</p>
+{% endblock %}

@@ -1,0 +1,1374 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-graft-refine-2026101801",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          486
+        ],
+        "media_id": "ace8101b-1e50-4356-9be9-8db45cb2e80a",
+        "original_video_id": "ace8101b-1e50-4356-9be9-8db45cb2e80a",
+        "media_start_seconds": 0,
+        "media_sha256": "1da0afc45cc044d66c7f25201676fc0a63898d2685692381f197d5b2847b92de",
+        "original_annotations": [
+          "On Walmart, open a product page for the same type of material used in the video—self-adhesive waterproofing tape/membrane intended for protecting deck joists or wooden framing. The listing must state that it is for joists/wood framing, is waterproof/self-adhesive, and is sold as a roll."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              0,
+              9.8
+            ],
+            "role": "referent",
+            "description": "The wearer lays black adhesive barrier tape across the tops of exposed wooden deck joists."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "Released frames show a black adhesive barrier being fitted along the top faces of exposed wooden deck joists. No product brand or proprietary installation variant is required.",
+          "supported_by": [
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent narrow a scene-grounded reference selection when a later working need requires written step navigation?",
+        "divergence_source": "intention",
+        "event_origin": "redesign_same_source",
+        "belief_before": "Reference videos directly about the shown joist-tape protection step are useful, including product explanations and installation walkthroughs.",
+        "belief_after": "Keep one relevant reference whose public page provides written steps or chapters for locating that installation.",
+        "required_behavior_change": "Replace an initially useful unoutlined reference with an outlined guide, or retain an already outlined guide; end with exactly one saved video.",
+        "no_update_failure": "Keep an initially useful reference with no public written installation outline or chapters.",
+        "overupdate_failure": "Discard an already adequate outlined guide or keep multiple references despite the one-video update.",
+        "visual_dependency_claim": "Only the released scene identifies the step as adhesive barrier over exposed deck joist tops; neither A nor B names tape, joists, wood, decks or a website entity.",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "task_blueprint": {
+          "site": "egomedia",
+          "initial_goal_roles": [
+            [
+              "outlined_guide"
+            ],
+            [
+              "reference_only"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "outlined_guide"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "outlined_guide": "m_eb1cdc41620e",
+            "reference_only": "m_8c1ec0185422"
+          },
+          "equivalent_role_ids": {
+            "outlined_guide": [
+              "m_6d141463a206",
+              "m_5e47e35e6528",
+              "m_73f9f9f39759"
+            ],
+            "reference_only": [
+              "m_d5ddf3b0b9e2",
+              "m_8151a5fd47ba",
+              "m_14b76ab27579",
+              "m_862cd4143160",
+              "m_7b4cd56b0259",
+              "m_98670f72aae3",
+              "m_d168c079b05d",
+              "m_b0861e702989",
+              "m_c6d134c35f14",
+              "m_09a6b2178b76",
+              "m_383822b0bdac",
+              "m_b33f0cea732d",
+              "m_7d63b6679a97",
+              "m_918edfa466e3",
+              "m_e10869a42ba4"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "reference_set": {
+              "goal_ref": "initial"
+            },
+            "outlined_guide": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "reference_set",
+                "outlined_guide"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "outlined_guide"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "B asks for an actual public step outline/chapter list so the user can find the working step later, removing unoutlined references."
+            }
+          ],
+          "established_by": "/root/reuse_formal_1018",
+          "established_at": "2026-10-18"
+        },
+        "difficulty": {
+          "level": "L2",
+          "basis": "Match the unnamed visible installation step to the reference, then apply the independent written-navigation requirement."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "wood framing flashing tape",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-c-97.json",
+              "result_entity_ids": [
+                "m_07f5fede16a8",
+                "m_5b758c5d103f",
+                "m_c6d134c35f14",
+                "m_383822b0bdac",
+                "m_bdad47c4aead",
+                "m_5f67a7084281",
+                "m_8f05ab4d1fe4",
+                "m_d5ddf3b0b9e2",
+                "m_1c022606d736",
+                "m_b288eff329bc",
+                "m_4b8ebb73cf63",
+                "m_83cd94de6951",
+                "m_93ab52837ff3",
+                "m_8151a5fd47ba",
+                "m_082c74231fc4",
+                "m_8e79d2408a9a",
+                "m_248fed37ccbd",
+                "m_14b76ab27579",
+                "m_c682f10d75c5",
+                "m_e0ac0c5390bf",
+                "m_f02e6b0f163b",
+                "m_8524644c49f9",
+                "m_ff39b27ec20b",
+                "m_32e1fa90da09",
+                "m_8c1ec0185422",
+                "m_5193f2737807",
+                "m_021ff9b5016d",
+                "m_dce2cb01ebb8",
+                "m_c6a3b8bbda7d",
+                "m_98670f72aae3",
+                "m_7b4cd56b0259",
+                "m_6ad2225c2844",
+                "m_d168c079b05d",
+                "m_07d987373930",
+                "m_862cd4143160",
+                "m_eb1cdc41620e",
+                "m_f67b2d047029",
+                "m_81565f20748f",
+                "m_276776c7b70c",
+                "m_b885558d40a1"
+              ],
+              "snapshot_task_id": "candidate-media-graft-c-97",
+              "snapshot_stage": "before_change"
+            },
+            {
+              "stage": "after_change",
+              "query": "joist tape placement before decking",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-c-97.json",
+              "result_entity_ids": [
+                "m_5130afbe0ad1",
+                "m_b0861e702989",
+                "m_7e19348fcce8",
+                "m_64dc7ccca4dd",
+                "m_6617025bc85e",
+                "m_7d63b6679a97",
+                "m_4cda89fb97a1",
+                "m_9888630da562",
+                "m_f11d4f6135bd",
+                "m_09a6b2178b76",
+                "m_fd1e4313c960",
+                "m_918edfa466e3",
+                "m_176462eb70af",
+                "m_eb5ef86998c6",
+                "m_dc42090b2cf2",
+                "m_50e693da3090",
+                "m_73f9f9f39759",
+                "m_ebcdb5af5011",
+                "m_07494d6269c4",
+                "m_e10869a42ba4",
+                "m_3c8db99708d2",
+                "m_b33f0cea732d",
+                "m_e9c7e0bab328",
+                "m_237cfc495d69",
+                "m_c228a065c620",
+                "m_0f6d0a6384eb",
+                "m_5e47e35e6528",
+                "m_6d141463a206",
+                "m_8b67c0a36037",
+                "m_0cc0b0d3a957",
+                "m_83deeccd8eed",
+                "m_93d9671284b3",
+                "m_6c628eec557f",
+                "m_5c79019cb63f",
+                "m_4ed74ce1c50e",
+                "m_be8b8a6337aa",
+                "m_be8f12518e30",
+                "m_a8b65ae923e1",
+                "m_c5172aaaaf7b",
+                "m_8762a24c957c"
+              ],
+              "snapshot_task_id": "candidate-media-graft-c-97",
+              "snapshot_stage": "after_change"
+            }
+          ],
+          "window_entity_ids": [
+            "m_07f5fede16a8",
+            "m_5b758c5d103f",
+            "m_c6d134c35f14",
+            "m_383822b0bdac",
+            "m_bdad47c4aead",
+            "m_5f67a7084281",
+            "m_8f05ab4d1fe4",
+            "m_d5ddf3b0b9e2",
+            "m_1c022606d736",
+            "m_b288eff329bc",
+            "m_4b8ebb73cf63",
+            "m_83cd94de6951",
+            "m_93ab52837ff3",
+            "m_8151a5fd47ba",
+            "m_082c74231fc4",
+            "m_8e79d2408a9a",
+            "m_248fed37ccbd",
+            "m_14b76ab27579",
+            "m_c682f10d75c5",
+            "m_e0ac0c5390bf",
+            "m_f02e6b0f163b",
+            "m_8524644c49f9",
+            "m_ff39b27ec20b",
+            "m_32e1fa90da09",
+            "m_8c1ec0185422",
+            "m_5193f2737807",
+            "m_021ff9b5016d",
+            "m_dce2cb01ebb8",
+            "m_c6a3b8bbda7d",
+            "m_98670f72aae3",
+            "m_7b4cd56b0259",
+            "m_6ad2225c2844",
+            "m_d168c079b05d",
+            "m_07d987373930",
+            "m_862cd4143160",
+            "m_eb1cdc41620e",
+            "m_f67b2d047029",
+            "m_81565f20748f",
+            "m_276776c7b70c",
+            "m_b885558d40a1",
+            "m_5130afbe0ad1",
+            "m_b0861e702989",
+            "m_7e19348fcce8",
+            "m_64dc7ccca4dd",
+            "m_6617025bc85e",
+            "m_7d63b6679a97",
+            "m_4cda89fb97a1",
+            "m_9888630da562",
+            "m_f11d4f6135bd",
+            "m_09a6b2178b76",
+            "m_fd1e4313c960",
+            "m_918edfa466e3",
+            "m_176462eb70af",
+            "m_eb5ef86998c6",
+            "m_dc42090b2cf2",
+            "m_50e693da3090",
+            "m_73f9f9f39759",
+            "m_ebcdb5af5011",
+            "m_07494d6269c4",
+            "m_e10869a42ba4",
+            "m_3c8db99708d2",
+            "m_b33f0cea732d",
+            "m_e9c7e0bab328",
+            "m_237cfc495d69",
+            "m_c228a065c620",
+            "m_0f6d0a6384eb",
+            "m_5e47e35e6528",
+            "m_6d141463a206",
+            "m_8b67c0a36037",
+            "m_0cc0b0d3a957",
+            "m_83deeccd8eed",
+            "m_93d9671284b3",
+            "m_6c628eec557f",
+            "m_5c79019cb63f",
+            "m_4ed74ce1c50e",
+            "m_be8b8a6337aa",
+            "m_be8f12518e30",
+            "m_a8b65ae923e1",
+            "m_c5172aaaaf7b",
+            "m_8762a24c957c"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "m_8c1ec0185422",
+            "m_09a6b2178b76",
+            "m_dce2cb01ebb8",
+            "m_64dc7ccca4dd"
+          ],
+          "related_entity_ids": [
+            "m_d5ddf3b0b9e2",
+            "m_8151a5fd47ba",
+            "m_14b76ab27579",
+            "m_862cd4143160",
+            "m_7b4cd56b0259",
+            "m_98670f72aae3",
+            "m_d168c079b05d",
+            "m_b0861e702989",
+            "m_c6d134c35f14",
+            "m_383822b0bdac"
+          ],
+          "ambient_entity_ids": [
+            "m_07f5fede16a8",
+            "m_5b758c5d103f",
+            "m_bdad47c4aead",
+            "m_5f67a7084281",
+            "m_8f05ab4d1fe4",
+            "m_1c022606d736",
+            "m_b288eff329bc",
+            "m_4b8ebb73cf63",
+            "m_83cd94de6951",
+            "m_93ab52837ff3",
+            "m_082c74231fc4",
+            "m_8e79d2408a9a",
+            "m_248fed37ccbd",
+            "m_c682f10d75c5",
+            "m_e0ac0c5390bf",
+            "m_f02e6b0f163b",
+            "m_8524644c49f9",
+            "m_ff39b27ec20b",
+            "m_32e1fa90da09",
+            "m_5193f2737807",
+            "m_021ff9b5016d",
+            "m_c6a3b8bbda7d",
+            "m_6ad2225c2844",
+            "m_07d987373930",
+            "m_f67b2d047029",
+            "m_81565f20748f",
+            "m_276776c7b70c",
+            "m_b885558d40a1",
+            "m_5130afbe0ad1",
+            "m_7e19348fcce8",
+            "m_6617025bc85e",
+            "m_7d63b6679a97",
+            "m_4cda89fb97a1",
+            "m_9888630da562",
+            "m_f11d4f6135bd",
+            "m_fd1e4313c960",
+            "m_918edfa466e3",
+            "m_176462eb70af",
+            "m_eb5ef86998c6",
+            "m_dc42090b2cf2",
+            "m_50e693da3090",
+            "m_ebcdb5af5011",
+            "m_07494d6269c4",
+            "m_e10869a42ba4",
+            "m_3c8db99708d2",
+            "m_b33f0cea732d",
+            "m_e9c7e0bab328",
+            "m_237cfc495d69",
+            "m_c228a065c620",
+            "m_0f6d0a6384eb",
+            "m_8b67c0a36037",
+            "m_0cc0b0d3a957",
+            "m_83deeccd8eed",
+            "m_93d9671284b3",
+            "m_6c628eec557f",
+            "m_5c79019cb63f",
+            "m_4ed74ce1c50e",
+            "m_be8b8a6337aa",
+            "m_be8f12518e30",
+            "m_a8b65ae923e1",
+            "m_c5172aaaaf7b",
+            "m_8762a24c957c"
+          ],
+          "detail_decision_fields": [
+            "title",
+            "summary",
+            "description",
+            "chapters"
+          ],
+          "rejected": [
+            {
+              "entity_id": "m_07f5fede16a8",
+              "ring": "ambient",
+              "reason": "公开说明介绍UT Construction Durability Testing lab对flashing tape材料测试；没有用于木托梁顶面贴带这一步的书面操作提纲/章节，不满足B，不能把通用材料测试当成该步骤的定位指南。",
+              "why_plausible": "Real captured listing Flashing Tapes Tested - What's the best one? shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_5b758c5d103f",
+              "ring": "ambient",
+              "reason": "公开《Tyvek® FlexWrap tapes: Sealing around windows》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Tyvek® FlexWrap tapes: Sealing around windows shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_c6d134c35f14",
+              "ring": "related",
+              "reason": "《Protecto Deck Joist Tape》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_383822b0bdac",
+              "ring": "related",
+              "reason": "《Is Joist Tape Worth It? Here's Why We Say YES.》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_bdad47c4aead",
+              "ring": "ambient",
+              "reason": "公开《This Shed is Now Weatherproof (And Pest-Free)》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing This Shed is Now Weatherproof (And Pest-Free) shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_5f67a7084281",
+              "ring": "ambient",
+              "reason": "公开《Master Carpenter Fixes Door Flashing Mistakes》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Master Carpenter Fixes Door Flashing Mistakes shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_8f05ab4d1fe4",
+              "ring": "ambient",
+              "reason": "公开《How to Properly Flash a Window》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Properly Flash a Window shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_d5ddf3b0b9e2",
+              "ring": "related",
+              "reason": "《SPAX Deck Joist and Beam Flashing Tape》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_1c022606d736",
+              "ring": "ambient",
+              "reason": "公开《Tape that can stick to itself and still be used? Frog Tape flashing tape, acrylic adhesive is key》对应其他flashing材料/应用。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Tape that can stick to itself and still be used? Frog Tape flashing tape, acrylic adhesive is key shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_b288eff329bc",
+              "ring": "ambient",
+              "reason": "公开《3M™ Flashing Tapes, Durability》对应其他flashing材料/应用。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing 3M™ Flashing Tapes, Durability shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_4b8ebb73cf63",
+              "ring": "ambient",
+              "reason": "公开《How to Flash a Window Sill | ZIP System™ stretch tape》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Flash a Window Sill | ZIP System™ stretch tape shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_83cd94de6951",
+              "ring": "ambient",
+              "reason": "公开《New Flashing Tapes from 3M》对应其他flashing材料/应用。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing New Flashing Tapes from 3M shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_93ab52837ff3",
+              "ring": "ambient",
+              "reason": "公开《How To Install A Window In 12 Minutes! - Beginners Guide》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How To Install A Window In 12 Minutes! - Beginners Guide shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_8151a5fd47ba",
+              "ring": "related",
+              "reason": "《Joist Tape for Decking Review》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。Review是否在视频里演示不作为否定事实。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_082c74231fc4",
+              "ring": "ambient",
+              "reason": "公开《DeckWise® How-To: LedgerTape™ Ledger Board Barrier Tape Installation》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing DeckWise® How-To: LedgerTape™ Ledger Board Barrier Tape Installation shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_8e79d2408a9a",
+              "ring": "ambient",
+              "reason": "公开《How to Replace Water Damaged Window Sill and Trim》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Replace Water Damaged Window Sill and Trim shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_248fed37ccbd",
+              "ring": "ambient",
+              "reason": "公开《How to Tape Window & Door Sills for Waterproofing》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Tape Window & Door Sills for Waterproofing shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_14b76ab27579",
+              "ring": "related",
+              "reason": "《Reasons Why G-Tape is Easy to Install to Protect Deck Joists from Rot》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_c682f10d75c5",
+              "ring": "ambient",
+              "reason": "公开《3M™ All Weather Flashing Tape 8067 - Window Installation》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing 3M™ All Weather Flashing Tape 8067 - Window Installation shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_e0ac0c5390bf",
+              "ring": "ambient",
+              "reason": "公开《How-to install exterior Wood Window Trim and Horizontal Wood Siding》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How-to install exterior Wood Window Trim and Horizontal Wood Siding shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_f02e6b0f163b",
+              "ring": "ambient",
+              "reason": "公开《Sealing Foundation to Framing | How to Apply Zip Liquid Flash》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Sealing Foundation to Framing | How to Apply Zip Liquid Flash shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_8524644c49f9",
+              "ring": "ambient",
+              "reason": "公开《DuPont™ Flashing Tape》对应其他flashing材料/应用。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing DuPont™ Flashing Tape shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_ff39b27ec20b",
+              "ring": "ambient",
+              "reason": "公开《Sill Tape Installation | Ecoply Barrier | CHH Woodproducts》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Sill Tape Installation | Ecoply Barrier | CHH Woodproducts shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_32e1fa90da09",
+              "ring": "ambient",
+              "reason": "公开《How To Flash A Window Sill, Jamb, And Header And Properly Install A Window!》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How To Flash A Window Sill, Jamb, And Header And Properly Install A Window! shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_8c1ec0185422",
+              "ring": "core",
+              "reason": "《How to Apply Joist Tape to Your Deck Frame》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_5193f2737807",
+              "ring": "ambient",
+              "reason": "公开《TBP Converting | 3M™ ALL WEATHER FLASHING TAPE 8067 | Pierce Resistant Flashing Tape | Self Healing》对应其他flashing材料/应用。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing TBP Converting | 3M™ ALL WEATHER FLASHING TAPE 8067 | Pierce Resistant Flashing Tape | Self Healing shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_021ff9b5016d",
+              "ring": "ambient",
+              "reason": "公开《Use Liquid Flash at a Wall-to-Foundation Connection》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Use Liquid Flash at a Wall-to-Foundation Connection shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_dce2cb01ebb8",
+              "ring": "core",
+              "reason": "公开标题及章节明确装窗、WRB、窗台flashing、窗饰及外墙板；对象是窗框，不是画面木露台托梁顶面。",
+              "why_plausible": "Real captured listing How To Install a Window | Lowe's Pro How-To shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_c6a3b8bbda7d",
+              "ring": "ambient",
+              "reason": "公开《Avoid Disasters: How To Properly Flash A Deck || Dr Decks》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Avoid Disasters: How To Properly Flash A Deck || Dr Decks shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_98670f72aae3",
+              "ring": "related",
+              "reason": "《E-SDS Joist Tape for Decking Butyl Joist Tape 1-5/8\" x 50' Deck Flashing Joist Tape and Beams》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_7b4cd56b0259",
+              "ring": "related",
+              "reason": "《Imus Seal Butyl Joist Tape for Flashing Deck Joists and Beams (1-5/8” x 50’ Non-Skid)》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_6ad2225c2844",
+              "ring": "ambient",
+              "reason": "公开《How to Flash a Window | This Old House》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Flash a Window | This Old House shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_d168c079b05d",
+              "ring": "related",
+              "reason": "《Deck Building Tips - Using G-Tape to Refurbish and Protect Old Joists》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_07d987373930",
+              "ring": "ambient",
+              "reason": "公开《How to Install a Window | New Construction DIY FOR BEGINNERS!》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Install a Window | New Construction DIY FOR BEGINNERS! shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_862cd4143160",
+              "ring": "related",
+              "reason": "《What are the pros and cons of sealing or taping deck joists? | Heartland Decks》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_f67b2d047029",
+              "ring": "ambient",
+              "reason": "公开《How to Replace Sun Damaged, Dried, Cracked Exterior Wood Window Trim with PVC》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Replace Sun Damaged, Dried, Cracked Exterior Wood Window Trim with PVC shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_81565f20748f",
+              "ring": "ambient",
+              "reason": "公开《Entry Door Flashing | Mastering the Basics | ZIP System® sheathing and tape》对应窗、门或墙板flashing。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Entry Door Flashing | Mastering the Basics | ZIP System® sheathing and tape shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_276776c7b70c",
+              "ring": "ambient",
+              "reason": "公开《A highway for BUGS to get in your house. Seal this joint!》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing A highway for BUGS to get in your house. Seal this joint! shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_b885558d40a1",
+              "ring": "ambient",
+              "reason": "公开《Frame Sealing Tape Installation | Ecoply Barrier | CHH Woodproducts》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Frame Sealing Tape Installation | Ecoply Barrier | CHH Woodproducts shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_5130afbe0ad1",
+              "ring": "ambient",
+              "reason": "公开《Watch This Video Before Installing Joist For Angled Decking Boards - On Center Spacing Changes》对应框架布局、间距或结构设计。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Watch This Video Before Installing Joist For Angled Decking Boards - On Center Spacing Changes shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_b0861e702989",
+              "ring": "related",
+              "reason": "《Butyl Joist Tape for Decking 1-5/8''  or 2'' Introduction》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_7e19348fcce8",
+              "ring": "ambient",
+              "reason": "公开《How to Install a Joist Hanger》对应托梁挂件安装。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Install a Joist Hanger shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_64dc7ccca4dd",
+              "ring": "core",
+              "reason": "公开description及章节展示deck boards hidden screws/fasteners；操作是铺板紧固，不是画面贴自粘防护膜。",
+              "why_plausible": "Real captured listing Why No One’s Using Deck Screws Anymore: The Hidden Deck Trick You’ll Wish You Knew Sooner shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_6617025bc85e",
+              "ring": "ambient",
+              "reason": "公开《How to build a deck | Problems you will run into and how to fix them》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to build a deck | Problems you will run into and how to fix them shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_7d63b6679a97",
+              "ring": "ambient",
+              "reason": "原图显示在梁顶压红色胶带，是合法初始参考。B仍不满足：原生公开章节为galvanized nails、joist hangers、installing decking，没有可定位该贴膜步骤的书面提纲。",
+              "why_plausible": "Real captured listing How to Prevent Rot and Attach Joists shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_4cda89fb97a1",
+              "ring": "ambient",
+              "reason": "公开《Deck Joist Install Tip - THE EASY WAY!!!》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Deck Joist Install Tip - THE EASY WAY!!! shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_9888630da562",
+              "ring": "ambient",
+              "reason": "公开《Deck Blocking Explained: Mid-Span and Over-the-Beam》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Deck Blocking Explained: Mid-Span and Over-the-Beam shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_f11d4f6135bd",
+              "ring": "ambient",
+              "reason": "公开《Deck Joist Leveling, Side Joist Support Installation - Step 5 of How to Build a DECK for Beginners》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Deck Joist Leveling, Side Joist Support Installation - Step 5 of How to Build a DECK for Beginners shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_09a6b2178b76",
+              "ring": "core",
+              "reason": "《Introduction to Substructure Segment 3-Joist Tape & Hangers》与眼前托梁贴防护带这一步有关，初始可作实用参考；冻结公开页面没有这项施工的书面分步提纲或章节列表。后续B要求可按文字步骤/章节定位，因此不满足最终公开资料条件；不声称影片本身不教学。",
+              "why_plausible": "The public title/description concerns the very joist-tape protection step and is a valid reference before the update.",
+              "failure_predicates": [
+                "old_goal_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_fd1e4313c960",
+              "ring": "ambient",
+              "reason": "公开《Mid Span Blocking: Why Do It & How? || Dr Decks》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Mid Span Blocking: Why Do It & How? || Dr Decks shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_918edfa466e3",
+              "ring": "ambient",
+              "reason": "公开原图在裸木梁上放有防护胶带卷，是合法初始参考。公开页面没有针对该贴带步骤的书面操作提纲或章节列表，仅不满足B；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing TOP TEN Deck Building Tips I Wish I Knew Sooner! shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_176462eb70af",
+              "ring": "ambient",
+              "reason": "公开《How to Lay Decking Boards | YellaWood University》对应甲板铺板/紧固。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Lay Decking Boards | YellaWood University shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_eb5ef86998c6",
+              "ring": "ambient",
+              "reason": "原生公开提纲为支柱、limestone screenings、joist hanger、level surface、切柱和铺板；网页没有标注画面中贴托梁顶膜这一步。",
+              "why_plausible": "Real captured listing Fix Your Old Deck Frame and Save Money! | Deck Restoration shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_dc42090b2cf2",
+              "ring": "ambient",
+              "reason": "公开《Stop Misusing Joist Hangers & Try This Instead》对应托梁挂件安装。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Stop Misusing Joist Hangers & Try This Instead shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_50e693da3090",
+              "ring": "ambient",
+              "reason": "完整公开章节从fascia/deck board spacing到fasteners、layout、plugs，均为复合铺板安装；没有托梁顶面贴防护膜的定位章节或书面步骤。",
+              "why_plausible": "Real captured listing Wish I Knew These TOP TEN Composite Decking Installation Tips Sooner! shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_ebcdb5af5011",
+              "ring": "ambient",
+              "reason": "公开《Deck Blocking: Build a Deck Like a Pro》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Deck Blocking: Build a Deck Like a Pro shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_07494d6269c4",
+              "ring": "ambient",
+              "reason": "公开《How To Lay Out Joists Equally || Dr Decks》对应框架布局、间距或结构设计。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How To Lay Out Joists Equally || Dr Decks shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_e10869a42ba4",
+              "ring": "ambient",
+              "reason": "原图包装明确Deck Flash / Joist wood deck protection，是合法初始参考。公开页面没有该安装步骤的书面操作提纲或章节列表，仅不满足B；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Protect Your Deck Against The Elements with Deck Flash! shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_3c8db99708d2",
+              "ring": "ambient",
+              "reason": "公开《WPC Decking Installation》对应甲板铺板/紧固。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing WPC Decking Installation shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_b33f0cea732d",
+              "ring": "ambient",
+              "reason": "标题wrapping joists和原图中沿梁顶压黑膜的动作，支持其为合法初始参考。公开页面没有该步骤的书面操作提纲或章节列表，仅不满足B；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing DYI Deck Building attaching railings and wrapping joists shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_e9c7e0bab328",
+              "ring": "ambient",
+              "reason": "公开《Beginners Guide To Deck Joist, Beam And Post Design | Deck Series》对应框架布局、间距或结构设计。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Beginners Guide To Deck Joist, Beam And Post Design | Deck Series shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_237cfc495d69",
+              "ring": "ambient",
+              "reason": "公开《How to Attach a Ledger Board for a Deck》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Attach a Ledger Board for a Deck shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_c228a065c620",
+              "ring": "ambient",
+              "reason": "公开《Solo Deck Framing Trick》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Solo Deck Framing Trick shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_0f6d0a6384eb",
+              "ring": "ambient",
+              "reason": "公开《DIY Shed AsktheBuilder Floor Joist Layout》对应框架布局、间距或结构设计。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing DIY Shed AsktheBuilder Floor Joist Layout shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_8b67c0a36037",
+              "ring": "ambient",
+              "reason": "原生description明确position and tape the deck on the hull，是船体甲板定位，不是木托梁顶面防护膜安装。",
+              "why_plausible": "Real captured listing 24. Position and Tape the Deck shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_0cc0b0d3a957",
+              "ring": "ambient",
+              "reason": "公开《How to build your own deck: Attaching the ledger board》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to build your own deck: Attaching the ledger board shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_83deeccd8eed",
+              "ring": "ambient",
+              "reason": "公开《How to Install Deck Joists | Trex Academy》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Install Deck Joists | Trex Academy shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_93d9671284b3",
+              "ring": "ambient",
+              "reason": "公开《Basic Floor Framing Layout, Point Loads, and Making Plywood Fit》对应框架布局、间距或结构设计。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Basic Floor Framing Layout, Point Loads, and Making Plywood Fit shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_6c628eec557f",
+              "ring": "ambient",
+              "reason": "公开《Basic Deck Framing: Posts and Beams》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Basic Deck Framing: Posts and Beams shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_5c79019cb63f",
+              "ring": "ambient",
+              "reason": "公开《Drainable Deck Ledger Flashing》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Drainable Deck Ledger Flashing shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_4ed74ce1c50e",
+              "ring": "ambient",
+              "reason": "公开《How To Install A Deck Using TuffBlock - 3D Visual Installation Guide (4 methods using deck blocks)》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How To Install A Deck Using TuffBlock - 3D Visual Installation Guide (4 methods using deck blocks) shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_be8b8a6337aa",
+              "ring": "ambient",
+              "reason": "原生章节为old school/modern code deck attachment与advanced bracket solutions；网页说明涉及deck bracket，不是托梁顶面贴膜这一步。",
+              "why_plausible": "Real captured listing Most Decks Are Attached WRONG (Only THIS Method Prevents Rot) shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_be8f12518e30",
+              "ring": "ambient",
+              "reason": "公开《How to Picture Frame A Deck | Composite Decking Border》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Picture Frame A Deck | Composite Decking Border shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_a8b65ae923e1",
+              "ring": "ambient",
+              "reason": "原生description明确deck ledger board与Z flashing，章节包括flashing around doors；该网页提纲不讲画面中裸露木托梁顶面铺自粘防护带。",
+              "why_plausible": "Real captured listing Most people often miss this... | Deck Flashing shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_c5172aaaaf7b",
+              "ring": "ambient",
+              "reason": "公开《How to Attach a Deck to a House》对应框架搭建、连接或ledger处理。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing How to Attach a Deck to a House shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "m_8762a24c957c",
+              "ring": "ambient",
+              "reason": "公开《Why Your Deck Bounces (And How I Fix It)》对应其他建造工序。其冻结公开页面没有针对画面这一步的书面操作提纲或章节列表，不满足B的实用定位要求；不据此断言整部影片绝无相关内容。",
+              "why_plausible": "Real captured listing Why Your Deck Bounces (And How I Fix It) shares construction, framing or waterproofing context.",
+              "failure_predicates": [
+                "wrong_method_or_public_outline"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c97-replacement/construction_evidence.json::candidate_boundary"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "/root/reuse_formal_1018",
+            "review_reference": "construction_evidence.json",
+            "scope": "Constructor's named public-boundary audit, not independent blind review."
+          }
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            1.4,
+            2.8,
+            4.2,
+            5.6,
+            7,
+            8.4,
+            9.8
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-97/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-97/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-97/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-97/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-97/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-97/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-97/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-97/V0_07.jpg"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "visual_method_required",
+        "reason": "The frames reveal tape applied along deck joists rather than flashing around a roof edge."
+      },
+      "replaces_candidate_id": "candidate-media-graft-c-97",
+      "replacement_reason": "Redesign the same source after the old A+B disclosed the entire joist-tape operation. Preserve scene grounding and add a useful written-navigation preference rather than an answer-specific material or duration restriction.",
+      "repair": {
+        "reviewed_at": "2026-10-18",
+        "previous_task_reference": "data/sources/manifests/expansion_v4_ego2web_screening_manifest.json::candidate-media-graft-c-97",
+        "changed": [
+          "New situated reference-video request leaves the operation to the released scene.",
+          "Later need is public written step navigation while working; no duration limit.",
+          "Reuse complete original 80-entity two-query window; project captured native descriptions and chapters only.",
+          "Independent second-pass review found four omitted useful initial references. Add all four without changing A/B, the public website, final four answers or the sealed blind result; keep them in final non-answer rings because the navigation duty still excludes them."
+        ],
+        "reused": [
+          "Original eight released frame bytes and timestamps; source clip and media identity.",
+          "Original real before/after query captures through explicit snapshot_task_id references."
+        ],
+        "incremental_review_scope": [
+          "New A/B utility, initial reference boundary, written-outline boundary, no-scene and final native state."
+        ],
+        "prior_evidence_reference": ".scratch/task-completion-20261018/formal/candidate-media-graft-c-97-targeted.json",
+        "historical_key_note": "Old source, key and canonical review unchanged. This constructor has seen the old key and is not an independent blind reviewer."
+      },
+      "stream": {
+        "session_seconds": [
+          0.0,
+          73.8
+        ],
+        "update_onset_seconds": 16.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-graft-refine-2026101801/review.json"
+      }
+    }
+  ]
+}

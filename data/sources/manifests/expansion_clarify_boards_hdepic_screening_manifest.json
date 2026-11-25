@@ -1,0 +1,1315 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-mining",
+    "license_or_access_note": "HD-EPIC source clip from the official University of Bristol dataset. Retain dataset attribution; source frames are research evidence and are not website product imagery."
+  },
+  "tasks": [
+    {
+      "task_id": "hypothesis-hdepic-p08-20240617-184909-71-refresh-choice-v1",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P08-20240617-184909-71"
+        ],
+        "media_id": "P08-20240617-184909__180-202",
+        "media_start_seconds": 180,
+        "media_sha256": "eea0cd9ab513b5386bfcc89020f8f38341eaae923e249258f4c7897e1cfbb2e2",
+        "original_video_id": "P08-20240617-184909",
+        "original_annotations": [
+          "Change my mind and instead grab a different chopping board from behind the drying rack. [189.25, 191.00]"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl",
+          "sha256": "4b4aebaaa5a37da4dd780e8800000a34616c10dc69a148ddf255e9e519063212"
+        }
+      },
+      "screening": {
+        "signal": "refresh.narrated_choice_change",
+        "signal_schema_version": 1,
+        "hypothesis_pool": "data/sources/audits/expansion_candidate_pool.json",
+        "reviewed_interval_seconds": [
+          180,
+          202
+        ]
+      },
+      "rejection_code": "unsupported_physical_referent",
+      "rejection_reason": "连续视频显示原时189.0–189.8秒伸手进入台下柜后收手，柜内目标不可见；190.6–192.0秒只取出一块白色开孔板并放上台面。不能证明此前选择过另一块切板，或把放在灶台右墙的木板换掉。旁白中的change my mind保留为假设，不能据此建立Refresh-replace的旧承诺。",
+      "repair": {
+        "disposition": "redesign_same_source",
+        "preserve_coverage": "refresh/replace",
+        "replacement_candidate_id": "candidate-mart-clarify-position-06",
+        "reason": "改审视频中两块可见菜板的指代歧义；新Clarify不补足原Refresh-replace覆盖缺口。"
+      }
+    },
+    {
+      "task_id": "candidate-mart-clarify-position-06",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "replaces_candidate_id": "hypothesis-hdepic-p08-20240617-184909-71-refresh-choice-v1",
+      "replacement_reason": "原旁白导出的切板改选缺少可见旧参照；改用厨房内两块可见菜板及一条固定位置回答建立Clarify，不声称实际发生购物目标或切板替换。",
+      "source": {
+        "record_ids": [
+          "P08-20240617-184909-71"
+        ],
+        "media_id": "P08-20240617-184909__180-202",
+        "media_start_seconds": 180,
+        "media_sha256": "eea0cd9ab513b5386bfcc89020f8f38341eaae923e249258f4c7897e1cfbb2e2",
+        "original_video_id": "P08-20240617-184909",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P08/P08-20240617-184909.mp4",
+        "original_annotations": [
+          "Change my mind and instead grab a different chopping board from behind the drying rack. [189.25, 191.00]"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl",
+          "sha256": "4b4aebaaa5a37da4dd780e8800000a34616c10dc69a148ddf255e9e519063212"
+        },
+        "observed_events": [
+          {
+            "interval_seconds": [
+              191.4,
+              197.5
+            ],
+            "role": "flat_white_board",
+            "description": "A white rectangular board with a long rounded hand hole is laid flat on the counter; from 196.5 s the air fryer is set on it."
+          },
+          {
+            "interval_seconds": [
+              192.5,
+              192.8
+            ],
+            "role": "upright_brown_board",
+            "description": "A brown rectangular board with alternating dark and light wood-grain strips stands against the wall beside the hob; it is not handled."
+          }
+        ],
+        "unsupported_claims": [
+          "The identity of the object reached for inside the lower cupboard.",
+          "A switch from the brown board to the white board.",
+          "Brand, exact dimensions, wood species, polymer type, or heat resistance of either board."
+        ]
+      },
+      "screening": {
+        "proposed_candidates": [
+          "upright_brown_board",
+          "flat_white_board"
+        ],
+        "proposed_hidden_target": "flat_white_board",
+        "proposed_ambiguous_instruction": "I want to order a replacement for one of my chopping boards. Find a single board with the same visible shape and colour, not a set, and add it to the cart. Brand and size do not matter.",
+        "proposed_valid_slot": "position",
+        "continuous_review_method": "Reviewed the complete local 180–202 second source interval using sequential full-resolution frames, with 0.2-second sampling over 187.0–192.4 seconds and exact timestamp checks.",
+        "ambiguity_review": "The request specifies a particular board to replace but leaves which board unspecified. It does not refer to the board being held, selected, most recently used, or taken out. Handling the white board is therefore not evidence of the authored replacement intent. Either pictured chopping board remains a possible intended reference until the fixed position answer."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            191.4,
+            192.0,
+            192.2,
+            192.5,
+            192.8,
+            196.5,
+            197.0,
+            197.5
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-position-06/stream-20261103/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The kitchen contains a white rectangular board with a rounded hand hole and a brown rectangular wood-grain board standing by the hob.",
+          "supported_by": [
+            "V0:1",
+            "V0:3",
+            "V0:4"
+          ]
+        },
+        {
+          "text": "The white board lies flat on the counter; the brown board stands upright against the wall.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:6"
+          ]
+        },
+        {
+          "text": "The fixed answer identifies the board by its flat position on the counter. Neither the initial request nor that answer names its colour, brand, size, or a website product.",
+          "supported_by": [
+            "V0:1",
+            "V0:2",
+            "V0:6"
+          ]
+        }
+      ],
+      "rejection_code": null,
+      "rejection_reason": null,
+      "construct": {
+        "research_question": "Can the agent resolve which kitchen chopping board the user wants to replace by asking one position question, then match its visible form and colour to a native cart item?",
+        "divergence_source": "grounding",
+        "event_origin": "redesign_same_source",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "belief_before": "The standing brown board and the white board subsequently laid flat are both possible intended replacement references; activity alone does not declare which one the user wants to replace.",
+        "belief_after": "The fixed position answer identifies the board lying flat on the counter; visual evidence supplies its white rectangular form and rounded hand hole.",
+        "required_behavior_change": "Ask one position question before committing a product, then add exactly one accepted single-board listing matching the clarified physical board.",
+        "no_update_failure": "Choosing either board without clarification leaves the requested physical referent unresolved.",
+        "overupdate_failure": "Adding a product for both boards or buying a set violates the request for one replacement board.",
+        "visual_dependency_claim": "The position answer supplies only a physical location. Released frames are needed to connect that location to the board's white rectangular appearance and hand hole, while public product evidence supplies the purchasable equivalents.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I want to order a replacement for one of my chopping boards. Find a single board with the same visible shape and colour, not a set, and add it to the cart. Brand and size do not matter.",
+          "oracle_instruction": "I want to order a replacement for the chopping board lying flat on the counter. Find a single board with the same visible shape and colour, not a set, and add it to the cart. Brand and size do not matter.",
+          "candidate_roles": [
+            "upright_brown_board",
+            "flat_white_board"
+          ],
+          "hidden_target_role": "flat_white_board",
+          "valid_slot": "position",
+          "canonical_question": "Which chopping board do you mean?",
+          "canonical_answer": "The one lying flat on the counter.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "upright_brown_board": "p_99b13dbcaa25",
+            "flat_white_board": "p_14a32e2fe8b2"
+          },
+          "equivalent_role_ids": {
+            "flat_white_board": [
+              "p_bf7a9e992c97",
+              "p_0b2292b5beeb",
+              "p_af2906a3c017",
+              "p_71a7327339ef",
+              "p_f670974f6dd5",
+              "p_b2f85150cf40",
+              "p_77d8b7b06128",
+              "p_06a9e8bcae51",
+              "p_cea9406d9838",
+              "p_89aeb8118853",
+              "p_e4d32aa17800",
+              "p_cbcdfc307604",
+              "p_b21605e1af47",
+              "p_14c2974e031c",
+              "p_a933b9a75bd4",
+              "p_7b831036de74",
+              "p_38079ee291f2"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision_point_provenance": "source_grounded_position_clarification_20260905",
+        "decision": {
+          "candidates": {
+            "upright_brown_board": "p_99b13dbcaa25",
+            "flat_white_board": "p_14a32e2fe8b2"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "upright_brown_board",
+                "flat_white_board"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "flat_white_board"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The one fixed position answer identifies the board lying flat on the counter. The frames establish its appearance; they do not establish the user's unstated replacement intent."
+            }
+          ],
+          "established_by": "skill-executing-coding-agent",
+          "established_at": "2026-09-05",
+          "note": "Both physical roles are bound to real catalog entities at visible shape-and-colour granularity, not exact brand, dimensions, material, or wood grain. All 87 unique search-card images were individually reviewed. The white-board branch contains the canonical entity and 17 equivalents, including white rectangular boards with an integrated hand hole even when they have a juice groove. The PDP-sourced full-resolution images for B0006OLBU8 and B00CDL6X3C additionally confirm their integrated hand holes. The complete two-query union is bound and its 69 non-answer entities are classified. The generic shared titles on B000W4VFJ4 and B0DXWZTLRP were repaired from canonical snapshots on 2026-09-14; the full task-level semantic review remains unresolved. This record is not yet web_mapped."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "wood white cutting board single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json",
+              "result_entity_ids": [
+                "p_6c903ccea21b",
+                "p_6b5ecd53a4e6",
+                "p_7db9aca0ae01",
+                "p_a7357dfd087b",
+                "p_14de8320e7e6",
+                "p_79a2ab901fff",
+                "p_30af790d47bf",
+                "p_132fc41c0bde",
+                "p_cf96c0d1e468",
+                "p_5e1029c70e5b",
+                "p_04dcdfb213ea",
+                "p_767d988c496b",
+                "p_7e9d9ceaee33",
+                "p_22be28d91c29",
+                "p_9bc830a555d1",
+                "p_33f6153da2e5",
+                "p_5b5ea00b53bc",
+                "p_42f7bb5c2e63",
+                "p_af74d5b46d5d",
+                "p_3799b28beebe",
+                "p_1ac8f7e4c6e5",
+                "p_f88f7e0d52de",
+                "p_ffc9f0d5c785",
+                "p_223e3e1b9a53",
+                "p_35c6a33ab280",
+                "p_99b13dbcaa25",
+                "p_be8e32c6ca73",
+                "p_6de24740788c",
+                "p_1d0d7e0739d2",
+                "p_ae1f2496fb3a",
+                "p_f869b3c397c2",
+                "p_14a32e2fe8b2",
+                "p_ecda32bd5d55",
+                "p_62927f46ce12",
+                "p_3abc70fc85b7",
+                "p_bf7a9e992c97",
+                "p_0b2292b5beeb",
+                "p_f670974f6dd5",
+                "p_cc94c5c8bb69",
+                "p_1041310fd0cd",
+                "p_12c077f960db",
+                "p_c79b80a2335a",
+                "p_fe81020e0068",
+                "p_71a7327339ef",
+                "p_9eddd6000a2f",
+                "p_f4b6ba068bbb",
+                "p_84aebb47e6b7",
+                "p_ce5901b09cec"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "white rectangular cutting board handle hole single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json",
+              "result_entity_ids": [
+                "p_38079ee291f2",
+                "p_bf7a9e992c97",
+                "p_14a32e2fe8b2",
+                "p_af2906a3c017",
+                "p_15845996ff7b",
+                "p_7b831036de74",
+                "p_71a7327339ef",
+                "p_0b2292b5beeb",
+                "p_cbcdfc307604",
+                "p_b2f85150cf40",
+                "p_cf96c0d1e468",
+                "p_77d8b7b06128",
+                "p_0ddd24960c30",
+                "p_f670974f6dd5",
+                "p_53b571b9e24b",
+                "p_3799b28beebe",
+                "p_4647158c7ef2",
+                "p_e4d32aa17800",
+                "p_c965d96eb207",
+                "p_497a121f4ad7",
+                "p_db237a6c7144",
+                "p_a933b9a75bd4",
+                "p_573c317a061f",
+                "p_f0dd3db30c48",
+                "p_89aeb8118853",
+                "p_6407ff1ed0dd",
+                "p_cdd648354c37",
+                "p_b4504839a0a0",
+                "p_c79b80a2335a",
+                "p_12f8f0c69804",
+                "p_b21605e1af47",
+                "p_0f56831cc705",
+                "p_146afd5e1ba2",
+                "p_14c2974e031c",
+                "p_b8305b9a5aef",
+                "p_2348f328d2cd",
+                "p_09dc53538c87",
+                "p_be8e32c6ca73",
+                "p_21953f1d54ea",
+                "p_db57a31a6033",
+                "p_cea9406d9838",
+                "p_f620bd81458a",
+                "p_60ddc2f977de",
+                "p_57e1972cdeb4",
+                "p_eeac8f338ccd",
+                "p_f0e751bcf39b",
+                "p_06a9e8bcae51",
+                "p_b43139ff5049"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_6c903ccea21b",
+            "p_6b5ecd53a4e6",
+            "p_7db9aca0ae01",
+            "p_a7357dfd087b",
+            "p_14de8320e7e6",
+            "p_79a2ab901fff",
+            "p_30af790d47bf",
+            "p_132fc41c0bde",
+            "p_cf96c0d1e468",
+            "p_5e1029c70e5b",
+            "p_04dcdfb213ea",
+            "p_767d988c496b",
+            "p_7e9d9ceaee33",
+            "p_22be28d91c29",
+            "p_9bc830a555d1",
+            "p_33f6153da2e5",
+            "p_5b5ea00b53bc",
+            "p_42f7bb5c2e63",
+            "p_af74d5b46d5d",
+            "p_3799b28beebe",
+            "p_1ac8f7e4c6e5",
+            "p_f88f7e0d52de",
+            "p_ffc9f0d5c785",
+            "p_223e3e1b9a53",
+            "p_35c6a33ab280",
+            "p_99b13dbcaa25",
+            "p_be8e32c6ca73",
+            "p_6de24740788c",
+            "p_1d0d7e0739d2",
+            "p_ae1f2496fb3a",
+            "p_f869b3c397c2",
+            "p_14a32e2fe8b2",
+            "p_ecda32bd5d55",
+            "p_62927f46ce12",
+            "p_3abc70fc85b7",
+            "p_bf7a9e992c97",
+            "p_0b2292b5beeb",
+            "p_f670974f6dd5",
+            "p_cc94c5c8bb69",
+            "p_1041310fd0cd",
+            "p_12c077f960db",
+            "p_c79b80a2335a",
+            "p_fe81020e0068",
+            "p_71a7327339ef",
+            "p_9eddd6000a2f",
+            "p_f4b6ba068bbb",
+            "p_84aebb47e6b7",
+            "p_ce5901b09cec",
+            "p_38079ee291f2",
+            "p_af2906a3c017",
+            "p_15845996ff7b",
+            "p_7b831036de74",
+            "p_cbcdfc307604",
+            "p_b2f85150cf40",
+            "p_77d8b7b06128",
+            "p_0ddd24960c30",
+            "p_53b571b9e24b",
+            "p_4647158c7ef2",
+            "p_e4d32aa17800",
+            "p_c965d96eb207",
+            "p_497a121f4ad7",
+            "p_db237a6c7144",
+            "p_a933b9a75bd4",
+            "p_573c317a061f",
+            "p_f0dd3db30c48",
+            "p_89aeb8118853",
+            "p_6407ff1ed0dd",
+            "p_cdd648354c37",
+            "p_b4504839a0a0",
+            "p_12f8f0c69804",
+            "p_b21605e1af47",
+            "p_0f56831cc705",
+            "p_146afd5e1ba2",
+            "p_14c2974e031c",
+            "p_b8305b9a5aef",
+            "p_2348f328d2cd",
+            "p_09dc53538c87",
+            "p_21953f1d54ea",
+            "p_db57a31a6033",
+            "p_cea9406d9838",
+            "p_f620bd81458a",
+            "p_60ddc2f977de",
+            "p_57e1972cdeb4",
+            "p_eeac8f338ccd",
+            "p_f0e751bcf39b",
+            "p_06a9e8bcae51",
+            "p_b43139ff5049"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_c965d96eb207",
+            "p_4647158c7ef2",
+            "p_eeac8f338ccd",
+            "p_2348f328d2cd"
+          ],
+          "related_entity_ids": [
+            "p_b43139ff5049",
+            "p_db237a6c7144",
+            "p_573c317a061f",
+            "p_f0dd3db30c48",
+            "p_6407ff1ed0dd",
+            "p_cdd648354c37",
+            "p_cf96c0d1e468",
+            "p_0ddd24960c30",
+            "p_99b13dbcaa25"
+          ],
+          "ambient_entity_ids": [
+            "p_6c903ccea21b",
+            "p_6b5ecd53a4e6",
+            "p_7db9aca0ae01",
+            "p_a7357dfd087b",
+            "p_14de8320e7e6",
+            "p_79a2ab901fff",
+            "p_30af790d47bf",
+            "p_132fc41c0bde",
+            "p_5e1029c70e5b",
+            "p_04dcdfb213ea",
+            "p_767d988c496b",
+            "p_7e9d9ceaee33",
+            "p_22be28d91c29",
+            "p_9bc830a555d1",
+            "p_33f6153da2e5",
+            "p_5b5ea00b53bc",
+            "p_42f7bb5c2e63",
+            "p_af74d5b46d5d",
+            "p_3799b28beebe",
+            "p_1ac8f7e4c6e5",
+            "p_f88f7e0d52de",
+            "p_ffc9f0d5c785",
+            "p_223e3e1b9a53",
+            "p_35c6a33ab280",
+            "p_be8e32c6ca73",
+            "p_6de24740788c",
+            "p_1d0d7e0739d2",
+            "p_ae1f2496fb3a",
+            "p_f869b3c397c2",
+            "p_ecda32bd5d55",
+            "p_62927f46ce12",
+            "p_3abc70fc85b7",
+            "p_cc94c5c8bb69",
+            "p_1041310fd0cd",
+            "p_12c077f960db",
+            "p_c79b80a2335a",
+            "p_fe81020e0068",
+            "p_9eddd6000a2f",
+            "p_f4b6ba068bbb",
+            "p_84aebb47e6b7",
+            "p_ce5901b09cec",
+            "p_15845996ff7b",
+            "p_53b571b9e24b",
+            "p_497a121f4ad7",
+            "p_b4504839a0a0",
+            "p_12f8f0c69804",
+            "p_0f56831cc705",
+            "p_146afd5e1ba2",
+            "p_b8305b9a5aef",
+            "p_09dc53538c87",
+            "p_21953f1d54ea",
+            "p_db57a31a6033",
+            "p_f620bd81458a",
+            "p_60ddc2f977de",
+            "p_57e1972cdeb4",
+            "p_f0e751bcf39b"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_c965d96eb207",
+              "ring": "core",
+              "reason": "主图四角有显著蓝色包边，公开标题也标为Blue；视频平放板没有这些蓝色区域，不符合匹配可见颜色的要求。",
+              "why_plausible": "同为白色主体、矩形轮廓、内置长手孔的单块切板，仅看类别和主体容易误选。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0DXXBZ7GP",
+                "image_url": "https://m.media-amazon.com/images/I/51kEI08yq5L._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_4647158c7ef2",
+              "ring": "core",
+              "reason": "主图是主体外伸一段长柄、柄端小孔的桨形轮廓；视频目标是长孔位于矩形板面内部，没有外伸长柄。",
+              "why_plausible": "同为白色单块切板，标题也包含hanging hole，容易把挂孔误当作目标板的内置手孔。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0BK9J8WN9",
+                "image_url": "https://m.media-amazon.com/images/I/21UWvJGi5jL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_eeac8f338ccd",
+              "ring": "core",
+              "reason": "公开标题为Cutting Board Set，主图展示三块不同大小的板作为套装；用户明确只买单块、不要套装。",
+              "why_plausible": "同为带内置手孔的浅色厨房切板，单看其中一块的缩略外形与目标接近。",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0CMD524HS",
+                "image_url": "https://m.media-amazon.com/images/I/410TeEwvq+L._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_2348f328d2cd",
+              "ring": "core",
+              "reason": "主图完整显示一块封闭矩形板，没有视频目标短边附近的内置长手孔；不是只凭标题未提手孔作排除。",
+              "why_plausible": "同为白色矩形单板，不受尺寸或品牌差异影响，缺孔是决定性形态差别。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B001D3JYXM",
+                "image_url": "https://m.media-amazon.com/images/I/51jc-StxrFL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_b43139ff5049",
+              "ring": "related",
+              "reason": "主图为深灰密集斑点表面，标题明确Grey Granite Color，与视频白板的可见颜色不符。",
+              "why_plausible": "矩形主体及内置长手孔与目标接近。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B07H84FJH4",
+                "image_url": "https://m.media-amazon.com/images/I/71SNBxuaYZL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_db237a6c7144",
+              "ring": "related",
+              "reason": "主图显示黑色手孔包边及大面积黑色端部，视频目标板没有这些黑色区域。",
+              "why_plausible": "白色主体、内置手孔、单板用途均接近目标。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0DMFRTGW1",
+                "image_url": "https://m.media-amazon.com/images/I/51Ocpy2rh-L._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_573c317a061f",
+              "ring": "related",
+              "reason": "冻结搜索卡片与主图均显示Blue款，图中四角有深蓝包边，不符合视频目标外观；当前共享标题Amazon.ca另列修复阻塞，不用坏标题作判断。",
+              "why_plausible": "白色主体、矩形轮廓和内置长孔容易与目标混淆。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0DXWZTLRP",
+                "image_url": "https://m.media-amazon.com/images/I/610C8haZsGL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_f0dd3db30c48",
+              "ring": "related",
+              "reason": "主图显示相接的两片折叠板面及圆孔，轮廓和孔型不同于视频中单片矩形板面与内置长孔。",
+              "why_plausible": "同为白色切板，标题含folding和white，属于同域外形近邻。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0BYK65FPB",
+                "image_url": "https://m.media-amazon.com/images/I/41+iCWl7mNL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_6407ff1ed0dd",
+              "ring": "related",
+              "reason": "主图板面有明显灰色大理石状纹线，公开标题为White Marble；视频目标板面是无此纹线的白色外观。",
+              "why_plausible": "同为白色为主、矩形轮廓、内置长手孔的单板。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0BWSGHC7M",
+                "image_url": "https://m.media-amazon.com/images/I/41xmnS1bedL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_cdd648354c37",
+              "ring": "related",
+              "reason": "主图为侧边上翘的勺斗状板面并带黑色端柄，明显不同于视频的平面白色矩形内置孔板。",
+              "why_plausible": "仍是可切配并转移食材的白色主体切板，搜索类别相关。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B003PDO0FU",
+                "image_url": "https://m.media-amazon.com/images/I/51akw8bmbPL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_cf96c0d1e468",
+              "ring": "related",
+              "reason": "主图完整显示白色矩形板，但没有目标短边附近的内置长手孔。",
+              "why_plausible": "白色矩形单板与目标同类别，尺寸不用于排除。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0GJCY1Q8J",
+                "image_url": "https://m.media-amazon.com/images/I/61zJDF6amgL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_0ddd24960c30",
+              "ring": "related",
+              "reason": "主图上端肩部明显拱起、手孔随拱顶布置；视频目标是平直短边的矩形板，不是该拱顶轮廓。",
+              "why_plausible": "标题为单块White款，白色主体和内置孔使它容易与目标混淆。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0DZ66JRL3",
+                "image_url": "https://m.media-amazon.com/images/I/61fUXOMp1uL._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_99b13dbcaa25",
+              "ring": "related",
+              "reason": "主图棕色木纹矩形板可代表未选中的竖放板分支；固定位置回答指向平放白板，因此不能买该棕色板。",
+              "why_plausible": "视频确实还有一块竖放棕色矩形板；这里只作可见形色类型绑定，不声称同品牌、木种、尺寸或精确木纹。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "public_evidence": {
+                "source_url": "https://www.amazon.ca/dp/B0DPQ5J66G",
+                "image_url": "https://m.media-amazon.com/images/I/71V-vOI0D5L._AC_UL320_.jpg",
+                "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-06.json"
+              }
+            },
+            {
+              "entity_id": "p_1041310fd0cd",
+              "ring": "ambient",
+              "reason": "主图是浅棕色相思木桨形板，外伸长柄顶端有圆孔，颜色和轮廓都不是平放的白色矩形内置长孔板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_12c077f960db",
+              "ring": "ambient",
+              "reason": "主图是浅色竹板，角上是圆孔并带汁槽，板面为木色，不是视频里平放的白色塑料板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_132fc41c0bde",
+              "ring": "ambient",
+              "reason": "主图是带汁槽和角部圆孔的竹制厚板，木色板面对应竖放木板那一支，不是平放白板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "wrong_variant_or_branch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_14de8320e7e6",
+              "ring": "ambient",
+              "reason": "主图是红棕色整木板并附四只脚，木纹颜色不是平放白板的可见颜色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_1ac8f7e4c6e5",
+              "ring": "ambient",
+              "reason": "主图是圆形相思木板加外伸柄和柄端圆孔，既不是矩形，也不是白色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_1d0d7e0739d2",
+              "ring": "ambient",
+              "reason": "主图是红棕色相思木，短边外伸出一段带圆孔的柄，不是白板内部的长手孔。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_223e3e1b9a53",
+              "ring": "ambient",
+              "reason": "主图是圆形相思木披萨板，外伸木柄顶端打孔，轮廓和木色都与平放白板不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_30af790d47bf",
+              "ring": "ambient",
+              "reason": "主图是带脚的红棕色沙比利木板，板面木纹属于未选中的竖放木板，不是平放的白色塑料板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "wrong_variant_or_branch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_35c6a33ab280",
+              "ring": "ambient",
+              "reason": "主图是圆角浅竹板，没有短边内置长手孔，板面也是木色而不是白色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_3799b28beebe",
+              "ring": "ambient",
+              "reason": "主图上半是白色大理石纹、下半是深色木纹，并有外伸圆孔柄，不是整块素白矩形板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_3abc70fc85b7",
+              "ring": "ambient",
+              "reason": "主图是带汁槽的深色柚木矩形板，没有内置长手孔，颜色也不是平放白板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_42f7bb5c2e63",
+              "ring": "ambient",
+              "reason": "主图是窄长相思木板，顶部外伸木柄并有圆孔，木色桨形轮廓与平放白板不同。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_497a121f4ad7",
+              "ring": "ambient",
+              "reason": "主图柄上是竖向长孔且柄向外伸出，板身为深色相思木，不是白色板面内部的长手孔。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_57e1972cdeb4",
+              "ring": "ambient",
+              "reason": "主图是深浅条纹相思木，外伸细柄顶端圆孔，颜色和柄的位置都不符合平放白板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_5e1029c70e5b",
+              "ring": "ambient",
+              "reason": "主图是带汁槽的相思木小板，角上只有一个圆孔，木色板面不是平放的白色塑料板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6b5ecd53a4e6",
+              "ring": "ambient",
+              "reason": "主图是略小的红棕色沙比利板并带四只脚，木纹颜色属于竖放木板那一支，不是平放白板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "wrong_variant_or_branch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_6c903ccea21b",
+              "ring": "ambient",
+              "reason": "主图是带侧边提手的红棕色整木板，板面木纹与视频平放白板的素白颜色不符。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_7e9d9ceaee33",
+              "ring": "ambient",
+              "reason": "主图虽有内置长孔，但板面是深色相思木条纹，不是澄清后要换的平放白色板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "wrong_variant_or_branch",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_a7357dfd087b",
+              "ring": "ambient",
+              "reason": "主图是无手孔的柚木矩形板，另附木质支架，木色且没有短边内置长孔。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_ae1f2496fb3a",
+              "ring": "ambient",
+              "reason": "主图是带四周汁槽的相思木板，没有内置长手孔，木纹颜色也不是白色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_b4504839a0a0",
+              "ring": "ambient",
+              "reason": "主图四角是深灰色软握边，手孔开在斜切的一角，视频平放板没有这些灰色区域，手孔也在短边内部。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_be8e32c6ca73",
+              "ring": "ambient",
+              "reason": "主图是深色相思木，外伸柄端有圆孔，木色桨形不是平放的白色矩形内置孔板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_c79b80a2335a",
+              "ring": "ambient",
+              "reason": "主图上白下木并带大理石纹，柄向外伸出打圆孔，不是整块素白、孔在板内的矩形板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_cc94c5c8bb69",
+              "ring": "ambient",
+              "reason": "主图是红棕色整木板，角上只有圆孔，没有视频目标短边附近的内置长手孔，颜色也不是白色。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f0e751bcf39b",
+              "ring": "ambient",
+              "reason": "主图是一整块封闭白色矩形板，没有视频目标短边附近的内置长手孔。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f4b6ba068bbb",
+              "ring": "ambient",
+              "reason": "主图是深色相思木，上沿只有一个圆挂孔，不是白色板面上的长手孔。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch",
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f620bd81458a",
+              "ring": "ambient",
+              "reason": "主图是浅色枫木桨形板，柄从短边伸出并在柄端打孔，视频目标没有这段外伸长柄。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            },
+            {
+              "entity_id": "p_f869b3c397c2",
+              "ring": "ambient",
+              "reason": "主图是白大理石夹一条木纹，并有外伸圆孔柄，可见颜色和轮廓都不是素白矩形内置孔板。",
+              "why_plausible": "Its listing text carries every released word an accepted listing confirms: board, chopping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews"
+            }
+          ],
+          "semantic_review": {
+            "status": "pending_coding_agent",
+            "reviewer": "skill-executing-coding-agent",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ],
+            "note": "All 87 unique public search-card images were individually inspected. The 18 accepted entities are single white rectangular boards with an integrated long hand hole; brand, dimensions, material, and ordinary juice grooves do not exclude an otherwise matching entity. The four core rejection decisions are locally accepted for independently visible color, outline/hand-hole, and set-quantity differences. The complete non-answer union is classified without changing frozen result titles or ranks. The generic shared titles for B000W4VFJ4 and B0DXWZTLRP were repaired from their canonical product snapshots on 2026-09-14. B000W4VFJ4 specifies a white single board and a hand hole; B0DXWZTLRP is the blue-grip variant already outside the accepted white-board set. Overall task-level acceptance remains pending because the full two-pass task review has not completed. This is not a release approval.",
+            "review_evidence": [
+              {
+                "source_url": "https://www.amazon.ca/dp/B0006OLBU8",
+                "image_url": "https://m.media-amazon.com/images/I/51YmDlVDgTL._AC_SL1500_.jpg",
+                "finding": "The PDP-exposed original image was inspected and shows the integrated long hand hole near the short edge. No local canonical PDP JSON is claimed."
+              },
+              {
+                "source_url": "https://www.amazon.ca/dp/B00CDL6X3C",
+                "image_url": "https://m.media-amazon.com/images/I/51CGmjgkkSL._AC_SL1500_.jpg",
+                "finding": "The PDP-exposed original image was inspected and shows the integrated long hand hole; the observed PDP feature also states that the board has a convenient handle. No local canonical PDP JSON is claimed."
+              }
+            ]
+          }
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair": {
+        "disposition": "deterministic_web_evidence_repair",
+        "reviewed_at": "2026-09-14",
+        "previous_source_blockers": {
+          "blocking_checks": [
+            "catalog_title_repair_pending"
+          ],
+          "unresolved": [
+            "Repair the generic Amazon.ca shared catalog titles for B000W4VFJ4 and B0DXWZTLRP from valid public product evidence without rewriting the frozen search-card titles.",
+            "Complete the task-level blind reconstruction and adversarial review after the shared-title repair. Local core-neighbor decisions do not imply overall acceptance or release."
+          ]
+        },
+        "evidence_directory": "data/sources/upstream_detail_snapshots/amazon",
+        "reason": "Re-captured real Amazon canonical product details and applied their titles and public fields to the same stable catalog entities. Frozen search-card titles/ranks, task goals and source observations are preserved. This is evidence repair, not independent task-level semantic admission.",
+        "resolved_asins": [
+          "B000W4VFJ4",
+          "B0DXWZTLRP"
+        ]
+      },
+      "repair_history": [
+        {
+          "repair_id": "fixed-step-replay-immediate-ambiguity-20261103",
+          "date": "2026-11-03",
+          "reason": "Fixed-step replay speaks the first request with the first batch; V0 moves so the request is true and every candidate or change is reachable from the session start.",
+          "review_reference": ".scratch/stream-materials/repairs/candidate-mart-clarify-position-06/proposal.json",
+          "previous_packets": [
+            {
+              "id": "V0",
+              "timestamps_seconds": [
+                182.5,
+                188,
+                190.2,
+                190.8,
+                191.4,
+                192,
+                192.2,
+                192.5
+              ],
+              "frame_paths": [
+                "data/observations/candidate-mart-clarify-position-06/V0_00.jpg",
+                "data/observations/candidate-mart-clarify-position-06/V0_01.jpg",
+                "data/observations/candidate-mart-clarify-position-06/V0_02.jpg",
+                "data/observations/candidate-mart-clarify-position-06/V0_03.jpg",
+                "data/observations/candidate-mart-clarify-position-06/V0_04.jpg",
+                "data/observations/candidate-mart-clarify-position-06/V0_05.jpg",
+                "data/observations/candidate-mart-clarify-position-06/V0_06.jpg",
+                "data/observations/candidate-mart-clarify-position-06/V0_07.jpg"
+              ]
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "The kitchen contains a brown rectangular wood-grain board standing by the hob and a white rectangular board with a rounded hand hole.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:4",
+                "V0:7"
+              ]
+            },
+            {
+              "text": "The white board moves from the drying rack to a flat position on the counter; the brown board remains standing against the wall.",
+              "supported_by": [
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            },
+            {
+              "text": "The fixed answer identifies the board by its flat position on the counter. Neither the initial request nor that answer names its colour, brand, size, or a website product.",
+              "supported_by": [
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            }
+          ],
+          "previous_observed_events": [
+            {
+              "interval_seconds": [
+                182.5,
+                192.5
+              ],
+              "role": "upright_brown_board",
+              "description": "A brown rectangular board with alternating dark and light wood-grain strips stands against the wall beside the hob; it is not handled during the reviewed interval."
+            },
+            {
+              "interval_seconds": [
+                190.2,
+                192.2
+              ],
+              "role": "flat_white_board",
+              "description": "A white rectangular board with a long rounded hand hole near a short edge is taken from behind the drying rack and laid flat on the counter."
+            }
+          ],
+          "previous_decision": {
+            "candidates": {
+              "upright_brown_board": "p_99b13dbcaa25",
+              "flat_white_board": "p_14a32e2fe8b2"
+            },
+            "observed": [
+              {
+                "frame": "V0:0",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "V0:1",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "V0:2",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "V0:3",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "V0:4",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "V0:5",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "V0:6",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "V0:7",
+                "live": [
+                  "upright_brown_board",
+                  "flat_white_board"
+                ]
+              },
+              {
+                "frame": "utterance",
+                "live": [
+                  "flat_white_board"
+                ],
+                "narrowed_by": "user_utterance",
+                "why": "The one fixed position answer identifies the board lying flat on the counter. The frames establish its appearance; they do not establish the user's unstated replacement intent."
+              }
+            ],
+            "established_by": "skill-executing-coding-agent",
+            "established_at": "2026-09-05",
+            "note": "Both physical roles are bound to real catalog entities at visible shape-and-colour granularity, not exact brand, dimensions, material, or wood grain. All 87 unique search-card images were individually reviewed. The white-board branch contains the canonical entity and 17 equivalents, including white rectangular boards with an integrated hand hole even when they have a juice groove. The PDP-sourced full-resolution images for B0006OLBU8 and B00CDL6X3C additionally confirm their integrated hand holes. The complete two-query union is bound and its 69 non-answer entities are classified. The generic shared titles on B000W4VFJ4 and B0DXWZTLRP were repaired from canonical snapshots on 2026-09-14; the full task-level semantic review remains unresolved. This record is not yet web_mapped."
+          },
+          "previous_canonical_question": "Which chopping board do you mean?",
+          "previous_stream": null
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          191.4,
+          201.6
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-position-06/review.json"
+      }
+    }
+  ]
+}

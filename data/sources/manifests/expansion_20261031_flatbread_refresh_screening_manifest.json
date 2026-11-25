@@ -1,0 +1,2771 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing research authorization confirmed by the project owner; no public release performed."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026103102",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "dataset": "Ego2Web",
+        "record_ids": [
+          127
+        ],
+        "media_id": "353c6a68-375b-443f-a6e5-b24e9582554b",
+        "original_video_id": "353c6a68-375b-443f-a6e5-b24e9582554b",
+        "canonical_parent_recording_group": "Ego4D:e0f75a35-4dde-44ef-aee7-cab38e4524f6",
+        "parent_clip_interval_seconds": [
+          4530,
+          4710
+        ],
+        "media_start_seconds": 0,
+        "source_video_path": "reference/sources/Ego2Web/dataset/ego2web_video/353c6a68-375b-443f-a6e5-b24e9582554b.mp4",
+        "original_annotations": [
+          "On YouTube, open a cooking tutorial that demonstrates the same method as in the video. This existing prompt is a location cue, not the visual ground truth."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              22,
+              50
+            ],
+            "description": "A round browned bread cooks on the flat griddle; the wearer then rolls an opaque round dough disk on the floured counter beside the same dough supply and a pan of yellow coarse mixture. The disk interior is not visible in this released packet."
+          },
+          {
+            "interval_seconds": [
+              113,
+              116
+            ],
+            "description": "The wearer forms a small dough piece into a hollow cup in the left hand."
+          },
+          {
+            "interval_seconds": [
+              117,
+              126
+            ],
+            "description": "The wearer takes several spoonfuls of the coarse yellow mixture from the nearby pan and puts them inside the hollow dough cup."
+          },
+          {
+            "interval_seconds": [
+              129,
+              140
+            ],
+            "description": "The wearer gathers the filled dough edges, pinches the opening closed and rounds the sealed filled dough by hand. The mixture is enclosed within the dough, not served as a topping or side."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The initial released packet shows flatbread preparation but does not establish whether the dough contains filling. The yellow mixture beside the work area does not by itself prove it goes inside the bread.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The later packet shows filling being put inside the dough and the rim being gathered to enclose it, establishing a stuffed flatbread preparation.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The same cooker, dough supply, rolling area and adjacent mixture pan persist; later frames reveal the method in the same cooking session rather than a language change or a new independent request.",
+          "supported_by": [
+            "V0:0",
+            "V0:3",
+            "V1:0",
+            "V1:1",
+            "V1:2"
+          ]
+        }
+      ],
+      "source_inspection": {
+        "reviewer": "Coding Agent /root/refresh_sources",
+        "reviewed_intervals_seconds": [
+          [
+            15,
+            40
+          ],
+          [
+            102,
+            134
+          ],
+          [
+            129,
+            142
+          ]
+        ],
+        "dense_frame_interval_seconds": 0.5,
+        "native_fps_uninterrupted_playback": false,
+        "dense_evidence_paths": [
+          ".scratch/refresh-expansion-20261031/screening/ego127-15-40-dense.jpg",
+          ".scratch/refresh-expansion-20261031/screening/ego127-102-134-dense.jpg",
+          ".scratch/refresh-expansion-20261031/screening/ego127-129-142-dense.jpg"
+        ],
+        "frame_extraction": {
+          "tool": "ffmpeg",
+          "jpeg_qscale": 2,
+          "resize": null,
+          "ordering": "chronological"
+        }
+      },
+      "status": "video_screened",
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            22,
+            38,
+            42,
+            50
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026103102/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026103102/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026103102/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026103102/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            116,
+            120,
+            124,
+            133
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026103102/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026103102/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026103102/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026103102/V1_03.jpg"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can later visual evidence of filling and sealing dough correct an initially broad flatbread choice, while retaining any initially chosen guide that already teaches the filled preparation?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "belief_before": "V0 establishes solid-dough flatbread preparation and rolling. The opaque disk does not reveal whether it is filled, so either a reviewed plain or stuffed flatbread method can be an initial reasonable choice.",
+        "belief_after": "V1 shows yellow mixture put inside a dough cup and the edges closed. The useful guide must teach a filled-dough flatbread, not merely plain bread or filling a cooked bread pocket.",
+        "required_behavior_change": "A model that saved a plain-only guide would need to change it after V1, but a complete applicable course already available after V0 needs no change. This conditional failure surface is not evidence of update necessity and does not qualify the candidate.",
+        "no_update_failure": "An initially reasonable plain-only choice remains after the raw-dough stuffing and sealing is revealed. Initial guides that already teach stuffing need no replacement.",
+        "overupdate_failure": "Discard an already applicable general tutorial because its filling, shape or heating apparatus differs; or save an extra plain guide as well as the required filled one.",
+        "visual_dependency_claim": "The source images still distinguish the requested flatbread from instruction-only alternatives. However V0 alone leaves only the relevant plain/filled rolled-dough branches, and the real Paul Hollywood course m_664a1837b8f3 teaches both. V1 is not necessary to obtain a guaranteed legal complete final state; this proposal does not qualify as a Refresh-replace task.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Save a beginner tutorial that shows how to make the kind of flatbread I'm preparing here.",
+          "target_granularity": "category",
+          "initial_target_role": "initial_bread_guide",
+          "final_target_role": "filled_bread_guide",
+          "environment_role_ids": {
+            "initial_bread_guide": "m_6b38e47ff17d",
+            "filled_bread_guide": "m_d1322dc2b06b"
+          },
+          "equivalent_role_ids": {
+            "initial_bread_guide": [
+              "m_b61254724576",
+              "m_89b3c42c5618",
+              "m_2af37876abf9",
+              "m_1638cf3271e5",
+              "m_664a1837b8f3",
+              "m_eda5942ada3c",
+              "m_bed1bb1c061d",
+              "m_49f9ed76a39c",
+              "m_7a092e0a51ee",
+              "m_f8dc96b7d754",
+              "m_3a31d97db63c",
+              "m_7e49eeed0fcd",
+              "m_4dbf9dfa5670",
+              "m_a5dc708aabf0",
+              "m_1c54472b7d84",
+              "m_835aee1865e3",
+              "m_77b846ba622c",
+              "m_1fbfe420bada",
+              "m_b53b88f9b484",
+              "m_251001b44cc9",
+              "m_baf5e839949c",
+              "m_373d52df9c53",
+              "m_dd33d22a38b3",
+              "m_44d53282d439",
+              "m_5760040b3422",
+              "m_6eb860db8307",
+              "m_083130305fb2",
+              "m_d1322dc2b06b",
+              "m_3613b32eabf2",
+              "m_f51b508e9def",
+              "m_9a032c1de80e",
+              "m_e2d366be3edc",
+              "m_781ca4429e22",
+              "m_6d1e748eba59"
+            ],
+            "filled_bread_guide": [
+              "m_664a1837b8f3",
+              "m_77b846ba622c",
+              "m_b53b88f9b484",
+              "m_251001b44cc9"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "plain_bread": "m_6b38e47ff17d",
+            "filled_bread": "m_d1322dc2b06b"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "plain_bread",
+                "filled_bread"
+              ]
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "plain_bread",
+                "filled_bread"
+              ]
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "filled_bread"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The spooned yellow mixture is visibly inside the held raw-dough cup; later published views gather and close its rim. A plain-only tutorial no longer teaches this preparation."
+            }
+          ],
+          "established_by": "/root/build_media_refresh",
+          "established_at": "2026-10-31"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "flatbread beginner tutorial",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026103102.json",
+              "snapshot_stage": "natural_broad",
+              "result_entity_ids": [
+                "m_b61254724576",
+                "m_6b38e47ff17d",
+                "m_9cfee6a65451",
+                "m_89b3c42c5618",
+                "m_2af37876abf9",
+                "m_1638cf3271e5",
+                "m_664a1837b8f3",
+                "m_eda5942ada3c",
+                "m_bed1bb1c061d",
+                "m_49f9ed76a39c",
+                "m_7a092e0a51ee",
+                "m_f8dc96b7d754",
+                "m_3a31d97db63c",
+                "m_7e49eeed0fcd",
+                "m_4dbf9dfa5670",
+                "m_a5dc708aabf0",
+                "m_1c54472b7d84",
+                "m_835aee1865e3",
+                "m_77b846ba622c",
+                "m_52b5c83b0ab9",
+                "m_1fbfe420bada",
+                "m_0aee30771141",
+                "m_b53b88f9b484",
+                "m_251001b44cc9",
+                "m_baf5e839949c",
+                "m_373d52df9c53",
+                "m_dd33d22a38b3",
+                "m_44d53282d439",
+                "m_5760040b3422",
+                "m_6eb860db8307",
+                "m_26eed3737ba0",
+                "m_083130305fb2",
+                "m_d1322dc2b06b",
+                "m_3613b32eabf2",
+                "m_f51b508e9def",
+                "m_9a032c1de80e",
+                "m_166dde0b894d",
+                "m_e2d366be3edc",
+                "m_781ca4429e22",
+                "m_6d1e748eba59"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "flatbread beginner tutorial",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026103102.json",
+              "snapshot_stage": "natural_broad",
+              "result_entity_ids": [
+                "m_b61254724576",
+                "m_6b38e47ff17d",
+                "m_9cfee6a65451",
+                "m_89b3c42c5618",
+                "m_2af37876abf9",
+                "m_1638cf3271e5",
+                "m_664a1837b8f3",
+                "m_eda5942ada3c",
+                "m_bed1bb1c061d",
+                "m_49f9ed76a39c",
+                "m_7a092e0a51ee",
+                "m_f8dc96b7d754",
+                "m_3a31d97db63c",
+                "m_7e49eeed0fcd",
+                "m_4dbf9dfa5670",
+                "m_a5dc708aabf0",
+                "m_1c54472b7d84",
+                "m_835aee1865e3",
+                "m_77b846ba622c",
+                "m_52b5c83b0ab9",
+                "m_1fbfe420bada",
+                "m_0aee30771141",
+                "m_b53b88f9b484",
+                "m_251001b44cc9",
+                "m_baf5e839949c",
+                "m_373d52df9c53",
+                "m_dd33d22a38b3",
+                "m_44d53282d439",
+                "m_5760040b3422",
+                "m_6eb860db8307",
+                "m_26eed3737ba0",
+                "m_083130305fb2",
+                "m_d1322dc2b06b",
+                "m_3613b32eabf2",
+                "m_f51b508e9def",
+                "m_9a032c1de80e",
+                "m_166dde0b894d",
+                "m_e2d366be3edc",
+                "m_781ca4429e22",
+                "m_6d1e748eba59"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_b61254724576",
+            "m_6b38e47ff17d",
+            "m_9cfee6a65451",
+            "m_89b3c42c5618",
+            "m_2af37876abf9",
+            "m_1638cf3271e5",
+            "m_664a1837b8f3",
+            "m_eda5942ada3c",
+            "m_bed1bb1c061d",
+            "m_49f9ed76a39c",
+            "m_7a092e0a51ee",
+            "m_f8dc96b7d754",
+            "m_3a31d97db63c",
+            "m_7e49eeed0fcd",
+            "m_4dbf9dfa5670",
+            "m_a5dc708aabf0",
+            "m_1c54472b7d84",
+            "m_835aee1865e3",
+            "m_77b846ba622c",
+            "m_52b5c83b0ab9",
+            "m_1fbfe420bada",
+            "m_0aee30771141",
+            "m_b53b88f9b484",
+            "m_251001b44cc9",
+            "m_baf5e839949c",
+            "m_373d52df9c53",
+            "m_dd33d22a38b3",
+            "m_44d53282d439",
+            "m_5760040b3422",
+            "m_6eb860db8307",
+            "m_26eed3737ba0",
+            "m_083130305fb2",
+            "m_d1322dc2b06b",
+            "m_3613b32eabf2",
+            "m_f51b508e9def",
+            "m_9a032c1de80e",
+            "m_166dde0b894d",
+            "m_e2d366be3edc",
+            "m_781ca4429e22",
+            "m_6d1e748eba59"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_6b38e47ff17d",
+            "m_083130305fb2",
+            "m_e2d366be3edc"
+          ],
+          "related_entity_ids": [
+            "m_b61254724576",
+            "m_9cfee6a65451",
+            "m_89b3c42c5618",
+            "m_2af37876abf9",
+            "m_1638cf3271e5",
+            "m_eda5942ada3c",
+            "m_bed1bb1c061d",
+            "m_49f9ed76a39c",
+            "m_7a092e0a51ee",
+            "m_f8dc96b7d754",
+            "m_3a31d97db63c",
+            "m_7e49eeed0fcd",
+            "m_4dbf9dfa5670",
+            "m_a5dc708aabf0",
+            "m_1c54472b7d84",
+            "m_835aee1865e3",
+            "m_52b5c83b0ab9",
+            "m_1fbfe420bada",
+            "m_0aee30771141",
+            "m_baf5e839949c",
+            "m_373d52df9c53",
+            "m_dd33d22a38b3",
+            "m_44d53282d439",
+            "m_5760040b3422",
+            "m_6eb860db8307",
+            "m_26eed3737ba0",
+            "m_3613b32eabf2",
+            "m_f51b508e9def",
+            "m_9a032c1de80e",
+            "m_166dde0b894d",
+            "m_781ca4429e22",
+            "m_6d1e748eba59"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_b61254724576",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The native description/chapters and complete storyboard teach multiple flatbreads, including rolled lavash/tortilla and plain oil-layered paratha. These supply an initial solid-dough flatbread method; none teaches placing filling inside raw dough and sealing it before cooking.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6b38e47ff17d",
+              "ring": "core",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_9cfee6a65451",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "failure_predicates": [
+                "wrong_flatbread_preparation"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_89b3c42c5618",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_2af37876abf9",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1638cf3271e5",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "Native chapters and complete official previews teach roti, pita, and yogurt-flatbread/pizza methods. The rolled roti/pita content supports the initial view; these methods do not teach the newly visible raw-dough stuffing and sealing operation.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_eda5942ada3c",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bed1bb1c061d",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_49f9ed76a39c",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7a092e0a51ee",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_f8dc96b7d754",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_3a31d97db63c",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7e49eeed0fcd",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_4dbf9dfa5670",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_a5dc708aabf0",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1c54472b7d84",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_835aee1865e3",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_52b5c83b0ab9",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The native ingredient list starts with ready-made flatbread or pita and adds external Margherita toppings. It does not teach making the solid dough/rolled bread seen in V0, nor enclosing filling before the bread is cooked.",
+              "failure_predicates": [
+                "wrong_flatbread_preparation"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1fbfe420bada",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_0aee30771141",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "failure_predicates": [
+                "wrong_flatbread_preparation"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_baf5e839949c",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_373d52df9c53",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_dd33d22a38b3",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_44d53282d439",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5760040b3422",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6eb860db8307",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_26eed3737ba0",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "failure_predicates": [
+                "wrong_flatbread_preparation"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_083130305fb2",
+              "ring": "core",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The native description says parathas can be plain or stuffed, but this actual recipe uses flour, salt, water and oil and demonstrates folding/rolling oil layers. The captured complete storyboard supplies plain layered dough, not an internal filling operation. It supports V0 only; a category possibility is not an actually taught stuffed recipe.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_3613b32eabf2",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_f51b508e9def",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_9a032c1de80e",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_166dde0b894d",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "failure_predicates": [
+                "wrong_flatbread_preparation"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_e2d366be3edc",
+              "ring": "core",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "Official storyboard03 shows unfilled bread cooked first; storyboard04 opens the cooked bread into pockets and adds chicken afterwards. Its dough/bread preparation can support V0, but the cooked-pocket sandwich sequence does not teach the V1 operation of sealing filling inside raw dough.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_781ca4429e22",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6d1e748eba59",
+              "ring": "related",
+              "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "failure_predicates": [
+                "missing_raw_dough_stuffing"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_previews"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters",
+            "public_previews"
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_b61254724576",
+              "rank": 1,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native description/chapters and complete storyboard teach multiple flatbreads, including rolled lavash/tortilla and plain oil-layered paratha. These supply an initial solid-dough flatbread method; none teaches placing filling inside raw dough and sealing it before cooking.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6b38e47ff17d",
+              "rank": 2,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_9cfee6a65451",
+              "rank": 3,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_89b3c42c5618",
+              "rank": 4,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_2af37876abf9",
+              "rank": 5,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1638cf3271e5",
+              "rank": 6,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native chapters and complete official previews teach roti, pita, and yogurt-flatbread/pizza methods. The rolled roti/pita content supports the initial view; these methods do not teach the newly visible raw-dough stuffing and sealing operation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_664a1837b8f3",
+              "rank": 7,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native English transcript at 297–308s explicitly puts Brie in a dough hollow, makes a parcel and seals it; 341–355s permits any filling, rolls it flat and pan-cooks it. The same tutorial also teaches plain flatbread. Different filling identity is not restricted.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_eda5942ada3c",
+              "rank": 8,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bed1bb1c061d",
+              "rank": 9,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_49f9ed76a39c",
+              "rank": 10,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7a092e0a51ee",
+              "rank": 11,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_f8dc96b7d754",
+              "rank": 12,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_3a31d97db63c",
+              "rank": 13,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7e49eeed0fcd",
+              "rank": 14,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_4dbf9dfa5670",
+              "rank": 15,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_a5dc708aabf0",
+              "rank": 16,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1c54472b7d84",
+              "rank": 17,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_835aee1865e3",
+              "rank": 18,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_77b846ba622c",
+              "rank": 19,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official storyboard 06 (265.59–309.86s) shows onion/cheese placed on raw rolled dough and enclosed by folding; storyboard07 shows flattening/rolling the filled packet before cooking. This is a genuine enclosed-filling flatbread variant, not an external topping. Exact fold geometry and ingredients are not required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WjHufRd6tl4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WjHufRd6tl4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/WjHufRd6tl4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_52b5c83b0ab9",
+              "rank": 20,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native ingredient list starts with ready-made flatbread or pita and adds external Margherita toppings. It does not teach making the solid dough/rolled bread seen in V0, nor enclosing filling before the bread is cooked.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1fbfe420bada",
+              "rank": 21,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_0aee30771141",
+              "rank": 22,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_b53b88f9b484",
+              "rank": 23,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official storyboards07–08 (311.5–400.5s) show filling placed on raw dough, gathered/pinched shut, then flattened; storyboard10 shows cooking both sides. The visible subtitle explicitly allows chicken or potato fillings, so exact source filling is not inferred.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/sVu0_2o8y04.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/sVu0_2o8y04.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/sVu0_2o8y04.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_251001b44cc9",
+              "rank": 24,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native Assembling the pockets chapter (286–323s) and official storyboard02 show cooked meat enclosed in raw dough before the filled flatbread pockets are cooked on coals. This teaches the deciding dough-enclosure operation. The user does not restrict filling identity, precise shape or heat source; the real alternative stays accepted.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/NugfdIByfVQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/NugfdIByfVQ.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/NugfdIByfVQ.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_baf5e839949c",
+              "rank": 25,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_373d52df9c53",
+              "rank": 26,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_dd33d22a38b3",
+              "rank": 27,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_44d53282d439",
+              "rank": 28,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5760040b3422",
+              "rank": 29,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6eb860db8307",
+              "rank": 30,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_26eed3737ba0",
+              "rank": 31,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_083130305fb2",
+              "rank": 32,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native description says parathas can be plain or stuffed, but this actual recipe uses flour, salt, water and oil and demonstrates folding/rolling oil layers. The captured complete storyboard supplies plain layered dough, not an internal filling operation. It supports V0 only; a category possibility is not an actually taught stuffed recipe.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_d1322dc2b06b",
+              "rank": 33,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official storyboards07–08 show mozzarella placed inside raw dough, edges sealed into a ball and then flattened into a disc; native description explicitly teaches cheese-filled flatbread. This matches the newly revealed filled-dough preparation without claiming the source contains cheese.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_3613b32eabf2",
+              "rank": 34,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_f51b508e9def",
+              "rank": 35,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_9a032c1de80e",
+              "rank": 36,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_166dde0b894d",
+              "rank": 37,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_e2d366be3edc",
+              "rank": 38,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official storyboard03 shows unfilled bread cooked first; storyboard04 opens the cooked bread into pockets and adds chicken afterwards. Its dough/bread preparation can support V0, but the cooked-pocket sandwich sequence does not teach the V1 operation of sealing filling inside raw dough.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_781ca4429e22",
+              "rank": 39,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6d1e748eba59",
+              "rank": 40,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_previews"
+              ]
+            }
+          ],
+          "answer_boundary_rule": "Accept useful rolled/solid-dough flatbread foundations initially; later require useful instruction placing filling inside raw dough and enclosing it before cooking. No exact filling ingredient, regional identity, fold geometry, size, flour or heat-source restriction. A guide can contain additional recipes; accept it if at least one taught method satisfies the current requirement.",
+          "visual_necessity_counterexample": {
+            "general_guides_retained": [
+              "m_664a1837b8f3"
+            ],
+            "finding": "No-scene necessity and later-update necessity have different conditioning information. Paul does not cover every instruction-only flatbread family, so it does not refute no_scene. After V0 has already established rolled griddle dough, it does cover both actual remaining plain/filled branches. It is therefore a demonstrated static substitute for V1, and the later-update necessity claim is withdrawn.",
+            "evidence_refs": [
+              "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-replace-2026103102--natural_broad.json",
+              "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json",
+              "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json",
+              "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json"
+            ],
+            "review_reference": "artifacts/reports/coding-agent-task-assessments.json::results[task_id=candidate-media-refresh-replace-2026103102]::assessments[pass=adversarial_falsification].verdict"
+          }
+        },
+        "landing_semantic_review": {
+          "status": "constructor_checked",
+          "reviewer": "/root/build_media_refresh",
+          "scope": "Constructor source-to-site mapping and complete forty-entry boundary; not independent admission.",
+          "evidence_refs": [
+            "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json",
+            "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json"
+          ]
+        },
+        "update_necessity_review": {
+          "reviewer": {
+            "agent_id": "/root/review_new_refresh_3102",
+            "context_id": "/root/review_new_refresh_3102"
+          },
+          "decision": "repair",
+          "confidence": "high",
+          "counterexample_check": "static_substitute",
+          "finding": "m_664a1837b8f3 provides a complete V0-only solution for the actual unresolved plain/filled branches. The previous argument compared against the larger no-scene possibility space and did not establish later-update necessity.",
+          "universal_course_entity_id": "m_664a1837b8f3",
+          "native_evidence_refs": [
+            "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::description",
+            "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::public_captions",
+            "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::public_previews[2]",
+            "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::public_previews[3]"
+          ],
+          "review_reference": "artifacts/reports/coding-agent-task-assessments.json::results[task_id=candidate-media-refresh-replace-2026103102]::assessments[pass=adversarial_falsification].verdict",
+          "deciding_review_evidence": [
+            "evidence.causal_contract.1",
+            "evidence.information_partition.1"
+          ],
+          "scope": "Only update necessity is refuted. Original source reconstruction, native course validity and accepted answers are retained. No extra ingredient, shape, duration or dedicated-course restriction is introduced."
+        }
+      },
+      "blocking_checks": [
+        "update_not_necessary_with_specific_universal_course"
+      ],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-31",
+          "reviewer": "/root/build_media_refresh",
+          "scope": "Withdraw the proposed later-update necessity after the independent high-confidence universal-course counterexample. No performer input, public website content or answer boundary changes.",
+          "previous_construct": {
+            "research_question": "Can later visual evidence of filling and sealing dough correct an initially broad flatbread choice, while retaining any initially chosen guide that already teaches the filled preparation?",
+            "event_origin": "observed",
+            "divergence_source": "referent",
+            "evidence_type": "procedure_stage",
+            "commitment_surface": "media_save",
+            "belief_before": "V0 establishes solid-dough flatbread preparation and rolling. The opaque disk does not reveal whether it is filled, so either a reviewed plain or stuffed flatbread method can be an initial reasonable choice.",
+            "belief_after": "V1 shows yellow mixture put inside a dough cup and the edges closed. The useful guide must teach a filled-dough flatbread, not merely plain bread or filling a cooked bread pocket.",
+            "required_behavior_change": "Replace a plain-only guide if it was saved; retain a general or filled guide that already teaches the revealed operation. Save one applicable guide, not one of each.",
+            "no_update_failure": "An initially reasonable plain-only choice remains after the raw-dough stuffing and sealing is revealed. Initial guides that already teach stuffing need no replacement.",
+            "overupdate_failure": "Discard an already applicable general tutorial because its filling, shape or heating apparatus differs; or save an extra plain guide as well as the required filled one.",
+            "visual_dependency_claim": "The single unchanged request names flatbread but not filling, a regional dish, flour, or cooking apparatus. The actual broad window contains genuine liquid-batter breads, rolled unfilled breads, externally topped bases, cooked-pocket sandwiches, and raw-dough filled breads. V0 establishes rolling solid dough; V1 establishes filling before cooking.",
+            "task_blueprint": {
+              "site": "egomedia",
+              "instruction": "Save a beginner tutorial that shows how to make the kind of flatbread I'm preparing here.",
+              "target_granularity": "category",
+              "initial_target_role": "initial_bread_guide",
+              "final_target_role": "filled_bread_guide",
+              "environment_role_ids": {
+                "initial_bread_guide": "m_6b38e47ff17d",
+                "filled_bread_guide": "m_d1322dc2b06b"
+              },
+              "equivalent_role_ids": {
+                "initial_bread_guide": [
+                  "m_b61254724576",
+                  "m_89b3c42c5618",
+                  "m_2af37876abf9",
+                  "m_1638cf3271e5",
+                  "m_664a1837b8f3",
+                  "m_eda5942ada3c",
+                  "m_bed1bb1c061d",
+                  "m_49f9ed76a39c",
+                  "m_7a092e0a51ee",
+                  "m_f8dc96b7d754",
+                  "m_3a31d97db63c",
+                  "m_7e49eeed0fcd",
+                  "m_4dbf9dfa5670",
+                  "m_a5dc708aabf0",
+                  "m_1c54472b7d84",
+                  "m_835aee1865e3",
+                  "m_77b846ba622c",
+                  "m_1fbfe420bada",
+                  "m_b53b88f9b484",
+                  "m_251001b44cc9",
+                  "m_baf5e839949c",
+                  "m_373d52df9c53",
+                  "m_dd33d22a38b3",
+                  "m_44d53282d439",
+                  "m_5760040b3422",
+                  "m_6eb860db8307",
+                  "m_083130305fb2",
+                  "m_d1322dc2b06b",
+                  "m_3613b32eabf2",
+                  "m_f51b508e9def",
+                  "m_9a032c1de80e",
+                  "m_e2d366be3edc",
+                  "m_781ca4429e22",
+                  "m_6d1e748eba59"
+                ],
+                "filled_bread_guide": [
+                  "m_664a1837b8f3",
+                  "m_77b846ba622c",
+                  "m_b53b88f9b484",
+                  "m_251001b44cc9"
+                ]
+              }
+            },
+            "decision": {
+              "recording": "key_events",
+              "candidates": {
+                "plain_bread": "m_6b38e47ff17d",
+                "filled_bread": "m_d1322dc2b06b"
+              },
+              "observed": [
+                {
+                  "frame": "V0:0",
+                  "live": [
+                    "plain_bread",
+                    "filled_bread"
+                  ]
+                },
+                {
+                  "frame": "V1:0",
+                  "live": [
+                    "plain_bread",
+                    "filled_bread"
+                  ]
+                },
+                {
+                  "frame": "V1:1",
+                  "live": [
+                    "filled_bread"
+                  ],
+                  "narrowed_by": "scene_appearance",
+                  "why": "The spooned yellow mixture is visibly inside the held raw-dough cup; later published views gather and close its rim. A plain-only tutorial no longer teaches this preparation."
+                }
+              ],
+              "established_by": "/root/build_media_refresh",
+              "established_at": "2026-10-31"
+            },
+            "catalog_resolution": {
+              "policy_version": "real-search-window-v1",
+              "query_rounds": [
+                {
+                  "stage": "before_change",
+                  "query": "flatbread beginner tutorial",
+                  "provider": "youtube-search-v1",
+                  "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026103102.json",
+                  "snapshot_stage": "natural_broad",
+                  "result_entity_ids": [
+                    "m_b61254724576",
+                    "m_6b38e47ff17d",
+                    "m_9cfee6a65451",
+                    "m_89b3c42c5618",
+                    "m_2af37876abf9",
+                    "m_1638cf3271e5",
+                    "m_664a1837b8f3",
+                    "m_eda5942ada3c",
+                    "m_bed1bb1c061d",
+                    "m_49f9ed76a39c",
+                    "m_7a092e0a51ee",
+                    "m_f8dc96b7d754",
+                    "m_3a31d97db63c",
+                    "m_7e49eeed0fcd",
+                    "m_4dbf9dfa5670",
+                    "m_a5dc708aabf0",
+                    "m_1c54472b7d84",
+                    "m_835aee1865e3",
+                    "m_77b846ba622c",
+                    "m_52b5c83b0ab9",
+                    "m_1fbfe420bada",
+                    "m_0aee30771141",
+                    "m_b53b88f9b484",
+                    "m_251001b44cc9",
+                    "m_baf5e839949c",
+                    "m_373d52df9c53",
+                    "m_dd33d22a38b3",
+                    "m_44d53282d439",
+                    "m_5760040b3422",
+                    "m_6eb860db8307",
+                    "m_26eed3737ba0",
+                    "m_083130305fb2",
+                    "m_d1322dc2b06b",
+                    "m_3613b32eabf2",
+                    "m_f51b508e9def",
+                    "m_9a032c1de80e",
+                    "m_166dde0b894d",
+                    "m_e2d366be3edc",
+                    "m_781ca4429e22",
+                    "m_6d1e748eba59"
+                  ]
+                },
+                {
+                  "stage": "after_change",
+                  "query": "flatbread beginner tutorial",
+                  "provider": "youtube-search-v1",
+                  "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026103102.json",
+                  "snapshot_stage": "natural_broad",
+                  "result_entity_ids": [
+                    "m_b61254724576",
+                    "m_6b38e47ff17d",
+                    "m_9cfee6a65451",
+                    "m_89b3c42c5618",
+                    "m_2af37876abf9",
+                    "m_1638cf3271e5",
+                    "m_664a1837b8f3",
+                    "m_eda5942ada3c",
+                    "m_bed1bb1c061d",
+                    "m_49f9ed76a39c",
+                    "m_7a092e0a51ee",
+                    "m_f8dc96b7d754",
+                    "m_3a31d97db63c",
+                    "m_7e49eeed0fcd",
+                    "m_4dbf9dfa5670",
+                    "m_a5dc708aabf0",
+                    "m_1c54472b7d84",
+                    "m_835aee1865e3",
+                    "m_77b846ba622c",
+                    "m_52b5c83b0ab9",
+                    "m_1fbfe420bada",
+                    "m_0aee30771141",
+                    "m_b53b88f9b484",
+                    "m_251001b44cc9",
+                    "m_baf5e839949c",
+                    "m_373d52df9c53",
+                    "m_dd33d22a38b3",
+                    "m_44d53282d439",
+                    "m_5760040b3422",
+                    "m_6eb860db8307",
+                    "m_26eed3737ba0",
+                    "m_083130305fb2",
+                    "m_d1322dc2b06b",
+                    "m_3613b32eabf2",
+                    "m_f51b508e9def",
+                    "m_9a032c1de80e",
+                    "m_166dde0b894d",
+                    "m_e2d366be3edc",
+                    "m_781ca4429e22",
+                    "m_6d1e748eba59"
+                  ]
+                }
+              ],
+              "window_entity_ids": [
+                "m_b61254724576",
+                "m_6b38e47ff17d",
+                "m_9cfee6a65451",
+                "m_89b3c42c5618",
+                "m_2af37876abf9",
+                "m_1638cf3271e5",
+                "m_664a1837b8f3",
+                "m_eda5942ada3c",
+                "m_bed1bb1c061d",
+                "m_49f9ed76a39c",
+                "m_7a092e0a51ee",
+                "m_f8dc96b7d754",
+                "m_3a31d97db63c",
+                "m_7e49eeed0fcd",
+                "m_4dbf9dfa5670",
+                "m_a5dc708aabf0",
+                "m_1c54472b7d84",
+                "m_835aee1865e3",
+                "m_77b846ba622c",
+                "m_52b5c83b0ab9",
+                "m_1fbfe420bada",
+                "m_0aee30771141",
+                "m_b53b88f9b484",
+                "m_251001b44cc9",
+                "m_baf5e839949c",
+                "m_373d52df9c53",
+                "m_dd33d22a38b3",
+                "m_44d53282d439",
+                "m_5760040b3422",
+                "m_6eb860db8307",
+                "m_26eed3737ba0",
+                "m_083130305fb2",
+                "m_d1322dc2b06b",
+                "m_3613b32eabf2",
+                "m_f51b508e9def",
+                "m_9a032c1de80e",
+                "m_166dde0b894d",
+                "m_e2d366be3edc",
+                "m_781ca4429e22",
+                "m_6d1e748eba59"
+              ],
+              "core_neighbor_entity_ids": [
+                "m_6b38e47ff17d",
+                "m_083130305fb2",
+                "m_e2d366be3edc"
+              ],
+              "related_entity_ids": [
+                "m_b61254724576",
+                "m_9cfee6a65451",
+                "m_89b3c42c5618",
+                "m_2af37876abf9",
+                "m_1638cf3271e5",
+                "m_eda5942ada3c",
+                "m_bed1bb1c061d",
+                "m_49f9ed76a39c",
+                "m_7a092e0a51ee",
+                "m_f8dc96b7d754",
+                "m_3a31d97db63c",
+                "m_7e49eeed0fcd",
+                "m_4dbf9dfa5670",
+                "m_a5dc708aabf0",
+                "m_1c54472b7d84",
+                "m_835aee1865e3",
+                "m_52b5c83b0ab9",
+                "m_1fbfe420bada",
+                "m_0aee30771141",
+                "m_baf5e839949c",
+                "m_373d52df9c53",
+                "m_dd33d22a38b3",
+                "m_44d53282d439",
+                "m_5760040b3422",
+                "m_6eb860db8307",
+                "m_26eed3737ba0",
+                "m_3613b32eabf2",
+                "m_f51b508e9def",
+                "m_9a032c1de80e",
+                "m_166dde0b894d",
+                "m_781ca4429e22",
+                "m_6d1e748eba59"
+              ],
+              "ambient_entity_ids": [],
+              "rejected": [
+                {
+                  "entity_id": "m_b61254724576",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The native description/chapters and complete storyboard teach multiple flatbreads, including rolled lavash/tortilla and plain oil-layered paratha. These supply an initial solid-dough flatbread method; none teaches placing filling inside raw dough and sealing it before cooking.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_6b38e47ff17d",
+                  "ring": "core",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_9cfee6a65451",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "failure_predicates": [
+                    "wrong_flatbread_preparation"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_89b3c42c5618",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_2af37876abf9",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_1638cf3271e5",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "Native chapters and complete official previews teach roti, pita, and yogurt-flatbread/pizza methods. The rolled roti/pita content supports the initial view; these methods do not teach the newly visible raw-dough stuffing and sealing operation.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_eda5942ada3c",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_bed1bb1c061d",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_49f9ed76a39c",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_7a092e0a51ee",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_f8dc96b7d754",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_3a31d97db63c",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_7e49eeed0fcd",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_4dbf9dfa5670",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_a5dc708aabf0",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_1c54472b7d84",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_835aee1865e3",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_52b5c83b0ab9",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The native ingredient list starts with ready-made flatbread or pita and adds external Margherita toppings. It does not teach making the solid dough/rolled bread seen in V0, nor enclosing filling before the bread is cooked.",
+                  "failure_predicates": [
+                    "wrong_flatbread_preparation"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_1fbfe420bada",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_0aee30771141",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "failure_predicates": [
+                    "wrong_flatbread_preparation"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_baf5e839949c",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_373d52df9c53",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_dd33d22a38b3",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_44d53282d439",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_5760040b3422",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_6eb860db8307",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_26eed3737ba0",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "failure_predicates": [
+                    "wrong_flatbread_preparation"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_083130305fb2",
+                  "ring": "core",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The native description says parathas can be plain or stuffed, but this actual recipe uses flour, salt, water and oil and demonstrates folding/rolling oil layers. The captured complete storyboard supplies plain layered dough, not an internal filling operation. It supports V0 only; a category possibility is not an actually taught stuffed recipe.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_3613b32eabf2",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_f51b508e9def",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_9a032c1de80e",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_166dde0b894d",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "failure_predicates": [
+                    "wrong_flatbread_preparation"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_e2d366be3edc",
+                  "ring": "core",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "Official storyboard03 shows unfilled bread cooked first; storyboard04 opens the cooked bread into pockets and adds chicken afterwards. Its dough/bread preparation can support V0, but the cooked-pocket sandwich sequence does not teach the V1 operation of sealing filling inside raw dough.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_781ca4429e22",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_6d1e748eba59",
+                  "ring": "related",
+                  "why_plausible": "A genuine result from the unchanged complete flatbread beginner query.",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "failure_predicates": [
+                    "missing_raw_dough_stuffing"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_previews"
+                  ]
+                }
+              ],
+              "detail_decision_fields": [
+                "title",
+                "description",
+                "chapters",
+                "public_previews"
+              ],
+              "candidate_matrix": [
+                {
+                  "entity_id": "m_b61254724576",
+                  "rank": 1,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The native description/chapters and complete storyboard teach multiple flatbreads, including rolled lavash/tortilla and plain oil-layered paratha. These supply an initial solid-dough flatbread method; none teaches placing filling inside raw dough and sealing it before cooking.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/71n9ZZNn6BI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_6b38e47ff17d",
+                  "rank": 2,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/FOsZEufdFtk.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_9cfee6a65451",
+                  "rank": 3,
+                  "initial": "not_supported",
+                  "final": "not_supported",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_89b3c42c5618",
+                  "rank": 4,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/0HboBHi1CQo.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_2af37876abf9",
+                  "rank": 5,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/T90OAv1LDgE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_1638cf3271e5",
+                  "rank": 6,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "Native chapters and complete official previews teach roti, pita, and yogurt-flatbread/pizza methods. The rolled roti/pita content supports the initial view; these methods do not teach the newly visible raw-dough stuffing and sealing operation.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/3e-f8iK5QLs.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_664a1837b8f3",
+                  "rank": 7,
+                  "initial": "accepted",
+                  "final": "accepted",
+                  "reason": "Native English transcript at 297–308s explicitly puts Brie in a dough hollow, makes a parcel and seals it; 341–355s permits any filling, rolls it flat and pan-cooks it. The same tutorial also teaches plain flatbread. Different filling identity is not restricted.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_eda5942ada3c",
+                  "rank": 8,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/FUlc3W9ZNZU.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_bed1bb1c061d",
+                  "rank": 9,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/yNadeDDUTvo.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_49f9ed76a39c",
+                  "rank": 10,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/TNT9LVCMoP8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_7a092e0a51ee",
+                  "rank": 11,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/BSi7KaA8O2o.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_f8dc96b7d754",
+                  "rank": 12,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/KQChcg9GkOQ.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_3a31d97db63c",
+                  "rank": 13,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/zktDoFLyU70.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_7e49eeed0fcd",
+                  "rank": 14,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/OdtqePB4Vog.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_4dbf9dfa5670",
+                  "rank": 15,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/SD5-WFR8tY8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_a5dc708aabf0",
+                  "rank": 16,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/vK9AFlxcqTI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_1c54472b7d84",
+                  "rank": 17,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/btXkyadZv4s.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_835aee1865e3",
+                  "rank": 18,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "This native tutorial teaches making a rolled solid-dough flatbread base, so it is a usable initial broad flatbread guide; its demonstrated extra pizza toppings do not teach enclosing filling in uncooked dough. It is not a final stuffed-flatbread guide.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/9sOdXbgsCms.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_77b846ba622c",
+                  "rank": 19,
+                  "initial": "accepted",
+                  "final": "accepted",
+                  "reason": "Official storyboard 06 (265.59–309.86s) shows onion/cheese placed on raw rolled dough and enclosed by folding; storyboard07 shows flattening/rolling the filled packet before cooking. This is a genuine enclosed-filling flatbread variant, not an external topping. Exact fold geometry and ingredients are not required.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/WjHufRd6tl4.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/WjHufRd6tl4.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/WjHufRd6tl4.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_52b5c83b0ab9",
+                  "rank": 20,
+                  "initial": "not_supported",
+                  "final": "not_supported",
+                  "reason": "The native ingredient list starts with ready-made flatbread or pita and adds external Margherita toppings. It does not teach making the solid dough/rolled bread seen in V0, nor enclosing filling before the bread is cooked.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_1fbfe420bada",
+                  "rank": 21,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/jvKGaLv4-wE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_0aee30771141",
+                  "rank": 22,
+                  "initial": "not_supported",
+                  "final": "not_supported",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/5JFdBsnhW18.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_b53b88f9b484",
+                  "rank": 23,
+                  "initial": "accepted",
+                  "final": "accepted",
+                  "reason": "Official storyboards07–08 (311.5–400.5s) show filling placed on raw dough, gathered/pinched shut, then flattened; storyboard10 shows cooking both sides. The visible subtitle explicitly allows chicken or potato fillings, so exact source filling is not inferred.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/sVu0_2o8y04.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/sVu0_2o8y04.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/sVu0_2o8y04.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_251001b44cc9",
+                  "rank": 24,
+                  "initial": "accepted",
+                  "final": "accepted",
+                  "reason": "Native Assembling the pockets chapter (286–323s) and official storyboard02 show cooked meat enclosed in raw dough before the filled flatbread pockets are cooked on coals. This teaches the deciding dough-enclosure operation. The user does not restrict filling identity, precise shape or heat source; the real alternative stays accepted.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/NugfdIByfVQ.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/NugfdIByfVQ.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/NugfdIByfVQ.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_baf5e839949c",
+                  "rank": 25,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/3PxnrBHZdPE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_373d52df9c53",
+                  "rank": 26,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/iDDZg8y14CM.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_dd33d22a38b3",
+                  "rank": 27,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/SE_O-yhPzKY.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_44d53282d439",
+                  "rank": 28,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/OppkV5L58o8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_5760040b3422",
+                  "rank": 29,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/mDokFDVSm1E.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_6eb860db8307",
+                  "rank": 30,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/L5kzRStCOKE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_26eed3737ba0",
+                  "rank": 31,
+                  "initial": "not_supported",
+                  "final": "not_supported",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/-aH1dL7HHCE.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_083130305fb2",
+                  "rank": 32,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The native description says parathas can be plain or stuffed, but this actual recipe uses flour, salt, water and oil and demonstrates folding/rolling oil layers. The captured complete storyboard supplies plain layered dough, not an internal filling operation. It supports V0 only; a category possibility is not an actually taught stuffed recipe.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/FX3KAGdnKQk.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_d1322dc2b06b",
+                  "rank": 33,
+                  "initial": "accepted",
+                  "final": "accepted",
+                  "reason": "Official storyboards07–08 show mozzarella placed inside raw dough, edges sealed into a ball and then flattened into a disc; native description explicitly teaches cheese-filled flatbread. This matches the newly revealed filled-dough preparation without claiming the source contains cheese.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_3613b32eabf2",
+                  "rank": 34,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/7jEQhzu45ds.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_f51b508e9def",
+                  "rank": 35,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/qnzBkCkv9gs.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_9a032c1de80e",
+                  "rank": 36,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/nF2CiTA2Q6s.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_166dde0b894d",
+                  "rank": 37,
+                  "initial": "not_supported",
+                  "final": "not_supported",
+                  "reason": "The native title/description or official preview explicitly shows liquid batter being poured/spread into a pan, rather than the hand-worked solid dough and rolling pin visible already in V0. It does not supply the observed rolled-dough preparation and has no raw-dough stuffing step.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/p0HN_27QXG8.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_e2d366be3edc",
+                  "rank": 38,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "Official storyboard03 shows unfilled bread cooked first; storyboard04 opens the cooked bread into pockets and adds chicken afterwards. Its dough/bread preparation can support V0, but the cooked-pocket sandwich sequence does not teach the V1 operation of sealing filling inside raw dough.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/1LioZ15qfGI.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_781ca4429e22",
+                  "rank": 39,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/ZoPtx3iQuuQ.json::public_previews"
+                  ]
+                },
+                {
+                  "entity_id": "m_6d1e748eba59",
+                  "rank": 40,
+                  "initial": "accepted",
+                  "final": "not_supported",
+                  "reason": "The captured native description/chapters and full official storyboard support solid-dough mixing/shaping/rolling and flatbread cooking. The bread is unfilled during cooking; added butter, herbs, oil layers, dips or suggested cooked-bread wraps are not the raw-dough filling-and-sealing operation newly shown in V1.",
+                  "evidence_refs": [
+                    "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::description",
+                    "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_chapters",
+                    "data/sources/upstream_detail_snapshots/youtube/59WD-hRUQTE.json::public_previews"
+                  ]
+                }
+              ],
+              "answer_boundary_rule": "Accept useful rolled/solid-dough flatbread foundations initially; later require useful instruction placing filling inside raw dough and enclosing it before cooking. No exact filling ingredient, regional identity, fold geometry, size, flour or heat-source restriction. A guide can contain additional recipes; accept it if at least one taught method satisfies the current requirement.",
+              "visual_necessity_counterexample": {
+                "general_guides_retained": [
+                  "m_664a1837b8f3"
+                ],
+                "finding": "Paul teaches both plain and filled flatbreads and remains legal at both stages. It does not guarantee the user request for every real flatbread family in the released broad window: liquid-batter poured breads are an independently supported alternative family (ranks3/22/31/37), and externally topped prepared flatbread at rank20 is another. Removing all source images leaves those distinctions unresolved. The visual-necessity claim is an offline construction argument, not a no-scene model score.",
+                "evidence_refs": [
+                  "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-replace-2026103102--natural_broad.json",
+                  "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json",
+                  "data/sources/upstream_detail_snapshots/youtube/a-ZZZAFgKwc.json",
+                  "data/sources/upstream_detail_snapshots/youtube/ER4HnbZFJGI.json"
+                ]
+              }
+            },
+            "landing_semantic_review": {
+              "status": "constructor_checked",
+              "reviewer": "/root/build_media_refresh",
+              "scope": "Constructor source-to-site mapping and complete forty-entry boundary; not independent admission.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fwUxKPl5Wxc.json",
+                "data/sources/upstream_detail_snapshots/youtube/dy3977kNOwY.json"
+              ]
+            }
+          },
+          "review_reference": "artifacts/reports/coding-agent-task-assessments.json::results[task_id=candidate-media-refresh-replace-2026103102]::assessments[pass=adversarial_falsification].verdict",
+          "finding": "After V0 the actual uncertainty is plain versus stuffed rolled flatbread. Paul Hollywood m_664a1837b8f3 teaches both and remains a legal singleton final state. It therefore guarantees an accepted complete ending without V1. Batter and pizza alternatives already excluded by V0 do not justify the necessity of the later update.",
+          "action": "Stop this candidate direction at repair evidence; preserve the universal course, all five final answers, source frames, public capture and independent verdict. Do not perform a trial or admit it."
+        }
+      ]
+    }
+  ]
+}

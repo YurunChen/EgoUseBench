@@ -11,8 +11,10 @@ from urllib.parse import quote
 
 from flask import Flask, request, send_file
 
-from .runtime import SiteRuntime, SiteServer, SiteState, register_observation_routes
-from egocua.workspace import resolve_within
+from . import content_chrome
+from ._paths import resolve_within
+from .runtime import ActionTrace, SiteRuntime, SiteServer, SiteState
+from .search import flatten_public_text, rank_records
 
 
 @dataclass(frozen=True)
@@ -23,6 +25,8 @@ class ContentSiteConfig:
     id_key: str
     detail_path: str
     selection_label: str
+    searchable_keys: tuple[str, ...] = ("title", "channel_title", "kind", "name")
+    search_mode: str = "all_terms"
 
 
 def load_content_data(
@@ -49,7 +53,9 @@ def load_content_data(
             raise ValueError(f"{path}: duplicate entity id {entity_id}")
         seen.add(entity_id)
     fields = payload.get("supported_fields", [])
-    if not isinstance(fields, list) or any(not isinstance(item, str) for item in fields):
+    if not isinstance(fields, list) or any(
+        not isinstance(item, str) for item in fields
+    ):
         raise ValueError(f"{path}: supported_fields must be strings")
     return {
         **{key: value for key, value in payload.items() if key != config.entity_key},
@@ -64,15 +70,14 @@ def load_content_data(
 
 
 def create_content_runtime(
-    task: dict[str, Any],
-    arm: str,
     data: dict[str, Any],
     asset_root: str | Path,
     config: ContentSiteConfig,
     *,
+    trace: ActionTrace | None = None,
     port: int = 0,
 ) -> SiteRuntime:
-    state = SiteState(task, arm, data, asset_root=Path(asset_root))
+    state = SiteState(data, asset_root=Path(asset_root), trace=trace or ActionTrace())
     app = create_content_app(state, config)
     return SiteRuntime(state=state, server=SiteServer(state, app, port=port))
 
@@ -81,19 +86,19 @@ def create_content_app(state: SiteState, config: ContentSiteConfig) -> Flask:
     app = Flask(config.site)
     entities = state.data["entities"]
     by_id = {entity["entity_id"]: entity for entity in entities}
+    search_cache: dict[str, list[dict[str, Any]]] = {}
 
     def render(body: str, status: int = 200) -> tuple[str, int, dict[str, str]]:
-        return _shell(config, body, len(state.selected_entity_ids)), status, {
-            "Content-Type": "text/html; charset=utf-8"
-        }
+        query = request.args.get("q", "") if request.method == "GET" else ""
+        return (
+            _shell(config, body, len(state.selected_entity_ids), query),
+            status,
+            {"Content-Type": "text/html; charset=utf-8"},
+        )
 
-    register_observation_routes(
-        app,
-        state,
-        render,
-        _context_page,
-        _frame_page,
-    )
+    @app.get("/fonts/roboto.ttf")
+    def font() -> Any:
+        return send_file(Path(__file__).with_name("fonts") / "Roboto.ttf")
 
     @app.get("/thumbnail/<entity_id>")
     def thumbnail(entity_id: str) -> Any:
@@ -106,29 +111,95 @@ def create_content_app(state: SiteState, config: ContentSiteConfig) -> Flask:
             relative_path,
             context=f"{config.site} thumbnail",
         )
-        if not path.is_file():
+        return send_file(path)
+
+    @app.get("/public-preview/<entity_id>/<int:index>")
+    def public_preview(entity_id: str, index: int) -> Any:
+        entity = by_id.get(entity_id)
+        previews = entity.get("public_previews", []) if entity else []
+        if (
+            config.site != "egomedia"
+            or not isinstance(previews, list)
+            or index >= len(previews)
+        ):
+            return "", 404
+        preview = previews[index]
+        relative_path = preview.get("image_path") if isinstance(preview, dict) else None
+        if not isinstance(relative_path, str) or not relative_path:
+            return "", 404
+        try:
+            path = resolve_within(
+                state.asset_root,
+                relative_path,
+                context="egomedia public preview",
+            )
+        except (ValueError, FileNotFoundError):
+            return "", 404
+        if path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
             return "", 404
         return send_file(path)
+
+    @app.get("/")
+    def home() -> Any:
+        return render(_home_page(config, entities))
 
     @app.get("/search")
     def search() -> Any:
         query = request.args.get("q", "").strip()
         terms = query.casefold().split()
-        matched = [
-            entity for entity in entities
-            if not terms or all(term in _searchable_text(entity) for term in terms)
-        ]
-        if terms and matched:
-            state.successful_search_seen = True
+        if config.site == "egomaps" and not terms:
+            matched = []
+        elif config.search_mode == "ranked_terms" and terms:
+            cache_key = query.casefold()
+            if cache_key not in search_cache:
+                search_cache[cache_key] = rank_records(
+                    entities,
+                    query,
+                    lambda entity: _searchable_fields(entity, config),
+                )
+            matched = search_cache[cache_key]
+        else:
+            matched = [
+                entity
+                for entity in entities
+                if not terms
+                or all(term in _searchable_text(entity, config) for term in terms)
+            ]
+        page_size = (
+            20 if config.site == "egomedia" else 15 if config.site == "egomaps" else 24
+        )
+        try:
+            requested_page = max(1, int(request.args.get("page", "1")))
+        except ValueError:
+            requested_page = 1
+        page_count = max(1, (len(matched) + page_size - 1) // page_size)
+        current_page = min(requested_page, page_count)
+        start = (current_page - 1) * page_size
+        shown = matched[start : start + page_size]
         state.log("search", query=query, results=len(matched))
-        return render(_search_page(config, query, matched))
+        return render(
+            _search_page(
+                config,
+                query,
+                shown,
+                current_page=current_page,
+                page_count=page_count,
+            )
+        )
 
     def detail(entity_id: str) -> Any:
         entity = by_id.get(entity_id)
         if entity is None:
             return render("<h1>Unknown record</h1>", 404)
         state.log("open_entity", entity_id=entity_id)
-        return render(_detail_page(config, entity, entity_id in state.selected_entity_ids))
+        return render(
+            _detail_page(
+                config,
+                entity,
+                entity_id in state.selected_entity_ids,
+                [entity] if config.site == "egomaps" else entities,
+            )
+        )
 
     app.add_url_rule(
         f"/{config.detail_path}/<entity_id>",
@@ -136,6 +207,8 @@ def create_content_app(state: SiteState, config: ContentSiteConfig) -> Flask:
         detail,
         methods=["GET"],
     )
+    if config.detail_path == "video":
+        app.add_url_rule("/watch/<entity_id>", "watch", detail, methods=["GET"])
 
     @app.get("/selection")
     def selection() -> Any:
@@ -147,25 +220,23 @@ def create_content_app(state: SiteState, config: ContentSiteConfig) -> Flask:
         entity_id = request.form.get("entity_id", "")
         if entity_id not in by_id:
             return render("<h1>Unknown record</h1>", 404)
-        state.select(entity_id)
-        return render(_selection_page(
-            config,
-            [by_id[item] for item in state.selected_entity_ids if item in by_id],
-            state.fields,
-            state.data,
-        ))
+        state.save(entity_id)
+        if config.site == "egomaps":
+            return render(
+                _detail_page(config, by_id[entity_id], True, [by_id[entity_id]])
+            )
+        return selection()
 
     @app.post("/deselect")
     def deselect() -> Any:
         entity_id = request.form.get("entity_id", "")
         if entity_id in by_id:
             state.deselect(entity_id)
-        return render(_selection_page(
-            config,
-            [by_id[item] for item in state.selected_entity_ids if item in by_id],
-            state.fields,
-            state.data,
-        ))
+        if config.site == "egomaps" and entity_id in by_id:
+            return render(
+                _detail_page(config, by_id[entity_id], False, [by_id[entity_id]])
+            )
+        return selection()
 
     @app.post("/field")
     def set_field() -> Any:
@@ -174,30 +245,53 @@ def create_content_app(state: SiteState, config: ContentSiteConfig) -> Flask:
         if name not in state.data.get("supported_fields", []):
             return render("<h1>Unknown report field</h1>", 400)
         state.set_field(name, value)
-        return render(_selection_page(
-            config,
-            [by_id[item] for item in state.selected_entity_ids if item in by_id],
-            state.fields,
-            state.data,
-        ))
+        return selection()
 
     @app.post("/submit")
     def submit() -> Any:
-        if state.event_gate is not None and state.event_gate():
-            state.log("submit_blocked")
-            return render(_blocked_page(), 409)
         if not state.selected_entity_ids:
             state.log("submit_empty")
-            return render("<h1>Nothing selected</h1><p>Select a record before submitting.</p>", 400)
+            return render(
+                "<h1>Nothing selected</h1><p>Select a record before submitting.</p>",
+                400,
+            )
         state.commit()
-        return render(_confirmation_page(config, state.submitted_entity_ids, state.submitted_fields))
+        return render(
+            _confirmation_page(
+                config, state.submitted_entity_ids, state.submitted_fields
+            )
+        )
 
     return app
 
 
-def _searchable_text(entity: dict[str, Any]) -> str:
-    visible = {key: value for key, value in entity.items() if key != "source"}
-    return json.dumps(visible, ensure_ascii=False).casefold()
+def _searchable_fields(
+    entity: dict[str, Any],
+    config: ContentSiteConfig,
+) -> list[tuple[str, float]]:
+    """Index only site-declared public fields; never IDs or task metadata."""
+
+    fields: list[tuple[str, float]] = []
+    for key in config.searchable_keys:
+        value = entity.get(key)
+        text = flatten_public_text(value)
+        if not text.strip():
+            continue
+        weight = (
+            3.0
+            if key in {"title", "name"}
+            else 2.0
+            if key in {"brand", "channel_title", "address", "summary"}
+            else 1.0
+        )
+        fields.append((text, weight))
+    return fields
+
+
+def _searchable_text(entity: dict[str, Any], config: ContentSiteConfig) -> str:
+    """Compatibility search text for simple fixture sites."""
+
+    return " ".join(value for value, _ in _searchable_fields(entity, config)).casefold()
 
 
 def _entity_title(entity: dict[str, Any]) -> str:
@@ -218,9 +312,11 @@ def _media_preview(entity: dict[str, Any], *, detail: bool = False) -> str:
         return ""
     entity_id = quote(str(entity["entity_id"]))
     css_class = "thumbnail detail-thumbnail" if detail else "thumbnail"
-    overlay = '<span class="play" aria-hidden="true">&#9654;</span>' if entity.get(
-        "thumbnail_path"
-    ) else ""
+    overlay = (
+        '<span class="play" aria-hidden="true">&#9654;</span>'
+        if entity.get("thumbnail_path")
+        else ""
+    )
     return (
         '<div class="thumbnail-wrap">'
         f'<img class="{css_class}" src="/thumbnail/{entity_id}" '
@@ -238,56 +334,135 @@ def _media_metadata(entity: dict[str, Any]) -> str:
     views = entity.get("view_count")
     if isinstance(views, int):
         values.append(f"{views:,} views")
-    published = entity.get("published_at")
-    if published:
-        values.append(html.escape(str(published)))
-    duration = entity.get("duration_seconds")
-    if isinstance(duration, int) and duration >= 0:
-        minutes, seconds = divmod(duration, 60)
-        values.append(f"{minutes}:{seconds:02d}")
+    published = str(entity.get("published_at") or "").strip()
+    if published and not published.casefold().startswith("not shown"):
+        values.append(html.escape(published))
     return f'<p class="media-meta">{" · ".join(values)}</p>' if values else ""
 
 
+def _home_page(config: ContentSiteConfig, entities: Iterable[dict[str, Any]]) -> str:
+    shown = list(entities)
+    if config.site == "egomedia":
+        return content_chrome.media_home_page(config, shown)
+    if config.site == "egomaps":
+        return content_chrome.maps_home_page(config, shown)
+    return _search_page(config, "", shown)
+
+
 def _search_page(
-    config: ContentSiteConfig, query: str, entities: Iterable[dict[str, Any]],
+    config: ContentSiteConfig,
+    query: str,
+    entities: Iterable[dict[str, Any]],
+    *,
+    current_page: int = 1,
+    page_count: int = 1,
 ) -> str:
+    shown = list(entities)
+    if config.site == "egomedia":
+        return content_chrome.media_search_page(
+            config,
+            query,
+            shown,
+            current_page=current_page,
+            page_count=page_count,
+        )
+    if config.site == "egomaps":
+        return content_chrome.maps_search_page(
+            config,
+            query,
+            shown,
+            current_page=current_page,
+            page_count=page_count,
+        )
     cards = "".join(
         '<article class="card">'
-        f'{_media_preview(entity)}'
+        f"{_media_preview(entity)}"
         f"<h2>{html.escape(_entity_title(entity))}</h2>"
-        f'{_media_metadata(entity)}'
+        f"{_media_metadata(entity)}"
         f"<p>{html.escape(_entity_summary(entity))}</p>"
         f'<a class="button" href="/{config.detail_path}/{quote(str(entity["entity_id"]))}">Open record</a>'
         "</article>"
-        for entity in entities
+        for entity in shown
     )
     return (
         f"<h1>Search {html.escape(config.title)}</h1>"
-        f'<p>Results for <b>{html.escape(query or "all records")}</b></p>'
+        f"<p>Results for <b>{html.escape(query or 'all records')}</b></p>"
         f'<div class="grid">{cards or "<p>No matching records.</p>"}</div>'
     )
 
 
 def _detail_page(
-    config: ContentSiteConfig, entity: dict[str, Any], selected: bool,
+    config: ContentSiteConfig,
+    entity: dict[str, Any],
+    selected: bool,
+    all_entities: list[dict[str, Any]] | None = None,
 ) -> str:
+    if config.site == "egomaps":
+        facts = entity.get("facts")
+        fact_rows = ""
+        if isinstance(facts, dict):
+            fact_rows = "".join(
+                _render_value(str(key).replace("_", " ").title(), value)
+                for key, value in facts.items()
+            )
+        return content_chrome.maps_detail_page(
+            config,
+            entity,
+            selected,
+            fact_rows,
+            all_entities or [entity],
+        )
     ignored = {
-        "entity_id", "title", "name", "summary", "description", "source", "facts",
-        "thumbnail_path", "photo_path", "channel_title", "published_at", "duration_seconds",
+        "entity_id",
+        "title",
+        "name",
+        "summary",
+        "description",
+        "source",
+        "facts",
+        "thumbnail_path",
+        "photo_path",
+        "channel_title",
+        "published_at",
+        "duration_seconds",
         "view_count",
+        "comments",
+        "comment_count",
+        "sections",
     }
-    sections = "".join(
+    if config.site == "egomedia":
+        ignored.update(
+            {"kind", "details", "public_previews"}
+        )
+    extra = "".join(
         _render_value(str(key).replace("_", " ").title(), value)
         for key, value in entity.items()
         if key not in ignored
     )
+    if config.site == "egomedia":
+        instructions = entity.get("details", {}).get("linked_manufacturer_instructions")
+        if instructions:
+            extra += _render_value("Linked manufacturer instructions", instructions)
+        current_id = entity["entity_id"]
+        channel = entity.get("channel_title")
+        related = [
+            item for item in (all_entities or []) if item["entity_id"] != current_id
+        ]
+        related.sort(key=lambda item: item.get("channel_title") != channel)
+        return content_chrome.media_detail_page(
+            config,
+            entity,
+            selected,
+            extra,
+            related[:8],
+        )
     entity_id = str(entity["entity_id"])
     selection = (
         '<form method="post" action="/deselect">'
         f'<input type="hidden" name="entity_id" value="{html.escape(entity_id)}">'
         '<button type="submit">Remove selection</button></form>'
-        if selected else
-        '<form method="post" action="/select">'
+        if selected
+        else '<form method="post" action="/select">'
         f'<input type="hidden" name="entity_id" value="{html.escape(entity_id)}">'
         f'<button type="submit">{html.escape(config.selection_label)}</button></form>'
     )
@@ -296,7 +471,8 @@ def _detail_page(
         f"<h1>{html.escape(_entity_title(entity))}</h1>"
         f'<p class="muted">Record ID: {html.escape(entity_id)}</p>'
         f"{_media_metadata(entity)}"
-        f"<p>{html.escape(_entity_summary(entity))}</p>{sections}{selection}"
+        f"<p>{html.escape(_entity_summary(entity))}</p>"
+        f"{extra}{selection}"
     )
 
 
@@ -306,7 +482,8 @@ def _render_value(label: str, value: Any) -> str:
             _render_value(
                 str(
                     item.get("heading") or item.get("label") or label
-                    if isinstance(item, dict) else label
+                    if isinstance(item, dict)
+                    else label
                 ),
                 item.get("text") if isinstance(item, dict) and "text" in item else item,
             )
@@ -329,66 +506,49 @@ def _selection_page(
     fields: dict[str, str],
     data: dict[str, Any],
 ) -> str:
-    rows = "".join(
-        '<div class="selected">'
-        f"<b>{html.escape(_entity_title(entity))}</b>"
-        '<form method="post" action="/deselect">'
-        f'<input type="hidden" name="entity_id" value="{html.escape(str(entity["entity_id"]))}">'
-        '<button type="submit">Remove</button></form></div>'
-        for entity in entities
-    ) or "<p>No records selected.</p>"
+    supported_fields = data.get("supported_fields", [])
     options = "".join(
         f'<option value="{html.escape(name)}">{html.escape(name.replace("_", " "))}</option>'
-        for name in data.get("supported_fields", [])
+        for name in supported_fields
     )
-    recorded = "".join(
-        f"<li><b>{html.escape(name)}</b>: {html.escape(value)}</li>"
-        for name, value in fields.items()
-    ) or "<li>No report fields entered.</li>"
-    return (
-        f"<h1>{html.escape(config.selection_label)}</h1>{rows}"
-        "<h2>Report fields</h2>"
-        f"<ul>{recorded}</ul>"
-        '<form method="post" action="/field"><label>Field <select name="name">'
-        f"{options}</select></label>"
-        '<label>Exact value <input name="value" required></label>'
-        '<button type="submit">Set field</button></form>'
-        '<form method="post" action="/submit"><button class="primary" type="submit">Submit</button></form>'
-    )
-
-
-def _context_page(observations: list[tuple[int, dict[str, Any]]]) -> str:
-    galleries = ""
-    for display_index, (packet_index, packet) in enumerate(observations):
-        heading = "Wearer's view" if len(observations) == 1 else (
-            "Earlier view" if display_index == 0 else "More recent view"
+    recorded = (
+        "".join(
+            f"<li><b>{html.escape(name)}</b>: {html.escape(value)}</li>"
+            for name, value in fields.items()
         )
-        images = "".join(
-            f'<a href="/observation/{packet_index}/image/{image_index}">'
-            f'<img src="/observations/{packet_index}/images/{image_index}" alt="wearer view {image_index + 1}"></a>'
-            for image_index in range(len(packet["frame_paths"]))
+        or "<li>No report fields entered.</li>"
+    )
+    fields_html = ""
+    if supported_fields:
+        fields_html = f"<h2>Report fields</h2><ul>{recorded}</ul>"
+        fields_html += (
+            '<form method="post" action="/field"><label>Field <select name="name">'
+            f"{options}</select></label>"
+            '<label>Exact value <input name="value" required></label>'
+            '<button type="submit">Set field</button></form>'
         )
-        galleries += f"<section><h2>{heading}</h2><div class=\"frames\">{images}</div></section>"
-    return "<h1>What the wearer saw</h1><p>Images are chronological.</p>" + galleries
-
-
-def _frame_page(observation_index: int, image_index: int) -> str:
-    return (
-        f"<h1>Wearer view · image {image_index + 1}</h1>"
-        f'<img class="full-frame" src="/observations/{observation_index}/images/{image_index}">'
-        '<p><a href="/context">Back to context</a></p>'
+    if config.site == "egomedia":
+        return content_chrome.media_selection_page(config, entities, fields_html)
+    if config.site == "egomaps":
+        return content_chrome.maps_selection_page(config, entities, fields_html, "")
+    rows = (
+        "".join(
+            '<div class="selected">'
+            f"<b>{html.escape(_entity_title(entity))}</b>"
+            '<form method="post" action="/deselect">'
+            f'<input type="hidden" name="entity_id" value="{html.escape(str(entity["entity_id"]))}">'
+            '<button type="submit">Remove</button></form></div>'
+            for entity in entities
+        )
+        or "<p>No records selected.</p>"
     )
-
-
-def _blocked_page() -> str:
-    return (
-        "<h1>Not submitted yet</h1><p>A new wearer update is arriving. "
-        "Review it, then submit again.</p>"
-    )
+    return f"<h1>{html.escape(config.selection_label)}</h1>{rows}{fields_html}"
 
 
 def _confirmation_page(
-    config: ContentSiteConfig, entity_ids: list[str], fields: dict[str, str],
+    config: ContentSiteConfig,
+    entity_ids: list[str],
+    fields: dict[str, str],
 ) -> str:
     return (
         "<h1>✓ Submission complete</h1>"
@@ -397,11 +557,20 @@ def _confirmation_page(
     )
 
 
-def _shell(config: ContentSiteConfig, body: str, selected_count: int) -> str:
+def _shell(
+    config: ContentSiteConfig,
+    body: str,
+    selected_count: int,
+    query: str = "",
+) -> str:
+    if config.site == "egomedia":
+        return content_chrome.media_shell(config, body, selected_count, query)
+    if config.site == "egomaps":
+        return content_chrome.maps_shell(config, body, selected_count, query)
     return f'''<!doctype html><html><head><meta charset="utf-8"><title>{html.escape(config.title)}</title>
-<style>{_CSS}</style></head><body><header><a href="/context">{html.escape(config.title)}</a>
-<form action="/search"><input name="q" placeholder="Search"><button>Search</button></form>
-<a href="/selection">Selection ({selected_count})</a></header><nav><a href="/context">Wearer context</a>
+<style>{_CSS}</style></head><body><header><a href="/">{html.escape(config.title)}</a>
+<form action="/search"><input name="q" placeholder="Search" value="{html.escape(query)}"><button>Search</button></form>
+<a href="/selection">Selection ({selected_count})</a></header><nav>
 <a href="/search">All records</a><a href="/selection">Current selection</a></nav><main>{body}</main>
 <footer>Frozen deterministic benchmark environment.</footer></body></html>'''
 

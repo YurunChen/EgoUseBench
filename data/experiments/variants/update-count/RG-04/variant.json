@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "pair_id": "RG-04",
+  "id": "RG-04-update-count",
+  "source_task_path": "data/experiments/composite/RG-04.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 238.2,
+      "request": "Make the guide five minutes or less."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 257.2
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 262.2,
+      "request": "Make it two minutes or less."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_f7e1e36f8dd1"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_c0c625dc06c0"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "238.2秒早于257.2秒Refresh，仍按开场手持握把选教程，不用未来头带。388秒NLSD三用握把公开简介说明连接、折臂、锁定和握把/三脚架用法，107秒官方Handler有How to Use章节；两者均支持当前手持安装与使用，5分钟限制排除388秒而保留107秒。",
+    "public_facts": [
+      {
+        "entity_id": "m_f7e1e36f8dd1",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 388
+      },
+      {
+        "entity_id": "m_c0c625dc06c0",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 107
+      },
+      {
+        "entity_id": "m_f7e1e36f8dd1",
+        "path": [
+          "title"
+        ],
+        "equals": "NLSD 3-way Handheld Selfie Stick Monopod Foldable Mount Holder for GoPro"
+      },
+      {
+        "entity_id": "m_c0c625dc06c0",
+        "path": [
+          "title"
+        ],
+        "equals": "GoPro Tips: How to use The Handler"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_f7e1e36f8dd1",
+        "retained_state": "m_c0c625dc06c0"
+      },
+      "operator": "<=",
+      "value": 300
+    },
+    "original_request_effect": "Refresh改为头带后，177秒m_59bb6617dd84满足中间5分钟却被原2分钟排除，原107秒等短头带终态不变。"
+  }
+}

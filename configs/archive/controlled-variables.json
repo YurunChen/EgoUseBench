@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "study_id": "controlled-variables",
+  "base_plan": "configs/pilot.json",
+  "model": "qwen3.5-flash",
+  "evidence": "data/experiments/controlled-variable-evidence.json",
+  "tasks": "data/tasks",
+  "selection": "data/selection.json",
+  "replicate_ids": [0],
+  "frame_intervals_seconds": [1, 2, 5],
+  "wearer_frames_per_image": 4,
+  "wearer_jpeg_quality": 85,
+  "timing_budget": {"pre_release_max_steps": 20, "post_release_max_steps": 20},
+  "task_sample": {
+    "seed": 20261015,
+    "frequency": {"graft": 30, "refresh": 15, "clarify": 15},
+    "timing": {"graft": 30, "refresh": 15}
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "pair_id": "CG-06",
+  "id": "CG-06-update-count",
+  "source_task_path": "data/experiments/composite/CG-06.json",
+  "direction": "insert",
+  "subtype": "quantity_revision",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 59.0,
+      "request": "Make it three individual bags of whichever one I meant, not a bulk pack."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 67.0,
+      "request": "One bag won’t be enough for the whole table. Make it two individual bags of whichever one I meant, not a bulk pack."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "p_a6b416e6abcd"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "p_a6b416e6abcd",
+        "p_a6b416e6abcd",
+        "p_a6b416e6abcd"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "59秒仍是同货架袋装饼干，继承原C红顶Milano。开场一单袋合法；新增三独立袋使它不够，三份同一单袋为完整存活状态。",
+    "public_facts": [
+      {
+        "entity_id": "p_a6b416e6abcd",
+        "path": [
+          "name"
+        ],
+        "equals": "Pepperidge Farm Milano Cookies, Double Dark Chocolate, 7.5 Oz Bag"
+      },
+      {
+        "entity_id": "p_f8bf368d5949",
+        "path": [
+          "name"
+        ],
+        "equals": "Pepperidge Farm Milano Double Dark Chocolate Cookies, 7.5 Oz"
+      },
+      {
+        "entity_id": "p_a6b416e6abcd",
+        "path": [
+          "name"
+        ],
+        "equals": "Pepperidge Farm Milano Cookies, Double Dark Chocolate, 7.5 Oz Bag"
+      }
+    ],
+    "constraint": {
+      "kind": "quantity",
+      "units": {
+        "p_a6b416e6abcd": 1,
+        "p_f8bf368d5949": 1
+      },
+      "operator": "==",
+      "value": 3
+    },
+    "original_request_effect": "67秒明确Make it two替换三袋为两袋；One bag won’t be enough回指初始一袋，虽然先增后减，桌上分享的需求仍自然，最终两单袋未变。"
+  }
+}

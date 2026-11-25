@@ -1,0 +1,1389 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing locally licensed research material. User has confirmed dataset access authorization; this construction does not publish media."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026101823",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "dataset": "Ego2Web",
+        "media_id": "bdd542a6-41c1-4119-b89d-101405d581df",
+        "media_start_seconds": 0,
+        "media_sha256": "3ba60e18f5dc80f328baf29f6722a931e04cf3fd6913e2ddb15c51464dab5370",
+        "original_video_path": "reference/sources/Ego2Web/dataset/ego2web_video/bdd542a6-41c1-4119-b89d-101405d581df.mp4",
+        "record_ids": [
+          455
+        ],
+        "annotation_source": {
+          "path": "reference/sources/Ego2Web/dataset/ego2web.json",
+          "sha256": "ef19b7609ea3a6dbbf82fdaacb6b9463a99ebc934b8ad14fa3a53fc870d962ec"
+        },
+        "observed_events": [
+          {
+            "interval_seconds": [
+              104,
+              107.5
+            ],
+            "role": "bin_scooping_tool",
+            "description": "The left hand holds the split long green vegetable over the open bin while the right hand scrapes its inside with a small metal spoon."
+          },
+          {
+            "interval_seconds": [
+              108,
+              110
+            ],
+            "role": "transition",
+            "description": "The wearer turns from the bin back to the counter."
+          },
+          {
+            "interval_seconds": [
+              111,
+              112
+            ],
+            "role": "board_cutting_tool",
+            "description": "At the board the right hand still holds the small spoon while the black-handled knife lies on the board next to the split vegetable halves."
+          },
+          {
+            "interval_seconds": [
+              116,
+              160
+            ],
+            "role": "board_cutting_tool",
+            "description": "The knife cuts the vegetable on the board; the spoon rests to the right of the board."
+          }
+        ],
+        "unsupported_claims": [
+          "A Y-shaped peeler is used: this was a coarse-locator misinterpretation rejected after viewing original75/94/98/103/108.5/111 images. The actual second tool has a small solid concave spoon head.",
+          "Exact vegetable identity, precise utensil size or retail SKU can be recovered from these480x360 frames."
+        ]
+      },
+      "screening": {
+        "real_user_need": "A clean spare of a familiar food-preparation hand tool; the intended tool is unspecified until the user answers.",
+        "scope_note": "Replace the failing universal vegetable-corer task using the same unshared original recording and actual distinct knife/scooping-spoon uses. This isolated construction is not the other-recording1803 fork/spoon task."
+      },
+      "supported_claims": [
+        {
+          "text": "The wearer holds the split vegetable over the bin and scrapes its inside with a small metal spoon.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "Back at the board, the spoon is in the right hand and a separate black-handled knife lies on the board beside the cut vegetable.",
+          "supported_by": [
+            "V0:7"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026101823/stream-20261103/V0_07.jpg"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the agent resolve a physical tool reference and select its real webpage tool type without buying a universal mixed set?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "Both the blade used on the board and the scooping utensil used over the bin are actual tools used in this preparation; the initial request does not specify which is intended.",
+        "belief_after": "The answer selects the tool used with the vegetable held over the bin; the scene establishes a spoon rather than the cutting blade.",
+        "required_behavior_change": "Resolve which actual tool the user wants, then add one matching tool-type listing.",
+        "no_update_failure": "Add the cutting knife, or select a mixed cutlery set as a shortcut covering both possibilities.",
+        "overupdate_failure": "Add both a spoon listing and a knife listing.",
+        "visual_dependency_claim": "Neither the initial request nor answer names a tool type or webpage item. A blade used to pare over a bin and a spoon used to hollow over a bin are both physically plausible without this scene. The observed source shows spoon scooping, and the one-type rule prevents a mixed kit from guaranteeing both answers.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I need a clean spare of the hand tool I mean from this preparation. Add one listing for the same kind of tool; any brand or material is fine. A pack of identical tools is fine, but not a mixed cutlery set.",
+          "oracle_instruction": "I need a clean spare of the hand tool I used while holding the vegetable over the bin. Add one listing for the same kind of tool; any brand or material is fine. A pack of identical tools is fine, but not a mixed cutlery set.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "board_cutting_tool",
+            "bin_scooping_tool"
+          ],
+          "hidden_target_role": "bin_scooping_tool",
+          "valid_slot": "position",
+          "canonical_question": "Which of the tools do you mean?",
+          "canonical_answer": "The one I used while holding the vegetable over the bin.",
+          "environment_role_ids": {
+            "board_cutting_tool": "p_bac272990f3e",
+            "bin_scooping_tool": "p_8b7977f54209"
+          },
+          "equivalent_role_ids": {
+            "bin_scooping_tool": [
+              "p_63c0d28ed1da",
+              "p_fc87d3f9e596",
+              "p_fdb8ced43f17",
+              "p_cec726999a2f",
+              "p_b9665458beec",
+              "p_eb910aed4180",
+              "p_7c35c14d4152",
+              "p_41ca83d84408",
+              "p_84fcdc057aba",
+              "p_1f343bba4f5d",
+              "p_c8f85ac96c40",
+              "p_3a5abc85b7a8",
+              "p_b552c65d0283",
+              "p_f1569bd9e84b",
+              "p_923307113295",
+              "p_55dcd78639eb",
+              "p_31f0ff0425f6",
+              "p_f20a9c61ea14",
+              "p_2f22c584c578",
+              "p_cafa0d1b13db",
+              "p_38fd8da9e823",
+              "p_ec6fb3367373",
+              "p_5240ce06bb25",
+              "p_58d647489a87",
+              "p_f66ffb3a0521",
+              "p_e24bb8469f7a",
+              "p_aee7e5d306a7",
+              "p_de6529894351",
+              "p_e1da60c5c932",
+              "p_06fb31935ba9",
+              "p_6d564633f514",
+              "p_9bd8980ca85c",
+              "p_c480c0011e44",
+              "p_d4c63f90a946",
+              "p_ac9ceefc3319"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "board_cutting_tool": "p_bac272990f3e",
+            "bin_scooping_tool": "p_8b7977f54209"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "board_cutting_tool",
+                "bin_scooping_tool"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "bin_scooping_tool"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The answer picks the tool used in the bin scene that just ended (spoon), not the knife lying on the board."
+            }
+          ],
+          "established_by": "claude-opus-subagent seqclarify-repair 2026-11-03",
+          "established_at": "2026-11-03",
+          "note": "Rebuilt for immediate ambiguity (fixed-step-replay-immediate-ambiguity-20261103); evidence in the repair proposal.",
+          "recording": "key_events"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "8 inch chef knife black handle",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-16.json",
+              "snapshot_task_id": "candidate-mart-graft-p-16",
+              "result_entity_ids": [
+                "p_bac272990f3e",
+                "p_f37fe8229c4d",
+                "p_bf1587eb1598",
+                "p_5f8b14400d9e",
+                "p_c98f8bd22444",
+                "p_0d3b43c1367f",
+                "p_48536e1fff93",
+                "p_f88552fd1ee4",
+                "p_53e454896a63",
+                "p_ce7fd05859e3",
+                "p_980f58453d9f",
+                "p_a2414664212c",
+                "p_9c3e2347e6ad",
+                "p_c977b71386c3",
+                "p_28459a7f06bc",
+                "p_d4037ce0d9d0",
+                "p_6c84d4970feb",
+                "p_db70e5dd0726",
+                "p_d961c3495f66",
+                "p_c26f41e1c491",
+                "p_e9ad863f8333",
+                "p_4048a182a7fb",
+                "p_07d2285f6cf4",
+                "p_f6e045ce96b5",
+                "p_1c2eebb0a3b8",
+                "p_1ecc6f1fec06",
+                "p_7f5dad80f822",
+                "p_86c4e5478eb5",
+                "p_d5b8be59914c",
+                "p_e19cf2f318ce",
+                "p_b9461a7454f5",
+                "p_e1f489ad5f06",
+                "p_38b3d7a3bfba",
+                "p_60f29480628f",
+                "p_79a90989a644",
+                "p_f517d07a672c",
+                "p_78787151430b",
+                "p_e0e72ceefb86",
+                "p_843fec602e13",
+                "p_bcadfd48893d",
+                "p_1dbdc8da34bd",
+                "p_59a633a38d08",
+                "p_eef9e53aab31",
+                "p_7bf9005e8469",
+                "p_ba98be410160",
+                "p_cfc064de627d",
+                "p_859de0043a74",
+                "p_8c6febdac502",
+                "p_a65ceb707c0a"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "stainless steel dinner spoons set",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-01.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-01",
+              "result_entity_ids": [
+                "p_8b7977f54209",
+                "p_63c0d28ed1da",
+                "p_c1f98fffa806",
+                "p_fc87d3f9e596",
+                "p_fdb8ced43f17",
+                "p_cec726999a2f",
+                "p_b9665458beec",
+                "p_eb910aed4180",
+                "p_7c35c14d4152",
+                "p_41ca83d84408",
+                "p_84fcdc057aba",
+                "p_1f343bba4f5d",
+                "p_c8f85ac96c40",
+                "p_3a5abc85b7a8",
+                "p_4f60a76f0bab",
+                "p_b552c65d0283",
+                "p_f1569bd9e84b",
+                "p_923307113295",
+                "p_fd168bfdd94a",
+                "p_55dcd78639eb",
+                "p_31f0ff0425f6",
+                "p_f20a9c61ea14",
+                "p_2f22c584c578",
+                "p_7bf50fb97e7a",
+                "p_cafa0d1b13db",
+                "p_38fd8da9e823",
+                "p_54b6d37a2e1f",
+                "p_661ecdfaf7f8",
+                "p_ec6fb3367373",
+                "p_5240ce06bb25",
+                "p_58d647489a87",
+                "p_f66ffb3a0521",
+                "p_e24bb8469f7a",
+                "p_37ca83309a09",
+                "p_aee7e5d306a7",
+                "p_b3ec85a800b5",
+                "p_de6529894351",
+                "p_e1da60c5c932",
+                "p_06fb31935ba9",
+                "p_773e4812326b",
+                "p_6d564633f514",
+                "p_9bd8980ca85c",
+                "p_c480c0011e44",
+                "p_d4c63f90a946",
+                "p_b21c0dff2416",
+                "p_3e6266f2037c",
+                "p_aa7c884e95b9",
+                "p_ac9ceefc3319"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_bac272990f3e",
+            "p_f37fe8229c4d",
+            "p_bf1587eb1598",
+            "p_5f8b14400d9e",
+            "p_c98f8bd22444",
+            "p_0d3b43c1367f",
+            "p_48536e1fff93",
+            "p_f88552fd1ee4",
+            "p_53e454896a63",
+            "p_ce7fd05859e3",
+            "p_980f58453d9f",
+            "p_a2414664212c",
+            "p_9c3e2347e6ad",
+            "p_c977b71386c3",
+            "p_28459a7f06bc",
+            "p_d4037ce0d9d0",
+            "p_6c84d4970feb",
+            "p_db70e5dd0726",
+            "p_d961c3495f66",
+            "p_c26f41e1c491",
+            "p_e9ad863f8333",
+            "p_4048a182a7fb",
+            "p_07d2285f6cf4",
+            "p_f6e045ce96b5",
+            "p_1c2eebb0a3b8",
+            "p_1ecc6f1fec06",
+            "p_7f5dad80f822",
+            "p_86c4e5478eb5",
+            "p_d5b8be59914c",
+            "p_e19cf2f318ce",
+            "p_b9461a7454f5",
+            "p_e1f489ad5f06",
+            "p_38b3d7a3bfba",
+            "p_60f29480628f",
+            "p_79a90989a644",
+            "p_f517d07a672c",
+            "p_78787151430b",
+            "p_e0e72ceefb86",
+            "p_843fec602e13",
+            "p_bcadfd48893d",
+            "p_1dbdc8da34bd",
+            "p_59a633a38d08",
+            "p_eef9e53aab31",
+            "p_7bf9005e8469",
+            "p_ba98be410160",
+            "p_cfc064de627d",
+            "p_859de0043a74",
+            "p_8c6febdac502",
+            "p_a65ceb707c0a",
+            "p_8b7977f54209",
+            "p_63c0d28ed1da",
+            "p_c1f98fffa806",
+            "p_fc87d3f9e596",
+            "p_fdb8ced43f17",
+            "p_cec726999a2f",
+            "p_b9665458beec",
+            "p_eb910aed4180",
+            "p_7c35c14d4152",
+            "p_41ca83d84408",
+            "p_84fcdc057aba",
+            "p_1f343bba4f5d",
+            "p_c8f85ac96c40",
+            "p_3a5abc85b7a8",
+            "p_4f60a76f0bab",
+            "p_b552c65d0283",
+            "p_f1569bd9e84b",
+            "p_923307113295",
+            "p_fd168bfdd94a",
+            "p_55dcd78639eb",
+            "p_31f0ff0425f6",
+            "p_f20a9c61ea14",
+            "p_2f22c584c578",
+            "p_7bf50fb97e7a",
+            "p_cafa0d1b13db",
+            "p_38fd8da9e823",
+            "p_54b6d37a2e1f",
+            "p_661ecdfaf7f8",
+            "p_ec6fb3367373",
+            "p_5240ce06bb25",
+            "p_58d647489a87",
+            "p_f66ffb3a0521",
+            "p_e24bb8469f7a",
+            "p_37ca83309a09",
+            "p_aee7e5d306a7",
+            "p_b3ec85a800b5",
+            "p_de6529894351",
+            "p_e1da60c5c932",
+            "p_06fb31935ba9",
+            "p_773e4812326b",
+            "p_6d564633f514",
+            "p_9bd8980ca85c",
+            "p_c480c0011e44",
+            "p_d4c63f90a946",
+            "p_b21c0dff2416",
+            "p_3e6266f2037c",
+            "p_aa7c884e95b9",
+            "p_ac9ceefc3319"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_bac272990f3e",
+            "p_a65ceb707c0a",
+            "p_c1f98fffa806",
+            "p_54b6d37a2e1f",
+            "p_773e4812326b"
+          ],
+          "related_entity_ids": [
+            "p_f37fe8229c4d",
+            "p_bf1587eb1598",
+            "p_5f8b14400d9e",
+            "p_c98f8bd22444",
+            "p_0d3b43c1367f",
+            "p_48536e1fff93",
+            "p_f88552fd1ee4",
+            "p_53e454896a63",
+            "p_ce7fd05859e3",
+            "p_980f58453d9f",
+            "p_a2414664212c",
+            "p_9c3e2347e6ad",
+            "p_c977b71386c3",
+            "p_28459a7f06bc",
+            "p_d4037ce0d9d0",
+            "p_6c84d4970feb",
+            "p_db70e5dd0726",
+            "p_d961c3495f66",
+            "p_c26f41e1c491",
+            "p_e9ad863f8333",
+            "p_4048a182a7fb",
+            "p_07d2285f6cf4",
+            "p_f6e045ce96b5",
+            "p_1c2eebb0a3b8",
+            "p_1ecc6f1fec06",
+            "p_7f5dad80f822",
+            "p_86c4e5478eb5",
+            "p_d5b8be59914c",
+            "p_e19cf2f318ce",
+            "p_b9461a7454f5",
+            "p_e1f489ad5f06",
+            "p_38b3d7a3bfba",
+            "p_60f29480628f",
+            "p_79a90989a644",
+            "p_f517d07a672c",
+            "p_78787151430b",
+            "p_e0e72ceefb86",
+            "p_843fec602e13",
+            "p_bcadfd48893d",
+            "p_1dbdc8da34bd",
+            "p_59a633a38d08",
+            "p_eef9e53aab31",
+            "p_7bf9005e8469",
+            "p_ba98be410160",
+            "p_cfc064de627d",
+            "p_859de0043a74",
+            "p_8c6febdac502",
+            "p_4f60a76f0bab",
+            "p_fd168bfdd94a",
+            "p_7bf50fb97e7a",
+            "p_661ecdfaf7f8",
+            "p_37ca83309a09",
+            "p_b3ec85a800b5",
+            "p_b21c0dff2416",
+            "p_3e6266f2037c",
+            "p_aa7c884e95b9"
+          ],
+          "ambient_entity_ids": [],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_bac272990f3e",
+              "ring": "core",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_f37fe8229c4d",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_bf1587eb1598",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_5f8b14400d9e",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_c98f8bd22444",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_0d3b43c1367f",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_48536e1fff93",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_f88552fd1ee4",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_53e454896a63",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_ce7fd05859e3",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_980f58453d9f",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_a2414664212c",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_9c3e2347e6ad",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_c977b71386c3",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_28459a7f06bc",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_d4037ce0d9d0",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_6c84d4970feb",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_db70e5dd0726",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_d961c3495f66",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_c26f41e1c491",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_e9ad863f8333",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_4048a182a7fb",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_07d2285f6cf4",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_f6e045ce96b5",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_1c2eebb0a3b8",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_1ecc6f1fec06",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_7f5dad80f822",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_86c4e5478eb5",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_d5b8be59914c",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_e19cf2f318ce",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_b9461a7454f5",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_e1f489ad5f06",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_38b3d7a3bfba",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_60f29480628f",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_79a90989a644",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_f517d07a672c",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_78787151430b",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_e0e72ceefb86",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_843fec602e13",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_bcadfd48893d",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_1dbdc8da34bd",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_59a633a38d08",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_eef9e53aab31",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_7bf9005e8469",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_ba98be410160",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_cfc064de627d",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_859de0043a74",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_8c6febdac502",
+              "ring": "related",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_a65ceb707c0a",
+              "ring": "core",
+              "reason": "The actual public image shows cutting knife blades rather than a concave scooping bowl. Knife work genuinely occurs on the board, but it is not the tool used with the vegetable held over the bin.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_c1f98fffa806",
+              "ring": "core",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_4f60a76f0bab",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_fd168bfdd94a",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_7bf50fb97e7a",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_54b6d37a2e1f",
+              "ring": "core",
+              "reason": "The actual public image shows fork-only packs with prongs rather than the source's solid concave scooping head. The generic spoons-and-forks title wording does not override the actual selected fork-only listing.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_661ecdfaf7f8",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_37ca83309a09",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_b3ec85a800b5",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_773e4812326b",
+              "ring": "core",
+              "reason": "The actual public image shows fork-only packs with prongs rather than the source's solid concave scooping head. The generic spoons-and-forks title wording does not override the actual selected fork-only listing.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_b21c0dff2416",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_3e6266f2037c",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            },
+            {
+              "entity_id": "p_aa7c884e95b9",
+              "ring": "related",
+              "reason": "The actual public image and contents include distinct spoon/fork or spoon/fork/knife types in one mixed cutlery listing. The user explicitly wants one tool type, not an assorted set. This remains excluded even when it contains a suitable spoon.",
+              "why_plausible": "This is an actual hand-tool or cutlery result from the complete captured window.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "construction_evidence.json"
+            }
+          ],
+          "semantic_review": {
+            "status": "constructor_full_window_checked_pending_independent_review"
+          },
+          "equivalence_review": {
+            "reviewer": "/root/span_remaining_construction_1018",
+            "accepted_entity_ids": [
+              "p_8b7977f54209",
+              "p_63c0d28ed1da",
+              "p_fc87d3f9e596",
+              "p_fdb8ced43f17",
+              "p_cec726999a2f",
+              "p_b9665458beec",
+              "p_eb910aed4180",
+              "p_7c35c14d4152",
+              "p_41ca83d84408",
+              "p_84fcdc057aba",
+              "p_1f343bba4f5d",
+              "p_c8f85ac96c40",
+              "p_3a5abc85b7a8",
+              "p_b552c65d0283",
+              "p_f1569bd9e84b",
+              "p_923307113295",
+              "p_55dcd78639eb",
+              "p_31f0ff0425f6",
+              "p_f20a9c61ea14",
+              "p_2f22c584c578",
+              "p_cafa0d1b13db",
+              "p_38fd8da9e823",
+              "p_ec6fb3367373",
+              "p_5240ce06bb25",
+              "p_58d647489a87",
+              "p_f66ffb3a0521",
+              "p_e24bb8469f7a",
+              "p_aee7e5d306a7",
+              "p_de6529894351",
+              "p_e1da60c5c932",
+              "p_06fb31935ba9",
+              "p_6d564633f514",
+              "p_9bd8980ca85c",
+              "p_c480c0011e44",
+              "p_d4c63f90a946",
+              "p_ac9ceefc3319"
+            ],
+            "method": "Individually inspect the complete97-result union via labelled actual product images. Keep every spoon-only listing under the unconstrained same-tool-type request, including gold, ornate handles, four-piece packs and round bowls; do not inherit1803's silver/plain/at-least-six restrictions.",
+            "review_reference": "construction_evidence.json"
+          }
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "repair_id": "fixed-step-replay-immediate-ambiguity-20261103",
+          "date": "2026-11-03",
+          "reason": "Fixed-step replay speaks the first request with the first batch; V0 moves so the request is true and every candidate or change is reachable from the session start.",
+          "review_reference": ".scratch/stream-materials/repairs/candidate-mart-clarify-sequence-2026101823/proposal.json",
+          "previous_packets": [
+            {
+              "id": "V0",
+              "timestamps_seconds": [
+                60,
+                64,
+                82,
+                84,
+                98,
+                103,
+                111,
+                120
+              ],
+              "frame_paths": [
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_00.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_01.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_02.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_03.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_04.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_05.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_06.jpg",
+                "data/observations/candidate-mart-clarify-sequence-2026101823/V0_07.jpg"
+              ]
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "A separate knife is used on the board at 60 and 64 seconds.",
+              "supported_by": [
+                "V0:0",
+                "V0:1"
+              ]
+            },
+            {
+              "text": "The wearer holds a split green vegetable over the bin and uses a small spoon to scrape its inside; the spoon and the separate knife are visible beside the board afterward.",
+              "supported_by": [
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            }
+          ],
+          "previous_observed_events": [
+            {
+              "event_id": "knife-cutting-on-board",
+              "interval_seconds": [
+                60,
+                64
+              ],
+              "description": "A separate black-handled pointed cutting blade is used to cut the long green vegetable on the board."
+            },
+            {
+              "event_id": "metal-spoon-scooping-over-bin",
+              "interval_seconds": [
+                82,
+                103
+              ],
+              "description": "The left hand holds the split long green vegetable over an open waste bin; the right hand uses a small metal spoon to scrape its inner channel toward the bin. A shallow concave oval bowl and narrow handle are clearer when the tool is laid beside the board at111s. No exact teaspoon/tablespoon size, brand, material grade or vegetable species is inferred."
+            },
+            {
+              "event_id": "return-to-cutting-board",
+              "interval_seconds": [
+                111,
+                120
+              ],
+              "description": "At111 the small metal spoon rests to the right of the board while the separate knife lies on the board. Later the wearer uses the knife to chop the vegetable on the board."
+            }
+          ],
+          "previous_decision": {
+            "candidates": {
+              "board_cutting_tool": "p_bac272990f3e",
+              "bin_scooping_tool": "p_8b7977f54209"
+            },
+            "observed": [
+              {
+                "frame": "V0:0",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "V0:1",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "V0:2",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "V0:3",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "V0:4",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "V0:5",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "V0:6",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "V0:7",
+                "live": [
+                  "board_cutting_tool",
+                  "bin_scooping_tool"
+                ]
+              },
+              {
+                "frame": "utterance",
+                "live": [
+                  "bin_scooping_tool"
+                ],
+                "narrowed_by": "user_utterance",
+                "why": "The answer identifies the tool used over the bin, not the tool used on the board; the scene is needed to connect that location to the spoon."
+              }
+            ],
+            "established_by": "constructor, independently checked by /root/variant06_native_blind_1018; position-slot repair confirmed in variant06-native-slot-repair-confirmation.json",
+            "established_at": "2026-10-18"
+          },
+          "previous_canonical_question": "Which of the tools do you mean?",
+          "previous_stream": null
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          104.0,
+          160.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-sequence-2026101823/review.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2122 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-refine-2026101708",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "refine",
+      "site": "egomart",
+      "replaces_candidate_id": "candidate-media-graft-c-112",
+      "replacement_reason": "Replace the generic-tutorial shortcut with another-kitchen purchasing and a later top-material preference. Existing cart actions suffice; old formal member remains unchanged pending independent review and authorized trial.",
+      "source": {
+        "record_ids": [
+          187
+        ],
+        "media_id": "12e8c5a6-303e-41cb-b01e-2b874bae37ba",
+        "original_video_id": "12e8c5a6-303e-41cb-b01e-2b874bae37ba",
+        "media_start_seconds": 0,
+        "media_sha256": "6ffbc273ccd5d53c43678f58101536bb23242821c2d26d8712f3a427da520480",
+        "original_annotations": [
+          "On amazon.com, find a product page for a stovetop from the exact brand shown on the stovetop in the video, with the same number of burners. Open a listing whose title or specifications clearly show that brand and burner count."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              23,
+              30
+            ],
+            "role": "referent",
+            "description": "A tabletop gas stove carries three separate pan-support/burner positions: a large open pot at front left, a pressure cooker behind it, and a small saucepan at front right. Later in this same interval the front logo reads Preethi. Burner count is not inferred merely from the three control knobs."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact stove model, installation dimensions, gas supply type and suitability for moving while connected are not established."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_00.jpg",
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_01.jpg",
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_02.jpg",
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_03.jpg",
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_04.jpg",
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_05.jpg",
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_06.jpg",
+            "data/observations/candidate-mart-graft-refine-2026101708/V0_07.jpg"
+          ]
+        }
+      ],
+      "screening": {
+        "instruction_provenance": "Another-kitchen purchase and later stainless-steel preference are authored user intentions, not recorded speech or a safety conclusion.",
+        "source_review": "Constructor inspected all 210 consecutive decoded frames from [23,30) at the source 30 fps and original 480x360 resolution, tiled without scaling into seven 5x6 sheets interval-full_01.png through interval-full_07.png in .scratch/scene-repair-20261017/stove-native, plus the 30-second endpoint and all eight released frames. The 180-second source outside this relevant interval was only sampled at 15-second intervals in prior context, not fully played. Wide burner positions and later brand marking are both published.",
+        "review_outcome": "constructor_checked_pending_independent_review"
+      },
+      "supported_claims": [
+        {
+          "text": "The source tabletop stove is Preethi and has three distinct burner/pan-support positions.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:7"
+          ]
+        }
+      ],
+      "unsupported_claims": [
+        "No exact model, dimension or fuel compatibility is required or inferred.",
+        "Stainless steel is an expressed user preference, not a claimed safety advantage."
+      ],
+      "construct": {
+        "research_question": "Can the Agent preserve visually identified brand and burner count while narrowing the same purchase by top material?",
+        "divergence_source": "intention",
+        "event_origin": "redesign_same_source",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "belief_before": "One tabletop Preethi gas stove with three burners; no exact model, colour, layout, ignition or material restriction.",
+        "belief_after": "The same brand and three burners, with a stainless-steel top rather than glass.",
+        "required_behavior_change": "Replace a glass-top selection if necessary; retain either matching stainless-steel selection.",
+        "no_update_failure": "Leave a matching three-burner glass-top stove after the stainless-steel preference.",
+        "overupdate_failure": "Lose the scene-derived brand or burner count while changing material.",
+        "visual_dependency_claim": "Neither instruction names the brand or burner count. The full window contains stainless-steel two-, three- and four-burner stoves from several brands; no single listing satisfies all reasonable scene identities.",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "site": "egomart",
+          "initial_goal_roles": [
+            [
+              "same_brand_burner_count"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "same_brand_burner_count_steel"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "same_brand_burner_count": "p_505c6c6253e7",
+            "same_brand_burner_count_steel": "p_e912e312d14b"
+          },
+          "equivalent_role_ids": {
+            "same_brand_burner_count": [
+              "p_e912e312d14b",
+              "p_4e143811c619",
+              "p_22086c6e335e",
+              "p_83b8d02f289c",
+              "p_2872487c07dc"
+            ],
+            "same_brand_burner_count_steel": [
+              "p_22086c6e335e"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "broad_goal": {
+              "goal_ref": "initial"
+            },
+            "specific_goal": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "broad_goal",
+                "specific_goal"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "specific_goal"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The new top-material preference narrows the same single-stove purchase, preserving the visual brand and burner count."
+            }
+          ],
+          "established_by": "coding-agent-remaining-four-repairs-constructor",
+          "established_at": "2026-10-17",
+          "recording": "key_events"
+        },
+        "decision_point_provenance": "source_brand_and_burner_positions_plus_authored_top_material_preference",
+        "answer_boundary_review": {
+          "reviewer": "coding-agent-remaining-four-repairs-constructor",
+          "reviewed_at": "2026-10-17",
+          "scope": "Complete first pages of both natural queries, including product-bearing sponsored placements; 89 distinct entities. All titles read. Six Preethi three-burner listings retained for A; two stainless-steel variants for B. Manufacturer image resolves Glamsteel count conflict without deleting the native conflicting field.",
+          "initial_accepted_entity_ids": [
+            "p_505c6c6253e7",
+            "p_e912e312d14b",
+            "p_4e143811c619",
+            "p_22086c6e335e",
+            "p_83b8d02f289c",
+            "p_2872487c07dc"
+          ],
+          "final_accepted_entity_ids": [
+            "p_e912e312d14b",
+            "p_22086c6e335e"
+          ],
+          "remaining": [],
+          "items": [
+            {
+              "entity_id": "p_c4aec4355294",
+              "asin": "B08N6DMG3N",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title specifies two burners, not the three physical burner positions in the source."
+            },
+            {
+              "entity_id": "p_505c6c6253e7",
+              "asin": "B08N6FG5SF",
+              "initial": "accepted",
+              "final": "rejected",
+              "evidence": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference."
+            },
+            {
+              "entity_id": "p_e912e312d14b",
+              "asin": "B0133FJEX2",
+              "initial": "accepted",
+              "final": "accepted",
+              "evidence": "Native Topaz title, package contents and Number of Heating Elements=3 establish three burners; Stainless Steel material satisfies B."
+            },
+            {
+              "entity_id": "p_1f5812aaf112",
+              "asin": "B085MHKPTM",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title specifies four burners, not the three physical burner positions in the source."
+            },
+            {
+              "entity_id": "p_f080fc4191e8",
+              "asin": "B08N6DMFD7",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title specifies two burners, not the three physical burner positions in the source."
+            },
+            {
+              "entity_id": "p_4e143811c619",
+              "asin": "B08N6CR2QJ",
+              "initial": "accepted",
+              "final": "rejected",
+              "evidence": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference."
+            },
+            {
+              "entity_id": "p_22086c6e335e",
+              "asin": "B08N6DKF74",
+              "initial": "accepted",
+              "final": "accepted",
+              "evidence": "Amazon title and original listing image show three burners; Material is Stainless Steel. The native Heating Elements=1 conflicts, but the manufacturer names the same Glamsteel 3 Burner Stainless Steel model and its original image visibly shows three independent burner rings. Keep the conflicting field; do not correct it silently."
+            },
+            {
+              "entity_id": "p_9f5f5dec03b8",
+              "asin": "B07KMD9Y6C",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Butterfly rather than Preethi."
+            },
+            {
+              "entity_id": "p_ddc0972e3ab5",
+              "asin": "B08MTCB6G3",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title specifies two burners, not the three physical burner positions in the source."
+            },
+            {
+              "entity_id": "p_891987984aa4",
+              "asin": "B08HNQ3PBV",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_6f328b54b7be",
+              "asin": "B07KMC8C9B",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Butterfly rather than Preethi."
+            },
+            {
+              "entity_id": "p_8cb8a624c6fa",
+              "asin": "B07VSSQRMJ",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Pigeon rather than Preethi."
+            },
+            {
+              "entity_id": "p_83b8d02f289c",
+              "asin": "B0133FJ6EE",
+              "initial": "accepted",
+              "final": "rejected",
+              "evidence": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference."
+            },
+            {
+              "entity_id": "p_81212a7e3b08",
+              "asin": "B07WL8K5Z9",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Butterfly rather than Preethi."
+            },
+            {
+              "entity_id": "p_93fd09611e67",
+              "asin": "B0CRBBRHL5",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Pigeon rather than Preethi."
+            },
+            {
+              "entity_id": "p_c06ce2cc76fa",
+              "asin": "B07C1ZMK8B",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Elica rather than Preethi."
+            },
+            {
+              "entity_id": "p_c7ca70721799",
+              "asin": "B08VWZXTWY",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Lifelong rather than Preethi."
+            },
+            {
+              "entity_id": "p_959e36f5b701",
+              "asin": "B08HNHNHSS",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_9e5983d2d154",
+              "asin": "B0C538L9YS",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies MILTON rather than Preethi."
+            },
+            {
+              "entity_id": "p_5812d832aaba",
+              "asin": "B07Z6JVSC3",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title specifies two burners, not the three physical burner positions in the source."
+            },
+            {
+              "entity_id": "p_05198efd6e61",
+              "asin": "B07TWBHTCB",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Butterfly rather than Preethi."
+            },
+            {
+              "entity_id": "p_df1cd19f42dd",
+              "asin": "B0BQHV7BZK",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_ce85f7349043",
+              "asin": "B0F998RVM8",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SURYA rather than Preethi."
+            },
+            {
+              "entity_id": "p_d73e98990dcd",
+              "asin": "B0DV353B61",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Glen rather than Preethi."
+            },
+            {
+              "entity_id": "p_744e8428dae8",
+              "asin": "B0GQGWD9NJ",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Everflame rather than Preethi."
+            },
+            {
+              "entity_id": "p_71bd895f7ebe",
+              "asin": "B0GQH36Z3J",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Everflame rather than Preethi."
+            },
+            {
+              "entity_id": "p_277b09f19f44",
+              "asin": "B0B3N3MTJM",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Butterfly rather than Preethi."
+            },
+            {
+              "entity_id": "p_85d8400d22b1",
+              "asin": "B0DBVJHW26",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Sujata rather than Preethi."
+            },
+            {
+              "entity_id": "p_7b986cb609dd",
+              "asin": "B0D7QCRFCM",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_43243ff84191",
+              "asin": "B0BXKTM8QM",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Lifelong rather than Preethi."
+            },
+            {
+              "entity_id": "p_bdea4b63fea5",
+              "asin": "B08BXKP7QR",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Vidiem rather than Preethi."
+            },
+            {
+              "entity_id": "p_0eab14ae0e38",
+              "asin": "B07VQYPH5Q",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Pigeon rather than Preethi."
+            },
+            {
+              "entity_id": "p_80b2dc30354c",
+              "asin": "B08KPHVH7B",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The listing is an induction cooktop, not a three-burner gas stove."
+            },
+            {
+              "entity_id": "p_1ab9bbf237c3",
+              "asin": "B0BW8QK4NF",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_868884b4d5ea",
+              "asin": "B0D7QBPP1G",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_f89042e1c966",
+              "asin": "B097PDHWY8",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Lifelong rather than Preethi."
+            },
+            {
+              "entity_id": "p_b8e1b9c84722",
+              "asin": "B0F3J89F8L",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Crompton rather than Preethi."
+            },
+            {
+              "entity_id": "p_6f85a1da6d4d",
+              "asin": "B0D117CV29",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SUNFLAME rather than Preethi."
+            },
+            {
+              "entity_id": "p_1e535f82df66",
+              "asin": "B0CVQ8ST47",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies LONGWAY rather than Preethi."
+            },
+            {
+              "entity_id": "p_700d10c7c90f",
+              "asin": "B086VY4XV5",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_17b9d8795ad4",
+              "asin": "B0D3LHFS3G",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Glen rather than Preethi."
+            },
+            {
+              "entity_id": "p_f14e526b69ec",
+              "asin": "B0C7N1MRRT",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Glen rather than Preethi."
+            },
+            {
+              "entity_id": "p_a82bea99a43d",
+              "asin": "B09PB4NFT1",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Faber rather than Preethi."
+            },
+            {
+              "entity_id": "p_159ad895fedf",
+              "asin": "B0B9BFB3XX",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies V-Guard rather than Preethi."
+            },
+            {
+              "entity_id": "p_288036785edf",
+              "asin": "B01AW57M6M",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SUNFLAME rather than Preethi."
+            },
+            {
+              "entity_id": "p_be6b383aa0eb",
+              "asin": "B0DWML83CF",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SURYA rather than Preethi."
+            },
+            {
+              "entity_id": "p_00ecd745b7bf",
+              "asin": "B0D8FM96TN",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Sujata rather than Preethi."
+            },
+            {
+              "entity_id": "p_953aa62ad1f5",
+              "asin": "B07Z6FX3NT",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies MILTON rather than Preethi."
+            },
+            {
+              "entity_id": "p_2ffa20943ce0",
+              "asin": "B0H98DPS35",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_ddc6140b3e02",
+              "asin": "B0H987WPTW",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_7032bb52c1e3",
+              "asin": "B0H8DM32Y2",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_3b811ca0b9f9",
+              "asin": "B0H98VYBY6",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_6e8a7900066a",
+              "asin": "B0H98PWPQP",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_9b4ad84b8623",
+              "asin": "B0H98NMS2B",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_1df7534f489b",
+              "asin": "B0H8DMFVTF",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_4372b944d9d4",
+              "asin": "B0H8DPHT5H",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_81ac4a091fe2",
+              "asin": "B0H8DP9N3R",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies KENT rather than Preethi."
+            },
+            {
+              "entity_id": "p_b0bf3e8bfbe5",
+              "asin": "B09VL787WJ",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The sponsored link opens a GADDA CO mattress protector, not a gas stove."
+            },
+            {
+              "entity_id": "p_919bd219e2f1",
+              "asin": "B06WP4MJYJ",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title specifies four burners, not the three physical burner positions in the source."
+            },
+            {
+              "entity_id": "p_2872487c07dc",
+              "asin": "B08N6FY5GG",
+              "initial": "accepted",
+              "final": "rejected",
+              "evidence": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference."
+            },
+            {
+              "entity_id": "p_c28507a543be",
+              "asin": "B0DJ3LFKNW",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Everflame rather than Preethi."
+            },
+            {
+              "entity_id": "p_e410312b96b0",
+              "asin": "B0GY43RKSK",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_a38240ff95dc",
+              "asin": "B0C541SNTB",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies MILTON rather than Preethi."
+            },
+            {
+              "entity_id": "p_b042c05f5abf",
+              "asin": "B0FD43G45L",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Vidiem rather than Preethi."
+            },
+            {
+              "entity_id": "p_bb9934f00bdc",
+              "asin": "B0G25FJLF9",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Sujata rather than Preethi."
+            },
+            {
+              "entity_id": "p_0b85373411cd",
+              "asin": "B0HD18KV7L",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title specifies a two-burner gas stove, not three."
+            },
+            {
+              "entity_id": "p_d61e7e4c7ae4",
+              "asin": "B0GYSB7RQC",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies zarp rather than Preethi."
+            },
+            {
+              "entity_id": "p_8f62ebca7a3b",
+              "asin": "B0C8BKD78N",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Butterfly rather than Preethi."
+            },
+            {
+              "entity_id": "p_c359bea1802a",
+              "asin": "B0FDGKYD3Z",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SUNSHINE rather than Preethi."
+            },
+            {
+              "entity_id": "p_52aa230679a9",
+              "asin": "B0GWVC2GV5",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_4221dec36da9",
+              "asin": "B0GY43K932",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_9114aef349be",
+              "asin": "B0HBRH52FK",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Aliacca rather than Preethi."
+            },
+            {
+              "entity_id": "p_affa7070f25e",
+              "asin": "B0HCZVVKS2",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies URBAN rather than Preethi."
+            },
+            {
+              "entity_id": "p_aef79b1bfe4d",
+              "asin": "B0GY41NDK7",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_6718faed7e7b",
+              "asin": "B0BT6VQPC5",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_0b85af882273",
+              "asin": "B0BF158JSG",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Vidiem rather than Preethi."
+            },
+            {
+              "entity_id": "p_0030d85f73be",
+              "asin": "B0FLDTSSVN",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Vidiem rather than Preethi."
+            },
+            {
+              "entity_id": "p_0b43adfd245d",
+              "asin": "B098Q5XRCY",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SURYA rather than Preethi."
+            },
+            {
+              "entity_id": "p_0d60abeb01cd",
+              "asin": "B0C3RC9HVN",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SUNSHINE rather than Preethi."
+            },
+            {
+              "entity_id": "p_85c025e9e283",
+              "asin": "B0H3PM1SXX",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Elica rather than Preethi."
+            },
+            {
+              "entity_id": "p_e108504f0b24",
+              "asin": "B0DS5Z5KSF",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Haute rather than Preethi."
+            },
+            {
+              "entity_id": "p_189bca000eba",
+              "asin": "B00UCY8TFW",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SUNFLAME rather than Preethi."
+            },
+            {
+              "entity_id": "p_d90934755de6",
+              "asin": "B07QBJ3LSP",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SUNSHINE rather than Preethi."
+            },
+            {
+              "entity_id": "p_83fa10f850a7",
+              "asin": "B0H4LYM3BD",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Prestige rather than Preethi."
+            },
+            {
+              "entity_id": "p_acfb6c1a1bc0",
+              "asin": "B07SV1JN41",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies SURYA rather than Preethi."
+            },
+            {
+              "entity_id": "p_567584cf55e3",
+              "asin": "B0CSD1XLCJ",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Glen rather than Preethi."
+            },
+            {
+              "entity_id": "p_260903bbce66",
+              "asin": "B08C4NLFQT",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Vidiem rather than Preethi."
+            },
+            {
+              "entity_id": "p_0bbec92cd0d7",
+              "asin": "B0C3QKLQZZ",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Faber rather than Preethi."
+            },
+            {
+              "entity_id": "p_8a69a51468ed",
+              "asin": "B0CKHN7MC6",
+              "initial": "rejected",
+              "final": "rejected",
+              "evidence": "The native title identifies Glen rather than Preethi."
+            }
+          ],
+          "evidence_references": [
+            ".scratch/scene-repair-20261017/stove-native/browser-capture.json",
+            ".scratch/scene-repair-20261017/stove-native/glamsteel-official.json",
+            ".scratch/scene-repair-20261017/stove-native/glamsteel-official.png"
+          ],
+          "glamsteel_conflict": {
+            "official_url": "https://www.shop.preethi.in/collections/stainless-steel-gas-stove/products/preethi-glamsteel-3-burner-stainless-steel-gas-stove-manual-ignition-isi-certified-lifelong-free-service",
+            "image_url": "https://www.shop.preethi.in/cdn/shop/files/00_4f2bfe54-86c5-4634-881b-e7f3f3f89050.png?v=1785841083&width=720",
+            "image_sha256": "40a5de1aca591e68b8789e6da26c5d1262e78213aee1bbeff90761da31153233",
+            "native_amazon_value": "Heating Elements: 1",
+            "resolution": "Title, same native product image and manufacturer original image independently establish three actual burners. Native material states Stainless Steel."
+          },
+          "no_scene": "A stainless-steel stove of another brand or another burner count remains plausible without the scene. A brand-only search is not published to the performer as an instruction; the runtime window still contains multiple brands and burner counts.",
+          "without_update": "Four of six initial legal stoves have a glass top and fail the update.",
+          "difficulty": "Requires reading the scene brand and counting physical burner positions, then comparing actual top material. No forced detail-page opening or exact model requirement."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "preethi gas stove",
+              "provider": "amazon-in-browser-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-refine-2026101708.json",
+              "result_entity_ids": [
+                "p_c4aec4355294",
+                "p_505c6c6253e7",
+                "p_e912e312d14b",
+                "p_1f5812aaf112",
+                "p_f080fc4191e8",
+                "p_4e143811c619",
+                "p_22086c6e335e",
+                "p_9f5f5dec03b8",
+                "p_ddc0972e3ab5",
+                "p_891987984aa4",
+                "p_6f328b54b7be",
+                "p_8cb8a624c6fa",
+                "p_83b8d02f289c",
+                "p_81212a7e3b08",
+                "p_93fd09611e67",
+                "p_c06ce2cc76fa",
+                "p_c7ca70721799",
+                "p_959e36f5b701",
+                "p_9e5983d2d154",
+                "p_5812d832aaba",
+                "p_05198efd6e61",
+                "p_df1cd19f42dd",
+                "p_ce85f7349043",
+                "p_d73e98990dcd",
+                "p_744e8428dae8",
+                "p_71bd895f7ebe",
+                "p_277b09f19f44",
+                "p_85d8400d22b1",
+                "p_7b986cb609dd",
+                "p_43243ff84191",
+                "p_bdea4b63fea5",
+                "p_0eab14ae0e38",
+                "p_80b2dc30354c",
+                "p_1ab9bbf237c3",
+                "p_868884b4d5ea",
+                "p_f89042e1c966",
+                "p_b8e1b9c84722",
+                "p_6f85a1da6d4d",
+                "p_1e535f82df66",
+                "p_700d10c7c90f",
+                "p_17b9d8795ad4",
+                "p_f14e526b69ec",
+                "p_a82bea99a43d",
+                "p_159ad895fedf",
+                "p_288036785edf",
+                "p_be6b383aa0eb",
+                "p_00ecd745b7bf",
+                "p_953aa62ad1f5",
+                "p_2ffa20943ce0",
+                "p_ddc6140b3e02",
+                "p_7032bb52c1e3",
+                "p_3b811ca0b9f9",
+                "p_6e8a7900066a",
+                "p_9b4ad84b8623",
+                "p_1df7534f489b",
+                "p_4372b944d9d4",
+                "p_81ac4a091fe2",
+                "p_b0bf3e8bfbe5"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "preethi stainless steel gas stove",
+              "provider": "amazon-in-browser-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-refine-2026101708.json",
+              "result_entity_ids": [
+                "p_919bd219e2f1",
+                "p_22086c6e335e",
+                "p_ddc0972e3ab5",
+                "p_2872487c07dc",
+                "p_1f5812aaf112",
+                "p_c28507a543be",
+                "p_71bd895f7ebe",
+                "p_744e8428dae8",
+                "p_81212a7e3b08",
+                "p_bdea4b63fea5",
+                "p_93fd09611e67",
+                "p_505c6c6253e7",
+                "p_e410312b96b0",
+                "p_a38240ff95dc",
+                "p_b042c05f5abf",
+                "p_bb9934f00bdc",
+                "p_0b85373411cd",
+                "p_d61e7e4c7ae4",
+                "p_8f62ebca7a3b",
+                "p_c359bea1802a",
+                "p_f080fc4191e8",
+                "p_52aa230679a9",
+                "p_4221dec36da9",
+                "p_9114aef349be",
+                "p_affa7070f25e",
+                "p_aef79b1bfe4d",
+                "p_6718faed7e7b",
+                "p_4e143811c619",
+                "p_83b8d02f289c",
+                "p_0b85af882273",
+                "p_5812d832aaba",
+                "p_0030d85f73be",
+                "p_0b43adfd245d",
+                "p_9b4ad84b8623",
+                "p_0d60abeb01cd",
+                "p_891987984aa4",
+                "p_85c025e9e283",
+                "p_e108504f0b24",
+                "p_189bca000eba",
+                "p_d90934755de6",
+                "p_83fa10f850a7",
+                "p_acfb6c1a1bc0",
+                "p_567584cf55e3",
+                "p_260903bbce66",
+                "p_0bbec92cd0d7",
+                "p_288036785edf",
+                "p_8a69a51468ed",
+                "p_43243ff84191",
+                "p_2ffa20943ce0",
+                "p_ddc6140b3e02",
+                "p_7032bb52c1e3",
+                "p_3b811ca0b9f9",
+                "p_6e8a7900066a",
+                "p_1df7534f489b",
+                "p_4372b944d9d4",
+                "p_81ac4a091fe2"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_c4aec4355294",
+            "p_505c6c6253e7",
+            "p_e912e312d14b",
+            "p_1f5812aaf112",
+            "p_f080fc4191e8",
+            "p_4e143811c619",
+            "p_22086c6e335e",
+            "p_9f5f5dec03b8",
+            "p_ddc0972e3ab5",
+            "p_891987984aa4",
+            "p_6f328b54b7be",
+            "p_8cb8a624c6fa",
+            "p_83b8d02f289c",
+            "p_81212a7e3b08",
+            "p_93fd09611e67",
+            "p_c06ce2cc76fa",
+            "p_c7ca70721799",
+            "p_959e36f5b701",
+            "p_9e5983d2d154",
+            "p_5812d832aaba",
+            "p_05198efd6e61",
+            "p_df1cd19f42dd",
+            "p_ce85f7349043",
+            "p_d73e98990dcd",
+            "p_744e8428dae8",
+            "p_71bd895f7ebe",
+            "p_277b09f19f44",
+            "p_85d8400d22b1",
+            "p_7b986cb609dd",
+            "p_43243ff84191",
+            "p_bdea4b63fea5",
+            "p_0eab14ae0e38",
+            "p_80b2dc30354c",
+            "p_1ab9bbf237c3",
+            "p_868884b4d5ea",
+            "p_f89042e1c966",
+            "p_b8e1b9c84722",
+            "p_6f85a1da6d4d",
+            "p_1e535f82df66",
+            "p_700d10c7c90f",
+            "p_17b9d8795ad4",
+            "p_f14e526b69ec",
+            "p_a82bea99a43d",
+            "p_159ad895fedf",
+            "p_288036785edf",
+            "p_be6b383aa0eb",
+            "p_00ecd745b7bf",
+            "p_953aa62ad1f5",
+            "p_2ffa20943ce0",
+            "p_ddc6140b3e02",
+            "p_7032bb52c1e3",
+            "p_3b811ca0b9f9",
+            "p_6e8a7900066a",
+            "p_9b4ad84b8623",
+            "p_1df7534f489b",
+            "p_4372b944d9d4",
+            "p_81ac4a091fe2",
+            "p_b0bf3e8bfbe5",
+            "p_919bd219e2f1",
+            "p_2872487c07dc",
+            "p_c28507a543be",
+            "p_e410312b96b0",
+            "p_a38240ff95dc",
+            "p_b042c05f5abf",
+            "p_bb9934f00bdc",
+            "p_0b85373411cd",
+            "p_d61e7e4c7ae4",
+            "p_8f62ebca7a3b",
+            "p_c359bea1802a",
+            "p_52aa230679a9",
+            "p_4221dec36da9",
+            "p_9114aef349be",
+            "p_affa7070f25e",
+            "p_aef79b1bfe4d",
+            "p_6718faed7e7b",
+            "p_0b85af882273",
+            "p_0030d85f73be",
+            "p_0b43adfd245d",
+            "p_0d60abeb01cd",
+            "p_85c025e9e283",
+            "p_e108504f0b24",
+            "p_189bca000eba",
+            "p_d90934755de6",
+            "p_83fa10f850a7",
+            "p_acfb6c1a1bc0",
+            "p_567584cf55e3",
+            "p_260903bbce66",
+            "p_0bbec92cd0d7",
+            "p_8a69a51468ed"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_c4aec4355294",
+            "p_505c6c6253e7",
+            "p_1f5812aaf112",
+            "p_f080fc4191e8",
+            "p_4e143811c619",
+            "p_ddc0972e3ab5",
+            "p_83b8d02f289c",
+            "p_5812d832aaba",
+            "p_80b2dc30354c",
+            "p_919bd219e2f1",
+            "p_2872487c07dc"
+          ],
+          "related_entity_ids": [
+            "p_9f5f5dec03b8",
+            "p_891987984aa4",
+            "p_6f328b54b7be",
+            "p_8cb8a624c6fa",
+            "p_81212a7e3b08",
+            "p_93fd09611e67",
+            "p_c06ce2cc76fa",
+            "p_c7ca70721799",
+            "p_959e36f5b701",
+            "p_9e5983d2d154",
+            "p_05198efd6e61",
+            "p_df1cd19f42dd",
+            "p_ce85f7349043",
+            "p_d73e98990dcd",
+            "p_744e8428dae8",
+            "p_71bd895f7ebe",
+            "p_277b09f19f44",
+            "p_85d8400d22b1",
+            "p_7b986cb609dd",
+            "p_43243ff84191",
+            "p_bdea4b63fea5",
+            "p_0eab14ae0e38",
+            "p_1ab9bbf237c3",
+            "p_868884b4d5ea",
+            "p_f89042e1c966",
+            "p_b8e1b9c84722",
+            "p_6f85a1da6d4d",
+            "p_1e535f82df66",
+            "p_700d10c7c90f",
+            "p_17b9d8795ad4",
+            "p_f14e526b69ec",
+            "p_a82bea99a43d",
+            "p_159ad895fedf",
+            "p_288036785edf",
+            "p_be6b383aa0eb",
+            "p_00ecd745b7bf",
+            "p_953aa62ad1f5",
+            "p_2ffa20943ce0",
+            "p_ddc6140b3e02",
+            "p_7032bb52c1e3",
+            "p_3b811ca0b9f9",
+            "p_6e8a7900066a",
+            "p_9b4ad84b8623",
+            "p_1df7534f489b",
+            "p_4372b944d9d4",
+            "p_81ac4a091fe2",
+            "p_b0bf3e8bfbe5",
+            "p_c28507a543be",
+            "p_e410312b96b0",
+            "p_a38240ff95dc",
+            "p_b042c05f5abf",
+            "p_bb9934f00bdc",
+            "p_0b85373411cd",
+            "p_d61e7e4c7ae4",
+            "p_8f62ebca7a3b",
+            "p_c359bea1802a",
+            "p_52aa230679a9",
+            "p_4221dec36da9",
+            "p_9114aef349be",
+            "p_affa7070f25e",
+            "p_aef79b1bfe4d",
+            "p_6718faed7e7b",
+            "p_0b85af882273",
+            "p_0030d85f73be",
+            "p_0b43adfd245d",
+            "p_0d60abeb01cd",
+            "p_85c025e9e283",
+            "p_e108504f0b24",
+            "p_189bca000eba",
+            "p_d90934755de6",
+            "p_83fa10f850a7",
+            "p_acfb6c1a1bc0",
+            "p_567584cf55e3",
+            "p_260903bbce66",
+            "p_0bbec92cd0d7",
+            "p_8a69a51468ed"
+          ],
+          "ambient_entity_ids": [],
+          "detail_decision_fields": [
+            "name",
+            "attributes"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_c4aec4355294",
+              "ring": "core",
+              "reason": "The native title specifies two burners, not the three physical burner positions in the source.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_505c6c6253e7",
+              "ring": "core",
+              "reason": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "top_material_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_1f5812aaf112",
+              "ring": "core",
+              "reason": "The native title specifies four burners, not the three physical burner positions in the source.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_f080fc4191e8",
+              "ring": "core",
+              "reason": "The native title specifies two burners, not the three physical burner positions in the source.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_4e143811c619",
+              "ring": "core",
+              "reason": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "top_material_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_9f5f5dec03b8",
+              "ring": "related",
+              "reason": "The native title identifies Butterfly rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_ddc0972e3ab5",
+              "ring": "core",
+              "reason": "The native title specifies two burners, not the three physical burner positions in the source.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_891987984aa4",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_6f328b54b7be",
+              "ring": "related",
+              "reason": "The native title identifies Butterfly rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_8cb8a624c6fa",
+              "ring": "related",
+              "reason": "The native title identifies Pigeon rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_83b8d02f289c",
+              "ring": "core",
+              "reason": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "top_material_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_81212a7e3b08",
+              "ring": "related",
+              "reason": "The native title identifies Butterfly rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_93fd09611e67",
+              "ring": "related",
+              "reason": "The native title identifies Pigeon rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_c06ce2cc76fa",
+              "ring": "related",
+              "reason": "The native title identifies Elica rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_c7ca70721799",
+              "ring": "related",
+              "reason": "The native title identifies Lifelong rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_959e36f5b701",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_9e5983d2d154",
+              "ring": "related",
+              "reason": "The native title identifies MILTON rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_5812d832aaba",
+              "ring": "core",
+              "reason": "The native title specifies two burners, not the three physical burner positions in the source.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_05198efd6e61",
+              "ring": "related",
+              "reason": "The native title identifies Butterfly rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_df1cd19f42dd",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_ce85f7349043",
+              "ring": "related",
+              "reason": "The native title identifies SURYA rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_d73e98990dcd",
+              "ring": "related",
+              "reason": "The native title identifies Glen rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_744e8428dae8",
+              "ring": "related",
+              "reason": "The native title identifies Everflame rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_71bd895f7ebe",
+              "ring": "related",
+              "reason": "The native title identifies Everflame rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_277b09f19f44",
+              "ring": "related",
+              "reason": "The native title identifies Butterfly rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_85d8400d22b1",
+              "ring": "related",
+              "reason": "The native title identifies Sujata rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_7b986cb609dd",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_43243ff84191",
+              "ring": "related",
+              "reason": "The native title identifies Lifelong rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_bdea4b63fea5",
+              "ring": "related",
+              "reason": "The native title identifies Vidiem rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_0eab14ae0e38",
+              "ring": "related",
+              "reason": "The native title identifies Pigeon rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_80b2dc30354c",
+              "ring": "core",
+              "reason": "The listing is an induction cooktop, not a three-burner gas stove.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_1ab9bbf237c3",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_868884b4d5ea",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_f89042e1c966",
+              "ring": "related",
+              "reason": "The native title identifies Lifelong rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_b8e1b9c84722",
+              "ring": "related",
+              "reason": "The native title identifies Crompton rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_6f85a1da6d4d",
+              "ring": "related",
+              "reason": "The native title identifies SUNFLAME rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_1e535f82df66",
+              "ring": "related",
+              "reason": "The native title identifies LONGWAY rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_700d10c7c90f",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_17b9d8795ad4",
+              "ring": "related",
+              "reason": "The native title identifies Glen rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_f14e526b69ec",
+              "ring": "related",
+              "reason": "The native title identifies Glen rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_a82bea99a43d",
+              "ring": "related",
+              "reason": "The native title identifies Faber rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_159ad895fedf",
+              "ring": "related",
+              "reason": "The native title identifies V-Guard rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_288036785edf",
+              "ring": "related",
+              "reason": "The native title identifies SUNFLAME rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_be6b383aa0eb",
+              "ring": "related",
+              "reason": "The native title identifies SURYA rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_00ecd745b7bf",
+              "ring": "related",
+              "reason": "The native title identifies Sujata rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_953aa62ad1f5",
+              "ring": "related",
+              "reason": "The native title identifies MILTON rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_2ffa20943ce0",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_ddc6140b3e02",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_7032bb52c1e3",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_3b811ca0b9f9",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_6e8a7900066a",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_9b4ad84b8623",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_1df7534f489b",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_4372b944d9d4",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_81ac4a091fe2",
+              "ring": "related",
+              "reason": "The native title identifies KENT rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_b0bf3e8bfbe5",
+              "ring": "related",
+              "reason": "The sponsored link opens a GADDA CO mattress protector, not a gas stove.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_919bd219e2f1",
+              "ring": "core",
+              "reason": "The native title specifies four burners, not the three physical burner positions in the source.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_2872487c07dc",
+              "ring": "core",
+              "reason": "Native title/details establish Preethi, three burners and a glass top: legal for A, incompatible with B's material preference.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "top_material_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_c28507a543be",
+              "ring": "related",
+              "reason": "The native title identifies Everflame rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_e410312b96b0",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_a38240ff95dc",
+              "ring": "related",
+              "reason": "The native title identifies MILTON rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_b042c05f5abf",
+              "ring": "related",
+              "reason": "The native title identifies Vidiem rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_bb9934f00bdc",
+              "ring": "related",
+              "reason": "The native title identifies Sujata rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_0b85373411cd",
+              "ring": "related",
+              "reason": "The native title specifies a two-burner gas stove, not three.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_d61e7e4c7ae4",
+              "ring": "related",
+              "reason": "The native title identifies zarp rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_8f62ebca7a3b",
+              "ring": "related",
+              "reason": "The native title identifies Butterfly rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_c359bea1802a",
+              "ring": "related",
+              "reason": "The native title identifies SUNSHINE rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_52aa230679a9",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_4221dec36da9",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_9114aef349be",
+              "ring": "related",
+              "reason": "The native title identifies Aliacca rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_affa7070f25e",
+              "ring": "related",
+              "reason": "The native title identifies URBAN rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_aef79b1bfe4d",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_6718faed7e7b",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_0b85af882273",
+              "ring": "related",
+              "reason": "The native title identifies Vidiem rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_0030d85f73be",
+              "ring": "related",
+              "reason": "The native title identifies Vidiem rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_0b43adfd245d",
+              "ring": "related",
+              "reason": "The native title identifies SURYA rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_0d60abeb01cd",
+              "ring": "related",
+              "reason": "The native title identifies SUNSHINE rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_85c025e9e283",
+              "ring": "related",
+              "reason": "The native title identifies Elica rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_e108504f0b24",
+              "ring": "related",
+              "reason": "The native title identifies Haute rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_189bca000eba",
+              "ring": "related",
+              "reason": "The native title identifies SUNFLAME rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_d90934755de6",
+              "ring": "related",
+              "reason": "The native title identifies SUNSHINE rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_83fa10f850a7",
+              "ring": "related",
+              "reason": "The native title identifies Prestige rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_acfb6c1a1bc0",
+              "ring": "related",
+              "reason": "The native title identifies SURYA rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_567584cf55e3",
+              "ring": "related",
+              "reason": "The native title identifies Glen rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_260903bbce66",
+              "ring": "related",
+              "reason": "The native title identifies Vidiem rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_0bbec92cd0d7",
+              "ring": "related",
+              "reason": "The native title identifies Faber rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            },
+            {
+              "entity_id": "p_8a69a51468ed",
+              "ring": "related",
+              "reason": "The native title identifies Glen rather than Preethi.",
+              "why_plausible": "Real first-page gas-stove query result or native sponsored placement.",
+              "failure_predicates": [
+                "scene_identity_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "reviewer": "coding-agent-remaining-four-repairs-constructor"
+            }
+          ],
+          "semantic_review": {
+            "status": "pending",
+            "reviewer": null
+          }
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "stream": {
+        "session_seconds": [
+          23.0,
+          94.0
+        ],
+        "update_onset_seconds": 31.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-refine-2026101708/review.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3150 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HoloAssist",
+    "source_root": "reference/sources/HoloAssist/clips",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official HoloAssist compressed video release under CDLA-Permissive-2.0: https://cdla.dev/permissive-2-0/."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110537",
+      "source": {
+        "dataset": "HoloAssist",
+        "media_id": "R071-19July-Nespresso",
+        "original_video_id": "R071-19July-Nespresso",
+        "canonical_parent_recording_group": "HoloAssist:R071-19July-Nespresso",
+        "media_start_seconds": 0,
+        "source_video_path": "reference/sources/HoloAssist/clips/R071-19July-Nespresso.mp4",
+        "source_acquisition": {
+          "archive_url": "https://hl2data.z5.web.core.windows.net/holoassist-data-release/video_compress.tar",
+          "archive_member": "R071-19July-Nespresso/Export_py/Video_compress.mp4",
+          "archive_member_bytes_half_open": [
+            8255267840,
+            8301234097
+          ],
+          "method": "Unchanged full official compressed RGB archive member, reusing prior local extraction."
+        },
+        "record_ids": [
+          "R071-19July-Nespresso/10.2-33.2/provisional_lowered_cup_rest",
+          "R071-19July-Nespresso/42.2-45.2/same_cup_cannot_fit",
+          "R071-19July-Nespresso/84.2-113.2/raised_rest_and_direct_brew"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              10.2,
+              33.2
+            ],
+            "description": "The wearer fills the water reservoir from a separate clear container; the green serving cup waits on the table and the machine’s hinged rest is lowered."
+          },
+          {
+            "interval_seconds": [
+              42.2,
+              45.2
+            ],
+            "description": "The wearer brings the same green cup to the lowered front rest. The cup opening stays in front of rather than under the spout, and the cup is withdrawn."
+          },
+          {
+            "interval_seconds": [
+              84.2,
+              113.2
+            ],
+            "description": "The wearer raises the hinged front rest, eventually places the same green cup beneath the outlet, presses the brew control and dispenses into the cup."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            10.2,
+            14.2,
+            25.2,
+            30.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110537/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110537/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110537/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110537/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            43.2,
+            85.2,
+            97.2,
+            106.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110537/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110537/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110537/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110537/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          10.2,
+          113.2
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110537/review.json"
+      },
+      "family": "refresh",
+      "subtype": "replace",
+      "status": "video_screened",
+      "supported_claims": [
+        {
+          "text": "The serving cup and lowered cup rest are visible in the opening, before the clearance problem is established.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The same cup cannot be aligned under the outlet on the lowered rest. Raising the hinged rest makes a direct brew into the original cup possible.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "screening": {
+        "proposed_instruction": "Could you save a video that shows how to brew coffee straight into my coffee cup with this machine?",
+        "source_continuity": "Continuous [10.2, 113.2] seconds from one original recording."
+      },
+      "construct": {
+        "research_question": "Can the agent revise a tutorial choice after observing that the existing cup cannot fit the ordinary setup?",
+        "belief_before": "The cup and machine are known but their clearance is not. A normal capsule brew directly into a cup on the lowered rest is a reasonable provisional method.",
+        "belief_after": "The original serving cup cannot sit below the spout on the lowered rest; the hinged support can be raised and the same cup can receive the brew directly.",
+        "required_behavior_change": "Choose a tutorial that demonstrates adequate direct brewing clearance for the original tall cup using the compatible hinged support. Keep a tutorial that already covers both.",
+        "no_update_failure": "Keep a guide that only places a small cup on the lowered rest, or brews into another cup and pours the coffee afterward.",
+        "overupdate_failure": "Change to a different appliance or keep a second unrelated tutorial.",
+        "visual_dependency_claim": "The request provides no model or cup dimensions. Only the scene identifies the machine, the original cup and the failed fit on the lowered support.",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a video that shows how to brew coffee straight into my coffee cup with this machine?",
+          "target_granularity": "category",
+          "initial_target_role": "provisional_item",
+          "final_target_role": "observed_item",
+          "environment_role_ids": {
+            "provisional_item": "m_38cad46b8579",
+            "observed_item": "m_f9fa919e36b9"
+          },
+          "equivalent_role_ids": {
+            "provisional_item": [
+              "m_0701ad02b0bc",
+              "m_a1f4592f8761",
+              "m_d734bcd6d420",
+              "m_f9fa919e36b9",
+              "m_3ca62a0e2044",
+              "m_3af04a2abd98",
+              "m_9d62575145ce",
+              "m_1aefe0cf5a78",
+              "m_2d2162d9217e",
+              "m_769ffe142d5a",
+              "m_23eaa94b5e89"
+            ],
+            "observed_item": [
+              "m_a1f4592f8761",
+              "m_d734bcd6d420",
+              "m_3af04a2abd98",
+              "m_769ffe142d5a",
+              "m_23eaa94b5e89"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "old": "m_38cad46b8579",
+            "new": "m_f9fa919e36b9"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "old"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The capsule machine has a lowered rest and the serving cup has not been compared with the outlet. A standard direct-brew tutorial is provisionally reasonable."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "new"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The original cup does not align under the nozzle on the lowered rest. Subsequent frames show raising the rest and brewing into that cup."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "after_change",
+              "query": "Nespresso Pixie coffee taller cup",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110537.json",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "m_c2f7a11ee98d",
+                "m_e152e5985b31",
+                "m_0701ad02b0bc",
+                "m_38cad46b8579",
+                "m_5501702b22fe",
+                "m_a1f4592f8761",
+                "m_d734bcd6d420",
+                "m_b40fcce57ab3",
+                "m_203bbec6fec5",
+                "m_9fc49878c8ea",
+                "m_ab74e7a190e9",
+                "m_69cb5ef9ab8a",
+                "m_4c5d343abcf9",
+                "m_da6503ced449",
+                "m_9225fff805a9",
+                "m_89268c921108",
+                "m_266ee0db4a5e",
+                "m_87097da257ff",
+                "m_d149113338a9",
+                "m_5a1e5de455c2",
+                "m_6fce47efce95",
+                "m_b75d4ed212dd",
+                "m_2013ea7f5e9c",
+                "m_dd9310b66e47",
+                "m_cb933f87f192",
+                "m_ba75e64ba815",
+                "m_8abead05d19e",
+                "m_c47d35e2fe3c"
+              ]
+            },
+            {
+              "stage": "before_change",
+              "query": "how to make coffee Nespresso Pixie",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110537.json",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "m_d734bcd6d420",
+                "m_38cad46b8579",
+                "m_c2f7a11ee98d",
+                "m_2a415dae333c",
+                "m_f9fa919e36b9",
+                "m_0701ad02b0bc",
+                "m_f3e879d7b480",
+                "m_a1f4592f8761",
+                "m_c9ef316cbd29",
+                "m_95ac995ff894",
+                "m_f2484426bd83",
+                "m_3ca62a0e2044",
+                "m_ae6550a204cc",
+                "m_8a322983191b",
+                "m_a864a154006f",
+                "m_3af04a2abd98",
+                "m_30802be53c90",
+                "m_9d62575145ce",
+                "m_1aefe0cf5a78",
+                "m_e152e5985b31",
+                "m_2d2162d9217e",
+                "m_359cc6643727",
+                "m_769ffe142d5a",
+                "m_a23a53de3334",
+                "m_23eaa94b5e89"
+              ]
+            },
+            {
+              "stage": "broad_comparison",
+              "query": "how to brew coffee in a capsule coffee machine",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110537.json",
+              "snapshot_stage": "broad_comparison",
+              "result_entity_ids": [
+                "m_eecf5ba8a862",
+                "m_ab9d2beea862",
+                "m_54bab0230ef1",
+                "m_612e16c742da",
+                "m_9f651e046ccd",
+                "m_ab53ea2d5ddc",
+                "m_d6334871901b",
+                "m_c0b61b184473",
+                "m_8621b53b2e7f",
+                "m_63eca010a0e1",
+                "m_15332353bc6d",
+                "m_07b2a15e2a4c",
+                "m_2be986823084",
+                "m_71f7fd304596",
+                "m_1c9ea857e4d7",
+                "m_056012c386aa",
+                "m_6da4c1c35ee6",
+                "m_7b394b6f5f31",
+                "m_cf86c828f323",
+                "m_f73f8e3263b2",
+                "m_312177610cb4",
+                "m_83cbf4c69f59",
+                "m_f365d025e22d",
+                "m_e97dbc14f9ff",
+                "m_c7aebcd16b4e"
+              ]
+            },
+            {
+              "stage": "general_comparison",
+              "query": "how to make coffee with a coffee machine",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110537.json",
+              "snapshot_stage": "general_comparison",
+              "result_entity_ids": [
+                "m_eb9376ac4289",
+                "m_7f83769b293b",
+                "m_54927f6d0002",
+                "m_ef8de27678cc",
+                "m_e5add8f1d97b",
+                "m_46b216a4d394",
+                "m_95f77f160051",
+                "m_8c792465f899",
+                "m_c31fba2d48b3",
+                "m_b875518bd38d",
+                "m_76f42ec5cafd",
+                "m_d14ba90152d3",
+                "m_58ed647beb30",
+                "m_b4b8852d1d8d",
+                "m_ced87d09148e",
+                "m_2b7775e15983",
+                "m_8710cad292f7",
+                "m_5f5958b9bece",
+                "m_846120aa571e",
+                "m_2dcc5f2dc5e7",
+                "m_e6bafcc34cf2",
+                "m_071bc9fb884f",
+                "m_6c6db7da4b9d",
+                "m_e2f1f66e180e",
+                "m_45021acd8697",
+                "m_06aaf285c06b",
+                "m_f114705b0477",
+                "m_ec5cd9040bb2",
+                "m_01f5d2603bb9",
+                "m_b316f7a104c0",
+                "m_c0b61b184473",
+                "m_267e98eee469",
+                "m_04e7cb2b37b2",
+                "m_d5fe71fb24f1",
+                "m_4eae137eb6a4",
+                "m_51c84f5aef68",
+                "m_ffce1c7ba8a6",
+                "m_f73f8e3263b2",
+                "m_b67de515efe7",
+                "m_9095c4de7a44"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_c2f7a11ee98d",
+            "m_e152e5985b31",
+            "m_0701ad02b0bc",
+            "m_38cad46b8579",
+            "m_5501702b22fe",
+            "m_a1f4592f8761",
+            "m_d734bcd6d420",
+            "m_b40fcce57ab3",
+            "m_203bbec6fec5",
+            "m_9fc49878c8ea",
+            "m_ab74e7a190e9",
+            "m_69cb5ef9ab8a",
+            "m_4c5d343abcf9",
+            "m_da6503ced449",
+            "m_9225fff805a9",
+            "m_89268c921108",
+            "m_266ee0db4a5e",
+            "m_87097da257ff",
+            "m_d149113338a9",
+            "m_5a1e5de455c2",
+            "m_6fce47efce95",
+            "m_b75d4ed212dd",
+            "m_2013ea7f5e9c",
+            "m_dd9310b66e47",
+            "m_cb933f87f192",
+            "m_ba75e64ba815",
+            "m_8abead05d19e",
+            "m_c47d35e2fe3c",
+            "m_2a415dae333c",
+            "m_f9fa919e36b9",
+            "m_f3e879d7b480",
+            "m_c9ef316cbd29",
+            "m_95ac995ff894",
+            "m_f2484426bd83",
+            "m_3ca62a0e2044",
+            "m_ae6550a204cc",
+            "m_8a322983191b",
+            "m_a864a154006f",
+            "m_3af04a2abd98",
+            "m_30802be53c90",
+            "m_9d62575145ce",
+            "m_1aefe0cf5a78",
+            "m_2d2162d9217e",
+            "m_359cc6643727",
+            "m_769ffe142d5a",
+            "m_a23a53de3334",
+            "m_23eaa94b5e89",
+            "m_eecf5ba8a862",
+            "m_ab9d2beea862",
+            "m_54bab0230ef1",
+            "m_612e16c742da",
+            "m_9f651e046ccd",
+            "m_ab53ea2d5ddc",
+            "m_d6334871901b",
+            "m_c0b61b184473",
+            "m_8621b53b2e7f",
+            "m_63eca010a0e1",
+            "m_15332353bc6d",
+            "m_07b2a15e2a4c",
+            "m_2be986823084",
+            "m_71f7fd304596",
+            "m_1c9ea857e4d7",
+            "m_056012c386aa",
+            "m_6da4c1c35ee6",
+            "m_7b394b6f5f31",
+            "m_cf86c828f323",
+            "m_f73f8e3263b2",
+            "m_312177610cb4",
+            "m_83cbf4c69f59",
+            "m_f365d025e22d",
+            "m_e97dbc14f9ff",
+            "m_c7aebcd16b4e",
+            "m_eb9376ac4289",
+            "m_7f83769b293b",
+            "m_54927f6d0002",
+            "m_ef8de27678cc",
+            "m_e5add8f1d97b",
+            "m_46b216a4d394",
+            "m_95f77f160051",
+            "m_8c792465f899",
+            "m_c31fba2d48b3",
+            "m_b875518bd38d",
+            "m_76f42ec5cafd",
+            "m_d14ba90152d3",
+            "m_58ed647beb30",
+            "m_b4b8852d1d8d",
+            "m_ced87d09148e",
+            "m_2b7775e15983",
+            "m_8710cad292f7",
+            "m_5f5958b9bece",
+            "m_846120aa571e",
+            "m_2dcc5f2dc5e7",
+            "m_e6bafcc34cf2",
+            "m_071bc9fb884f",
+            "m_6c6db7da4b9d",
+            "m_e2f1f66e180e",
+            "m_45021acd8697",
+            "m_06aaf285c06b",
+            "m_f114705b0477",
+            "m_ec5cd9040bb2",
+            "m_01f5d2603bb9",
+            "m_b316f7a104c0",
+            "m_267e98eee469",
+            "m_04e7cb2b37b2",
+            "m_d5fe71fb24f1",
+            "m_4eae137eb6a4",
+            "m_51c84f5aef68",
+            "m_ffce1c7ba8a6",
+            "m_b67de515efe7",
+            "m_9095c4de7a44"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_c2f7a11ee98d",
+            "m_e152e5985b31",
+            "m_0701ad02b0bc",
+            "m_38cad46b8579",
+            "m_5501702b22fe",
+            "m_b40fcce57ab3",
+            "m_203bbec6fec5",
+            "m_9fc49878c8ea",
+            "m_ab74e7a190e9",
+            "m_69cb5ef9ab8a",
+            "m_4c5d343abcf9",
+            "m_da6503ced449",
+            "m_9225fff805a9",
+            "m_89268c921108",
+            "m_266ee0db4a5e",
+            "m_87097da257ff",
+            "m_d149113338a9",
+            "m_5a1e5de455c2",
+            "m_6fce47efce95",
+            "m_b75d4ed212dd",
+            "m_2013ea7f5e9c",
+            "m_dd9310b66e47",
+            "m_cb933f87f192",
+            "m_ba75e64ba815",
+            "m_8abead05d19e",
+            "m_c47d35e2fe3c",
+            "m_2a415dae333c",
+            "m_f3e879d7b480",
+            "m_c9ef316cbd29",
+            "m_95ac995ff894",
+            "m_f2484426bd83",
+            "m_3ca62a0e2044",
+            "m_ae6550a204cc",
+            "m_8a322983191b",
+            "m_a864a154006f",
+            "m_30802be53c90",
+            "m_9d62575145ce",
+            "m_1aefe0cf5a78",
+            "m_2d2162d9217e",
+            "m_359cc6643727",
+            "m_a23a53de3334",
+            "m_eecf5ba8a862",
+            "m_ab9d2beea862",
+            "m_54bab0230ef1",
+            "m_612e16c742da",
+            "m_9f651e046ccd",
+            "m_ab53ea2d5ddc",
+            "m_d6334871901b",
+            "m_c0b61b184473",
+            "m_8621b53b2e7f",
+            "m_63eca010a0e1",
+            "m_15332353bc6d",
+            "m_07b2a15e2a4c",
+            "m_2be986823084",
+            "m_71f7fd304596",
+            "m_1c9ea857e4d7",
+            "m_056012c386aa",
+            "m_6da4c1c35ee6",
+            "m_7b394b6f5f31",
+            "m_cf86c828f323",
+            "m_f73f8e3263b2",
+            "m_312177610cb4",
+            "m_83cbf4c69f59",
+            "m_f365d025e22d",
+            "m_e97dbc14f9ff",
+            "m_c7aebcd16b4e",
+            "m_eb9376ac4289",
+            "m_7f83769b293b",
+            "m_54927f6d0002",
+            "m_ef8de27678cc",
+            "m_e5add8f1d97b",
+            "m_46b216a4d394",
+            "m_95f77f160051",
+            "m_8c792465f899",
+            "m_c31fba2d48b3",
+            "m_b875518bd38d",
+            "m_76f42ec5cafd",
+            "m_d14ba90152d3",
+            "m_58ed647beb30",
+            "m_b4b8852d1d8d",
+            "m_ced87d09148e",
+            "m_2b7775e15983",
+            "m_8710cad292f7",
+            "m_5f5958b9bece",
+            "m_846120aa571e",
+            "m_2dcc5f2dc5e7",
+            "m_e6bafcc34cf2",
+            "m_071bc9fb884f",
+            "m_6c6db7da4b9d",
+            "m_e2f1f66e180e",
+            "m_45021acd8697",
+            "m_06aaf285c06b",
+            "m_f114705b0477",
+            "m_ec5cd9040bb2",
+            "m_01f5d2603bb9",
+            "m_b316f7a104c0",
+            "m_267e98eee469",
+            "m_04e7cb2b37b2",
+            "m_d5fe71fb24f1",
+            "m_4eae137eb6a4",
+            "m_51c84f5aef68",
+            "m_ffce1c7ba8a6",
+            "m_b67de515efe7",
+            "m_9095c4de7a44"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_c2f7a11ee98d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Its instructional sequence is programming a persistent cup volume, not an ordinary brewing guide. Press-and-hold is not the required ordinary dispense action.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c2f7a11ee98d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hk5hlhgr5oI.json"
+              ]
+            },
+            {
+              "entity_id": "m_e152e5985b31",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Cup-size programming is changing volume, not clearing physical cup height. Later panel shows press-and-hold, without an independent standard preparation sequence.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e152e5985b31.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5FC1pSWk4Rc.json"
+              ]
+            },
+            {
+              "entity_id": "m_0701ad02b0bc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The “How it works” and “Espresso Shot” sections and public storyboard show an ordinary capsule brew into the glass at the front of the Pixie. No demonstrated full taller-cup technique is verified in the public material.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0701ad02b0bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jSzfdoAn0KA.json"
+              ]
+            },
+            {
+              "entity_id": "m_38cad46b8579",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Complete official Pixie brewing guide, uses the lowered cup support throughout its two public storyboard tiles. Does not show or describe clearing the support for a taller cup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_38cad46b8579.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4q1QMpLXVZo.json"
+              ]
+            },
+            {
+              "entity_id": "m_5501702b22fe",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public storyboard labels PRESS & HOLD for the cup-size program and shows the cup on the shelf; not a guide to ordinary brewing or physical clearance.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5501702b22fe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zP3-79TtqTs.json"
+              ]
+            },
+            {
+              "entity_id": "m_b40fcce57ab3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Selecting coffee/capsules does not demonstrate how this Pixie dispenses into the wearer’s cup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b40fcce57ab3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0f4nn6-40wM.json"
+              ]
+            },
+            {
+              "entity_id": "m_203bbec6fec5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Overview of Nespresso coffees, not this machine’s direct brew or cup clearance.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_203bbec6fec5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/12wCssco-eg.json"
+              ]
+            },
+            {
+              "entity_id": "m_9fc49878c8ea",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "2:31–4:20 有 Pixie 章节，说明明确承认汇编厂商等片段。它是选购比较，未有实际操作正证据；分类应说‘包含 Pixie 的选购比较’，不能说不同型号。没有分镜，不足以加进任一固定集合。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9fc49878c8ea.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hqe8P9vrNmI.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab74e7a190e9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab74e7a190e9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/43YUcNx7qbQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_69cb5ef9ab8a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_69cb5ef9ab8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dcJZjHijrNI.json"
+              ]
+            },
+            {
+              "entity_id": "m_4c5d343abcf9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4c5d343abcf9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9AMRed_1jYY.json"
+              ]
+            },
+            {
+              "entity_id": "m_da6503ced449",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_da6503ced449.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/C2G2iTmOf8U.json"
+              ]
+            },
+            {
+              "entity_id": "m_9225fff805a9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9225fff805a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FdPcixfEoqw.json"
+              ]
+            },
+            {
+              "entity_id": "m_89268c921108",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_89268c921108.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CDb0l29dhrA.json"
+              ]
+            },
+            {
+              "entity_id": "m_266ee0db4a5e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_266ee0db4a5e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/S7yXXbfM6pQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_87097da257ff",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_87097da257ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/uJu04DcOg8c.json"
+              ]
+            },
+            {
+              "entity_id": "m_d149113338a9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d149113338a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/75yQaZIQmXo.json"
+              ]
+            },
+            {
+              "entity_id": "m_5a1e5de455c2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5a1e5de455c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JBKKo54zTOg.json"
+              ]
+            },
+            {
+              "entity_id": "m_6fce47efce95",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6fce47efce95.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ug6WgCTf5jE.json"
+              ]
+            },
+            {
+              "entity_id": "m_b75d4ed212dd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b75d4ed212dd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/j3bAD2tT7UQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_2013ea7f5e9c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2013ea7f5e9c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DSlgel1ZYWw.json"
+              ]
+            },
+            {
+              "entity_id": "m_dd9310b66e47",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dd9310b66e47.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XuaJgG2IUGY.json"
+              ]
+            },
+            {
+              "entity_id": "m_cb933f87f192",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cb933f87f192.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4fEdxRjiv0s.json"
+              ]
+            },
+            {
+              "entity_id": "m_ba75e64ba815",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ba75e64ba815.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/07X2s0gtrhg.json"
+              ]
+            },
+            {
+              "entity_id": "m_8abead05d19e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8abead05d19e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rLweCpQ0LJc.json"
+              ]
+            },
+            {
+              "entity_id": "m_c47d35e2fe3c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c47d35e2fe3c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KkyK5SfWP5A.json"
+              ]
+            },
+            {
+              "entity_id": "m_2a415dae333c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Title/description sound generic, but native chapter list and public storyboard show water tank, used capsules, rinsing and descaling, not brewing coffee. The enlarged container is for rinsing.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2a415dae333c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dp5tETkdBFQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f3e879d7b480",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official first-use instructions prepare/rinse the machine with water, not demonstrate a normal coffee brew.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f3e879d7b480.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0cZrnEftiRA.json"
+              ]
+            },
+            {
+              "entity_id": "m_c9ef316cbd29",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Pixie first-use setup and initial rinse rather than making coffee into the serving cup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c9ef316cbd29.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iVYK1FYx3YU.json"
+              ]
+            },
+            {
+              "entity_id": "m_95ac995ff894",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The dedicated task is programming stored amounts (setare cantitati), not cup clearance or a normal separate coffee preparation guide.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_95ac995ff894.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/flG4__cI2gU.json"
+              ]
+            },
+            {
+              "entity_id": "m_f2484426bd83",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public storyboard and matched length show the water-tank/used-capsules/rinsing service demo, not regular preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f2484426bd83.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zVzBJT4K_2Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_3ca62a0e2044",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official Pixie guide shows capsule and coffee preparation (third tile shows short glass on lowered support) and does not show the taller-cup setup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3ca62a0e2044.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/s7ZbZfMMb4M.json"
+              ]
+            },
+            {
+              "entity_id": "m_ae6550a204cc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Cleaning and disassembly, not a brewing method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ae6550a204cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/o0egA1JuTTU.json"
+              ]
+            },
+            {
+              "entity_id": "m_8a322983191b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Nespresso 原版 Product Demo 与 Homecentrestore 的 0a0kyh22fKU 同为 39 秒，两个原生封面视觉上几乎同一镜头，演员、左侧胶囊盒、白袖黑围裙、同机和杯均一致；后者原生分镜已证明常规直冲。不视为完整视频同一性的证据，保留近重复高风险；若证实同源同内容，至少应补开场接受。 Nespresso 版发布于 2015-08-18，Homecentrestore 版发布于 2017-12-27 且分镜尾部带该店网址；支持后者复用官方素材的判断，但不证明全部剪辑相同。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8a322983191b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/N-Z8eCYZod8.json"
+              ]
+            },
+            {
+              "entity_id": "m_a864a154006f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Descaling procedure, not a brewing method; a service container is not the serving cup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a864a154006f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rqy_rSkDLpU.json"
+              ]
+            },
+            {
+              "entity_id": "m_30802be53c90",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "原生缩略图可见后水箱、肋纹金属侧板、银色环形拉杆及条纹圆弧托架，足以识别为 Pixie 型结构；原生说明又明确写是分步操作。缺的是实际冲煮及翻架内容，不是设备结构。无分镜，保留高风险未知。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_30802be53c90.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1kAJRx-Fem8.json"
+              ]
+            },
+            {
+              "entity_id": "m_9d62575145ce",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "冰咖啡短片原生两张分镜确见 Pixie 对着玻璃杯直冲；侧面剪裁不清楚杯底是否放在翻下的托架上，也未见翻架教学。保持开场可接受、终态未知，不用冰块判错。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9d62575145ce.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/14pLwjRn_j0.json"
+              ]
+            },
+            {
+              "entity_id": "m_1aefe0cf5a78",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native Pixie demo shows espresso/lungo controls, capsule insertion and direct brewing into a cup on the support. No raised-cup-support method is supported.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1aefe0cf5a78.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0a0kyh22fKU.json"
+              ]
+            },
+            {
+              "entity_id": "m_2d2162d9217e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Although titled as a listing/demo, its public storyboard shows powering on, inserting the capsule, lowering the lever and brewing with the small cup on the support; no verified taller-cup instruction.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2d2162d9217e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iP6opt1SmZs.json"
+              ]
+            },
+            {
+              "entity_id": "m_359cc6643727",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_359cc6643727.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5pikKfELrM8.json"
+              ]
+            },
+            {
+              "entity_id": "m_a23a53de3334",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Nespresso 官方同型号演示，原生说明只列按钮、加热等特点，封面只是商标，无可用分镜；没有正证据支持完整冲煮或翻架，保持未知。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a23a53de3334.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KRkiUcXyspY.json"
+              ]
+            },
+            {
+              "entity_id": "m_eecf5ba8a862",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_eecf5ba8a862.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0ZzaKA4bDe8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab9d2beea862",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab9d2beea862.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HFR92xFsSmk.json"
+              ]
+            },
+            {
+              "entity_id": "m_54bab0230ef1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_54bab0230ef1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/uP1cxesZOjw.json"
+              ]
+            },
+            {
+              "entity_id": "m_612e16c742da",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_612e16c742da.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HouzvJGazs4.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f651e046ccd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f651e046ccd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1SQI7ByLQTI.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab53ea2d5ddc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab53ea2d5ddc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KtN3iDKTWdo.json"
+              ]
+            },
+            {
+              "entity_id": "m_d6334871901b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d6334871901b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nGbrVwMlCnM.json"
+              ]
+            },
+            {
+              "entity_id": "m_c0b61b184473",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c0b61b184473.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JxqFkjus1xA.json"
+              ]
+            },
+            {
+              "entity_id": "m_8621b53b2e7f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8621b53b2e7f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cGpumkmwQ3E.json"
+              ]
+            },
+            {
+              "entity_id": "m_63eca010a0e1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_63eca010a0e1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8Kd8ZnWPJ00.json"
+              ]
+            },
+            {
+              "entity_id": "m_15332353bc6d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_15332353bc6d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pNhq_5PgfXU.json"
+              ]
+            },
+            {
+              "entity_id": "m_07b2a15e2a4c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_07b2a15e2a4c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jROxYU5xnbY.json"
+              ]
+            },
+            {
+              "entity_id": "m_2be986823084",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2be986823084.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hd1v9F_X9rw.json"
+              ]
+            },
+            {
+              "entity_id": "m_71f7fd304596",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_71f7fd304596.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DF--kQYUabI.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c9ea857e4d7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c9ea857e4d7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oe4c9I4jBmA.json"
+              ]
+            },
+            {
+              "entity_id": "m_056012c386aa",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_056012c386aa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wyfUWuFTGJ8.json"
+              ]
+            },
+            {
+              "entity_id": "m_6da4c1c35ee6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6da4c1c35ee6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vhwNyEmGoPg.json"
+              ]
+            },
+            {
+              "entity_id": "m_7b394b6f5f31",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7b394b6f5f31.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WzTtl5TN-q0.json"
+              ]
+            },
+            {
+              "entity_id": "m_cf86c828f323",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cf86c828f323.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UIhvcmou2zw.json"
+              ]
+            },
+            {
+              "entity_id": "m_f73f8e3263b2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f73f8e3263b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T9nixM1467Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_312177610cb4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_312177610cb4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nKE11rKzctE.json"
+              ]
+            },
+            {
+              "entity_id": "m_83cbf4c69f59",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_83cbf4c69f59.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XWxvlUiVh34.json"
+              ]
+            },
+            {
+              "entity_id": "m_f365d025e22d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f365d025e22d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DqtU4c8yxrA.json"
+              ]
+            },
+            {
+              "entity_id": "m_e97dbc14f9ff",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e97dbc14f9ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EgIreuaHKKo.json"
+              ]
+            },
+            {
+              "entity_id": "m_c7aebcd16b4e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c7aebcd16b4e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nsA77lpaF5c.json"
+              ]
+            },
+            {
+              "entity_id": "m_eb9376ac4289",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_eb9376ac4289.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rpyBYuu-wJI.json"
+              ]
+            },
+            {
+              "entity_id": "m_7f83769b293b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_7f83769b293b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BnIzjrVnlgc.json"
+              ]
+            },
+            {
+              "entity_id": "m_54927f6d0002",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_54927f6d0002.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hyqviu142do.json"
+              ]
+            },
+            {
+              "entity_id": "m_ef8de27678cc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ef8de27678cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wNupLeP1CtQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_e5add8f1d97b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_e5add8f1d97b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZuQu12vMQZM.json"
+              ]
+            },
+            {
+              "entity_id": "m_46b216a4d394",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_46b216a4d394.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1aK--s4Fq2Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_95f77f160051",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_95f77f160051.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zbUc0SQ1-1A.json"
+              ]
+            },
+            {
+              "entity_id": "m_8c792465f899",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8c792465f899.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7GaB72fbQ8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_c31fba2d48b3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c31fba2d48b3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KkTTQgvJkM0.json"
+              ]
+            },
+            {
+              "entity_id": "m_b875518bd38d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_b875518bd38d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GwyNCbaQx0M.json"
+              ]
+            },
+            {
+              "entity_id": "m_76f42ec5cafd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_76f42ec5cafd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GWLbJ5QtD-s.json"
+              ]
+            },
+            {
+              "entity_id": "m_d14ba90152d3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d14ba90152d3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5KzaN0Bb4mU.json"
+              ]
+            },
+            {
+              "entity_id": "m_58ed647beb30",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_58ed647beb30.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/idwxgYohK90.json"
+              ]
+            },
+            {
+              "entity_id": "m_b4b8852d1d8d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_b4b8852d1d8d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xb3IxAr4RCo.json"
+              ]
+            },
+            {
+              "entity_id": "m_ced87d09148e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ced87d09148e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/yBefPJ2Rd8Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_2b7775e15983",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2b7775e15983.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8Xl2xUKSGt0.json"
+              ]
+            },
+            {
+              "entity_id": "m_8710cad292f7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8710cad292f7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fpbypZW3gSk.json"
+              ]
+            },
+            {
+              "entity_id": "m_5f5958b9bece",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5f5958b9bece.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4sYcW8InDJk.json"
+              ]
+            },
+            {
+              "entity_id": "m_846120aa571e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_846120aa571e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qFl0k5e_Tio.json"
+              ]
+            },
+            {
+              "entity_id": "m_2dcc5f2dc5e7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2dcc5f2dc5e7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JWPFME-5fQI.json"
+              ]
+            },
+            {
+              "entity_id": "m_e6bafcc34cf2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e6bafcc34cf2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mRKVntFXWrg.json"
+              ]
+            },
+            {
+              "entity_id": "m_071bc9fb884f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_071bc9fb884f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/g86JjlpegIM.json"
+              ]
+            },
+            {
+              "entity_id": "m_6c6db7da4b9d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6c6db7da4b9d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mQe0S4Jx2FI.json"
+              ]
+            },
+            {
+              "entity_id": "m_e2f1f66e180e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e2f1f66e180e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h5pxRWFx1E4.json"
+              ]
+            },
+            {
+              "entity_id": "m_45021acd8697",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_45021acd8697.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6Vg1qHGk8iM.json"
+              ]
+            },
+            {
+              "entity_id": "m_06aaf285c06b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_06aaf285c06b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/j1X-MbfvG9o.json"
+              ]
+            },
+            {
+              "entity_id": "m_f114705b0477",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f114705b0477.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iSiQYlxQ5CU.json"
+              ]
+            },
+            {
+              "entity_id": "m_ec5cd9040bb2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ec5cd9040bb2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/E929hIDO5pg.json"
+              ]
+            },
+            {
+              "entity_id": "m_01f5d2603bb9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_01f5d2603bb9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/c-27BTOAqig.json"
+              ]
+            },
+            {
+              "entity_id": "m_b316f7a104c0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b316f7a104c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CQPTD3HTMak.json"
+              ]
+            },
+            {
+              "entity_id": "m_267e98eee469",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_267e98eee469.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JFobNy79mbk.json"
+              ]
+            },
+            {
+              "entity_id": "m_04e7cb2b37b2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_04e7cb2b37b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2ziSri3o8Y8.json"
+              ]
+            },
+            {
+              "entity_id": "m_d5fe71fb24f1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d5fe71fb24f1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Y-45apsS2Nk.json"
+              ]
+            },
+            {
+              "entity_id": "m_4eae137eb6a4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4eae137eb6a4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/d9NTSV1RMvs.json"
+              ]
+            },
+            {
+              "entity_id": "m_51c84f5aef68",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_51c84f5aef68.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pmXTG96Anc4.json"
+              ]
+            },
+            {
+              "entity_id": "m_ffce1c7ba8a6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ffce1c7ba8a6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Q45zCLnLyuE.json"
+              ]
+            },
+            {
+              "entity_id": "m_b67de515efe7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b67de515efe7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vQVTNscQY0c.json"
+              ]
+            },
+            {
+              "entity_id": "m_9095c4de7a44",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9095c4de7a44.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/VB65k0gwriU.json"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_c2f7a11ee98d",
+              "native_id": "hk5hlhgr5oI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Its instructional sequence is programming a persistent cup volume, not an ordinary brewing guide. Press-and-hold is not the required ordinary dispense action.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c2f7a11ee98d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hk5hlhgr5oI.json"
+              ]
+            },
+            {
+              "entity_id": "m_e152e5985b31",
+              "native_id": "5FC1pSWk4Rc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Cup-size programming is changing volume, not clearing physical cup height. Later panel shows press-and-hold, without an independent standard preparation sequence.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e152e5985b31.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5FC1pSWk4Rc.json"
+              ]
+            },
+            {
+              "entity_id": "m_0701ad02b0bc",
+              "native_id": "jSzfdoAn0KA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The “How it works” and “Espresso Shot” sections and public storyboard show an ordinary capsule brew into the glass at the front of the Pixie. No demonstrated full taller-cup technique is verified in the public material.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0701ad02b0bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jSzfdoAn0KA.json"
+              ]
+            },
+            {
+              "entity_id": "m_38cad46b8579",
+              "native_id": "4q1QMpLXVZo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Complete official Pixie brewing guide, uses the lowered cup support throughout its two public storyboard tiles. Does not show or describe clearing the support for a taller cup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_38cad46b8579.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4q1QMpLXVZo.json"
+              ]
+            },
+            {
+              "entity_id": "m_5501702b22fe",
+              "native_id": "zP3-79TtqTs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public storyboard labels PRESS & HOLD for the cup-size program and shows the cup on the shelf; not a guide to ordinary brewing or physical clearance.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5501702b22fe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zP3-79TtqTs.json"
+              ]
+            },
+            {
+              "entity_id": "m_a1f4592f8761",
+              "native_id": "RrAUwfaeZyo",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native Pixie use review covers capsule brewing. Public storyboard 372.30–496.40 s last row shows the movable front tray folded up and a travel mug positioned under the spout; the next tile continues fit demonstration and shows normal coffee brewing. Shared operating mechanism applies to the recorded Pixie.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a1f4592f8761.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RrAUwfaeZyo.json"
+              ]
+            },
+            {
+              "entity_id": "m_d734bcd6d420",
+              "native_id": "CKBzSdxiNZ4",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official Nespresso Pixie tutorial: ordinary direct brewing plus “Adjusting for cup size” (0:58–1:20). Storyboard 49.58–74.38 s shows the hinged cup shelf being moved up out of the path beneath the spout, after brewing on the lowered shelf. The two portions are separately usable.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d734bcd6d420.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CKBzSdxiNZ4.json"
+              ]
+            },
+            {
+              "entity_id": "m_b40fcce57ab3",
+              "native_id": "0f4nn6-40wM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Selecting coffee/capsules does not demonstrate how this Pixie dispenses into the wearer’s cup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b40fcce57ab3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0f4nn6-40wM.json"
+              ]
+            },
+            {
+              "entity_id": "m_203bbec6fec5",
+              "native_id": "12wCssco-eg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Overview of Nespresso coffees, not this machine’s direct brew or cup clearance.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_203bbec6fec5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/12wCssco-eg.json"
+              ]
+            },
+            {
+              "entity_id": "m_9fc49878c8ea",
+              "native_id": "Hqe8P9vrNmI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "2:31–4:20 有 Pixie 章节，说明明确承认汇编厂商等片段。它是选购比较，未有实际操作正证据；分类应说‘包含 Pixie 的选购比较’，不能说不同型号。没有分镜，不足以加进任一固定集合。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9fc49878c8ea.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hqe8P9vrNmI.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab74e7a190e9",
+              "native_id": "43YUcNx7qbQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab74e7a190e9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/43YUcNx7qbQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_69cb5ef9ab8a",
+              "native_id": "dcJZjHijrNI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_69cb5ef9ab8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dcJZjHijrNI.json"
+              ]
+            },
+            {
+              "entity_id": "m_4c5d343abcf9",
+              "native_id": "9AMRed_1jYY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4c5d343abcf9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9AMRed_1jYY.json"
+              ]
+            },
+            {
+              "entity_id": "m_da6503ced449",
+              "native_id": "C2G2iTmOf8U",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_da6503ced449.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/C2G2iTmOf8U.json"
+              ]
+            },
+            {
+              "entity_id": "m_9225fff805a9",
+              "native_id": "FdPcixfEoqw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9225fff805a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FdPcixfEoqw.json"
+              ]
+            },
+            {
+              "entity_id": "m_89268c921108",
+              "native_id": "CDb0l29dhrA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_89268c921108.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CDb0l29dhrA.json"
+              ]
+            },
+            {
+              "entity_id": "m_266ee0db4a5e",
+              "native_id": "S7yXXbfM6pQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_266ee0db4a5e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/S7yXXbfM6pQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_87097da257ff",
+              "native_id": "uJu04DcOg8c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_87097da257ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/uJu04DcOg8c.json"
+              ]
+            },
+            {
+              "entity_id": "m_d149113338a9",
+              "native_id": "75yQaZIQmXo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d149113338a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/75yQaZIQmXo.json"
+              ]
+            },
+            {
+              "entity_id": "m_5a1e5de455c2",
+              "native_id": "JBKKo54zTOg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5a1e5de455c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JBKKo54zTOg.json"
+              ]
+            },
+            {
+              "entity_id": "m_6fce47efce95",
+              "native_id": "Ug6WgCTf5jE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6fce47efce95.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ug6WgCTf5jE.json"
+              ]
+            },
+            {
+              "entity_id": "m_b75d4ed212dd",
+              "native_id": "j3bAD2tT7UQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b75d4ed212dd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/j3bAD2tT7UQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_2013ea7f5e9c",
+              "native_id": "DSlgel1ZYWw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2013ea7f5e9c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DSlgel1ZYWw.json"
+              ]
+            },
+            {
+              "entity_id": "m_dd9310b66e47",
+              "native_id": "XuaJgG2IUGY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dd9310b66e47.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XuaJgG2IUGY.json"
+              ]
+            },
+            {
+              "entity_id": "m_cb933f87f192",
+              "native_id": "4fEdxRjiv0s",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cb933f87f192.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4fEdxRjiv0s.json"
+              ]
+            },
+            {
+              "entity_id": "m_ba75e64ba815",
+              "native_id": "07X2s0gtrhg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ba75e64ba815.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/07X2s0gtrhg.json"
+              ]
+            },
+            {
+              "entity_id": "m_8abead05d19e",
+              "native_id": "rLweCpQ0LJc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8abead05d19e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rLweCpQ0LJc.json"
+              ]
+            },
+            {
+              "entity_id": "m_c47d35e2fe3c",
+              "native_id": "KkyK5SfWP5A",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c47d35e2fe3c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KkyK5SfWP5A.json"
+              ]
+            },
+            {
+              "entity_id": "m_2a415dae333c",
+              "native_id": "dp5tETkdBFQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Title/description sound generic, but native chapter list and public storyboard show water tank, used capsules, rinsing and descaling, not brewing coffee. The enlarged container is for rinsing.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2a415dae333c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dp5tETkdBFQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f9fa919e36b9",
+              "native_id": "9nzBtKRIlko",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Williams Sonoma native description teaches loading the capsule and directly dispensing at the selected size; its Drip Tray section (1:01–1:17) and description explain that the Pixie tray flips up for extra-long cups.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f9fa919e36b9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9nzBtKRIlko.json"
+              ]
+            },
+            {
+              "entity_id": "m_f3e879d7b480",
+              "native_id": "0cZrnEftiRA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official first-use instructions prepare/rinse the machine with water, not demonstrate a normal coffee brew.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f3e879d7b480.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0cZrnEftiRA.json"
+              ]
+            },
+            {
+              "entity_id": "m_c9ef316cbd29",
+              "native_id": "iVYK1FYx3YU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Pixie first-use setup and initial rinse rather than making coffee into the serving cup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c9ef316cbd29.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iVYK1FYx3YU.json"
+              ]
+            },
+            {
+              "entity_id": "m_95ac995ff894",
+              "native_id": "flG4__cI2gU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The dedicated task is programming stored amounts (setare cantitati), not cup clearance or a normal separate coffee preparation guide.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_95ac995ff894.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/flG4__cI2gU.json"
+              ]
+            },
+            {
+              "entity_id": "m_f2484426bd83",
+              "native_id": "zVzBJT4K_2Y",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Public storyboard and matched length show the water-tank/used-capsules/rinsing service demo, not regular preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f2484426bd83.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zVzBJT4K_2Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_3ca62a0e2044",
+              "native_id": "s7ZbZfMMb4M",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official Pixie guide shows capsule and coffee preparation (third tile shows short glass on lowered support) and does not show the taller-cup setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3ca62a0e2044.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/s7ZbZfMMb4M.json"
+              ]
+            },
+            {
+              "entity_id": "m_ae6550a204cc",
+              "native_id": "o0egA1JuTTU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Cleaning and disassembly, not a brewing method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ae6550a204cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/o0egA1JuTTU.json"
+              ]
+            },
+            {
+              "entity_id": "m_8a322983191b",
+              "native_id": "N-Z8eCYZod8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Nespresso 原版 Product Demo 与 Homecentrestore 的 0a0kyh22fKU 同为 39 秒，两个原生封面视觉上几乎同一镜头，演员、左侧胶囊盒、白袖黑围裙、同机和杯均一致；后者原生分镜已证明常规直冲。不视为完整视频同一性的证据，保留近重复高风险；若证实同源同内容，至少应补开场接受。 Nespresso 版发布于 2015-08-18，Homecentrestore 版发布于 2017-12-27 且分镜尾部带该店网址；支持后者复用官方素材的判断，但不证明全部剪辑相同。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8a322983191b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/N-Z8eCYZod8.json"
+              ]
+            },
+            {
+              "entity_id": "m_a864a154006f",
+              "native_id": "rqy_rSkDLpU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Descaling procedure, not a brewing method; a service container is not the serving cup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a864a154006f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rqy_rSkDLpU.json"
+              ]
+            },
+            {
+              "entity_id": "m_3af04a2abd98",
+              "native_id": "V5dqIEoT8sc",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native storyboard 1:28–1:43 shows the matching Pixie mechanism, a tall cup on the worktop below its outlet, and direct brew into the cup. The support is already clear of the cup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3af04a2abd98.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/V5dqIEoT8sc.json"
+              ]
+            },
+            {
+              "entity_id": "m_30802be53c90",
+              "native_id": "1kAJRx-Fem8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生缩略图可见后水箱、肋纹金属侧板、银色环形拉杆及条纹圆弧托架，足以识别为 Pixie 型结构；原生说明又明确写是分步操作。缺的是实际冲煮及翻架内容，不是设备结构。无分镜，保留高风险未知。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_30802be53c90.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1kAJRx-Fem8.json"
+              ]
+            },
+            {
+              "entity_id": "m_9d62575145ce",
+              "native_id": "14pLwjRn_j0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "冰咖啡短片原生两张分镜确见 Pixie 对着玻璃杯直冲；侧面剪裁不清楚杯底是否放在翻下的托架上，也未见翻架教学。保持开场可接受、终态未知，不用冰块判错。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9d62575145ce.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/14pLwjRn_j0.json"
+              ]
+            },
+            {
+              "entity_id": "m_1aefe0cf5a78",
+              "native_id": "0a0kyh22fKU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native Pixie demo shows espresso/lungo controls, capsule insertion and direct brewing into a cup on the support. No raised-cup-support method is supported.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1aefe0cf5a78.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0a0kyh22fKU.json"
+              ]
+            },
+            {
+              "entity_id": "m_2d2162d9217e",
+              "native_id": "iP6opt1SmZs",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Although titled as a listing/demo, its public storyboard shows powering on, inserting the capsule, lowering the lever and brewing with the small cup on the support; no verified taller-cup instruction.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2d2162d9217e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iP6opt1SmZs.json"
+              ]
+            },
+            {
+              "entity_id": "m_359cc6643727",
+              "native_id": "5pikKfELrM8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_359cc6643727.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5pikKfELrM8.json"
+              ]
+            },
+            {
+              "entity_id": "m_769ffe142d5a",
+              "native_id": "4Kw2_-x3F3s",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native storyboard shows the hinged rest being raised and lowered at 24.77–49.55 s. Its later panels teach putting in a capsule and brewing directly; both methods are supported.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_769ffe142d5a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4Kw2_-x3F3s.json"
+              ]
+            },
+            {
+              "entity_id": "m_a23a53de3334",
+              "native_id": "KRkiUcXyspY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Nespresso 官方同型号演示，原生说明只列按钮、加热等特点，封面只是商标，无可用分镜；没有正证据支持完整冲煮或翻架，保持未知。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a23a53de3334.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KRkiUcXyspY.json"
+              ]
+            },
+            {
+              "entity_id": "m_23eaa94b5e89",
+              "native_id": "-ocUYtRfpS8",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Original-style red Pixie demonstration: public storyboard 0–24.40 s third row shows the hinged front shelf raised and then down; following tiles show capsule insertion, button and direct dispensing. Works for either physical configuration.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_23eaa94b5e89.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-ocUYtRfpS8.json"
+              ]
+            },
+            {
+              "entity_id": "m_eecf5ba8a862",
+              "native_id": "0ZzaKA4bDe8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_eecf5ba8a862.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0ZzaKA4bDe8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab9d2beea862",
+              "native_id": "HFR92xFsSmk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab9d2beea862.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HFR92xFsSmk.json"
+              ]
+            },
+            {
+              "entity_id": "m_54bab0230ef1",
+              "native_id": "uP1cxesZOjw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_54bab0230ef1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/uP1cxesZOjw.json"
+              ]
+            },
+            {
+              "entity_id": "m_612e16c742da",
+              "native_id": "HouzvJGazs4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_612e16c742da.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HouzvJGazs4.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f651e046ccd",
+              "native_id": "1SQI7ByLQTI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f651e046ccd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1SQI7ByLQTI.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab53ea2d5ddc",
+              "native_id": "KtN3iDKTWdo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab53ea2d5ddc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KtN3iDKTWdo.json"
+              ]
+            },
+            {
+              "entity_id": "m_d6334871901b",
+              "native_id": "nGbrVwMlCnM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d6334871901b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nGbrVwMlCnM.json"
+              ]
+            },
+            {
+              "entity_id": "m_c0b61b184473",
+              "native_id": "JxqFkjus1xA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c0b61b184473.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JxqFkjus1xA.json"
+              ]
+            },
+            {
+              "entity_id": "m_8621b53b2e7f",
+              "native_id": "cGpumkmwQ3E",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8621b53b2e7f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cGpumkmwQ3E.json"
+              ]
+            },
+            {
+              "entity_id": "m_63eca010a0e1",
+              "native_id": "8Kd8ZnWPJ00",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_63eca010a0e1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8Kd8ZnWPJ00.json"
+              ]
+            },
+            {
+              "entity_id": "m_15332353bc6d",
+              "native_id": "pNhq_5PgfXU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_15332353bc6d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pNhq_5PgfXU.json"
+              ]
+            },
+            {
+              "entity_id": "m_07b2a15e2a4c",
+              "native_id": "jROxYU5xnbY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_07b2a15e2a4c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jROxYU5xnbY.json"
+              ]
+            },
+            {
+              "entity_id": "m_2be986823084",
+              "native_id": "Hd1v9F_X9rw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2be986823084.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hd1v9F_X9rw.json"
+              ]
+            },
+            {
+              "entity_id": "m_71f7fd304596",
+              "native_id": "DF--kQYUabI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_71f7fd304596.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DF--kQYUabI.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c9ea857e4d7",
+              "native_id": "oe4c9I4jBmA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c9ea857e4d7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oe4c9I4jBmA.json"
+              ]
+            },
+            {
+              "entity_id": "m_056012c386aa",
+              "native_id": "wyfUWuFTGJ8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_056012c386aa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wyfUWuFTGJ8.json"
+              ]
+            },
+            {
+              "entity_id": "m_6da4c1c35ee6",
+              "native_id": "vhwNyEmGoPg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6da4c1c35ee6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vhwNyEmGoPg.json"
+              ]
+            },
+            {
+              "entity_id": "m_7b394b6f5f31",
+              "native_id": "WzTtl5TN-q0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7b394b6f5f31.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WzTtl5TN-q0.json"
+              ]
+            },
+            {
+              "entity_id": "m_cf86c828f323",
+              "native_id": "UIhvcmou2zw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cf86c828f323.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UIhvcmou2zw.json"
+              ]
+            },
+            {
+              "entity_id": "m_f73f8e3263b2",
+              "native_id": "T9nixM1467Y",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f73f8e3263b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T9nixM1467Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_312177610cb4",
+              "native_id": "nKE11rKzctE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_312177610cb4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nKE11rKzctE.json"
+              ]
+            },
+            {
+              "entity_id": "m_83cbf4c69f59",
+              "native_id": "XWxvlUiVh34",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_83cbf4c69f59.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XWxvlUiVh34.json"
+              ]
+            },
+            {
+              "entity_id": "m_f365d025e22d",
+              "native_id": "DqtU4c8yxrA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f365d025e22d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DqtU4c8yxrA.json"
+              ]
+            },
+            {
+              "entity_id": "m_e97dbc14f9ff",
+              "native_id": "EgIreuaHKKo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e97dbc14f9ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EgIreuaHKKo.json"
+              ]
+            },
+            {
+              "entity_id": "m_c7aebcd16b4e",
+              "native_id": "nsA77lpaF5c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c7aebcd16b4e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nsA77lpaF5c.json"
+              ]
+            },
+            {
+              "entity_id": "m_eb9376ac4289",
+              "native_id": "rpyBYuu-wJI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_eb9376ac4289.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rpyBYuu-wJI.json"
+              ]
+            },
+            {
+              "entity_id": "m_7f83769b293b",
+              "native_id": "BnIzjrVnlgc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_7f83769b293b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BnIzjrVnlgc.json"
+              ]
+            },
+            {
+              "entity_id": "m_54927f6d0002",
+              "native_id": "hyqviu142do",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_54927f6d0002.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hyqviu142do.json"
+              ]
+            },
+            {
+              "entity_id": "m_ef8de27678cc",
+              "native_id": "wNupLeP1CtQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ef8de27678cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wNupLeP1CtQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_e5add8f1d97b",
+              "native_id": "ZuQu12vMQZM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_e5add8f1d97b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZuQu12vMQZM.json"
+              ]
+            },
+            {
+              "entity_id": "m_46b216a4d394",
+              "native_id": "1aK--s4Fq2Q",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_46b216a4d394.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1aK--s4Fq2Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_95f77f160051",
+              "native_id": "zbUc0SQ1-1A",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_95f77f160051.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zbUc0SQ1-1A.json"
+              ]
+            },
+            {
+              "entity_id": "m_8c792465f899",
+              "native_id": "7GaB72fbQ8I",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8c792465f899.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7GaB72fbQ8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_c31fba2d48b3",
+              "native_id": "KkTTQgvJkM0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c31fba2d48b3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KkTTQgvJkM0.json"
+              ]
+            },
+            {
+              "entity_id": "m_b875518bd38d",
+              "native_id": "GwyNCbaQx0M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_b875518bd38d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GwyNCbaQx0M.json"
+              ]
+            },
+            {
+              "entity_id": "m_76f42ec5cafd",
+              "native_id": "GWLbJ5QtD-s",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_76f42ec5cafd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GWLbJ5QtD-s.json"
+              ]
+            },
+            {
+              "entity_id": "m_d14ba90152d3",
+              "native_id": "5KzaN0Bb4mU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d14ba90152d3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5KzaN0Bb4mU.json"
+              ]
+            },
+            {
+              "entity_id": "m_58ed647beb30",
+              "native_id": "idwxgYohK90",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_58ed647beb30.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/idwxgYohK90.json"
+              ]
+            },
+            {
+              "entity_id": "m_b4b8852d1d8d",
+              "native_id": "xb3IxAr4RCo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_b4b8852d1d8d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xb3IxAr4RCo.json"
+              ]
+            },
+            {
+              "entity_id": "m_ced87d09148e",
+              "native_id": "yBefPJ2Rd8Y",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ced87d09148e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/yBefPJ2Rd8Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_2b7775e15983",
+              "native_id": "8Xl2xUKSGt0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2b7775e15983.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8Xl2xUKSGt0.json"
+              ]
+            },
+            {
+              "entity_id": "m_8710cad292f7",
+              "native_id": "fpbypZW3gSk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8710cad292f7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fpbypZW3gSk.json"
+              ]
+            },
+            {
+              "entity_id": "m_5f5958b9bece",
+              "native_id": "4sYcW8InDJk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5f5958b9bece.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4sYcW8InDJk.json"
+              ]
+            },
+            {
+              "entity_id": "m_846120aa571e",
+              "native_id": "qFl0k5e_Tio",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_846120aa571e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qFl0k5e_Tio.json"
+              ]
+            },
+            {
+              "entity_id": "m_2dcc5f2dc5e7",
+              "native_id": "JWPFME-5fQI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2dcc5f2dc5e7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JWPFME-5fQI.json"
+              ]
+            },
+            {
+              "entity_id": "m_e6bafcc34cf2",
+              "native_id": "mRKVntFXWrg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e6bafcc34cf2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mRKVntFXWrg.json"
+              ]
+            },
+            {
+              "entity_id": "m_071bc9fb884f",
+              "native_id": "g86JjlpegIM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_071bc9fb884f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/g86JjlpegIM.json"
+              ]
+            },
+            {
+              "entity_id": "m_6c6db7da4b9d",
+              "native_id": "mQe0S4Jx2FI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6c6db7da4b9d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mQe0S4Jx2FI.json"
+              ]
+            },
+            {
+              "entity_id": "m_e2f1f66e180e",
+              "native_id": "h5pxRWFx1E4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e2f1f66e180e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h5pxRWFx1E4.json"
+              ]
+            },
+            {
+              "entity_id": "m_45021acd8697",
+              "native_id": "6Vg1qHGk8iM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_45021acd8697.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6Vg1qHGk8iM.json"
+              ]
+            },
+            {
+              "entity_id": "m_06aaf285c06b",
+              "native_id": "j1X-MbfvG9o",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_06aaf285c06b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/j1X-MbfvG9o.json"
+              ]
+            },
+            {
+              "entity_id": "m_f114705b0477",
+              "native_id": "iSiQYlxQ5CU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f114705b0477.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iSiQYlxQ5CU.json"
+              ]
+            },
+            {
+              "entity_id": "m_ec5cd9040bb2",
+              "native_id": "E929hIDO5pg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ec5cd9040bb2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/E929hIDO5pg.json"
+              ]
+            },
+            {
+              "entity_id": "m_01f5d2603bb9",
+              "native_id": "c-27BTOAqig",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/m_01f5d2603bb9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/c-27BTOAqig.json"
+              ]
+            },
+            {
+              "entity_id": "m_b316f7a104c0",
+              "native_id": "CQPTD3HTMak",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b316f7a104c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CQPTD3HTMak.json"
+              ]
+            },
+            {
+              "entity_id": "m_267e98eee469",
+              "native_id": "JFobNy79mbk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_267e98eee469.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JFobNy79mbk.json"
+              ]
+            },
+            {
+              "entity_id": "m_04e7cb2b37b2",
+              "native_id": "2ziSri3o8Y8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_04e7cb2b37b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2ziSri3o8Y8.json"
+              ]
+            },
+            {
+              "entity_id": "m_d5fe71fb24f1",
+              "native_id": "Y-45apsS2Nk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d5fe71fb24f1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Y-45apsS2Nk.json"
+              ]
+            },
+            {
+              "entity_id": "m_4eae137eb6a4",
+              "native_id": "d9NTSV1RMvs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4eae137eb6a4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/d9NTSV1RMvs.json"
+              ]
+            },
+            {
+              "entity_id": "m_51c84f5aef68",
+              "native_id": "pmXTG96Anc4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_51c84f5aef68.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pmXTG96Anc4.json"
+              ]
+            },
+            {
+              "entity_id": "m_ffce1c7ba8a6",
+              "native_id": "Q45zCLnLyuE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ffce1c7ba8a6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Q45zCLnLyuE.json"
+              ]
+            },
+            {
+              "entity_id": "m_b67de515efe7",
+              "native_id": "vQVTNscQY0c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b67de515efe7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vQVTNscQY0c.json"
+              ]
+            },
+            {
+              "entity_id": "m_9095c4de7a44",
+              "native_id": "VB65k0gwriU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source describes another named coffee machine, brew method, equipment, shopping, or coffee topic, with no positive evidence of instructions applicable to this Pixie’s capsule lever, outlet and cup support.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9095c4de7a44.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/VB65k0gwriU.json"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "summary",
+            "chapters",
+            "public_previews"
+          ],
+          "answer_boundary_rule": "Save one usable guide for direct capsule brewing into a taller cup on this mechanism, with the hinged cup support moved clear or clearly shown already raised and direct brew shown. An equivalent Pixie mechanism, multi-method video, and separately demonstrated clearance and brew steps are acceptable. A fixed low rest, use of a separate small cup, a larger programmed drink volume without changing the clearance, or a different machine mechanism does not suffice."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "pair_id": "CRG-02",
+  "id": "CRG-02-update-count",
+  "source_task_path": "data/experiments/composite/CRG-02.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 789.0,
+      "request": "Make sure the listing says the covered pan itself is oven-safe. I can leave the lid off."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 829.0
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 839.0,
+      "request": "Actually, make sure the covered pan itself can go in a 425°F oven. I can leave the lid off."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "p_bcb09a7f62bd",
+        "p_da9f622d4957"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "p_05e8791c6734",
+        "p_da9f622d4957"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "789秒早于807秒转碗与829秒Refresh，完整状态均保留原已核实的前方小锅p_da9f622d4957。C仍指左后宽浅带盖锅。MICHELANGELO同类带盖煎锅公开name及attributes没有oven-safe声明，初始不限此声明时可买；新增请求明确要求listing声明，故不能用该资料未证实商品完成采购。此处不把缺声明写成已知不耐烤。320°F THE ROCK公开Product Care Instructions明列Oven Safe，仍可选。",
+    "public_facts": [
+      {
+        "entity_id": "p_05e8791c6734",
+        "path": [
+          "name"
+        ],
+        "equals": "THE ROCK SOHO 4 Qt Nonstick Deep Frying Pan Skillet with Glass Lid, 11 Inch Large Deep Frying Pan, Non Stick Saute Pan – Stay-cool Handle, Induction Compatible, Oven & Dishwasher Safe, Black"
+      },
+      {
+        "entity_id": "p_bcb09a7f62bd",
+        "path": [
+          "name"
+        ],
+        "equals": "MICHELANGELO 8 Inch Frying Pan Nonstick, Small Frying Pan with Lid, Small Skillet Nonstick with Ceramic Coating, Nonstick Pan with Lid, Ceramic Frying Pan with Glass Lid, Non Stick Fry Pan, Blue"
+      },
+      {
+        "entity_id": "p_da9f622d4957",
+        "path": [
+          "name"
+        ],
+        "equals": "LIANYU Stainless Steel Saucepan with Lid, 1 Quart Small Sauce Pan | Tri-Ply Bottom, Multipurpose Cooking Pot, Straight Side, Dishwasher Safe, Compatible with All Cooktops"
+      },
+      {
+        "entity_id": "p_bcb09a7f62bd",
+        "path": [
+          "attributes"
+        ],
+        "equals": {
+          "listing_source": "amazon.ca",
+          "listing_type": "Organic"
+        }
+      },
+      {
+        "entity_id": "p_05e8791c6734",
+        "path": [
+          "attributes",
+          "Product Care Instructions"
+        ],
+        "equals": "Dishwasher Safe, Oven Safe"
+      },
+      {
+        "entity_id": "p_05e8791c6734",
+        "path": [
+          "attributes",
+          "Maximum Temperature"
+        ],
+        "equals": "320 °F"
+      }
+    ],
+    "constraint": {
+      "kind": "presence",
+      "entity_ids": [
+        "p_05e8791c6734",
+        "p_0a9569e0b3b6",
+        "p_7f26d3c8171d"
+      ],
+      "operator": ">=",
+      "value": 1
+    },
+    "original_request_effect": "原425°F要求进一步排除明确最高320°F的THE ROCK，保留500°F及900°F原答案；原R仍只改变另一个拌料容器。"
+  }
+}

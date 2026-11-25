@@ -1,0 +1,1787 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-replace-2026101601",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P01-20240204-145458/spice-jar/first",
+          "P01-20240204-145458/spice-jar/second"
+        ],
+        "media_id": "P01-20240204-145458",
+        "original_video_id": "P01-20240204-145458",
+        "media_start_seconds": 0,
+        "media_sha256": "237cd9284387c8d82c09f0190ae26201698fc4818a1dc257e03d49600e86a796",
+        "original_annotations": [
+          "spice jar handled at 464.77-487.50",
+          "second spice jar handled at 506.43-515.70"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              468,
+              487.5
+            ],
+            "role": "earlier_context",
+            "description": "An earlier glass seasoning jar is handled; its content identity is not used as task truth."
+          },
+          {
+            "interval_seconds": [
+              507,
+              515
+            ],
+            "role": "last_ground_spice",
+            "description": "The wearer opens and uses an orange-label jar; the label at 510.2 seconds reads Ground Cinnamon."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            505,
+            507,
+            508,
+            509,
+            510.2,
+            512,
+            514,
+            515
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_00.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_01.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_02.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_03.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_04.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_05.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_06.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0:0-V0:1 show the wearer taking an orange-label jar from the spice cupboard; V0:2-V0:3 show it opened over the pot; V0:4 shows its label reading Ground Cinnamon; V0:5-V0:7 show it in use and then returned to the cupboard.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "replaces_candidate_id": "candidate-mart-clarify-sequence-08",
+      "replacement_reason": "The old Clarify requested indistinguishable refillable containers and incorrectly accepted wood lids. This replacement uses the readable last-jar spice label and a natural switch from a small jar to a bulk refill.",
+      "construct": {
+        "research_question": "Can the Agent replace an initially valid small-jar purchase with a bulk refill after learning that the user has reusable jars?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "Restock the visually identified ground spice in one small jar up to 100g.",
+        "belief_after": "Remove the small jar and buy one 1kg refill bag of the same ground spice.",
+        "required_behavior_change": "Remove the obsolete jar purchase and add the bulk refill; do not retain both.",
+        "no_update_failure": "The final cart still contains only a small jar.",
+        "overupdate_failure": "The final cart buys another spice or retains the obsolete jar alongside the refill.",
+        "visual_dependency_claim": "The instructions never name cinnamon. V0:4 reads Ground Cinnamon; the website proves package type and net amount.",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "site": "egomart",
+          "instructions": {
+            "a": "I need to restock the ground spice in the jar I just opened. Add one single jar of up to 100g; any brand is fine.",
+            "b": "I go through it regularly, and I have empty jars I can refill. Replace that jar with one 1kg refill bag of the same ground spice.",
+            "bundled": "I need to restock the ground spice in the jar I just opened. Add one single jar of up to 100g; any brand is fine. Then my plan changes: I go through it regularly, and I have empty jars I can refill. Replace that jar with one 1kg refill bag of the same ground spice."
+          },
+          "initial_goal_roles": [
+            [
+              "small_jar"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "bulk_refill"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "small_jar": "p_b74cbd848bde",
+            "bulk_refill": "p_5b1d3296e967"
+          },
+          "equivalent_role_ids": {
+            "small_jar": [
+              "p_77ae05808629"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "initial_jar": {
+              "goal_ref": "initial"
+            },
+            "bulk_refill": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "initial_jar",
+                "bulk_refill"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "bulk_refill"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The user replaces the small-jar purchase with a 1kg refill because existing jars can be reused."
+            }
+          ],
+          "established_by": "skill-executing-coding-agent",
+          "established_at": "2026-10-16"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "ground spices",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-replace-2026101601.json",
+              "result_entity_ids": [
+                "p_88e708caaf1b",
+                "p_bf281b299d00",
+                "p_f6bd96887e29",
+                "p_2a63a3accdd9",
+                "p_b74cbd848bde",
+                "p_f729dc49eba7",
+                "p_3bc6885366d9",
+                "p_c168324947d8",
+                "p_0e57481b4ddf",
+                "p_a3df35a4ab31",
+                "p_ae7893e91009",
+                "p_04f96d9f118c",
+                "p_120e0c4be84e",
+                "p_53b94acb612a",
+                "p_74e674fcf910",
+                "p_b7dd73550427",
+                "p_f9f19dfa235e",
+                "p_dae83eaffa5f",
+                "p_77ae05808629",
+                "p_d4a057c3cac3",
+                "p_2851e7c6130b",
+                "p_35be02783b34",
+                "p_7c80c9bd8f9a",
+                "p_effbd87687ae",
+                "p_615958fa8d1d",
+                "p_c74413775fe9",
+                "p_175047fe22ae",
+                "p_6e1d36b48700",
+                "p_64f8068e8ade",
+                "p_e21a2506b90e",
+                "p_2b6dcebda62c",
+                "p_f6994ce3dcfa",
+                "p_1d9252ea4dc4",
+                "p_54b57a1a36d4",
+                "p_4c259a43c254",
+                "p_845a98ad088b",
+                "p_12c6c5bc3df6",
+                "p_0ac20c58bf5a",
+                "p_abd21d677af4",
+                "p_de9f0abf383c",
+                "p_ac2a61c04d39",
+                "p_553130e78435",
+                "p_4b53fb1919a4",
+                "p_5aebbc2aaa8a",
+                "p_a9116bf1c808",
+                "p_19f2fcec5064",
+                "p_9402413dd158",
+                "p_55567635abbc"
+              ],
+              "result_titles": [
+                "Encore Allspice: 100% Natural | Versatile Seasoning with Aromatic Profile and guilt-free indulgence in one convenient packaging - 56g",
+                "Splendor Garden Organic Ground Cloves Powder - 25 g",
+                "Club House Herbs & Spices, Ground Ginger, 375 g",
+                "McCormick Gourmet Herbs & Spices, Ground White Pepper, 32 g",
+                "McCormick Gourmet Herbs & Spices, Ground Cinnamon, 42 g",
+                "Watkins Gourmet Organic Spice Jar, Ground Ginger, Non-GMO, Kosher, 58 g",
+                "Club House Herbs & Spices, Ground Coriander, 400 g",
+                "Club House, Quality Natural Herbs & Spices, Ground Allspice | piment , Plastic Can, 35g",
+                "Club House Herbs & Spices, Ground Black Pepper, 115 g",
+                "Simply Ingredient Gourmet Ground Black Pepper, 454 gram (1 lb.), Bulk Black Pepper Powder Refill, Non-GMO",
+                "McCormick Gourmet Herbs & Spices, Ground Thyme, 28 g",
+                "Club House Spice Bag, Pantry Essentials Pack, Organic, 10 Count",
+                "Club House Herbs & Spices, Ground Nutmeg, 39 g",
+                "Club House Herbs & Spices, Ground Cayenne Pepper, 450 g",
+                "Club House, Quality Natural Herbs & Spices, Garlic Powder, 525g",
+                "Club House Herbs & Spices, Ground Sage, 340 g",
+                "McCormick Gourmet Herbs & Spices, Ground Cloves, 33 g",
+                "Encore Allspice: 100% Natural | Versatile Seasoning with Aromatic Profile and guilt-free indulgence in one convenient packaging - 56g (Pack of 2)",
+                "Simply Organic Ground Ceylon Cinnamon, Certified Organic - 59g Glass Bottle - Cinnamomum verum J. Presl, Spice",
+                "Club House Herbs & Spices, Ground Turmeric, 454 g",
+                "Club House Spice Bag, Ground Turmeric, Organic, 39 g",
+                "Watkins All Natural Gourmet Spice Tin, Pure Ground Black Pepper, 6 Ounce",
+                "Club House Herbs & Spices, Ground Turmeric, 102 g",
+                "Club House Herbs & Spices, Ground Marjoram, 270 g",
+                "Club House Herbs & Spices, Ground Mustard, 450 g",
+                "Club House Spice Bag, Ground Coriander, Organic, 28 g",
+                "McCormick Gourmet Herbs & Spices, Ground Ginger, 30 g",
+                "Club House, Quality Natural Herbs & Spices, Ground Cinnamon, 550g, Case Pack Count 12",
+                "Club House Spice Bag, Ground Black Pepper, Organic, 28 g",
+                "Cool Runnings Allspice Ground (Pimento) - 40g",
+                "Edi Gourmet Spice Ground Sumac 4oz/113g, Tangy Middle Eastern Spice",
+                "Splendor Garden Organic Sage Ground - 25 g",
+                "Club House Spice Bag, Ground Cinnamon, Organic, 40 g",
+                "Watkins Gourmet Organic Spice Jar, Ground Black Pepper, Non-GMO, Kosher, 80 g",
+                "Club House Herbs & Spices, Restaurant Grind Black Pepper, 500 g",
+                "McCormick Gourmet Herbs & Spices, Ground Savory, 26 g",
+                "Club House Herbs & Spices, Ground Chipotle Chili Pepper, 454 g",
+                "Club House Herbs & Spices, Ground Cloves, 500 g",
+                "Marshalls Creek Spices Rosemary Ground, 6 Ounce",
+                "Club House Herbs & Spices, Ground Nutmeg, 525 g",
+                "Marshalls Creek Mini Spices, Savory Ground",
+                "Club House Herbs & Spices, Ground Allspice, 475 g",
+                "Club House Herbs & Spices, Ground White Pepper, 600 g",
+                "Club House Herbs & Spices, Ground Cumin, 90 g",
+                "Cool Runnings Cardamom Ground - 40g",
+                "Club House Herbs & Spices, Ground Thyme, 375 g",
+                "Marshalls Creek Spices Savory Ground Freshly Packed, 5 Ounce",
+                "Club House Herbs & Spices, Ground Cumin, 425 g"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "ground spices bulk 1kg",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-replace-2026101601.json",
+              "result_entity_ids": [
+                "p_5b1d3296e967",
+                "p_0cf02e239e5f",
+                "p_4ddb350ffa03",
+                "p_755b16d60049",
+                "p_f09a00875c80",
+                "p_f5b7971eb568",
+                "p_5956c11748a2",
+                "p_47854c33229f",
+                "p_1d9252ea4dc4",
+                "p_a7e9bb21a215",
+                "p_35a6ea10400e",
+                "p_2c69850a307f",
+                "p_c510fc43d8bd",
+                "p_cead94a5fe9e",
+                "p_8ac45ac1875b",
+                "p_1e85fef8c6a8",
+                "p_8163db362080",
+                "p_b2a33c9c9666",
+                "p_0706b68218a3",
+                "p_485699f6ebd8",
+                "p_d77603bb9034",
+                "p_3dbc4178a302",
+                "p_48ef2ad8378b",
+                "p_82a7e2c73811",
+                "p_4936a4026b5b",
+                "p_4d656446d16c",
+                "p_d5642b669dc8",
+                "p_6f0a85918f9a",
+                "p_c0392375540e",
+                "p_e4f79722a3fd",
+                "p_afa1e10fa6f4",
+                "p_85c0bc1aec7a",
+                "p_e2ae697120c2",
+                "p_7038b72d51e2",
+                "p_1ce3f58640b0",
+                "p_c56001cb43f2",
+                "p_8c0cb59040df",
+                "p_47db062b6808",
+                "p_4d29ef95cafb",
+                "p_952670ea7586",
+                "p_d47e25cbf7a7",
+                "p_575c496e0913",
+                "p_09dba669e7df",
+                "p_10bcb3cb215f",
+                "p_3ee96d6c24fa",
+                "p_04b616ce0ec7",
+                "p_93b0635effea",
+                "p_eab1cc9ce2d6"
+              ],
+              "result_titles": [
+                "Yupik Ground Cinnamon Powder 1kg, Vegan, Kosher, Finely Milled Aromatic Spice for Baking, Cooking, Drinks & Savory Dishes",
+                "Kehar Garlic Powder 1kg | Premium Ground Garlic for Cooking, Seasoning, Marinades & Spice Blends | Pure Dehydrated Garlic | Fine Texture, Strong Aroma",
+                "Yupik Ground Cinnamon Powder 1kg, 6 Count, Vegan, Kosher, Finely Milled Aromatic Spice for Baking, Cooking, Drinks & Savory Dishes",
+                "Menol Spices Sweet Smoked Paprika Powder 35oz/1kg Bulk, Resealable Pouch",
+                "Menol Spices Hungarian Hot Paprika Powder 35oz/1kg Bulk, Resealable Pouch",
+                "Splendor Garden Organic Allspice Ground - 454 g",
+                "Splendor Garden organic Cinnamon Ground,454.0 Gram",
+                "24K Mexican Oregano Rubbed 1.02 kg (2.25 lb) Vegan Non-GMO Certified Dried Herb Spice from United States",
+                "Club House Spice Bag, Ground Cinnamon, Organic, 40 g",
+                "Ameen Foods Berbere Spice Blend – Bold & Spicy All-Purpose Seasoning for Meat, Stews & Vegetables – Rich, Aromatic Chili Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Baharat Spice Blend – Traditional All-Purpose Seasoning for Meat, Rice & Stews – Warm, Aromatic Mixed Spice – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Kebab Koobideh Spice – Authentic Koobideh Seasoning for Beef & Lamb – Middle Eastern Grill Spice Blend – Savory & Aromatic BBQ Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Hawaij Yemeni Spice Blend – Traditional Middle Eastern Seasoning for Coffee, Soups & Cooking – Warm Aromatic Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Kabseh Spice Blend – Traditional Middle Eastern Rice Seasoning – Aromatic Blend for Chicken, Lamb & Rice Dishes – Warm & Savory Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Xawaash Spice – Authentic Somali Spice Blend for Rice, Meat & Stews – Warm, Aromatic & Traditional Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Merguez Spice Mix – North African Sausage Seasoning for Lamb & Beef – Bold, Spicy & Aromatic BBQ Spice Blend – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Kafta Spice Blend – Middle Eastern Kofta Seasoning for Beef, Lamb & Grilling – Savory & Aromatic BBQ Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Ras El Hanout – Authentic Moroccan Spice Blend for Meat, Tagines & Cooking – Warm, Aromatic & Complex Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Fish Seasoning by Ameen Foods, 120g (4.2oz) | Savory Fish Spice Blend for Seafood, Marinades & Cooking – 1kg Pouch",
+                "Ameen Foods Afghani Karahi Masala – Authentic Afghan-Style Karahi Spice Blend for Chicken & Meat – Bold, Aromatic & Savory Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Biryani Spice Blend – Aromatic Rice Seasoning for Biryani, Meat & Poultry – Warm, Fragrant Mixed Spice – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Libyan Bazaar Spice Blend – Traditional North African Seasoning for Meat, Rice & Stews – Warm & Aromatic Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Afghan Rice Masala – Traditional Afghan Spice Blend for Kabuli Pulao & Rice Dishes – Aromatic & Savory Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Shawarma Spice – Authentic Middle Eastern Seasoning for Chicken, Beef & Wraps – Bold, Savory & Aromatic Spice Blend – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Kibbeh Spice Blend – Traditional Middle Eastern Seasoning for Kibbeh, Meat & Stuffed Dishes – Savory & Aromatic Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Afghan Qorma Masala – Traditional Afghan Curry Spice Blend for Chicken & Meat – Mild, Aromatic & Easy Cooking Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Afghan Tikka Masala – Authentic Afghan-Style Spice Blend for Chicken, BBQ & Grilled Meat – Bold, Spicy & Aromatic Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Peshawari Karahi Masala – Authentic Pakistani Karahi Spice Blend for Chicken & Meat – Bold, Spicy & Aromatic Curry Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Ash Seasoning Spice Blend – Traditional Herb & Spice Mix for Soups, Stews & Noodles – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Hamburger Spice Blend – Savory Seasoning for Burgers, Beef & Grilled Meat – Smoky, Bold BBQ Style Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Tunisian Tabil – Authentic North African Spice Blend for Meat & Stews – Bold, Warm & Aromatic Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Ouzi Spice Mix – Traditional Middle Eastern Rice & Lamb Seasoning – Aromatic & Savory Spice Blend for Rice Dishes – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Hararat Libyan Spice Blend – Bold & Spicy All-Purpose Seasoning for Meat, Stews & Rice – Warm, Aromatic Chili Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Garam Masala Spice Blend – Warm & Aromatic All-Purpose Seasoning for Curry, Meat & Vegetables – Traditional Mixed Spice – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Seekh Kebab Spice – Authentic Kebab Seasoning for Beef & Lamb – Bold, Spicy & Savory BBQ Spice Blend – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Bukhari Rice Spice Blend – Aromatic Seasoning for Rice, Chicken & Meat Dishes – Warm, Fragrant Mixed Spice – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Stew Spice Blend – Aromatic Seasoning for Meat, Stews & Slow Cooking – Warm, Floral & Tangy Spice Mix with Dried Lime & Cardamom – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Tandoori Masala – Authentic Indian Spice Blend for Chicken, BBQ & Marinades – Bold, Smoky & Aromatic Seasoning – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Shish Taouk Red Spice – Authentic Lebanese Chicken Seasoning for BBQ & Grilling – Savory, Tangy & Aromatic Marinade Spice Blend – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Chicken Shawarma Spice Blend – Authentic Seasoning for Chicken, Wraps & Grilled Meat – Warm, Savory Middle Eastern Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Shish Kebab Spice – Authentic Kebab Seasoning for Chicken, Beef & Lamb – Savory, Tangy & Aromatic BBQ Spice Blend – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Mandi Spice Blend – Traditional Middle Eastern Rice Seasoning for Chicken & Lamb – Aromatic & Savory Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Tikka Spice – Authentic Indian Seasoning for Chicken, BBQ & Marinades – Bold, Savory & Aromatic Spice Blend – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Mansaf Spice Blend – Traditional Middle Eastern Seasoning for Lamb, Rice & Yogurt Dishes – Warm & Aromatic Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Rice Spice Blend – Aromatic Seasoning for Rice, Pilaf & Cooking – Warm, Fragrant & Floral Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Ottoman Spice Mix – Traditional Middle Eastern Seasoning Blend for Meat, Rice & Cooking – Bold, Aromatic & Savory Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Chicken Kebab Spice Blend – Savory Seasoning for Chicken, Grilled Meats & Marinades – Mild, Aromatic Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch",
+                "Ameen Foods Mitmita Ethiopian Spice – Hot Chili Seasoning Blend for Meat & Traditional Dishes – Bold, Spicy & Aromatic African Spice Mix – Vegan, Non-GMO, All Natural – 1kg Pouch"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_88e708caaf1b",
+            "p_bf281b299d00",
+            "p_f6bd96887e29",
+            "p_2a63a3accdd9",
+            "p_b74cbd848bde",
+            "p_f729dc49eba7",
+            "p_3bc6885366d9",
+            "p_c168324947d8",
+            "p_0e57481b4ddf",
+            "p_a3df35a4ab31",
+            "p_ae7893e91009",
+            "p_04f96d9f118c",
+            "p_120e0c4be84e",
+            "p_53b94acb612a",
+            "p_74e674fcf910",
+            "p_b7dd73550427",
+            "p_f9f19dfa235e",
+            "p_dae83eaffa5f",
+            "p_77ae05808629",
+            "p_d4a057c3cac3",
+            "p_2851e7c6130b",
+            "p_35be02783b34",
+            "p_7c80c9bd8f9a",
+            "p_effbd87687ae",
+            "p_615958fa8d1d",
+            "p_c74413775fe9",
+            "p_175047fe22ae",
+            "p_6e1d36b48700",
+            "p_64f8068e8ade",
+            "p_e21a2506b90e",
+            "p_2b6dcebda62c",
+            "p_f6994ce3dcfa",
+            "p_1d9252ea4dc4",
+            "p_54b57a1a36d4",
+            "p_4c259a43c254",
+            "p_845a98ad088b",
+            "p_12c6c5bc3df6",
+            "p_0ac20c58bf5a",
+            "p_abd21d677af4",
+            "p_de9f0abf383c",
+            "p_ac2a61c04d39",
+            "p_553130e78435",
+            "p_4b53fb1919a4",
+            "p_5aebbc2aaa8a",
+            "p_a9116bf1c808",
+            "p_19f2fcec5064",
+            "p_9402413dd158",
+            "p_55567635abbc",
+            "p_5b1d3296e967",
+            "p_0cf02e239e5f",
+            "p_4ddb350ffa03",
+            "p_755b16d60049",
+            "p_f09a00875c80",
+            "p_f5b7971eb568",
+            "p_5956c11748a2",
+            "p_47854c33229f",
+            "p_a7e9bb21a215",
+            "p_35a6ea10400e",
+            "p_2c69850a307f",
+            "p_c510fc43d8bd",
+            "p_cead94a5fe9e",
+            "p_8ac45ac1875b",
+            "p_1e85fef8c6a8",
+            "p_8163db362080",
+            "p_b2a33c9c9666",
+            "p_0706b68218a3",
+            "p_485699f6ebd8",
+            "p_d77603bb9034",
+            "p_3dbc4178a302",
+            "p_48ef2ad8378b",
+            "p_82a7e2c73811",
+            "p_4936a4026b5b",
+            "p_4d656446d16c",
+            "p_d5642b669dc8",
+            "p_6f0a85918f9a",
+            "p_c0392375540e",
+            "p_e4f79722a3fd",
+            "p_afa1e10fa6f4",
+            "p_85c0bc1aec7a",
+            "p_e2ae697120c2",
+            "p_7038b72d51e2",
+            "p_1ce3f58640b0",
+            "p_c56001cb43f2",
+            "p_8c0cb59040df",
+            "p_47db062b6808",
+            "p_4d29ef95cafb",
+            "p_952670ea7586",
+            "p_d47e25cbf7a7",
+            "p_575c496e0913",
+            "p_09dba669e7df",
+            "p_10bcb3cb215f",
+            "p_3ee96d6c24fa",
+            "p_04b616ce0ec7",
+            "p_93b0635effea",
+            "p_eab1cc9ce2d6"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_b74cbd848bde",
+            "p_4ddb350ffa03",
+            "p_755b16d60049",
+            "p_a7e9bb21a215"
+          ],
+          "related_entity_ids": [
+            "p_88e708caaf1b",
+            "p_bf281b299d00",
+            "p_f6bd96887e29",
+            "p_2a63a3accdd9",
+            "p_f729dc49eba7",
+            "p_3bc6885366d9",
+            "p_c168324947d8",
+            "p_0e57481b4ddf",
+            "p_a3df35a4ab31",
+            "p_ae7893e91009",
+            "p_04f96d9f118c",
+            "p_120e0c4be84e"
+          ],
+          "ambient_entity_ids": [
+            "p_53b94acb612a",
+            "p_74e674fcf910",
+            "p_b7dd73550427",
+            "p_f9f19dfa235e",
+            "p_dae83eaffa5f",
+            "p_77ae05808629",
+            "p_d4a057c3cac3",
+            "p_2851e7c6130b",
+            "p_35be02783b34",
+            "p_7c80c9bd8f9a",
+            "p_effbd87687ae",
+            "p_615958fa8d1d",
+            "p_c74413775fe9",
+            "p_175047fe22ae",
+            "p_6e1d36b48700",
+            "p_64f8068e8ade",
+            "p_e21a2506b90e",
+            "p_2b6dcebda62c",
+            "p_f6994ce3dcfa",
+            "p_1d9252ea4dc4",
+            "p_54b57a1a36d4",
+            "p_4c259a43c254",
+            "p_845a98ad088b",
+            "p_12c6c5bc3df6",
+            "p_0ac20c58bf5a",
+            "p_abd21d677af4",
+            "p_de9f0abf383c",
+            "p_ac2a61c04d39",
+            "p_553130e78435",
+            "p_4b53fb1919a4",
+            "p_5aebbc2aaa8a",
+            "p_a9116bf1c808",
+            "p_19f2fcec5064",
+            "p_9402413dd158",
+            "p_55567635abbc",
+            "p_0cf02e239e5f",
+            "p_f09a00875c80",
+            "p_f5b7971eb568",
+            "p_5956c11748a2",
+            "p_47854c33229f",
+            "p_35a6ea10400e",
+            "p_2c69850a307f",
+            "p_c510fc43d8bd",
+            "p_cead94a5fe9e",
+            "p_8ac45ac1875b",
+            "p_1e85fef8c6a8",
+            "p_8163db362080",
+            "p_b2a33c9c9666",
+            "p_0706b68218a3",
+            "p_485699f6ebd8",
+            "p_d77603bb9034",
+            "p_3dbc4178a302",
+            "p_48ef2ad8378b",
+            "p_82a7e2c73811",
+            "p_4936a4026b5b",
+            "p_4d656446d16c",
+            "p_d5642b669dc8",
+            "p_6f0a85918f9a",
+            "p_c0392375540e",
+            "p_e4f79722a3fd",
+            "p_afa1e10fa6f4",
+            "p_85c0bc1aec7a",
+            "p_e2ae697120c2",
+            "p_7038b72d51e2",
+            "p_1ce3f58640b0",
+            "p_c56001cb43f2",
+            "p_8c0cb59040df",
+            "p_47db062b6808",
+            "p_4d29ef95cafb",
+            "p_952670ea7586",
+            "p_d47e25cbf7a7",
+            "p_575c496e0913",
+            "p_09dba669e7df",
+            "p_10bcb3cb215f",
+            "p_3ee96d6c24fa",
+            "p_04b616ce0ec7",
+            "p_93b0635effea",
+            "p_eab1cc9ce2d6"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_88e708caaf1b",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_bf281b299d00",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_f6bd96887e29",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_2a63a3accdd9",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_b74cbd848bde",
+              "ring": "core",
+              "reason": "This is an initially valid 42g jar of ground cinnamon, not the requested 1kg refill bag.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "wrong_variant_or_branch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_f729dc49eba7",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_3bc6885366d9",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_c168324947d8",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_0e57481b4ddf",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_a3df35a4ab31",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_ae7893e91009",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_04f96d9f118c",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_120e0c4be84e",
+              "ring": "related",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_53b94acb612a",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_74e674fcf910",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_b7dd73550427",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_f9f19dfa235e",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_dae83eaffa5f",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_77ae05808629",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_d4a057c3cac3",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_2851e7c6130b",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_35be02783b34",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_7c80c9bd8f9a",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_effbd87687ae",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_615958fa8d1d",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_c74413775fe9",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_175047fe22ae",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_6e1d36b48700",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_64f8068e8ade",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_e21a2506b90e",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_2b6dcebda62c",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_f6994ce3dcfa",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_1d9252ea4dc4",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_54b57a1a36d4",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_4c259a43c254",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_845a98ad088b",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_12c6c5bc3df6",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_0ac20c58bf5a",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_abd21d677af4",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_de9f0abf383c",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_ac2a61c04d39",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_553130e78435",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_4b53fb1919a4",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_5aebbc2aaa8a",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_a9116bf1c808",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_19f2fcec5064",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_9402413dd158",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_55567635abbc",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_0cf02e239e5f",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_4ddb350ffa03",
+              "ring": "core",
+              "reason": "The listing contains six 1kg bags of the same ground spice, not one refill package.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "wrong_variant_or_branch",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_755b16d60049",
+              "ring": "core",
+              "reason": "The public package is 1kg smoked paprika powder, not the Ground Cinnamon label on the source jar.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "wrong_object_same_method",
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_f09a00875c80",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_f5b7971eb568",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_5956c11748a2",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_47854c33229f",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_a7e9bb21a215",
+              "ring": "core",
+              "reason": "The listing is a 1kg Berbere spice blend; the user wants the same individual ground spice, not a blend.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "wrong_method_same_object",
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_35a6ea10400e",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_2c69850a307f",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_c510fc43d8bd",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_cead94a5fe9e",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_8ac45ac1875b",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_1e85fef8c6a8",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_8163db362080",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_b2a33c9c9666",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_0706b68218a3",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_485699f6ebd8",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_d77603bb9034",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_3dbc4178a302",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_48ef2ad8378b",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_82a7e2c73811",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_4936a4026b5b",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_4d656446d16c",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_d5642b669dc8",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_6f0a85918f9a",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_c0392375540e",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_e4f79722a3fd",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_afa1e10fa6f4",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_85c0bc1aec7a",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_e2ae697120c2",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_7038b72d51e2",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_1ce3f58640b0",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_c56001cb43f2",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_8c0cb59040df",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_47db062b6808",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_4d29ef95cafb",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_952670ea7586",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_d47e25cbf7a7",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_575c496e0913",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_09dba669e7df",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_10bcb3cb215f",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_3ee96d6c24fa",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_04b616ce0ec7",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_93b0635effea",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            },
+            {
+              "entity_id": "p_eab1cc9ce2d6",
+              "ring": "ambient",
+              "reason": "This public listing is not a single 1kg refill bag of the identified ground cinnamon.",
+              "why_plausible": "A genuine pantry-spice or bulk-refill result sharing the activity, form or package requirement.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "constructor_repair_pending_independent_review",
+              "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json"
+            }
+          ],
+          "semantic_review": {
+            "status": "constructor_repair_pending_independent_review",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/answer_closure_reviews/candidate-mart-graft-replace-2026101601.json",
+            "required_checks": [
+              "scene_update_website_consistency",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "stream": {
+        "session_seconds": [
+          504.0,
+          565.0
+        ],
+        "update_onset_seconds": 520.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-replace-2026101601/review.json",
+        "wearer_max_image_edge": 1536
+      },
+      "repair_history": [
+        {
+          "repair_id": "stream-window-shift-20261104",
+          "date": "2026-11-04",
+          "reason": "Request a named 'the jar I open at the end', a forward reference under fixed-step replay: the cinnamon jar first appeared in step 5, the same batch that delivered the replacement. The session now starts at 504 s so the opening batch shows the jar taken from the cupboard (505-507 s), opened (509 s) and its Ground Cinnamon label (510.2 s); request a says 'the jar I just opened'; the follow-up moves to 520 s (step 2, plain stirring). V0 keeps eight frames inside 505-515 s, reusing the four original event timestamps.",
+          "review_reference": ".scratch/stream-materials/repairs/candidate-mart-graft-replace-2026101601/boundary-proposal.json",
+          "evidence": [
+            ".scratch/stream-materials/repairs/candidate-mart-graft-replace-2026101601/boundary-proposal.json",
+            "data/observations/candidate-mart-graft-replace-2026101601/stream-20261104/",
+            ".scratch/stream-materials/apply/t1/sheet_504_519.jpg"
+          ],
+          "frame_extraction": {
+            "tool": "tools/build/extract_video_evidence.py",
+            "jpeg_qscale": 2
+          },
+          "retained": "Answer sets, catalog_resolution, request b and the decision candidates are unchanged. Earlier frames under data/observations/candidate-mart-graft-replace-2026101601/V0_*.jpg stay for historical run snapshots.",
+          "pending": "The new window (start_fits at 504 s, leak_before_onset over 504-519 s, onset 520 s) has no sealed window review yet, so stream.review_evidence is omitted; the 468-565 s review stays in previous_stream.",
+          "previous_packets": [
+            {
+              "id": "V0",
+              "timestamps_seconds": [
+                468,
+                472,
+                476,
+                484,
+                507,
+                510.2,
+                512,
+                515
+              ],
+              "frame_paths": [
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_00.jpg",
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_01.jpg",
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_02.jpg",
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_03.jpg",
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_04.jpg",
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_05.jpg",
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_06.jpg",
+                "data/observations/candidate-mart-graft-replace-2026101601/V0_07.jpg"
+              ]
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "The late orange-label jar reads Ground Cinnamon at V0:5; surrounding frames establish it is the jar opened at the end of this cooking interval.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3",
+                "V0:4",
+                "V0:5",
+                "V0:6",
+                "V0:7"
+              ]
+            }
+          ],
+          "previous_visual_dependency_claim": "The instructions never name cinnamon. V0:5 reads Ground Cinnamon; the website proves package type and net amount.",
+          "previous_instructions": {
+            "a": "I need to restock the ground spice from the jar I open at the end. Add one single jar of up to 100g; any brand is fine.",
+            "b": "I go through it regularly, and I have empty jars I can refill. Replace that jar with one 1kg refill bag of the same ground spice.",
+            "bundled": "I need to restock the ground spice from the jar I open at the end. Add one single jar of up to 100g; any brand is fine. Then my plan changes: I go through it regularly, and I have empty jars I can refill. Replace that jar with one 1kg refill bag of the same ground spice."
+          },
+          "previous_stream": {
+            "session_seconds": [
+              468.0,
+              565.0
+            ],
+            "update_onset_seconds": 510.0,
+            "review_evidence": ".scratch/stream-materials/review/candidate-mart-graft-replace-2026101601/review.json"
+          }
+        },
+        {
+          "date": "2026-11-16",
+          "scope": "rendering_only",
+          "previous_stream": {
+            "session_seconds": [
+              504.0,
+              565.0
+            ],
+            "update_onset_seconds": 520.0,
+            "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-replace-2026101601/review.json"
+          },
+          "changes": {
+            "wearer_max_image_edge": 1536
+          },
+          "reason": "Preserve all source frames, timestamps, release times, requests and goals. Apply the tested rendering setting uniformly across models and affected conditions.",
+          "review_evidence": "artifacts/reports/source-review-evidence/render-diagnostics-20261116.json",
+          "native_trial": {
+            "study": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-150751-231971_任务诊断_图片负载_kimi-k2.6",
+            "run_id": "20261116-152340-275790-f571cb58",
+            "archive": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-150751-231971_任务诊断_图片负载_kimi-k2.6/runs/20261116-152340-275790-f571cb58",
+            "purpose": "task_validation"
+          }
+        }
+      ]
+    }
+  ]
+}

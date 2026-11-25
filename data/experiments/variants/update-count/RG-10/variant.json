@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "pair_id": "RG-10",
+  "id": "RG-10-update-count",
+  "source_task_path": "data/experiments/composite/RG-10.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 21.0,
+      "request": "Keep the video under ten minutes."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 39.0
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 57.0,
+      "request": "Keep the video under five minutes; I want to try it at the bench."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_31995b4c778e"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_e7ce24be5453"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "21秒早于39秒Refresh，仍是原已审核开场的手提圆锯/板材。889秒How to use a circular saw like a pro与130秒圆锯直切教程均为原已审早期可行解；10分钟限制排除889秒并保留130秒，不借用未来砂光机事实。",
+    "public_facts": [
+      {
+        "entity_id": "m_31995b4c778e",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 889
+      },
+      {
+        "entity_id": "m_e7ce24be5453",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 130
+      },
+      {
+        "entity_id": "m_31995b4c778e",
+        "path": [
+          "title"
+        ],
+        "equals": "How to use a circular saw like a pro, the ultimate guide."
+      },
+      {
+        "entity_id": "m_e7ce24be5453",
+        "path": [
+          "title"
+        ],
+        "equals": "How to Make Straight Cuts with a Circular Saw | House One"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_31995b4c778e",
+        "retained_state": "m_e7ce24be5453"
+      },
+      "operator": "<",
+      "value": 600
+    },
+    "original_request_effect": "39秒改成带式砂机后，565秒m_687f36f4e6d0仍<10分钟，57秒原<5分钟再排除它。若新增G放45秒并用<8分钟，原G将冗余，故不采用。"
+  }
+}

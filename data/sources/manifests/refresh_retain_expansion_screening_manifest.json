@@ -1,0 +1,2051 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Ego2Web source videos are retained locally for research screening under the upstream dataset terms. These mined rows are not release tasks; frame redistribution and product-asset licensing must be reviewed before any public benchmark release."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-refresh-retain-ego2web-05",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          255
+        ],
+        "media_id": "560391d9-4264-42f5-a4c7-6a4744999d6d",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On amazon.com, open the product page for the second book that the person wipes and then places on the shelf in the video. Use what’s visible on its cover to identify the correct edition."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              50,
+              56
+            ],
+            "role": "A",
+            "description": "A yellow-and-red-covered book is held and wiped close to the camera."
+          },
+          {
+            "interval_seconds": [
+              60,
+              66
+            ],
+            "role": "later_distractor",
+            "description": "A physically different red-and-white-covered book is then handled and wiped."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the first yellow-and-red-covered book wiped in the selected sequence",
+        "proposed_later_state": "a later red-and-white-covered book",
+        "proposed_instruction": "Find the first book I wipe in this sequence. Add one visually matching book to the cart and submit it; do not switch to a later book.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/a46757f2656814f956e23f27e2b638216b6f7b4062ab019785a69021bda98d72.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            50,
+            52,
+            54,
+            56
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-05/V0_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-05/V0_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-05/V0_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-05/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            60,
+            62,
+            64,
+            66
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-05/V1_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-05/V1_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-05/V1_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-05/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a yellow-and-red-covered book being handled and wiped first.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a physically different red-and-white-covered book; it does not change which book was first.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "V0 mainly exposes the back and edge of a yellow-and-red book and does not reveal a stable title or edition. The closest frozen-site book image has a materially different front cover, so the requested first book cannot be linked to one honest and unique website entity.",
+      "construct": {},
+      "blocking_checks": [
+        "exact_entity_unlinkable"
+      ],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "code": "exact_entity_unlinkable",
+          "reason": "V0 mainly exposes the back and edge of a yellow-and-red book and does not reveal a stable title or edition. The closest frozen-site book image has a materially different front cover, so the requested first book cannot be linked to one honest and unique website entity.",
+          "repair": "Rebind using preserved frozen-site entities from historical preaudit/smoke."
+        }
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "unreviewed_after_repair",
+        "code": "exact_entity_unlinkable",
+        "reason": "V0 mainly exposes the back and edge of a yellow-and-red book and does not reveal a stable title or edition. The closest frozen-site book image has a materially different front cover, so the requested first book cannot be linked to one honest and unique website entity."
+      }
+    },
+    {
+      "task_id": "candidate-refresh-retain-ego2web-06",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          304,
+          305
+        ],
+        "media_id": "bd2a9fd1-7d4b-49ee-b3bf-4e7db9a805f2",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On amazon.com, open the product page for the first textbook the person flips through in the video and verify you have the correct listing by matching what’s on the cover. Then note the edition number shown on the listing.",
+          "Using amazon.com and ebay.com, find the lowest Buy It Now price for the same edition of the third textbook shown in the video. Provide the two product links (one from each site) and the prices."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              25,
+              30
+            ],
+            "role": "A",
+            "description": "A gray-and-white textbook is held, opened and wiped."
+          },
+          {
+            "interval_seconds": [
+              90,
+              96
+            ],
+            "role": "later_distractor",
+            "description": "A physically different yellow Calculus textbook is later held and wiped."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the first gray-and-white textbook examined",
+        "proposed_later_state": "a later yellow Calculus textbook",
+        "proposed_instruction": "Find the first textbook I examine in this sequence. Add one matching edition to the cart and submit it; do not switch to a later textbook.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/c6e0d40a3e32cac6d9bfa81a8a91fccdc9eed1a4a0437805e2d2835636ea602f.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            25,
+            26.666667,
+            28.333333,
+            30
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-06/V0_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-06/V0_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-06/V0_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-06/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            90,
+            92,
+            94,
+            96
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-06/V1_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-06/V1_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-06/V1_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-06/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a gray-and-white textbook being examined first.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a visibly different yellow Calculus textbook; it does not change which textbook was first.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "The first textbook is visibly distinct from the later yellow Calculus book, but neither of the frozen-site engineering-textbook images matches the first cover shown in V0. A title or edition cannot be recovered reliably from the released pixels, so there is no honest unique website target.",
+      "construct": {},
+      "blocking_checks": [
+        "exact_entity_unlinkable"
+      ],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "code": "exact_entity_unlinkable",
+          "reason": "The first textbook is visibly distinct from the later yellow Calculus book, but neither of the frozen-site engineering-textbook images matches the first cover shown in V0. A title or edition cannot be recovered reliably from the released pixels, so there is no honest unique website target.",
+          "repair": "Rebind using preserved frozen-site entities from historical preaudit/smoke."
+        }
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "unreviewed_after_repair",
+        "code": "exact_entity_unlinkable",
+        "reason": "The first textbook is visibly distinct from the later yellow Calculus book, but neither of the frozen-site engineering-textbook images matches the first cover shown in V0. A title or edition cannot be recovered reliably from the released pixels, so there is no honest unique website target."
+      }
+    },
+    {
+      "task_id": "candidate-refresh-retain-ego2web-07",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          9
+        ],
+        "media_id": "6679f532-82cd-4a17-82b4-fe11d925901c",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "Please look up on Wikipedia the growing conditions of the second plant that the person cuts in the video."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              70,
+              76
+            ],
+            "role": "A",
+            "description": "The wearer chops a pale clove-like ingredient on the board."
+          },
+          {
+            "interval_seconds": [
+              88,
+              94
+            ],
+            "role": "later_distractor",
+            "description": "The wearer later cuts a green pepper on the same board."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the pale chopped ingredient handled before the green pepper",
+        "proposed_later_state": "a green pepper cut later",
+        "proposed_instruction": "Find the first ingredient I cut in this sequence, before the green pepper. Add one matching grocery product to the cart and submit it; keep the first ingredient as the target.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/b43b2dc5f98fc598c1fd4bef5aab93c53a0d23d74c4cda9415eefa98b9c348f0.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            70,
+            72,
+            74,
+            76
+          ],
+          "frame_paths": [
+            "not_retained:8cbf51771dadfcdb",
+            "not_retained:9208a54469d957af",
+            "not_retained:d1f8a976e38cf6ad",
+            "not_retained:966c7cebbdf6ade8"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            88,
+            90,
+            92,
+            94
+          ],
+          "frame_paths": [
+            "not_retained:c6889559ef81d7a2",
+            "not_retained:31f1d54786af8d02",
+            "not_retained:eb344e4b5fb8f84b",
+            "not_retained:82b3cd928303db09"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a pale clove-like ingredient being cut before the later green pepper.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a green pepper being cut on the same board; the later ingredient does not replace the one requested first.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_code": "exact_entity_unlinkable",
+      "rejection_reason": "V0 clearly shows a pale diced ingredient before the later green pepper, but neither the exact frames nor the source annotation determine whether the first ingredient is garlic, mushroom, eggplant, or another pale produce item. The temporal role is visible, but it cannot be mapped to one auditable grocery product, so the checker target would be constructor-defined rather than evidence-defined.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "candidate-refresh-retain-ego2web-08",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          327,
+          328
+        ],
+        "media_id": "35ed5550-fc12-410d-b8a1-efa353778603",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "Go to wikipedia.org and open the article for the ingredient that is added to the mixture between 01:00 and 01:10 in the video. Ensure the article describes it as a common leavening agent used in baking.",
+          "On amazon.com, find a grocery product page for the same ingredient that is first opened in the video. Choose a single-unit listing eligible for Prime shipping and open its product page."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              42,
+              51
+            ],
+            "role": "A",
+            "description": "A blue ingredient packet is held and opened at the counter."
+          },
+          {
+            "interval_seconds": [
+              66,
+              73
+            ],
+            "role": "later_distractor",
+            "description": "A physically different yellow packet is later held and opened."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the blue ingredient packet opened first",
+        "proposed_later_state": "a yellow ingredient packet opened later",
+        "proposed_instruction": "Find the ingredient packet I open first in this sequence. Add one matching single-unit product to the cart and submit it; do not switch to the later yellow packet.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/9100cc71fe78ba029526ae930ef0e15a0973453b38fe00aa3ccd7da3d6e4cdf3.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            42,
+            45,
+            48,
+            51
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-08/V0_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-08/V0_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-08/V0_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-08/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            66,
+            68.333333,
+            70.666667,
+            73
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-08/V1_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-08/V1_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-08/V1_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-08/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a blue ingredient packet being held and opened first.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a physically different yellow ingredient packet; it does not change which packet was opened first.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "The video supports the temporal order of a blue packet followed by a yellow packet, but the frozen site has no product image that honestly matches the first blue packet. The available blue baking-powder listings and later yellow corn-flour packet do not establish a unique source-to-site identity from pixels alone.",
+      "construct": {},
+      "blocking_checks": [
+        "exact_entity_unlinkable"
+      ],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "code": "exact_entity_unlinkable",
+          "reason": "The video supports the temporal order of a blue packet followed by a yellow packet, but the frozen site has no product image that honestly matches the first blue packet. The available blue baking-powder listings and later yellow corn-flour packet do not establish a unique source-to-site identity from pixels alone.",
+          "repair": "Rebind using preserved frozen-site entities from historical preaudit/smoke."
+        }
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "unreviewed_after_repair",
+        "code": "exact_entity_unlinkable",
+        "reason": "The video supports the temporal order of a blue packet followed by a yellow packet, but the frozen site has no product image that honestly matches the first blue packet. The available blue baking-powder listings and later yellow corn-flour packet do not establish a unique source-to-site identity from pixels alone."
+      }
+    },
+    {
+      "task_id": "candidate-refresh-retain-ego2web-09",
+      "status": "rejected",
+      "rejection_code": "environment_mismatch",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          431,
+          432
+        ],
+        "media_id": "9fb060a7-6594-404f-aef5-db713b15ae22",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On imdb.com, open the title page for the film whose poster is being measured at the very start of the video and report its original release year as listed on IMDb.",
+          "On ikea.com, select a floating wall shelf whose length most closely matches (but does not exceed) the horizontal span being measured on the white wall. Provide the product link and the shelf length."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              0,
+              4
+            ],
+            "role": "A",
+            "description": "The Casablanca poster is visible close-up while its width is measured."
+          },
+          {
+            "interval_seconds": [
+              34,
+              46
+            ],
+            "role": "target_absent",
+            "description": "The wearer measures an empty wall; the poster is no longer visible."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the Casablanca poster measured at the start",
+        "proposed_later_state": "an empty wall being measured after the poster leaves view",
+        "proposed_instruction": "Find the film shown on the poster measured at the start, save its media record, and report its release year; keep that film as the target after the poster leaves view.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/e30d4455fac1f3465f0ed1e858a627842fb58b65eb365603095a36991c16f0b3.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            1.333333,
+            2.666667,
+            4
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-09/V0_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-09/V0_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-09/V0_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-09/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-09/V1_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-09/V1_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-09/V1_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-09/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 clearly shows a Casablanca poster being measured at the start.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows the wall being measured after the poster has left view; absence does not revoke the initial poster target.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "The source task is an IMDb fact lookup, which does not require the interactive media-selection workflow measured by EgoMedia.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "candidate-refresh-retain-ego2web-10",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          297,
+          298
+        ],
+        "media_id": "01654874-78c9-4475-83d1-40db0b0db0c2",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, find a video where the same handheld power tool model used in the video is used to remove lug nuts on a car of the same make, and where the creator states the lug nut torque specification. Open the video and report the stated torque value.",
+          "On Amazon, locate a front brake rotor product whose fitment explicitly includes the same vehicle make as in the video. Choose a listing where product images show a rotor with the same wheel stud hole count as on the vehicle in the video. Open the product page and provide its title and ASIN."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              10,
+              16
+            ],
+            "role": "A",
+            "description": "A green handheld impact wrench is used on the wheel lug nuts."
+          },
+          {
+            "interval_seconds": [
+              112,
+              121
+            ],
+            "role": "target_absent_with_distractor",
+            "description": "The wheel and tire dominate the later view after the impact wrench has left the active scene."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the green impact wrench used first",
+        "proposed_later_state": "the wheel and tire handled later after the tool leaves view",
+        "proposed_instruction": "Find the green power tool I use first on the wheel. Add one visually matching impact wrench to the cart and submit it; keep that tool as the target when the later wheel view arrives.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/1067e76a570f638f7f746fc6d63ade6581a1e26a9214e156020146a7379b5e37.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            10,
+            12,
+            14,
+            16
+          ],
+          "frame_paths": [
+            "not_retained:bcc5f91d5bcccd2e",
+            "not_retained:a6b917efe5da6852",
+            "not_retained:e2edb1aab3c8dfb6",
+            "not_retained:f5061d020bbdd5e4"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            112,
+            115,
+            118,
+            121
+          ],
+          "frame_paths": [
+            "not_retained:5bcea368da09a109",
+            "not_retained:44717f82d107544b",
+            "not_retained:9065d0b6b158e2f2",
+            "not_retained:cb005b1594f7487c"
+          ]
+        }
+      ],
+      "rejection_code": "event_not_visible",
+      "rejection_reason": "Dense review of 10-16 s shows a socket set and a manual socket at the wheel, not the green impact wrench asserted by the source annotation. The decisive target is absent from the released packet, so changing timestamps cannot make this construct valid.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "candidate-refresh-retain-ego2web-11",
+      "status": "rejected",
+      "rejection_code": "behavior_change_not_required",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          318,
+          317
+        ],
+        "media_id": "df060e0b-bd32-4e38-939f-f15919b836ae",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Amazon, open a product page for a long wooden cooking utensil (set or single) explicitly marketed for deep frying or hot oil tasks, suitable for use with a countertop fryer like in the video.",
+          "On YouTube, find and open a dipping-sauce recipe video that uses the same bottled ingredient portioned in the clip near the middle of the video, and ensure it appears as ingredients in the video or description."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              65,
+              68
+            ],
+            "role": "A",
+            "description": "A long wooden slotted cooking utensil is used over the countertop fryer."
+          },
+          {
+            "interval_seconds": [
+              79,
+              82
+            ],
+            "role": "target_absent_with_distractor",
+            "description": "The utensil is no longer active while the wearer reaches for and handles a red-capped bottled ingredient."
+          }
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the long wooden slotted utensil used over the fryer",
+        "proposed_later_state": "a red-capped bottled ingredient handled after the utensil leaves view",
+        "proposed_instruction": "Find the long wooden slotted utensil I use over the fryer before reaching for the bottle. Add one matching cooking utensil to the cart and submit it; keep the utensil as the target when the later bottle view arrives.",
+        "preliminary_contact_sheet": "artifacts/screening/source-evidence/a15938da4cfc3626ddd887b5ff13549fb017a08f5252dbabd4bcbf90487001d1.jpg"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            65,
+            66,
+            67,
+            68
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-11/V0_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-11/V0_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-11/V0_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-11/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            79,
+            80,
+            81,
+            82
+          ],
+          "frame_paths": [
+            "data/observations/candidate-refresh-retain-ego2web-11/V1_00.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-11/V1_01.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-11/V1_02.jpg",
+            "data/observations/candidate-refresh-retain-ego2web-11/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows a long wooden slotted cooking utensil being used over the fryer.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 later shows a red-capped bottle while the wooden utensil is no longer the active object; this does not change which utensil was requested.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "rejection_reason": "V1 changes from a wooden utensil to an unrelated bottle. Because the two objects are from different categories and the instruction already names the utensil, the later packet creates no plausible target revision and does not test retention; one starting image measures the same web decision.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "candidate-mart-refresh-retain-03",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          117
+        ],
+        "media_id": "ab8570ba-6c88-45b2-9fb5-03f6cd149a78",
+        "media_start_seconds": 0,
+        "media_sha256": "c720fb9bd3b231abe4460b0048fc3dd790812f46fad71051fc4fde054743f0b8",
+        "original_video_id": "ab8570ba-6c88-45b2-9fb5-03f6cd149a78",
+        "annotations_revision": "sha256:ef19b7609ea3a6dbbf82fdaacb6b9463a99ebc934b8ad14fa3a53fc870d962ec",
+        "original_annotations": [
+          "On amazon.com, open the product page for the exact diver-themed book shown in the video and report its current star rating and the total number of ratings. [18, 21]"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              17.8,
+              18.37
+            ],
+            "role": "picked_book_unreadable",
+            "description": "The wearer reaches into a pile of books and lifts a blue book, but the front-cover title is not yet readable."
+          },
+          {
+            "interval_seconds": [
+              19.239,
+              20.283
+            ],
+            "role": "picked_book_identified",
+            "description": "The same book is held close enough for the title Shadow Divers and author Robert Kurson to be read."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            17.8,
+            18,
+            18.196,
+            18.37
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-retain-03/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-retain-03/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-retain-03/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-retain-03/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            19.239,
+            19.587,
+            19.935,
+            20.283
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-retain-03/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-retain-03/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-retain-03/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-retain-03/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows one blue book being selected from a pile, while its front-cover title remains unavailable.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 preserves the same physical book and reveals the readable title Shadow Divers and author Robert Kurson.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent preserve the book selected in V0 while using the later cover close-up to resolve its exact listing?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "belief_before": "The target is the blue diver-themed book being lifted, but its exact title is unresolved.",
+        "belief_after": "The same physical book is identified as Shadow Divers by Robert Kurson.",
+        "required_behavior_change": "Retain the selected physical book and refine its identity when the readable cover arrives.",
+        "no_update_failure": "The Agent commits to a merely similar blue diving book before the title is revealed.",
+        "overupdate_failure": "The Agent replaces the selected book with a different underwater title after V1.",
+        "visual_dependency_claim": "V0 establishes which book in the pile is meant, while V1 alone makes its exact title and author readable; neither packet is sufficient by itself.",
+        "evidence_type": "spec_reveal",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "instruction": "Add the blue book I pick up from the pile.",
+          "initial_target_role": "selected_shadow_divers",
+          "later_distractor_role": "similar_blue_underwater_book",
+          "final_target_role": "selected_shadow_divers",
+          "catalog_role_stages": {
+            "selected_shadow_divers": "after_change",
+            "similar_blue_underwater_book": "after_change"
+          },
+          "environment_role_ids": {
+            "selected_shadow_divers": "p_5434416b6ba2",
+            "similar_blue_underwater_book": "p_ada4a6dece17"
+          },
+          "target_granularity": "variant",
+          "site": "egomart"
+        },
+        "decision_point_provenance": "continuous_interval_review_20260823",
+        "decision": {
+          "candidates": {
+            "selected_shadow_divers": "p_5434416b6ba2",
+            "similar_blue_underwater_book": "p_ada4a6dece17"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "selected_shadow_divers",
+                "similar_blue_underwater_book"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "selected_shadow_divers",
+                "similar_blue_underwater_book"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "selected_shadow_divers",
+                "similar_blue_underwater_book"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "selected_shadow_divers",
+                "similar_blue_underwater_book"
+              ]
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "selected_shadow_divers"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The front cover is now readable as Shadow Divers by Robert Kurson, excluding the similarly colored underwater book."
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "selected_shadow_divers"
+              ]
+            },
+            {
+              "frame": "V1:2",
+              "live": [
+                "selected_shadow_divers"
+              ]
+            },
+            {
+              "frame": "V1:3",
+              "live": [
+                "selected_shadow_divers"
+              ]
+            }
+          ],
+          "established_by": "codex-gpt-5",
+          "established_at": "2026-08-23"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "blue nonfiction book",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-03.json",
+              "result_entity_ids": [
+                "p_d35dc4ebd371",
+                "p_c08a44122ad6",
+                "p_5542589dae1e",
+                "p_0212b9b2b2e9",
+                "p_32800476a10f",
+                "p_7b0f13390d52",
+                "p_a6afe47e1ddf",
+                "p_89c2a4294bfd",
+                "p_21df3c0809d0",
+                "p_2abbff057391",
+                "p_95e0e03c28d5",
+                "p_02a161aeb57c",
+                "p_624eae8ba06c",
+                "p_8b69d97844e4",
+                "p_b1e0f6a614eb",
+                "p_6ae239973070",
+                "p_19a6b10d902d",
+                "p_844bce953e65",
+                "p_efd675bf7143",
+                "p_0e72716ac176",
+                "p_79d9a73026c2",
+                "p_2d7e23978f32",
+                "p_ac6e1084376f",
+                "p_edd6b4813bb9",
+                "p_2b5afcc823e3",
+                "p_ab93a88bfcb7",
+                "p_b36dc293aa08",
+                "p_81c90abcde1b",
+                "p_a6568ee2d78c",
+                "p_fb7d2833d8e2",
+                "p_f8c76b3e4167",
+                "p_6be9f53b87f4",
+                "p_9e5e0049eaad",
+                "p_cb3f141cdbbc",
+                "p_e9a730496808",
+                "p_13496dc3f75e",
+                "p_d6556b7fa8c2",
+                "p_69147e82ab72",
+                "p_cff290d84c2f",
+                "p_db82a4450f22",
+                "p_dcbe1368dd76",
+                "p_eb32037fe42f",
+                "p_04ffa49d10ee",
+                "p_df8606ab028e",
+                "p_885585396a97",
+                "p_3c3ad1a8897d",
+                "p_2a9c4d609c7b",
+                "p_f3c2bbb2c582"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "Shadow Divers Robert Kurson book",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-03.json",
+              "result_entity_ids": [
+                "p_5434416b6ba2",
+                "p_15470db0576b",
+                "p_19c3e5543635",
+                "p_ada4a6dece17",
+                "p_0fda10c75dca",
+                "p_4f069ea24723",
+                "p_582573600027"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_d35dc4ebd371",
+            "p_c08a44122ad6",
+            "p_5542589dae1e",
+            "p_0212b9b2b2e9",
+            "p_32800476a10f",
+            "p_7b0f13390d52",
+            "p_a6afe47e1ddf",
+            "p_89c2a4294bfd",
+            "p_21df3c0809d0",
+            "p_2abbff057391",
+            "p_95e0e03c28d5",
+            "p_02a161aeb57c",
+            "p_624eae8ba06c",
+            "p_8b69d97844e4",
+            "p_b1e0f6a614eb",
+            "p_6ae239973070",
+            "p_19a6b10d902d",
+            "p_844bce953e65",
+            "p_efd675bf7143",
+            "p_0e72716ac176",
+            "p_79d9a73026c2",
+            "p_2d7e23978f32",
+            "p_ac6e1084376f",
+            "p_edd6b4813bb9",
+            "p_2b5afcc823e3",
+            "p_ab93a88bfcb7",
+            "p_b36dc293aa08",
+            "p_81c90abcde1b",
+            "p_a6568ee2d78c",
+            "p_fb7d2833d8e2",
+            "p_f8c76b3e4167",
+            "p_6be9f53b87f4",
+            "p_9e5e0049eaad",
+            "p_cb3f141cdbbc",
+            "p_e9a730496808",
+            "p_13496dc3f75e",
+            "p_d6556b7fa8c2",
+            "p_69147e82ab72",
+            "p_cff290d84c2f",
+            "p_db82a4450f22",
+            "p_dcbe1368dd76",
+            "p_eb32037fe42f",
+            "p_04ffa49d10ee",
+            "p_df8606ab028e",
+            "p_885585396a97",
+            "p_3c3ad1a8897d",
+            "p_2a9c4d609c7b",
+            "p_f3c2bbb2c582",
+            "p_5434416b6ba2",
+            "p_15470db0576b",
+            "p_19c3e5543635",
+            "p_ada4a6dece17",
+            "p_0fda10c75dca",
+            "p_4f069ea24723",
+            "p_582573600027"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_ada4a6dece17",
+            "p_15470db0576b",
+            "p_2d7e23978f32",
+            "p_0e72716ac176"
+          ],
+          "related_entity_ids": [
+            "p_d35dc4ebd371",
+            "p_c08a44122ad6",
+            "p_5542589dae1e",
+            "p_0212b9b2b2e9",
+            "p_32800476a10f",
+            "p_7b0f13390d52",
+            "p_a6afe47e1ddf",
+            "p_89c2a4294bfd",
+            "p_21df3c0809d0",
+            "p_2abbff057391",
+            "p_95e0e03c28d5",
+            "p_02a161aeb57c",
+            "p_624eae8ba06c",
+            "p_8b69d97844e4",
+            "p_b1e0f6a614eb",
+            "p_6ae239973070"
+          ],
+          "ambient_entity_ids": [
+            "p_19a6b10d902d",
+            "p_844bce953e65",
+            "p_efd675bf7143",
+            "p_79d9a73026c2",
+            "p_ac6e1084376f",
+            "p_edd6b4813bb9",
+            "p_2b5afcc823e3",
+            "p_ab93a88bfcb7",
+            "p_b36dc293aa08",
+            "p_81c90abcde1b",
+            "p_a6568ee2d78c",
+            "p_fb7d2833d8e2",
+            "p_f8c76b3e4167",
+            "p_6be9f53b87f4",
+            "p_9e5e0049eaad",
+            "p_cb3f141cdbbc",
+            "p_e9a730496808",
+            "p_13496dc3f75e",
+            "p_d6556b7fa8c2",
+            "p_69147e82ab72",
+            "p_cff290d84c2f",
+            "p_db82a4450f22",
+            "p_dcbe1368dd76",
+            "p_eb32037fe42f",
+            "p_04ffa49d10ee",
+            "p_df8606ab028e",
+            "p_885585396a97",
+            "p_3c3ad1a8897d",
+            "p_2a9c4d609c7b",
+            "p_f3c2bbb2c582",
+            "p_19c3e5543635",
+            "p_0fda10c75dca",
+            "p_4f069ea24723",
+            "p_582573600027"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "price"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_ada4a6dece17",
+              "ring": "core",
+              "reason": "The title is 'Pirate Hunters', not 'Shadow Divers'; it is a different physical book despite sharing the author and theme.",
+              "why_plausible": "It is a nonfiction book about underwater exploration (pirate ship) by Robert Kurson, matching the 'blue' visual cue and author name revealed in V1.",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_15470db0576b",
+              "ring": "core",
+              "reason": "It is a summary or study guide of the book, not the actual book itself as requested by the user.",
+              "why_plausible": "It explicitly references 'Robert Kurson's Shadow Divers' in the title, making it highly relevant to the refined identity query.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_2d7e23978f32",
+              "ring": "core",
+              "reason": "The subject matter is Captain Cook, not the specific adventure of two Americans solving a WWII mystery described in V1.",
+              "why_plausible": "It is a nonfiction book titled 'Blue Latitudes' involving Captain Cook and ocean exploration, fitting the 'blue' and 'diving' context before the specific title was known.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_0e72716ac176",
+              "ring": "core",
+              "reason": "The content is about a female spy, completely unrelated to the diving/WWII mystery identified in V1.",
+              "why_plausible": "It is a historical nonfiction narrative with a blue-themed title ('Code Name Blue Wren'), plausible for the initial vague 'blue book' search.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        },
+        "landing_semantic_review": {
+          "status": "coding_agent_accepted",
+          "confidence": "high",
+          "review_reference": "data/sources/landing_semantic_reviews.json"
+        },
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ]
+      },
+      "unresolved": [],
+      "blocking_checks": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "progressive_spec_reveal",
+        "reason": "A task-start still shows the pile but not the exact selected title; the later close-up is required to ground the selected physical book to one frozen-site listing."
+      },
+      "rejection_reason": "Source-independence selection v1 (2026-09-06): same Ego4D parent as candidate-media-graft-c-104. Retained as a recoverable reserve revision, not a separate independent example.",
+      "source_selection_review": {
+        "policy": "one-parent-recording-one-live-task-v1",
+        "reviewed_at": "2026-09-06",
+        "kept_candidate_id": "candidate-media-graft-c-104",
+        "disposition": "reserve_duplicate_parent",
+        "coverage_replacement_required": true,
+        "compiled_revision_archive": "data/archive/20260906-independent-source-review/tasks/refresh/candidate-mart-refresh-retain-03.json"
+      }
+    },
+    {
+      "task_id": "candidate-mart-refresh-retain-07",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          456
+        ],
+        "media_id": "13ceac82-038d-415b-8629-91d78b935c1e",
+        "original_video_id": "13ceac82-038d-415b-8629-91d78b935c1e",
+        "media_path": "reference/sources/Ego2Web/dataset/ego2web_video/13ceac82-038d-415b-8629-91d78b935c1e.mp4",
+        "media_start_seconds": 0,
+        "media_sha256": "de0481668eed26c6175941dfafa3f70fc2eb0d7502ee31723f13f368fe01d4a9",
+        "media_metadata": {
+          "duration_seconds": 180,
+          "width": 480,
+          "height": 360,
+          "frame_rate": "30/1",
+          "size_bytes": 35088275
+        },
+        "recording_identity_note": "This UUID identifies the locally published Ego2Web/EgoSchema 180-second slice. Ego4D is its upstream source, but the slice-to-Ego4D parent recording mapping has not been verified here. original_video_id preserves the current slice-level source key; it is not evidence of parent-recording deduplication.",
+        "annotation_source": {
+          "path": "reference/sources/Ego2Web/dataset/ego2web.json",
+          "sha256": "ef19b7609ea3a6dbbf82fdaacb6b9463a99ebc934b8ad14fa3a53fc870d962ec"
+        },
+        "original_annotations": [
+          "On amazon.com, open a product page for the exact hand tool used to tap the pavers into place without damaging them. Choose a listing clearly intended for setting pavers/stone and matching that tool type."
+        ],
+        "original_visual_clues": [
+          "01:15-01:20"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              60,
+              67
+            ],
+            "role": "context_mortar_application",
+            "description": "The right hand spreads mortar in a gap with a hand-held masonry trowel while the left hand holds a paving brick."
+          },
+          {
+            "interval_seconds": [
+              69,
+              73
+            ],
+            "role": "paver_placement",
+            "description": "Both hands place and align the paving brick in the prepared gap."
+          },
+          {
+            "interval_seconds": [
+              75.5,
+              82.6
+            ],
+            "role": "initial_target_tapping",
+            "description": "The right hand picks up a yellow-handled mallet with a black cylindrical head, then repeatedly taps the paving brick while the left hand steadies it. The round striking face and mallet working shape are already visible in V0."
+          },
+          {
+            "interval_seconds": [
+              82.6,
+              87
+            ],
+            "role": "tool_change",
+            "description": "The mallet is lowered to the ground; the wearer adjusts position and takes up the masonry trowel again."
+          },
+          {
+            "interval_seconds": [
+              87,
+              93.2
+            ],
+            "role": "later_mortar_application",
+            "description": "The right hand uses the trowel to spread mortar in the next gap during the same paving activity. This is a different tool and use, not new evidence that the earlier tapping tool was a trowel."
+          }
+        ],
+        "unsupported_claims": [
+          "The mallet's brand, model, head dimensions, mass, material formulation, hardness, durability, or exact product identity.",
+          "That no surface damage occurred, or that a particular commercial mallet is guaranteed not to damage pavers.",
+          "A precise masonry-trowel subtype or complete blade outline: mortar and perspective obscure the blade. In particular, a rectangular margin-trowel identification is not established.",
+          "The source wearer actually requested a spare, wanted a particular colour or brand, or changed a shopping goal when changing tools.",
+          "An identified Ego4D parent recording or completed parent-recording independence audit."
+        ]
+      },
+      "screening": {
+        "proposed_initial_target": "the mallet used to tap the paving bricks into place",
+        "proposed_later_state": "the same wearer resumes spreading mortar with a masonry trowel",
+        "instruction_provenance": "2026-10-17针对原首评实际未决点澄清匹配的是敲击端面，不是柄、尺寸或整个头部外壳；仍绑定敲铺砖的工具，非为保留原30项而排除QEP。当前题面唯一所有者为authored.json。",
+        "reviewed_interval_seconds": [
+          60,
+          100
+        ],
+        "continuous_review_method": "Dense sequential frames over the continuous source interval, followed by full-source-resolution checks. The overview samples 60 <= t < 100 seconds at 2 fps; the transition pass samples 73 <= t < 95 at 5 fps; the pickup pass samples 75.5 <= t < 77.5 at the native 30 fps. These are not claims of real-time playback or native-frame-by-native-frame review of the entire interval. Packet images are uncropped 480x360 source frames; review contact sheets use downscaled tiles with timestamp overlays and are not released packet frames.",
+        "review_passes": [
+          {
+            "interval_seconds": [
+              60,
+              100
+            ],
+            "sampling_fps": 2,
+            "frame_count": 80,
+            "contact_sheets": [
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-overview-01.jpg",
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-overview-02.jpg"
+            ],
+            "sha256": [
+              "8efdaf1725eaa08b8d86a6c9bea2344d02fc31ea8d2512e73de792c4c83214f8",
+              "f1d2f072f41ca7e1bad825ba38405ee2cf0d9b37d9e833c8c6dd01eb1e57d2fb"
+            ]
+          },
+          {
+            "interval_seconds": [
+              73,
+              95
+            ],
+            "sampling_fps": 5,
+            "frame_count": 110,
+            "contact_sheets": [
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-dense-01.jpg",
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-dense-02.jpg",
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-dense-03.jpg",
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-dense-04.jpg",
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-dense-05.jpg"
+            ],
+            "sha256": [
+              "cbbbd5026a2d606a8ec9740adf47ae9898dcd165f2d917865c926c1e1b10a8cd",
+              "fdadb8b3ca15e46e04a759f8c64445c5af4e91e20857ae944c13133af5fcd342",
+              "bc6732296804e35ae3a2352685d5b7cdda4b648b26104cf8aa2cc7dd15e95fbe",
+              "e4b4fb3ad3155bb88f910bfde2da0ea6ed9c2a65f7ae4ed4c892e76a40cff167",
+              "5d2156c68990af88d479aaaf9c946efe66da17d8f8396a21d7ecb8d085e8f471"
+            ]
+          },
+          {
+            "interval_seconds": [
+              75.5,
+              77.5
+            ],
+            "sampling_fps": 30,
+            "frame_count": 60,
+            "contact_sheets": [
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-pickup-01.jpg",
+              "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-pickup-02.jpg"
+            ],
+            "sha256": [
+              "367faff0067d503685cd46ebf14c00da8881f371eb443c8b6fb8504bb8f1715b",
+              "9b79f5ef2c5b371577692070a1c4e2b991eae15e7e8adfd3cd54126dc3ad4fba"
+            ]
+          }
+        ],
+        "additional_full_resolution_evidence": [
+          {
+            "timestamp_seconds": 61,
+            "frame_path": "artifacts/screening/source-evidence/candidate-mart-refresh-retain-07/review-trowel-61.png",
+            "sha256": "353a6f70865f434b49726a5f162adcf9553fb1857179fb334f51d44ba243e22d",
+            "purpose": "Check the earlier mortar-spreading tool and preserve the evidence against overclaiming a rectangular margin-trowel blade. Review-only, not an additional packet."
+          }
+        ],
+        "prior_review_check": "No existing row for this slice was found in source manifests, compiled tasks, or expansion_screening_decisions_v*.json at this screening pass. This scoped check does not certify the absence of all historical review or parent-recording reuse.",
+        "instruction_reference": "data/instructions/authored.json::instructions/candidate-mart-refresh-retain-07"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            76.5,
+            77,
+            77.5,
+            78
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-retain-07/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-retain-07/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-retain-07/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-retain-07/V0_03.jpg"
+          ],
+          "frame_sha256": [
+            "ffe8eb904ddf690892f2463bd06aea105f82e88af0da70927e0332b29bc3ff12",
+            "e3a393d1bdc122cd954abb30500e32e4940b9fc47cd6105a7ea7f50653507a98",
+            "928e1cb42543987fe79d5e2021c6f3ffece7c70a538aac0a41289ff96299f393",
+            "fefe3dc68d877068ea316a59fe3a59cc45e37a5357b8f64b8666b211e72942cf"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            87,
+            89,
+            91,
+            93
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-retain-07/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-retain-07/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-retain-07/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-retain-07/V1_03.jpg"
+          ],
+          "frame_sha256": [
+            "2c73016a350176178d3c23858b3ae52aeab38479ba690e77319c5ce1163ebf03",
+            "529983a15ba20a7552e5d5fefaa5d251dd518384380c2e0d40d162736f9c0afa",
+            "0bf33fd1c9259f54e45212aa21c441c444e6bb3b4bf06ac596c006e4ad9382c2",
+            "876f2f625de4922fe91e9149e247dc9854f8af8d5f9d1988dc29b2567f74cc53"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 already shows the instructed tapping tool: a mallet-type working shape with a black cylindrical head, round striking faces, and a yellow handle, used against a paving brick.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows mortar being spread with a different hand tool during the same paving activity; it does not invalidate the action-bound tapping-tool referent established in V0.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the agent preserve an already grounded, action-bound shopping target when later egocentric evidence shows a salient switch to a different tool in the same ongoing activity?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "belief_before": "V0 identifies a mallet used to tap the paving bricks and shows circular striking faces. The spare must match those striking faces, not the exact handle, middle head body, size, colour or brand.",
+        "belief_after": "The wearer now spreads mortar with a masonry trowel, but the unchanged request still refers to the earlier tapping tool.",
+        "required_behavior_change": "Observe the later tool change without changing the valid mallet commitment; retain one eligible single-tool item and do not add or substitute the trowel.",
+        "no_update_failure": "No answer change is required in this retain condition. A valid mallet commitment remaining unchanged is correct, not a stale-answer failure; only failing to process the later evidence would be an untested reasoning shortcut.",
+        "overupdate_failure": "Replace the mallet with the currently held masonry trowel, or add the trowel while keeping the mallet, merely because V1 is newer.",
+        "visual_dependency_claim": "The words identify a tapping task but not the striking-face shape. V0 supplies the circular face; the site also contains square/faceted-face mallets for flooring. V1 changes the active tool to a trowel without changing this action-bound spare.",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "site": "egomart",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "paver_tapping_mallet": "p_282d532c689d",
+            "mortar_spreading_trowel": "p_0a87e93d68ba"
+          },
+          "equivalent_role_ids": {
+            "paver_tapping_mallet": [
+              "p_ee4d5cae1c2a",
+              "p_21597d7c6a9c",
+              "p_7aedecd841dc",
+              "p_80ec01eb5d69",
+              "p_f04575716b68",
+              "p_55a8ac016c56",
+              "p_7300c292ccf7",
+              "p_388ab87d4807",
+              "p_cf043017de1a",
+              "p_553ac7c23374",
+              "p_2fa90ea52335",
+              "p_2862b1b3de9c",
+              "p_638c642402eb",
+              "p_7fc8f9f7b7db",
+              "p_9ab632f6e457",
+              "p_f2a64f45b149",
+              "p_98e592275796",
+              "p_f0547816d9b6",
+              "p_158a755a2ab7",
+              "p_db12dacd50ef",
+              "p_4b4e3aea9e4d",
+              "p_eb880f5a9cca",
+              "p_b81c79141ddf",
+              "p_612d7c95ff56",
+              "p_c19ded5d8bf0",
+              "p_8d31336f22c8",
+              "p_ced90b8a56ff",
+              "p_f56af23c059c",
+              "p_adfce5161a6d",
+              "p_0fbe026e313d"
+            ]
+          },
+          "initial_target_role": "paver_tapping_mallet",
+          "later_distractor_role": "mortar_spreading_trowel",
+          "final_target_role": "paver_tapping_mallet",
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "rubber mallet tile",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-07.json",
+              "result_entity_ids": [
+                "p_ee4d5cae1c2a",
+                "p_21597d7c6a9c",
+                "p_282d532c689d",
+                "p_4265602ac106",
+                "p_7aedecd841dc",
+                "p_80ec01eb5d69",
+                "p_0fbe026e313d",
+                "p_f04575716b68",
+                "p_55a8ac016c56",
+                "p_1a22d95e9919",
+                "p_7300c292ccf7",
+                "p_388ab87d4807",
+                "p_26357567f50b",
+                "p_cf043017de1a",
+                "p_553ac7c23374",
+                "p_2fa90ea52335",
+                "p_2862b1b3de9c",
+                "p_3b6df5dccba6",
+                "p_638c642402eb",
+                "p_7fc8f9f7b7db",
+                "p_9ab632f6e457",
+                "p_e7677e9530f3",
+                "p_f2a64f45b149",
+                "p_926135303b1c",
+                "p_98e592275796",
+                "p_f0547816d9b6",
+                "p_158a755a2ab7",
+                "p_565a9a3b5cd3",
+                "p_464e5732191e",
+                "p_db12dacd50ef",
+                "p_20b1e1799e96",
+                "p_762f1eb96743",
+                "p_4b4e3aea9e4d",
+                "p_eb880f5a9cca",
+                "p_c3a70a73a8b8",
+                "p_cee13147a6ed",
+                "p_b81c79141ddf",
+                "p_612d7c95ff56",
+                "p_6ef679f8c4ac",
+                "p_259100255c4e",
+                "p_0bafa161ac03",
+                "p_14a1ab766ad3",
+                "p_c19ded5d8bf0",
+                "p_f55867d63f38",
+                "p_8d31336f22c8",
+                "p_ced90b8a56ff",
+                "p_f56af23c059c",
+                "p_adfce5161a6d"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "masonry trowel single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-07.json",
+              "result_entity_ids": [
+                "p_0a87e93d68ba",
+                "p_a6d75fecc972",
+                "p_e9671ebc60cc",
+                "p_f9e39ae09980",
+                "p_30d0f48aa0ae",
+                "p_2bb03209e3ba",
+                "p_96ff959f12c6",
+                "p_07ca5f10dbac",
+                "p_61579068ad21",
+                "p_536ba850f34b",
+                "p_0ea9eaad49ca",
+                "p_6dd3fe6b1f98",
+                "p_38f32019e161",
+                "p_bc1449a9447a",
+                "p_f4111b1222f8",
+                "p_687a1195f081",
+                "p_48c2583ddb75",
+                "p_e094a5dda9cb",
+                "p_8948a54d2b29",
+                "p_b4e189393e96",
+                "p_2f462a0d6fa2",
+                "p_532494fe9995",
+                "p_60a730dbde8c",
+                "p_17573d541e94",
+                "p_6850c5b38e0e",
+                "p_629c25d0e700",
+                "p_c56c2708c17e",
+                "p_d35d71eefa8c",
+                "p_53f362e98286",
+                "p_4b868e51d9dd",
+                "p_684f39b37b22",
+                "p_86b79c2e367d",
+                "p_e03491117d10",
+                "p_9a13a5456097",
+                "p_72221de1c0e1",
+                "p_beb2df8450c2",
+                "p_d64e42f01df0",
+                "p_7e2012e44dd7",
+                "p_29d2e3c68f56",
+                "p_25b87940a06a",
+                "p_6c85b0af4c91",
+                "p_84137a32f532",
+                "p_1da9f6298d6c",
+                "p_836e09b65e9a",
+                "p_2cc25bd12dd9",
+                "p_259c6d138f6f",
+                "p_bf01b5792d50",
+                "p_3503f91be0d6"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_ee4d5cae1c2a",
+            "p_21597d7c6a9c",
+            "p_282d532c689d",
+            "p_4265602ac106",
+            "p_7aedecd841dc",
+            "p_80ec01eb5d69",
+            "p_0fbe026e313d",
+            "p_f04575716b68",
+            "p_55a8ac016c56",
+            "p_1a22d95e9919",
+            "p_7300c292ccf7",
+            "p_388ab87d4807",
+            "p_26357567f50b",
+            "p_cf043017de1a",
+            "p_553ac7c23374",
+            "p_2fa90ea52335",
+            "p_2862b1b3de9c",
+            "p_3b6df5dccba6",
+            "p_638c642402eb",
+            "p_7fc8f9f7b7db",
+            "p_9ab632f6e457",
+            "p_e7677e9530f3",
+            "p_f2a64f45b149",
+            "p_926135303b1c",
+            "p_98e592275796",
+            "p_f0547816d9b6",
+            "p_158a755a2ab7",
+            "p_565a9a3b5cd3",
+            "p_464e5732191e",
+            "p_db12dacd50ef",
+            "p_20b1e1799e96",
+            "p_762f1eb96743",
+            "p_4b4e3aea9e4d",
+            "p_eb880f5a9cca",
+            "p_c3a70a73a8b8",
+            "p_cee13147a6ed",
+            "p_b81c79141ddf",
+            "p_612d7c95ff56",
+            "p_6ef679f8c4ac",
+            "p_259100255c4e",
+            "p_0bafa161ac03",
+            "p_14a1ab766ad3",
+            "p_c19ded5d8bf0",
+            "p_f55867d63f38",
+            "p_8d31336f22c8",
+            "p_ced90b8a56ff",
+            "p_f56af23c059c",
+            "p_adfce5161a6d",
+            "p_0a87e93d68ba",
+            "p_a6d75fecc972",
+            "p_e9671ebc60cc",
+            "p_f9e39ae09980",
+            "p_30d0f48aa0ae",
+            "p_2bb03209e3ba",
+            "p_96ff959f12c6",
+            "p_07ca5f10dbac",
+            "p_61579068ad21",
+            "p_536ba850f34b",
+            "p_0ea9eaad49ca",
+            "p_6dd3fe6b1f98",
+            "p_38f32019e161",
+            "p_bc1449a9447a",
+            "p_f4111b1222f8",
+            "p_687a1195f081",
+            "p_48c2583ddb75",
+            "p_e094a5dda9cb",
+            "p_8948a54d2b29",
+            "p_b4e189393e96",
+            "p_2f462a0d6fa2",
+            "p_532494fe9995",
+            "p_60a730dbde8c",
+            "p_17573d541e94",
+            "p_6850c5b38e0e",
+            "p_629c25d0e700",
+            "p_c56c2708c17e",
+            "p_d35d71eefa8c",
+            "p_53f362e98286",
+            "p_4b868e51d9dd",
+            "p_684f39b37b22",
+            "p_86b79c2e367d",
+            "p_e03491117d10",
+            "p_9a13a5456097",
+            "p_72221de1c0e1",
+            "p_beb2df8450c2",
+            "p_d64e42f01df0",
+            "p_7e2012e44dd7",
+            "p_29d2e3c68f56",
+            "p_25b87940a06a",
+            "p_6c85b0af4c91",
+            "p_84137a32f532",
+            "p_1da9f6298d6c",
+            "p_836e09b65e9a",
+            "p_2cc25bd12dd9",
+            "p_259c6d138f6f",
+            "p_bf01b5792d50",
+            "p_3503f91be0d6"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_4265602ac106",
+            "p_e7677e9530f3",
+            "p_0a87e93d68ba"
+          ],
+          "related_entity_ids": [
+            "p_1a22d95e9919",
+            "p_26357567f50b",
+            "p_3b6df5dccba6",
+            "p_926135303b1c",
+            "p_565a9a3b5cd3",
+            "p_464e5732191e",
+            "p_20b1e1799e96",
+            "p_762f1eb96743",
+            "p_cee13147a6ed",
+            "p_6ef679f8c4ac",
+            "p_14a1ab766ad3",
+            "p_f55867d63f38"
+          ],
+          "ambient_entity_ids": [
+            "p_c3a70a73a8b8",
+            "p_259100255c4e",
+            "p_0bafa161ac03",
+            "p_a6d75fecc972",
+            "p_e9671ebc60cc",
+            "p_f9e39ae09980",
+            "p_30d0f48aa0ae",
+            "p_2bb03209e3ba",
+            "p_96ff959f12c6",
+            "p_07ca5f10dbac",
+            "p_61579068ad21",
+            "p_536ba850f34b",
+            "p_0ea9eaad49ca",
+            "p_6dd3fe6b1f98",
+            "p_38f32019e161",
+            "p_bc1449a9447a",
+            "p_f4111b1222f8",
+            "p_687a1195f081",
+            "p_48c2583ddb75",
+            "p_e094a5dda9cb",
+            "p_8948a54d2b29",
+            "p_b4e189393e96",
+            "p_2f462a0d6fa2",
+            "p_532494fe9995",
+            "p_60a730dbde8c",
+            "p_17573d541e94",
+            "p_6850c5b38e0e",
+            "p_629c25d0e700",
+            "p_c56c2708c17e",
+            "p_d35d71eefa8c",
+            "p_53f362e98286",
+            "p_4b868e51d9dd",
+            "p_684f39b37b22",
+            "p_86b79c2e367d",
+            "p_e03491117d10",
+            "p_9a13a5456097",
+            "p_72221de1c0e1",
+            "p_beb2df8450c2",
+            "p_d64e42f01df0",
+            "p_7e2012e44dd7",
+            "p_29d2e3c68f56",
+            "p_25b87940a06a",
+            "p_6c85b0af4c91",
+            "p_84137a32f532",
+            "p_1da9f6298d6c",
+            "p_836e09b65e9a",
+            "p_2cc25bd12dd9",
+            "p_259c6d138f6f",
+            "p_bf01b5792d50",
+            "p_3503f91be0d6"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_4265602ac106",
+              "ring": "core",
+              "reason": "The listing contains two mallets, not the single spare requested.",
+              "why_plausible": "Its two mallets have the same round-headed form as the tapping tool, so shape alone cannot exclude this pack.",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_e7677e9530f3",
+              "ring": "core",
+              "reason": "本轮公开原图的敲击端面为方/多边形轮廓，不是V0圆形敲击面；不以中间头部装饰或柄形状排除。",
+              "why_plausible": "同为可用于flooring的单件软面槌，用途不能保证与场景敲击面形状一致。",
+              "failure_predicates": [
+                "wrong_striking_face_shape"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_e7677e9530f3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_0a87e93d68ba",
+              "ring": "core",
+              "reason": "The masonry trowel spreads material; it is not the tool that taps the pavers. Later hand occupancy does not change the fixed request.",
+              "why_plausible": "It matches the later mortar-spreading tool category in the same activity and can tempt an unnecessary recency-based update.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "p_565a9a3b5cd3",
+              "ring": "related",
+              "reason": "本轮公开原图的敲击端面为方/多边形轮廓，不是V0圆形敲击面；不以中间头部装饰或柄形状排除。",
+              "why_plausible": "同为可用于flooring的单件软面槌，用途不能保证与场景敲击面形状一致。",
+              "failure_predicates": [
+                "wrong_striking_face_shape"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_565a9a3b5cd3.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_14a1ab766ad3",
+              "ring": "related",
+              "reason": "本轮公开原图的敲击端面为方/多边形轮廓，不是V0圆形敲击面；不以中间头部装饰或柄形状排除。",
+              "why_plausible": "同为可用于flooring的单件软面槌，用途不能保证与场景敲击面形状一致。",
+              "failure_predicates": [
+                "wrong_striking_face_shape"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_14a1ab766ad3.jpg"
+              ]
+            }
+          ],
+          "semantic_review": {
+            "status": "accepted",
+            "reviewer": "/root/worklight_fresh_blind",
+            "reviewed_at": "2026-10-17",
+            "review_basis": "构造者对本次工作端粒度的定向修复；独立复核待办见repair.pending_targeted_review。",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability"
+            ]
+          }
+        },
+        "evidence_type": "in_view_deixis",
+        "decision": {
+          "candidates": {
+            "paver_tapping_mallet": "p_282d532c689d",
+            "mortar_spreading_trowel": "p_0a87e93d68ba"
+          },
+          "established_by": "skill-executing-coding-agent",
+          "established_at": "2026-09-05",
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "paver_tapping_mallet"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The tapping tool has a cylindrical head with a circular striking face. The mortar-spreading trowel is not the action-bound spare requested here."
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "paver_tapping_mallet"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "paver_tapping_mallet"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "paver_tapping_mallet"
+              ]
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "paver_tapping_mallet"
+              ]
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "paver_tapping_mallet"
+              ]
+            },
+            {
+              "frame": "V1:2",
+              "live": [
+                "paver_tapping_mallet"
+              ]
+            },
+            {
+              "frame": "V1:3",
+              "live": [
+                "paver_tapping_mallet"
+              ]
+            }
+          ]
+        },
+        "landing_semantic_review": {
+          "status": "accepted",
+          "reviewer": "/root/worklight_fresh_blind",
+          "reviewed_at": "2026-10-17",
+          "review_basis": "定向构造检查：复用原首评和完整连续源事实，仅补查受措辞粒度影响的公开商品图与字段。不是新的独立审核；原具体首评与二阶段记录均保留。",
+          "mapping_rationale": "31 single mallets match the circular striking-face type. Include QEP61625 and all four 25 mm dual-cap models: differences in barrel/middle-body construction, handle, or size no longer create an implicit exclusion. Square/faceted striking faces, multi-tool packs and the later trowel remain different.",
+          "equivalence_boundary_review": [
+            {
+              "entity_id": "p_0fbe026e313d",
+              "decision": "accept_equivalent",
+              "rationale": "原图为桶形白色头，两端为圆形平敲击面；Unit Count=1、Included Components=One Pro Rubber Floor Mallet。原将其整个头部称多角形而排除的判断不再作为现行边界。",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_0fbe026e313d.jpg",
+                "sites/egomart/products.json::p_0fbe026e313d/attributes"
+              ]
+            },
+            {
+              "entity_id": "p_80ec01eb5d69",
+              "decision": "accept_equivalent",
+              "rationale": "本轮原图显示两端圆形帽面；25 mm尺寸、金属/塑料中段或柄不改变当前明示要求的敲击面类型。",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_80ec01eb5d69.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_8d31336f22c8",
+              "decision": "accept_equivalent",
+              "rationale": "本轮原图显示两端圆形帽面；25 mm尺寸、金属/塑料中段或柄不改变当前明示要求的敲击面类型。",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_8d31336f22c8.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_2fa90ea52335",
+              "decision": "accept_equivalent",
+              "rationale": "本轮原图显示两端圆形帽面；25 mm尺寸、金属/塑料中段或柄不改变当前明示要求的敲击面类型。",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_2fa90ea52335.jpg"
+              ]
+            },
+            {
+              "entity_id": "p_158a755a2ab7",
+              "decision": "accept_equivalent",
+              "rationale": "本轮原图显示两端圆形帽面；25 mm尺寸、金属/塑料中段或柄不改变当前明示要求的敲击面类型。",
+              "evidence_refs": [
+                "sites/egomart/static/products/upstream/p_158a755a2ab7.jpg"
+              ]
+            }
+          ]
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "scope_limitations": [
+        "Local frozen-service evaluation only; source-clip and retailer-image redistribution rights are not asserted.",
+        "Source independence is checked at the supplied Ego2Web video UUID level. The Ego4D parent mapping remains unverified and is not a completed parent-level deduplication claim.",
+        "B0GWH8ZB7L remains an ambient multi-tool-kit search card without an admitted rich detail snapshot; it is neither an answer nor a core/related entity."
+      ],
+      "repair": {
+        "reviewer": {
+          "agent_id": "/root/worklight_fresh_blind",
+          "context_id": "/root/worklight_fresh_blind"
+        },
+        "stage": "construction_repair_pending_targeted_review",
+        "prior_assessment_reference": "artifacts/reports/coding-agent-task-assessments.json::candidate-mart-refresh-retain-07",
+        "previous_construction_judgment": {
+          "landing_semantic_review": {
+            "status": "accepted",
+            "reviewer": "skill-executing-coding-agent",
+            "reviewed_at": "2026-09-05",
+            "review_basis": "Construction review of the continuous source evidence, all released full-resolution frames, all 96 public search cards and images, and canonical details for every answer, core and related entity. Independent blind confidence review follows separately.",
+            "mapping_rationale": "Thirty single-mallet listings match the visible cylindrical head and round striking faces. Exact size, mass, colour, brand, handle material and head composition are not imposed. Small dual-face mallets remain accepted because there is no source-grounded numerical size or weight threshold. The later masonry-trowel binding is a category distractor, not an exact model or subtype identification.",
+            "equivalence_boundary_review": [
+              {
+                "entity_id": "p_0fbe026e313d",
+                "decision": "reject_wrong_working_shape",
+                "rationale": "The public photo and canonical feature bullets show a faceted, multi-angle flooring head rather than the circular cylindrical working head in V0. The same visible rule excludes the square-headed HOUSERAN and BOOSDEN mallets.",
+                "supporting_public_url": "https://www.qep.com/products/61625-4/qep-16-oz-pro-rubber-floor-mallet-with-11-5-inch-plastic-handle"
+              },
+              {
+                "entity_id": "p_2fa90ea52335",
+                "decision": "accept_equivalent",
+                "rationale": "The public image shows round striking faces and the canonical browser specification lists one item. A generic Rectangular style label does not override that visible geometry. Size and one-piece body construction are not requested."
+              }
+            ]
+          },
+          "catalog_semantic_review": {
+            "status": "accepted",
+            "reviewer": "skill-executing-coding-agent",
+            "reviewed_at": "2026-09-05",
+            "review_basis": "The complete 96-row union is retained and all 30 eligible singleton answers are declared. Core exclusions use multi-item quantity, different working-head geometry, and the wrong later tool. Native-state replay and independent confidence assessment are subsequent lifecycle checks.",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          },
+          "screening_instruction": {
+            "proposed_instruction": "Order a single spare for the tool I am using to tap the paving bricks into place. Match its working shape; colour and brand do not matter. Not a set.",
+            "instruction_provenance": "Fixed by the author before selecting any website answer. The spare, single-item quantity, shape-matching rule, and indifference to colour and brand are authored requirements, not claims inferred from the source. Do not narrow these requirements to fit a selected listing."
+          }
+        },
+        "preserved_evidence": [
+          "原blind_reconstruction封存内容不改；仅复用其中连续源动作、工具指代及可见形状事实。",
+          "原视频、8张发布帧、时点和Refresh-retain事件均未修改；本轮未重新播放或逐帧检查连续视频。",
+          "本记录是构造修复，不是新独立盲解；来源中旧模板accepted标签不替代原具体评语。"
+        ],
+        "pending_targeted_review": [
+          "复核旧blind answer_boundary中的四个双帽槌疑问是否由当前端面粒度明确解除。",
+          "核对新纳入QEP与三个方/多边形端面负例按同一公开规则判断。",
+          "核查新简化题面仍锚定原敲砖工具，未因V1泥刀改写采购对象；不重复原连续源检查。"
+        ],
+        "changed_predicates": [
+          "working shape明确为striking-face shape；同类敲击工具与非套装义务保留。",
+          "柄、尺寸、颜色和品牌可不同；不增加未见重量、材质或一体头限制。"
+        ],
+        "answer_delta": {
+          "before_count": 30,
+          "after_count": 31,
+          "added": [
+            "p_0fbe026e313d"
+          ],
+          "removed": [],
+          "retained_disputed": [
+            "p_80ec01eb5d69",
+            "p_8d31336f22c8",
+            "p_2fa90ea52335",
+            "p_158a755a2ab7"
+          ]
+        },
+        "targeted_public_images": [
+          "p_0fbe026e313d",
+          "p_80ec01eb5d69",
+          "p_8d31336f22c8",
+          "p_2fa90ea52335",
+          "p_158a755a2ab7",
+          "p_565a9a3b5cd3",
+          "p_14a1ab766ad3",
+          "p_e7677e9530f3"
+        ]
+      },
+      "stream": {
+        "session_seconds": [
+          71.0,
+          93.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-refresh-retain-07/review.json"
+      }
+    }
+  ]
+}

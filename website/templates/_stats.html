@@ -1,0 +1,40 @@
+{% set stats = content.data.stats %}
+<div class="stats">
+  <div class="stat-group stat-tracks">
+    <h3>Change type</h3>
+    <div class="stack" role="img" aria-label="{% for t in stats.tracks %}{{ t.track|capitalize }} {{ t.total }}{% if not loop.last %}, {% endif %}{% endfor %}">
+      {% for t in stats.tracks %}
+      <span class="stack-part track-bg-{{ t.track }}" style="flex: {{ t.total }}"></span>
+      {% endfor %}
+    </div>
+    <dl class="track-list">
+      {% for t in stats.tracks %}
+      <div>
+        <dt><span class="track track-{{ t.track }}">{{ t.track|capitalize }}</span> <b>{{ t.total }}</b></dt>
+        <dd>{% for x in t.transitions %}{{ x.name }} {{ x.count }}{% if not loop.last %} · {% endif %}{% endfor %}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </div>
+
+  <div class="stat-group">
+    <h3>Website</h3>
+    {% set top = stats.sites[0].count %}
+    <ul class="bars">
+      {% for s in stats.sites %}
+      <li><span class="bar-name">{{ content.site_names[s.name] }}</span><span class="bar"><i style="width: {{ (100 * s.count / top)|round(1) }}%"></i></span><b>{{ s.count }}</b></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="stat-group">
+    <h3>Source recordings</h3>
+    {% set top = stats.sources[0].count %}
+    <ul class="bars">
+      {% for s in stats.sources %}
+      <li class="{{ 'is-public' if s.public else 'is-private' }}"><span class="bar-name">{{ s.name }}</span><span class="bar"><i style="width: {{ (100 * s.count / top)|round(1) }}%"></i></span><b>{{ s.count }}</b></li>
+      {% endfor %}
+    </ul>
+    <p class="stat-note"><i class="dot-public"></i> Sources eligible for public replay selection. Other sources are listed as counts only.</p>
+  </div>
+</div>

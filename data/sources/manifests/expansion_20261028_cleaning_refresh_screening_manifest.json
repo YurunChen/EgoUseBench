@@ -1,0 +1,2136 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing user-confirmed dataset research authorization; no public release."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-refresh-replace-2026102805",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          50
+        ],
+        "media_id": "2265b3fc-8975-465c-8ff8-81c41c93a7b6",
+        "original_video_id": "2265b3fc-8975-465c-8ff8-81c41c93a7b6",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              10,
+              40
+            ],
+            "role": "floor_brush",
+            "description": "The wearer moves a yellow bristled brush on a blue long handle over the floor."
+          },
+          {
+            "interval_seconds": [
+              165,
+              168
+            ],
+            "role": "cleaning_cloth",
+            "description": "The wearer handles and squeezes a flexible pink patterned cleaning cloth at a bucket. This is distinct from the earlier long-handled floor brush."
+          }
+        ],
+        "scope_note": "The later released interval stops at the bucket cloth. Subsequent washing of a pot is outside this task’s reference and is not claimed to use the same cloth."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            166,
+            166.5,
+            167,
+            168
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "Initial views establish a bristled floor brush with a long handle; later views establish a separate flexible cloth handled at the bucket. Exact bristle stiffness, cloth composition, brand and size are not asserted.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent revise a native cart choice when the currently used cleaning item changes in later first-person views?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "belief_before": "The current cleaning item is a long-handled bristle floor brush.",
+        "belief_after": "The current cleaning item is a flat flexible cloth at the bucket.",
+        "required_behavior_change": "Remove an obsolete brush choice and leave one applicable cloth listing.",
+        "no_update_failure": "Retain only the long-handled cleaning tool after the later cloth views.",
+        "overupdate_failure": "Keep both an obsolete brush and a new cloth, or impose unrequested colour or material.",
+        "visual_dependency_claim": "The user names neither tool category. Initial and later physical form determine the corresponding real website item.",
+        "task_blueprint": {
+          "site": "egomart",
+          "instruction": "I want a spare of the cleaning item I'm holding. Add one listing with the same basic form to my cart; any brand or colour is fine, and a pack is okay.",
+          "initial_target_role": "floor_brush",
+          "final_target_role": "cleaning_cloth",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "floor_brush": "p_79ff6a12ef5e",
+            "cleaning_cloth": "p_40be6ff78beb"
+          },
+          "equivalent_role_ids": {
+            "floor_brush": [
+              "p_d0a6bad50f17",
+              "p_ba206b15c96e",
+              "p_8a9fc6844139",
+              "p_4dbcc2a505b6",
+              "p_f10aaa6fbf88",
+              "p_7047eb210003",
+              "p_00f51d4268a7",
+              "p_9bb8cbfba29e",
+              "p_03a829e56522",
+              "p_9778d95220d4",
+              "p_ab9673aa6b3f",
+              "p_cc68b34c4197",
+              "p_1d586f444714",
+              "p_a36129a50af2",
+              "p_a5ef7b43af9b",
+              "p_ab8a3b775677",
+              "p_b83f11c426d3",
+              "p_c6575b79f2d3",
+              "p_f45fc8e2d374"
+            ],
+            "cleaning_cloth": [
+              "p_10e839b12858",
+              "p_bf14a89a6c34",
+              "p_5e95d6133460",
+              "p_64c6ac881d4d",
+              "p_d1cf294c2481",
+              "p_b1ab9738800d",
+              "p_4913156b68c2",
+              "p_e27e2cdc8cc4",
+              "p_fb8b669d9e18",
+              "p_a1585ae789d8",
+              "p_7fbdabb89d11",
+              "p_0210c6b76d69",
+              "p_19707cc06bd0",
+              "p_bdc49258d52d",
+              "p_80971d91fcaf",
+              "p_356d97ae7e1b",
+              "p_1be5ae5ee006",
+              "p_af78b8f0fcf9",
+              "p_5f83ea317724",
+              "p_a503190861a4",
+              "p_ed6dcfe46236",
+              "p_649d3eae70f6",
+              "p_d844453da606",
+              "p_fb5e4f5553da",
+              "p_6a88d0fa05da",
+              "p_3ac31210fef8",
+              "p_82f8e74a3da4",
+              "p_aec806a49834",
+              "p_082fdae204a8",
+              "p_55f11889997a",
+              "p_9ed505b47866",
+              "p_2495cd5aa6c7",
+              "p_86267e7b676d",
+              "p_52db106dc617",
+              "p_40010eda0ef4",
+              "p_01221dd65642",
+              "p_2ac5fb0da9cc",
+              "p_8f32039c6714",
+              "p_4456c6ed96e0",
+              "p_8c575f68fcfc",
+              "p_53f38afd91f4",
+              "p_c0ee18fb1789",
+              "p_dfa2fcfcad6c",
+              "p_65c3c8f13768",
+              "p_c1fdca5702cf"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "floor_brush": "p_79ff6a12ef5e",
+            "cleaning_cloth": "p_40be6ff78beb"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "floor_brush"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The pole-mounted bristle head is actually being used on the floor."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "cleaning_cloth"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The wearer is now handling the separate cloth at the bucket; later frames show its flexible sheet form."
+            }
+          ],
+          "recording": "key_events",
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-28"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "floor cleaning squeegee long handle",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026102805.json",
+              "result_entity_ids": [
+                "p_79ff6a12ef5e",
+                "p_d0a6bad50f17",
+                "p_40fcfd868865",
+                "p_a73adcf3f0cc",
+                "p_ba206b15c96e",
+                "p_8a9fc6844139",
+                "p_4dbcc2a505b6",
+                "p_67d47bea8949",
+                "p_f10aaa6fbf88",
+                "p_483614a0d5ae",
+                "p_7047eb210003",
+                "p_1ca05d00c46e",
+                "p_164586ee6687",
+                "p_105eca4bddbd",
+                "p_00f51d4268a7",
+                "p_9bb8cbfba29e",
+                "p_03a829e56522",
+                "p_9778d95220d4",
+                "p_e23a00c32bca",
+                "p_69bb2739287d",
+                "p_91dd1db03646",
+                "p_ea1320e681f9",
+                "p_ab9673aa6b3f",
+                "p_cc68b34c4197",
+                "p_7f18d84efefa",
+                "p_a2a18d605edf",
+                "p_703d0fdcbfd8",
+                "p_fd7f0cd90f56",
+                "p_6f0aadb838ec",
+                "p_1d586f444714",
+                "p_a36129a50af2",
+                "p_41b7d4cd9695",
+                "p_02ac01c29d2a",
+                "p_3d9f2442719d",
+                "p_a5ef7b43af9b",
+                "p_e9c1483abd50",
+                "p_4e4c116e5538",
+                "p_ff7e5e56ea44",
+                "p_b32c993cf9d0",
+                "p_4129de0f1b09",
+                "p_ab8a3b775677",
+                "p_b83f11c426d3",
+                "p_6d4e792c03fc",
+                "p_7b3456a0ac6a",
+                "p_031a32a0dd0c",
+                "p_1354d9dcaadb",
+                "p_c6575b79f2d3",
+                "p_f45fc8e2d374"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "dish washing cloths",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026102805.json",
+              "result_entity_ids": [
+                "p_40be6ff78beb",
+                "p_10e839b12858",
+                "p_bf14a89a6c34",
+                "p_5e95d6133460",
+                "p_64c6ac881d4d",
+                "p_d1cf294c2481",
+                "p_b1ab9738800d",
+                "p_4913156b68c2",
+                "p_e27e2cdc8cc4",
+                "p_fb8b669d9e18",
+                "p_a1585ae789d8",
+                "p_7fbdabb89d11",
+                "p_0210c6b76d69",
+                "p_19707cc06bd0",
+                "p_bdc49258d52d",
+                "p_80971d91fcaf",
+                "p_356d97ae7e1b",
+                "p_1be5ae5ee006",
+                "p_af78b8f0fcf9",
+                "p_5f83ea317724",
+                "p_a503190861a4",
+                "p_ed6dcfe46236",
+                "p_649d3eae70f6",
+                "p_d844453da606",
+                "p_fb5e4f5553da",
+                "p_6a88d0fa05da",
+                "p_3ac31210fef8",
+                "p_82f8e74a3da4",
+                "p_aec806a49834",
+                "p_082fdae204a8",
+                "p_55f11889997a",
+                "p_9ed505b47866",
+                "p_2495cd5aa6c7",
+                "p_86267e7b676d",
+                "p_52db106dc617",
+                "p_40010eda0ef4",
+                "p_01221dd65642",
+                "p_416d05e60bbf",
+                "p_2ac5fb0da9cc",
+                "p_8f32039c6714",
+                "p_4456c6ed96e0",
+                "p_8c575f68fcfc",
+                "p_53f38afd91f4",
+                "p_c0ee18fb1789",
+                "p_dfa2fcfcad6c",
+                "p_c94f2487f78b",
+                "p_65c3c8f13768",
+                "p_c1fdca5702cf"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_79ff6a12ef5e",
+            "p_d0a6bad50f17",
+            "p_40fcfd868865",
+            "p_a73adcf3f0cc",
+            "p_ba206b15c96e",
+            "p_8a9fc6844139",
+            "p_4dbcc2a505b6",
+            "p_67d47bea8949",
+            "p_f10aaa6fbf88",
+            "p_483614a0d5ae",
+            "p_7047eb210003",
+            "p_1ca05d00c46e",
+            "p_164586ee6687",
+            "p_105eca4bddbd",
+            "p_00f51d4268a7",
+            "p_9bb8cbfba29e",
+            "p_03a829e56522",
+            "p_9778d95220d4",
+            "p_e23a00c32bca",
+            "p_69bb2739287d",
+            "p_91dd1db03646",
+            "p_ea1320e681f9",
+            "p_ab9673aa6b3f",
+            "p_cc68b34c4197",
+            "p_7f18d84efefa",
+            "p_a2a18d605edf",
+            "p_703d0fdcbfd8",
+            "p_fd7f0cd90f56",
+            "p_6f0aadb838ec",
+            "p_1d586f444714",
+            "p_a36129a50af2",
+            "p_41b7d4cd9695",
+            "p_02ac01c29d2a",
+            "p_3d9f2442719d",
+            "p_a5ef7b43af9b",
+            "p_e9c1483abd50",
+            "p_4e4c116e5538",
+            "p_ff7e5e56ea44",
+            "p_b32c993cf9d0",
+            "p_4129de0f1b09",
+            "p_ab8a3b775677",
+            "p_b83f11c426d3",
+            "p_6d4e792c03fc",
+            "p_7b3456a0ac6a",
+            "p_031a32a0dd0c",
+            "p_1354d9dcaadb",
+            "p_c6575b79f2d3",
+            "p_f45fc8e2d374",
+            "p_40be6ff78beb",
+            "p_10e839b12858",
+            "p_bf14a89a6c34",
+            "p_5e95d6133460",
+            "p_64c6ac881d4d",
+            "p_d1cf294c2481",
+            "p_b1ab9738800d",
+            "p_4913156b68c2",
+            "p_e27e2cdc8cc4",
+            "p_fb8b669d9e18",
+            "p_a1585ae789d8",
+            "p_7fbdabb89d11",
+            "p_0210c6b76d69",
+            "p_19707cc06bd0",
+            "p_bdc49258d52d",
+            "p_80971d91fcaf",
+            "p_356d97ae7e1b",
+            "p_1be5ae5ee006",
+            "p_af78b8f0fcf9",
+            "p_5f83ea317724",
+            "p_a503190861a4",
+            "p_ed6dcfe46236",
+            "p_649d3eae70f6",
+            "p_d844453da606",
+            "p_fb5e4f5553da",
+            "p_6a88d0fa05da",
+            "p_3ac31210fef8",
+            "p_82f8e74a3da4",
+            "p_aec806a49834",
+            "p_082fdae204a8",
+            "p_55f11889997a",
+            "p_9ed505b47866",
+            "p_2495cd5aa6c7",
+            "p_86267e7b676d",
+            "p_52db106dc617",
+            "p_40010eda0ef4",
+            "p_01221dd65642",
+            "p_416d05e60bbf",
+            "p_2ac5fb0da9cc",
+            "p_8f32039c6714",
+            "p_4456c6ed96e0",
+            "p_8c575f68fcfc",
+            "p_53f38afd91f4",
+            "p_c0ee18fb1789",
+            "p_dfa2fcfcad6c",
+            "p_c94f2487f78b",
+            "p_65c3c8f13768",
+            "p_c1fdca5702cf"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_79ff6a12ef5e",
+            "p_40fcfd868865",
+            "p_a73adcf3f0cc",
+            "p_ba206b15c96e",
+            "p_416d05e60bbf"
+          ],
+          "related_entity_ids": [
+            "p_d0a6bad50f17",
+            "p_8a9fc6844139",
+            "p_4dbcc2a505b6",
+            "p_67d47bea8949",
+            "p_f10aaa6fbf88",
+            "p_483614a0d5ae",
+            "p_7047eb210003",
+            "p_1ca05d00c46e",
+            "p_164586ee6687",
+            "p_105eca4bddbd",
+            "p_00f51d4268a7",
+            "p_9bb8cbfba29e",
+            "p_03a829e56522",
+            "p_9778d95220d4",
+            "p_e23a00c32bca",
+            "p_69bb2739287d",
+            "p_91dd1db03646",
+            "p_ea1320e681f9",
+            "p_ab9673aa6b3f",
+            "p_cc68b34c4197",
+            "p_7f18d84efefa",
+            "p_a2a18d605edf",
+            "p_703d0fdcbfd8",
+            "p_fd7f0cd90f56",
+            "p_6f0aadb838ec",
+            "p_1d586f444714",
+            "p_a36129a50af2",
+            "p_41b7d4cd9695",
+            "p_02ac01c29d2a",
+            "p_3d9f2442719d",
+            "p_a5ef7b43af9b",
+            "p_e9c1483abd50",
+            "p_4e4c116e5538",
+            "p_ff7e5e56ea44",
+            "p_b32c993cf9d0",
+            "p_4129de0f1b09",
+            "p_ab8a3b775677",
+            "p_b83f11c426d3",
+            "p_6d4e792c03fc",
+            "p_7b3456a0ac6a",
+            "p_031a32a0dd0c",
+            "p_1354d9dcaadb",
+            "p_c6575b79f2d3",
+            "p_f45fc8e2d374",
+            "p_c94f2487f78b"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_79ff6a12ef5e",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "core"
+            },
+            {
+              "entity_id": "p_d0a6bad50f17",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_40fcfd868865",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "core"
+            },
+            {
+              "entity_id": "p_a73adcf3f0cc",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "core"
+            },
+            {
+              "entity_id": "p_ba206b15c96e",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "core"
+            },
+            {
+              "entity_id": "p_8a9fc6844139",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_4dbcc2a505b6",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_67d47bea8949",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_f10aaa6fbf88",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_483614a0d5ae",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_7047eb210003",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_1ca05d00c46e",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_164586ee6687",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_105eca4bddbd",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_00f51d4268a7",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_9bb8cbfba29e",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_03a829e56522",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_9778d95220d4",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_e23a00c32bca",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_69bb2739287d",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_91dd1db03646",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_ea1320e681f9",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_ab9673aa6b3f",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_cc68b34c4197",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_7f18d84efefa",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_a2a18d605edf",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_703d0fdcbfd8",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_fd7f0cd90f56",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_6f0aadb838ec",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_1d586f444714",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_a36129a50af2",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_41b7d4cd9695",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_02ac01c29d2a",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_3d9f2442719d",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_a5ef7b43af9b",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_e9c1483abd50",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_4e4c116e5538",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_ff7e5e56ea44",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_b32c993cf9d0",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_4129de0f1b09",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_ab8a3b775677",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_b83f11c426d3",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_6d4e792c03fc",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_7b3456a0ac6a",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_031a32a0dd0c",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_1354d9dcaadb",
+              "reason": "A pole-mounted scraper or window-washing head, not the later handheld cleaning cloth.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_cleaning_tool"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_c6575b79f2d3",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_f45fc8e2d374",
+              "reason": "A real long-handled bristle floor brush, applicable initially but not the cloth used later.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "obsolete_physical_referent"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_416d05e60bbf",
+              "reason": "A thick scrub sponge, not the flat flexible cleaning cloth in the later views.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_item_form"
+              ],
+              "ring": "core"
+            },
+            {
+              "entity_id": "p_c94f2487f78b",
+              "reason": "A thick scrub sponge, not the flat flexible cleaning cloth in the later views.",
+              "why_plausible": "A real result in the complete floor-cleaning or dishcloth search window.",
+              "failure_predicates": [
+                "different_item_form"
+              ],
+              "ring": "related"
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ]
+        },
+        "catalogue_assessment": {
+          "reviewer": "coding-agent/root",
+          "rule": "The initial item must supply a long handle and a bristled floor-cleaning head; multifunction tools qualify when that head is supplied. The final item must supply a reusable flexible cleaning-cloth sheet; material, colour and pack count are unrestricted. A thick scrub sponge is a different form. All plausible public rows require image verification before compilation.",
+          "initial_accepted": [
+            "p_79ff6a12ef5e",
+            "p_d0a6bad50f17",
+            "p_ba206b15c96e",
+            "p_8a9fc6844139",
+            "p_4dbcc2a505b6",
+            "p_f10aaa6fbf88",
+            "p_7047eb210003",
+            "p_00f51d4268a7",
+            "p_9bb8cbfba29e",
+            "p_03a829e56522",
+            "p_9778d95220d4",
+            "p_ab9673aa6b3f",
+            "p_cc68b34c4197",
+            "p_1d586f444714",
+            "p_a36129a50af2",
+            "p_a5ef7b43af9b",
+            "p_ab8a3b775677",
+            "p_b83f11c426d3",
+            "p_c6575b79f2d3",
+            "p_f45fc8e2d374"
+          ],
+          "final_accepted": [
+            "p_40be6ff78beb",
+            "p_10e839b12858",
+            "p_bf14a89a6c34",
+            "p_5e95d6133460",
+            "p_64c6ac881d4d",
+            "p_d1cf294c2481",
+            "p_b1ab9738800d",
+            "p_4913156b68c2",
+            "p_e27e2cdc8cc4",
+            "p_fb8b669d9e18",
+            "p_a1585ae789d8",
+            "p_7fbdabb89d11",
+            "p_0210c6b76d69",
+            "p_19707cc06bd0",
+            "p_bdc49258d52d",
+            "p_80971d91fcaf",
+            "p_356d97ae7e1b",
+            "p_1be5ae5ee006",
+            "p_af78b8f0fcf9",
+            "p_5f83ea317724",
+            "p_a503190861a4",
+            "p_ed6dcfe46236",
+            "p_649d3eae70f6",
+            "p_d844453da606",
+            "p_fb5e4f5553da",
+            "p_6a88d0fa05da",
+            "p_3ac31210fef8",
+            "p_82f8e74a3da4",
+            "p_aec806a49834",
+            "p_082fdae204a8",
+            "p_55f11889997a",
+            "p_9ed505b47866",
+            "p_2495cd5aa6c7",
+            "p_86267e7b676d",
+            "p_52db106dc617",
+            "p_40010eda0ef4",
+            "p_01221dd65642",
+            "p_2ac5fb0da9cc",
+            "p_8f32039c6714",
+            "p_4456c6ed96e0",
+            "p_8c575f68fcfc",
+            "p_53f38afd91f4",
+            "p_c0ee18fb1789",
+            "p_dfa2fcfcad6c",
+            "p_65c3c8f13768",
+            "p_c1fdca5702cf"
+          ],
+          "evidence": "All 96 actual public listing images and titles inspected. Floor 34 supplies a pole-mounted bristle head, and floor 46 is a rubber-bristle broom; both are initial matches without a hidden material constraint. Cloth 37 and 45 are thick scrub sponges/pads, not a flexible sheet. Thin cellulose sponge-cloths and flexible mesh dishcloths remain accepted.",
+          "remaining": [
+            "Independent scene and complete boundary review, native checks, one valid authorized development trial and trace review."
+          ]
+        }
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Reviewed entire source overview and native second-by-second source views for the late cloth interval; source is independent of current formal recordings. Exact composition and later pot-washing tool are not inferred."
+      },
+      "rejection_code": "later_object_does_not_revise_original_request",
+      "rejection_reason": "Independent review withdrew its initial latest-object interpretation: the original deictic request points to the tool held at speaking time. Later holding a cloth does not change the purchase need.",
+      "rejection_review": ".scratch/synthesis-20261028/review/candidate-mart-refresh-replace-2026102805-design-rejection.json"
+    },
+    {
+      "task_id": "candidate-mart-refresh-retain-2026102805",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          50
+        ],
+        "media_id": "2265b3fc-8975-465c-8ff8-81c41c93a7b6",
+        "original_video_id": "2265b3fc-8975-465c-8ff8-81c41c93a7b6",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              10,
+              40
+            ],
+            "role": "floor_brush",
+            "description": "The wearer moves a yellow bristled brush on a blue long handle over the floor."
+          },
+          {
+            "interval_seconds": [
+              165,
+              168
+            ],
+            "role": "cleaning_cloth",
+            "description": "The wearer handles and squeezes a flexible pink patterned cleaning cloth at a bucket. This is distinct from the earlier long-handled floor brush."
+          }
+        ],
+        "scope_note": "The later released interval stops at the bucket cloth. Subsequent washing of a pot is outside this task’s reference and is not claimed to use the same cloth."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            166,
+            166.5,
+            167,
+            168
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102805/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "Initial views establish a bristled floor brush with a long handle; later views establish a separate flexible cloth handled at the bucket. Exact bristle stiffness, cloth composition, brand and size are not asserted.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent keep the original physical purchase referent when later first-person views show a different salient cleaning item?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "belief_before": "The request refers to the long-handled tool with a transverse cleaning head held in the initial views.",
+        "belief_after": "The original spare-tool request remains valid despite later handling of a separate cloth.",
+        "required_behavior_change": "Keep one spare of the original long-handled transverse-head tool; do not replace it with the later cloth.",
+        "no_update_failure": "Misread the later cloth as a revision of the user’s original request.",
+        "overupdate_failure": "Delete the valid original choice or add an unrequested later cloth.",
+        "visual_dependency_claim": "The request does not name the original tool form. The initial view establishes it; the later cloth is a salient new physical object, not a changed purchase need.",
+        "task_blueprint": {
+          "site": "egomart",
+          "instruction": "I want a spare of the cleaning item I'm holding. Add one listing with the same basic form to my cart; any brand or colour is fine, and a pack is okay.",
+          "initial_target_role": "handled_cleaning_tool",
+          "final_target_role": "handled_cleaning_tool",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "handled_cleaning_tool": "p_79ff6a12ef5e",
+            "later_cloth": "p_40be6ff78beb"
+          },
+          "equivalent_role_ids": {
+            "handled_cleaning_tool": [
+              "p_d0a6bad50f17",
+              "p_40fcfd868865",
+              "p_a73adcf3f0cc",
+              "p_ba206b15c96e",
+              "p_8a9fc6844139",
+              "p_4dbcc2a505b6",
+              "p_67d47bea8949",
+              "p_f10aaa6fbf88",
+              "p_483614a0d5ae",
+              "p_7047eb210003",
+              "p_1ca05d00c46e",
+              "p_164586ee6687",
+              "p_105eca4bddbd",
+              "p_00f51d4268a7",
+              "p_9bb8cbfba29e",
+              "p_03a829e56522",
+              "p_9778d95220d4",
+              "p_e23a00c32bca",
+              "p_69bb2739287d",
+              "p_91dd1db03646",
+              "p_ea1320e681f9",
+              "p_ab9673aa6b3f",
+              "p_cc68b34c4197",
+              "p_7f18d84efefa",
+              "p_a2a18d605edf",
+              "p_703d0fdcbfd8",
+              "p_fd7f0cd90f56",
+              "p_6f0aadb838ec",
+              "p_1d586f444714",
+              "p_a36129a50af2",
+              "p_41b7d4cd9695",
+              "p_02ac01c29d2a",
+              "p_3d9f2442719d",
+              "p_a5ef7b43af9b",
+              "p_e9c1483abd50",
+              "p_4e4c116e5538",
+              "p_ff7e5e56ea44",
+              "p_b32c993cf9d0",
+              "p_4129de0f1b09",
+              "p_ab8a3b775677",
+              "p_b83f11c426d3",
+              "p_6d4e792c03fc",
+              "p_7b3456a0ac6a",
+              "p_031a32a0dd0c",
+              "p_1354d9dcaadb",
+              "p_c6575b79f2d3",
+              "p_f45fc8e2d374"
+            ],
+            "later_cloth": [
+              "p_10e839b12858",
+              "p_bf14a89a6c34",
+              "p_5e95d6133460",
+              "p_64c6ac881d4d",
+              "p_d1cf294c2481",
+              "p_b1ab9738800d",
+              "p_4913156b68c2",
+              "p_e27e2cdc8cc4",
+              "p_fb8b669d9e18",
+              "p_a1585ae789d8",
+              "p_7fbdabb89d11",
+              "p_0210c6b76d69",
+              "p_19707cc06bd0",
+              "p_bdc49258d52d",
+              "p_80971d91fcaf",
+              "p_356d97ae7e1b",
+              "p_1be5ae5ee006",
+              "p_af78b8f0fcf9",
+              "p_5f83ea317724",
+              "p_a503190861a4",
+              "p_ed6dcfe46236",
+              "p_649d3eae70f6",
+              "p_d844453da606",
+              "p_fb5e4f5553da",
+              "p_6a88d0fa05da",
+              "p_3ac31210fef8",
+              "p_82f8e74a3da4",
+              "p_aec806a49834",
+              "p_082fdae204a8",
+              "p_55f11889997a",
+              "p_9ed505b47866",
+              "p_2495cd5aa6c7",
+              "p_86267e7b676d",
+              "p_52db106dc617",
+              "p_40010eda0ef4",
+              "p_01221dd65642",
+              "p_2ac5fb0da9cc",
+              "p_8f32039c6714",
+              "p_4456c6ed96e0",
+              "p_8c575f68fcfc",
+              "p_53f38afd91f4",
+              "p_c0ee18fb1789",
+              "p_dfa2fcfcad6c",
+              "p_65c3c8f13768",
+              "p_c1fdca5702cf"
+            ]
+          },
+          "later_distractor_role": "later_cloth"
+        },
+        "decision": {
+          "candidates": {
+            "handled_cleaning_tool": "p_79ff6a12ef5e",
+            "later_cloth": "p_40be6ff78beb"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "handled_cleaning_tool"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The original deictic request refers to the transverse-head tool held in the initial view."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "handled_cleaning_tool"
+              ],
+              "why": "Later handling a cloth does not change the previously stated spare-tool request."
+            }
+          ],
+          "recording": "key_events",
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-28"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "floor cleaning squeegee long handle",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026102805.json",
+              "result_entity_ids": [
+                "p_79ff6a12ef5e",
+                "p_d0a6bad50f17",
+                "p_40fcfd868865",
+                "p_a73adcf3f0cc",
+                "p_ba206b15c96e",
+                "p_8a9fc6844139",
+                "p_4dbcc2a505b6",
+                "p_67d47bea8949",
+                "p_f10aaa6fbf88",
+                "p_483614a0d5ae",
+                "p_7047eb210003",
+                "p_1ca05d00c46e",
+                "p_164586ee6687",
+                "p_105eca4bddbd",
+                "p_00f51d4268a7",
+                "p_9bb8cbfba29e",
+                "p_03a829e56522",
+                "p_9778d95220d4",
+                "p_e23a00c32bca",
+                "p_69bb2739287d",
+                "p_91dd1db03646",
+                "p_ea1320e681f9",
+                "p_ab9673aa6b3f",
+                "p_cc68b34c4197",
+                "p_7f18d84efefa",
+                "p_a2a18d605edf",
+                "p_703d0fdcbfd8",
+                "p_fd7f0cd90f56",
+                "p_6f0aadb838ec",
+                "p_1d586f444714",
+                "p_a36129a50af2",
+                "p_41b7d4cd9695",
+                "p_02ac01c29d2a",
+                "p_3d9f2442719d",
+                "p_a5ef7b43af9b",
+                "p_e9c1483abd50",
+                "p_4e4c116e5538",
+                "p_ff7e5e56ea44",
+                "p_b32c993cf9d0",
+                "p_4129de0f1b09",
+                "p_ab8a3b775677",
+                "p_b83f11c426d3",
+                "p_6d4e792c03fc",
+                "p_7b3456a0ac6a",
+                "p_031a32a0dd0c",
+                "p_1354d9dcaadb",
+                "p_c6575b79f2d3",
+                "p_f45fc8e2d374"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-replace-2026102805"
+            },
+            {
+              "stage": "after_change",
+              "query": "dish washing cloths",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-replace-2026102805.json",
+              "result_entity_ids": [
+                "p_40be6ff78beb",
+                "p_10e839b12858",
+                "p_bf14a89a6c34",
+                "p_5e95d6133460",
+                "p_64c6ac881d4d",
+                "p_d1cf294c2481",
+                "p_b1ab9738800d",
+                "p_4913156b68c2",
+                "p_e27e2cdc8cc4",
+                "p_fb8b669d9e18",
+                "p_a1585ae789d8",
+                "p_7fbdabb89d11",
+                "p_0210c6b76d69",
+                "p_19707cc06bd0",
+                "p_bdc49258d52d",
+                "p_80971d91fcaf",
+                "p_356d97ae7e1b",
+                "p_1be5ae5ee006",
+                "p_af78b8f0fcf9",
+                "p_5f83ea317724",
+                "p_a503190861a4",
+                "p_ed6dcfe46236",
+                "p_649d3eae70f6",
+                "p_d844453da606",
+                "p_fb5e4f5553da",
+                "p_6a88d0fa05da",
+                "p_3ac31210fef8",
+                "p_82f8e74a3da4",
+                "p_aec806a49834",
+                "p_082fdae204a8",
+                "p_55f11889997a",
+                "p_9ed505b47866",
+                "p_2495cd5aa6c7",
+                "p_86267e7b676d",
+                "p_52db106dc617",
+                "p_40010eda0ef4",
+                "p_01221dd65642",
+                "p_416d05e60bbf",
+                "p_2ac5fb0da9cc",
+                "p_8f32039c6714",
+                "p_4456c6ed96e0",
+                "p_8c575f68fcfc",
+                "p_53f38afd91f4",
+                "p_c0ee18fb1789",
+                "p_dfa2fcfcad6c",
+                "p_c94f2487f78b",
+                "p_65c3c8f13768",
+                "p_c1fdca5702cf"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-replace-2026102805"
+            }
+          ],
+          "window_entity_ids": [
+            "p_79ff6a12ef5e",
+            "p_d0a6bad50f17",
+            "p_40fcfd868865",
+            "p_a73adcf3f0cc",
+            "p_ba206b15c96e",
+            "p_8a9fc6844139",
+            "p_4dbcc2a505b6",
+            "p_67d47bea8949",
+            "p_f10aaa6fbf88",
+            "p_483614a0d5ae",
+            "p_7047eb210003",
+            "p_1ca05d00c46e",
+            "p_164586ee6687",
+            "p_105eca4bddbd",
+            "p_00f51d4268a7",
+            "p_9bb8cbfba29e",
+            "p_03a829e56522",
+            "p_9778d95220d4",
+            "p_e23a00c32bca",
+            "p_69bb2739287d",
+            "p_91dd1db03646",
+            "p_ea1320e681f9",
+            "p_ab9673aa6b3f",
+            "p_cc68b34c4197",
+            "p_7f18d84efefa",
+            "p_a2a18d605edf",
+            "p_703d0fdcbfd8",
+            "p_fd7f0cd90f56",
+            "p_6f0aadb838ec",
+            "p_1d586f444714",
+            "p_a36129a50af2",
+            "p_41b7d4cd9695",
+            "p_02ac01c29d2a",
+            "p_3d9f2442719d",
+            "p_a5ef7b43af9b",
+            "p_e9c1483abd50",
+            "p_4e4c116e5538",
+            "p_ff7e5e56ea44",
+            "p_b32c993cf9d0",
+            "p_4129de0f1b09",
+            "p_ab8a3b775677",
+            "p_b83f11c426d3",
+            "p_6d4e792c03fc",
+            "p_7b3456a0ac6a",
+            "p_031a32a0dd0c",
+            "p_1354d9dcaadb",
+            "p_c6575b79f2d3",
+            "p_f45fc8e2d374",
+            "p_40be6ff78beb",
+            "p_10e839b12858",
+            "p_bf14a89a6c34",
+            "p_5e95d6133460",
+            "p_64c6ac881d4d",
+            "p_d1cf294c2481",
+            "p_b1ab9738800d",
+            "p_4913156b68c2",
+            "p_e27e2cdc8cc4",
+            "p_fb8b669d9e18",
+            "p_a1585ae789d8",
+            "p_7fbdabb89d11",
+            "p_0210c6b76d69",
+            "p_19707cc06bd0",
+            "p_bdc49258d52d",
+            "p_80971d91fcaf",
+            "p_356d97ae7e1b",
+            "p_1be5ae5ee006",
+            "p_af78b8f0fcf9",
+            "p_5f83ea317724",
+            "p_a503190861a4",
+            "p_ed6dcfe46236",
+            "p_649d3eae70f6",
+            "p_d844453da606",
+            "p_fb5e4f5553da",
+            "p_6a88d0fa05da",
+            "p_3ac31210fef8",
+            "p_82f8e74a3da4",
+            "p_aec806a49834",
+            "p_082fdae204a8",
+            "p_55f11889997a",
+            "p_9ed505b47866",
+            "p_2495cd5aa6c7",
+            "p_86267e7b676d",
+            "p_52db106dc617",
+            "p_40010eda0ef4",
+            "p_01221dd65642",
+            "p_416d05e60bbf",
+            "p_2ac5fb0da9cc",
+            "p_8f32039c6714",
+            "p_4456c6ed96e0",
+            "p_8c575f68fcfc",
+            "p_53f38afd91f4",
+            "p_c0ee18fb1789",
+            "p_dfa2fcfcad6c",
+            "p_c94f2487f78b",
+            "p_65c3c8f13768",
+            "p_c1fdca5702cf"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_40be6ff78beb",
+            "p_10e839b12858",
+            "p_416d05e60bbf"
+          ],
+          "related_entity_ids": [
+            "p_bf14a89a6c34",
+            "p_5e95d6133460",
+            "p_64c6ac881d4d",
+            "p_d1cf294c2481",
+            "p_b1ab9738800d",
+            "p_4913156b68c2",
+            "p_e27e2cdc8cc4",
+            "p_fb8b669d9e18",
+            "p_a1585ae789d8",
+            "p_7fbdabb89d11",
+            "p_0210c6b76d69",
+            "p_19707cc06bd0",
+            "p_bdc49258d52d",
+            "p_80971d91fcaf",
+            "p_356d97ae7e1b",
+            "p_1be5ae5ee006",
+            "p_af78b8f0fcf9",
+            "p_5f83ea317724",
+            "p_a503190861a4",
+            "p_ed6dcfe46236",
+            "p_649d3eae70f6",
+            "p_d844453da606",
+            "p_fb5e4f5553da",
+            "p_6a88d0fa05da",
+            "p_3ac31210fef8",
+            "p_82f8e74a3da4",
+            "p_aec806a49834",
+            "p_082fdae204a8",
+            "p_55f11889997a",
+            "p_9ed505b47866",
+            "p_2495cd5aa6c7",
+            "p_86267e7b676d",
+            "p_52db106dc617",
+            "p_40010eda0ef4",
+            "p_01221dd65642",
+            "p_2ac5fb0da9cc",
+            "p_8f32039c6714",
+            "p_4456c6ed96e0",
+            "p_8c575f68fcfc",
+            "p_53f38afd91f4",
+            "p_c0ee18fb1789",
+            "p_dfa2fcfcad6c",
+            "p_c94f2487f78b",
+            "p_65c3c8f13768",
+            "p_c1fdca5702cf"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_40be6ff78beb",
+              "ring": "core",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_10e839b12858",
+              "ring": "core",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_bf14a89a6c34",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_5e95d6133460",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_64c6ac881d4d",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_d1cf294c2481",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_b1ab9738800d",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_4913156b68c2",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_e27e2cdc8cc4",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_fb8b669d9e18",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_a1585ae789d8",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_7fbdabb89d11",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_0210c6b76d69",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_19707cc06bd0",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_bdc49258d52d",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_80971d91fcaf",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_356d97ae7e1b",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_1be5ae5ee006",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_af78b8f0fcf9",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_5f83ea317724",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_a503190861a4",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_ed6dcfe46236",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_649d3eae70f6",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_d844453da606",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_fb5e4f5553da",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_6a88d0fa05da",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_3ac31210fef8",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_82f8e74a3da4",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_aec806a49834",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_082fdae204a8",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_55f11889997a",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_9ed505b47866",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_2495cd5aa6c7",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_86267e7b676d",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_52db106dc617",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_40010eda0ef4",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_01221dd65642",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_416d05e60bbf",
+              "ring": "core",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_2ac5fb0da9cc",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_8f32039c6714",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_4456c6ed96e0",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_8c575f68fcfc",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_53f38afd91f4",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_c0ee18fb1789",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_dfa2fcfcad6c",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_c94f2487f78b",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_65c3c8f13768",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            },
+            {
+              "entity_id": "p_c1fdca5702cf",
+              "ring": "related",
+              "reason": "A later cloth or pad, without the original long handle and transverse cleaning-head form. The user did not request this new physical object.",
+              "why_plausible": "A real cleaning-supply result, related to the cloth in the later first-person views.",
+              "failure_predicates": [
+                "unrequested_later_object",
+                "different_basic_form"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ]
+        },
+        "catalogue_assessment": {
+          "reviewer": "coding-agent/root",
+          "rule": "Match the observed long handle and transverse cleaning head; do not impose a hidden bristle-versus-blade, material, colour, head width or brand distinction. A kit with such a tool qualifies. Public results in the complete initial window all supply that basic form. Later cloths and pads do not.",
+          "initial_accepted": [
+            "p_79ff6a12ef5e",
+            "p_d0a6bad50f17",
+            "p_40fcfd868865",
+            "p_a73adcf3f0cc",
+            "p_ba206b15c96e",
+            "p_8a9fc6844139",
+            "p_4dbcc2a505b6",
+            "p_67d47bea8949",
+            "p_f10aaa6fbf88",
+            "p_483614a0d5ae",
+            "p_7047eb210003",
+            "p_1ca05d00c46e",
+            "p_164586ee6687",
+            "p_105eca4bddbd",
+            "p_00f51d4268a7",
+            "p_9bb8cbfba29e",
+            "p_03a829e56522",
+            "p_9778d95220d4",
+            "p_e23a00c32bca",
+            "p_69bb2739287d",
+            "p_91dd1db03646",
+            "p_ea1320e681f9",
+            "p_ab9673aa6b3f",
+            "p_cc68b34c4197",
+            "p_7f18d84efefa",
+            "p_a2a18d605edf",
+            "p_703d0fdcbfd8",
+            "p_fd7f0cd90f56",
+            "p_6f0aadb838ec",
+            "p_1d586f444714",
+            "p_a36129a50af2",
+            "p_41b7d4cd9695",
+            "p_02ac01c29d2a",
+            "p_3d9f2442719d",
+            "p_a5ef7b43af9b",
+            "p_e9c1483abd50",
+            "p_4e4c116e5538",
+            "p_ff7e5e56ea44",
+            "p_b32c993cf9d0",
+            "p_4129de0f1b09",
+            "p_ab8a3b775677",
+            "p_b83f11c426d3",
+            "p_6d4e792c03fc",
+            "p_7b3456a0ac6a",
+            "p_031a32a0dd0c",
+            "p_1354d9dcaadb",
+            "p_c6575b79f2d3",
+            "p_f45fc8e2d374"
+          ],
+          "final_accepted": [
+            "p_79ff6a12ef5e",
+            "p_d0a6bad50f17",
+            "p_40fcfd868865",
+            "p_a73adcf3f0cc",
+            "p_ba206b15c96e",
+            "p_8a9fc6844139",
+            "p_4dbcc2a505b6",
+            "p_67d47bea8949",
+            "p_f10aaa6fbf88",
+            "p_483614a0d5ae",
+            "p_7047eb210003",
+            "p_1ca05d00c46e",
+            "p_164586ee6687",
+            "p_105eca4bddbd",
+            "p_00f51d4268a7",
+            "p_9bb8cbfba29e",
+            "p_03a829e56522",
+            "p_9778d95220d4",
+            "p_e23a00c32bca",
+            "p_69bb2739287d",
+            "p_91dd1db03646",
+            "p_ea1320e681f9",
+            "p_ab9673aa6b3f",
+            "p_cc68b34c4197",
+            "p_7f18d84efefa",
+            "p_a2a18d605edf",
+            "p_703d0fdcbfd8",
+            "p_fd7f0cd90f56",
+            "p_6f0aadb838ec",
+            "p_1d586f444714",
+            "p_a36129a50af2",
+            "p_41b7d4cd9695",
+            "p_02ac01c29d2a",
+            "p_3d9f2442719d",
+            "p_a5ef7b43af9b",
+            "p_e9c1483abd50",
+            "p_4e4c116e5538",
+            "p_ff7e5e56ea44",
+            "p_b32c993cf9d0",
+            "p_4129de0f1b09",
+            "p_ab8a3b775677",
+            "p_b83f11c426d3",
+            "p_6d4e792c03fc",
+            "p_7b3456a0ac6a",
+            "p_031a32a0dd0c",
+            "p_1354d9dcaadb",
+            "p_c6575b79f2d3",
+            "p_f45fc8e2d374"
+          ],
+          "evidence": "All 96 actual images and public titles inspected. The previous independent reviewer could not distinguish a pure squeegee from a brush from the source; that finer category is therefore not required.",
+          "remaining": [
+            "Redesign the useful need or replace the source: B0FQJR9TRQ supplies both the original pole-mounted tool and independent cleaning cloths. Keep the real kit and resolve this scene-free hedge before any trial or admission."
+          ]
+        }
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Reviewed entire source overview and native second-by-second source views for the late cloth interval; source is independent of current formal recordings. Exact composition and later pot-washing tool are not inferred. A correction supersedes the proposed automatic move to the latest held object; preserve the original request referent.",
+        "semantic_review": {
+          "reviewer": "/root/span_chicken_review",
+          "verdict": "repair",
+          "path": ".scratch/synthesis-20261028/review/candidate-mart-refresh-retain-2026102805-final-adversarial-verdict.json",
+          "public_evidence": "data/sources/upstream_detail_snapshots/amazon/B0FQJR9TRQ.json"
+        }
+      },
+      "replacement_of": "candidate-mart-refresh-replace-2026102805",
+      "repair": {
+        "date": "2026-10-28",
+        "evidence": ".scratch/synthesis-20261028/review/candidate-mart-refresh-replace-2026102805-design-rejection.json",
+        "changes": [
+          "Changed the task to retain the initial referent rather than invent a new purchase need.",
+          "Broadened original matches to the visible long-handle/transverse-head form without an unobservable bristle-versus-blade restriction."
+        ],
+        "retained_evidence": "Same physical frames and native search windows; original proposed-replace blind review remains history, not approval of this repaired task."
+      }
+    }
+  ]
+}

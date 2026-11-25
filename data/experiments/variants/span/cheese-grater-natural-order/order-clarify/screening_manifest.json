@@ -1,0 +1,1703 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing official HD-EPIC research recording; preserve its source attribution."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026101691",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240202-161948",
+        "original_video_id": "P01-20240202-161948",
+        "media_start_seconds": 0,
+        "original_video_path": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01/P01-20240202-161948.mp4",
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "hand-panel-grates-cheese",
+            "interval_seconds": [
+              75,
+              80
+            ],
+            "description": "A held single-panel grater works a cheese block over a patterned plate on the scale. The competing utensil is not used in the saucepan."
+          },
+          {
+            "event_id": "fork-used-in-rear-pot",
+            "interval_seconds": [
+              110,
+              114.75
+            ],
+            "description": "A slim metal table fork is moved through the pasta in the rear saucepan. The saucepan has the black handle and pale handle mount visible when it is later lifted."
+          },
+          {
+            "event_id": "grind-pepper-into-front-pan",
+            "interval_seconds": [
+              153,
+              153
+            ],
+            "description": "Hands grind pepper into the front saucepan. The rear pasta saucepan is visible; no table-fork reminder is visible through the hands."
+          },
+          {
+            "event_id": "retrieve-plate-from-cupboard",
+            "interval_seconds": [
+              279,
+              279
+            ],
+            "description": "The wearer reaches into the wall cupboard for a patterned plate during the same meal preparation. Neither fork nor grater is visible."
+          },
+          {
+            "event_id": "rear-pot-taken-to-sink",
+            "interval_seconds": [
+              681,
+              684
+            ],
+            "description": "The left hand first takes the rear pasta saucepan by its black handle, then holds that saucepan over the sink. The right hand holds an empty mesh strainer. The earlier table fork is not present in these anchor frames."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact fork brand, model, dimensions or alloy",
+          "All intervening source frames were released",
+          "The pot was emptied in the selected anchor frames; they show transport to the sink, before pouring"
+        ]
+      },
+      "screening": {
+        "real_user_need": "Add one spare like the metal hand utensil I used here, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set.",
+        "scope_note": "Same-source relational reframe: identify the earlier utensil by linking its container to the later transport to the sink. Prior ordinal version is retained in review history.",
+        "proposed_instruction": "Add one spare like the metal hand utensil I used here, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            75,
+            80,
+            110,
+            114.75,
+            153,
+            279,
+            681,
+            684
+          ],
+          "frame_paths": [
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_75.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_80.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_110.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_114.75.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_153.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_279.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_681.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_684.jpg"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the agent link an earlier utensil-container use to the later movement of that same container across zero or two intervening preparation events?",
+        "divergence_source": "grounding",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The panel grater used over a plate and the fork used in a saucepan are both possible metal hand utensils.",
+        "belief_after": "The saucepan transported to the sink matches the earlier fork-use container; identify and select one similar table fork.",
+        "required_behavior_change": "Resolve the utensil through the shared container across the earlier use and later movement, then select one equivalent.",
+        "no_update_failure": "Choose the grater or guess a utensil before resolving which container the answer refers to.",
+        "overupdate_failure": "Treat unrelated later activity as a new purchase request or add both items.",
+        "visual_dependency_claim": "Neither utensil identity alone nor the final saucepan alone proves the link. The earlier use locates the utensil in a container; the later frame identifies which container was transported to the sink.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Add one spare like the metal hand utensil I used here, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set.",
+          "oracle_instruction": "Add one spare like the metal hand utensil I used with the container I later took to the sink, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "earlier_item",
+            "later_item"
+          ],
+          "hidden_target_role": "later_item",
+          "valid_slot": "sequence",
+          "canonical_question": "Which of the metal utensils you used do you mean?",
+          "canonical_answer": "The one I used with the container I later took to the sink.",
+          "environment_role_ids": {
+            "earlier_item": "p_3af0047e12eb",
+            "later_item": "p_f77ad4b8820b"
+          },
+          "equivalent_role_ids": {
+            "later_item": [
+              "p_c597b716b78e",
+              "p_60dca423e18d",
+              "p_cd65ad1e353a",
+              "p_ed0c04184a72",
+              "p_ffeaf7a90b77"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "earlier_item": "p_3af0047e12eb",
+            "later_item": "p_f77ad4b8820b"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "later_item"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The rear saucepan transported to the sink is the container in which the metal fork was used. The earlier grater works over a plate."
+            }
+          ],
+          "established_by": "constructing-coding-agent; independent span_relation_review firstpass and counterexample review",
+          "established_at": "2026-10-17"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "4 sided box grater",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026090680.json",
+              "result_entity_ids": [
+                "p_79244d8a1123",
+                "p_df980ff052e7",
+                "p_ad8484545ba4",
+                "p_03981ed68c64",
+                "p_02e85a230387",
+                "p_4664dfcc0ac4",
+                "p_4bab480ec226",
+                "p_a5168df417ef",
+                "p_b7196b4cee55",
+                "p_21b2b11f59cc",
+                "p_bdd057212b28",
+                "p_8ed7bacb0316",
+                "p_9d12db1fda25",
+                "p_e8fdb49ba961",
+                "p_d1f71d4c3496",
+                "p_c5fb0ec9ecb2",
+                "p_9af106c0f7bc",
+                "p_06b2872c7153",
+                "p_021ea13ad419",
+                "p_71e57a8edf88",
+                "p_d66845ec4416",
+                "p_5310a4d7433a",
+                "p_2fd1431e3806",
+                "p_ef0f37fa0f0f",
+                "p_d22c5cbe1c04",
+                "p_1d507703502a",
+                "p_5f673b7f1877",
+                "p_e2ab142e994b",
+                "p_853f841afe42",
+                "p_cf81f5b81f75",
+                "p_d3adc5f85de1",
+                "p_d22e6dedff60",
+                "p_d7102121fa15",
+                "p_1094f3cdb284",
+                "p_eb883e90fce5",
+                "p_ff3ec2843a39",
+                "p_45deb77a49df",
+                "p_c21a4bd40502",
+                "p_6111e74c80f3",
+                "p_311b75c96b2b",
+                "p_f160e6eb814a",
+                "p_2fcfce67034a",
+                "p_f1f9a2fc2a64",
+                "p_6b7746b8690c",
+                "p_25dcb0406ce2",
+                "p_8bec39276bb4",
+                "p_4928e0afdbd7",
+                "p_817c4f3feb58"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-retain-2026090680"
+            },
+            {
+              "stage": "after_change",
+              "query": "lemon zester grater kitchen",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026090680.json",
+              "result_entity_ids": [
+                "p_02875e139aa0",
+                "p_2b3f70b2cc5a",
+                "p_e5d9d9910de3",
+                "p_e6e84d193052",
+                "p_c0d6142f0e12",
+                "p_43f46c007a36",
+                "p_9625c19fdc77",
+                "p_0fc50c5b32f6",
+                "p_9e2d3c5299e0",
+                "p_2bbc0f33f5e4",
+                "p_2b6e9e820dab",
+                "p_146fd1bd3f23",
+                "p_8c67a4e9c7c8",
+                "p_3af0047e12eb",
+                "p_4db3587c9d3a",
+                "p_8204538e6842",
+                "p_375fa51570e5",
+                "p_e1e1f0d279ac",
+                "p_9afb0ddcd6c7",
+                "p_2e24f057adb9",
+                "p_4d7c7cc4a884",
+                "p_3cd4a1d83cbd",
+                "p_e19972a2bd63",
+                "p_9c111af20acd",
+                "p_754de0fa251a",
+                "p_34833485430f",
+                "p_3fa11750008f",
+                "p_b17cf5f79848",
+                "p_50634eed3fbe",
+                "p_30decfe94e77",
+                "p_65b1fc5159e9",
+                "p_b01709030856",
+                "p_0ada853e943a",
+                "p_e1ddb5e32829",
+                "p_4606310f2867",
+                "p_7e8b15ddc3b6",
+                "p_f82f8a4cb4d8",
+                "p_6b1855b957cb",
+                "p_e3d6f03d9fdf",
+                "p_a5535985d670",
+                "p_423a0abd9875",
+                "p_c5d4c9e40f56",
+                "p_a24197b97a43",
+                "p_1c84911f887f",
+                "p_995ca29e79cb",
+                "p_fd36e025f66f",
+                "p_0359d6541a7e",
+                "p_a87424d5ab96"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-retain-2026090680"
+            },
+            {
+              "stage": "later_activity",
+              "snapshot_stage": "before_change",
+              "query": "stainless steel forks spoons separate packs",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-01.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-01",
+              "result_entity_ids": [
+                "p_c1f98fffa806",
+                "p_4787810d3e98",
+                "p_fd168bfdd94a",
+                "p_773e4812326b",
+                "p_8fcf901bb92a",
+                "p_54b6d37a2e1f",
+                "p_b1269900c618",
+                "p_627e20d0ca23",
+                "p_5b42b910aa56",
+                "p_9f4d6c1f9ddc",
+                "p_37ca83309a09",
+                "p_4f60a76f0bab",
+                "p_63c0d28ed1da",
+                "p_ae0a1856ae1e",
+                "p_96391d8a8a97",
+                "p_65e7453ee18b",
+                "p_a4c323c1ed54",
+                "p_19d8224c95aa",
+                "p_43f71ae41805",
+                "p_28fe784dadbf",
+                "p_f78bc5991a41",
+                "p_e2fbc53eb24e",
+                "p_294243287514",
+                "p_7ea774e1599c",
+                "p_09e479b60df8",
+                "p_9f7054ad7784",
+                "p_7bf50fb97e7a",
+                "p_707be042ae79",
+                "p_ae9a4b24f9f6",
+                "p_9e70cc93a7a0",
+                "p_6e73a44733c8",
+                "p_b858ad56553c",
+                "p_cdd381021705",
+                "p_b3ec85a800b5",
+                "p_5ee1aef32a55",
+                "p_aa7c884e95b9",
+                "p_b21c0dff2416",
+                "p_cee31aafc132",
+                "p_cbc29e71284e",
+                "p_2b681059d31c",
+                "p_12a89237d547",
+                "p_42b455544c8e",
+                "p_7ff50c055142",
+                "p_3e6266f2037c",
+                "p_3feb0e211998",
+                "p_3a400ef26250",
+                "p_58c858205bed",
+                "p_90079795d6da"
+              ]
+            },
+            {
+              "stage": "after_single",
+              "query": "fork",
+              "provider": "zwilling-ca-full-search-window-v1+jina-reader-v1",
+              "snapshot_path": "data/experiments/variants/span/butter-tool-natural-order/order-clarify/search-snapshot.json",
+              "snapshot_task_id": "candidate-mart-clarify-sequence-2026101699",
+              "result_entity_ids": [
+                "p_f77ad4b8820b",
+                "p_c597b716b78e",
+                "p_60dca423e18d",
+                "p_cd65ad1e353a",
+                "p_ed0c04184a72",
+                "p_a19b2f663f1b",
+                "p_341b6c0fa7fc",
+                "p_ffeaf7a90b77"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_79244d8a1123",
+            "p_df980ff052e7",
+            "p_ad8484545ba4",
+            "p_03981ed68c64",
+            "p_02e85a230387",
+            "p_4664dfcc0ac4",
+            "p_4bab480ec226",
+            "p_a5168df417ef",
+            "p_b7196b4cee55",
+            "p_21b2b11f59cc",
+            "p_bdd057212b28",
+            "p_8ed7bacb0316",
+            "p_9d12db1fda25",
+            "p_e8fdb49ba961",
+            "p_d1f71d4c3496",
+            "p_c5fb0ec9ecb2",
+            "p_9af106c0f7bc",
+            "p_06b2872c7153",
+            "p_021ea13ad419",
+            "p_71e57a8edf88",
+            "p_d66845ec4416",
+            "p_5310a4d7433a",
+            "p_2fd1431e3806",
+            "p_ef0f37fa0f0f",
+            "p_d22c5cbe1c04",
+            "p_1d507703502a",
+            "p_5f673b7f1877",
+            "p_e2ab142e994b",
+            "p_853f841afe42",
+            "p_cf81f5b81f75",
+            "p_d3adc5f85de1",
+            "p_d22e6dedff60",
+            "p_d7102121fa15",
+            "p_1094f3cdb284",
+            "p_eb883e90fce5",
+            "p_ff3ec2843a39",
+            "p_45deb77a49df",
+            "p_c21a4bd40502",
+            "p_6111e74c80f3",
+            "p_311b75c96b2b",
+            "p_f160e6eb814a",
+            "p_2fcfce67034a",
+            "p_f1f9a2fc2a64",
+            "p_6b7746b8690c",
+            "p_25dcb0406ce2",
+            "p_8bec39276bb4",
+            "p_4928e0afdbd7",
+            "p_817c4f3feb58",
+            "p_02875e139aa0",
+            "p_2b3f70b2cc5a",
+            "p_e5d9d9910de3",
+            "p_e6e84d193052",
+            "p_c0d6142f0e12",
+            "p_43f46c007a36",
+            "p_9625c19fdc77",
+            "p_0fc50c5b32f6",
+            "p_9e2d3c5299e0",
+            "p_2bbc0f33f5e4",
+            "p_2b6e9e820dab",
+            "p_146fd1bd3f23",
+            "p_8c67a4e9c7c8",
+            "p_3af0047e12eb",
+            "p_4db3587c9d3a",
+            "p_8204538e6842",
+            "p_375fa51570e5",
+            "p_e1e1f0d279ac",
+            "p_9afb0ddcd6c7",
+            "p_2e24f057adb9",
+            "p_4d7c7cc4a884",
+            "p_3cd4a1d83cbd",
+            "p_e19972a2bd63",
+            "p_9c111af20acd",
+            "p_754de0fa251a",
+            "p_34833485430f",
+            "p_3fa11750008f",
+            "p_b17cf5f79848",
+            "p_50634eed3fbe",
+            "p_30decfe94e77",
+            "p_65b1fc5159e9",
+            "p_b01709030856",
+            "p_0ada853e943a",
+            "p_e1ddb5e32829",
+            "p_4606310f2867",
+            "p_7e8b15ddc3b6",
+            "p_f82f8a4cb4d8",
+            "p_6b1855b957cb",
+            "p_e3d6f03d9fdf",
+            "p_a5535985d670",
+            "p_423a0abd9875",
+            "p_c5d4c9e40f56",
+            "p_a24197b97a43",
+            "p_1c84911f887f",
+            "p_995ca29e79cb",
+            "p_fd36e025f66f",
+            "p_0359d6541a7e",
+            "p_a87424d5ab96",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_773e4812326b",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_f77ad4b8820b",
+            "p_c597b716b78e",
+            "p_60dca423e18d",
+            "p_cd65ad1e353a",
+            "p_ed0c04184a72",
+            "p_a19b2f663f1b",
+            "p_341b6c0fa7fc",
+            "p_ffeaf7a90b77"
+          ],
+          "semantic_scope_policy": "All genuine captured results; reused snapshot rows retain their original provider query and task identity.",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_3af0047e12eb",
+            "p_a19b2f663f1b",
+            "p_341b6c0fa7fc",
+            "p_773e4812326b",
+            "p_9f7054ad7784"
+          ],
+          "related_entity_ids": [
+            "p_79244d8a1123",
+            "p_df980ff052e7",
+            "p_03981ed68c64",
+            "p_02e85a230387",
+            "p_4664dfcc0ac4",
+            "p_4bab480ec226",
+            "p_a5168df417ef",
+            "p_b7196b4cee55",
+            "p_21b2b11f59cc",
+            "p_bdd057212b28",
+            "p_8ed7bacb0316",
+            "p_9d12db1fda25",
+            "p_e8fdb49ba961",
+            "p_d1f71d4c3496",
+            "p_c5fb0ec9ecb2",
+            "p_9af106c0f7bc"
+          ],
+          "ambient_entity_ids": [
+            "p_ad8484545ba4",
+            "p_06b2872c7153",
+            "p_021ea13ad419",
+            "p_71e57a8edf88",
+            "p_d66845ec4416",
+            "p_5310a4d7433a",
+            "p_2fd1431e3806",
+            "p_ef0f37fa0f0f",
+            "p_d22c5cbe1c04",
+            "p_1d507703502a",
+            "p_5f673b7f1877",
+            "p_e2ab142e994b",
+            "p_853f841afe42",
+            "p_cf81f5b81f75",
+            "p_d3adc5f85de1",
+            "p_d22e6dedff60",
+            "p_d7102121fa15",
+            "p_1094f3cdb284",
+            "p_eb883e90fce5",
+            "p_ff3ec2843a39",
+            "p_45deb77a49df",
+            "p_c21a4bd40502",
+            "p_6111e74c80f3",
+            "p_311b75c96b2b",
+            "p_f160e6eb814a",
+            "p_2fcfce67034a",
+            "p_f1f9a2fc2a64",
+            "p_6b7746b8690c",
+            "p_25dcb0406ce2",
+            "p_8bec39276bb4",
+            "p_4928e0afdbd7",
+            "p_817c4f3feb58",
+            "p_02875e139aa0",
+            "p_2b3f70b2cc5a",
+            "p_e5d9d9910de3",
+            "p_e6e84d193052",
+            "p_c0d6142f0e12",
+            "p_43f46c007a36",
+            "p_9625c19fdc77",
+            "p_0fc50c5b32f6",
+            "p_9e2d3c5299e0",
+            "p_2bbc0f33f5e4",
+            "p_2b6e9e820dab",
+            "p_146fd1bd3f23",
+            "p_8c67a4e9c7c8",
+            "p_4db3587c9d3a",
+            "p_8204538e6842",
+            "p_375fa51570e5",
+            "p_e1e1f0d279ac",
+            "p_9afb0ddcd6c7",
+            "p_2e24f057adb9",
+            "p_4d7c7cc4a884",
+            "p_3cd4a1d83cbd",
+            "p_e19972a2bd63",
+            "p_9c111af20acd",
+            "p_754de0fa251a",
+            "p_34833485430f",
+            "p_3fa11750008f",
+            "p_b17cf5f79848",
+            "p_50634eed3fbe",
+            "p_30decfe94e77",
+            "p_65b1fc5159e9",
+            "p_b01709030856",
+            "p_0ada853e943a",
+            "p_e1ddb5e32829",
+            "p_4606310f2867",
+            "p_7e8b15ddc3b6",
+            "p_f82f8a4cb4d8",
+            "p_6b1855b957cb",
+            "p_e3d6f03d9fdf",
+            "p_a5535985d670",
+            "p_423a0abd9875",
+            "p_c5d4c9e40f56",
+            "p_a24197b97a43",
+            "p_1c84911f887f",
+            "p_995ca29e79cb",
+            "p_fd36e025f66f",
+            "p_0359d6541a7e",
+            "p_a87424d5ab96",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_3af0047e12eb",
+              "ring": "core",
+              "why_plausible": "Matches the other used metal hand utensil.",
+              "reason": "Its use is over the patterned plate, not in the saucepan subsequently transported to the sink.",
+              "failure_predicates": [
+                "wrong_referent"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_a19b2f663f1b",
+              "ring": "core",
+              "why_plausible": "A genuine single metal fork.",
+              "reason": "Its two long separated carving prongs have a different overall working-head design from a compact table-fork head.",
+              "failure_predicates": [
+                "wrong_physical_tool_type"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_341b6c0fa7fc",
+              "ring": "core",
+              "why_plausible": "Includes a metal fork.",
+              "reason": "Contains a spatula and a carving fork; the user excludes sets.",
+              "failure_predicates": [
+                "excess_tool_quantity"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_773e4812326b",
+              "ring": "core",
+              "why_plausible": "Table forks match the general form.",
+              "reason": "The selected listing is a set of twelve forks rather than one spare.",
+              "failure_predicates": [
+                "excess_tool_quantity"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_9f7054ad7784",
+              "ring": "core",
+              "why_plausible": "A one-pack folding utensil includes a fork.",
+              "reason": "The actual design combines a spoon, fork, knife and opener in a folding multi-tool, unlike the single fixed table fork in the scene.",
+              "failure_predicates": [
+                "wrong_physical_tool_type"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            }
+          ],
+          "equivalence_review": {
+            "reviewer": "constructing-coding-agent and independent span_relation_review",
+            "method": "Preserve the full 152-item search window. Accept individual metal table forks, including dinner/salad/dessert/pastry variants under the explicit size tolerance. Exclude packs, multi-tools and two-prong carving heads by public item form.",
+            "accepted_entity_ids": [
+              "p_f77ad4b8820b",
+              "p_c597b716b78e",
+              "p_60dca423e18d",
+              "p_cd65ad1e353a",
+              "p_ed0c04184a72",
+              "p_ffeaf7a90b77"
+            ],
+            "scope_note": "Independent review confirms all six single table-fork states and the complete unchanged 152-item window; no reasonable omitted state found.",
+            "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+          },
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "scope": "New relational target and full fork boundary; previous grater public facts remain historical evidence."
+          }
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "revision": "source-workflow-owner-cleanup-20261018",
+          "repair_kind": "source_evidence_and_workflow_separation",
+          "previous_fields": {
+            "record": {
+              "blocking_checks": [],
+              "unresolved": [
+                "Authorized development trial and trace review"
+              ]
+            }
+          },
+          "resolution": "Source blockers retain material defects and unresolved factual claims only. Read independent review, development trial and report work from the existing unified workflow evidence; removal of a workflow reminder does not constitute review admission or completed testing.",
+          "preservation": "No instructions, frames, website facts, legal states, reviews or valid model results changed."
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A held single-panel grater works a cheese block over a patterned plate on the scale. The competing utensil is not used in the saucepan.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "A slim metal table fork is moved through the pasta in the rear saucepan. The saucepan has the black handle and pale handle mount visible when it is later lifted.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "Hands grind pepper into the front saucepan. The rear pasta saucepan is visible; no table-fork reminder is visible through the hands.",
+          "supported_by": [
+            "V0:4"
+          ]
+        },
+        {
+          "text": "The wearer reaches into the wall cupboard for a patterned plate during the same meal preparation. Neither fork nor grater is visible.",
+          "supported_by": [
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The left hand first takes the rear pasta saucepan by its black handle, then holds that saucepan over the sink. The right hand holds an empty mesh strainer. The earlier table fork is not present in these anchor frames.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026101692",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240202-161948",
+        "original_video_id": "P01-20240202-161948",
+        "media_start_seconds": 0,
+        "original_video_path": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01/P01-20240202-161948.mp4",
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "hand-panel-grates-cheese",
+            "interval_seconds": [
+              75,
+              80
+            ],
+            "description": "A held single-panel grater works a cheese block over a patterned plate on the scale. The competing utensil is not used in the saucepan."
+          },
+          {
+            "event_id": "grind-pepper-into-front-pan",
+            "interval_seconds": [
+              153,
+              153
+            ],
+            "description": "Hands grind pepper into the front saucepan. The rear pasta saucepan is visible; no table-fork reminder is visible through the hands."
+          },
+          {
+            "event_id": "retrieve-plate-from-cupboard",
+            "interval_seconds": [
+              279,
+              279
+            ],
+            "description": "The wearer reaches into the wall cupboard for a patterned plate during the same meal preparation. Neither fork nor grater is visible."
+          },
+          {
+            "event_id": "fork-used-in-rear-pot",
+            "interval_seconds": [
+              332.8,
+              335.8
+            ],
+            "description": "A slim metal table fork is moved through the pasta in the rear saucepan. The saucepan has the black handle and pale handle mount visible when it is later lifted."
+          },
+          {
+            "event_id": "rear-pot-taken-to-sink",
+            "interval_seconds": [
+              681,
+              684
+            ],
+            "description": "The left hand first takes the rear pasta saucepan by its black handle, then holds that saucepan over the sink. The right hand holds an empty mesh strainer. The earlier table fork is not present in these anchor frames."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact fork brand, model, dimensions or alloy",
+          "All intervening source frames were released",
+          "The pot was emptied in the selected anchor frames; they show transport to the sink, before pouring"
+        ]
+      },
+      "screening": {
+        "real_user_need": "Add one spare like the metal hand utensil I used here, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set.",
+        "scope_note": "Same-source relational reframe: identify the earlier utensil by linking its container to the later transport to the sink. Prior ordinal version is retained in review history.",
+        "proposed_instruction": "Add one spare like the metal hand utensil I used here, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            75,
+            80,
+            153,
+            279,
+            332.8,
+            335.8,
+            681,
+            684
+          ],
+          "frame_paths": [
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_75.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_80.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_153.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_279.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_332.8.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_335.8.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_681.jpg",
+            "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/frames/source_684.jpg"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the agent link an earlier utensil-container use to the later movement of that same container across zero or two intervening preparation events?",
+        "divergence_source": "grounding",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The panel grater used over a plate and the fork used in a saucepan are both possible metal hand utensils.",
+        "belief_after": "The saucepan transported to the sink matches the earlier fork-use container; identify and select one similar table fork.",
+        "required_behavior_change": "Resolve the utensil through the shared container across the earlier use and later movement, then select one equivalent.",
+        "no_update_failure": "Choose the grater or guess a utensil before resolving which container the answer refers to.",
+        "overupdate_failure": "Treat unrelated later activity as a new purchase request or add both items.",
+        "visual_dependency_claim": "Neither utensil identity alone nor the final saucepan alone proves the link. The earlier use locates the utensil in a container; the later frame identifies which container was transported to the sink.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Add one spare like the metal hand utensil I used here, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set.",
+          "oracle_instruction": "Add one spare like the metal hand utensil I used with the container I later took to the sink, with a similar overall shape and design. Exact size, handle, brand and colour can differ. Not a set.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "earlier_item",
+            "later_item"
+          ],
+          "hidden_target_role": "later_item",
+          "valid_slot": "sequence",
+          "canonical_question": "Which of the metal utensils you used do you mean?",
+          "canonical_answer": "The one I used with the container I later took to the sink.",
+          "environment_role_ids": {
+            "earlier_item": "p_3af0047e12eb",
+            "later_item": "p_f77ad4b8820b"
+          },
+          "equivalent_role_ids": {
+            "later_item": [
+              "p_c597b716b78e",
+              "p_60dca423e18d",
+              "p_cd65ad1e353a",
+              "p_ed0c04184a72",
+              "p_ffeaf7a90b77"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "earlier_item": "p_3af0047e12eb",
+            "later_item": "p_f77ad4b8820b"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "earlier_item",
+                "later_item"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "later_item"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The rear saucepan transported to the sink is the container in which the metal fork was used. The earlier grater works over a plate."
+            }
+          ],
+          "established_by": "constructing-coding-agent; independent span_relation_review firstpass and counterexample review",
+          "established_at": "2026-10-17"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "4 sided box grater",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026090680.json",
+              "result_entity_ids": [
+                "p_79244d8a1123",
+                "p_df980ff052e7",
+                "p_ad8484545ba4",
+                "p_03981ed68c64",
+                "p_02e85a230387",
+                "p_4664dfcc0ac4",
+                "p_4bab480ec226",
+                "p_a5168df417ef",
+                "p_b7196b4cee55",
+                "p_21b2b11f59cc",
+                "p_bdd057212b28",
+                "p_8ed7bacb0316",
+                "p_9d12db1fda25",
+                "p_e8fdb49ba961",
+                "p_d1f71d4c3496",
+                "p_c5fb0ec9ecb2",
+                "p_9af106c0f7bc",
+                "p_06b2872c7153",
+                "p_021ea13ad419",
+                "p_71e57a8edf88",
+                "p_d66845ec4416",
+                "p_5310a4d7433a",
+                "p_2fd1431e3806",
+                "p_ef0f37fa0f0f",
+                "p_d22c5cbe1c04",
+                "p_1d507703502a",
+                "p_5f673b7f1877",
+                "p_e2ab142e994b",
+                "p_853f841afe42",
+                "p_cf81f5b81f75",
+                "p_d3adc5f85de1",
+                "p_d22e6dedff60",
+                "p_d7102121fa15",
+                "p_1094f3cdb284",
+                "p_eb883e90fce5",
+                "p_ff3ec2843a39",
+                "p_45deb77a49df",
+                "p_c21a4bd40502",
+                "p_6111e74c80f3",
+                "p_311b75c96b2b",
+                "p_f160e6eb814a",
+                "p_2fcfce67034a",
+                "p_f1f9a2fc2a64",
+                "p_6b7746b8690c",
+                "p_25dcb0406ce2",
+                "p_8bec39276bb4",
+                "p_4928e0afdbd7",
+                "p_817c4f3feb58"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-retain-2026090680"
+            },
+            {
+              "stage": "after_change",
+              "query": "lemon zester grater kitchen",
+              "provider": "amazon-ca-search-first-page-v1+jina-reader-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026090680.json",
+              "result_entity_ids": [
+                "p_02875e139aa0",
+                "p_2b3f70b2cc5a",
+                "p_e5d9d9910de3",
+                "p_e6e84d193052",
+                "p_c0d6142f0e12",
+                "p_43f46c007a36",
+                "p_9625c19fdc77",
+                "p_0fc50c5b32f6",
+                "p_9e2d3c5299e0",
+                "p_2bbc0f33f5e4",
+                "p_2b6e9e820dab",
+                "p_146fd1bd3f23",
+                "p_8c67a4e9c7c8",
+                "p_3af0047e12eb",
+                "p_4db3587c9d3a",
+                "p_8204538e6842",
+                "p_375fa51570e5",
+                "p_e1e1f0d279ac",
+                "p_9afb0ddcd6c7",
+                "p_2e24f057adb9",
+                "p_4d7c7cc4a884",
+                "p_3cd4a1d83cbd",
+                "p_e19972a2bd63",
+                "p_9c111af20acd",
+                "p_754de0fa251a",
+                "p_34833485430f",
+                "p_3fa11750008f",
+                "p_b17cf5f79848",
+                "p_50634eed3fbe",
+                "p_30decfe94e77",
+                "p_65b1fc5159e9",
+                "p_b01709030856",
+                "p_0ada853e943a",
+                "p_e1ddb5e32829",
+                "p_4606310f2867",
+                "p_7e8b15ddc3b6",
+                "p_f82f8a4cb4d8",
+                "p_6b1855b957cb",
+                "p_e3d6f03d9fdf",
+                "p_a5535985d670",
+                "p_423a0abd9875",
+                "p_c5d4c9e40f56",
+                "p_a24197b97a43",
+                "p_1c84911f887f",
+                "p_995ca29e79cb",
+                "p_fd36e025f66f",
+                "p_0359d6541a7e",
+                "p_a87424d5ab96"
+              ],
+              "snapshot_task_id": "candidate-mart-refresh-retain-2026090680"
+            },
+            {
+              "stage": "later_activity",
+              "snapshot_stage": "before_change",
+              "query": "stainless steel forks spoons separate packs",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-01.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-01",
+              "result_entity_ids": [
+                "p_c1f98fffa806",
+                "p_4787810d3e98",
+                "p_fd168bfdd94a",
+                "p_773e4812326b",
+                "p_8fcf901bb92a",
+                "p_54b6d37a2e1f",
+                "p_b1269900c618",
+                "p_627e20d0ca23",
+                "p_5b42b910aa56",
+                "p_9f4d6c1f9ddc",
+                "p_37ca83309a09",
+                "p_4f60a76f0bab",
+                "p_63c0d28ed1da",
+                "p_ae0a1856ae1e",
+                "p_96391d8a8a97",
+                "p_65e7453ee18b",
+                "p_a4c323c1ed54",
+                "p_19d8224c95aa",
+                "p_43f71ae41805",
+                "p_28fe784dadbf",
+                "p_f78bc5991a41",
+                "p_e2fbc53eb24e",
+                "p_294243287514",
+                "p_7ea774e1599c",
+                "p_09e479b60df8",
+                "p_9f7054ad7784",
+                "p_7bf50fb97e7a",
+                "p_707be042ae79",
+                "p_ae9a4b24f9f6",
+                "p_9e70cc93a7a0",
+                "p_6e73a44733c8",
+                "p_b858ad56553c",
+                "p_cdd381021705",
+                "p_b3ec85a800b5",
+                "p_5ee1aef32a55",
+                "p_aa7c884e95b9",
+                "p_b21c0dff2416",
+                "p_cee31aafc132",
+                "p_cbc29e71284e",
+                "p_2b681059d31c",
+                "p_12a89237d547",
+                "p_42b455544c8e",
+                "p_7ff50c055142",
+                "p_3e6266f2037c",
+                "p_3feb0e211998",
+                "p_3a400ef26250",
+                "p_58c858205bed",
+                "p_90079795d6da"
+              ]
+            },
+            {
+              "stage": "after_single",
+              "query": "fork",
+              "provider": "zwilling-ca-full-search-window-v1+jina-reader-v1",
+              "snapshot_path": "data/experiments/variants/span/butter-tool-natural-order/order-clarify/search-snapshot.json",
+              "snapshot_task_id": "candidate-mart-clarify-sequence-2026101699",
+              "result_entity_ids": [
+                "p_f77ad4b8820b",
+                "p_c597b716b78e",
+                "p_60dca423e18d",
+                "p_cd65ad1e353a",
+                "p_ed0c04184a72",
+                "p_a19b2f663f1b",
+                "p_341b6c0fa7fc",
+                "p_ffeaf7a90b77"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_79244d8a1123",
+            "p_df980ff052e7",
+            "p_ad8484545ba4",
+            "p_03981ed68c64",
+            "p_02e85a230387",
+            "p_4664dfcc0ac4",
+            "p_4bab480ec226",
+            "p_a5168df417ef",
+            "p_b7196b4cee55",
+            "p_21b2b11f59cc",
+            "p_bdd057212b28",
+            "p_8ed7bacb0316",
+            "p_9d12db1fda25",
+            "p_e8fdb49ba961",
+            "p_d1f71d4c3496",
+            "p_c5fb0ec9ecb2",
+            "p_9af106c0f7bc",
+            "p_06b2872c7153",
+            "p_021ea13ad419",
+            "p_71e57a8edf88",
+            "p_d66845ec4416",
+            "p_5310a4d7433a",
+            "p_2fd1431e3806",
+            "p_ef0f37fa0f0f",
+            "p_d22c5cbe1c04",
+            "p_1d507703502a",
+            "p_5f673b7f1877",
+            "p_e2ab142e994b",
+            "p_853f841afe42",
+            "p_cf81f5b81f75",
+            "p_d3adc5f85de1",
+            "p_d22e6dedff60",
+            "p_d7102121fa15",
+            "p_1094f3cdb284",
+            "p_eb883e90fce5",
+            "p_ff3ec2843a39",
+            "p_45deb77a49df",
+            "p_c21a4bd40502",
+            "p_6111e74c80f3",
+            "p_311b75c96b2b",
+            "p_f160e6eb814a",
+            "p_2fcfce67034a",
+            "p_f1f9a2fc2a64",
+            "p_6b7746b8690c",
+            "p_25dcb0406ce2",
+            "p_8bec39276bb4",
+            "p_4928e0afdbd7",
+            "p_817c4f3feb58",
+            "p_02875e139aa0",
+            "p_2b3f70b2cc5a",
+            "p_e5d9d9910de3",
+            "p_e6e84d193052",
+            "p_c0d6142f0e12",
+            "p_43f46c007a36",
+            "p_9625c19fdc77",
+            "p_0fc50c5b32f6",
+            "p_9e2d3c5299e0",
+            "p_2bbc0f33f5e4",
+            "p_2b6e9e820dab",
+            "p_146fd1bd3f23",
+            "p_8c67a4e9c7c8",
+            "p_3af0047e12eb",
+            "p_4db3587c9d3a",
+            "p_8204538e6842",
+            "p_375fa51570e5",
+            "p_e1e1f0d279ac",
+            "p_9afb0ddcd6c7",
+            "p_2e24f057adb9",
+            "p_4d7c7cc4a884",
+            "p_3cd4a1d83cbd",
+            "p_e19972a2bd63",
+            "p_9c111af20acd",
+            "p_754de0fa251a",
+            "p_34833485430f",
+            "p_3fa11750008f",
+            "p_b17cf5f79848",
+            "p_50634eed3fbe",
+            "p_30decfe94e77",
+            "p_65b1fc5159e9",
+            "p_b01709030856",
+            "p_0ada853e943a",
+            "p_e1ddb5e32829",
+            "p_4606310f2867",
+            "p_7e8b15ddc3b6",
+            "p_f82f8a4cb4d8",
+            "p_6b1855b957cb",
+            "p_e3d6f03d9fdf",
+            "p_a5535985d670",
+            "p_423a0abd9875",
+            "p_c5d4c9e40f56",
+            "p_a24197b97a43",
+            "p_1c84911f887f",
+            "p_995ca29e79cb",
+            "p_fd36e025f66f",
+            "p_0359d6541a7e",
+            "p_a87424d5ab96",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_773e4812326b",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_f77ad4b8820b",
+            "p_c597b716b78e",
+            "p_60dca423e18d",
+            "p_cd65ad1e353a",
+            "p_ed0c04184a72",
+            "p_a19b2f663f1b",
+            "p_341b6c0fa7fc",
+            "p_ffeaf7a90b77"
+          ],
+          "semantic_scope_policy": "All genuine captured results; reused snapshot rows retain their original provider query and task identity.",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_3af0047e12eb",
+            "p_a19b2f663f1b",
+            "p_341b6c0fa7fc",
+            "p_773e4812326b",
+            "p_9f7054ad7784"
+          ],
+          "related_entity_ids": [
+            "p_79244d8a1123",
+            "p_df980ff052e7",
+            "p_03981ed68c64",
+            "p_02e85a230387",
+            "p_4664dfcc0ac4",
+            "p_4bab480ec226",
+            "p_a5168df417ef",
+            "p_b7196b4cee55",
+            "p_21b2b11f59cc",
+            "p_bdd057212b28",
+            "p_8ed7bacb0316",
+            "p_9d12db1fda25",
+            "p_e8fdb49ba961",
+            "p_d1f71d4c3496",
+            "p_c5fb0ec9ecb2",
+            "p_9af106c0f7bc"
+          ],
+          "ambient_entity_ids": [
+            "p_ad8484545ba4",
+            "p_06b2872c7153",
+            "p_021ea13ad419",
+            "p_71e57a8edf88",
+            "p_d66845ec4416",
+            "p_5310a4d7433a",
+            "p_2fd1431e3806",
+            "p_ef0f37fa0f0f",
+            "p_d22c5cbe1c04",
+            "p_1d507703502a",
+            "p_5f673b7f1877",
+            "p_e2ab142e994b",
+            "p_853f841afe42",
+            "p_cf81f5b81f75",
+            "p_d3adc5f85de1",
+            "p_d22e6dedff60",
+            "p_d7102121fa15",
+            "p_1094f3cdb284",
+            "p_eb883e90fce5",
+            "p_ff3ec2843a39",
+            "p_45deb77a49df",
+            "p_c21a4bd40502",
+            "p_6111e74c80f3",
+            "p_311b75c96b2b",
+            "p_f160e6eb814a",
+            "p_2fcfce67034a",
+            "p_f1f9a2fc2a64",
+            "p_6b7746b8690c",
+            "p_25dcb0406ce2",
+            "p_8bec39276bb4",
+            "p_4928e0afdbd7",
+            "p_817c4f3feb58",
+            "p_02875e139aa0",
+            "p_2b3f70b2cc5a",
+            "p_e5d9d9910de3",
+            "p_e6e84d193052",
+            "p_c0d6142f0e12",
+            "p_43f46c007a36",
+            "p_9625c19fdc77",
+            "p_0fc50c5b32f6",
+            "p_9e2d3c5299e0",
+            "p_2bbc0f33f5e4",
+            "p_2b6e9e820dab",
+            "p_146fd1bd3f23",
+            "p_8c67a4e9c7c8",
+            "p_4db3587c9d3a",
+            "p_8204538e6842",
+            "p_375fa51570e5",
+            "p_e1e1f0d279ac",
+            "p_9afb0ddcd6c7",
+            "p_2e24f057adb9",
+            "p_4d7c7cc4a884",
+            "p_3cd4a1d83cbd",
+            "p_e19972a2bd63",
+            "p_9c111af20acd",
+            "p_754de0fa251a",
+            "p_34833485430f",
+            "p_3fa11750008f",
+            "p_b17cf5f79848",
+            "p_50634eed3fbe",
+            "p_30decfe94e77",
+            "p_65b1fc5159e9",
+            "p_b01709030856",
+            "p_0ada853e943a",
+            "p_e1ddb5e32829",
+            "p_4606310f2867",
+            "p_7e8b15ddc3b6",
+            "p_f82f8a4cb4d8",
+            "p_6b1855b957cb",
+            "p_e3d6f03d9fdf",
+            "p_a5535985d670",
+            "p_423a0abd9875",
+            "p_c5d4c9e40f56",
+            "p_a24197b97a43",
+            "p_1c84911f887f",
+            "p_995ca29e79cb",
+            "p_fd36e025f66f",
+            "p_0359d6541a7e",
+            "p_a87424d5ab96",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_3af0047e12eb",
+              "ring": "core",
+              "why_plausible": "Matches the other used metal hand utensil.",
+              "reason": "Its use is over the patterned plate, not in the saucepan subsequently transported to the sink.",
+              "failure_predicates": [
+                "wrong_referent"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_a19b2f663f1b",
+              "ring": "core",
+              "why_plausible": "A genuine single metal fork.",
+              "reason": "Its two long separated carving prongs have a different overall working-head design from a compact table-fork head.",
+              "failure_predicates": [
+                "wrong_physical_tool_type"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_341b6c0fa7fc",
+              "ring": "core",
+              "why_plausible": "Includes a metal fork.",
+              "reason": "Contains a spatula and a carving fork; the user excludes sets.",
+              "failure_predicates": [
+                "excess_tool_quantity"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_773e4812326b",
+              "ring": "core",
+              "why_plausible": "Table forks match the general form.",
+              "reason": "The selected listing is a set of twelve forks rather than one spare.",
+              "failure_predicates": [
+                "excess_tool_quantity"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            },
+            {
+              "entity_id": "p_9f7054ad7784",
+              "ring": "core",
+              "why_plausible": "A one-pack folding utensil includes a fork.",
+              "reason": "The actual design combines a spoon, fork, knife and opener in a folding multi-tool, unlike the single fixed table fork in the scene.",
+              "failure_predicates": [
+                "wrong_physical_tool_type"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+            }
+          ],
+          "equivalence_review": {
+            "reviewer": "constructing-coding-agent and independent span_relation_review",
+            "method": "Preserve the full 152-item search window. Accept individual metal table forks, including dinner/salad/dessert/pastry variants under the explicit size tolerance. Exclude packs, multi-tools and two-prong carving heads by public item form.",
+            "accepted_entity_ids": [
+              "p_f77ad4b8820b",
+              "p_c597b716b78e",
+              "p_60dca423e18d",
+              "p_cd65ad1e353a",
+              "p_ed0c04184a72",
+              "p_ffeaf7a90b77"
+            ],
+            "scope_note": "Independent review confirms all six single table-fork states and the complete unchanged 152-item window; no reasonable omitted state found.",
+            "review_reference": "data/experiments/variants/span/cheese-grater-natural-order/order-clarify/review.json"
+          },
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "scope": "New relational target and full fork boundary; previous grater public facts remain historical evidence."
+          }
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "revision": "source-workflow-owner-cleanup-20261018",
+          "repair_kind": "source_evidence_and_workflow_separation",
+          "previous_fields": {
+            "record": {
+              "blocking_checks": [],
+              "unresolved": [
+                "Authorized development trial and trace review"
+              ]
+            }
+          },
+          "resolution": "Source blockers retain material defects and unresolved factual claims only. Read independent review, development trial and report work from the existing unified workflow evidence; removal of a workflow reminder does not constitute review admission or completed testing.",
+          "preservation": "No instructions, frames, website facts, legal states, reviews or valid model results changed."
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A held single-panel grater works a cheese block over a patterned plate on the scale. The competing utensil is not used in the saucepan.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "Hands grind pepper into the front saucepan. The rear pasta saucepan is visible; no table-fork reminder is visible through the hands.",
+          "supported_by": [
+            "V0:2"
+          ]
+        },
+        {
+          "text": "The wearer reaches into the wall cupboard for a patterned plate during the same meal preparation. Neither fork nor grater is visible.",
+          "supported_by": [
+            "V0:3"
+          ]
+        },
+        {
+          "text": "A slim metal table fork is moved through the pasta in the rear saucepan. The saucepan has the black handle and pale handle mount visible when it is later lifted.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The left hand first takes the rear pasta saucepan by its black handle, then holds that saucepan over the sink. The right hand holds an empty mesh strainer. The earlier table fork is not present in these anchor frames.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    }
+  ]
+}

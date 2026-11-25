@@ -1,0 +1,494 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Local research copy obtained through the Ego2Web release; redistribution follows the upstream dataset terms."
+  },
+  "tasks": [
+    {
+      "task_id": "seed-maps-graft-r-01",
+      "status": "rejected",
+      "family": "graft",
+      "subtype": "augment",
+      "source": {
+        "record_ids": [
+          408,
+          410,
+          416
+        ],
+        "media_id": "5916f072-3d42-4d96-95a2-2fa000d4bd37",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On google.com/maps, identify the winery named on the hoodie worn by the other player in the video. Open its Google Maps business listing and report its full street address and overall star rating.",
+          "On yelp.com, open the Yelp page for the same winery shown on the hoodie and provide the Price Range (e.g., $, $$, etc.) and the total number of reviews displayed.",
+          "Using google.com/maps, from the identified winery’s page, find the nearest hotel by walking distance and report the hotel’s name and the walking time shown."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            20,
+            50
+          ],
+          "decision": "The interval continuously shows the same card-game scene. In the later sampled views, 'Peace Water Winery' is readable on the other player's hoodie; the annotations link that visible name to the winery and nearest hotel by walking distance."
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ],
+          "frame_paths": [
+            "data/observations/seed-maps-graft-r-01/V0_00.jpg",
+            "data/observations/seed-maps-graft-r-01/V0_01.jpg",
+            "data/observations/seed-maps-graft-r-01/V0_02.jpg",
+            "data/observations/seed-maps-graft-r-01/V0_03.jpg",
+            "data/observations/seed-maps-graft-r-01/V0_04.jpg",
+            "data/observations/seed-maps-graft-r-01/V0_05.jpg",
+            "data/observations/seed-maps-graft-r-01/V0_06.jpg",
+            "data/observations/seed-maps-graft-r-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "Later released views show the readable name 'Peace Water Winery' on the other player's hoodie.",
+          "supported_by": [
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent integrate a later R update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "instructions": {
+            "a": "The winery name is printed on the hoodie in front of me. Find that place on the map and save it.",
+            "b": "We'll need somewhere to stay, so also save a hotel within a short walk of it, and keep the winery saved.",
+            "bundled": "Save the winery named on the hoodie in front of me, plus a hotel within a short walk of it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_peace_water_winery"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_0_peace_water_winery",
+              "final_1_vineyard_rest_hotel"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {
+            "travel_mode": "walking"
+          },
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_peace_water_winery": "l_6e86c83dabd9",
+            "final_1_vineyard_rest_hotel": "l_17eea1ef0ac0",
+            "auto_neighbor_1": "l_e4898a9a35fa",
+            "auto_neighbor_2": "l_067b14e9eb47",
+            "auto_neighbor_3": "l_ab2360c1f78d",
+            "auto_neighbor_4": "l_b672e179de0d",
+            "auto_neighbor_5": "l_1644353d42c3",
+            "auto_neighbor_6": "l_4ee8b99cd7fa",
+            "auto_tempting": "l_e4898a9a35fa"
+          }
+        },
+        "release_anchor_seconds": 34.0,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "tempting_role": "auto_tempting",
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "rejection_code": "visual_not_necessary",
+      "rejection_reason": "First-principles legacy recheck 2026-08-23: One readable hoodie image grounds the winery and B adds only a website-defined nearest-hotel relation; later physical evidence is not needed.",
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "visual_not_necessary",
+        "reason": "One readable hoodie image grounds the winery and B adds only a website-defined nearest-hotel relation; later physical evidence is not needed."
+      },
+      "curve_note": "v3 screening only. The candidate survival curve this task claims has not been read off its frames, so it cannot compile. Establishing the curve returns it to video_screened without rescreening the clip."
+    },
+    {
+      "task_id": "seed-maps-refresh-replace-01",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          435,
+          436
+        ],
+        "media_id": "595a45c2-1c49-4d13-b49c-8a29ce07a790",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Google Maps, locate the exact grocery store shown at the very start of the video and open its business listing. Provide the store’s phone number from the listing, making sure you’ve identified the correct place by matching what’s shown on its entrance.",
+          "After finding the store on Google Maps, identify the larger complex or plaza it belongs to. Confirm by opening Street View or photos and visually matching the outdoor area seen after leaving the store, then report the complex/plaza name and its average rating (from Google Maps)."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            0,
+            150
+          ],
+          "decision": "The wearer starts at Tamimi Markets Express in Discovery Square, remains inside, checks out, then leaves into the visually distinct outdoor plaza. The later state is a place-level replacement rather than a different view of the store interior."
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            3,
+            6,
+            9
+          ],
+          "frame_paths": [
+            "data/observations/seed-maps-refresh-replace-01/V0_00.jpg",
+            "data/observations/seed-maps-refresh-replace-01/V0_01.jpg",
+            "data/observations/seed-maps-refresh-replace-01/V0_02.jpg",
+            "data/observations/seed-maps-refresh-replace-01/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "frame_paths": [
+            "data/observations/seed-maps-refresh-replace-01/V1_00.jpg",
+            "data/observations/seed-maps-refresh-replace-01/V1_01.jpg",
+            "data/observations/seed-maps-refresh-replace-01/V1_02.jpg",
+            "data/observations/seed-maps-refresh-replace-01/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 shows the readable Tamimi Markets Express entrance and interior.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows Discovery Square, the larger outdoor retail plaza after the wearer leaves the store.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent Retain or Revise the target after later continuous evidence arrives?",
+        "divergence_source": "world_state",
+        "event_origin": "observed",
+        "belief_before": "The V0 referent is the current target.",
+        "belief_after": "Later evidence replaces the target.",
+        "required_behavior_change": "Revise the Candidate Commitment after V1.",
+        "no_update_failure": "The Agent never reaches the required final target.",
+        "overupdate_failure": "The Agent switches away from a still-valid target.",
+        "visual_dependency_claim": "V0 and V1 are ordered Released Observation packets from one continuous event; a single still image cannot preserve the Retain/Revise decision.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "instruction": "I'm standing outside this shop front. Save the map listing for the place I actually end up going into.",
+          "initial_target_role": "v0_tamimi_markets_express",
+          "final_target_role": "v1_discovery_square",
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "v0_tamimi_markets_express": "l_cb2e2cee82c4",
+            "v1_discovery_square": "l_6f56ee36a2c7"
+          },
+          "goal_fields": {
+            "entrance": "north side"
+          }
+        },
+        "decision_point_provenance": "authored_curve_20260823",
+        "decision": {
+          "candidates": {
+            "v0_tamimi_markets_express": "l_cb2e2cee82c4",
+            "v1_discovery_square": "l_6f56ee36a2c7"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "v0_tamimi_markets_express",
+                "v1_discovery_square"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "v0_tamimi_markets_express",
+                "v1_discovery_square"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "v0_tamimi_markets_express",
+                "v1_discovery_square"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "v0_tamimi_markets_express",
+                "v1_discovery_square"
+              ]
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "v1_discovery_square"
+              ],
+              "narrowed_by": "action_order",
+              "why": "指令说「我最后真正走进去的那个地方」。V0:0–V0:3 一直在 Tamimi Markets Express 店面外走，V0:3 招牌清晰；V1:0 起人已经在带棕榈和座椅的广场里。「最后走进去的」只由佩戴者这段行走的终点决定。"
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "v1_discovery_square"
+              ]
+            },
+            {
+              "frame": "V1:2",
+              "live": [
+                "v1_discovery_square"
+              ]
+            },
+            {
+              "frame": "V1:3",
+              "live": [
+                "v1_discovery_square"
+              ]
+            }
+          ],
+          "established_by": "claude-opus-5",
+          "established_at": "2026-08-23",
+          "note": "从店面前经过，最终进入的是另一处广场。V0 走完仍不知道会进哪个。"
+        }
+      },
+      "rejection_code": "visual_not_necessary",
+      "rejection_reason": "First-principles place recheck 2026-08-24: leaving the branded store for its containing plaza is not a new target requirement, and the original listing relation already exposes the plaza. The source is rebuilt as a branch Clarify task.",
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "visual_not_necessary",
+        "reason": "The store listing and map relation already reveal its containing plaza from V0, so V1 does not causally determine the final web target."
+      }
+    },
+    {
+      "task_id": "seed-maps-clarify-sequence-01",
+      "status": "rejected",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          498,
+          499
+        ],
+        "media_id": "6aca3039-dd0a-4ff5-a514-d46e4fcfeeba",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "Using Google Maps, identify the exact public square shown near the end of the video and open its listing. Report the square's official name, full address, and current average Google rating.",
+          "On TripAdvisor, find a well-reviewed walking tour that explicitly visits both the exact square from the video and the narrow alley featured earlier. Provide the tour title, overall rating, and the lowest listed price."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            75,
+            180
+          ],
+          "decision": "The wearer walks through one sustained, narrow and brightly painted cobbled alley before entering a visually distinct public square. These are the two place candidates named by the paired source annotations."
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            100,
+            110,
+            120,
+            130,
+            140,
+            150,
+            160,
+            170
+          ],
+          "frame_paths": [
+            "data/observations/seed-maps-clarify-sequence-01/V0_00.jpg",
+            "data/observations/seed-maps-clarify-sequence-01/V0_01.jpg",
+            "data/observations/seed-maps-clarify-sequence-01/V0_02.jpg",
+            "data/observations/seed-maps-clarify-sequence-01/V0_03.jpg",
+            "data/observations/seed-maps-clarify-sequence-01/V0_04.jpg",
+            "data/observations/seed-maps-clarify-sequence-01/V0_05.jpg",
+            "data/observations/seed-maps-clarify-sequence-01/V0_06.jpg",
+            "data/observations/seed-maps-clarify-sequence-01/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The first five released images show the narrow painted alley and the last three show the public square reached later.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent ask which of two visited places is intended before selecting a map record?",
+        "divergence_source": "grounding",
+        "event_origin": "annotation_derived",
+        "belief_before": "Either the earlier narrow alley or the later public square can satisfy the unqualified place request.",
+        "belief_after": "The answer 'the second place' uniquely selects the public square.",
+        "required_behavior_change": "Ask before opening or saving a candidate and then use the sequence answer.",
+        "no_update_failure": "The Agent guesses one place before asking or ignores the answer.",
+        "overupdate_failure": "The Agent asks despite receiving 'second place' in the oracle instruction.",
+        "visual_dependency_claim": "The ordered first-person observation establishes the two visited places and their order; one task-start photo cannot recover that history, and text alone does not identify the intended one.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "ambiguous_instruction": "Find the place I visited and save its map listing.",
+          "oracle_instruction": "Find the second place I visited, the public square after the narrow alley, and save its map listing.",
+          "candidate_roles": [
+            "painted_alley",
+            "public_square"
+          ],
+          "hidden_target_role": "public_square",
+          "valid_slot": "sequence",
+          "canonical_question": "Do you mean the narrow alley I visited first or the public square I reached afterward?",
+          "canonical_answer": "I mean the second place, the public square.",
+          "goal_fields": {},
+          "environment_role_ids": {
+            "painted_alley": "l_a4ba82d43c58",
+            "public_square": "l_6a57ddb8937c"
+          },
+          "completion_claim": "The public square is saved after the sequence clarification.",
+          "target_granularity": "exact_instance"
+        },
+        "decision_point_provenance": "authored_curve_20260823",
+        "decision": {
+          "candidates": {
+            "painted_alley": "l_a4ba82d43c58",
+            "public_square": "l_6a57ddb8937c"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "painted_alley",
+                "public_square"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "public_square"
+              ],
+              "narrowed_by": "action_order",
+              "why": "用户说「第二个地方，窄巷之后的那个广场」。V0:0–V0:4 走的是彩绘窄巷，V0:5–V0:7 才走进开阔广场。"
+            }
+          ],
+          "established_by": "claude-opus-5",
+          "established_at": "2026-08-23",
+          "note": "一段连续步行经过两个历史地点，「我去过的那个地方」在帧里始终有两个解。"
+        }
+      },
+      "rejection_code": "source_identity_not_supported",
+      "rejection_reason": "First-principles place recheck 2026-08-24: the ordered alley and square frames do not expose readable names or unique place anchors, so exact map listings would require unsupported streetscape geolocation."
+    }
+  ]
+}

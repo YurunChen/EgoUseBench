@@ -1,5 +1,14 @@
-# Experiment configurations
+# 配置入口
 
-Committed experiment plans own the single formal condition for each track, replicate IDs, production runtime identity, step budget, and scheduler seed. In `pilot.json`, Graft uses `injected`, Refresh uses `stream`, and Clarify uses `interactive`; one task therefore produces one experiment per replicate. Optional control conditions belong to a separate diagnostic plan and are not part of the default benchmark.
+| 文件 | 负责什么 |
+| --- | --- |
+| `benchmark.json` | 当前可执行协议：单变化正式评测与开发试跑 20 步，正式组合评测 30 步；固定时间回放、默认视觉压缩。`probes` 仍为旧诊断，当前三场景由正式实验入口派生 |
+| `pilot.json` | 离线构建、审阅与评分检查，不用于模型或人工运行 |
+| `archive/controlled-variables.json` | 历史五变量设计与结果复现；旧事件条件不续跑 |
+| `datasets.json` | 外部资料位置、用途与许可 |
+| `failure-judge.json` | 独立归因模型及其读取预算 |
+| `archive/` | 旧协议计划（40 步、网页事件送达、按模型复制的副本等），只供历史报告与复核读取 |
 
-Credentials, local absolute paths, and provider secrets remain in environment variables or ignored local files.
+被测模型在冻结时用 `study_cli --model` 选定，不为每个模型复制配置。运行与评分命令见[根目录 README](../README.zh-CN.md#快速开始)。已有实验保留原条件；当前入口执行 20 步计划及正式组合 30 步计划，其他旧协议只读复核。凭据放在环境变量或忽略提交的本地文件中。
+
+三场景实验使用正式登记的 Computer-Use 请求与同源 Offline 窗口。旧 `text_only`／`upfront` 只用于历史诊断。Cue 对照使用 Silent、Cued 和 Cued + facts 三个条件。实验范围与结果记录在本地维护的研究实验说明中，不随本版代码发布。

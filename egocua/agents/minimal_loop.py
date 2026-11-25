@@ -1,11 +1,7 @@
 """Minimal multimodal chat-loop agent for protocol and API diagnostics.
 
-Implements the packetized input contract in docs/BENCHMARK_DESIGN.md: the task
-instruction and camera observations arrive as one multimodal message, every mid-run event
-is an appended user message (with images when the event carries pixels), and the
-agent acts on the products through tools backed by plain HTTP against the frozen
-EgoMart server, so gating, logging, and judging are shared with the production harness.
-Browser-Use remains the v1 production Agent; this loop cannot replace its model runs.
+Consumes the same fixed-time replay as BrowserGym and operates on the frozen
+EgoMart server. Its diagnostic runs are not BrowserGym results.
 
 The model transport is injectable. The default uses the requests-based
 OpenAI-compatible transport; tests inject a scripted transport.
@@ -25,8 +21,17 @@ from typing import Any, Callable
 
 from sites.egomart import pages
 from ..adapters.openai_requests import OpenAIRequestsTransport
-from ..execution import RunConfig, RunContext, run_experiment
-from ..schema import CLARIFICATION_SLOTS
+from ..execution import RunConfig, RunContext, prepare_live_task, run_experiment
+from ..frame_inputs import ObservationImage
+from ..messages import (
+    INITIAL_STEP,
+    initial_glasses_label,
+    release_frames,
+    release_label_step,
+    release_text,
+    wearer_said,
+)
+from ..timeline import Condition
 from ..workspace import resolve_within
 
 PAGE_TEXT_LIMIT = 3500
@@ -34,11 +39,11 @@ PAGE_TEXT_LIMIT = 3500
 SYSTEM_PROMPT = (
     "You are a computer-use agent shopping for a smart-glasses wearer. The wearer's "
     "first-person images define what to buy. Ground every choice in the images, use "
-    "the EgoMart tools, add the intended item(s) to the cart, and submit. New messages "
+    "the EgoMart tools, and add the intended item(s) to the cart. New messages "
     "may arrive while you work: the wearer's goal can change. Always honor the latest "
-    "state of the goal before submitting. Product item IDs are opaque: copy the exact "
-    "item_id returned by a tool instead of deriving one from a product name. Do not finish "
-    "without submitting the cart. If multiple visual candidates fit and ask_user is available, "
+    "state of the goal. Product item IDs are opaque: copy the exact "
+    "item_id returned by a tool instead of deriving one from a product name. Check that "
+    "the cart satisfies the latest request, then finish. If multiple visual candidates fit and ask_user is available, "
     "ask before choosing; do not guess."
 )
 
@@ -61,22 +66,34 @@ def _audit_value(value: Any) -> Any:
         return [_audit_value(item) for item in value]
     if not isinstance(value, dict):
         return value
-    audited = {key: _audit_value(child) for key, child in value.items() if key != "data"}
+    audited = {
+        key: _audit_value(child) for key, child in value.items() if key != "data"
+    }
     if value.get("type") == "image" and isinstance(value.get("source"), dict):
         data = value["source"].get("data")
         if data:
-            audited["source"]["sha256"] = hashlib.sha256(base64.b64decode(data)).hexdigest()
+            audited["source"]["sha256"] = hashlib.sha256(
+                base64.b64decode(data)
+            ).hexdigest()
     return audited
 
 
 def _observation_blocks(
-    observation: dict[str, Any], asset_root: Path, label: str
+    images: list[ObservationImage], label: str
 ) -> list[dict[str, Any]]:
     blocks: list[dict[str, Any]] = [{"type": "text", "text": label}]
-    blocks += [
-        _image_block(resolve_within(asset_root, frame, context="released observation image"))
-        for frame in observation["frame_paths"]
-    ]
+    for image in images:
+        blocks.append({"type": "text", "text": image.label})
+        blocks.append(
+            {
+                "type": "image",
+                "source": {
+                    "type": "base64",
+                    "media_type": image.media_type,
+                    "data": image.data,
+                },
+            }
+        )
     return blocks
 
 
@@ -96,7 +113,8 @@ def _product_blocks(
     records_text = (
         "Actionable product records (copy item_id exactly when calling another tool):\n"
         + item_records
-        if item_records else "No actionable product records were returned."
+        if item_records
+        else "No actionable product records were returned."
     )
     blocks: list[dict[str, Any]] = [
         {"type": "text", "text": records_text},
@@ -107,13 +125,17 @@ def _product_blocks(
         if not image_path:
             continue
         try:
-            resolved = resolve_within(asset_root, image_path, context="EgoMart product image")
+            resolved = resolve_within(
+                asset_root, image_path, context="EgoMart product image"
+            )
         except (ValueError, FileNotFoundError):
             continue
-        blocks.append({
-            "type": "text",
-            "text": f"Product image for {item['item_id']} — {item['name']}:",
-        })
+        blocks.append(
+            {
+                "type": "text",
+                "text": f"Product image for {item['item_id']} — {item['name']}:",
+            }
+        )
         blocks.append(_image_block(resolved))
     return blocks
 
@@ -168,6 +190,14 @@ def _tools(clarification_available: bool) -> list[dict[str, Any]]:
             "input_schema": {"type": "object", "properties": {}},
         },
         {
+            "name": "wait",
+            "description": (
+                "Take no website action this step and let the wearer's activity continue. "
+                "Use it when the current evidence is not yet enough to choose."
+            ),
+            "input_schema": {"type": "object", "properties": {}},
+        },
+        {
             "name": "finish",
             "description": "End the run after the cart has been submitted.",
             "input_schema": {
@@ -178,21 +208,19 @@ def _tools(clarification_available: bool) -> list[dict[str, Any]]:
         },
     ]
     if clarification_available:
-        tools.append({
-            "name": "ask_user",
-            "description": (
-                "Ask the wearer ONE clarification question. slot must be one of: "
-                "position, appearance, brand, variant, sequence."
-            ),
-            "input_schema": {
-                "type": "object",
-                "properties": {
-                    "slot": {"type": "string", "enum": sorted(CLARIFICATION_SLOTS)},
-                    "question": {"type": "string"},
+        tools.append(
+            {
+                "name": "ask_user",
+                "description": (
+                    "Ask the wearer one question; available once."
+                ),
+                "input_schema": {
+                    "type": "object",
+                    "properties": {"question": {"type": "string"}},
+                    "required": ["question"],
                 },
-                "required": ["slot", "question"],
-            },
-        })
+            }
+        )
     return tools
 
 
@@ -200,8 +228,12 @@ def _http(base_url: str, path: str, form: dict[str, str] | None = None) -> str:
     if form is None:
         request = urllib.request.Request(base_url + path)
     else:
-        payload = "&".join(f"{key}={urllib.parse.quote(value)}" for key, value in form.items())
-        request = urllib.request.Request(base_url + path, data=payload.encode(), method="POST")
+        payload = "&".join(
+            f"{key}={urllib.parse.quote(value)}" for key, value in form.items()
+        )
+        request = urllib.request.Request(
+            base_url + path, data=payload.encode(), method="POST"
+        )
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return response.read().decode()
@@ -213,14 +245,30 @@ def _http(base_url: str, path: str, form: dict[str, str] | None = None) -> str:
 
 
 def run_task(
-    task: dict[str, Any], arm: str, *, model: str = "gpt-5.4-mini",
-    max_steps: int = 40, replicate_id: int = 0, output_path: str | Path | None = None,
+    task: dict[str, Any],
+    condition: Condition,
+    *,
+    model: str = "gpt-5.4-mini",
+    max_steps: int = 20,
+    replicate_id: int = 0,
     schedule_index: int | None = None,
-    asset_root: str | Path = ".", transport: Transport | None = None,
-    artifacts_root: str | Path | None = None, experiment_id: str = "manual",
+    asset_root: str | Path = ".",
+    transport: Transport | None = None,
+    output_root: str | Path | None = None,
+    experiment_id: str = "manual",
+    experiment_directory: str | Path | None = None,
+    default_release_step: int,
+    reference_steps: int | None,
+    release_trigger: str = "timeline_step",
+    pre_release_max_steps: int | None = None,
+    post_release_max_steps: int | None = None,
+    site_snapshot: str | Path | None = None,
+    initial_site_state: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if task.get("site") != "egomart":
-        raise ValueError("minimal-loop is an EgoMart diagnostic; use Browser-Use for other sites")
+        raise ValueError(
+            "minimal-loop is an EgoMart diagnostic; use Browser-Use for other sites"
+        )
     transport = transport or OpenAIRequestsTransport.from_env()
     asset_root = Path(asset_root)
     config = RunConfig(
@@ -233,9 +281,16 @@ def run_task(
         replicate_id=replicate_id,
         schedule_index=schedule_index,
         asset_root=asset_root,
-        artifacts_root=artifacts_root,
+        output_root=output_root,
         experiment_id=experiment_id,
-        output_path=output_path,
+        experiment_directory=experiment_directory,
+        default_release_step=default_release_step,
+        reference_steps=reference_steps,
+        release_trigger=release_trigger,
+        pre_release_max_steps=pre_release_max_steps,
+        post_release_max_steps=post_release_max_steps,
+        site_snapshot=site_snapshot,
+        initial_site_state=initial_site_state,
     )
 
     def execute(context: RunContext) -> list[dict[str, Any]]:
@@ -243,63 +298,94 @@ def run_task(
         base_url = context.base_url
         products = context.site_data["entities"]
         trace: list[dict[str, Any]] = []
+        wearer_image_layouts: list[dict[str, Any]] = []
         context.capture_partial_trace(trace)
 
-        def dispatch(name: str, arguments: dict[str, Any]) -> str | list[dict[str, Any]]:
+        def observation_content(
+            observation: dict[str, Any], label: str
+        ) -> list[dict[str, Any]]:
+            images = context.observation_images(observation)
+            for image in images:
+                wearer_image_layouts.append(
+                    {
+                        "image_index": len(wearer_image_layouts),
+                        "observation_label": label,
+                        "layout": image.layout,
+                    }
+                )
+            return _observation_blocks(images, label)
+
+        def dispatch(
+            name: str, arguments: dict[str, Any]
+        ) -> str | list[dict[str, Any]]:
             if name == "search":
                 query = arguments.get("query", "")
-                page_text = _page_text(_http(base_url, "/search?q=" + urllib.parse.quote(query)))
+                page_text = _page_text(
+                    _http(base_url, "/search?q=" + urllib.parse.quote(query))
+                )
                 shown, _ = pages.search_results(products, query)
                 shown, _, _ = pages.paged_results(shown, 1)
                 return _product_blocks(page_text, shown, asset_root)
             if name == "open_product":
                 item_id = arguments.get("item_id", "")
-                page_text = _page_text(_http(base_url, "/product/" + urllib.parse.quote(item_id)))
-                item = next((entry for entry in products if entry["item_id"] == item_id), None)
+                page_text = _page_text(
+                    _http(base_url, "/product/" + urllib.parse.quote(item_id))
+                )
+                item = next(
+                    (entry for entry in products if entry["item_id"] == item_id), None
+                )
                 return _product_blocks(page_text, [item] if item else [], asset_root)
             if name == "add_to_cart":
-                return _page_text(_http(base_url, "/cart/add", {"item_id": arguments.get("item_id", "")}))
+                return _page_text(
+                    _http(
+                        base_url, "/cart/add", {"item_id": arguments.get("item_id", "")}
+                    )
+                )
             if name == "remove_from_cart":
-                return _page_text(_http(base_url, "/cart/remove", {"item_id": arguments.get("item_id", "")}))
+                return _page_text(
+                    _http(
+                        base_url,
+                        "/cart/remove",
+                        {"item_id": arguments.get("item_id", "")},
+                    )
+                )
             if name == "submit_cart":
                 return _page_text(_http(base_url, "/submit", {}))
             if name == "ask_user":
-                return context.ask_user(
-                    arguments.get("slot", ""), arguments.get("question", "")
-                )["payload"]
+                return context.ask_user(arguments.get("question", ""))["payload"]
+            if name == "wait":
+                context.wait()
+                return "Waited. Any newer wearer input arrives as a new message."
             return "Unknown tool."
 
-        first_content: list[dict[str, Any]] = [{"type": "text", "text": initial["instruction"]}]
-        observation_count = len(initial["observations"])
-        for index, observation in enumerate(initial["observations"]):
-            if observation_count == 1:
-                label = "Images captured by the wearer's glasses, in chronological order:"
-            elif index == 0:
-                label = "Earlier images captured by the wearer's glasses:"
-            else:
-                label = "More recent images captured by the wearer's glasses:"
-            first_content += _observation_blocks(observation, asset_root, label)
-        first_content.append({
-            "type": "text",
-            "text": "Use the EgoMart tools to search its fixed product catalog.",
-        })
+        first_content: list[dict[str, Any]] = [
+            {
+                "type": "text",
+                "text": wearer_said(initial["instruction"], INITIAL_STEP),
+            }
+        ]
+        for observation in initial["observations"]:
+            first_content += observation_content(
+                observation,
+                initial_glasses_label(observation),
+            )
+        first_content.append(
+            {
+                "type": "text",
+                "text": "Use the EgoMart tools to search its fixed product catalog.",
+            }
+        )
         messages: list[dict[str, Any]] = [{"role": "user", "content": first_content}]
         tools = _tools(initial["clarification_available"])
         finished = False
 
         while not finished and context.current_step < max_steps:
             for event in context.advance():
-                if event["type"] == "visual_context_update":
-                    content = [{
-                        "type": "text",
-                        "text": "The glasses captured a more recent view:",
-                    }]
-                    content += _observation_blocks(
-                        event["payload"], asset_root,
-                        "More recent images captured by the wearer's glasses:",
-                    )
+                text = release_text(event, release_label_step(event))
+                if release_frames(event):
+                    content = observation_content(event["payload"], text)
                 else:
-                    content = [{"type": "text", "text": f"The wearer speaks again: {event['payload']}"}]
+                    content = [{"type": "text", "text": text}]
                 messages.append({"role": "user", "content": content})
 
             request_body = {
@@ -310,30 +396,41 @@ def run_task(
                 "tools": tools,
             }
             response = transport(request_body)
-            trace.append({
-                "step": context.current_step,
-                "request": _audit_value(request_body),
-                "response": _audit_value(response),
-            })
+            trace.append(
+                {
+                    "step": context.current_step,
+                    "request": _audit_value(request_body),
+                    "wearer_image_layouts": list(wearer_image_layouts),
+                    "response": _audit_value(response),
+                }
+            )
             assistant_content = response.get("content", [])
             messages.append({"role": "assistant", "content": assistant_content})
-            tool_uses = [block for block in assistant_content if block.get("type") == "tool_use"]
+            tool_uses = [
+                block for block in assistant_content if block.get("type") == "tool_use"
+            ]
             if not tool_uses:
                 break
             results = []
             for block in tool_uses:
                 if block["name"] == "finish":
-                    finished = True
-                    results.append({
-                        "type": "tool_result", "tool_use_id": block["id"], "content": "Run ended.",
-                    })
+                    finished = not context.standby()
+                    results.append(
+                        {
+                            "type": "tool_result",
+                            "tool_use_id": block["id"],
+                            "content": "Run ended." if finished else "Standing by.",
+                        }
+                    )
                     continue
-                results.append({
-                    "type": "tool_result",
-                    "tool_use_id": block["id"],
-                    "content": dispatch(block["name"], block.get("input", {})),
-                })
+                results.append(
+                    {
+                        "type": "tool_result",
+                        "tool_use_id": block["id"],
+                        "content": dispatch(block["name"], block.get("input", {})),
+                    }
+                )
             messages.append({"role": "user", "content": results})
         return trace
 
-    return run_experiment(task, arm, config, execute)
+    return run_experiment(prepare_live_task(task, condition, config), condition, config, execute)

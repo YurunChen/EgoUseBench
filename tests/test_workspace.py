@@ -26,7 +26,10 @@ class WorkspacePathTest(unittest.TestCase):
             inside.parent.mkdir()
             inside.write_bytes(b"frame")
 
-            self.assertEqual(resolve_within(root, "assets/frame.jpg", context="frame"), inside.resolve())
+            self.assertEqual(
+                resolve_within(root, "assets/frame.jpg", context="frame"),
+                inside.resolve(),
+            )
             for unsafe in (inside.as_posix(), "../frame.jpg"):
                 with self.subTest(unsafe=unsafe), self.assertRaises(ValueError):
                     resolve_within(root, unsafe, context="frame")

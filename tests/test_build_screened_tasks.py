@@ -3,19 +3,20 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from tools.build_screened_tasks import build
+from egocua.construction import build_selected
+from egocua.selection import task_ids
+import pytest
+from tests.helpers import ARCHIVED_CORPUS, live_corpus_empty
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.mark.skipif(live_corpus_empty(), reason=ARCHIVED_CORPUS)
+@pytest.mark.requires_local_data("reference/sources/EgoSchema/repo/uid_to_ego4d.json")
 def test_builder_constructs_only_the_selection_owned_task_pool() -> None:
-    tasks, selection, report = build(ROOT)
-    selected = {
-        task_id
-        for task_ids in selection["primary"].values()
-        for task_id in task_ids
-    }
+    tasks, selection, report = build_selected(ROOT)
+    selected = set(task_ids(selection))
 
     assert {task["id"] for task in tasks} == selected
     assert report["selected_records"] == len(selected)
@@ -26,8 +27,10 @@ def test_builder_constructs_only_the_selection_owned_task_pool() -> None:
     )
 
 
+@pytest.mark.skipif(live_corpus_empty(), reason=ARCHIVED_CORPUS)
+@pytest.mark.requires_local_data("reference/sources/EgoSchema/repo/uid_to_ego4d.json")
 def test_selection_is_the_only_owner_of_active_task_ids() -> None:
     selection = json.loads((ROOT / "data/selection.json").read_text())
-    _, returned_selection, _ = build(ROOT)
+    _, returned_selection, _ = build_selected(ROOT)
 
     assert returned_selection == selection

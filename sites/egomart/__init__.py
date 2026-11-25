@@ -1,5 +1,5 @@
 """EgoMart website."""
 
-from .app import EgoMartServer, WebState, create_app, create_runtime, load_data
+from .app import EgoMartServer, create_app, create_runtime, load_data
 
-__all__ = ["EgoMartServer", "WebState", "create_app", "create_runtime", "load_data"]
+__all__ = ["EgoMartServer", "create_app", "create_runtime", "load_data"]

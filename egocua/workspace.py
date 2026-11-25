@@ -8,22 +8,31 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+from sites._paths import resolve_within
 
-def resolve_within(
-    root: str | Path, relative_path: str | Path, *, context: str, must_exist: bool = True
-) -> Path:
-    """Resolve one relative path and reject paths that escape ``root``."""
+__all__ = [
+    "read_json_strict",
+    "resolve_within",
+    "write_bytes_atomic",
+    "write_json_atomic",
+    "write_text_atomic",
+]
 
-    root_path = Path(root).resolve()
-    candidate = Path(relative_path)
-    if not str(candidate).strip() or candidate.is_absolute():
-        raise ValueError(f"{context}: path must be relative to the workspace: {relative_path}")
-    resolved = (root_path / candidate).resolve()
-    if resolved == root_path or root_path not in resolved.parents:
-        raise ValueError(f"{context}: path escapes the workspace: {relative_path}")
-    if must_exist and not resolved.is_file():
-        raise FileNotFoundError(resolved)
-    return resolved
+
+def read_json_strict(path: str | Path) -> Any:
+    """Read JSON without silently accepting duplicate object keys."""
+
+    source = Path(path)
+
+    def unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        value: dict[str, Any] = {}
+        for key, item in pairs:
+            if key in value:
+                raise ValueError(f"{source}: duplicate JSON key {key!r}")
+            value[key] = item
+        return value
+
+    return json.loads(source.read_text(), object_pairs_hook=unique_object)
 
 
 def write_text_atomic(path: str | Path, text: str) -> None:

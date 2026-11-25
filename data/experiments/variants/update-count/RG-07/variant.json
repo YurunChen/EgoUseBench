@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "pair_id": "RG-07",
+  "id": "RG-07-update-count",
+  "source_task_path": "data/experiments/composite/RG-07.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 913.0,
+      "request": "Keep the video to five minutes or less."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 928.0
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 931.0,
+      "request": "Two minutes or less, please. I only want a quick refresher."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_8e36851208bd"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_995b8351e6c0"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "913秒在928秒烤箱证据前，仅知小烤皿巧克力混合物。309秒Oven vs Microwave公开章节同时教两种方法、两只ramekin配方，适用此时未确定方法的甜点；89秒微波小皿蛋糕是原已审核的初期合理解。此次不用未来烤箱排除初期微波解。",
+    "public_facts": [
+      {
+        "entity_id": "m_8e36851208bd",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 309
+      },
+      {
+        "entity_id": "m_995b8351e6c0",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 89
+      },
+      {
+        "entity_id": "m_995b8351e6c0",
+        "path": [
+          "title"
+        ],
+        "equals": "Microwave Chocolate Lava Cake"
+      },
+      {
+        "entity_id": "m_8e36851208bd",
+        "path": [
+          "title"
+        ],
+        "equals": "Chocolate Lava Cake – Oven vs Microwave"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_8e36851208bd",
+        "retained_state": "m_995b8351e6c0"
+      },
+      "operator": "<=",
+      "value": 300
+    },
+    "original_request_effect": "928秒确认烤箱后，167秒m_5376dee98edc为原已审烤箱小皿蛋糕且<=5分钟，原<=2分钟进一步排除它；保留原短烤箱教程。"
+  }
+}

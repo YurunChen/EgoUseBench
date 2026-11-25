@@ -1,0 +1,1303 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing research authorization confirmed by project owner; no public release performed."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-retain-2026103104",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "dataset": "Ego2Web",
+        "record_ids": [
+          194
+        ],
+        "media_id": "776d7dcf-6a44-4db3-9d37-8a75635388c0",
+        "original_video_id": "776d7dcf-6a44-4db3-9d37-8a75635388c0",
+        "canonical_parent_recording_group": "Ego4D:3534864b-2289-4aaf-b3ed-10eeeee7acd2",
+        "parent_clip_interval_seconds": [
+          900,
+          1080
+        ],
+        "media_start_seconds": 0,
+        "source_video_path": "reference/sources/Ego2Web/dataset/ego2web_video/776d7dcf-6a44-4db3-9d37-8a75635388c0.mp4",
+        "original_annotations": [
+          "The existing Ego2Web prompt asks for flour-sack wording at 130–140 seconds. This is an index to a bakery recording, not evidence for the new kneading task."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              0,
+              6
+            ],
+            "description": "The wearer handles dough and moves a padded chair beside the machine. Full frames at0/4s show the steel bowl and curved kneading element at the right, and5/6s expose the olive-green fixed head, external front control panel and deep steel bowl. This is an equipment encounter, not a claim that the wearer operates it at that moment."
+          },
+          {
+            "interval_seconds": [
+              40,
+              55
+            ],
+            "description": "Later the wearer handles/weighs dough in a white bucket and portions it by hand. This is a separate preparation step; it does not physically replace or contradict the earlier mixer."
+          },
+          {
+            "interval_seconds": [
+              60,
+              75
+            ],
+            "description": "The continuous source later shows the dough bucket tipped into that steel bowl, liquid added, the overhead kneading equipment working and a wire cover closed. These unexposed later frames confirm the observed machine is used for dough mixing; they do not supply an extra released subtype or safety requirement."
+          },
+          {
+            "interval_seconds": [
+              92,
+              128
+            ],
+            "description": "The wearer moves to the separate stacked deck oven, opens/closes its doors, holds a small digital instrument beside the chamber, and sweeps inside with a long-handled brush. This is a different real appliance and task; it does not revoke learning to use the mixer encountered at speaking time. Do not infer a specific thermometer model or oven-control function from the small display."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-retain-2026103104/V0_00.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103104/V0_01.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103104/V0_02.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103104/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            102,
+            104,
+            113,
+            124
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-retain-2026103104/V1_20261101_00.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103104/V1_20261101_01.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103104/V1_20261101_02.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103104/V1_20261101_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The initial encounter exposes a deep steel bowl, curved kneading equipment and fixed motor head with external controls, sufficient for the general bowl-mixer operating class. It does not establish an exact model, capacity, spiral/fork/planetary subtype or safety interlock.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The later packet shows the separate stacked oven, its open chamber and door handling, a long-handled brush and a small digital instrument. The wearer has moved to another appliance-related activity; no new user request replaces the initial machine referent.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "source_inspection": {
+        "reviewer": "/root/refresh_sources",
+        "native_early_frames_inspected_seconds": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "reviewed_intervals_seconds": [
+          [
+            0,
+            36
+          ],
+          [
+            36,
+            66
+          ],
+          [
+            66,
+            92
+          ],
+          [
+            92,
+            180
+          ]
+        ],
+        "sampling": "Existing0–36 at1s;36–92 at0.5s; additional90–178 at2s and92–127 at1s; native102/104/113/124 inspected. No uninterrupted native-fps playback claimed. Overview timestamps are local: add90 or92 seconds respectively.",
+        "evidence_paths": [
+          ".scratch/refresh-expansion-20261031/mixer/early/0-36.jpg",
+          ".scratch/refresh-expansion-20261031/screening/ego194-36-66-dense.jpg",
+          ".scratch/refresh-expansion-20261031/screening/ego194-66-92-dense.jpg",
+          ".scratch/refresh-expansion-20261031/screening/ego-194.jpg",
+          ".scratch/refresh-expansion-20261031/mixer/remainder/90-180.jpg",
+          ".scratch/refresh-expansion-20261031/mixer/remainder/92-128-dense.jpg"
+        ],
+        "frame_extraction": {
+          "tool": "ffmpeg",
+          "jpeg_qscale": 2,
+          "resize": null,
+          "spatial_crop": null
+        },
+        "source_history": "3103 remains rejected for a false replacement relation. This new retain request is anchored at the actual initial machine encounter, not at an unresolved bucket-only view; both legal sets are the same. No claim that a machine has changed or that hand handling revokes a device-learning request. Repair2026-11-01 replaces the hand-portioning V1 with the real oven activity. Source offset remains0; new packet source times102/104/113/124 map to canonical parent times1002/1004/1013/1024. The rejected3103 record is unchanged."
+      },
+      "construct": {
+        "research_question": "Can the Agent retain a scene-grounded machine-learning choice when later pictures show activity at another appliance?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "media_save",
+        "belief_before": "The machine beside the wearer establishes the general bowl-mixer operation lesson sought.",
+        "belief_after": "The wearer moves to the separate oven; the machine referenced at speaking time remains the bowl mixer.",
+        "required_behavior_change": "Keep one useful bowl-mixer introduction when later pictures show another appliance-related activity.",
+        "no_update_failure": "An already applicable guide remains correct; no update is required.",
+        "overupdate_failure": "Discard the initial mixer lesson or add an unrelated lesson solely because later images show the oven. The electric hand-mixer website neighbor is not a depiction of manual dough portioning or the oven.",
+        "visual_dependency_claim": "The neutral words this machine do not name the equipment class. V0 establishes a standing overhead-head steel-bowl mixer, without establishing brand, scale or exact mechanism. V1 shows the separate oven, not a revised mixer identity. The existing40-result equipment window is reused without new search or public edits; it contains no oven-operation lesson. This is a basic retain case with weak website-aligned later distraction, not evidence of a strong dynamic challenge or measured no-scene necessity.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Save a beginner tutorial for using this machine.",
+          "target_granularity": "category",
+          "initial_target_role": "retained_machine_guide",
+          "final_target_role": "retained_machine_guide",
+          "environment_role_ids": {
+            "retained_machine_guide": "m_3238a3f1892c"
+          },
+          "equivalent_role_ids": {
+            "retained_machine_guide": [
+              "m_86f08006c36a",
+              "m_b4a837ce6a33",
+              "m_2ce2b7ebda38",
+              "m_24348a8aa013",
+              "m_48215f609085",
+              "m_fa9a49425f2a",
+              "m_29fe731b96bb",
+              "m_7650a02df582",
+              "m_2357277824ca",
+              "m_bebb8dd85efd",
+              "m_b8949e1f66f6",
+              "m_61c16acdd26e",
+              "m_b6cafa8fc2ad",
+              "m_974e03ca4514",
+              "m_5705045a2cef",
+              "m_124ca999fc68"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "retained_machine": "m_3238a3f1892c",
+            "other_operating_system": "m_7e0c70c8d4d0"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "retained_machine",
+                "other_operating_system"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "retained_machine"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The motor head mounted above the deep bowl and its external front controls identify a standing bowl mixer rather than a hand-held mixer operating in a separately held bowl."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "retained_machine"
+              ],
+              "why": "The separate oven activity does not change the machine referred to at speaking time. The hand-held mixer webpage remains only a static competing equipment class, not the visible later object."
+            }
+          ],
+          "established_by": "/root/refresh_sources",
+          "established_at": "2026-11-01"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "dough mixing equipment operation beginner tutorial",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026103103.json",
+              "snapshot_stage": "equipment_operation",
+              "result_entity_ids": [
+                "m_80da92ad4fc7",
+                "m_0afb2d31175b",
+                "m_6a8834a9abf1",
+                "m_e008851d0292",
+                "m_e9b20edc38d3",
+                "m_7d7e2d6b586a",
+                "m_86f08006c36a",
+                "m_8d27b862218a",
+                "m_39401ad63166",
+                "m_b4a837ce6a33",
+                "m_bb987aea42c6",
+                "m_6151236daa26",
+                "m_2ce2b7ebda38",
+                "m_24348a8aa013",
+                "m_3238a3f1892c",
+                "m_48215f609085",
+                "m_fa9a49425f2a",
+                "m_c60188b4299b",
+                "m_29fe731b96bb",
+                "m_4addf42c8bd1",
+                "m_30f9af4d10c3",
+                "m_9fdda7506708",
+                "m_5bcb6e44791b",
+                "m_7650a02df582",
+                "m_aadc18440128",
+                "m_2357277824ca",
+                "m_dfcf54e6d983",
+                "m_bebb8dd85efd",
+                "m_b8949e1f66f6",
+                "m_09dfd33a16b0",
+                "m_7e0c70c8d4d0",
+                "m_61c16acdd26e",
+                "m_b6cafa8fc2ad",
+                "m_a610021ad1f0",
+                "m_8960f93ef5c0",
+                "m_aa9503f0b3b7",
+                "m_35e71a1e35ff",
+                "m_974e03ca4514",
+                "m_5705045a2cef",
+                "m_124ca999fc68"
+              ],
+              "snapshot_task_id": "candidate-media-refresh-replace-2026103103"
+            },
+            {
+              "stage": "after_change",
+              "query": "dough mixing equipment operation beginner tutorial",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026103103.json",
+              "snapshot_stage": "equipment_operation",
+              "result_entity_ids": [
+                "m_80da92ad4fc7",
+                "m_0afb2d31175b",
+                "m_6a8834a9abf1",
+                "m_e008851d0292",
+                "m_e9b20edc38d3",
+                "m_7d7e2d6b586a",
+                "m_86f08006c36a",
+                "m_8d27b862218a",
+                "m_39401ad63166",
+                "m_b4a837ce6a33",
+                "m_bb987aea42c6",
+                "m_6151236daa26",
+                "m_2ce2b7ebda38",
+                "m_24348a8aa013",
+                "m_3238a3f1892c",
+                "m_48215f609085",
+                "m_fa9a49425f2a",
+                "m_c60188b4299b",
+                "m_29fe731b96bb",
+                "m_4addf42c8bd1",
+                "m_30f9af4d10c3",
+                "m_9fdda7506708",
+                "m_5bcb6e44791b",
+                "m_7650a02df582",
+                "m_aadc18440128",
+                "m_2357277824ca",
+                "m_dfcf54e6d983",
+                "m_bebb8dd85efd",
+                "m_b8949e1f66f6",
+                "m_09dfd33a16b0",
+                "m_7e0c70c8d4d0",
+                "m_61c16acdd26e",
+                "m_b6cafa8fc2ad",
+                "m_a610021ad1f0",
+                "m_8960f93ef5c0",
+                "m_aa9503f0b3b7",
+                "m_35e71a1e35ff",
+                "m_974e03ca4514",
+                "m_5705045a2cef",
+                "m_124ca999fc68"
+              ],
+              "snapshot_task_id": "candidate-media-refresh-replace-2026103103"
+            }
+          ],
+          "window_entity_ids": [
+            "m_80da92ad4fc7",
+            "m_0afb2d31175b",
+            "m_6a8834a9abf1",
+            "m_e008851d0292",
+            "m_e9b20edc38d3",
+            "m_7d7e2d6b586a",
+            "m_86f08006c36a",
+            "m_8d27b862218a",
+            "m_39401ad63166",
+            "m_b4a837ce6a33",
+            "m_bb987aea42c6",
+            "m_6151236daa26",
+            "m_2ce2b7ebda38",
+            "m_24348a8aa013",
+            "m_3238a3f1892c",
+            "m_48215f609085",
+            "m_fa9a49425f2a",
+            "m_c60188b4299b",
+            "m_29fe731b96bb",
+            "m_4addf42c8bd1",
+            "m_30f9af4d10c3",
+            "m_9fdda7506708",
+            "m_5bcb6e44791b",
+            "m_7650a02df582",
+            "m_aadc18440128",
+            "m_2357277824ca",
+            "m_dfcf54e6d983",
+            "m_bebb8dd85efd",
+            "m_b8949e1f66f6",
+            "m_09dfd33a16b0",
+            "m_7e0c70c8d4d0",
+            "m_61c16acdd26e",
+            "m_b6cafa8fc2ad",
+            "m_a610021ad1f0",
+            "m_8960f93ef5c0",
+            "m_aa9503f0b3b7",
+            "m_35e71a1e35ff",
+            "m_974e03ca4514",
+            "m_5705045a2cef",
+            "m_124ca999fc68"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_80da92ad4fc7",
+            "m_0afb2d31175b",
+            "m_c60188b4299b",
+            "m_5bcb6e44791b",
+            "m_7e0c70c8d4d0",
+            "m_aa9503f0b3b7"
+          ],
+          "related_entity_ids": [
+            "m_6a8834a9abf1",
+            "m_e008851d0292",
+            "m_e9b20edc38d3",
+            "m_7d7e2d6b586a",
+            "m_8d27b862218a",
+            "m_39401ad63166",
+            "m_bb987aea42c6",
+            "m_6151236daa26",
+            "m_4addf42c8bd1",
+            "m_30f9af4d10c3",
+            "m_9fdda7506708",
+            "m_aadc18440128",
+            "m_dfcf54e6d983",
+            "m_09dfd33a16b0",
+            "m_a610021ad1f0",
+            "m_8960f93ef5c0",
+            "m_35e71a1e35ff"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_80da92ad4fc7",
+              "ring": "core",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Nf-uVE-ZKIE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Nf-uVE-ZKIE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Nf-uVE-ZKIE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_0afb2d31175b",
+              "ring": "core",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native Ankarsrum lesson teaches positioning a movable roller/hook arm against a rotating bowl with base-side controls, rather than the fixed motor head/overhead kneader arrangement visible next to the wearer. Keep its real instructional value, but it teaches a different operator setup.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TudzsbCd-cY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TudzsbCd-cY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/TudzsbCd-cY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6a8834a9abf1",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/be8V0Q3Eles.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/be8V0Q3Eles.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/be8V0Q3Eles.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_e008851d0292",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/PhucxUFEm4w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/PhucxUFEm4w.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/PhucxUFEm4w.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_e9b20edc38d3",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/UHpofYuHcPA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/UHpofYuHcPA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/UHpofYuHcPA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7d7e2d6b586a",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native Bosch instruction teaches installing the dough hook on a central bottom-driven bowl post, fitting its cover and operating the base dial. This different assembly/use arrangement is not the overhead motor-head machine seen by the wearer.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RB-AI7_5hkw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RB-AI7_5hkw.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/RB-AI7_5hkw.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_8d27b862218a",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6ASHLn6ySh0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6ASHLn6ySh0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/6ASHLn6ySh0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_39401ad63166",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/U90upH4u9V0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/U90upH4u9V0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/U90upH4u9V0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bb987aea42c6",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/szPazK9wFvs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/szPazK9wFvs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/szPazK9wFvs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6151236daa26",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/M0CR9zasY6E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/M0CR9zasY6E.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/M0CR9zasY6E.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_c60188b4299b",
+              "ring": "core",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native Bosch instruction teaches installing the dough hook on a central bottom-driven bowl post, fitting its cover and operating the base dial. This different assembly/use arrangement is not the overhead motor-head machine seen by the wearer.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RlTSkhvdYQU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RlTSkhvdYQU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/RlTSkhvdYQU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_4addf42c8bd1",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jlh7L9jLIRE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jlh7L9jLIRE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/jlh7L9jLIRE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_30f9af4d10c3",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The complete native preview only rotates a CAD/product model of a horizontal trough mixer; it does not teach a useful operator loading/control sequence.",
+              "failure_predicates": [
+                "missing_requested_operator_instruction"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Bf21GUcOkrs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Bf21GUcOkrs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Bf21GUcOkrs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_9fdda7506708",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native operation lesson passes already prepared dough through sheeting rollers. It teaches shaping/sheeting rather than operating a dough mixer.",
+              "failure_predicates": [
+                "missing_requested_operator_instruction"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OoVUwwhBn5Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OoVUwwhBn5Q.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/OoVUwwhBn5Q.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5bcb6e44791b",
+              "ring": "core",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native breadmaker lesson teaches a removable enclosed baking pan and selecting an automatic mixing/proofing/baking cycle. That workflow is a real competing machine type; it is not the source open steel-bowl mixer with an overhead head and external panel.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_aadc18440128",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native Ankarsrum lesson teaches positioning a movable roller/hook arm against a rotating bowl with base-side controls, rather than the fixed motor head/overhead kneader arrangement visible next to the wearer. Keep its real instructional value, but it teaches a different operator setup.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/C9prhKbCtuA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/C9prhKbCtuA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/C9prhKbCtuA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_dfcf54e6d983",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native Ankarsrum lesson teaches positioning a movable roller/hook arm against a rotating bowl with base-side controls, rather than the fixed motor head/overhead kneader arrangement visible next to the wearer. Keep its real instructional value, but it teaches a different operator setup.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_coVjTKwDUI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_coVjTKwDUI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/_coVjTKwDUI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_09dfd33a16b0",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Z3kcI662DE4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Z3kcI662DE4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Z3kcI662DE4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7e0c70c8d4d0",
+              "ring": "core",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "This real KitchenAid/delicious instruction uses a hand-held motor unit with two hooks/beaters lowered into a separately held bowl. It does not teach the source fixed-head bowl equipment.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_a610021ad1f0",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qohd7oEW398.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qohd7oEW398.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/qohd7oEW398.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_8960f93ef5c0",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native breadmaker lesson teaches a removable enclosed baking pan and selecting an automatic mixing/proofing/baking cycle. That workflow is a real competing machine type; it is not the source open steel-bowl mixer with an overhead head and external panel.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ifUxbt8gJqU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ifUxbt8gJqU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ifUxbt8gJqU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_aa9503f0b3b7",
+              "ring": "core",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native demonstration loads ingredients into a horizontal trough mixer with internal arms, then tilts/unloads the trough. This is a different machine operating arrangement from the source overhead-head steel-bowl equipment.",
+              "failure_predicates": [
+                "different_operator_setup"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xbvuBPnzXhA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xbvuBPnzXhA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/xbvuBPnzXhA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_35e71a1e35ff",
+              "ring": "related",
+              "why_plausible": "Genuine result in the complete broad equipment-operation window, not an invented distractor.",
+              "reason": "The native description and chapters compare milling/spiral equipment purchase costs and advantages. The complete preview is a talking-head comparison with product inserts, not a useful loading/control/operation lesson.",
+              "failure_predicates": [
+                "missing_requested_operator_instruction"
+              ],
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/an9xy0Dni1Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/an9xy0Dni1Q.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/an9xy0Dni1Q.json::public_previews"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters",
+            "public_previews"
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_80da92ad4fc7",
+              "rank": 1,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Nf-uVE-ZKIE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Nf-uVE-ZKIE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Nf-uVE-ZKIE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_0afb2d31175b",
+              "rank": 2,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native Ankarsrum lesson teaches positioning a movable roller/hook arm against a rotating bowl with base-side controls, rather than the fixed motor head/overhead kneader arrangement visible next to the wearer. Keep its real instructional value, but it teaches a different operator setup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TudzsbCd-cY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TudzsbCd-cY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/TudzsbCd-cY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6a8834a9abf1",
+              "rank": 3,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/be8V0Q3Eles.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/be8V0Q3Eles.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/be8V0Q3Eles.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_e008851d0292",
+              "rank": 4,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/PhucxUFEm4w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/PhucxUFEm4w.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/PhucxUFEm4w.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_e9b20edc38d3",
+              "rank": 5,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/UHpofYuHcPA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/UHpofYuHcPA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/UHpofYuHcPA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7d7e2d6b586a",
+              "rank": 6,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native Bosch instruction teaches installing the dough hook on a central bottom-driven bowl post, fitting its cover and operating the base dial. This different assembly/use arrangement is not the overhead motor-head machine seen by the wearer.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RB-AI7_5hkw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RB-AI7_5hkw.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/RB-AI7_5hkw.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_86f08006c36a",
+              "rank": 7,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_Wv7OUp_x8Y.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_Wv7OUp_x8Y.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/_Wv7OUp_x8Y.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_8d27b862218a",
+              "rank": 8,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6ASHLn6ySh0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6ASHLn6ySh0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/6ASHLn6ySh0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_39401ad63166",
+              "rank": 9,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/U90upH4u9V0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/U90upH4u9V0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/U90upH4u9V0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_b4a837ce6a33",
+              "rank": 10,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hqYoKTEFXWo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hqYoKTEFXWo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/hqYoKTEFXWo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bb987aea42c6",
+              "rank": 11,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/szPazK9wFvs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/szPazK9wFvs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/szPazK9wFvs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6151236daa26",
+              "rank": 12,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/M0CR9zasY6E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/M0CR9zasY6E.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/M0CR9zasY6E.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_2ce2b7ebda38",
+              "rank": 13,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Qb96Ji8qaJY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Qb96Ji8qaJY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Qb96Ji8qaJY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_24348a8aa013",
+              "rank": 14,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jiPCEsoeCYs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jiPCEsoeCYs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/jiPCEsoeCYs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_3238a3f1892c",
+              "rank": 15,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/r4baf41pNE8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/r4baf41pNE8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/r4baf41pNE8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_48215f609085",
+              "rank": 16,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zBKjucVY8u0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zBKjucVY8u0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/zBKjucVY8u0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_fa9a49425f2a",
+              "rank": 17,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/3CGRqnzct7g.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/3CGRqnzct7g.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/3CGRqnzct7g.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_c60188b4299b",
+              "rank": 18,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native Bosch instruction teaches installing the dough hook on a central bottom-driven bowl post, fitting its cover and operating the base dial. This different assembly/use arrangement is not the overhead motor-head machine seen by the wearer.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RlTSkhvdYQU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RlTSkhvdYQU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/RlTSkhvdYQU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_29fe731b96bb",
+              "rank": 19,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/buFUJmw2_N8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/buFUJmw2_N8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/buFUJmw2_N8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_4addf42c8bd1",
+              "rank": 20,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jlh7L9jLIRE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/jlh7L9jLIRE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/jlh7L9jLIRE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_30f9af4d10c3",
+              "rank": 21,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The complete native preview only rotates a CAD/product model of a horizontal trough mixer; it does not teach a useful operator loading/control sequence.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Bf21GUcOkrs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Bf21GUcOkrs.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Bf21GUcOkrs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_9fdda7506708",
+              "rank": 22,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native operation lesson passes already prepared dough through sheeting rollers. It teaches shaping/sheeting rather than operating a dough mixer.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OoVUwwhBn5Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OoVUwwhBn5Q.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/OoVUwwhBn5Q.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5bcb6e44791b",
+              "rank": 23,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native breadmaker lesson teaches a removable enclosed baking pan and selecting an automatic mixing/proofing/baking cycle. That workflow is a real competing machine type; it is not the source open steel-bowl mixer with an overhead head and external panel.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7650a02df582",
+              "rank": 24,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VKUuKo_94SY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/VKUuKo_94SY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/VKUuKo_94SY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_aadc18440128",
+              "rank": 25,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native Ankarsrum lesson teaches positioning a movable roller/hook arm against a rotating bowl with base-side controls, rather than the fixed motor head/overhead kneader arrangement visible next to the wearer. Keep its real instructional value, but it teaches a different operator setup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/C9prhKbCtuA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/C9prhKbCtuA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/C9prhKbCtuA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_2357277824ca",
+              "rank": 26,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Tf8SSODs68A.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Tf8SSODs68A.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Tf8SSODs68A.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_dfcf54e6d983",
+              "rank": 27,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native Ankarsrum lesson teaches positioning a movable roller/hook arm against a rotating bowl with base-side controls, rather than the fixed motor head/overhead kneader arrangement visible next to the wearer. Keep its real instructional value, but it teaches a different operator setup.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_coVjTKwDUI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_coVjTKwDUI.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/_coVjTKwDUI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bebb8dd85efd",
+              "rank": 28,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1oxtp8IIxKA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1oxtp8IIxKA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/1oxtp8IIxKA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_b8949e1f66f6",
+              "rank": 29,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mXwUDVtrFc8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/mXwUDVtrFc8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/mXwUDVtrFc8.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_09dfd33a16b0",
+              "rank": 30,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Z3kcI662DE4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Z3kcI662DE4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/Z3kcI662DE4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_7e0c70c8d4d0",
+              "rank": 31,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "This real KitchenAid/delicious instruction uses a hand-held motor unit with two hooks/beaters lowered into a separately held bowl. It does not teach the source fixed-head bowl equipment.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_61c16acdd26e",
+              "rank": 32,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/t0J5gICjC8U.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/t0J5gICjC8U.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/t0J5gICjC8U.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_b6cafa8fc2ad",
+              "rank": 33,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_4iaq0vAmac.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_4iaq0vAmac.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/_4iaq0vAmac.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_a610021ad1f0",
+              "rank": 34,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration teaches an enclosed/base-driven dough maker and its bowl-mounted/bottom kneader, lid and automatic fermentation functions. It is a real useful appliance lesson, but not operation of the source equipment with the visible motor head above an open loading steel bowl. Exclusion follows operating arrangement, not household/commercial scale or brand.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qohd7oEW398.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/qohd7oEW398.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/qohd7oEW398.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_8960f93ef5c0",
+              "rank": 35,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native breadmaker lesson teaches a removable enclosed baking pan and selecting an automatic mixing/proofing/baking cycle. That workflow is a real competing machine type; it is not the source open steel-bowl mixer with an overhead head and external panel.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ifUxbt8gJqU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ifUxbt8gJqU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ifUxbt8gJqU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_aa9503f0b3b7",
+              "rank": 36,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native demonstration loads ingredients into a horizontal trough mixer with internal arms, then tilts/unloads the trough. This is a different machine operating arrangement from the source overhead-head steel-bowl equipment.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xbvuBPnzXhA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xbvuBPnzXhA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/xbvuBPnzXhA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_35e71a1e35ff",
+              "rank": 37,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native description and chapters compare milling/spiral equipment purchase costs and advantages. The complete preview is a talking-head comparison with product inserts, not a useful loading/control/operation lesson.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/an9xy0Dni1Q.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/an9xy0Dni1Q.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/an9xy0Dni1Q.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_974e03ca4514",
+              "rank": 38,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The official short demonstration visibly fits/removes mixer attachments, lowers the motor head and demonstrates the dough hook kneading in its steel bowl. The Whisk/Beat/Knead labels and actual operating sequence supply a basic equipment introduction despite the promotional format; do not reject a genuinely instructional demonstration just because it is short or sponsored.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/B9Uiku9eTs4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/B9Uiku9eTs4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/B9Uiku9eTs4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5705045a2cef",
+              "rank": 39,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native teaching/demonstration material shows a fixed motor head above a separate/deep steel mixing bowl and useful setup/loading, attachment, guard/head or speed/start operation. This is a practical lesson for the general bowl-and-overhead-kneader equipment class established by the source. A kitchen or commercial setting, brand, size, detachable bowl/attachment and exact control layout do not disqualify it; no exact spiral/fork/planetary subtype is required.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/CAmKMtGfcBg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/CAmKMtGfcBg.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/CAmKMtGfcBg.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_124ca999fc68",
+              "rank": 40,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The genuine multi-equipment presentation demonstrates bowl mixers, attachments, wire covers and control panels, as well as a sheeter. Retain this useful general lesson. It does not teach hand-held mixers, automatic breadmaker cycles or the bottom-driven fermentation appliances also present in the real window.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MRCFXfCv2R8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MRCFXfCv2R8.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/MRCFXfCv2R8.json::public_previews"
+              ]
+            }
+          ],
+          "answer_boundary_rule": "Accept useful beginner operation instruction/demonstration for the visibly fixed-head, steel-bowl dough-mixing equipment class. Household and larger bakery examples, planetary and spiral/fork mechanisms, removable attachments/bowls, brands and control labels can differ. Keep real general/multi-equipment lessons. The source does not establish a mandatory exact mechanism/model, industrial scale or safety interlock. Different base-driven/roller-arm/hand-held/breadmaker/trough operating systems, sheeting operations and purchase comparisons do not teach using the source equipment. The same legal set remains after the separate oven activity. The neutral request does not require dough-specific recipe content, an exact control console, brand, size or mechanism; every retained tutorial actually introduces using the visible broad bowl-mixer class, and no rejected tutorial adds that instruction. The frozen window has no oven-operation lesson.",
+          "visual_necessity_counterexample": {
+            "general_guides_retained": [
+              "m_124ca999fc68",
+              "m_b6cafa8fc2ad",
+              "m_29fe731b96bb"
+            ],
+            "finding": "The revised words give only this machine. V0, rather than text, establishes the standing bowl-mixer class. Prior native evidence for all40 entities is reused:17 useful bowl-mixer lessons remain valid, including household, commercial, spiral, planetary and genuine general lessons;23 alternatives teach different equipment or provide no operation instruction. Removing the dough-mixing words does not make these23 alternatives introduce the actual visible mixer. Real general lessons are retained. No oven-operation lesson exists in this frozen40 window, so the new V1 has weak catalog-aligned temptation. This is a constructor comparison, not a measured no-scene result; the old text-only shortcut is not declared solved by a model trial.",
+            "evidence_refs": [
+              "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-replace-2026103103--equipment_operation.json",
+              "data/sources/upstream_detail_snapshots/youtube/MRCFXfCv2R8.json::description",
+              "data/sources/upstream_detail_snapshots/youtube/MRCFXfCv2R8.json::public_chapters",
+              "data/sources/upstream_detail_snapshots/youtube/MRCFXfCv2R8.json::public_previews",
+              "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::description",
+              "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::public_chapters",
+              "data/sources/upstream_detail_snapshots/youtube/rnD_2UUBEWU.json::public_previews",
+              "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::description",
+              "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::public_chapters",
+              "data/sources/upstream_detail_snapshots/youtube/5aZaCLLj4cg.json::public_previews"
+            ]
+          }
+        },
+        "landing_semantic_review": {
+          "status": "constructor_checked",
+          "reviewer": "/root/refresh_sources",
+          "scope": "Targeted repair: neutral deictic wording and real oven V1. Reuse prior independent40-row native evidence and broad-class17/23 boundary; no site changes. Revised wording/frames require independent targeted review.",
+          "evidence_refs": [
+            "data/sources/manifests/expansion_20261031_mixer_retain_screening_manifest.json",
+            "data/sources/upstream_detail_snapshots/youtube/r4baf41pNE8.json::description",
+            "data/sources/upstream_detail_snapshots/youtube/r4baf41pNE8.json::public_chapters",
+            "data/sources/upstream_detail_snapshots/youtube/r4baf41pNE8.json::public_previews"
+          ]
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_relation": {
+        "previous_candidate_id": "candidate-media-refresh-replace-2026103103",
+        "reason": "Prior replacement relation rejected; new independently reviewable retain candidate anchors the useful machine-learning need at the real initial encounter. Previous source, rejected task, public windows and reviews remain."
+      },
+      "repair_history": [
+        {
+          "date": "2026-11-01",
+          "previous_instruction": "Save a beginner tutorial for operating this kind of dough-mixing machine.",
+          "previous_V1": {
+            "id": "V1",
+            "timestamps_seconds": [
+              40,
+              48,
+              50,
+              55
+            ],
+            "frame_paths": [
+              "data/observations/candidate-media-refresh-retain-2026103104/V1_00.jpg",
+              "data/observations/candidate-media-refresh-retain-2026103104/V1_01.jpg",
+              "data/observations/candidate-media-refresh-retain-2026103104/V1_02.jpg",
+              "data/observations/candidate-media-refresh-retain-2026103104/V1_03.jpg"
+            ]
+          },
+          "reason": "The old wording supplied the equipment category. Manual dough portioning is not an electric hand mixer. Preserve valid prior broad-class judgments, but remove this false distractor mapping and do not inherit the old visual-necessity conclusion for the revised words/frames.",
+          "prior_review_ref": "artifacts/reports/coding-agent-task-assessments.json::candidate-media-refresh-retain-2026103104"
+        }
+      ],
+      "repair_scope_20261101": {
+        "proposed_authored_initial": "Save a beginner tutorial for using this machine.",
+        "unchanged_legal_count_initial": 17,
+        "unchanged_legal_count_final": 17,
+        "window_count": 40,
+        "weakness": "No oven-operation tutorial in the frozen window; basic retain, not strong dynamic distractor evidence.",
+        "review_reuse": "Prior independent source V0 and full40 website-content boundary remain applicable. Old V1/wording/no-scene/temptation conclusions are affected.",
+        "release_alignment": "V1 times102/104/113/124 are source-local; source offset0. Compiler must derive the release event from this packet after root updates authored. Do not retain the old40–55 source-time release.",
+        "current_frame_provenance": "data/sources/provenance/expansion_20261101_mixer_retain_repair_frame_provenance.json",
+        "historical_frame_provenance": "data/sources/provenance/expansion_20261031_mixer_retain_frame_provenance.json",
+        "historical_asset_preservation": "Old V1_00–03 at40/48/50/55 restored with the original qscale2 native extraction recipe and remain at their old paths; revised images use V1_20261101_00–03. The original sidecar remains the40–55s evidence; repaired sidecar has its own path."
+      },
+      "stream": {
+        "session_seconds": [
+          0.0,
+          124.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-retain-2026103104/review.json"
+      }
+    }
+  ]
+}

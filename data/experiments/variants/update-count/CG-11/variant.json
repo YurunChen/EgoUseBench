@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "pair_id": "CG-11",
+  "id": "CG-11-update-count",
+  "source_task_path": "data/experiments/composite/CG-11.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 42.5,
+      "request": "Keep the video under twelve minutes."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 58.5,
+      "request": "Keep it under eight minutes. I only have time to watch before I start practising."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_8cf30fc05195"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_1c1867dacce4"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "42.5秒沿用原C对电弧焊纠错教程的指代，不在新增话语中给出该答案。877秒与629秒两课均不超过开场20分钟；877秒公开逐字稿9:01讲电极粘住及电流/手法，10:00后讲弧长过长等错误与改法。中间12分钟排除877秒并保留629秒。",
+    "public_facts": [
+      {
+        "entity_id": "m_8cf30fc05195",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 877
+      },
+      {
+        "entity_id": "m_1c1867dacce4",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 629
+      },
+      {
+        "entity_id": "m_8cf30fc05195",
+        "path": [
+          "title"
+        ],
+        "equals": "Stick Welding Basics: Full Tutorial"
+      },
+      {
+        "entity_id": "m_1c1867dacce4",
+        "path": [
+          "title"
+        ],
+        "equals": "This Is Why You SUCK At Stick Welding"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_8cf30fc05195",
+        "retained_state": "m_1c1867dacce4"
+      },
+      "operator": "<",
+      "value": 720
+    },
+    "original_request_effect": "原少于8分钟继续排除629秒，366秒m_17b59aa0fd48仍合法。"
+  }
+}

@@ -1,0 +1,2331 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing user-confirmed research permission. No public release."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102805",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240203-150506",
+        "original_video_id": "P01-20240203-150506",
+        "media_start_seconds": 0,
+        "original_video_path": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01/P01-20240203-150506.mp4",
+        "record_ids": [
+          "P01-20240203-150506"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "earlier-soup-use",
+            "occurrences_seconds": [
+              [
+                10,
+                11
+              ],
+              [
+                536,
+                537
+              ]
+            ],
+            "description": "A deep-bowled ladle is used to stir the soup in the same saucepan."
+          },
+          {
+            "event_id": "rinse-processor-blade",
+            "occurrences_seconds": [
+              [
+                449,
+                449
+              ]
+            ],
+            "description": "Food-processor parts are rinsed under the tap away from the hob; no requested utensil-soup relation is exposed."
+          },
+          {
+            "event_id": "rinse-cleaning-cloth",
+            "occurrences_seconds": [
+              [
+                477,
+                477
+              ]
+            ],
+            "description": "A cleaning cloth is rinsed and squeezed at the sink, not used in the soup."
+          },
+          {
+            "event_id": "open-cutlery-drawer",
+            "occurrences_seconds": [
+              [
+                591,
+                592
+              ]
+            ],
+            "description": "The open cutlery drawer and a newly taken spoon are visible. The held pan is empty; the old ladle is not actively in it."
+          },
+          {
+            "event_id": "later-soup-use",
+            "occurrences_seconds": [
+              [
+                599,
+                601
+              ]
+            ],
+            "description": "A small oval-head table spoon scrapes the remaining soup from the same saucepan into a storage container."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            449,
+            477,
+            536,
+            537,
+            591,
+            592,
+            599,
+            601
+          ],
+          "frame_paths": [
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_449.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_477.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_536.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_537.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_591.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_592.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_599.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_601.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "Actual near sequence supports the physical referents and relation described in the oracle; no unobservable retail identity is required.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "screening": {
+        "real_user_need": "I want an extra of one of the handheld kitchen utensils I used in the soup here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, size, colour and material can differ.",
+        "scope_note": "Experiment-only Span content; identical resolved physical reference supplied upfront in both conditions. Not a new formal member."
+      },
+      "construct": {
+        "research_question": "Can the Agent bind the same physical reference when two real intervening events lie between deciding observations?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "belief_before": "More than one physical referent is plausible without the user reference.",
+        "belief_after": "The complete physical relation selects the same real category in both conditions.",
+        "required_behavior_change": "Connect the source events and choose one matching website offer.",
+        "no_update_failure": "The same oracle is supplied upfront; missing proactive clarification is not a confound.",
+        "overupdate_failure": "Adding an alternate object or extra package violates the final request.",
+        "visual_dependency_claim": "The user supplies a physical relation, not a website item name. Both roles have genuine public listings. Endpoint/background shortcut checks remain for independent review.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I want an extra of one of the handheld kitchen utensils I used in the soup here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, size, colour and material can differ.",
+          "oracle_instruction": "I want an extra of the basic type of handheld kitchen utensil I used in the soup before I opened the cutlery drawer here, not the type I used afterwards. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, size, colour and material can differ.",
+          "canonical_answer": "The type I used in the soup before I opened the cutlery drawer, not the type I used afterwards.",
+          "canonical_question": "Which one do you mean?",
+          "candidate_roles": [
+            "ladle",
+            "table_spoon"
+          ],
+          "hidden_target_role": "ladle",
+          "valid_slot": "sequence",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "ladle": "p_f9f4ad02ed10",
+            "table_spoon": "p_b9665458beec"
+          },
+          "equivalent_role_ids": {
+            "ladle": [
+              "p_c4202be9211a",
+              "p_35247186a45d",
+              "p_3f246f360313",
+              "p_f6c5f149482d",
+              "p_1328884741cc",
+              "p_6b194fe37dcc",
+              "p_c578d14f483b",
+              "p_21d11e0566e4",
+              "p_1314a81cd2d8",
+              "p_9a1baaa36e6f",
+              "p_7c77a7c4aa26",
+              "p_9539a0cdb3b0",
+              "p_05aba9f3d760",
+              "p_a0028404d164",
+              "p_621a3f50c659",
+              "p_57c632894ae7",
+              "p_3849226b7371",
+              "p_381915992bc3",
+              "p_a7eea5b42a3b",
+              "p_3bdbf3a1616d",
+              "p_6ceebade3be0",
+              "p_c001c8db8193",
+              "p_092e9d0fa79a",
+              "p_01fe2ae4d35f",
+              "p_d35ac56ced80",
+              "p_2133dadd6e06",
+              "p_d61923658f0c",
+              "p_fa8d6f5c2034",
+              "p_b9db6e42c781",
+              "p_27d06b000464",
+              "p_f959c92bebf8",
+              "p_997eb7a51bfc",
+              "p_da1d989d7831",
+              "p_3d3bfefd5cd4",
+              "p_455f7f26f9f6",
+              "p_47fc1f018166",
+              "p_cb263d74739a",
+              "p_a337222a622a",
+              "p_d58699e4a9ff",
+              "p_f6f9074ec5e2",
+              "p_e83860a51bdc",
+              "p_d7da88947bb6",
+              "p_1632ead50dbf",
+              "p_1531c151523a"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "ladle": "p_f9f4ad02ed10",
+            "table_spoon": "p_b9665458beec"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "ladle"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The type I used in the soup before I opened the cutlery drawer, not the type I used afterwards."
+            }
+          ],
+          "established_by": "constructing-coding-agent",
+          "established_at": "2026-10-28"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "soup ladle",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/experiments/variants/span/soup-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "candidate-mart-clarify-sequence-2026102805",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_c4202be9211a",
+                "p_35247186a45d",
+                "p_f9f4ad02ed10",
+                "p_3f246f360313",
+                "p_f6c5f149482d",
+                "p_1328884741cc",
+                "p_6b194fe37dcc",
+                "p_c578d14f483b",
+                "p_21d11e0566e4",
+                "p_1314a81cd2d8",
+                "p_9a1baaa36e6f",
+                "p_7c77a7c4aa26",
+                "p_9539a0cdb3b0",
+                "p_cec7b81d8e17",
+                "p_05aba9f3d760",
+                "p_a0028404d164",
+                "p_621a3f50c659",
+                "p_57c632894ae7",
+                "p_3849226b7371",
+                "p_381915992bc3",
+                "p_a7eea5b42a3b",
+                "p_3bdbf3a1616d",
+                "p_6ceebade3be0",
+                "p_c001c8db8193",
+                "p_092e9d0fa79a",
+                "p_01fe2ae4d35f",
+                "p_9cc17ac90960",
+                "p_d35ac56ced80",
+                "p_2133dadd6e06",
+                "p_d61923658f0c",
+                "p_fa8d6f5c2034",
+                "p_b9db6e42c781",
+                "p_27d06b000464",
+                "p_f959c92bebf8",
+                "p_997eb7a51bfc",
+                "p_da1d989d7831",
+                "p_3d3bfefd5cd4",
+                "p_455f7f26f9f6",
+                "p_47fc1f018166",
+                "p_b6d6aeed8bba",
+                "p_cb263d74739a",
+                "p_a337222a622a",
+                "p_1531c151523a",
+                "p_d58699e4a9ff",
+                "p_f6f9074ec5e2",
+                "p_e83860a51bdc",
+                "p_d7da88947bb6",
+                "p_1632ead50dbf"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "tablespoon cutlery",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/experiments/variants/span/soup-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "candidate-mart-clarify-sequence-2026102805",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_79d1ed27e3bf",
+                "p_c2e6e07a3163",
+                "p_0a57ef8499ff",
+                "p_41ca83d84408",
+                "p_8b82e17293a4",
+                "p_b9665458beec",
+                "p_0201e95e5088",
+                "p_d604ef478182",
+                "p_f859ce799ee7",
+                "p_c488dee243dd",
+                "p_3a8c39f7b1e2",
+                "p_5b030699c526",
+                "p_194fc51f48de",
+                "p_37a0d5442b1f",
+                "p_6fe842cdc7e6",
+                "p_fc87d3f9e596",
+                "p_c32931379f0c",
+                "p_96c96128396c",
+                "p_4c34618e30a4",
+                "p_bca220588276",
+                "p_6aa9f1a3cbfb",
+                "p_d95625264be4",
+                "p_4dc5f7c188c2",
+                "p_630e867e9952",
+                "p_cc334ece5390",
+                "p_52e27b838189",
+                "p_721e33135227",
+                "p_1a40dc4cecc8",
+                "p_7a9bc8590cc6",
+                "p_f08d7b09ac7c",
+                "p_ba07404d4555",
+                "p_7fde1982e8b3",
+                "p_ebd1e064b17c",
+                "p_fe5129c6bdbc",
+                "p_de916c1ff1fa",
+                "p_3a9379ca8390",
+                "p_11a9d3661d77",
+                "p_f0bcfc589351",
+                "p_3fc49697f6a9",
+                "p_90fee25cfae8",
+                "p_52c2b654d165",
+                "p_cec726999a2f",
+                "p_d90cb2c8a96f",
+                "p_0ff95edd4a44",
+                "p_58d647489a87",
+                "p_6da7bf058850",
+                "p_00502eb726c4",
+                "p_05fcbb09f91c",
+                "p_6c489a00ec8c",
+                "p_dd3d8af2e3b3",
+                "p_aab74cbfa11f",
+                "p_71c56d6b6474",
+                "p_fab394b59790",
+                "p_7a0883592b3e",
+                "p_8e0578cf6d71",
+                "p_0ccd602b634d",
+                "p_ec6fb3367373",
+                "p_3c20d77c7bd1",
+                "p_84fcdc057aba",
+                "p_a70eeaf683f5"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_c4202be9211a",
+            "p_35247186a45d",
+            "p_f9f4ad02ed10",
+            "p_3f246f360313",
+            "p_f6c5f149482d",
+            "p_1328884741cc",
+            "p_6b194fe37dcc",
+            "p_c578d14f483b",
+            "p_21d11e0566e4",
+            "p_1314a81cd2d8",
+            "p_9a1baaa36e6f",
+            "p_7c77a7c4aa26",
+            "p_9539a0cdb3b0",
+            "p_cec7b81d8e17",
+            "p_05aba9f3d760",
+            "p_a0028404d164",
+            "p_621a3f50c659",
+            "p_57c632894ae7",
+            "p_3849226b7371",
+            "p_381915992bc3",
+            "p_a7eea5b42a3b",
+            "p_3bdbf3a1616d",
+            "p_6ceebade3be0",
+            "p_c001c8db8193",
+            "p_092e9d0fa79a",
+            "p_01fe2ae4d35f",
+            "p_9cc17ac90960",
+            "p_d35ac56ced80",
+            "p_2133dadd6e06",
+            "p_d61923658f0c",
+            "p_fa8d6f5c2034",
+            "p_b9db6e42c781",
+            "p_27d06b000464",
+            "p_f959c92bebf8",
+            "p_997eb7a51bfc",
+            "p_da1d989d7831",
+            "p_3d3bfefd5cd4",
+            "p_455f7f26f9f6",
+            "p_47fc1f018166",
+            "p_b6d6aeed8bba",
+            "p_cb263d74739a",
+            "p_a337222a622a",
+            "p_1531c151523a",
+            "p_d58699e4a9ff",
+            "p_f6f9074ec5e2",
+            "p_e83860a51bdc",
+            "p_d7da88947bb6",
+            "p_1632ead50dbf",
+            "p_79d1ed27e3bf",
+            "p_c2e6e07a3163",
+            "p_0a57ef8499ff",
+            "p_41ca83d84408",
+            "p_8b82e17293a4",
+            "p_b9665458beec",
+            "p_0201e95e5088",
+            "p_d604ef478182",
+            "p_f859ce799ee7",
+            "p_c488dee243dd",
+            "p_3a8c39f7b1e2",
+            "p_5b030699c526",
+            "p_194fc51f48de",
+            "p_37a0d5442b1f",
+            "p_6fe842cdc7e6",
+            "p_fc87d3f9e596",
+            "p_c32931379f0c",
+            "p_96c96128396c",
+            "p_4c34618e30a4",
+            "p_bca220588276",
+            "p_6aa9f1a3cbfb",
+            "p_d95625264be4",
+            "p_4dc5f7c188c2",
+            "p_630e867e9952",
+            "p_cc334ece5390",
+            "p_52e27b838189",
+            "p_721e33135227",
+            "p_1a40dc4cecc8",
+            "p_7a9bc8590cc6",
+            "p_f08d7b09ac7c",
+            "p_ba07404d4555",
+            "p_7fde1982e8b3",
+            "p_ebd1e064b17c",
+            "p_fe5129c6bdbc",
+            "p_de916c1ff1fa",
+            "p_3a9379ca8390",
+            "p_11a9d3661d77",
+            "p_f0bcfc589351",
+            "p_3fc49697f6a9",
+            "p_90fee25cfae8",
+            "p_52c2b654d165",
+            "p_cec726999a2f",
+            "p_d90cb2c8a96f",
+            "p_0ff95edd4a44",
+            "p_58d647489a87",
+            "p_6da7bf058850",
+            "p_00502eb726c4",
+            "p_05fcbb09f91c",
+            "p_6c489a00ec8c",
+            "p_dd3d8af2e3b3",
+            "p_aab74cbfa11f",
+            "p_71c56d6b6474",
+            "p_fab394b59790",
+            "p_7a0883592b3e",
+            "p_8e0578cf6d71",
+            "p_0ccd602b634d",
+            "p_ec6fb3367373",
+            "p_3c20d77c7bd1",
+            "p_84fcdc057aba",
+            "p_a70eeaf683f5"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_cec7b81d8e17",
+            "p_9cc17ac90960",
+            "p_b6d6aeed8bba",
+            "p_79d1ed27e3bf",
+            "p_b9665458beec"
+          ],
+          "related_entity_ids": [
+            "p_c2e6e07a3163",
+            "p_0a57ef8499ff",
+            "p_41ca83d84408",
+            "p_8b82e17293a4",
+            "p_0201e95e5088",
+            "p_d604ef478182",
+            "p_f859ce799ee7",
+            "p_c488dee243dd",
+            "p_3a8c39f7b1e2",
+            "p_5b030699c526",
+            "p_194fc51f48de",
+            "p_37a0d5442b1f",
+            "p_6fe842cdc7e6",
+            "p_fc87d3f9e596",
+            "p_c32931379f0c",
+            "p_96c96128396c"
+          ],
+          "ambient_entity_ids": [
+            "p_4c34618e30a4",
+            "p_bca220588276",
+            "p_6aa9f1a3cbfb",
+            "p_d95625264be4",
+            "p_4dc5f7c188c2",
+            "p_630e867e9952",
+            "p_cc334ece5390",
+            "p_52e27b838189",
+            "p_721e33135227",
+            "p_1a40dc4cecc8",
+            "p_7a9bc8590cc6",
+            "p_f08d7b09ac7c",
+            "p_ba07404d4555",
+            "p_7fde1982e8b3",
+            "p_ebd1e064b17c",
+            "p_fe5129c6bdbc",
+            "p_de916c1ff1fa",
+            "p_3a9379ca8390",
+            "p_11a9d3661d77",
+            "p_f0bcfc589351",
+            "p_3fc49697f6a9",
+            "p_90fee25cfae8",
+            "p_52c2b654d165",
+            "p_cec726999a2f",
+            "p_d90cb2c8a96f",
+            "p_0ff95edd4a44",
+            "p_58d647489a87",
+            "p_6da7bf058850",
+            "p_00502eb726c4",
+            "p_05fcbb09f91c",
+            "p_6c489a00ec8c",
+            "p_dd3d8af2e3b3",
+            "p_aab74cbfa11f",
+            "p_71c56d6b6474",
+            "p_fab394b59790",
+            "p_7a0883592b3e",
+            "p_8e0578cf6d71",
+            "p_0ccd602b634d",
+            "p_ec6fb3367373",
+            "p_3c20d77c7bd1",
+            "p_84fcdc057aba",
+            "p_a70eeaf683f5"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_cec7b81d8e17",
+              "ring": "core",
+              "reason": "The public title/photo contains the ladle together with a different utensil type; the request requires only the selected basic type.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "mixed_tool_package"
+              ]
+            },
+            {
+              "entity_id": "p_9cc17ac90960",
+              "ring": "core",
+              "reason": "The public title/photo contains the ladle together with a different utensil type; the request requires only the selected basic type.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "mixed_tool_package"
+              ]
+            },
+            {
+              "entity_id": "p_b6d6aeed8bba",
+              "ring": "core",
+              "reason": "The public title/photo contains the ladle together with a different utensil type; the request requires only the selected basic type.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "mixed_tool_package"
+              ]
+            },
+            {
+              "entity_id": "p_79d1ed27e3bf",
+              "ring": "core",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_c2e6e07a3163",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0a57ef8499ff",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_41ca83d84408",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_8b82e17293a4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_b9665458beec",
+              "ring": "core",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0201e95e5088",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_d604ef478182",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_f859ce799ee7",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_c488dee243dd",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3a8c39f7b1e2",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_5b030699c526",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_194fc51f48de",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_37a0d5442b1f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6fe842cdc7e6",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_fc87d3f9e596",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_c32931379f0c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_96c96128396c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_4c34618e30a4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_bca220588276",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6aa9f1a3cbfb",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_d95625264be4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_4dc5f7c188c2",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_630e867e9952",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_cc334ece5390",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_52e27b838189",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_721e33135227",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_1a40dc4cecc8",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_7a9bc8590cc6",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_f08d7b09ac7c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_ba07404d4555",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_7fde1982e8b3",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_ebd1e064b17c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_fe5129c6bdbc",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_de916c1ff1fa",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3a9379ca8390",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_11a9d3661d77",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_f0bcfc589351",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3fc49697f6a9",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_90fee25cfae8",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_52c2b654d165",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_cec726999a2f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_d90cb2c8a96f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0ff95edd4a44",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_58d647489a87",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6da7bf058850",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_00502eb726c4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_05fcbb09f91c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6c489a00ec8c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_dd3d8af2e3b3",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_aab74cbfa11f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_71c56d6b6474",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_fab394b59790",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_7a0883592b3e",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_8e0578cf6d71",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0ccd602b634d",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_ec6fb3367373",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3c20d77c7bd1",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_84fcdc057aba",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_a70eeaf683f5",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ]
+        }
+      },
+      "repair": {
+        "review": ".scratch/span-completion-20261028/reviews/soup-pass2.json",
+        "changed_scope": "Include same-basic-type slotted and solid deep-bowl ladle multipack; no hidden no-holes restriction."
+      }
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102806",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240203-150506",
+        "original_video_id": "P01-20240203-150506",
+        "media_start_seconds": 0,
+        "original_video_path": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01/P01-20240203-150506.mp4",
+        "record_ids": [
+          "P01-20240203-150506"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "earlier-soup-use",
+            "occurrences_seconds": [
+              [
+                10,
+                11
+              ],
+              [
+                536,
+                537
+              ]
+            ],
+            "description": "A deep-bowled ladle is used to stir the soup in the same saucepan."
+          },
+          {
+            "event_id": "rinse-processor-blade",
+            "occurrences_seconds": [
+              [
+                449,
+                449
+              ]
+            ],
+            "description": "Food-processor parts are rinsed under the tap away from the hob; no requested utensil-soup relation is exposed."
+          },
+          {
+            "event_id": "rinse-cleaning-cloth",
+            "occurrences_seconds": [
+              [
+                477,
+                477
+              ]
+            ],
+            "description": "A cleaning cloth is rinsed and squeezed at the sink, not used in the soup."
+          },
+          {
+            "event_id": "open-cutlery-drawer",
+            "occurrences_seconds": [
+              [
+                591,
+                592
+              ]
+            ],
+            "description": "The open cutlery drawer and a newly taken spoon are visible. The held pan is empty; the old ladle is not actively in it."
+          },
+          {
+            "event_id": "later-soup-use",
+            "occurrences_seconds": [
+              [
+                599,
+                601
+              ]
+            ],
+            "description": "A small oval-head table spoon scrapes the remaining soup from the same saucepan into a storage container."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            10,
+            11,
+            449,
+            477,
+            591,
+            592,
+            599,
+            601
+          ],
+          "frame_paths": [
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_10.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_11.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_449.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_477.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_591.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_592.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_599.jpg",
+            "data/experiments/variants/span/soup-before-drawer-utensil/frames/source_601.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "Actual far sequence supports the physical referents and relation described in the oracle; no unobservable retail identity is required.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "screening": {
+        "real_user_need": "I want an extra of one of the handheld kitchen utensils I used in the soup here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, size, colour and material can differ.",
+        "scope_note": "Experiment-only Span content; identical resolved physical reference supplied upfront in both conditions. Not a new formal member."
+      },
+      "construct": {
+        "research_question": "Can the Agent bind the same physical reference when two real intervening events lie between deciding observations?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "belief_before": "More than one physical referent is plausible without the user reference.",
+        "belief_after": "The complete physical relation selects the same real category in both conditions.",
+        "required_behavior_change": "Connect the source events and choose one matching website offer.",
+        "no_update_failure": "The same oracle is supplied upfront; missing proactive clarification is not a confound.",
+        "overupdate_failure": "Adding an alternate object or extra package violates the final request.",
+        "visual_dependency_claim": "The user supplies a physical relation, not a website item name. Both roles have genuine public listings. Endpoint/background shortcut checks remain for independent review.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I want an extra of one of the handheld kitchen utensils I used in the soup here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, size, colour and material can differ.",
+          "oracle_instruction": "I want an extra of the basic type of handheld kitchen utensil I used in the soup before I opened the cutlery drawer here, not the type I used afterwards. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, size, colour and material can differ.",
+          "canonical_answer": "The type I used in the soup before I opened the cutlery drawer, not the type I used afterwards.",
+          "canonical_question": "Which one do you mean?",
+          "candidate_roles": [
+            "ladle",
+            "table_spoon"
+          ],
+          "hidden_target_role": "ladle",
+          "valid_slot": "sequence",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "ladle": "p_f9f4ad02ed10",
+            "table_spoon": "p_b9665458beec"
+          },
+          "equivalent_role_ids": {
+            "ladle": [
+              "p_c4202be9211a",
+              "p_35247186a45d",
+              "p_3f246f360313",
+              "p_f6c5f149482d",
+              "p_1328884741cc",
+              "p_6b194fe37dcc",
+              "p_c578d14f483b",
+              "p_21d11e0566e4",
+              "p_1314a81cd2d8",
+              "p_9a1baaa36e6f",
+              "p_7c77a7c4aa26",
+              "p_9539a0cdb3b0",
+              "p_05aba9f3d760",
+              "p_a0028404d164",
+              "p_621a3f50c659",
+              "p_57c632894ae7",
+              "p_3849226b7371",
+              "p_381915992bc3",
+              "p_a7eea5b42a3b",
+              "p_3bdbf3a1616d",
+              "p_6ceebade3be0",
+              "p_c001c8db8193",
+              "p_092e9d0fa79a",
+              "p_01fe2ae4d35f",
+              "p_d35ac56ced80",
+              "p_2133dadd6e06",
+              "p_d61923658f0c",
+              "p_fa8d6f5c2034",
+              "p_b9db6e42c781",
+              "p_27d06b000464",
+              "p_f959c92bebf8",
+              "p_997eb7a51bfc",
+              "p_da1d989d7831",
+              "p_3d3bfefd5cd4",
+              "p_455f7f26f9f6",
+              "p_47fc1f018166",
+              "p_cb263d74739a",
+              "p_a337222a622a",
+              "p_d58699e4a9ff",
+              "p_f6f9074ec5e2",
+              "p_e83860a51bdc",
+              "p_d7da88947bb6",
+              "p_1632ead50dbf",
+              "p_1531c151523a"
+            ]
+          }
+        },
+        "decision": {
+          "candidates": {
+            "ladle": "p_f9f4ad02ed10",
+            "table_spoon": "p_b9665458beec"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "ladle",
+                "table_spoon"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "ladle"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The type I used in the soup before I opened the cutlery drawer, not the type I used afterwards."
+            }
+          ],
+          "established_by": "constructing-coding-agent",
+          "established_at": "2026-10-28"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "soup ladle",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/experiments/variants/span/soup-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "candidate-mart-clarify-sequence-2026102805",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_c4202be9211a",
+                "p_35247186a45d",
+                "p_f9f4ad02ed10",
+                "p_3f246f360313",
+                "p_f6c5f149482d",
+                "p_1328884741cc",
+                "p_6b194fe37dcc",
+                "p_c578d14f483b",
+                "p_21d11e0566e4",
+                "p_1314a81cd2d8",
+                "p_9a1baaa36e6f",
+                "p_7c77a7c4aa26",
+                "p_9539a0cdb3b0",
+                "p_cec7b81d8e17",
+                "p_05aba9f3d760",
+                "p_a0028404d164",
+                "p_621a3f50c659",
+                "p_57c632894ae7",
+                "p_3849226b7371",
+                "p_381915992bc3",
+                "p_a7eea5b42a3b",
+                "p_3bdbf3a1616d",
+                "p_6ceebade3be0",
+                "p_c001c8db8193",
+                "p_092e9d0fa79a",
+                "p_01fe2ae4d35f",
+                "p_9cc17ac90960",
+                "p_d35ac56ced80",
+                "p_2133dadd6e06",
+                "p_d61923658f0c",
+                "p_fa8d6f5c2034",
+                "p_b9db6e42c781",
+                "p_27d06b000464",
+                "p_f959c92bebf8",
+                "p_997eb7a51bfc",
+                "p_da1d989d7831",
+                "p_3d3bfefd5cd4",
+                "p_455f7f26f9f6",
+                "p_47fc1f018166",
+                "p_b6d6aeed8bba",
+                "p_cb263d74739a",
+                "p_a337222a622a",
+                "p_1531c151523a",
+                "p_d58699e4a9ff",
+                "p_f6f9074ec5e2",
+                "p_e83860a51bdc",
+                "p_d7da88947bb6",
+                "p_1632ead50dbf"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "tablespoon cutlery",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/experiments/variants/span/soup-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "candidate-mart-clarify-sequence-2026102805",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_79d1ed27e3bf",
+                "p_c2e6e07a3163",
+                "p_0a57ef8499ff",
+                "p_41ca83d84408",
+                "p_8b82e17293a4",
+                "p_b9665458beec",
+                "p_0201e95e5088",
+                "p_d604ef478182",
+                "p_f859ce799ee7",
+                "p_c488dee243dd",
+                "p_3a8c39f7b1e2",
+                "p_5b030699c526",
+                "p_194fc51f48de",
+                "p_37a0d5442b1f",
+                "p_6fe842cdc7e6",
+                "p_fc87d3f9e596",
+                "p_c32931379f0c",
+                "p_96c96128396c",
+                "p_4c34618e30a4",
+                "p_bca220588276",
+                "p_6aa9f1a3cbfb",
+                "p_d95625264be4",
+                "p_4dc5f7c188c2",
+                "p_630e867e9952",
+                "p_cc334ece5390",
+                "p_52e27b838189",
+                "p_721e33135227",
+                "p_1a40dc4cecc8",
+                "p_7a9bc8590cc6",
+                "p_f08d7b09ac7c",
+                "p_ba07404d4555",
+                "p_7fde1982e8b3",
+                "p_ebd1e064b17c",
+                "p_fe5129c6bdbc",
+                "p_de916c1ff1fa",
+                "p_3a9379ca8390",
+                "p_11a9d3661d77",
+                "p_f0bcfc589351",
+                "p_3fc49697f6a9",
+                "p_90fee25cfae8",
+                "p_52c2b654d165",
+                "p_cec726999a2f",
+                "p_d90cb2c8a96f",
+                "p_0ff95edd4a44",
+                "p_58d647489a87",
+                "p_6da7bf058850",
+                "p_00502eb726c4",
+                "p_05fcbb09f91c",
+                "p_6c489a00ec8c",
+                "p_dd3d8af2e3b3",
+                "p_aab74cbfa11f",
+                "p_71c56d6b6474",
+                "p_fab394b59790",
+                "p_7a0883592b3e",
+                "p_8e0578cf6d71",
+                "p_0ccd602b634d",
+                "p_ec6fb3367373",
+                "p_3c20d77c7bd1",
+                "p_84fcdc057aba",
+                "p_a70eeaf683f5"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_c4202be9211a",
+            "p_35247186a45d",
+            "p_f9f4ad02ed10",
+            "p_3f246f360313",
+            "p_f6c5f149482d",
+            "p_1328884741cc",
+            "p_6b194fe37dcc",
+            "p_c578d14f483b",
+            "p_21d11e0566e4",
+            "p_1314a81cd2d8",
+            "p_9a1baaa36e6f",
+            "p_7c77a7c4aa26",
+            "p_9539a0cdb3b0",
+            "p_cec7b81d8e17",
+            "p_05aba9f3d760",
+            "p_a0028404d164",
+            "p_621a3f50c659",
+            "p_57c632894ae7",
+            "p_3849226b7371",
+            "p_381915992bc3",
+            "p_a7eea5b42a3b",
+            "p_3bdbf3a1616d",
+            "p_6ceebade3be0",
+            "p_c001c8db8193",
+            "p_092e9d0fa79a",
+            "p_01fe2ae4d35f",
+            "p_9cc17ac90960",
+            "p_d35ac56ced80",
+            "p_2133dadd6e06",
+            "p_d61923658f0c",
+            "p_fa8d6f5c2034",
+            "p_b9db6e42c781",
+            "p_27d06b000464",
+            "p_f959c92bebf8",
+            "p_997eb7a51bfc",
+            "p_da1d989d7831",
+            "p_3d3bfefd5cd4",
+            "p_455f7f26f9f6",
+            "p_47fc1f018166",
+            "p_b6d6aeed8bba",
+            "p_cb263d74739a",
+            "p_a337222a622a",
+            "p_1531c151523a",
+            "p_d58699e4a9ff",
+            "p_f6f9074ec5e2",
+            "p_e83860a51bdc",
+            "p_d7da88947bb6",
+            "p_1632ead50dbf",
+            "p_79d1ed27e3bf",
+            "p_c2e6e07a3163",
+            "p_0a57ef8499ff",
+            "p_41ca83d84408",
+            "p_8b82e17293a4",
+            "p_b9665458beec",
+            "p_0201e95e5088",
+            "p_d604ef478182",
+            "p_f859ce799ee7",
+            "p_c488dee243dd",
+            "p_3a8c39f7b1e2",
+            "p_5b030699c526",
+            "p_194fc51f48de",
+            "p_37a0d5442b1f",
+            "p_6fe842cdc7e6",
+            "p_fc87d3f9e596",
+            "p_c32931379f0c",
+            "p_96c96128396c",
+            "p_4c34618e30a4",
+            "p_bca220588276",
+            "p_6aa9f1a3cbfb",
+            "p_d95625264be4",
+            "p_4dc5f7c188c2",
+            "p_630e867e9952",
+            "p_cc334ece5390",
+            "p_52e27b838189",
+            "p_721e33135227",
+            "p_1a40dc4cecc8",
+            "p_7a9bc8590cc6",
+            "p_f08d7b09ac7c",
+            "p_ba07404d4555",
+            "p_7fde1982e8b3",
+            "p_ebd1e064b17c",
+            "p_fe5129c6bdbc",
+            "p_de916c1ff1fa",
+            "p_3a9379ca8390",
+            "p_11a9d3661d77",
+            "p_f0bcfc589351",
+            "p_3fc49697f6a9",
+            "p_90fee25cfae8",
+            "p_52c2b654d165",
+            "p_cec726999a2f",
+            "p_d90cb2c8a96f",
+            "p_0ff95edd4a44",
+            "p_58d647489a87",
+            "p_6da7bf058850",
+            "p_00502eb726c4",
+            "p_05fcbb09f91c",
+            "p_6c489a00ec8c",
+            "p_dd3d8af2e3b3",
+            "p_aab74cbfa11f",
+            "p_71c56d6b6474",
+            "p_fab394b59790",
+            "p_7a0883592b3e",
+            "p_8e0578cf6d71",
+            "p_0ccd602b634d",
+            "p_ec6fb3367373",
+            "p_3c20d77c7bd1",
+            "p_84fcdc057aba",
+            "p_a70eeaf683f5"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_cec7b81d8e17",
+            "p_9cc17ac90960",
+            "p_b6d6aeed8bba",
+            "p_79d1ed27e3bf",
+            "p_b9665458beec"
+          ],
+          "related_entity_ids": [
+            "p_c2e6e07a3163",
+            "p_0a57ef8499ff",
+            "p_41ca83d84408",
+            "p_8b82e17293a4",
+            "p_0201e95e5088",
+            "p_d604ef478182",
+            "p_f859ce799ee7",
+            "p_c488dee243dd",
+            "p_3a8c39f7b1e2",
+            "p_5b030699c526",
+            "p_194fc51f48de",
+            "p_37a0d5442b1f",
+            "p_6fe842cdc7e6",
+            "p_fc87d3f9e596",
+            "p_c32931379f0c",
+            "p_96c96128396c"
+          ],
+          "ambient_entity_ids": [
+            "p_4c34618e30a4",
+            "p_bca220588276",
+            "p_6aa9f1a3cbfb",
+            "p_d95625264be4",
+            "p_4dc5f7c188c2",
+            "p_630e867e9952",
+            "p_cc334ece5390",
+            "p_52e27b838189",
+            "p_721e33135227",
+            "p_1a40dc4cecc8",
+            "p_7a9bc8590cc6",
+            "p_f08d7b09ac7c",
+            "p_ba07404d4555",
+            "p_7fde1982e8b3",
+            "p_ebd1e064b17c",
+            "p_fe5129c6bdbc",
+            "p_de916c1ff1fa",
+            "p_3a9379ca8390",
+            "p_11a9d3661d77",
+            "p_f0bcfc589351",
+            "p_3fc49697f6a9",
+            "p_90fee25cfae8",
+            "p_52c2b654d165",
+            "p_cec726999a2f",
+            "p_d90cb2c8a96f",
+            "p_0ff95edd4a44",
+            "p_58d647489a87",
+            "p_6da7bf058850",
+            "p_00502eb726c4",
+            "p_05fcbb09f91c",
+            "p_6c489a00ec8c",
+            "p_dd3d8af2e3b3",
+            "p_aab74cbfa11f",
+            "p_71c56d6b6474",
+            "p_fab394b59790",
+            "p_7a0883592b3e",
+            "p_8e0578cf6d71",
+            "p_0ccd602b634d",
+            "p_ec6fb3367373",
+            "p_3c20d77c7bd1",
+            "p_84fcdc057aba",
+            "p_a70eeaf683f5"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_cec7b81d8e17",
+              "ring": "core",
+              "reason": "The public title/photo contains the ladle together with a different utensil type; the request requires only the selected basic type.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "mixed_tool_package"
+              ]
+            },
+            {
+              "entity_id": "p_9cc17ac90960",
+              "ring": "core",
+              "reason": "The public title/photo contains the ladle together with a different utensil type; the request requires only the selected basic type.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "mixed_tool_package"
+              ]
+            },
+            {
+              "entity_id": "p_b6d6aeed8bba",
+              "ring": "core",
+              "reason": "The public title/photo contains the ladle together with a different utensil type; the request requires only the selected basic type.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "mixed_tool_package"
+              ]
+            },
+            {
+              "entity_id": "p_79d1ed27e3bf",
+              "ring": "core",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_c2e6e07a3163",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0a57ef8499ff",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_41ca83d84408",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_8b82e17293a4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_b9665458beec",
+              "ring": "core",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0201e95e5088",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_d604ef478182",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_f859ce799ee7",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_c488dee243dd",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3a8c39f7b1e2",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_5b030699c526",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_194fc51f48de",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_37a0d5442b1f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6fe842cdc7e6",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_fc87d3f9e596",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_c32931379f0c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_96c96128396c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_4c34618e30a4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_bca220588276",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6aa9f1a3cbfb",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_d95625264be4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_4dc5f7c188c2",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_630e867e9952",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_cc334ece5390",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_52e27b838189",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_721e33135227",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_1a40dc4cecc8",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_7a9bc8590cc6",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_f08d7b09ac7c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_ba07404d4555",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_7fde1982e8b3",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_ebd1e064b17c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_fe5129c6bdbc",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_de916c1ff1fa",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3a9379ca8390",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_11a9d3661d77",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_f0bcfc589351",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3fc49697f6a9",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_90fee25cfae8",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_52c2b654d165",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_cec726999a2f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_d90cb2c8a96f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0ff95edd4a44",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_58d647489a87",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6da7bf058850",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_00502eb726c4",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_05fcbb09f91c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_6c489a00ec8c",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_dd3d8af2e3b3",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_aab74cbfa11f",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_71c56d6b6474",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_fab394b59790",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_7a0883592b3e",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_8e0578cf6d71",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_0ccd602b634d",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_ec6fb3367373",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_3c20d77c7bd1",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_84fcdc057aba",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            },
+            {
+              "entity_id": "p_a70eeaf683f5",
+              "ring": "related",
+              "reason": "The public offer is a shallow table/eating spoon, a mixed cutlery set, a measuring set or a scoop rather than a deep cooking ladle.",
+              "why_plausible": "Genuine nearby offer in a complete native window.",
+              "failure_predicates": [
+                "different_utensil_form"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "attributes",
+            "image_path"
+          ]
+        }
+      },
+      "repair": {
+        "review": ".scratch/span-completion-20261028/reviews/soup-pass2.json",
+        "changed_scope": "Include same-basic-type slotted and solid deep-bowl ladle multipack; no hidden no-holes restriction."
+      }
+    }
+  ]
+}

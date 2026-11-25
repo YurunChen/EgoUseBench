@@ -1,0 +1,44 @@
+{
+  "schema_version": 3,
+  "experiment_id": "stream-pilot-qwen3-5-flash",
+  "default_release_step": 4,
+  "reference_steps": null,
+  "reference_condition": "online",
+  "conditions": [
+    {
+      "name": "online",
+      "schedule": "online",
+      "scope": "full",
+      "ask": "open",
+      "release_at": null,
+      "wearer_frames_per_image": 4,
+      "wearer_jpeg_quality": 85
+    },
+    {
+      "name": "stream",
+      "schedule": "online",
+      "scope": "full",
+      "ask": "open",
+      "release_at": null,
+      "frame_interval_seconds": 1,
+      "wearer_frames_per_image": 4,
+      "wearer_jpeg_quality": 85,
+      "frame_delivery_steps": 1,
+      "batch_seconds": 8
+    }
+  ],
+  "tracks": {
+    "graft": ["online", "stream"],
+    "refresh": ["online", "stream"],
+    "clarify": ["online", "stream"]
+  },
+  "replicate_ids": [0],
+  "runtime": {
+    "adapter": "browsergym",
+    "model": "qwen3.5-flash",
+    "model_version": "qwen3.5-flash",
+    "max_steps": 20,
+    "release_trigger": "first_native_commitment"
+  },
+  "scheduler_seed": 20260819
+}

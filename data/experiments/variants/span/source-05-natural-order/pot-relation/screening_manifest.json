@@ -1,0 +1,3213 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing official HD-EPIC research recording; retain source attribution."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026101813",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240203-184214",
+        "media_sha256": "35e7fb653ccc057006871de003f0e70f65442d901321281e61afd89ca0470f4d",
+        "original_video_id": "P01-20240203-184214",
+        "media_start_seconds": 0,
+        "original_video_path": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01/P01-20240203-184214.mp4",
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "long-handle-deep-pot-with-round-head-tool",
+            "interval_seconds": [
+              374,
+              378
+            ],
+            "description": "A black broad round-headed cooking tool contacts rice-like contents inside a deep round straight-sided saucepan. The wearer holds its single long wooden-look handle. No retail model, capacity or material is inferred."
+          },
+          {
+            "event_id": "metal-spoon-in-other-soaking-saucepan",
+            "interval_seconds": [
+              999,
+              1000
+            ],
+            "description": "A metal spoon rests in a different shiny saucepan soaking in the sink, beside a metal ladle. The wearer picks the spoon up from this black-handled saucepan. This is an actual resting-in relation, not a fabricated cooking-use claim."
+          },
+          {
+            "event_id": "isolated-round-head-tool-at-cupboard",
+            "interval_seconds": [
+              1257,
+              1258
+            ],
+            "description": "The wearer holds the round-headed cooking tool in one hand while taking a plate from the upper cupboard. Neither the earlier rice saucepan nor the lifted dishwasher pan is visible in these final two images."
+          }
+        ],
+        "unsupported_claims": [
+          "The source confirms an exact retail material, size or model",
+          "The natural repeats are pixel-identical",
+          "A utensil resting in the sink saucepan proves it was used there for cooking",
+          "A wood-look handle establishes actual wood material"
+        ],
+        "visual_inventory_evidence": [
+          "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json",
+          "data/experiments/variants/span/source-05-natural-order/independent-source-inventory-20261016.json"
+        ]
+      },
+      "screening": {
+        "real_user_need": "I like the look of the handle on the pan I handled here. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine.",
+        "scope_note": "New cookware-to-utensil relation. Existing knife-order tasks and model trials remain unchanged.",
+        "proposed_instruction": "I like the look of the handle on the pan I handled here. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            374,
+            378,
+            483,
+            552,
+            999,
+            1000,
+            1257,
+            1258
+          ],
+          "frame_paths": [
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_374.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_378.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_483.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_552.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_999.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_1000.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_1257.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_1258.jpg"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can a later isolated utensil cue retrieve its earlier cookware binding, with that binding naturally farther back or nearer?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The brown wood-look-handled rice saucepan and black-handled soaking saucepan each have a different utensil-in-pan relation.",
+        "belief_after": "The isolated utensil held at the cupboard links to the earlier deep rice saucepan.",
+        "required_behavior_change": "Link the isolated final wooden tool to its earlier cookware partner, then buy one corresponding pan.",
+        "no_update_failure": "Without the physical clarification both pans remain plausible.",
+        "overupdate_failure": "Choosing a utensil instead of cookware, or buying both cookware branches, fails the one-pan request.",
+        "visual_dependency_claim": "The end frame gives the tool but not either pan; the earlier relation gives the associated saucepan's shape. The reply itself gives no colour, tool-head class or cookware shape.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I like the look of the handle on the pan I handled here. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine.",
+          "oracle_instruction": "I like the look of the handle on the pan that the utensil I am holding at the upper cupboard at the end was in earlier. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "rice_pan",
+            "soaking_pan"
+          ],
+          "hidden_target_role": "rice_pan",
+          "valid_slot": "sequence",
+          "canonical_question": "Which pan do you mean?",
+          "canonical_answer": "The pan that the utensil I am holding at the upper cupboard at the end was in earlier.",
+          "environment_role_ids": {
+            "rice_pan": "p_21a79492b817",
+            "soaking_pan": "p_75b7c3d32064"
+          },
+          "equivalent_role_ids": {},
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "steel saucepan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-08.json",
+              "snapshot_task_id": "candidate-mart-clarify-appearance-08",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_75b7c3d32064",
+                "p_dca6cf284177",
+                "p_67ad92c7ca79",
+                "p_7dab4bd53291",
+                "p_aaf1fd8992d3",
+                "p_f33e8fdb0203",
+                "p_bdaab6f7b20e",
+                "p_463391eef1d0",
+                "p_925d48eae1d0",
+                "p_c270b5ad837c",
+                "p_50516d2ab20d",
+                "p_60c45165486e",
+                "p_e8ade946ab59",
+                "p_afb27c727a48",
+                "p_199d97b2ce79",
+                "p_09ffd52d20eb",
+                "p_dd8d2e15e957",
+                "p_24febde16ee9",
+                "p_3bb8bca125dc",
+                "p_fd832a6ea1d1",
+                "p_86701cbb052d",
+                "p_6e957c3c1b0f",
+                "p_f61598ad5750",
+                "p_c1368a31f2ce",
+                "p_cc5a6e9efafa",
+                "p_da9f622d4957",
+                "p_d081d04f6f29",
+                "p_c7dbef0151b5",
+                "p_21a79492b817",
+                "p_8c8ec40c8d36",
+                "p_ccb4dd7a70b9",
+                "p_eb527f5c988f",
+                "p_195ac020efc9",
+                "p_9dec0b38a527",
+                "p_0272c8bd74a1",
+                "p_9a1f7f1816bd",
+                "p_ee31efaa7e06",
+                "p_ecb82bc26b7d",
+                "p_5ef827341784",
+                "p_1cbb9520abd5",
+                "p_7fb4edd665c5",
+                "p_b7a0d5ca7a41",
+                "p_4e4a83fc2b83",
+                "p_631787f2abeb",
+                "p_2f6ed90e7d98",
+                "p_b46e3259f155",
+                "p_3f528fa175fd",
+                "p_5a1450c3f002"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "nonstick skillet pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-17.json",
+              "snapshot_task_id": "candidate-mart-graft-p-17",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_e4c213f731db",
+                "p_d84468ad7cb6",
+                "p_b4f66bba3ada",
+                "p_8c9106c838a4",
+                "p_e4b5cf9afbd0",
+                "p_474f66cdaadb",
+                "p_90d6a79f82ec",
+                "p_7da97dbcebd7",
+                "p_0802715445c9",
+                "p_35891ce25591",
+                "p_b8345bebc403",
+                "p_898c19b4d988",
+                "p_16718393e530",
+                "p_519888de602b",
+                "p_5d23fbc6dbd3",
+                "p_dae7c3250db2",
+                "p_05e8791c6734",
+                "p_d9e00e35d551",
+                "p_f01720b69037",
+                "p_0b6bf574f507",
+                "p_530c061f0f4e",
+                "p_781b7f160535",
+                "p_596c8dd60338",
+                "p_1b0b8d3205cc",
+                "p_8ac2aa95f987",
+                "p_4071df1ef202",
+                "p_cd0e3c1f3e91",
+                "p_e2bd008d96c2",
+                "p_84eeea1266bd",
+                "p_d6581e004a26",
+                "p_450857ca86f8",
+                "p_93957f087fcd",
+                "p_0a9569e0b3b6",
+                "p_572c64c4da65",
+                "p_85969c942a99",
+                "p_d4b544b0c6f7",
+                "p_000fb369c5a8",
+                "p_ba3045225ef0",
+                "p_716b6cceb6fe",
+                "p_605a093cbb69",
+                "p_aa59c5888271",
+                "p_e803252f5e33",
+                "p_19457bb0ac99",
+                "p_2e5d98b5884d",
+                "p_4dc65526ebb0",
+                "p_bc3112c437d5",
+                "p_fd7bbbe336bd",
+                "p_46518f72bdd3"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_75b7c3d32064",
+            "p_dca6cf284177",
+            "p_67ad92c7ca79",
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_463391eef1d0",
+            "p_925d48eae1d0",
+            "p_c270b5ad837c",
+            "p_50516d2ab20d",
+            "p_60c45165486e",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_09ffd52d20eb",
+            "p_dd8d2e15e957",
+            "p_24febde16ee9",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce",
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_21a79492b817",
+            "p_8c8ec40c8d36",
+            "p_ccb4dd7a70b9",
+            "p_eb527f5c988f",
+            "p_195ac020efc9",
+            "p_9dec0b38a527",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_5ef827341784",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_4071df1ef202",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_0a9569e0b3b6",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_75b7c3d32064",
+            "p_eb527f5c988f",
+            "p_e4b5cf9afbd0",
+            "p_4071df1ef202",
+            "p_0a9569e0b3b6"
+          ],
+          "related_entity_ids": [
+            "p_dca6cf284177",
+            "p_67ad92c7ca79",
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_463391eef1d0",
+            "p_925d48eae1d0",
+            "p_c270b5ad837c",
+            "p_50516d2ab20d",
+            "p_60c45165486e",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_09ffd52d20eb",
+            "p_dd8d2e15e957",
+            "p_24febde16ee9",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce",
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_8c8ec40c8d36",
+            "p_ccb4dd7a70b9",
+            "p_195ac020efc9",
+            "p_9dec0b38a527",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_5ef827341784",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_75b7c3d32064",
+              "ring": "core",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_dca6cf284177",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_67ad92c7ca79",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_7dab4bd53291",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_aaf1fd8992d3",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_f33e8fdb0203",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_bdaab6f7b20e",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_463391eef1d0",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_925d48eae1d0",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_c270b5ad837c",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_50516d2ab20d",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_60c45165486e",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e8ade946ab59",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_afb27c727a48",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_199d97b2ce79",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_09ffd52d20eb",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_dd8d2e15e957",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_24febde16ee9",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_3bb8bca125dc",
+              "ring": "related",
+              "reason": "The actual public image shows a tall round vessel with short side loop handles, not the source pan's projecting long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_fd832a6ea1d1",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_86701cbb052d",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_6e957c3c1b0f",
+              "ring": "related",
+              "reason": "The actual public image shows a tall cylindrical milk vessel with a short vertical side grip, not a projecting saucepan long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_f61598ad5750",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_c1368a31f2ce",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_cc5a6e9efafa",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_da9f622d4957",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d081d04f6f29",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_c7dbef0151b5",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_8c8ec40c8d36",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ccb4dd7a70b9",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_eb527f5c988f",
+              "ring": "core",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_195ac020efc9",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_9dec0b38a527",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0272c8bd74a1",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_9a1f7f1816bd",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ee31efaa7e06",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ecb82bc26b7d",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_5ef827341784",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_1cbb9520abd5",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_7fb4edd665c5",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b7a0d5ca7a41",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_4e4a83fc2b83",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_631787f2abeb",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_2f6ed90e7d98",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b46e3259f155",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_3f528fa175fd",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_5a1450c3f002",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4c213f731db",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d84468ad7cb6",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b4f66bba3ada",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_8c9106c838a4",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4b5cf9afbd0",
+              "ring": "core",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_474f66cdaadb",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_90d6a79f82ec",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_7da97dbcebd7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0802715445c9",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_35891ce25591",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b8345bebc403",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_898c19b4d988",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_16718393e530",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_519888de602b",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_5d23fbc6dbd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_dae7c3250db2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_05e8791c6734",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d9e00e35d551",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_f01720b69037",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0b6bf574f507",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_530c061f0f4e",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_781b7f160535",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_596c8dd60338",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_1b0b8d3205cc",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_8ac2aa95f987",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_4071df1ef202",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_cd0e3c1f3e91",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e2bd008d96c2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_84eeea1266bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d6581e004a26",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_450857ca86f8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_93957f087fcd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0a9569e0b3b6",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_572c64c4da65",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_85969c942a99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d4b544b0c6f7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_000fb369c5a8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ba3045225ef0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_716b6cceb6fe",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_605a093cbb69",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_aa59c5888271",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e803252f5e33",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_19457bb0ac99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_2e5d98b5884d",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_4dc65526ebb0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_bc3112c437d5",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_fd7bbbe336bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_46518f72bdd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ],
+          "semantic_review": {
+            "status": "constructor_full_window_recheck_pending_original_reviewer_confirmation"
+          },
+          "equivalence_review": {
+            "reviewer": "/root/span_remaining_construction_1018",
+            "method": "All 96 actual public product images inspected. Compare the new source's high-sided round pan body and the actual instruction; do not inherit the old source's broad pan class, use product-title categories, or introduce numerical thresholds. Source05 uses body shape plus brown wood-look handle appearance; rice additionally uses the requested single-long-handle arrangement.",
+            "accepted_entity_ids": [
+              "p_21a79492b817"
+            ],
+            "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json",
+            "pending_entity_ids": []
+          }
+        },
+        "decision": {
+          "candidates": {
+            "rice_pan": "p_21a79492b817",
+            "soaking_pan": "p_75b7c3d32064"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "rice_pan"
+              ],
+              "narrowed_by": "action_order",
+              "why": "Use the utensil-in-pan relation to retrieve the rice pan's shape and wood-look handle appearance, not the other saucepan's metal-spoon relation."
+            }
+          ],
+          "established_by": "constructor /root/span_remaining_construction_1018; new scene relation pending independent review",
+          "established_at": "2026-10-18"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "supported_claims": [
+        {
+          "text": "A black broad round-headed cooking tool contacts rice-like contents inside a deep round straight-sided saucepan. The wearer holds its single long wooden-look handle. No retail model, capacity or material is inferred.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "A metal spoon rests in a different shiny saucepan soaking in the sink, beside a metal ladle. The wearer picks the spoon up from this black-handled saucepan. This is an actual resting-in relation, not a fabricated cooking-use claim.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The wearer holds the round-headed cooking tool in one hand while taking a plate from the upper cupboard. Neither the earlier rice saucepan nor the lifted dishwasher pan is visible in these final two images.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026101814",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P01-20240203-184214",
+        "media_sha256": "35e7fb653ccc057006871de003f0e70f65442d901321281e61afd89ca0470f4d",
+        "original_video_id": "P01-20240203-184214",
+        "media_start_seconds": 0,
+        "original_video_path": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P01/P01-20240203-184214.mp4",
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "long-handle-deep-pot-with-round-head-tool",
+            "interval_seconds": [
+              630,
+              635
+            ],
+            "description": "A black broad round-headed cooking tool contacts rice-like contents inside a deep round straight-sided saucepan. The wearer holds its single long wooden-look handle. No retail model, capacity or material is inferred."
+          },
+          {
+            "event_id": "metal-spoon-in-other-soaking-saucepan",
+            "interval_seconds": [
+              999,
+              1000
+            ],
+            "description": "A metal spoon rests in a different shiny saucepan soaking in the sink, beside a metal ladle. The wearer picks the spoon up from this black-handled saucepan. This is an actual resting-in relation, not a fabricated cooking-use claim."
+          },
+          {
+            "event_id": "isolated-round-head-tool-at-cupboard",
+            "interval_seconds": [
+              1257,
+              1258
+            ],
+            "description": "The wearer holds the round-headed cooking tool in one hand while taking a plate from the upper cupboard. Neither the earlier rice saucepan nor the lifted dishwasher pan is visible in these final two images."
+          }
+        ],
+        "unsupported_claims": [
+          "The source confirms an exact retail material, size or model",
+          "The natural repeats are pixel-identical",
+          "A utensil resting in the sink saucepan proves it was used there for cooking",
+          "A wood-look handle establishes actual wood material"
+        ],
+        "visual_inventory_evidence": [
+          "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json",
+          "data/experiments/variants/span/source-05-natural-order/independent-source-inventory-20261016.json"
+        ]
+      },
+      "screening": {
+        "real_user_need": "I like the look of the handle on the pan I handled here. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine.",
+        "scope_note": "New cookware-to-utensil relation. Existing knife-order tasks and model trials remain unchanged.",
+        "proposed_instruction": "I like the look of the handle on the pan I handled here. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            483,
+            552,
+            630,
+            635,
+            999,
+            1000,
+            1257,
+            1258
+          ],
+          "frame_paths": [
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_483.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_552.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_630.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_635.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_999.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_1000.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_1257.jpg",
+            "data/experiments/variants/span/source-05-natural-order/pot-relation/frames/source_1258.jpg"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can a later isolated utensil cue retrieve its earlier cookware binding, with that binding naturally farther back or nearer?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The brown wood-look-handled rice saucepan and black-handled soaking saucepan each have a different utensil-in-pan relation.",
+        "belief_after": "The isolated utensil held at the cupboard links to the earlier deep rice saucepan.",
+        "required_behavior_change": "Link the isolated final wooden tool to its earlier cookware partner, then buy one corresponding pan.",
+        "no_update_failure": "Without the physical clarification both pans remain plausible.",
+        "overupdate_failure": "Choosing a utensil instead of cookware, or buying both cookware branches, fails the one-pan request.",
+        "visual_dependency_claim": "The end frame gives the tool but not either pan; the earlier relation gives the associated saucepan's shape. The reply itself gives no colour, tool-head class or cookware shape.",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I like the look of the handle on the pan I handled here. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine.",
+          "oracle_instruction": "I like the look of the handle on the pan that the utensil I am holding at the upper cupboard at the end was in earlier. Add a spare to my cart, matching its general body shape and handle appearance. Brand, size and material can differ. One pan, not a multi-pan set; a lid or other accessories are fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "rice_pan",
+            "soaking_pan"
+          ],
+          "hidden_target_role": "rice_pan",
+          "valid_slot": "sequence",
+          "canonical_question": "Which pan do you mean?",
+          "canonical_answer": "The pan that the utensil I am holding at the upper cupboard at the end was in earlier.",
+          "environment_role_ids": {
+            "rice_pan": "p_21a79492b817",
+            "soaking_pan": "p_75b7c3d32064"
+          },
+          "equivalent_role_ids": {},
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "steel saucepan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-appearance-08.json",
+              "snapshot_task_id": "candidate-mart-clarify-appearance-08",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_75b7c3d32064",
+                "p_dca6cf284177",
+                "p_67ad92c7ca79",
+                "p_7dab4bd53291",
+                "p_aaf1fd8992d3",
+                "p_f33e8fdb0203",
+                "p_bdaab6f7b20e",
+                "p_463391eef1d0",
+                "p_925d48eae1d0",
+                "p_c270b5ad837c",
+                "p_50516d2ab20d",
+                "p_60c45165486e",
+                "p_e8ade946ab59",
+                "p_afb27c727a48",
+                "p_199d97b2ce79",
+                "p_09ffd52d20eb",
+                "p_dd8d2e15e957",
+                "p_24febde16ee9",
+                "p_3bb8bca125dc",
+                "p_fd832a6ea1d1",
+                "p_86701cbb052d",
+                "p_6e957c3c1b0f",
+                "p_f61598ad5750",
+                "p_c1368a31f2ce",
+                "p_cc5a6e9efafa",
+                "p_da9f622d4957",
+                "p_d081d04f6f29",
+                "p_c7dbef0151b5",
+                "p_21a79492b817",
+                "p_8c8ec40c8d36",
+                "p_ccb4dd7a70b9",
+                "p_eb527f5c988f",
+                "p_195ac020efc9",
+                "p_9dec0b38a527",
+                "p_0272c8bd74a1",
+                "p_9a1f7f1816bd",
+                "p_ee31efaa7e06",
+                "p_ecb82bc26b7d",
+                "p_5ef827341784",
+                "p_1cbb9520abd5",
+                "p_7fb4edd665c5",
+                "p_b7a0d5ca7a41",
+                "p_4e4a83fc2b83",
+                "p_631787f2abeb",
+                "p_2f6ed90e7d98",
+                "p_b46e3259f155",
+                "p_3f528fa175fd",
+                "p_5a1450c3f002"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "nonstick skillet pan",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-p-17.json",
+              "snapshot_task_id": "candidate-mart-graft-p-17",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_e4c213f731db",
+                "p_d84468ad7cb6",
+                "p_b4f66bba3ada",
+                "p_8c9106c838a4",
+                "p_e4b5cf9afbd0",
+                "p_474f66cdaadb",
+                "p_90d6a79f82ec",
+                "p_7da97dbcebd7",
+                "p_0802715445c9",
+                "p_35891ce25591",
+                "p_b8345bebc403",
+                "p_898c19b4d988",
+                "p_16718393e530",
+                "p_519888de602b",
+                "p_5d23fbc6dbd3",
+                "p_dae7c3250db2",
+                "p_05e8791c6734",
+                "p_d9e00e35d551",
+                "p_f01720b69037",
+                "p_0b6bf574f507",
+                "p_530c061f0f4e",
+                "p_781b7f160535",
+                "p_596c8dd60338",
+                "p_1b0b8d3205cc",
+                "p_8ac2aa95f987",
+                "p_4071df1ef202",
+                "p_cd0e3c1f3e91",
+                "p_e2bd008d96c2",
+                "p_84eeea1266bd",
+                "p_d6581e004a26",
+                "p_450857ca86f8",
+                "p_93957f087fcd",
+                "p_0a9569e0b3b6",
+                "p_572c64c4da65",
+                "p_85969c942a99",
+                "p_d4b544b0c6f7",
+                "p_000fb369c5a8",
+                "p_ba3045225ef0",
+                "p_716b6cceb6fe",
+                "p_605a093cbb69",
+                "p_aa59c5888271",
+                "p_e803252f5e33",
+                "p_19457bb0ac99",
+                "p_2e5d98b5884d",
+                "p_4dc65526ebb0",
+                "p_bc3112c437d5",
+                "p_fd7bbbe336bd",
+                "p_46518f72bdd3"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_75b7c3d32064",
+            "p_dca6cf284177",
+            "p_67ad92c7ca79",
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_463391eef1d0",
+            "p_925d48eae1d0",
+            "p_c270b5ad837c",
+            "p_50516d2ab20d",
+            "p_60c45165486e",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_09ffd52d20eb",
+            "p_dd8d2e15e957",
+            "p_24febde16ee9",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce",
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_21a79492b817",
+            "p_8c8ec40c8d36",
+            "p_ccb4dd7a70b9",
+            "p_eb527f5c988f",
+            "p_195ac020efc9",
+            "p_9dec0b38a527",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_5ef827341784",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_e4b5cf9afbd0",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_4071df1ef202",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_0a9569e0b3b6",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_75b7c3d32064",
+            "p_eb527f5c988f",
+            "p_e4b5cf9afbd0",
+            "p_4071df1ef202",
+            "p_0a9569e0b3b6"
+          ],
+          "related_entity_ids": [
+            "p_dca6cf284177",
+            "p_67ad92c7ca79",
+            "p_7dab4bd53291",
+            "p_aaf1fd8992d3",
+            "p_f33e8fdb0203",
+            "p_bdaab6f7b20e",
+            "p_463391eef1d0",
+            "p_925d48eae1d0",
+            "p_c270b5ad837c",
+            "p_50516d2ab20d",
+            "p_60c45165486e",
+            "p_e8ade946ab59",
+            "p_afb27c727a48",
+            "p_199d97b2ce79",
+            "p_09ffd52d20eb",
+            "p_dd8d2e15e957",
+            "p_24febde16ee9",
+            "p_3bb8bca125dc",
+            "p_fd832a6ea1d1",
+            "p_86701cbb052d",
+            "p_6e957c3c1b0f",
+            "p_f61598ad5750",
+            "p_c1368a31f2ce",
+            "p_cc5a6e9efafa",
+            "p_da9f622d4957",
+            "p_d081d04f6f29",
+            "p_c7dbef0151b5",
+            "p_8c8ec40c8d36",
+            "p_ccb4dd7a70b9",
+            "p_195ac020efc9",
+            "p_9dec0b38a527",
+            "p_0272c8bd74a1",
+            "p_9a1f7f1816bd",
+            "p_ee31efaa7e06",
+            "p_ecb82bc26b7d",
+            "p_5ef827341784",
+            "p_1cbb9520abd5",
+            "p_7fb4edd665c5",
+            "p_b7a0d5ca7a41",
+            "p_4e4a83fc2b83",
+            "p_631787f2abeb",
+            "p_2f6ed90e7d98",
+            "p_b46e3259f155",
+            "p_3f528fa175fd",
+            "p_5a1450c3f002",
+            "p_e4c213f731db",
+            "p_d84468ad7cb6",
+            "p_b4f66bba3ada",
+            "p_8c9106c838a4",
+            "p_474f66cdaadb",
+            "p_90d6a79f82ec",
+            "p_7da97dbcebd7",
+            "p_0802715445c9",
+            "p_35891ce25591",
+            "p_b8345bebc403",
+            "p_898c19b4d988",
+            "p_16718393e530",
+            "p_519888de602b",
+            "p_5d23fbc6dbd3",
+            "p_dae7c3250db2",
+            "p_05e8791c6734",
+            "p_d9e00e35d551",
+            "p_f01720b69037",
+            "p_0b6bf574f507",
+            "p_530c061f0f4e",
+            "p_781b7f160535",
+            "p_596c8dd60338",
+            "p_1b0b8d3205cc",
+            "p_8ac2aa95f987",
+            "p_cd0e3c1f3e91",
+            "p_e2bd008d96c2",
+            "p_84eeea1266bd",
+            "p_d6581e004a26",
+            "p_450857ca86f8",
+            "p_93957f087fcd",
+            "p_572c64c4da65",
+            "p_85969c942a99",
+            "p_d4b544b0c6f7",
+            "p_000fb369c5a8",
+            "p_ba3045225ef0",
+            "p_716b6cceb6fe",
+            "p_605a093cbb69",
+            "p_aa59c5888271",
+            "p_e803252f5e33",
+            "p_19457bb0ac99",
+            "p_2e5d98b5884d",
+            "p_4dc65526ebb0",
+            "p_bc3112c437d5",
+            "p_fd7bbbe336bd",
+            "p_46518f72bdd3"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_75b7c3d32064",
+              "ring": "core",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_dca6cf284177",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_67ad92c7ca79",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_7dab4bd53291",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_aaf1fd8992d3",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_f33e8fdb0203",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_bdaab6f7b20e",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_463391eef1d0",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_925d48eae1d0",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_c270b5ad837c",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_50516d2ab20d",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_60c45165486e",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e8ade946ab59",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_afb27c727a48",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_199d97b2ce79",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_09ffd52d20eb",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_dd8d2e15e957",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_24febde16ee9",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_3bb8bca125dc",
+              "ring": "related",
+              "reason": "The actual public image shows a tall round vessel with short side loop handles, not the source pan's projecting long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_fd832a6ea1d1",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_86701cbb052d",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_6e957c3c1b0f",
+              "ring": "related",
+              "reason": "The actual public image shows a tall cylindrical milk vessel with a short vertical side grip, not a projecting saucepan long handle.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_f61598ad5750",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_c1368a31f2ce",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_cc5a6e9efafa",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_da9f622d4957",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d081d04f6f29",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_c7dbef0151b5",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_8c8ec40c8d36",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ccb4dd7a70b9",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_eb527f5c988f",
+              "ring": "core",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_195ac020efc9",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_9dec0b38a527",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0272c8bd74a1",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_9a1f7f1816bd",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ee31efaa7e06",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ecb82bc26b7d",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_5ef827341784",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_1cbb9520abd5",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_7fb4edd665c5",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b7a0d5ca7a41",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_4e4a83fc2b83",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_631787f2abeb",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_2f6ed90e7d98",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b46e3259f155",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_3f528fa175fd",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_5a1450c3f002",
+              "ring": "related",
+              "reason": "The actual public image shows one high-sided round pan with a projecting long handle. Its general pan shape is consistent with the source; no brand, capacity, coating or handle material is imposed. Its visible handle is silver metal or black rather than the requested source handle's brown wood-look appearance; actual material is unrestricted.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4c213f731db",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d84468ad7cb6",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b4f66bba3ada",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_8c9106c838a4",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e4b5cf9afbd0",
+              "ring": "core",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_474f66cdaadb",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_90d6a79f82ec",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_7da97dbcebd7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0802715445c9",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_35891ce25591",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_b8345bebc403",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_898c19b4d988",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_16718393e530",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_519888de602b",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_5d23fbc6dbd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_dae7c3250db2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_05e8791c6734",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d9e00e35d551",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_f01720b69037",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0b6bf574f507",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_530c061f0f4e",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_781b7f160535",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_596c8dd60338",
+              "ring": "related",
+              "reason": "The actual public image shows a broad saute/frying-pan body with a projecting long handle and a separate opposite helper grip. This is not the source's high-sided saucepan silhouette; it also differs from the rice task's single-long-handle arrangement.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_1b0b8d3205cc",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_8ac2aa95f987",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_4071df1ef202",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_cd0e3c1f3e91",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e2bd008d96c2",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_84eeea1266bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d6581e004a26",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_450857ca86f8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_93957f087fcd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_0a9569e0b3b6",
+              "ring": "core",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_572c64c4da65",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_85969c942a99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_d4b544b0c6f7",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_000fb369c5a8",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_ba3045225ef0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_716b6cceb6fe",
+              "ring": "related",
+              "reason": "The actual public image contains multiple separate pan bodies, and the listing sells a multi-pan set rather than the requested one pan.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_605a093cbb69",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_aa59c5888271",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_e803252f5e33",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_19457bb0ac99",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_2e5d98b5884d",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_4dc65526ebb0",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_bc3112c437d5",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_fd7bbbe336bd",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            },
+            {
+              "entity_id": "p_46518f72bdd3",
+              "ring": "related",
+              "reason": "The actual public image shows a broad low-sided or outward-flared frying-pan silhouette rather than the source's high-sided round saucepan body. The decision follows the visible body, not a saucepan/frying-pan title label or a numerical depth threshold.",
+              "why_plausible": "Actual result from the unchanged 96-item cookware search window.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json"
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ],
+          "semantic_review": {
+            "status": "constructor_full_window_recheck_pending_original_reviewer_confirmation"
+          },
+          "equivalence_review": {
+            "reviewer": "/root/span_remaining_construction_1018",
+            "method": "All 96 actual public product images inspected. Compare the new source's high-sided round pan body and the actual instruction; do not inherit the old source's broad pan class, use product-title categories, or introduce numerical thresholds. Source05 uses body shape plus brown wood-look handle appearance; rice additionally uses the requested single-long-handle arrangement.",
+            "accepted_entity_ids": [
+              "p_21a79492b817"
+            ],
+            "review_reference": "data/experiments/variants/span/source-05-natural-order/pot-relation/review.json",
+            "pending_entity_ids": []
+          }
+        },
+        "decision": {
+          "candidates": {
+            "rice_pan": "p_21a79492b817",
+            "soaking_pan": "p_75b7c3d32064"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "rice_pan",
+                "soaking_pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "rice_pan"
+              ],
+              "narrowed_by": "action_order",
+              "why": "Use the utensil-in-pan relation to retrieve the rice pan's shape and wood-look handle appearance, not the other saucepan's metal-spoon relation."
+            }
+          ],
+          "established_by": "constructor /root/span_remaining_construction_1018; new scene relation pending independent review",
+          "established_at": "2026-10-18"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "supported_claims": [
+        {
+          "text": "A black broad round-headed cooking tool contacts rice-like contents inside a deep round straight-sided saucepan. The wearer holds its single long wooden-look handle. No retail model, capacity or material is inferred.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "A metal spoon rests in a different shiny saucepan soaking in the sink, beside a metal ladle. The wearer picks the spoon up from this black-handled saucepan. This is an actual resting-in relation, not a fabricated cooking-use claim.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The wearer holds the round-headed cooking tool in one hand while taking a plate from the upper cupboard. Neither the earlier rice saucepan nor the lifted dishwasher pan is visible in these final two images.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    }
+  ]
+}

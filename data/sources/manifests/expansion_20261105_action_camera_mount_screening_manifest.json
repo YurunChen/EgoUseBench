@@ -1,0 +1,3217 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HoloAssist",
+    "source_root": "reference/sources/HoloAssist/clips",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official HoloAssist compressed video release under CDLA-Permissive-2.0: https://cdla.dev/permissive-2-0/."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110528",
+      "source": {
+        "dataset": "HoloAssist",
+        "media_id": "z202-sep-23-22-gopro",
+        "media_start_seconds": 0,
+        "original_video_id": "z202-sep-23-22-gopro",
+        "canonical_parent_recording_group": "HoloAssist:z202-sep-23-22-gopro",
+        "source_video_path": "reference/sources/HoloAssist/clips/z202-sep-23-22-gopro.mp4",
+        "original_video_url": "https://hl2data.z5.web.core.windows.net/holoassist-data-release/video_compress.tar",
+        "source_acquisition": {
+          "archive_member": "z202-sep-23-22-gopro/Export_py/Video_compress.mp4",
+          "response_status": 206,
+          "content_range": "bytes 150256546816-150321604760/155285145600",
+          "archive_byte_offset": 150256546816,
+          "archive_member_size": 65057945,
+          "verification": "Declared first-party range matches the local full source member byte length."
+        },
+        "record_ids": [
+          "z202-sep-23-22-gopro/234.2-251.2/handgrip_attempt",
+          "z202-sep-23-22-gopro/252.2-313.2/head_strap_setup"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              234.2,
+              251.2
+            ],
+            "description": "The wearer handles a red-tethered handheld grip and brings its connector next to the same GoPro; the camera is not fastened to it in this released portion."
+          },
+          {
+            "interval_seconds": [
+              252.2,
+              316.2
+            ],
+            "description": "The wearer leaves the grip aside, takes a Rollei elastic head strap, and aligns, inserts and turns the thumb screw to mount the same GoPro to the head strap."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            234.2,
+            236.2,
+            239.2,
+            251.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110528/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110528/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110528/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110528/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            255.2,
+            258.2,
+            288.2,
+            316.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110528/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110528/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110528/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110528/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          230.2,
+          316.2
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110528/review.json"
+      },
+      "family": "refresh",
+      "subtype": "replace",
+      "status": "video_screened",
+      "supported_claims": [
+        {
+          "text": "The red-tethered handheld camera grip is the initially handled mount, but the camera is not yet attached.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The wearer sets up an elastic head strap and fastens the same action camera to its plate.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "screening": {
+        "proposed_instruction": "Could you save a video showing how to attach this camera to the mount I’m setting up and get it ready to film?",
+        "source_continuity": "Continuous [230.2, 316.2] seconds from one original recording."
+      },
+      "construct": {
+        "research_question": "Can an agent replace a tutorial tied to an initially attempted mount when the actual setup uses another mounting form?",
+        "belief_before": "A handheld action-camera grip is selected and trial-positioned; a tutorial for attaching to such a grip is a reasonable provisional match.",
+        "belief_after": "The same camera is set up on an elastic head strap instead of the grip.",
+        "required_behavior_change": "Keep one video that actually shows attachment and preparation on a compatible elastic head strap. Replace a grip-only tutorial if previously saved.",
+        "no_update_failure": "Keep a handheld-grip-only tutorial, a comparison that omits attachment, or a tutorial for a different body mount.",
+        "overupdate_failure": "Keep both an old grip-only guide and a head-strap guide when the user asked to save one video.",
+        "visual_dependency_claim": "The request names no device brand or mount type. Only the continuous view shows which mounting form is selected and used for this setup.",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a video showing how to attach this camera to the mount I’m setting up and get it ready to film?",
+          "target_granularity": "category",
+          "initial_target_role": "provisional_item",
+          "final_target_role": "observed_item",
+          "environment_role_ids": {
+            "provisional_item": "m_97bb6611364c",
+            "observed_item": "m_59bb6617dd84"
+          },
+          "equivalent_role_ids": {
+            "provisional_item": [
+              "m_c0c625dc06c0",
+              "m_8a273f89b080",
+              "m_18db09ef89c6",
+              "m_64a722cdb29c",
+              "m_d0f0268d693f",
+              "m_8521cd3d7d80",
+              "m_772a2dc07d5b",
+              "m_e416caffdc0a",
+              "m_303931fe79e1",
+              "m_091ceb9666e4",
+              "m_7a761696a416",
+              "m_2d5a0643e44a",
+              "m_cbc4c8c6bee8",
+              "m_a3e64892ffb2",
+              "m_5e2d396ad855",
+              "m_3652d99ab36c",
+              "m_32760e6f6692",
+              "m_ea666910fcc9",
+              "m_9bebecf359c5",
+              "m_782059711773",
+              "m_7e50914632ba",
+              "m_fba478fd3782",
+              "m_a85fa9cf2384",
+              "m_cbd2dc3f27b2",
+              "m_784b71a525a9",
+              "m_1d5d33b57181",
+              "m_79d79bde92d1",
+              "m_68e3bcce941d"
+            ],
+            "observed_item": [
+              "m_1c3d97a9cfd2",
+              "m_410c2eef79e2",
+              "m_1888f66c8b1f",
+              "m_d9cce464d37f",
+              "m_6a9d3039a8c2",
+              "m_49359b31dfc3",
+              "m_1cc245251b1e",
+              "m_5cb7a0189916",
+              "m_5f8aee02e063",
+              "m_645af5d28019",
+              "m_83e5df056d7c",
+              "m_fdabab06665d",
+              "m_8a9ec6aacee0",
+              "m_554dc5fa6d43",
+              "m_a82cce911512",
+              "m_f000c83338b2"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "old": "m_97bb6611364c",
+            "new": "m_59bb6617dd84"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "old"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The red-tethered hand grip is being selected and positioned for this setup before a mounting method is settled."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "new"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The hand grip is set aside and a distinct elastic head strap is selected for the same camera; the rest of the released session shows the head-strap connection."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "how to attach GoPro to a handheld grip selfie stick",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110528.json",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "m_c0c625dc06c0",
+                "m_8a273f89b080",
+                "m_18db09ef89c6",
+                "m_64a722cdb29c",
+                "m_65abd85fa891",
+                "m_d0f0268d693f",
+                "m_8521cd3d7d80",
+                "m_772a2dc07d5b",
+                "m_ec59152be6b9",
+                "m_e416caffdc0a",
+                "m_303931fe79e1",
+                "m_091ceb9666e4",
+                "m_7a761696a416",
+                "m_381546a87054",
+                "m_38ffcef3a4ff",
+                "m_97bb6611364c",
+                "m_2d5a0643e44a",
+                "m_a336be19891d",
+                "m_cbc4c8c6bee8",
+                "m_a3e64892ffb2",
+                "m_5e2d396ad855",
+                "m_3652d99ab36c",
+                "m_4fae49f18184",
+                "m_05ce34b4c655",
+                "m_986732f1d071",
+                "m_57123ed679dc",
+                "m_32760e6f6692",
+                "m_f7e1e36f8dd1",
+                "m_a46c82f6e6b7",
+                "m_ea666910fcc9",
+                "m_9bebecf359c5",
+                "m_c77d5b23cab9",
+                "m_782059711773",
+                "m_7e50914632ba",
+                "m_fba478fd3782",
+                "m_a85fa9cf2384",
+                "m_cbd2dc3f27b2",
+                "m_784b71a525a9",
+                "m_1d5d33b57181",
+                "m_5027d6c7a075"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "how to attach GoPro to a head strap mount",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110528.json",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "m_59bb6617dd84",
+                "m_9f2a9c9bcae6",
+                "m_1c3d97a9cfd2",
+                "m_f5e3dc9f35a7",
+                "m_410c2eef79e2",
+                "m_1888f66c8b1f",
+                "m_5c0c7a46fa1b",
+                "m_d9cce464d37f",
+                "m_e94417c6b291",
+                "m_f0d58e268305",
+                "m_6a9d3039a8c2",
+                "m_49359b31dfc3",
+                "m_1cc245251b1e",
+                "m_5cb7a0189916",
+                "m_9463e3b9f80c",
+                "m_a46c82f6e6b7",
+                "m_45365d80d22c",
+                "m_b68671a7a9a8",
+                "m_c2d29b91c6c8",
+                "m_61ce7292b5dd",
+                "m_d741e1fdbf64",
+                "m_6c8760c16fe8",
+                "m_9f4ed2814c3b",
+                "m_9f24d11c9511",
+                "m_5f8aee02e063",
+                "m_09d472accc4a",
+                "m_645af5d28019",
+                "m_2726988b9945",
+                "m_8c144ea263a6",
+                "m_18c9dd71b809",
+                "m_83e5df056d7c",
+                "m_ff1ba98cf2d0",
+                "m_d665f6a815bd",
+                "m_fdabab06665d",
+                "m_baf8a45c3dad",
+                "m_65ff091d8bbb",
+                "m_8a9ec6aacee0",
+                "m_554dc5fa6d43",
+                "m_a82cce911512",
+                "m_f000c83338b2"
+              ]
+            },
+            {
+              "stage": "broad_comparison",
+              "query": "how to set up an action camera mount",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110528.json",
+              "snapshot_stage": "broad_comparison",
+              "result_entity_ids": [
+                "m_141b5db849e1",
+                "m_34f8c4f2ea3e",
+                "m_6d194468fe62",
+                "m_d665f6a815bd",
+                "m_385381b4e3fd",
+                "m_66f102202ae3",
+                "m_4f06c5bb3a1a",
+                "m_25d1c1f371fa",
+                "m_81a472c3b039",
+                "m_b53afd13b2b0",
+                "m_dd115f21834a",
+                "m_d253d267bbdf",
+                "m_79d79bde92d1",
+                "m_84d68091801e",
+                "m_b1cf5d096cff",
+                "m_1bbe6dfbc11a",
+                "m_451870dbe2d5",
+                "m_663772cb4fe4",
+                "m_6bfd21b45a21",
+                "m_12beb4e74974",
+                "m_db8a50a04bce",
+                "m_25103692f653",
+                "m_4c53f5cc4342",
+                "m_95d6ad1bc0d5",
+                "m_af07b685a449",
+                "m_eccfacd7dabe",
+                "m_c8d13312b57f",
+                "m_a6dba236271f",
+                "m_ae4eab3beb61",
+                "m_b6e8a2904d1d",
+                "m_68e3bcce941d",
+                "m_077f3ff70063",
+                "m_e909976ac738",
+                "m_8b781c8a3ea5",
+                "m_b1ed75cfce09",
+                "m_747237f752bd",
+                "m_3f9b6b901207",
+                "m_fdf83c606f66",
+                "m_ad4b3217e57b",
+                "m_9ee9cca510ad"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_c0c625dc06c0",
+            "m_8a273f89b080",
+            "m_18db09ef89c6",
+            "m_64a722cdb29c",
+            "m_65abd85fa891",
+            "m_d0f0268d693f",
+            "m_8521cd3d7d80",
+            "m_772a2dc07d5b",
+            "m_ec59152be6b9",
+            "m_e416caffdc0a",
+            "m_303931fe79e1",
+            "m_091ceb9666e4",
+            "m_7a761696a416",
+            "m_381546a87054",
+            "m_38ffcef3a4ff",
+            "m_97bb6611364c",
+            "m_2d5a0643e44a",
+            "m_a336be19891d",
+            "m_cbc4c8c6bee8",
+            "m_a3e64892ffb2",
+            "m_5e2d396ad855",
+            "m_3652d99ab36c",
+            "m_4fae49f18184",
+            "m_05ce34b4c655",
+            "m_986732f1d071",
+            "m_57123ed679dc",
+            "m_32760e6f6692",
+            "m_f7e1e36f8dd1",
+            "m_a46c82f6e6b7",
+            "m_ea666910fcc9",
+            "m_9bebecf359c5",
+            "m_c77d5b23cab9",
+            "m_782059711773",
+            "m_7e50914632ba",
+            "m_fba478fd3782",
+            "m_a85fa9cf2384",
+            "m_cbd2dc3f27b2",
+            "m_784b71a525a9",
+            "m_1d5d33b57181",
+            "m_5027d6c7a075",
+            "m_59bb6617dd84",
+            "m_9f2a9c9bcae6",
+            "m_1c3d97a9cfd2",
+            "m_f5e3dc9f35a7",
+            "m_410c2eef79e2",
+            "m_1888f66c8b1f",
+            "m_5c0c7a46fa1b",
+            "m_d9cce464d37f",
+            "m_e94417c6b291",
+            "m_f0d58e268305",
+            "m_6a9d3039a8c2",
+            "m_49359b31dfc3",
+            "m_1cc245251b1e",
+            "m_5cb7a0189916",
+            "m_9463e3b9f80c",
+            "m_45365d80d22c",
+            "m_b68671a7a9a8",
+            "m_c2d29b91c6c8",
+            "m_61ce7292b5dd",
+            "m_d741e1fdbf64",
+            "m_6c8760c16fe8",
+            "m_9f4ed2814c3b",
+            "m_9f24d11c9511",
+            "m_5f8aee02e063",
+            "m_09d472accc4a",
+            "m_645af5d28019",
+            "m_2726988b9945",
+            "m_8c144ea263a6",
+            "m_18c9dd71b809",
+            "m_83e5df056d7c",
+            "m_ff1ba98cf2d0",
+            "m_d665f6a815bd",
+            "m_fdabab06665d",
+            "m_baf8a45c3dad",
+            "m_65ff091d8bbb",
+            "m_8a9ec6aacee0",
+            "m_554dc5fa6d43",
+            "m_a82cce911512",
+            "m_f000c83338b2",
+            "m_141b5db849e1",
+            "m_34f8c4f2ea3e",
+            "m_6d194468fe62",
+            "m_385381b4e3fd",
+            "m_66f102202ae3",
+            "m_4f06c5bb3a1a",
+            "m_25d1c1f371fa",
+            "m_81a472c3b039",
+            "m_b53afd13b2b0",
+            "m_dd115f21834a",
+            "m_d253d267bbdf",
+            "m_79d79bde92d1",
+            "m_84d68091801e",
+            "m_b1cf5d096cff",
+            "m_1bbe6dfbc11a",
+            "m_451870dbe2d5",
+            "m_663772cb4fe4",
+            "m_6bfd21b45a21",
+            "m_12beb4e74974",
+            "m_db8a50a04bce",
+            "m_25103692f653",
+            "m_4c53f5cc4342",
+            "m_95d6ad1bc0d5",
+            "m_af07b685a449",
+            "m_eccfacd7dabe",
+            "m_c8d13312b57f",
+            "m_a6dba236271f",
+            "m_ae4eab3beb61",
+            "m_b6e8a2904d1d",
+            "m_68e3bcce941d",
+            "m_077f3ff70063",
+            "m_e909976ac738",
+            "m_8b781c8a3ea5",
+            "m_b1ed75cfce09",
+            "m_747237f752bd",
+            "m_3f9b6b901207",
+            "m_fdf83c606f66",
+            "m_ad4b3217e57b",
+            "m_9ee9cca510ad"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_c0c625dc06c0",
+            "m_8a273f89b080",
+            "m_18db09ef89c6",
+            "m_64a722cdb29c",
+            "m_65abd85fa891",
+            "m_d0f0268d693f",
+            "m_8521cd3d7d80",
+            "m_772a2dc07d5b",
+            "m_ec59152be6b9",
+            "m_e416caffdc0a",
+            "m_303931fe79e1",
+            "m_091ceb9666e4",
+            "m_7a761696a416",
+            "m_381546a87054",
+            "m_38ffcef3a4ff",
+            "m_97bb6611364c",
+            "m_2d5a0643e44a",
+            "m_a336be19891d",
+            "m_cbc4c8c6bee8",
+            "m_a3e64892ffb2",
+            "m_5e2d396ad855",
+            "m_3652d99ab36c",
+            "m_4fae49f18184",
+            "m_05ce34b4c655",
+            "m_986732f1d071",
+            "m_57123ed679dc",
+            "m_32760e6f6692",
+            "m_f7e1e36f8dd1",
+            "m_a46c82f6e6b7",
+            "m_ea666910fcc9",
+            "m_9bebecf359c5",
+            "m_c77d5b23cab9",
+            "m_782059711773",
+            "m_7e50914632ba",
+            "m_fba478fd3782",
+            "m_a85fa9cf2384",
+            "m_cbd2dc3f27b2",
+            "m_784b71a525a9",
+            "m_1d5d33b57181",
+            "m_5027d6c7a075",
+            "m_9f2a9c9bcae6",
+            "m_f5e3dc9f35a7",
+            "m_5c0c7a46fa1b",
+            "m_e94417c6b291",
+            "m_f0d58e268305",
+            "m_9463e3b9f80c",
+            "m_45365d80d22c",
+            "m_b68671a7a9a8",
+            "m_c2d29b91c6c8",
+            "m_61ce7292b5dd",
+            "m_d741e1fdbf64",
+            "m_6c8760c16fe8",
+            "m_9f4ed2814c3b",
+            "m_9f24d11c9511",
+            "m_09d472accc4a",
+            "m_2726988b9945",
+            "m_8c144ea263a6",
+            "m_18c9dd71b809",
+            "m_ff1ba98cf2d0",
+            "m_d665f6a815bd",
+            "m_baf8a45c3dad",
+            "m_65ff091d8bbb",
+            "m_141b5db849e1",
+            "m_34f8c4f2ea3e",
+            "m_6d194468fe62",
+            "m_385381b4e3fd",
+            "m_66f102202ae3",
+            "m_4f06c5bb3a1a",
+            "m_25d1c1f371fa",
+            "m_81a472c3b039",
+            "m_b53afd13b2b0",
+            "m_dd115f21834a",
+            "m_d253d267bbdf",
+            "m_79d79bde92d1",
+            "m_84d68091801e",
+            "m_b1cf5d096cff",
+            "m_1bbe6dfbc11a",
+            "m_451870dbe2d5",
+            "m_663772cb4fe4",
+            "m_6bfd21b45a21",
+            "m_12beb4e74974",
+            "m_db8a50a04bce",
+            "m_25103692f653",
+            "m_4c53f5cc4342",
+            "m_95d6ad1bc0d5",
+            "m_af07b685a449",
+            "m_eccfacd7dabe",
+            "m_c8d13312b57f",
+            "m_a6dba236271f",
+            "m_ae4eab3beb61",
+            "m_b6e8a2904d1d",
+            "m_68e3bcce941d",
+            "m_077f3ff70063",
+            "m_e909976ac738",
+            "m_8b781c8a3ea5",
+            "m_b1ed75cfce09",
+            "m_747237f752bd",
+            "m_3f9b6b901207",
+            "m_fdf83c606f66",
+            "m_ad4b3217e57b",
+            "m_9ee9cca510ad"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_c0c625dc06c0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official GoPro Handler how-to shows the camera attachment steps and holding/filming with the grip, around 40–60 s. Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c0c625dc06c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UtfX9kNnF3U.json"
+              ]
+            },
+            {
+              "entity_id": "m_8a273f89b080",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8a273f89b080.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dsXwWj7B9FA.json"
+              ]
+            },
+            {
+              "entity_id": "m_18db09ef89c6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_18db09ef89c6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/c1RXIScJiZo.json"
+              ]
+            },
+            {
+              "entity_id": "m_64a722cdb29c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_64a722cdb29c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RZglvj1Q3lM.json"
+              ]
+            },
+            {
+              "entity_id": "m_65abd85fa891",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Mission 1 proprietary camera body/grip attachment, not the observed standard action-camera forks.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_65abd85fa891.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0liY8mUW_9M.json"
+              ]
+            },
+            {
+              "entity_id": "m_d0f0268d693f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d0f0268d693f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8kSPk0YIsyw.json"
+              ]
+            },
+            {
+              "entity_id": "m_8521cd3d7d80",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8521cd3d7d80.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2ZUCq3CNJNY.json"
+              ]
+            },
+            {
+              "entity_id": "m_772a2dc07d5b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_772a2dc07d5b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/j-tzQduCC-g.json"
+              ]
+            },
+            {
+              "entity_id": "m_ec59152be6b9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The published visual and text evidence show a rod already assembled, use/footage and accessory comparisons. No demonstration of attaching the camera to the hand-held mount was established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ec59152be6b9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Xt1nD8WnwmY.json"
+              ]
+            },
+            {
+              "entity_id": "m_e416caffdc0a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e416caffdc0a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A9cg8c4gIo0.json"
+              ]
+            },
+            {
+              "entity_id": "m_303931fe79e1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_303931fe79e1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QhKOs5rnjJA.json"
+              ]
+            },
+            {
+              "entity_id": "m_091ceb9666e4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_091ceb9666e4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3sBAy-NBmD8.json"
+              ]
+            },
+            {
+              "entity_id": "m_7a761696a416",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7a761696a416.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ly2nlWUWLWs.json"
+              ]
+            },
+            {
+              "entity_id": "m_381546a87054",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows the model-specific GoPro 13 magnetic catch without teaching the filmed style of standard grip attachment.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_381546a87054.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Rth_2vRbtDk.json"
+              ]
+            },
+            {
+              "entity_id": "m_38ffcef3a4ff",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows using and comparing already loaded floating grips and poles; no verified camera-to-grip attachment steps.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_38ffcef3a4ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vCmxD5ToGyE.json"
+              ]
+            },
+            {
+              "entity_id": "m_97bb6611364c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Public storyboard 40–140 s shows a standard compatible camera fastened onto the grip, pole adjusted, and the assembled handheld system. Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_97bb6611364c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/df20-ctM-yU.json"
+              ]
+            },
+            {
+              "entity_id": "m_2d5a0643e44a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2d5a0643e44a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lrU7ULk5910.json"
+              ]
+            },
+            {
+              "entity_id": "m_a336be19891d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Promotional poolside demonstration uses the stick but does not verify how a camera is attached.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a336be19891d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sreMEh3MGYk.json"
+              ]
+            },
+            {
+              "entity_id": "m_cbc4c8c6bee8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cbc4c8c6bee8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sOwFftC7cFk.json"
+              ]
+            },
+            {
+              "entity_id": "m_a3e64892ffb2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a3e64892ffb2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oS54OTUI_V0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5e2d396ad855",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5e2d396ad855.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eOy3hsz9eoE.json"
+              ]
+            },
+            {
+              "entity_id": "m_3652d99ab36c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3652d99ab36c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/22cgEkpH71k.json"
+              ]
+            },
+            {
+              "entity_id": "m_4fae49f18184",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Tutorial physically adds the remote, with camera already mounted.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4fae49f18184.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eyhoNzA7qdQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_05ce34b4c655",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Underwater product advertisement demonstrates holding, extension and tripod uses but does not establish camera attachment.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_05ce34b4c655.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7lXx4KFKAgY.json"
+              ]
+            },
+            {
+              "entity_id": "m_986732f1d071",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Adds a 1/4-inch thread to the bottom of the pole for a tripod; not attaching the camera onto a handheld pole.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_986732f1d071.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tZzKGejitr8.json"
+              ]
+            },
+            {
+              "entity_id": "m_57123ed679dc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Answers remote/Bluetooth and operating questions with an already mounted GoPro, rather than showing its physical connection.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57123ed679dc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Whm7S6GhYKg.json"
+              ]
+            },
+            {
+              "entity_id": "m_32760e6f6692",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_32760e6f6692.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cH5HJX_SdaQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f7e1e36f8dd1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native copy provides useful direct GoPro compatibility and use advice; public storyboard is absent and timed text was unavailable. Showing the fastening on the video has not been established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f7e1e36f8dd1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/b87E2g9OUuk.json"
+              ]
+            },
+            {
+              "entity_id": "m_a46c82f6e6b7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Buckle release is demonstrated by itself, not setting up either carrier used in the source. Buckle release alone does not teach either specific carrier.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a46c82f6e6b7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/edsbaOy2gg4.json"
+              ]
+            },
+            {
+              "entity_id": "m_ea666910fcc9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ea666910fcc9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4-euhpD_eoI.json"
+              ]
+            },
+            {
+              "entity_id": "m_9bebecf359c5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9bebecf359c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FqDyhWUJRaY.json"
+              ]
+            },
+            {
+              "entity_id": "m_c77d5b23cab9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official Quad Lock handheld demo uses the phone case interface; no compatible action-camera mounting route is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c77d5b23cab9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fSWXwXKNs6w.json"
+              ]
+            },
+            {
+              "entity_id": "m_782059711773",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_782059711773.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/U8BCEQFmsgs.json"
+              ]
+            },
+            {
+              "entity_id": "m_7e50914632ba",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7e50914632ba.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/n-GKzlaZQ2o.json"
+              ]
+            },
+            {
+              "entity_id": "m_fba478fd3782",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fba478fd3782.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/F3gNvJmc_rc.json"
+              ]
+            },
+            {
+              "entity_id": "m_a85fa9cf2384",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a85fa9cf2384.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SCyo3y-w4p0.json"
+              ]
+            },
+            {
+              "entity_id": "m_cbd2dc3f27b2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cbd2dc3f27b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7pnBYEWOGbc.json"
+              ]
+            },
+            {
+              "entity_id": "m_784b71a525a9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_784b71a525a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cpkalDksrOo.json"
+              ]
+            },
+            {
+              "entity_id": "m_1d5d33b57181",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1d5d33b57181.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7keNyedJTtY.json"
+              ]
+            },
+            {
+              "entity_id": "m_5027d6c7a075",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official generic HERO mount guide demonstrates connecting to a helmet adhesive plate; not a handheld pole or elastic head band.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5027d6c7a075.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hMcCZxKGsFU.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f2a9c9bcae6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Uses/disassembles a head strap to make a rig for a kite or other object; no normal camera-on-head configuration taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f2a9c9bcae6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/17GlXJc4gxE.json"
+              ]
+            },
+            {
+              "entity_id": "m_f5e3dc9f35a7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Converts the head strap into a roll-bar-style mount; not the head-mounted configuration.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f5e3dc9f35a7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cX3Zq-PsezY.json"
+              ]
+            },
+            {
+              "entity_id": "m_5c0c7a46fa1b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows separating and reassembling the bands and mount pieces, without attaching a camera or readying the loaded head setup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5c0c7a46fa1b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zGtDepIhtZk.json"
+              ]
+            },
+            {
+              "entity_id": "m_e94417c6b291",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Phone-only clamp setup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e94417c6b291.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wRzVdNvvLmw.json"
+              ]
+            },
+            {
+              "entity_id": "m_f0d58e268305",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches putting on an already-assembled head mount with a snorkel, not fastening the camera to the mount.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f0d58e268305.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vWf1cBweDfY.json"
+              ]
+            },
+            {
+              "entity_id": "m_9463e3b9f80c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches choosing camera angle with the head rig already mounted, not setting up its attachment.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9463e3b9f80c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Jy9O7_BiL4I.json"
+              ]
+            },
+            {
+              "entity_id": "m_45365d80d22c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Cap-mounted DIY clip, not the observed adjustable head strap.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_45365d80d22c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bkVbUwS8Xq4.json"
+              ]
+            },
+            {
+              "entity_id": "m_b68671a7a9a8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Repurposes a head strap to build a wrist mount and uses it on the wrist.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b68671a7a9a8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_QweD3P8tTI.json"
+              ]
+            },
+            {
+              "entity_id": "m_c2d29b91c6c8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Phone-only headset clamp.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c2d29b91c6c8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KnatLV26-WM.json"
+              ]
+            },
+            {
+              "entity_id": "m_61ce7292b5dd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native title explicitly says footage only; no setup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_61ce7292b5dd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DXj9vnAxNdE.json"
+              ]
+            },
+            {
+              "entity_id": "m_d741e1fdbf64",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows configured head, bite and chest mounts followed by shot comparisons. Official captions introduce use cases, not camera attachment.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d741e1fdbf64.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BEFRyi-3XW0.json"
+              ]
+            },
+            {
+              "entity_id": "m_6c8760c16fe8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows the bite mount; head strap is linked as an alternative without showing its setup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6c8760c16fe8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XRgPzvmJdtc.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f4ed2814c3b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Threaded vented-helmet-only mount; the general elastic headband is not configured.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f4ed2814c3b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/K2gJC85UOqI.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f24d11c9511",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Fixes a loose headband mount using hammer and screwdriver; not a camera setup lesson.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f24d11c9511.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QRJoagyuQjU.json"
+              ]
+            },
+            {
+              "entity_id": "m_09d472accc4a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Two cameras are already fixed on separate mounts. Comparison shows wearing and orientation, not attaching the camera.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_09d472accc4a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/D4vppGhFdBE.json"
+              ]
+            },
+            {
+              "entity_id": "m_2726988b9945",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Constructs an alternate no-drill cap rig; shows putting the already-attached assembly on a cap, not setting up the camera on the normal head strap.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2726988b9945.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AYWu5Rpkl24.json"
+              ]
+            },
+            {
+              "entity_id": "m_8c144ea263a6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Attaches camera to ski goggles using pieces borrowed from a head strap; not a head-strap setup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8c144ea263a6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nhRkBnc6yDA.json"
+              ]
+            },
+            {
+              "entity_id": "m_18c9dd71b809",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Head segment describes comfort and wearing a preassembled head strap, but not attaching the camera.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_18c9dd71b809.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/VEmSpOFQ1rE.json"
+              ]
+            },
+            {
+              "entity_id": "m_ff1ba98cf2d0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The demonstrated setup is an iPhone 12 Pro Max clamp, not the comparable GoPro attachment.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ff1ba98cf2d0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hslo-GU9yIw.json"
+              ]
+            },
+            {
+              "entity_id": "m_d665f6a815bd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator compares chest/head/bite POV and explains how to aim a preassembled head setup. The head chapter does not teach how to fasten the camera. Head-strapped camera is already assembled; head chapter demonstrates angle choice rather than attachment.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d665f6a815bd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0WeXz7QpvVw.json"
+              ]
+            },
+            {
+              "entity_id": "m_baf8a45c3dad",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Chest harness only.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_baf8a45c3dad.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4QJOieI89sQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_65ff091d8bbb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Actual video presents wrist/hand, chest, and head body mounts; head section discusses fit and shot choice, and handheld grips appear only as description links. Neither complete camera attachment is taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_65ff091d8bbb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qUUElR8hLr4.json"
+              ]
+            },
+            {
+              "entity_id": "m_141b5db849e1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_141b5db849e1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cIb0nnpwc1Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_34f8c4f2ea3e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_34f8c4f2ea3e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zn9DJPZZbvg.json"
+              ]
+            },
+            {
+              "entity_id": "m_6d194468fe62",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6d194468fe62.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/E_a4aTH0LRc.json"
+              ]
+            },
+            {
+              "entity_id": "m_385381b4e3fd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_385381b4e3fd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/29omWaD2aTE.json"
+              ]
+            },
+            {
+              "entity_id": "m_66f102202ae3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_66f102202ae3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZHQNsitakWs.json"
+              ]
+            },
+            {
+              "entity_id": "m_4f06c5bb3a1a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4f06c5bb3a1a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/itEOd67MSM0.json"
+              ]
+            },
+            {
+              "entity_id": "m_25d1c1f371fa",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shows clips, clamps and mini stationary tripod; no evidenced hand-carried pole or head strap configuration.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_25d1c1f371fa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/TIP0UT9ul8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_81a472c3b039",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_81a472c3b039.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/F6Dl-Qk0Mvg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b53afd13b2b0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b53afd13b2b0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hl2PiQRCkX0.json"
+              ]
+            },
+            {
+              "entity_id": "m_dd115f21834a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dd115f21834a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/t-VnY6wF-2o.json"
+              ]
+            },
+            {
+              "entity_id": "m_d253d267bbdf",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d253d267bbdf.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cC27u0M47Fk.json"
+              ]
+            },
+            {
+              "entity_id": "m_79d79bde92d1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The branded quick-release review demonstrates the action-camera grip/vlogging configuration and the action camera interface on its MantisPod around 112–146 s. Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_79d79bde92d1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-5M72hlePx4.json"
+              ]
+            },
+            {
+              "entity_id": "m_84d68091801e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_84d68091801e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8uIMPIB_nbU.json"
+              ]
+            },
+            {
+              "entity_id": "m_b1cf5d096cff",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b1cf5d096cff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/or4CIQybuYQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_1bbe6dfbc11a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Moto recording setup demonstrates helmet/bike rigging and DJI/Insta360 vlogging gear; equivalent GoPro-type hand grip assembly is not established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1bbe6dfbc11a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Mj9cxdHNeI0.json"
+              ]
+            },
+            {
+              "entity_id": "m_451870dbe2d5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_451870dbe2d5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PRRle9wSzzE.json"
+              ]
+            },
+            {
+              "entity_id": "m_663772cb4fe4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_663772cb4fe4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Pss9olTVGNc.json"
+              ]
+            },
+            {
+              "entity_id": "m_6bfd21b45a21",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6bfd21b45a21.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/al99zUIezX0.json"
+              ]
+            },
+            {
+              "entity_id": "m_12beb4e74974",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12beb4e74974.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IcBlNqegwJg.json"
+              ]
+            },
+            {
+              "entity_id": "m_db8a50a04bce",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_db8a50a04bce.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jFfrU3EQdYQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_25103692f653",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Pole forms part of a suction-fixed car mount, not a hand grip.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_25103692f653.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MZJU0Y2gcWo.json"
+              ]
+            },
+            {
+              "entity_id": "m_4c53f5cc4342",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4c53f5cc4342.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/P9GxYDUVa8k.json"
+              ]
+            },
+            {
+              "entity_id": "m_95d6ad1bc0d5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Proprietary compact Sixmou i3 body and attachments; does not demonstrate either matching GoPro setup.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_95d6ad1bc0d5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EKbVvdDXSSY.json"
+              ]
+            },
+            {
+              "entity_id": "m_af07b685a449",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_af07b685a449.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/InpY5d0YjHs.json"
+              ]
+            },
+            {
+              "entity_id": "m_eccfacd7dabe",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Shot techniques and examples on a bike, not fastening a compatible camera to a handheld grip or normal elastic head strap.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_eccfacd7dabe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Nvbw7BYj4WU.json"
+              ]
+            },
+            {
+              "entity_id": "m_c8d13312b57f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c8d13312b57f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DISUypXNFWE.json"
+              ]
+            },
+            {
+              "entity_id": "m_a6dba236271f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a6dba236271f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HSczkI9so5o.json"
+              ]
+            },
+            {
+              "entity_id": "m_ae4eab3beb61",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ae4eab3beb61.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NjOY-Uzcr8M.json"
+              ]
+            },
+            {
+              "entity_id": "m_b6e8a2904d1d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b6e8a2904d1d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RWOeI4zYgrM.json"
+              ]
+            },
+            {
+              "entity_id": "m_68e3bcce941d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native public storyboard 20:31–23:17 includes hand-tightening the standard fork screw at about 21:09–21:19 and then using the hand-held extension rod. The other side uses a quick release, which does not alter the compatible rod-side attachment.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_68e3bcce941d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Z0P3ZnAipVA.json"
+              ]
+            },
+            {
+              "entity_id": "m_077f3ff70063",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_077f3ff70063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T_bnRY4s_XM.json"
+              ]
+            },
+            {
+              "entity_id": "m_e909976ac738",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e909976ac738.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DRH0wizTIMw.json"
+              ]
+            },
+            {
+              "entity_id": "m_8b781c8a3ea5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8b781c8a3ea5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hwUULQcW_7E.json"
+              ]
+            },
+            {
+              "entity_id": "m_b1ed75cfce09",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b1ed75cfce09.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/H_lflvj7Pv0.json"
+              ]
+            },
+            {
+              "entity_id": "m_747237f752bd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Wearable 360 camera torso system and its accessory pole; the dedicated GoPro-style hand-held or head strap attachment is not taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_747237f752bd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ubRo8kqzHcU.json"
+              ]
+            },
+            {
+              "entity_id": "m_3f9b6b901207",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3f9b6b901207.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oadIl656McM.json"
+              ]
+            },
+            {
+              "entity_id": "m_fdf83c606f66",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fdf83c606f66.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ClaNfaC3j4M.json"
+              ]
+            },
+            {
+              "entity_id": "m_ad4b3217e57b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ad4b3217e57b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NzcRb6Ipr-I.json"
+              ]
+            },
+            {
+              "entity_id": "m_9ee9cca510ad",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9ee9cca510ad.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ew7VhdaW-hQ.json"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_c0c625dc06c0",
+              "native_id": "UtfX9kNnF3U",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official GoPro Handler how-to shows the camera attachment steps and holding/filming with the grip, around 40–60 s. Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c0c625dc06c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UtfX9kNnF3U.json"
+              ]
+            },
+            {
+              "entity_id": "m_8a273f89b080",
+              "native_id": "dsXwWj7B9FA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8a273f89b080.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dsXwWj7B9FA.json"
+              ]
+            },
+            {
+              "entity_id": "m_18db09ef89c6",
+              "native_id": "c1RXIScJiZo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_18db09ef89c6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/c1RXIScJiZo.json"
+              ]
+            },
+            {
+              "entity_id": "m_64a722cdb29c",
+              "native_id": "RZglvj1Q3lM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_64a722cdb29c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RZglvj1Q3lM.json"
+              ]
+            },
+            {
+              "entity_id": "m_65abd85fa891",
+              "native_id": "0liY8mUW_9M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Mission 1 proprietary camera body/grip attachment, not the observed standard action-camera forks.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_65abd85fa891.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0liY8mUW_9M.json"
+              ]
+            },
+            {
+              "entity_id": "m_d0f0268d693f",
+              "native_id": "8kSPk0YIsyw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d0f0268d693f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8kSPk0YIsyw.json"
+              ]
+            },
+            {
+              "entity_id": "m_8521cd3d7d80",
+              "native_id": "2ZUCq3CNJNY",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8521cd3d7d80.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2ZUCq3CNJNY.json"
+              ]
+            },
+            {
+              "entity_id": "m_772a2dc07d5b",
+              "native_id": "j-tzQduCC-g",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_772a2dc07d5b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/j-tzQduCC-g.json"
+              ]
+            },
+            {
+              "entity_id": "m_ec59152be6b9",
+              "native_id": "Xt1nD8WnwmY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The published visual and text evidence show a rod already assembled, use/footage and accessory comparisons. No demonstration of attaching the camera to the hand-held mount was established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ec59152be6b9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Xt1nD8WnwmY.json"
+              ]
+            },
+            {
+              "entity_id": "m_e416caffdc0a",
+              "native_id": "A9cg8c4gIo0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e416caffdc0a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A9cg8c4gIo0.json"
+              ]
+            },
+            {
+              "entity_id": "m_303931fe79e1",
+              "native_id": "QhKOs5rnjJA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_303931fe79e1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QhKOs5rnjJA.json"
+              ]
+            },
+            {
+              "entity_id": "m_091ceb9666e4",
+              "native_id": "3sBAy-NBmD8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_091ceb9666e4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3sBAy-NBmD8.json"
+              ]
+            },
+            {
+              "entity_id": "m_7a761696a416",
+              "native_id": "Ly2nlWUWLWs",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7a761696a416.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ly2nlWUWLWs.json"
+              ]
+            },
+            {
+              "entity_id": "m_381546a87054",
+              "native_id": "Rth_2vRbtDk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Shows the model-specific GoPro 13 magnetic catch without teaching the filmed style of standard grip attachment.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_381546a87054.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Rth_2vRbtDk.json"
+              ]
+            },
+            {
+              "entity_id": "m_38ffcef3a4ff",
+              "native_id": "vCmxD5ToGyE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Shows using and comparing already loaded floating grips and poles; no verified camera-to-grip attachment steps.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_38ffcef3a4ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vCmxD5ToGyE.json"
+              ]
+            },
+            {
+              "entity_id": "m_97bb6611364c",
+              "native_id": "df20-ctM-yU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Public storyboard 40–140 s shows a standard compatible camera fastened onto the grip, pole adjusted, and the assembled handheld system. Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_97bb6611364c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/df20-ctM-yU.json"
+              ]
+            },
+            {
+              "entity_id": "m_2d5a0643e44a",
+              "native_id": "lrU7ULk5910",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2d5a0643e44a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lrU7ULk5910.json"
+              ]
+            },
+            {
+              "entity_id": "m_a336be19891d",
+              "native_id": "sreMEh3MGYk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Promotional poolside demonstration uses the stick but does not verify how a camera is attached.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a336be19891d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sreMEh3MGYk.json"
+              ]
+            },
+            {
+              "entity_id": "m_cbc4c8c6bee8",
+              "native_id": "sOwFftC7cFk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cbc4c8c6bee8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sOwFftC7cFk.json"
+              ]
+            },
+            {
+              "entity_id": "m_a3e64892ffb2",
+              "native_id": "oS54OTUI_V0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a3e64892ffb2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oS54OTUI_V0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5e2d396ad855",
+              "native_id": "eOy3hsz9eoE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5e2d396ad855.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eOy3hsz9eoE.json"
+              ]
+            },
+            {
+              "entity_id": "m_3652d99ab36c",
+              "native_id": "22cgEkpH71k",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3652d99ab36c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/22cgEkpH71k.json"
+              ]
+            },
+            {
+              "entity_id": "m_4fae49f18184",
+              "native_id": "eyhoNzA7qdQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Tutorial physically adds the remote, with camera already mounted.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4fae49f18184.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eyhoNzA7qdQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_05ce34b4c655",
+              "native_id": "7lXx4KFKAgY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Underwater product advertisement demonstrates holding, extension and tripod uses but does not establish camera attachment.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_05ce34b4c655.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7lXx4KFKAgY.json"
+              ]
+            },
+            {
+              "entity_id": "m_986732f1d071",
+              "native_id": "tZzKGejitr8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Adds a 1/4-inch thread to the bottom of the pole for a tripod; not attaching the camera onto a handheld pole.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_986732f1d071.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tZzKGejitr8.json"
+              ]
+            },
+            {
+              "entity_id": "m_57123ed679dc",
+              "native_id": "Whm7S6GhYKg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Answers remote/Bluetooth and operating questions with an already mounted GoPro, rather than showing its physical connection.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57123ed679dc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Whm7S6GhYKg.json"
+              ]
+            },
+            {
+              "entity_id": "m_32760e6f6692",
+              "native_id": "cH5HJX_SdaQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_32760e6f6692.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cH5HJX_SdaQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f7e1e36f8dd1",
+              "native_id": "b87E2g9OUuk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native copy provides useful direct GoPro compatibility and use advice; public storyboard is absent and timed text was unavailable. Showing the fastening on the video has not been established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f7e1e36f8dd1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/b87E2g9OUuk.json"
+              ]
+            },
+            {
+              "entity_id": "m_a46c82f6e6b7",
+              "native_id": "edsbaOy2gg4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Buckle release is demonstrated by itself, not setting up either carrier used in the source. Buckle release alone does not teach either specific carrier.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a46c82f6e6b7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/edsbaOy2gg4.json"
+              ]
+            },
+            {
+              "entity_id": "m_ea666910fcc9",
+              "native_id": "4-euhpD_eoI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ea666910fcc9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4-euhpD_eoI.json"
+              ]
+            },
+            {
+              "entity_id": "m_9bebecf359c5",
+              "native_id": "FqDyhWUJRaY",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9bebecf359c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FqDyhWUJRaY.json"
+              ]
+            },
+            {
+              "entity_id": "m_c77d5b23cab9",
+              "native_id": "fSWXwXKNs6w",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official Quad Lock handheld demo uses the phone case interface; no compatible action-camera mounting route is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c77d5b23cab9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fSWXwXKNs6w.json"
+              ]
+            },
+            {
+              "entity_id": "m_782059711773",
+              "native_id": "U8BCEQFmsgs",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_782059711773.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/U8BCEQFmsgs.json"
+              ]
+            },
+            {
+              "entity_id": "m_7e50914632ba",
+              "native_id": "n-GKzlaZQ2o",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7e50914632ba.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/n-GKzlaZQ2o.json"
+              ]
+            },
+            {
+              "entity_id": "m_fba478fd3782",
+              "native_id": "F3gNvJmc_rc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fba478fd3782.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/F3gNvJmc_rc.json"
+              ]
+            },
+            {
+              "entity_id": "m_a85fa9cf2384",
+              "native_id": "SCyo3y-w4p0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a85fa9cf2384.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SCyo3y-w4p0.json"
+              ]
+            },
+            {
+              "entity_id": "m_cbd2dc3f27b2",
+              "native_id": "7pnBYEWOGbc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cbd2dc3f27b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7pnBYEWOGbc.json"
+              ]
+            },
+            {
+              "entity_id": "m_784b71a525a9",
+              "native_id": "cpkalDksrOo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_784b71a525a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cpkalDksrOo.json"
+              ]
+            },
+            {
+              "entity_id": "m_1d5d33b57181",
+              "native_id": "7keNyedJTtY",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1d5d33b57181.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7keNyedJTtY.json"
+              ]
+            },
+            {
+              "entity_id": "m_5027d6c7a075",
+              "native_id": "hMcCZxKGsFU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official generic HERO mount guide demonstrates connecting to a helmet adhesive plate; not a handheld pole or elastic head band.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5027d6c7a075.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hMcCZxKGsFU.json"
+              ]
+            },
+            {
+              "entity_id": "m_59bb6617dd84",
+              "native_id": "4Z4IlfFRcfU",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Official GoPro head strap how-to gives default headband/top-strap setup and attaching the camera in shooting orientation. Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_59bb6617dd84.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4Z4IlfFRcfU.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f2a9c9bcae6",
+              "native_id": "17GlXJc4gxE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Uses/disassembles a head strap to make a rig for a kite or other object; no normal camera-on-head configuration taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f2a9c9bcae6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/17GlXJc4gxE.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c3d97a9cfd2",
+              "native_id": "BzDICZ5KqaU",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c3d97a9cfd2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BzDICZ5KqaU.json"
+              ]
+            },
+            {
+              "entity_id": "m_f5e3dc9f35a7",
+              "native_id": "cX3Zq-PsezY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Converts the head strap into a roll-bar-style mount; not the head-mounted configuration.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f5e3dc9f35a7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cX3Zq-PsezY.json"
+              ]
+            },
+            {
+              "entity_id": "m_410c2eef79e2",
+              "native_id": "FG63yZyK3T0",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_410c2eef79e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FG63yZyK3T0.json"
+              ]
+            },
+            {
+              "entity_id": "m_1888f66c8b1f",
+              "native_id": "bn_KUaqBPzU",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1888f66c8b1f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bn_KUaqBPzU.json"
+              ]
+            },
+            {
+              "entity_id": "m_5c0c7a46fa1b",
+              "native_id": "zGtDepIhtZk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Shows separating and reassembling the bands and mount pieces, without attaching a camera or readying the loaded head setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5c0c7a46fa1b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zGtDepIhtZk.json"
+              ]
+            },
+            {
+              "entity_id": "m_d9cce464d37f",
+              "native_id": "X8-VAixYR5Q",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d9cce464d37f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/X8-VAixYR5Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_e94417c6b291",
+              "native_id": "wRzVdNvvLmw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Phone-only clamp setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e94417c6b291.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wRzVdNvvLmw.json"
+              ]
+            },
+            {
+              "entity_id": "m_f0d58e268305",
+              "native_id": "vWf1cBweDfY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches putting on an already-assembled head mount with a snorkel, not fastening the camera to the mount.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f0d58e268305.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vWf1cBweDfY.json"
+              ]
+            },
+            {
+              "entity_id": "m_6a9d3039a8c2",
+              "native_id": "hsb7u-2URg4",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Published chapters and storyboard show the camera on the head strap, how the plastic clip sits, and how the strap adjusts. The three publisher cards with guard-triggering prose keep native chapter and visual evidence. Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6a9d3039a8c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hsb7u-2URg4.json"
+              ]
+            },
+            {
+              "entity_id": "m_49359b31dfc3",
+              "native_id": "6jewnqQ2BgQ",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Public native storyboard about 2:03–4:06 shows the head-strap fork and its screw, attachment of the camera to that same strap and later wearing and adjusting the setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_49359b31dfc3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6jewnqQ2BgQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_1cc245251b1e",
+              "native_id": "kvoaUHK7uD0",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1cc245251b1e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kvoaUHK7uD0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5cb7a0189916",
+              "native_id": "RztoL5FcuKU",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5cb7a0189916.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RztoL5FcuKU.json"
+              ]
+            },
+            {
+              "entity_id": "m_9463e3b9f80c",
+              "native_id": "Jy9O7_BiL4I",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches choosing camera angle with the head rig already mounted, not setting up its attachment.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9463e3b9f80c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Jy9O7_BiL4I.json"
+              ]
+            },
+            {
+              "entity_id": "m_45365d80d22c",
+              "native_id": "bkVbUwS8Xq4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Cap-mounted DIY clip, not the observed adjustable head strap.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_45365d80d22c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bkVbUwS8Xq4.json"
+              ]
+            },
+            {
+              "entity_id": "m_b68671a7a9a8",
+              "native_id": "_QweD3P8tTI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Repurposes a head strap to build a wrist mount and uses it on the wrist.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b68671a7a9a8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_QweD3P8tTI.json"
+              ]
+            },
+            {
+              "entity_id": "m_c2d29b91c6c8",
+              "native_id": "KnatLV26-WM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Phone-only headset clamp.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c2d29b91c6c8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KnatLV26-WM.json"
+              ]
+            },
+            {
+              "entity_id": "m_61ce7292b5dd",
+              "native_id": "DXj9vnAxNdE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native title explicitly says footage only; no setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_61ce7292b5dd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DXj9vnAxNdE.json"
+              ]
+            },
+            {
+              "entity_id": "m_d741e1fdbf64",
+              "native_id": "BEFRyi-3XW0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Shows configured head, bite and chest mounts followed by shot comparisons. Official captions introduce use cases, not camera attachment.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d741e1fdbf64.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BEFRyi-3XW0.json"
+              ]
+            },
+            {
+              "entity_id": "m_6c8760c16fe8",
+              "native_id": "XRgPzvmJdtc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Shows the bite mount; head strap is linked as an alternative without showing its setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6c8760c16fe8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XRgPzvmJdtc.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f4ed2814c3b",
+              "native_id": "K2gJC85UOqI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Threaded vented-helmet-only mount; the general elastic headband is not configured.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f4ed2814c3b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/K2gJC85UOqI.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f24d11c9511",
+              "native_id": "QRJoagyuQjU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Fixes a loose headband mount using hammer and screwdriver; not a camera setup lesson.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f24d11c9511.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QRJoagyuQjU.json"
+              ]
+            },
+            {
+              "entity_id": "m_5f8aee02e063",
+              "native_id": "SSDGhoZ3zLQ",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5f8aee02e063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SSDGhoZ3zLQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_09d472accc4a",
+              "native_id": "D4vppGhFdBE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Two cameras are already fixed on separate mounts. Comparison shows wearing and orientation, not attaching the camera.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_09d472accc4a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/D4vppGhFdBE.json"
+              ]
+            },
+            {
+              "entity_id": "m_645af5d28019",
+              "native_id": "oWv_VEQVukM",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_645af5d28019.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oWv_VEQVukM.json"
+              ]
+            },
+            {
+              "entity_id": "m_2726988b9945",
+              "native_id": "AYWu5Rpkl24",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Constructs an alternate no-drill cap rig; shows putting the already-attached assembly on a cap, not setting up the camera on the normal head strap.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2726988b9945.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AYWu5Rpkl24.json"
+              ]
+            },
+            {
+              "entity_id": "m_8c144ea263a6",
+              "native_id": "nhRkBnc6yDA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Attaches camera to ski goggles using pieces borrowed from a head strap; not a head-strap setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8c144ea263a6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nhRkBnc6yDA.json"
+              ]
+            },
+            {
+              "entity_id": "m_18c9dd71b809",
+              "native_id": "VEmSpOFQ1rE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Head segment describes comfort and wearing a preassembled head strap, but not attaching the camera.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_18c9dd71b809.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/VEmSpOFQ1rE.json"
+              ]
+            },
+            {
+              "entity_id": "m_83e5df056d7c",
+              "native_id": "ZVZNjGAG94c",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_83e5df056d7c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZVZNjGAG94c.json"
+              ]
+            },
+            {
+              "entity_id": "m_ff1ba98cf2d0",
+              "native_id": "hslo-GU9yIw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The demonstrated setup is an iPhone 12 Pro Max clamp, not the comparable GoPro attachment.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ff1ba98cf2d0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hslo-GU9yIw.json"
+              ]
+            },
+            {
+              "entity_id": "m_d665f6a815bd",
+              "native_id": "0WeXz7QpvVw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Creator compares chest/head/bite POV and explains how to aim a preassembled head setup. The head chapter does not teach how to fasten the camera. Head-strapped camera is already assembled; head chapter demonstrates angle choice rather than attachment.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d665f6a815bd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0WeXz7QpvVw.json"
+              ]
+            },
+            {
+              "entity_id": "m_fdabab06665d",
+              "native_id": "O4fdKcvNMRw",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fdabab06665d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/O4fdKcvNMRw.json"
+              ]
+            },
+            {
+              "entity_id": "m_baf8a45c3dad",
+              "native_id": "4QJOieI89sQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Chest harness only.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_baf8a45c3dad.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4QJOieI89sQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_65ff091d8bbb",
+              "native_id": "qUUElR8hLr4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Actual video presents wrist/hand, chest, and head body mounts; head section discusses fit and shot choice, and handheld grips appear only as description links. Neither complete camera attachment is taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_65ff091d8bbb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qUUElR8hLr4.json"
+              ]
+            },
+            {
+              "entity_id": "m_8a9ec6aacee0",
+              "native_id": "vGoyei1Nd-s",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Publisher notes include a J mount and thumbscrew; native English timed text at 03:28–03:47 explicitly describes sliding the camera into the grooves and tightening the screw on the head setup. Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8a9ec6aacee0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vGoyei1Nd-s.json"
+              ]
+            },
+            {
+              "entity_id": "m_554dc5fa6d43",
+              "native_id": "48d5jqhEk60",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_554dc5fa6d43.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/48d5jqhEk60.json"
+              ]
+            },
+            {
+              "entity_id": "m_a82cce911512",
+              "native_id": "LqWpcixolXI",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Public storyboard shows the camera being joined to the headband with the threaded knob, then the assembled head band and straps. Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a82cce911512.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/LqWpcixolXI.json"
+              ]
+            },
+            {
+              "entity_id": "m_f000c83338b2",
+              "native_id": "g4QCtRZRGdA",
+              "initial": "not_supported",
+              "final": "accepted",
+              "reason": "Shows fastening or configuring the camera onto an elastic head strap and preparing that head-mounted setup to film. The strap can be worn directly or over suitable headgear; a clip-only, adhesive helmet mount, chest, mouth, wrist, neck or bicycle mount does not qualify. Mere footage, comparative performance, or wearing an already-assembled strap without showing how the camera mounts is incomplete.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f000c83338b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/g4QCtRZRGdA.json"
+              ]
+            },
+            {
+              "entity_id": "m_141b5db849e1",
+              "native_id": "cIb0nnpwc1Y",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_141b5db849e1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cIb0nnpwc1Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_34f8c4f2ea3e",
+              "native_id": "zn9DJPZZbvg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_34f8c4f2ea3e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zn9DJPZZbvg.json"
+              ]
+            },
+            {
+              "entity_id": "m_6d194468fe62",
+              "native_id": "E_a4aTH0LRc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6d194468fe62.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/E_a4aTH0LRc.json"
+              ]
+            },
+            {
+              "entity_id": "m_385381b4e3fd",
+              "native_id": "29omWaD2aTE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_385381b4e3fd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/29omWaD2aTE.json"
+              ]
+            },
+            {
+              "entity_id": "m_66f102202ae3",
+              "native_id": "ZHQNsitakWs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_66f102202ae3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZHQNsitakWs.json"
+              ]
+            },
+            {
+              "entity_id": "m_4f06c5bb3a1a",
+              "native_id": "itEOd67MSM0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4f06c5bb3a1a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/itEOd67MSM0.json"
+              ]
+            },
+            {
+              "entity_id": "m_25d1c1f371fa",
+              "native_id": "TIP0UT9ul8I",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Shows clips, clamps and mini stationary tripod; no evidenced hand-carried pole or head strap configuration.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_25d1c1f371fa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/TIP0UT9ul8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_81a472c3b039",
+              "native_id": "F6Dl-Qk0Mvg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_81a472c3b039.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/F6Dl-Qk0Mvg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b53afd13b2b0",
+              "native_id": "Hl2PiQRCkX0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b53afd13b2b0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hl2PiQRCkX0.json"
+              ]
+            },
+            {
+              "entity_id": "m_dd115f21834a",
+              "native_id": "t-VnY6wF-2o",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dd115f21834a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/t-VnY6wF-2o.json"
+              ]
+            },
+            {
+              "entity_id": "m_d253d267bbdf",
+              "native_id": "cC27u0M47Fk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d253d267bbdf.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cC27u0M47Fk.json"
+              ]
+            },
+            {
+              "entity_id": "m_79d79bde92d1",
+              "native_id": "-5M72hlePx4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The branded quick-release review demonstrates the action-camera grip/vlogging configuration and the action camera interface on its MantisPod around 112–146 s. Shows fastening a compatible action camera to a handheld camera grip or selfie pole and making that setup ready to film. Compatible GoPro-style joints or clearly usable adapters, with comparable hand-carried setups, qualify; a purely stationary tripod or unrelated proprietary interface does not.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_79d79bde92d1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-5M72hlePx4.json"
+              ]
+            },
+            {
+              "entity_id": "m_84d68091801e",
+              "native_id": "8uIMPIB_nbU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_84d68091801e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8uIMPIB_nbU.json"
+              ]
+            },
+            {
+              "entity_id": "m_b1cf5d096cff",
+              "native_id": "or4CIQybuYQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b1cf5d096cff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/or4CIQybuYQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_1bbe6dfbc11a",
+              "native_id": "Mj9cxdHNeI0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Moto recording setup demonstrates helmet/bike rigging and DJI/Insta360 vlogging gear; equivalent GoPro-type hand grip assembly is not established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1bbe6dfbc11a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Mj9cxdHNeI0.json"
+              ]
+            },
+            {
+              "entity_id": "m_451870dbe2d5",
+              "native_id": "PRRle9wSzzE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_451870dbe2d5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PRRle9wSzzE.json"
+              ]
+            },
+            {
+              "entity_id": "m_663772cb4fe4",
+              "native_id": "Pss9olTVGNc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_663772cb4fe4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Pss9olTVGNc.json"
+              ]
+            },
+            {
+              "entity_id": "m_6bfd21b45a21",
+              "native_id": "al99zUIezX0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6bfd21b45a21.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/al99zUIezX0.json"
+              ]
+            },
+            {
+              "entity_id": "m_12beb4e74974",
+              "native_id": "IcBlNqegwJg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12beb4e74974.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IcBlNqegwJg.json"
+              ]
+            },
+            {
+              "entity_id": "m_db8a50a04bce",
+              "native_id": "jFfrU3EQdYQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_db8a50a04bce.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jFfrU3EQdYQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_25103692f653",
+              "native_id": "MZJU0Y2gcWo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Pole forms part of a suction-fixed car mount, not a hand grip.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_25103692f653.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MZJU0Y2gcWo.json"
+              ]
+            },
+            {
+              "entity_id": "m_4c53f5cc4342",
+              "native_id": "P9GxYDUVa8k",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4c53f5cc4342.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/P9GxYDUVa8k.json"
+              ]
+            },
+            {
+              "entity_id": "m_95d6ad1bc0d5",
+              "native_id": "EKbVvdDXSSY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Proprietary compact Sixmou i3 body and attachments; does not demonstrate either matching GoPro setup.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_95d6ad1bc0d5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EKbVvdDXSSY.json"
+              ]
+            },
+            {
+              "entity_id": "m_af07b685a449",
+              "native_id": "InpY5d0YjHs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_af07b685a449.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/InpY5d0YjHs.json"
+              ]
+            },
+            {
+              "entity_id": "m_eccfacd7dabe",
+              "native_id": "Nvbw7BYj4WU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Shot techniques and examples on a bike, not fastening a compatible camera to a handheld grip or normal elastic head strap.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_eccfacd7dabe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Nvbw7BYj4WU.json"
+              ]
+            },
+            {
+              "entity_id": "m_c8d13312b57f",
+              "native_id": "DISUypXNFWE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c8d13312b57f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DISUypXNFWE.json"
+              ]
+            },
+            {
+              "entity_id": "m_a6dba236271f",
+              "native_id": "HSczkI9so5o",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a6dba236271f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HSczkI9so5o.json"
+              ]
+            },
+            {
+              "entity_id": "m_ae4eab3beb61",
+              "native_id": "NjOY-Uzcr8M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ae4eab3beb61.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NjOY-Uzcr8M.json"
+              ]
+            },
+            {
+              "entity_id": "m_b6e8a2904d1d",
+              "native_id": "RWOeI4zYgrM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b6e8a2904d1d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RWOeI4zYgrM.json"
+              ]
+            },
+            {
+              "entity_id": "m_68e3bcce941d",
+              "native_id": "Z0P3ZnAipVA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native public storyboard 20:31–23:17 includes hand-tightening the standard fork screw at about 21:09–21:19 and then using the hand-held extension rod. The other side uses a quick release, which does not alter the compatible rod-side attachment.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_68e3bcce941d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Z0P3ZnAipVA.json"
+              ]
+            },
+            {
+              "entity_id": "m_077f3ff70063",
+              "native_id": "T_bnRY4s_XM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_077f3ff70063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T_bnRY4s_XM.json"
+              ]
+            },
+            {
+              "entity_id": "m_e909976ac738",
+              "native_id": "DRH0wizTIMw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e909976ac738.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DRH0wizTIMw.json"
+              ]
+            },
+            {
+              "entity_id": "m_8b781c8a3ea5",
+              "native_id": "hwUULQcW_7E",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8b781c8a3ea5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hwUULQcW_7E.json"
+              ]
+            },
+            {
+              "entity_id": "m_b1ed75cfce09",
+              "native_id": "H_lflvj7Pv0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b1ed75cfce09.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/H_lflvj7Pv0.json"
+              ]
+            },
+            {
+              "entity_id": "m_747237f752bd",
+              "native_id": "ubRo8kqzHcU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Wearable 360 camera torso system and its accessory pole; the dedicated GoPro-style hand-held or head strap attachment is not taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_747237f752bd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ubRo8kqzHcU.json"
+              ]
+            },
+            {
+              "entity_id": "m_3f9b6b901207",
+              "native_id": "oadIl656McM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3f9b6b901207.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oadIl656McM.json"
+              ]
+            },
+            {
+              "entity_id": "m_fdf83c606f66",
+              "native_id": "ClaNfaC3j4M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fdf83c606f66.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ClaNfaC3j4M.json"
+              ]
+            },
+            {
+              "entity_id": "m_ad4b3217e57b",
+              "native_id": "NzcRb6Ipr-I",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ad4b3217e57b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NzcRb6Ipr-I.json"
+              ]
+            },
+            {
+              "entity_id": "m_9ee9cca510ad",
+              "native_id": "ew7VhdaW-hQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, publisher details, and chapters concern another mount class or general settings, not the specific handheld or elastic-head camera assembly.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9ee9cca510ad.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ew7VhdaW-hQ.json"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "summary",
+            "chapters",
+            "public_previews"
+          ],
+          "answer_boundary_rule": "Save one tutorial that demonstrates attaching or configuring a compatible action camera on an elastic head strap and preparing it to film. Other strap placements, already mounted sample footage, or a generic screw demonstration without the head-strap setup do not suffice. A real tutorial that teaches both provisional grip and final head-strap setups is acceptable at both stages."
+        }
+      }
+    }
+  ]
+}

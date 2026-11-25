@@ -1,0 +1,2219 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Authorized HD-EPIC public research distribution; original recording identity and start offset retained."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102591",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P06-20240511-102207__1107-1335",
+        "original_video_id": "P06-20240511-102207",
+        "media_start_seconds": 1107,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P06-20240511-102207__1107-1335.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P06/P06-20240511-102207.mp4",
+        "record_ids": [
+          "P06-20240511-102207__1107-1335"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "pre-drawer-use",
+            "source_occurrences_seconds": [
+              [
+                1120,
+                1122
+              ],
+              [
+                1180,
+                1182
+              ]
+            ],
+            "description": "A black slotted turner with metal handle actually loosens, flips and presses the omelette in the frying pan. Both sampled operations expose the broad slotted head and actual food contact."
+          },
+          {
+            "event_id": "fill-drinking-water",
+            "source_occurrences_seconds": [
+              [
+                1140,
+                1140
+              ]
+            ],
+            "description": "At the sink, a mug is filled from the running tap; the used turner is left elsewhere, not visible."
+          },
+          {
+            "event_id": "drink-water",
+            "source_occurrences_seconds": [
+              [
+                1148,
+                1148
+              ]
+            ],
+            "description": "The mug is raised to drink while facing the window; the used turner is not visible."
+          },
+          {
+            "event_id": "cutlery-drawer",
+            "source_occurrences_seconds": [
+              [
+                1299,
+                1301
+              ]
+            ],
+            "description": "The cutlery drawer is open and a metal bowl-head spoon is taken out. The used turner had been placed in the sink at1289–1290 and is not in these views. The stationary stand contains multiple unused utensils, not an isolated active-tool reminder."
+          },
+          {
+            "event_id": "post-drawer-use",
+            "source_occurrences_seconds": [
+              [
+                1328,
+                1330
+              ]
+            ],
+            "description": "The metal bowl-head spoon actually scoops sugar from a clear container for a mug. The used turner remains offscreen."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact retail identity, brand, dimensions and material are not matching conditions."
+        ]
+      },
+      "screening": {
+        "real_user_need": "Obtain a spare of the referenced basic kitchen utensil type.",
+        "scope_note": "Experiment-only independent original recording; same full temporal reference supplied upfront to both conditions.",
+        "proposed_instruction": "I want an extra of one of the handheld kitchen utensils I used here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, exact size, colour and material can differ. Do not add a mixed utensil set or a combination multitool."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1120.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1122.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1140.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1148.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1299.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1301.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1328.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1330.jpg"
+          ],
+          "timestamps_seconds": [
+            1120,
+            1122,
+            1140,
+            1148,
+            1299,
+            1301,
+            1328,
+            1330
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does relating an earlier used kitchen utensil to a later drawer event change with two additional intervening activities?",
+        "belief_before": "A turner handles the omelette before the drawer is opened; a spoon scoops sugar after it.",
+        "belief_after": "The temporal reference selects the earlier cooking turner, not the subsequently used spoon.",
+        "required_behavior_change": "Link the drawer event to the earlier actively used utensil and choose a turner-only offer.",
+        "no_update_failure": "The oracle resolves the temporal reference upfront; no proactive-question difference.",
+        "overupdate_failure": "Selecting a mixed utensil pack violates the requested single-basic-type contents.",
+        "visual_dependency_claim": "Common filling and drinking water events do not show the used turner. The drawer and later sugar-scooping events do not re-expose it. All public fork, spoon and turner results are retained; a later spoon cannot uniquely determine an earlier turner without the earlier active-use images.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I want an extra of one of the handheld kitchen utensils I used here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, exact size, colour and material can differ. Do not add a mixed utensil set or a combination multitool.",
+          "oracle_instruction": "I want an extra of the basic type of handheld kitchen utensil I used before I opened the cutlery drawer here, not the type I used afterwards. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, exact size, colour and material can differ. Do not add a mixed utensil set or a combination multitool.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "pre_cutlery",
+            "post_cutlery"
+          ],
+          "hidden_target_role": "pre_cutlery",
+          "valid_slot": "sequence",
+          "canonical_question": "Which of the kitchen utensil types used here do you mean?",
+          "canonical_answer": "The type I used before I opened the cutlery drawer here, not the type I used afterwards.",
+          "environment_role_ids": {
+            "pre_cutlery": "p_1d317da281a7",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "equivalent_role_ids": {
+            "pre_cutlery": [
+              "p_b1c6b6f926bf",
+              "p_5d9412495ff7",
+              "p_5c011bf65036",
+              "p_c843540c6f00",
+              "p_4be3a2c85182",
+              "p_97f8f89cb349",
+              "p_281a64d2684e",
+              "p_c9db40f736ce",
+              "p_30e26ebcf3f3",
+              "p_7907c0ed533a",
+              "p_3b0006834183",
+              "p_8da4fb4ca78d",
+              "p_5952ff3cec43",
+              "p_0fa375dddf6a",
+              "p_edd67d896a04",
+              "p_b883ef5a3925",
+              "p_daa95a5072b2",
+              "p_90279ffc29c8",
+              "p_da40863450a0",
+              "p_d8145d6dc70e",
+              "p_7bf562031aa8",
+              "p_0fea1a9780cf",
+              "p_3676009f841d",
+              "p_c9ad6a644df1",
+              "p_aef8ab3d9a7e",
+              "p_f8f3c9ac4dc6",
+              "p_8bbabb2711a5",
+              "p_7ccbe810fa54",
+              "p_8dff45f40d5b",
+              "p_7fb7a773803b",
+              "p_11992c475d42",
+              "p_aedf5cf8163c",
+              "p_ef440263c2bb",
+              "p_b700516f1fdc",
+              "p_18c438042e77",
+              "p_28db0031e6b1",
+              "p_06572ec49e15",
+              "p_ff665d637802",
+              "p_4fbb16286aee",
+              "p_ebd33148a09f",
+              "p_bbee202273fc",
+              "p_ccb43f4dc38c",
+              "p_8fcbc07ee557",
+              "p_dbf78197b978"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "pre_cutlery": "p_1d317da281a7",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "pre_cutlery"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The full reference selects the utensil actively used before the drawer opened, not the later bowl-head spoon."
+            }
+          ],
+          "established_by": "Constructing agent; independent review pending",
+          "established_at": "2026-10-25"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "solid cooking turner single piece",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/omelette-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "span-omelette-before-drawer-utensil",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_b1c6b6f926bf",
+                "p_5d9412495ff7",
+                "p_5c011bf65036",
+                "p_c843540c6f00",
+                "p_4be3a2c85182",
+                "p_97f8f89cb349",
+                "p_281a64d2684e",
+                "p_c9db40f736ce",
+                "p_30e26ebcf3f3",
+                "p_7907c0ed533a",
+                "p_3b0006834183",
+                "p_8da4fb4ca78d",
+                "p_5952ff3cec43",
+                "p_0fa375dddf6a",
+                "p_edd67d896a04",
+                "p_b883ef5a3925",
+                "p_daa95a5072b2",
+                "p_8415423025b2",
+                "p_90279ffc29c8",
+                "p_da40863450a0",
+                "p_d8145d6dc70e",
+                "p_7bf562031aa8",
+                "p_0fea1a9780cf",
+                "p_3676009f841d",
+                "p_c9ad6a644df1",
+                "p_aef8ab3d9a7e",
+                "p_f8f3c9ac4dc6",
+                "p_8bbabb2711a5",
+                "p_7ccbe810fa54",
+                "p_8dff45f40d5b",
+                "p_7fb7a773803b",
+                "p_11992c475d42",
+                "p_aedf5cf8163c",
+                "p_ef440263c2bb",
+                "p_b700516f1fdc",
+                "p_18c438042e77",
+                "p_dea236da7672",
+                "p_28db0031e6b1",
+                "p_1d317da281a7",
+                "p_06572ec49e15",
+                "p_ff665d637802",
+                "p_4fbb16286aee",
+                "p_ebd33148a09f",
+                "p_bbee202273fc",
+                "p_ccb43f4dc38c",
+                "p_a7fe60e3115a",
+                "p_8fcbc07ee557",
+                "p_dbf78197b978"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "stainless steel forks spoons separate packs",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/omelette-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "span-omelette-before-drawer-utensil",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_c1f98fffa806",
+                "p_4787810d3e98",
+                "p_fd168bfdd94a",
+                "p_773e4812326b",
+                "p_8fcf901bb92a",
+                "p_54b6d37a2e1f",
+                "p_b1269900c618",
+                "p_627e20d0ca23",
+                "p_5b42b910aa56",
+                "p_9f4d6c1f9ddc",
+                "p_37ca83309a09",
+                "p_4f60a76f0bab",
+                "p_63c0d28ed1da",
+                "p_ae0a1856ae1e",
+                "p_96391d8a8a97",
+                "p_65e7453ee18b",
+                "p_a4c323c1ed54",
+                "p_19d8224c95aa",
+                "p_43f71ae41805",
+                "p_28fe784dadbf",
+                "p_f78bc5991a41",
+                "p_e2fbc53eb24e",
+                "p_294243287514",
+                "p_7ea774e1599c",
+                "p_09e479b60df8",
+                "p_9f7054ad7784",
+                "p_7bf50fb97e7a",
+                "p_707be042ae79",
+                "p_ae9a4b24f9f6",
+                "p_9e70cc93a7a0",
+                "p_6e73a44733c8",
+                "p_b858ad56553c",
+                "p_cdd381021705",
+                "p_b3ec85a800b5",
+                "p_5ee1aef32a55",
+                "p_aa7c884e95b9",
+                "p_b21c0dff2416",
+                "p_cee31aafc132",
+                "p_cbc29e71284e",
+                "p_2b681059d31c",
+                "p_12a89237d547",
+                "p_42b455544c8e",
+                "p_7ff50c055142",
+                "p_3e6266f2037c",
+                "p_3feb0e211998",
+                "p_3a400ef26250",
+                "p_58c858205bed",
+                "p_90079795d6da"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_b1c6b6f926bf",
+            "p_5d9412495ff7",
+            "p_5c011bf65036",
+            "p_c843540c6f00",
+            "p_4be3a2c85182",
+            "p_97f8f89cb349",
+            "p_281a64d2684e",
+            "p_c9db40f736ce",
+            "p_30e26ebcf3f3",
+            "p_7907c0ed533a",
+            "p_3b0006834183",
+            "p_8da4fb4ca78d",
+            "p_5952ff3cec43",
+            "p_0fa375dddf6a",
+            "p_edd67d896a04",
+            "p_b883ef5a3925",
+            "p_daa95a5072b2",
+            "p_8415423025b2",
+            "p_90279ffc29c8",
+            "p_da40863450a0",
+            "p_d8145d6dc70e",
+            "p_7bf562031aa8",
+            "p_0fea1a9780cf",
+            "p_3676009f841d",
+            "p_c9ad6a644df1",
+            "p_aef8ab3d9a7e",
+            "p_f8f3c9ac4dc6",
+            "p_8bbabb2711a5",
+            "p_7ccbe810fa54",
+            "p_8dff45f40d5b",
+            "p_7fb7a773803b",
+            "p_11992c475d42",
+            "p_aedf5cf8163c",
+            "p_ef440263c2bb",
+            "p_b700516f1fdc",
+            "p_18c438042e77",
+            "p_dea236da7672",
+            "p_28db0031e6b1",
+            "p_1d317da281a7",
+            "p_06572ec49e15",
+            "p_ff665d637802",
+            "p_4fbb16286aee",
+            "p_ebd33148a09f",
+            "p_bbee202273fc",
+            "p_ccb43f4dc38c",
+            "p_a7fe60e3115a",
+            "p_8fcbc07ee557",
+            "p_dbf78197b978",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_773e4812326b",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_773e4812326b",
+            "p_63c0d28ed1da",
+            "p_dea236da7672",
+            "p_8415423025b2"
+          ],
+          "related_entity_ids": [
+            "p_a7fe60e3115a",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_8415423025b2",
+              "ring": "core",
+              "reason": "Public image shows a spoon or other utensil alongside the turner, so this is not an offer containing only the requested basic type. A title calling the whole offer spatulas does not override the pictured mixed heads.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_dea236da7672",
+              "ring": "core",
+              "reason": "Listing explicitly identifies a spoonula/scoop mixing spoon; public evidence does not establish the same basic flat turner type used in the earlier operation. Independent boundary check requested.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a7fe60e3115a",
+              "ring": "related",
+              "reason": "Public image shows a spoon or other utensil alongside the turner, so this is not an offer containing only the requested basic type. A title calling the whole offer spatulas does not override the pictured mixed heads.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c1f98fffa806",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4787810d3e98",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fd168bfdd94a",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_773e4812326b",
+              "ring": "core",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8fcf901bb92a",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_54b6d37a2e1f",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b1269900c618",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_627e20d0ca23",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5b42b910aa56",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f4d6c1f9ddc",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_37ca83309a09",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4f60a76f0bab",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_63c0d28ed1da",
+              "ring": "core",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae0a1856ae1e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_96391d8a8a97",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_65e7453ee18b",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a4c323c1ed54",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_19d8224c95aa",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_43f71ae41805",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_28fe784dadbf",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f78bc5991a41",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e2fbc53eb24e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_294243287514",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7ea774e1599c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_09e479b60df8",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f7054ad7784",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7bf50fb97e7a",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_707be042ae79",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae9a4b24f9f6",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9e70cc93a7a0",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6e73a44733c8",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b858ad56553c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cdd381021705",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b3ec85a800b5",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5ee1aef32a55",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aa7c884e95b9",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b21c0dff2416",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cee31aafc132",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cbc29e71284e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2b681059d31c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_12a89237d547",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_42b455544c8e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7ff50c055142",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3e6266f2037c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3feb0e211998",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3a400ef26250",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58c858205bed",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_90079795d6da",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "96 unique public product images and native fields checked; complete stable-ID answer matrix retained."
+          }
+        },
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding"
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and public answer-boundary review."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/omelette-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A black slotted turner with metal handle actually loosens, flips and presses the omelette in the frying pan. Both sampled operations expose the broad slotted head and actual food contact.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "At the sink, a mug is filled from the running tap; the used turner is left elsewhere, not visible.",
+          "supported_by": [
+            "V0:2"
+          ]
+        },
+        {
+          "text": "The mug is raised to drink while facing the window; the used turner is not visible.",
+          "supported_by": [
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The cutlery drawer is open and a metal bowl-head spoon is taken out. The used turner had been placed in the sink at1289–1290 and is not in these views. The stationary stand contains multiple unused utensils, not an isolated active-tool reminder.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The metal bowl-head spoon actually scoops sugar from a clear container for a mug. The used turner remains offscreen.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102592",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P06-20240511-102207__1107-1335",
+        "original_video_id": "P06-20240511-102207",
+        "media_start_seconds": 1107,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P06-20240511-102207__1107-1335.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P06/P06-20240511-102207.mp4",
+        "record_ids": [
+          "P06-20240511-102207__1107-1335"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "pre-drawer-use",
+            "source_occurrences_seconds": [
+              [
+                1120,
+                1122
+              ],
+              [
+                1180,
+                1182
+              ]
+            ],
+            "description": "A black slotted turner with metal handle actually loosens, flips and presses the omelette in the frying pan. Both sampled operations expose the broad slotted head and actual food contact."
+          },
+          {
+            "event_id": "fill-drinking-water",
+            "source_occurrences_seconds": [
+              [
+                1140,
+                1140
+              ]
+            ],
+            "description": "At the sink, a mug is filled from the running tap; the used turner is left elsewhere, not visible."
+          },
+          {
+            "event_id": "drink-water",
+            "source_occurrences_seconds": [
+              [
+                1148,
+                1148
+              ]
+            ],
+            "description": "The mug is raised to drink while facing the window; the used turner is not visible."
+          },
+          {
+            "event_id": "cutlery-drawer",
+            "source_occurrences_seconds": [
+              [
+                1299,
+                1301
+              ]
+            ],
+            "description": "The cutlery drawer is open and a metal bowl-head spoon is taken out. The used turner had been placed in the sink at1289–1290 and is not in these views. The stationary stand contains multiple unused utensils, not an isolated active-tool reminder."
+          },
+          {
+            "event_id": "post-drawer-use",
+            "source_occurrences_seconds": [
+              [
+                1328,
+                1330
+              ]
+            ],
+            "description": "The metal bowl-head spoon actually scoops sugar from a clear container for a mug. The used turner remains offscreen."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact retail identity, brand, dimensions and material are not matching conditions."
+        ]
+      },
+      "screening": {
+        "real_user_need": "Obtain a spare of the referenced basic kitchen utensil type.",
+        "scope_note": "Experiment-only independent original recording; same full temporal reference supplied upfront to both conditions.",
+        "proposed_instruction": "I want an extra of one of the handheld kitchen utensils I used here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, exact size, colour and material can differ. Do not add a mixed utensil set or a combination multitool."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1140.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1148.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1180.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1182.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1299.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1301.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1328.jpg",
+            "data/experiments/variants/span/omelette-before-drawer-utensil/frames/source_1330.jpg"
+          ],
+          "timestamps_seconds": [
+            1140,
+            1148,
+            1180,
+            1182,
+            1299,
+            1301,
+            1328,
+            1330
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does relating an earlier used kitchen utensil to a later drawer event change with two additional intervening activities?",
+        "belief_before": "A turner handles the omelette before the drawer is opened; a spoon scoops sugar after it.",
+        "belief_after": "The temporal reference selects the earlier cooking turner, not the subsequently used spoon.",
+        "required_behavior_change": "Link the drawer event to the earlier actively used utensil and choose a turner-only offer.",
+        "no_update_failure": "The oracle resolves the temporal reference upfront; no proactive-question difference.",
+        "overupdate_failure": "Selecting a mixed utensil pack violates the requested single-basic-type contents.",
+        "visual_dependency_claim": "Common filling and drinking water events do not show the used turner. The drawer and later sugar-scooping events do not re-expose it. All public fork, spoon and turner results are retained; a later spoon cannot uniquely determine an earlier turner without the earlier active-use images.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I want an extra of one of the handheld kitchen utensils I used here. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, exact size, colour and material can differ. Do not add a mixed utensil set or a combination multitool.",
+          "oracle_instruction": "I want an extra of the basic type of handheld kitchen utensil I used before I opened the cutlery drawer here, not the type I used afterwards. Add a product containing only that basic utensil type to my cart; a same-type multipack is fine. Brand, exact size, colour and material can differ. Do not add a mixed utensil set or a combination multitool.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "pre_cutlery",
+            "post_cutlery"
+          ],
+          "hidden_target_role": "pre_cutlery",
+          "valid_slot": "sequence",
+          "canonical_question": "Which of the kitchen utensil types used here do you mean?",
+          "canonical_answer": "The type I used before I opened the cutlery drawer here, not the type I used afterwards.",
+          "environment_role_ids": {
+            "pre_cutlery": "p_1d317da281a7",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "equivalent_role_ids": {
+            "pre_cutlery": [
+              "p_b1c6b6f926bf",
+              "p_5d9412495ff7",
+              "p_5c011bf65036",
+              "p_c843540c6f00",
+              "p_4be3a2c85182",
+              "p_97f8f89cb349",
+              "p_281a64d2684e",
+              "p_c9db40f736ce",
+              "p_30e26ebcf3f3",
+              "p_7907c0ed533a",
+              "p_3b0006834183",
+              "p_8da4fb4ca78d",
+              "p_5952ff3cec43",
+              "p_0fa375dddf6a",
+              "p_edd67d896a04",
+              "p_b883ef5a3925",
+              "p_daa95a5072b2",
+              "p_90279ffc29c8",
+              "p_da40863450a0",
+              "p_d8145d6dc70e",
+              "p_7bf562031aa8",
+              "p_0fea1a9780cf",
+              "p_3676009f841d",
+              "p_c9ad6a644df1",
+              "p_aef8ab3d9a7e",
+              "p_f8f3c9ac4dc6",
+              "p_8bbabb2711a5",
+              "p_7ccbe810fa54",
+              "p_8dff45f40d5b",
+              "p_7fb7a773803b",
+              "p_11992c475d42",
+              "p_aedf5cf8163c",
+              "p_ef440263c2bb",
+              "p_b700516f1fdc",
+              "p_18c438042e77",
+              "p_28db0031e6b1",
+              "p_06572ec49e15",
+              "p_ff665d637802",
+              "p_4fbb16286aee",
+              "p_ebd33148a09f",
+              "p_bbee202273fc",
+              "p_ccb43f4dc38c",
+              "p_8fcbc07ee557",
+              "p_dbf78197b978"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "pre_cutlery": "p_1d317da281a7",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "pre_cutlery"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The full reference selects the utensil actively used before the drawer opened, not the later bowl-head spoon."
+            }
+          ],
+          "established_by": "Constructing agent; independent review pending",
+          "established_at": "2026-10-25"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "solid cooking turner single piece",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/omelette-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "span-omelette-before-drawer-utensil",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_b1c6b6f926bf",
+                "p_5d9412495ff7",
+                "p_5c011bf65036",
+                "p_c843540c6f00",
+                "p_4be3a2c85182",
+                "p_97f8f89cb349",
+                "p_281a64d2684e",
+                "p_c9db40f736ce",
+                "p_30e26ebcf3f3",
+                "p_7907c0ed533a",
+                "p_3b0006834183",
+                "p_8da4fb4ca78d",
+                "p_5952ff3cec43",
+                "p_0fa375dddf6a",
+                "p_edd67d896a04",
+                "p_b883ef5a3925",
+                "p_daa95a5072b2",
+                "p_8415423025b2",
+                "p_90279ffc29c8",
+                "p_da40863450a0",
+                "p_d8145d6dc70e",
+                "p_7bf562031aa8",
+                "p_0fea1a9780cf",
+                "p_3676009f841d",
+                "p_c9ad6a644df1",
+                "p_aef8ab3d9a7e",
+                "p_f8f3c9ac4dc6",
+                "p_8bbabb2711a5",
+                "p_7ccbe810fa54",
+                "p_8dff45f40d5b",
+                "p_7fb7a773803b",
+                "p_11992c475d42",
+                "p_aedf5cf8163c",
+                "p_ef440263c2bb",
+                "p_b700516f1fdc",
+                "p_18c438042e77",
+                "p_dea236da7672",
+                "p_28db0031e6b1",
+                "p_1d317da281a7",
+                "p_06572ec49e15",
+                "p_ff665d637802",
+                "p_4fbb16286aee",
+                "p_ebd33148a09f",
+                "p_bbee202273fc",
+                "p_ccb43f4dc38c",
+                "p_a7fe60e3115a",
+                "p_8fcbc07ee557",
+                "p_dbf78197b978"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "stainless steel forks spoons separate packs",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/omelette-before-drawer-utensil/search-snapshot.json",
+              "snapshot_task_id": "span-omelette-before-drawer-utensil",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_c1f98fffa806",
+                "p_4787810d3e98",
+                "p_fd168bfdd94a",
+                "p_773e4812326b",
+                "p_8fcf901bb92a",
+                "p_54b6d37a2e1f",
+                "p_b1269900c618",
+                "p_627e20d0ca23",
+                "p_5b42b910aa56",
+                "p_9f4d6c1f9ddc",
+                "p_37ca83309a09",
+                "p_4f60a76f0bab",
+                "p_63c0d28ed1da",
+                "p_ae0a1856ae1e",
+                "p_96391d8a8a97",
+                "p_65e7453ee18b",
+                "p_a4c323c1ed54",
+                "p_19d8224c95aa",
+                "p_43f71ae41805",
+                "p_28fe784dadbf",
+                "p_f78bc5991a41",
+                "p_e2fbc53eb24e",
+                "p_294243287514",
+                "p_7ea774e1599c",
+                "p_09e479b60df8",
+                "p_9f7054ad7784",
+                "p_7bf50fb97e7a",
+                "p_707be042ae79",
+                "p_ae9a4b24f9f6",
+                "p_9e70cc93a7a0",
+                "p_6e73a44733c8",
+                "p_b858ad56553c",
+                "p_cdd381021705",
+                "p_b3ec85a800b5",
+                "p_5ee1aef32a55",
+                "p_aa7c884e95b9",
+                "p_b21c0dff2416",
+                "p_cee31aafc132",
+                "p_cbc29e71284e",
+                "p_2b681059d31c",
+                "p_12a89237d547",
+                "p_42b455544c8e",
+                "p_7ff50c055142",
+                "p_3e6266f2037c",
+                "p_3feb0e211998",
+                "p_3a400ef26250",
+                "p_58c858205bed",
+                "p_90079795d6da"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_b1c6b6f926bf",
+            "p_5d9412495ff7",
+            "p_5c011bf65036",
+            "p_c843540c6f00",
+            "p_4be3a2c85182",
+            "p_97f8f89cb349",
+            "p_281a64d2684e",
+            "p_c9db40f736ce",
+            "p_30e26ebcf3f3",
+            "p_7907c0ed533a",
+            "p_3b0006834183",
+            "p_8da4fb4ca78d",
+            "p_5952ff3cec43",
+            "p_0fa375dddf6a",
+            "p_edd67d896a04",
+            "p_b883ef5a3925",
+            "p_daa95a5072b2",
+            "p_8415423025b2",
+            "p_90279ffc29c8",
+            "p_da40863450a0",
+            "p_d8145d6dc70e",
+            "p_7bf562031aa8",
+            "p_0fea1a9780cf",
+            "p_3676009f841d",
+            "p_c9ad6a644df1",
+            "p_aef8ab3d9a7e",
+            "p_f8f3c9ac4dc6",
+            "p_8bbabb2711a5",
+            "p_7ccbe810fa54",
+            "p_8dff45f40d5b",
+            "p_7fb7a773803b",
+            "p_11992c475d42",
+            "p_aedf5cf8163c",
+            "p_ef440263c2bb",
+            "p_b700516f1fdc",
+            "p_18c438042e77",
+            "p_dea236da7672",
+            "p_28db0031e6b1",
+            "p_1d317da281a7",
+            "p_06572ec49e15",
+            "p_ff665d637802",
+            "p_4fbb16286aee",
+            "p_ebd33148a09f",
+            "p_bbee202273fc",
+            "p_ccb43f4dc38c",
+            "p_a7fe60e3115a",
+            "p_8fcbc07ee557",
+            "p_dbf78197b978",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_773e4812326b",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_773e4812326b",
+            "p_63c0d28ed1da",
+            "p_dea236da7672",
+            "p_8415423025b2"
+          ],
+          "related_entity_ids": [
+            "p_a7fe60e3115a",
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_8415423025b2",
+              "ring": "core",
+              "reason": "Public image shows a spoon or other utensil alongside the turner, so this is not an offer containing only the requested basic type. A title calling the whole offer spatulas does not override the pictured mixed heads.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_dea236da7672",
+              "ring": "core",
+              "reason": "Listing explicitly identifies a spoonula/scoop mixing spoon; public evidence does not establish the same basic flat turner type used in the earlier operation. Independent boundary check requested.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a7fe60e3115a",
+              "ring": "related",
+              "reason": "Public image shows a spoon or other utensil alongside the turner, so this is not an offer containing only the requested basic type. A title calling the whole offer spatulas does not override the pictured mixed heads.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c1f98fffa806",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4787810d3e98",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fd168bfdd94a",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_773e4812326b",
+              "ring": "core",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8fcf901bb92a",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_54b6d37a2e1f",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b1269900c618",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_627e20d0ca23",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5b42b910aa56",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f4d6c1f9ddc",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_37ca83309a09",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4f60a76f0bab",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_63c0d28ed1da",
+              "ring": "core",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae0a1856ae1e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_96391d8a8a97",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_65e7453ee18b",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a4c323c1ed54",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_19d8224c95aa",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_43f71ae41805",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_28fe784dadbf",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f78bc5991a41",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e2fbc53eb24e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_294243287514",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7ea774e1599c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_09e479b60df8",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f7054ad7784",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7bf50fb97e7a",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_707be042ae79",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae9a4b24f9f6",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9e70cc93a7a0",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6e73a44733c8",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b858ad56553c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cdd381021705",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b3ec85a800b5",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5ee1aef32a55",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aa7c884e95b9",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b21c0dff2416",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cee31aafc132",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cbc29e71284e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2b681059d31c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_12a89237d547",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_42b455544c8e",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7ff50c055142",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3e6266f2037c",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3feb0e211998",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3a400ef26250",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58c858205bed",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_90079795d6da",
+              "ring": "related",
+              "reason": "Public image and fields show forks, spoons, mixed cutlery or a combination multitool, not a flat cooking turner-only product.",
+              "why_plausible": "Full public turner and fork/spoon query windows; every result preserved in original order.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "96 unique public product images and native fields checked; complete stable-ID answer matrix retained."
+          }
+        },
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding"
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and public answer-boundary review."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/omelette-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A black slotted turner with metal handle actually loosens, flips and presses the omelette in the frying pan. Both sampled operations expose the broad slotted head and actual food contact.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "At the sink, a mug is filled from the running tap; the used turner is left elsewhere, not visible.",
+          "supported_by": [
+            "V0:0"
+          ]
+        },
+        {
+          "text": "The mug is raised to drink while facing the window; the used turner is not visible.",
+          "supported_by": [
+            "V0:1"
+          ]
+        },
+        {
+          "text": "The cutlery drawer is open and a metal bowl-head spoon is taken out. The used turner had been placed in the sink at1289–1290 and is not in these views. The stationary stand contains multiple unused utensils, not an isolated active-tool reminder.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The metal bowl-head spoon actually scoops sugar from a clear container for a mug. The used turner remains offscreen.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    }
+  ]
+}

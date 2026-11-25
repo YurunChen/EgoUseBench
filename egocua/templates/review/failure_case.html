@@ -1,0 +1,132 @@
+{% extends "review/base.html" %}
+{% block title %}{{ case.packet.run_id }} · 失败原因复核{% endblock %}
+{% block content %}
+  <a class="back" href="{{ url_for('failure_index', scope=case.scope) }}">← 返回失败原因复核</a>
+  <section class="case-head">
+    <div>
+      <div class="pills">
+        <span class="pill">{{ case.packet.track }}</span>
+        <span class="pill muted">{{ case.packet.site }}</span>
+      </div>
+      <h1>{{ case.packet.task_id }}</h1>
+      <p>{{ case.packet.run_id }}</p>
+    </div>
+  </section>
+  {% if error %}<p class="notice error">{{ error }}</p>{% endif %}
+  <section class="panel">
+    <h2>1. 任务与现实画面</h2>
+    {% if case.packet.diagnostic %}
+      {% for item in case.packet.diagnostic.missing_evidence %}
+        <p class="notice">缺少历史证据：{{ item }}。不使用当前内容替代。</p>
+      {% endfor %}
+    {% endif %}
+    {% if case.packet.diagnostic %}
+      <h3>模型实际收到的初始要求与实验条件</h3>
+      {% set initial = case.packet.diagnostic.get('actual_initial_input') %}
+      {% if initial and initial.instruction %}
+        <p class="instruction">{{ initial.instruction }}</p>
+      {% endif %}
+      <details><summary>执行模型的动作协议与输出限制</summary>
+        <pre>{{ case.packet.diagnostic.get('agent_protocol')|tojson(indent=2) }}</pre>
+        <pre>{{ case.packet.diagnostic.get('request_outcomes')|tojson(indent=2) }}</pre>
+      </details>
+      <details><summary>实验条件与提问设置</summary>
+        <pre>{{ initial|tojson(indent=2) }}</pre>
+        <pre>{{ case.packet.diagnostic.get('condition')|tojson(indent=2) }}</pre>
+      </details>
+    {% endif %}
+    {% if case.packet.diagnostic and case.packet.diagnostic.task_context %}
+      {% set context = case.packet.diagnostic.task_context %}
+      <p>以下为历史任务定义，包含完整要求和参考答案；模型当时实际收到的信息以第 2 节的历史网页与释放记录为准。</p>
+      <pre>{{ context.instructions|tojson(indent=2) }}</pre>
+      {% if context.reference %}
+        <details><summary>历史参考答案与变化要求</summary><pre>{{ context.reference|tojson(indent=2) }}</pre></details>
+      {% endif %}
+      {% for image in case.wearer_inputs %}
+        <p>第 {{ image.step }} 步送达 · {{ image.label }}</p>
+        <div class="frames failure-images"><button type="button" class="frame-thumb" data-src="{{ image.data_url }}" data-caption="第{{ image.step }}步送达 · {{ image.label }}"><img src="{{ image.data_url }}" alt="当时送达的拼图，点击放大"></button></div>
+      {% endfor %}
+    {% endif %}
+  </section>
+  <section class="panel">
+    <h2>2. 完整执行证据</h2>
+    {% if case.packet.run_artifact %}
+      <p>
+        <a href="{{ url_for('review_asset', path=case.packet.run_artifact ~ '/run.json') }}" target="_blank">完整轨迹</a>
+      </p>
+    {% endif %}
+    {% if case.packet.diagnostic %}
+      <details>
+        <summary>查看初始网站状态和历史网站资料</summary>
+        <pre>{{ case.packet.diagnostic.initial_state|tojson(indent=2) }}</pre>
+        {% if case.packet.diagnostic.site_reference %}
+          <p>历史网站包含 {{ case.packet.diagnostic.site_entity_count }} 个条目。
+            <a href="{{ url_for('review_asset', path=case.packet.diagnostic.site_reference) }}" target="_blank">打开完整历史网站资料</a>
+          </p>
+        {% endif %}
+      </details>
+      <h3>运行结束的网站状态</h3>
+      <pre>{{ case.packet.diagnostic.actual_final_state|tojson(indent=2) }}</pre>
+      <details>
+        <summary>查看网站动作及状态变化</summary>
+        <pre>{{ case.packet.diagnostic.actions|tojson(indent=2) }}</pre>
+      </details>
+      <details>
+        <summary>查看历史网页、已释放信息和动作反馈</summary>
+        {% for web in case.packet.diagnostic.web_observations %}
+          <details>
+            <summary>第 {{ web.metadata.step_number }} 步网页观察</summary>
+            {% if loop.index0 in case.web_screenshots %}
+              <div class="frames failure-images"><button type="button" class="frame-thumb" data-src="{{ url_for('review_asset', path=case.web_screenshots[loop.index0]) }}" data-caption="第{{ web.metadata.step_number }}步网页截图"><img src="{{ url_for('review_asset', path=case.web_screenshots[loop.index0]) }}" alt="历史网页截图，点击放大"></button></div>
+            {% endif %}
+            <pre>{{ web|tojson(indent=2) }}</pre>
+          </details>
+        {% endfor %}
+      </details>
+    {% endif %}
+  </section>
+  <section class="panel">
+    <h2>相关网页对象的历史公开资料</h2>
+    {% for entity in case.entity_evidence %}
+      <details>
+        <summary>{{ entity.record.get('name', entity.record.get('title', entity.record.entity_id)) }}</summary>
+        {% if entity.image_path %}
+          <div class="frames failure-images"><button type="button" class="frame-thumb" data-src="{{ url_for('review_asset', path=entity.image_path) }}" data-caption="{{ entity.record.get('name', entity.record.get('title', entity.record.entity_id)) }}"><img src="{{ url_for('review_asset', path=entity.image_path) }}" alt="历史网页对象图片，点击放大"></button></div>
+        {% endif %}
+        <pre>{{ entity.record|tojson(indent=2) }}</pre>
+      </details>
+    {% endfor %}
+  </section>
+  <form class="panel form" method="post" action="{{ url_for('submit_failure', run_id=case.packet.run_id, scope=case.scope) }}">
+    <h2>3. 独立复核最早且未被恢复的决定性失败</h2>
+    <p>只根据画面、完整动作和网站状态判断。页面不会展示自动归因标签。</p>
+    <div class="pulse-options">
+      {% for stage in case.stages %}
+        <label>
+          <input type="radio" name="pulse_stage" value="{{ stage.value }}"
+            {% if case.rating and case.rating.pulse_stage == stage.value %}checked{% endif %}>
+          <b>{{ stage.value }} · {{ stage.zh }}</b><span>{{ stage.guidance }}</span>
+        </label>
+      {% endfor %}
+      <label>
+          <input type="radio" name="pulse_stage" value=""
+          {% if case.rating and case.rating.pulse_stage is none %}checked{% endif %}>
+        <b>Unknown · 原因不明</b><span>缺少证据或无法区分类别时使用</span>
+      </label>
+    </div>
+    <label>运行判断
+      <select name="run_verdict">
+        {% for value, label in [('valid_model_failure', '模型失败'), ('task_or_site_defect', '任务或合理答案待核'), ('invalid_run', '运行无效')] %}
+          <option value="{{ value }}" {% if case.rating and case.rating.run_verdict == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>关键错误步骤（无法确定可留空）
+      <input type="number" name="first_decisive_step" min="0" step="1" value="{{ case.rating.first_decisive_step if case.rating and case.rating.first_decisive_step is not none else '' }}">
+    </label>
+    <label>判断证据
+      <textarea name="evidence" required placeholder="写明动作轨迹中可以直接观察到的证据">{{ case.rating.evidence if case.rating else '' }}</textarea>
+    </label>
+    <button class="primary" type="submit">保存独立复核</button>
+  </form>
+{% endblock %}

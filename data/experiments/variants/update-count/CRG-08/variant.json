@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "pair_id": "CRG-08",
+  "id": "CRG-08-update-count",
+  "source_task_path": "data/experiments/composite/CRG-08.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "refresh",
+      "onset_seconds": 279.2
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 293.2,
+      "request": "For the egg video, five minutes or less, please."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 319.2,
+      "request": "For the egg video, two minutes or less, please. I only need a quick reminder."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_d83075fd93aa",
+        "m_a7cb61b3ce85"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_1aa1589f7f9d",
+        "m_a7cb61b3ce85"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "293.2秒已在279.2秒Refresh之后，目标为微波炒蛋，另一项原C指定的线圈滴盘清洁视频不变。309秒Melanie Cooks微波炒蛋有原已审完整公开逐字稿，134秒Scrambled Eggs in a Mug同样适用；5分钟限制排除309秒而保留134秒。",
+    "public_facts": [
+      {
+        "entity_id": "m_d83075fd93aa",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 309
+      },
+      {
+        "entity_id": "m_1aa1589f7f9d",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 134
+      },
+      {
+        "entity_id": "m_a7cb61b3ce85",
+        "path": [
+          "title"
+        ],
+        "equals": "How to Clean Your Stovetop and Drip Pans"
+      },
+      {
+        "entity_id": "m_1aa1589f7f9d",
+        "path": [
+          "title"
+        ],
+        "equals": "5 Minute Breakfast - Scrambled Eggs in a Mug"
+      },
+      {
+        "entity_id": "m_d83075fd93aa",
+        "path": [
+          "title"
+        ],
+        "equals": "MICROWAVE SCRAMBLED EGGS 🥚 Super Quick Recipe That's Actually Fluffy & Delicious! No Skills Needed 🔥"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_d83075fd93aa",
+        "retained_state": "m_1aa1589f7f9d"
+      },
+      "operator": "<=",
+      "value": 300
+    },
+    "original_request_effect": "319.2秒原<=2分钟再排除134秒，原短微波蛋+滴盘清洁完整终态保留。"
+  }
+}

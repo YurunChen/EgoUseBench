@@ -1,0 +1,1224 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing user-confirmed research permission; no public release."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-position-2026102802",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          25
+        ],
+        "media_id": "ab79b685-2f8e-48ac-b134-8ce2e635d89e",
+        "original_video_id": "ab79b685-2f8e-48ac-b134-8ce2e635d89e",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              20,
+              23.5
+            ],
+            "description": "While chopping potatoes, the wearer faces a green oblong rectangular cutting board on the right and a dark round cooking pan with one long handle on the hob to the left. Both are plausible spare-kitchen-item referents."
+          }
+        ],
+        "scope_note": "Position is relative to the wearer during this released chopping interval, not the whole three-minute recording. The old toaster annotation is not visual evidence."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            20.0,
+            20.5,
+            21.0,
+            21.5,
+            22.0,
+            22.5,
+            23.0,
+            23.5
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102802/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A rectangular cutting board remains on the wearer's right and a round handled pan on the left throughout the released chopping interval. Exact brand, dimensions, material and colour are not requirements.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent resolve a natural spatial reference between two real kitchen items and buy a practical spare rather than the wrong object, accessory or pack?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I'd like a spare of one of these two kitchen items, the cutting board or the cooking pan. Add a single one with a working surface of the same general shape to the cart, not a set. Any brand, colour, material or size is fine.",
+          "oracle_instruction": "I'd like a spare of the kitchen item on my right, out of the cutting board and cooking pan. Add a single one with a working surface of the same general shape to the cart, not a set. Any brand, colour, material or size is fine.",
+          "candidate_roles": [
+            "board",
+            "pan"
+          ],
+          "hidden_target_role": "board",
+          "valid_slot": "position",
+          "canonical_question": "Do you mean the item on your left or on your right?",
+          "canonical_answer": "The one on my right.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "board": "p_df7ff0bb7df7",
+            "pan": "p_5d8de116d98f"
+          },
+          "equivalent_role_ids": {
+            "board": [
+              "p_a7357dfd087b",
+              "p_acbaa6549057",
+              "p_abea599c0acb",
+              "p_b8a6140cd1eb",
+              "p_9e2f11085f06",
+              "p_7da6a0ce4322",
+              "p_cc94c5c8bb69",
+              "p_c883ca1a5604",
+              "p_0163903151ba",
+              "p_42f7bb5c2e63",
+              "p_8e74983285bc",
+              "p_5852391e77ad",
+              "p_b6b4b19e4a84",
+              "p_8247ef1e3fb0",
+              "p_79a2ab901fff",
+              "p_73bf11a7fb11",
+              "p_ff785d055ca2",
+              "p_65f0e97f775d",
+              "p_7103004640b8",
+              "p_35c6a33ab280",
+              "p_6c903ccea21b",
+              "p_3521efa8af00",
+              "p_47246a89c470",
+              "p_9085174bb86e",
+              "p_583614d031eb",
+              "p_5de5eb353dbb",
+              "p_133c909b608d",
+              "p_85a1c5b3472e",
+              "p_1c95b02e1dae",
+              "p_514032a306d6",
+              "p_1d0077e881f3",
+              "p_ecda32bd5d55",
+              "p_533408b61071",
+              "p_5dc09460bde6",
+              "p_2be8e84d0763",
+              "p_6de24740788c",
+              "p_97def538980c"
+            ],
+            "pan": [
+              "p_48d38c4a07ef",
+              "p_d113551b44ae",
+              "p_8a7eaa9a2b25",
+              "p_2f3cb63631ae",
+              "p_839507bc9818",
+              "p_71a8d25134c8",
+              "p_1eaa7488b8ff",
+              "p_5769ce2a84c5",
+              "p_586d57e59626",
+              "p_e1723a22040c",
+              "p_2245cecd9c3e",
+              "p_9d2c32f55827",
+              "p_c5edcfdfc706",
+              "p_7ceb4bec4ea0",
+              "p_63d16d558081",
+              "p_67ad92c7ca79",
+              "p_52b7d3cb6bd5",
+              "p_26b3b05a20bf",
+              "p_c0bd8a880c28",
+              "p_ded04d11098f",
+              "p_5df5da31a47f",
+              "p_e8ade946ab59",
+              "p_28bad4916ffe",
+              "p_6fe156f5b24f",
+              "p_a9f95778a0f6",
+              "p_4a11fd74f5bd",
+              "p_381290e8178f",
+              "p_027259fe74fb",
+              "p_1cb60295a41b",
+              "p_ebb809677a77",
+              "p_66c4e21bc652"
+            ]
+          },
+          "completion_claim": "Exactly one oblong rectangular cutting board from all verified alternatives in the final cart. Pan depth, board handle shape, folds, brand, material, colour and dimensions are not hidden constraints."
+        },
+        "decision": {
+          "candidates": {
+            "board": "p_df7ff0bb7df7",
+            "pan": "p_5d8de116d98f"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "board",
+                "pan"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "board"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The answer gives only wearer-relative right; the released scene links right to the board, not to a product name."
+            }
+          ],
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-28",
+          "note": "Construction screening, not independent semantic approval."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "after_change",
+              "query": "rectangular cutting board single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102802.json",
+              "result_entity_ids": [
+                "p_df7ff0bb7df7",
+                "p_a7357dfd087b",
+                "p_acbaa6549057",
+                "p_abea599c0acb",
+                "p_b8a6140cd1eb",
+                "p_9e2f11085f06",
+                "p_049f910377a2",
+                "p_7da6a0ce4322",
+                "p_cc94c5c8bb69",
+                "p_c883ca1a5604",
+                "p_0163903151ba",
+                "p_42f7bb5c2e63",
+                "p_8e74983285bc",
+                "p_5852391e77ad",
+                "p_b6b4b19e4a84",
+                "p_9f6fc4503323",
+                "p_8247ef1e3fb0",
+                "p_79a2ab901fff",
+                "p_a40b64e280f8",
+                "p_73bf11a7fb11",
+                "p_e6413490afe7",
+                "p_ff785d055ca2",
+                "p_65f0e97f775d",
+                "p_7103004640b8",
+                "p_35c6a33ab280",
+                "p_854b96d1e518",
+                "p_6c903ccea21b",
+                "p_3521efa8af00",
+                "p_a5dcb6c18f97",
+                "p_47246a89c470",
+                "p_9085174bb86e",
+                "p_97def538980c",
+                "p_583614d031eb",
+                "p_5de5eb353dbb",
+                "p_f88f7e0d52de",
+                "p_133c909b608d",
+                "p_a139bcaddd6e",
+                "p_d7c08fad4fa3",
+                "p_85a1c5b3472e",
+                "p_1c95b02e1dae",
+                "p_514032a306d6",
+                "p_1d0077e881f3",
+                "p_f92b476fa522",
+                "p_ecda32bd5d55",
+                "p_533408b61071",
+                "p_5dc09460bde6",
+                "p_2be8e84d0763",
+                "p_6de24740788c"
+              ]
+            },
+            {
+              "stage": "before_change",
+              "query": "cooking pan single handle",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102802.json",
+              "result_entity_ids": [
+                "p_5d8de116d98f",
+                "p_48d38c4a07ef",
+                "p_d113551b44ae",
+                "p_dfa987f0c48e",
+                "p_8a7eaa9a2b25",
+                "p_8c9a7d9aa4c5",
+                "p_2f3cb63631ae",
+                "p_839507bc9818",
+                "p_71a8d25134c8",
+                "p_1eaa7488b8ff",
+                "p_5769ce2a84c5",
+                "p_586d57e59626",
+                "p_9973f5ab4a13",
+                "p_e1723a22040c",
+                "p_2245cecd9c3e",
+                "p_9d2c32f55827",
+                "p_762edf1e5ed1",
+                "p_d4b544b0c6f7",
+                "p_c5edcfdfc706",
+                "p_7ceb4bec4ea0",
+                "p_63d16d558081",
+                "p_67ad92c7ca79",
+                "p_52b7d3cb6bd5",
+                "p_2f408373b0b9",
+                "p_ce9575ee3982",
+                "p_26b3b05a20bf",
+                "p_c0bd8a880c28",
+                "p_ded04d11098f",
+                "p_5df5da31a47f",
+                "p_0a7e5659dd58",
+                "p_e8ade946ab59",
+                "p_d642bf4e9be3",
+                "p_28bad4916ffe",
+                "p_3a1c31f83747",
+                "p_defa9aad0b1b",
+                "p_d862f42c2526",
+                "p_6fe156f5b24f",
+                "p_a9f95778a0f6",
+                "p_4a11fd74f5bd",
+                "p_3a0e2299e75b",
+                "p_41196ffcd0ef",
+                "p_381290e8178f",
+                "p_027259fe74fb",
+                "p_af4a53b84cce",
+                "p_097edf76d373",
+                "p_1cb60295a41b",
+                "p_ebb809677a77",
+                "p_66c4e21bc652"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_df7ff0bb7df7",
+            "p_a7357dfd087b",
+            "p_acbaa6549057",
+            "p_abea599c0acb",
+            "p_b8a6140cd1eb",
+            "p_9e2f11085f06",
+            "p_049f910377a2",
+            "p_7da6a0ce4322",
+            "p_cc94c5c8bb69",
+            "p_c883ca1a5604",
+            "p_0163903151ba",
+            "p_42f7bb5c2e63",
+            "p_8e74983285bc",
+            "p_5852391e77ad",
+            "p_b6b4b19e4a84",
+            "p_9f6fc4503323",
+            "p_8247ef1e3fb0",
+            "p_79a2ab901fff",
+            "p_a40b64e280f8",
+            "p_73bf11a7fb11",
+            "p_e6413490afe7",
+            "p_ff785d055ca2",
+            "p_65f0e97f775d",
+            "p_7103004640b8",
+            "p_35c6a33ab280",
+            "p_854b96d1e518",
+            "p_6c903ccea21b",
+            "p_3521efa8af00",
+            "p_a5dcb6c18f97",
+            "p_47246a89c470",
+            "p_9085174bb86e",
+            "p_97def538980c",
+            "p_583614d031eb",
+            "p_5de5eb353dbb",
+            "p_f88f7e0d52de",
+            "p_133c909b608d",
+            "p_a139bcaddd6e",
+            "p_d7c08fad4fa3",
+            "p_85a1c5b3472e",
+            "p_1c95b02e1dae",
+            "p_514032a306d6",
+            "p_1d0077e881f3",
+            "p_f92b476fa522",
+            "p_ecda32bd5d55",
+            "p_533408b61071",
+            "p_5dc09460bde6",
+            "p_2be8e84d0763",
+            "p_6de24740788c",
+            "p_5d8de116d98f",
+            "p_48d38c4a07ef",
+            "p_d113551b44ae",
+            "p_dfa987f0c48e",
+            "p_8a7eaa9a2b25",
+            "p_8c9a7d9aa4c5",
+            "p_2f3cb63631ae",
+            "p_839507bc9818",
+            "p_71a8d25134c8",
+            "p_1eaa7488b8ff",
+            "p_5769ce2a84c5",
+            "p_586d57e59626",
+            "p_9973f5ab4a13",
+            "p_e1723a22040c",
+            "p_2245cecd9c3e",
+            "p_9d2c32f55827",
+            "p_762edf1e5ed1",
+            "p_d4b544b0c6f7",
+            "p_c5edcfdfc706",
+            "p_7ceb4bec4ea0",
+            "p_63d16d558081",
+            "p_67ad92c7ca79",
+            "p_52b7d3cb6bd5",
+            "p_2f408373b0b9",
+            "p_ce9575ee3982",
+            "p_26b3b05a20bf",
+            "p_c0bd8a880c28",
+            "p_ded04d11098f",
+            "p_5df5da31a47f",
+            "p_0a7e5659dd58",
+            "p_e8ade946ab59",
+            "p_d642bf4e9be3",
+            "p_28bad4916ffe",
+            "p_3a1c31f83747",
+            "p_defa9aad0b1b",
+            "p_d862f42c2526",
+            "p_6fe156f5b24f",
+            "p_a9f95778a0f6",
+            "p_4a11fd74f5bd",
+            "p_3a0e2299e75b",
+            "p_41196ffcd0ef",
+            "p_381290e8178f",
+            "p_027259fe74fb",
+            "p_af4a53b84cce",
+            "p_097edf76d373",
+            "p_1cb60295a41b",
+            "p_ebb809677a77",
+            "p_66c4e21bc652"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_049f910377a2",
+            "p_a40b64e280f8",
+            "p_e6413490afe7",
+            "p_854b96d1e518",
+            "p_48d38c4a07ef",
+            "p_762edf1e5ed1"
+          ],
+          "related_entity_ids": [
+            "p_9f6fc4503323",
+            "p_a5dcb6c18f97",
+            "p_f88f7e0d52de",
+            "p_a139bcaddd6e",
+            "p_d7c08fad4fa3",
+            "p_f92b476fa522",
+            "p_5d8de116d98f",
+            "p_d113551b44ae",
+            "p_dfa987f0c48e",
+            "p_8a7eaa9a2b25",
+            "p_8c9a7d9aa4c5",
+            "p_2f3cb63631ae",
+            "p_839507bc9818",
+            "p_71a8d25134c8",
+            "p_1eaa7488b8ff"
+          ],
+          "ambient_entity_ids": [
+            "p_5769ce2a84c5",
+            "p_586d57e59626",
+            "p_9973f5ab4a13",
+            "p_e1723a22040c",
+            "p_2245cecd9c3e",
+            "p_9d2c32f55827",
+            "p_d4b544b0c6f7",
+            "p_c5edcfdfc706",
+            "p_7ceb4bec4ea0",
+            "p_63d16d558081",
+            "p_67ad92c7ca79",
+            "p_52b7d3cb6bd5",
+            "p_2f408373b0b9",
+            "p_ce9575ee3982",
+            "p_26b3b05a20bf",
+            "p_c0bd8a880c28",
+            "p_ded04d11098f",
+            "p_5df5da31a47f",
+            "p_0a7e5659dd58",
+            "p_e8ade946ab59",
+            "p_d642bf4e9be3",
+            "p_28bad4916ffe",
+            "p_3a1c31f83747",
+            "p_defa9aad0b1b",
+            "p_d862f42c2526",
+            "p_6fe156f5b24f",
+            "p_a9f95778a0f6",
+            "p_4a11fd74f5bd",
+            "p_3a0e2299e75b",
+            "p_41196ffcd0ef",
+            "p_381290e8178f",
+            "p_027259fe74fb",
+            "p_af4a53b84cce",
+            "p_097edf76d373",
+            "p_1cb60295a41b",
+            "p_ebb809677a77",
+            "p_66c4e21bc652"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_049f910377a2",
+              "ring": "core",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_9f6fc4503323",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_a40b64e280f8",
+              "ring": "core",
+              "reason": "Square working surface, unlike the clearly oblong rectangular board shown.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "different_working_surface_shape"
+              ]
+            },
+            {
+              "entity_id": "p_e6413490afe7",
+              "ring": "core",
+              "reason": "Square working surface, unlike the clearly oblong rectangular board shown.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "different_working_surface_shape"
+              ]
+            },
+            {
+              "entity_id": "p_854b96d1e518",
+              "ring": "core",
+              "reason": "A board holder, not a cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "accessory_not_board"
+              ]
+            },
+            {
+              "entity_id": "p_a5dcb6c18f97",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_f88f7e0d52de",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_a139bcaddd6e",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_d7c08fad4fa3",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_f92b476fa522",
+              "ring": "related",
+              "reason": "A multi-board or tableware set rather than one individual cutting board.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "multiple_item_package"
+              ]
+            },
+            {
+              "entity_id": "p_5d8de116d98f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_48d38c4a07ef",
+              "ring": "core",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d113551b44ae",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_dfa987f0c48e",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_8a7eaa9a2b25",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_8c9a7d9aa4c5",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2f3cb63631ae",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_839507bc9818",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_71a8d25134c8",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_1eaa7488b8ff",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_5769ce2a84c5",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_586d57e59626",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9973f5ab4a13",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_e1723a22040c",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2245cecd9c3e",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9d2c32f55827",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_762edf1e5ed1",
+              "ring": "core",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d4b544b0c6f7",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_c5edcfdfc706",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7ceb4bec4ea0",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_63d16d558081",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_67ad92c7ca79",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_52b7d3cb6bd5",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2f408373b0b9",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ce9575ee3982",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_26b3b05a20bf",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_c0bd8a880c28",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ded04d11098f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_5df5da31a47f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_0a7e5659dd58",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_e8ade946ab59",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d642bf4e9be3",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_28bad4916ffe",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3a1c31f83747",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_defa9aad0b1b",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d862f42c2526",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6fe156f5b24f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a9f95778a0f6",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_4a11fd74f5bd",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3a0e2299e75b",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_41196ffcd0ef",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_381290e8178f",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_027259fe74fb",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_af4a53b84cce",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_097edf76d373",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_1cb60295a41b",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ebb809677a77",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_66c4e21bc652",
+              "ring": "related",
+              "reason": "A cookware listing, not the cutting board on the wearer's right.",
+              "why_plausible": "A genuine result from the complete board or pan search window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ]
+        },
+        "catalogue_assessment": {
+          "rule": "One individual board with an oblong rectangular working surface; ordinary lids, serving use, folded lips, hanging holes and end handles do not disqualify an otherwise useful board. Exclude multi-board or tableware packages, square working surfaces and standalone holders. Rounded corners are acceptable. A double-sided board pictured from both sides is one board, not a set. No exact model or colour matching. A single board with an apparently rectangular main working surface remains acceptable when it adds holding fixtures; no unsupported square dimensions are inferred. Shape refers to the working surface, not a projecting handle or fixture.",
+          "initial_accepted": [
+            "p_df7ff0bb7df7",
+            "p_a7357dfd087b",
+            "p_acbaa6549057",
+            "p_abea599c0acb",
+            "p_b8a6140cd1eb",
+            "p_9e2f11085f06",
+            "p_7da6a0ce4322",
+            "p_cc94c5c8bb69",
+            "p_c883ca1a5604",
+            "p_0163903151ba",
+            "p_42f7bb5c2e63",
+            "p_8e74983285bc",
+            "p_5852391e77ad",
+            "p_b6b4b19e4a84",
+            "p_8247ef1e3fb0",
+            "p_79a2ab901fff",
+            "p_73bf11a7fb11",
+            "p_ff785d055ca2",
+            "p_65f0e97f775d",
+            "p_7103004640b8",
+            "p_35c6a33ab280",
+            "p_6c903ccea21b",
+            "p_3521efa8af00",
+            "p_47246a89c470",
+            "p_9085174bb86e",
+            "p_583614d031eb",
+            "p_5de5eb353dbb",
+            "p_133c909b608d",
+            "p_85a1c5b3472e",
+            "p_1c95b02e1dae",
+            "p_514032a306d6",
+            "p_1d0077e881f3",
+            "p_ecda32bd5d55",
+            "p_533408b61071",
+            "p_5dc09460bde6",
+            "p_2be8e84d0763",
+            "p_6de24740788c",
+            "p_5d8de116d98f",
+            "p_48d38c4a07ef",
+            "p_d113551b44ae",
+            "p_8a7eaa9a2b25",
+            "p_2f3cb63631ae",
+            "p_839507bc9818",
+            "p_71a8d25134c8",
+            "p_1eaa7488b8ff",
+            "p_5769ce2a84c5",
+            "p_586d57e59626",
+            "p_e1723a22040c",
+            "p_2245cecd9c3e",
+            "p_9d2c32f55827",
+            "p_c5edcfdfc706",
+            "p_7ceb4bec4ea0",
+            "p_63d16d558081",
+            "p_67ad92c7ca79",
+            "p_52b7d3cb6bd5",
+            "p_26b3b05a20bf",
+            "p_c0bd8a880c28",
+            "p_ded04d11098f",
+            "p_5df5da31a47f",
+            "p_e8ade946ab59",
+            "p_28bad4916ffe",
+            "p_6fe156f5b24f",
+            "p_a9f95778a0f6",
+            "p_4a11fd74f5bd",
+            "p_381290e8178f",
+            "p_027259fe74fb",
+            "p_1cb60295a41b",
+            "p_ebb809677a77",
+            "p_66c4e21bc652",
+            "p_97def538980c"
+          ],
+          "final_accepted": [
+            "p_df7ff0bb7df7",
+            "p_a7357dfd087b",
+            "p_acbaa6549057",
+            "p_abea599c0acb",
+            "p_b8a6140cd1eb",
+            "p_9e2f11085f06",
+            "p_7da6a0ce4322",
+            "p_cc94c5c8bb69",
+            "p_c883ca1a5604",
+            "p_0163903151ba",
+            "p_42f7bb5c2e63",
+            "p_8e74983285bc",
+            "p_5852391e77ad",
+            "p_b6b4b19e4a84",
+            "p_8247ef1e3fb0",
+            "p_79a2ab901fff",
+            "p_73bf11a7fb11",
+            "p_ff785d055ca2",
+            "p_65f0e97f775d",
+            "p_7103004640b8",
+            "p_35c6a33ab280",
+            "p_6c903ccea21b",
+            "p_3521efa8af00",
+            "p_47246a89c470",
+            "p_9085174bb86e",
+            "p_583614d031eb",
+            "p_5de5eb353dbb",
+            "p_133c909b608d",
+            "p_85a1c5b3472e",
+            "p_1c95b02e1dae",
+            "p_514032a306d6",
+            "p_1d0077e881f3",
+            "p_ecda32bd5d55",
+            "p_533408b61071",
+            "p_5dc09460bde6",
+            "p_2be8e84d0763",
+            "p_6de24740788c",
+            "p_97def538980c"
+          ],
+          "evidence": "Both complete 48-result native pages, all 96 public listing images and titles screened; shared real products deduplicated by ASIN. Independent review found the general-shape modifier ambiguous and the square claim for p_97def538980c unsupported. The former is clarified in both public instructions; the latter is accepted as a practical substitute from its visible rectangular board rather than excluded without evidence."
+        },
+        "belief_before": "Either the visible cutting board or the visible cooking pan could be the requested spare.",
+        "belief_after": "The right-hand referent is the cutting board; choose one practical board with an oblong rectangular working surface.",
+        "required_behavior_change": "Use the wearer-relative spatial answer to choose the board and leave no pan or extra item in the final cart.",
+        "no_update_failure": "Guess the pan or retain ambiguity without using the available answer.",
+        "overupdate_failure": "Buy both kitchen items, or impose an unrequested exact colour, material or brand.",
+        "visual_dependency_claim": "The answer names only right. The physical view is needed to link that direction to the board; both referent families exist in the real search window. A single well-aimed frame may suffice, which is acceptable for this static-reference control."
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Native 480x360 source, entire three-minute contact sheet and all eight released views screened. The 20–23.5-second chopping interval keeps both spatial referents visible. Canonical parent is independent of all current formal recordings."
+      },
+      "repair": {
+        "date": "2026-10-28",
+        "review": ".scratch/architecture-expansion-20261028/review/board-adversarial-verdict.json",
+        "changes": [
+          "Clarified that the general shape applies to the working surface, not the whole handle outline.",
+          "Accepted p_97def538980c; removed unsupported square-surface rejection."
+        ],
+        "retained_evidence": "Unchanged eight source frames, physical spatial referents, clarification answer, real website facts and original blind primary state. Only these answer/wording boundaries need follow-up."
+      },
+      "stream": {
+        "session_seconds": [
+          20.0,
+          87.5
+        ],
+        "review_evidence": ".scratch/stream-materials/review/candidate-mart-clarify-position-2026102802/review.json",
+        "wearer_frames_per_image": 1
+      },
+      "repair_history": [
+        {
+          "date": "2026-11-16",
+          "scope": "rendering_only",
+          "previous_stream": {
+            "session_seconds": [
+              20.0,
+              87.5
+            ],
+            "review_evidence": ".scratch/stream-materials/review/candidate-mart-clarify-position-2026102802/review.json"
+          },
+          "changes": {
+            "wearer_frames_per_image": 1
+          },
+          "reason": "Preserve all source frames, timestamps, release times, requests and goals. Apply the tested rendering setting uniformly across models and affected conditions.",
+          "review_evidence": "artifacts/reports/source-review-evidence/render-diagnostics-20261116.json",
+          "native_trial": {
+            "study": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-153607-203496_任务诊断_原始单帧_kimi-k2.6",
+            "run_id": "20261116-160444-384238-7feb6546",
+            "archive": "/Users/yurunchen/project/Method/egoCUAbench/experiments/20261116-153607-203496_任务诊断_原始单帧_kimi-k2.6/runs/20261116-160444-384238-7feb6546",
+            "purpose": "task_validation"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block body_class %}home{% endblock %}
+{% block main %}
+{% if has_replays %}
+{% include "_player.html" %}
+{% else %}
+<section class="hero-stage">
+  <div class="hero-inner">
+    {% include "_hero_intro.html" %}
+  </div>
+</section>
+{% endif %}
+
+<section class="exhibit" id="abstract" aria-labelledby="abstract-title">
+  <div class="abstract-copy">
+    <h2 id="abstract-title">Abstract:</h2>
+    {% for paragraph in content.abstract %}<p>{{ paragraph }}</p>{% endfor %}
+  </div>
+</section>
+
+<section class="exhibit" aria-labelledby="leaderboard-title">
+  <h2 id="leaderboard-title">Leaderboard</h2>
+  {% include "_leaderboard.html" %}
+</section>
+
+<section class="exhibit cite" id="citation" aria-labelledby="citation-title">
+  <div class="cite-head">
+    <h2 id="citation-title">Citation</h2>
+    <div class="cite-actions">
+      <button class="cite-copy" type="button" hidden>Copy BibTeX</button>
+      <span class="cite-status" role="status"></span>
+    </div>
+  </div>
+  <pre>{{ content.citation }}</pre>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+  (() => {
+    const citation = document.querySelector("#citation");
+    if (!navigator.clipboard) return;
+    const button = citation.querySelector("button");
+    const status = citation.querySelector('[role="status"]');
+    button.hidden = false;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(citation.querySelector("pre").textContent);
+        status.textContent = "Copied";
+      } catch {
+        status.textContent = "Select the BibTeX below to copy it.";
+      }
+    });
+  })();
+</script>
+{% if has_replays %}
+<script src="{{ url_for('static', filename='player.js') }}" defer></script>
+{% endif %}
+{% endblock %}

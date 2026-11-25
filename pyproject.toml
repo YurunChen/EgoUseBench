@@ -8,22 +8,20 @@ version = "0.1.0"
 description = "Three-track diagnostic benchmark for egocentric web agents"
 requires-python = ">=3.11"
 dependencies = [
+    "browsergym-core>=0.14,<0.15",
     "flask>=3.1,<4",
+    "httpx[socks]>=0.28,<0.29",
+    "openai>=2,<3",
     "pillow>=11,<13",
     "python-dotenv>=1.0,<2",
     "requests>=2.32,<3",
-]
-
-[project.optional-dependencies]
-browser-use = [
-    "browser-use[core]>=0.13,<0.14",
-    "socksio>=1,<2",
 ]
 
 [dependency-groups]
 dev = [
     "mypy>=1.15,<2",
     "pytest>=8,<10",
+    "ruff>=0.11,<1",
     "types-requests>=2.32,<3",
 ]
 
@@ -31,7 +29,27 @@ dev = [
 egocua = "egocua.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["egocua*", "sites*"]
+include = ["egocua*", "sites*", "tools*", "website*"]
+
+[tool.setuptools.package-data]
+"egocua" = ["templates/review/*.html", "static/*.css", "static/*.js"]
+"egocua.adapters" = ["human.html"]
+"sites" = ["fonts/*.ttf", "fonts/OFL.txt"]
+"website" = [
+    "data.json",
+    "templates/*.html",
+    "static/*.css",
+    "static/*.js",
+    "static/*.svg",
+    "static/egousebench-logo.png",
+    "static/ai4gc-lab-logo.png",
+    "static/zhejiang-university-logo.png",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["requires_local_data(*paths): check a real corpus, review record, or local tool"]
+
+[tool.ruff.lint]
+# Keep CI focused on syntax, correctness, and common runtime footguns.
+select = ["E4", "E7", "E9", "F", "B"]

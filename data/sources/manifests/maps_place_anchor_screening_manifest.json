@@ -1,0 +1,1068 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Local source videos and annotations are retained under the upstream Ego2Web research-use terms; only source-grounded visual evidence is compiled."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-maps-clarify-variant-03",
+      "status": "retired_missing_evidence",
+      "family": "clarify",
+      "subtype": "variant",
+      "source": {
+        "record_ids": [
+          296
+        ],
+        "media_id": "77d65e78-ec0d-40fa-8047-b5758809ed26",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "Using google.com/maps, search for places associated with the exact dessert brand printed on the container in the video. Open a place result that is clearly related to desserts or bakeries and provide the place name, city, and star rating."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            40,
+            45
+          ],
+          "decision": "The dessert container repeatedly exposes the readable COCOBERRY wordmark, but nothing in the footage identifies one physical branch."
+        },
+        "observed_events": [
+          {
+            "role": "brand_reveal",
+            "interval_seconds": [
+              40,
+              45
+            ],
+            "description": "The COCOBERRY name is readable on the dessert container."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            40,
+            40.7,
+            41.4,
+            42.1,
+            42.8,
+            43.5,
+            44.2,
+            44.9
+          ],
+          "frame_paths": [
+            "data/observations/candidate-maps-clarify-variant-03/V0_00.jpg",
+            "data/observations/candidate-maps-clarify-variant-03/V0_01.jpg",
+            "data/observations/candidate-maps-clarify-variant-03/V0_02.jpg",
+            "data/observations/candidate-maps-clarify-variant-03/V0_03.jpg",
+            "data/observations/candidate-maps-clarify-variant-03/V0_04.jpg",
+            "data/observations/candidate-maps-clarify-variant-03/V0_05.jpg",
+            "data/observations/candidate-maps-clarify-variant-03/V0_06.jpg",
+            "data/observations/candidate-maps-clarify-variant-03/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The released packet makes the COCOBERRY brand readable while leaving the Defence Colony and DLF Phase 4 branches visually unresolved.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [
+        "画面只有印着 COCOBERRY 的容器，没有两家看得见的门店。Defence Colony 是网页上的分店，不是画面里能指出来的另一家。"
+      ],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent use a visible place brand, recognize that it does not identify a branch, and ask once before saving a map listing?",
+        "divergence_source": "grounding",
+        "event_origin": "observed",
+        "evidence_type": "record_identity",
+        "commitment_surface": "place_identity",
+        "belief_before": "The container identifies Cocoberry, but either frozen branch can satisfy the unqualified request.",
+        "belief_after": "The user's branch answer leaves only the Defence Colony listing.",
+        "required_behavior_change": "Ask which branch is intended before saving a listing, then use the answer.",
+        "no_update_failure": "The Agent guesses a Cocoberry branch before asking or ignores the answer.",
+        "overupdate_failure": "The Agent keeps asking after the oracle instruction already names the branch.",
+        "visual_dependency_claim": "The task text never names Cocoberry; the readable container wordmark is required to find the two branch candidates.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "ambiguous_instruction": "Find the business named on this container and save its map listing.",
+          "oracle_instruction": "Find the business named on this container, use its Defence Colony branch in New Delhi, and save that map listing.",
+          "candidate_roles": [
+            "defence_colony_branch",
+            "dlf_phase_4_branch"
+          ],
+          "hidden_target_role": "defence_colony_branch",
+          "valid_slot": "variant",
+          "canonical_question": "Which branch do you mean: Defence Colony or DLF Phase 4?",
+          "canonical_answer": "The Defence Colony branch in New Delhi.",
+          "goal_fields": {},
+          "environment_role_ids": {
+            "defence_colony_branch": "l_93297fefa80d",
+            "dlf_phase_4_branch": "l_20fb69c46737"
+          },
+          "completion_claim": "The Defence Colony Cocoberry listing is saved after one branch clarification.",
+          "target_granularity": "exact_instance"
+        },
+        "decision_point_provenance": "ego2web_place_anchor_rescreen_v1",
+        "decision": {
+          "candidates": {
+            "defence_colony_branch": "l_93297fefa80d",
+            "dlf_phase_4_branch": "l_20fb69c46737"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "defence_colony_branch",
+                "dlf_phase_4_branch"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "defence_colony_branch"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The answer explicitly names the Defence Colony branch."
+            }
+          ],
+          "established_by": "codex",
+          "established_at": "2026-08-24"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "Cocoberry",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-clarify-variant-03.json",
+              "result_entity_ids": [
+                "l_535850194b8d",
+                "l_7ce433380ded",
+                "l_ee0d6e957c3a",
+                "l_179fdee17bfa",
+                "l_3544384966d9",
+                "l_2f1218f0fcad",
+                "l_abcec1a0a551",
+                "l_93297fefa80d",
+                "l_0b409629a567",
+                "l_19c411b37471",
+                "l_9e69ec9bad3e",
+                "l_9de26101a6c4",
+                "l_5a58bbbdcbe7",
+                "l_20fb69c46737",
+                "l_8c5b3f4c83b1"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "Cocoberry Defence Colony New Delhi",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-clarify-variant-03.json",
+              "result_entity_ids": [
+                "l_93297fefa80d",
+                "l_793df5699dfc",
+                "l_8c5b3f4c83b1",
+                "l_2f1218f0fcad",
+                "l_0b409629a567",
+                "l_19c411b37471",
+                "l_9e69ec9bad3e",
+                "l_5a58bbbdcbe7",
+                "l_535850194b8d",
+                "l_7ce433380ded",
+                "l_ee0d6e957c3a",
+                "l_179fdee17bfa",
+                "l_3544384966d9",
+                "l_abcec1a0a551",
+                "l_9de26101a6c4"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "l_535850194b8d",
+            "l_7ce433380ded",
+            "l_ee0d6e957c3a",
+            "l_179fdee17bfa",
+            "l_3544384966d9",
+            "l_2f1218f0fcad",
+            "l_abcec1a0a551",
+            "l_93297fefa80d",
+            "l_0b409629a567",
+            "l_19c411b37471",
+            "l_9e69ec9bad3e",
+            "l_9de26101a6c4",
+            "l_5a58bbbdcbe7",
+            "l_20fb69c46737",
+            "l_8c5b3f4c83b1",
+            "l_793df5699dfc"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "l_20fb69c46737",
+            "l_0b409629a567",
+            "l_2f1218f0fcad",
+            "l_793df5699dfc"
+          ],
+          "related_entity_ids": [
+            "l_535850194b8d",
+            "l_7ce433380ded",
+            "l_ee0d6e957c3a",
+            "l_179fdee17bfa",
+            "l_3544384966d9",
+            "l_abcec1a0a551",
+            "l_19c411b37471",
+            "l_9e69ec9bad3e",
+            "l_9de26101a6c4",
+            "l_5a58bbbdcbe7",
+            "l_8c5b3f4c83b1"
+          ],
+          "ambient_entity_ids": [],
+          "detail_decision_fields": [
+            "name",
+            "address",
+            "location",
+            "summary",
+            "facts"
+          ],
+          "rejected": [
+            {
+              "entity_id": "l_20fb69c46737",
+              "ring": "core",
+              "reason": "详情页将该店列在 Gurugram 的 DLF Phase 4，不是 New Delhi 的 Defence Colony。",
+              "why_plausible": "它是另一家真实 Cocoberry 冻酸奶分店，品牌和服务类别与画面一致。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_0b409629a567",
+              "ring": "core",
+              "reason": "澄清回答指定 Defence Colony，官方分店信息将该店列为 GK1。",
+              "why_plausible": "它是 New Delhi 的真实 Cocoberry 冻酸奶分店，匹配画面品牌、类别和城市。",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_2f1218f0fcad",
+              "ring": "core",
+              "reason": "规范地址和分店名是 Greater Kailash 2，不是 Defence Colony。",
+              "why_plausible": "它是 New Delhi 的另一家真实 Cocoberry 甜品店，搜索卡片与目标非常接近。",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_793df5699dfc",
+              "ring": "core",
+              "reason": "规范页面显示为 Giani Ice Cream，和画面中可读的 Cocoberry 品牌不同。",
+              "why_plausible": "它同样是 Defence Colony 的真实冷冻甜品店，位置、城市和服务类别都匹配。",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        }
+      },
+      "replaces_candidate_id": "candidate-maps-clarify-sequence-02",
+      "replacement_reason": "The old streetscape task required unsupported geolocation. This task uses readable brand evidence and real branch ambiguity.",
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "visual_brand_anchor_with_branch_clarification",
+        "reason": "Without the released frames, the task text does not reveal the dessert brand; the branch answer alone is insufficient."
+      }
+    },
+    {
+      "task_id": "candidate-maps-clarify-variant-04",
+      "status": "retired_missing_evidence",
+      "family": "clarify",
+      "subtype": "variant",
+      "source": {
+        "record_ids": [
+          408,
+          410,
+          416
+        ],
+        "media_id": "5916f072-3d42-4d96-95a2-2fa000d4bd37",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On google.com/maps, identify the winery named on the hoodie worn by the other player in the video. Open its Google Maps business listing and report its full street address and overall star rating.",
+          "On yelp.com, open the Yelp page for the same winery shown on the hoodie and provide the Price Range (e.g., $, $$, etc.) and the total number of reviews displayed.",
+          "Using google.com/maps, from the identified winery’s page, find the nearest hotel by walking distance and report the hotel’s name and the walking time shown."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            30,
+            35
+          ],
+          "decision": "The same hoodie remains in view and later close views make PEACE WATER WINERY readable; the garment does not identify one tasting-room branch."
+        },
+        "observed_events": [
+          {
+            "role": "brand_reveal",
+            "interval_seconds": [
+              30,
+              35
+            ],
+            "description": "The PEACE WATER WINERY name becomes readable on the hoodie."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            30,
+            30.7,
+            31.4,
+            32.1,
+            32.8,
+            33.5,
+            34.2,
+            34.9
+          ],
+          "frame_paths": [
+            "data/observations/candidate-maps-clarify-variant-04/V0_00.jpg",
+            "data/observations/candidate-maps-clarify-variant-04/V0_01.jpg",
+            "data/observations/candidate-maps-clarify-variant-04/V0_02.jpg",
+            "data/observations/candidate-maps-clarify-variant-04/V0_03.jpg",
+            "data/observations/candidate-maps-clarify-variant-04/V0_04.jpg",
+            "data/observations/candidate-maps-clarify-variant-04/V0_05.jpg",
+            "data/observations/candidate-maps-clarify-variant-04/V0_06.jpg",
+            "data/observations/candidate-maps-clarify-variant-04/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The released packet makes PEACE WATER WINERY readable while leaving the Carmel and Fishers tasting rooms unresolved.",
+          "supported_by": [
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [
+        "卫衣上只读得出 PEACE WATER WINERY，分店那一行看不清。Fishers 和 Carmel 都对得上这个名字，澄清也指不出画面里的那一家。"
+      ],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent distinguish a visible winery brand from the still-unknown tasting-room branch and ask once before saving?",
+        "divergence_source": "grounding",
+        "event_origin": "observed",
+        "evidence_type": "record_identity",
+        "commitment_surface": "place_identity",
+        "belief_before": "The hoodie identifies Peace Water Winery, but either frozen tasting-room branch can satisfy the unqualified request.",
+        "belief_after": "The user's branch answer leaves only the Fishers listing.",
+        "required_behavior_change": "Ask which tasting room is intended before saving a listing, then use the answer.",
+        "no_update_failure": "The Agent guesses a Peace Water branch before asking or ignores the answer.",
+        "overupdate_failure": "The Agent keeps asking after the oracle instruction already names the branch.",
+        "visual_dependency_claim": "The task text never names Peace Water Winery; the readable hoodie wordmark is required to find the two branch candidates.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "ambiguous_instruction": "Find the winery named on this hoodie and save its map listing.",
+          "oracle_instruction": "Find the winery named on this hoodie, use its Fishers tasting room at The Yard, and save that map listing.",
+          "candidate_roles": [
+            "carmel_tasting_room",
+            "fishers_tasting_room"
+          ],
+          "hidden_target_role": "fishers_tasting_room",
+          "valid_slot": "variant",
+          "canonical_question": "Which tasting-room branch do you mean: Carmel or Fishers?",
+          "canonical_answer": "The Fishers tasting room at The Yard.",
+          "goal_fields": {},
+          "environment_role_ids": {
+            "carmel_tasting_room": "l_6e86c83dabd9",
+            "fishers_tasting_room": "l_72ddaf59ea9d"
+          },
+          "completion_claim": "The Fishers Peace Water Winery listing is saved after one branch clarification.",
+          "target_granularity": "exact_instance"
+        },
+        "decision_point_provenance": "ego2web_place_anchor_rescreen_v1",
+        "decision": {
+          "candidates": {
+            "carmel_tasting_room": "l_6e86c83dabd9",
+            "fishers_tasting_room": "l_72ddaf59ea9d"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "carmel_tasting_room",
+                "fishers_tasting_room"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "fishers_tasting_room"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The answer explicitly names the Fishers tasting room at The Yard."
+            }
+          ],
+          "established_by": "codex",
+          "established_at": "2026-08-24"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "Peace Water Winery",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-clarify-variant-04.json",
+              "result_entity_ids": [
+                "l_72ddaf59ea9d",
+                "l_6e86c83dabd9",
+                "l_0b7135e02647",
+                "l_a7b477b54f16",
+                "l_5b1d3d657284",
+                "l_ab4b37daee91",
+                "l_e880fa99d1d4",
+                "l_8bb4f46941de",
+                "l_5e4b8371e066",
+                "l_ab4dd044df55",
+                "l_ba0b4478a28f",
+                "l_055abce72b74",
+                "l_1ef58ab889d9",
+                "l_706b5a2f730e",
+                "l_e15b6d6b1de7"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "Peace Water Winery Fishers tasting room",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-clarify-variant-04.json",
+              "result_entity_ids": [
+                "l_72ddaf59ea9d",
+                "l_6e86c83dabd9",
+                "l_0b7135e02647",
+                "l_a7b477b54f16",
+                "l_5b1d3d657284",
+                "l_ab4b37daee91",
+                "l_8bb4f46941de",
+                "l_ab4dd044df55",
+                "l_055abce72b74",
+                "l_1ef58ab889d9",
+                "l_e15b6d6b1de7",
+                "l_5e4b8371e066",
+                "l_ba0b4478a28f",
+                "l_706b5a2f730e",
+                "l_e880fa99d1d4"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "l_72ddaf59ea9d",
+            "l_6e86c83dabd9",
+            "l_0b7135e02647",
+            "l_a7b477b54f16",
+            "l_5b1d3d657284",
+            "l_ab4b37daee91",
+            "l_e880fa99d1d4",
+            "l_8bb4f46941de",
+            "l_5e4b8371e066",
+            "l_ab4dd044df55",
+            "l_ba0b4478a28f",
+            "l_055abce72b74",
+            "l_1ef58ab889d9",
+            "l_706b5a2f730e",
+            "l_e15b6d6b1de7"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "l_6e86c83dabd9",
+            "l_0b7135e02647",
+            "l_8bb4f46941de",
+            "l_e15b6d6b1de7"
+          ],
+          "related_entity_ids": [
+            "l_a7b477b54f16",
+            "l_5b1d3d657284",
+            "l_ab4b37daee91",
+            "l_e880fa99d1d4",
+            "l_5e4b8371e066",
+            "l_ab4dd044df55",
+            "l_ba0b4478a28f",
+            "l_055abce72b74",
+            "l_1ef58ab889d9",
+            "l_706b5a2f730e"
+          ],
+          "ambient_entity_ids": [],
+          "detail_decision_fields": [
+            "name",
+            "address",
+            "location",
+            "summary",
+            "facts"
+          ],
+          "rejected": [
+            {
+              "entity_id": "l_6e86c83dabd9",
+              "ring": "core",
+              "reason": "用户澄清为 Fishers tasting room，而该分店位于 Carmel。",
+              "why_plausible": "它是同一 Peace Water Winery 品牌在 Indiana 的真实品酒室。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_0b7135e02647",
+              "ring": "core",
+              "reason": "规范页面显示为 Daniel's Vineyard，不是连帽衫上可读的 Peace Water 品牌。",
+              "why_plausible": "它是 central Indiana 的真实酒庄和品酒场所，类别与区域搜索都匹配。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_8bb4f46941de",
+              "ring": "core",
+              "reason": "规范地址位于 Noblesville，不是用户指定的 Fishers tasting room。",
+              "why_plausible": "它是 Hamilton County 附近的真实酒庄和品酒室，服务类型与目标一致。",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_e15b6d6b1de7",
+              "ring": "core",
+              "reason": "它是 Westfield 的 Urban Vines，既不符合画面品牌，也不符合 Fishers 分店回答。",
+              "why_plausible": "它是 Hamilton County 的真实酒庄、啤酒厂和品酒场所，活动与区域均接近。",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        },
+        "blocking_checks": []
+      },
+      "replaces_candidate_id": "candidate-maps-refresh-retain-02",
+      "replacement_reason": "The old task mislabeled a static brand reveal as Refresh. The source supports branch clarification, not a temporal target update.",
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "pass",
+        "code": "visual_brand_anchor_with_branch_clarification",
+        "reason": "Without the released frames, the task text does not reveal the winery brand; the branch answer alone is insufficient."
+      }
+    },
+    {
+      "task_id": "candidate-maps-clarify-variant-05",
+      "status": "retired_missing_evidence",
+      "family": "clarify",
+      "subtype": "variant",
+      "source": {
+        "record_ids": [
+          435,
+          436
+        ],
+        "media_id": "595a45c2-1c49-4d13-b49c-8a29ce07a790",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Google Maps, locate the exact grocery store shown at the very start of the video and open its business listing. Provide the store’s phone number from the listing, making sure you’ve identified the correct place by matching what’s shown on its entrance.",
+          "After finding the store on Google Maps, identify the larger complex or plaza it belongs to. Confirm by opening Street View or photos and visually matching the outdoor area seen after leaving the store, then report the complex/plaza name and its average rating (from Google Maps)."
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            0,
+            9
+          ],
+          "decision": "The opening storefront makes TAMIMI MARKETS EXPRESS readable. Only these branded frames are released; later generic plaza footage is not used as geolocation evidence."
+        },
+        "observed_events": [
+          {
+            "role": "brand_reveal",
+            "interval_seconds": [
+              0,
+              9
+            ],
+            "description": "The TAMIMI MARKETS EXPRESS entrance sign is readable."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            1.3,
+            2.6,
+            3.9,
+            5.1,
+            6.4,
+            7.7,
+            9
+          ],
+          "frame_paths": [
+            "data/observations/candidate-maps-clarify-variant-05/V0_00.jpg",
+            "data/observations/candidate-maps-clarify-variant-05/V0_01.jpg",
+            "data/observations/candidate-maps-clarify-variant-05/V0_02.jpg",
+            "data/observations/candidate-maps-clarify-variant-05/V0_03.jpg",
+            "data/observations/candidate-maps-clarify-variant-05/V0_04.jpg",
+            "data/observations/candidate-maps-clarify-variant-05/V0_05.jpg",
+            "data/observations/candidate-maps-clarify-variant-05/V0_06.jpg",
+            "data/observations/candidate-maps-clarify-variant-05/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The released packet makes TAMIMI MARKETS EXPRESS readable but exposes no city or branch identifier.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "unresolved": [
+        "画面只有一家 Tamimi Markets Express 门口，没有第二个可见门店。Discovery Square 是网页位置，不是画面里的另一家店。"
+      ],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent use a readable storefront brand but still ask which local outlet the user intends before saving a map listing?",
+        "divergence_source": "grounding",
+        "event_origin": "observed",
+        "evidence_type": "record_identity",
+        "commitment_surface": "place_identity",
+        "belief_before": "The storefront identifies Tamimi Markets Express, but the unqualified request does not distinguish the Discovery Square and Qurtubah Express branches.",
+        "belief_after": "The user's outlet answer leaves only the Discovery Square listing.",
+        "required_behavior_change": "Ask which Tamimi outlet is intended before saving a listing, then use the answer.",
+        "no_update_failure": "The Agent guesses one Tamimi outlet before asking or ignores the answer.",
+        "overupdate_failure": "The Agent keeps asking after the oracle instruction already names the outlet.",
+        "visual_dependency_claim": "Failed on 2026-09-14: the location answer plus grocery category already isolates the final listing within the released site scope; withholding the Tamimi brand from the instruction does not make video necessary.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "ambiguous_instruction": "Find the grocery shop named on this entrance and save its map listing.",
+          "oracle_instruction": "Find the grocery shop named on this entrance, use its Discovery Square branch at KAUST, and save that map listing.",
+          "candidate_roles": [
+            "discovery_square_express",
+            "qurtubah_express"
+          ],
+          "hidden_target_role": "discovery_square_express",
+          "valid_slot": "variant",
+          "canonical_question": "Which Express branch do you mean: Discovery Square at KAUST or Qurtubah in Riyadh?",
+          "canonical_answer": "The Discovery Square branch at KAUST.",
+          "goal_fields": {},
+          "environment_role_ids": {
+            "discovery_square_express": "l_cb2e2cee82c4",
+            "qurtubah_express": "l_f360fb464f5e"
+          },
+          "completion_claim": "The Discovery Square Tamimi listing is saved after one outlet clarification.",
+          "target_granularity": "exact_instance"
+        },
+        "decision_point_provenance": "ego2web_place_anchor_rescreen_v1",
+        "decision": {
+          "candidates": {
+            "discovery_square_express": "l_cb2e2cee82c4",
+            "qurtubah_express": "l_f360fb464f5e"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "discovery_square_express",
+                "qurtubah_express"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "discovery_square_express"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The answer explicitly names the Discovery Square Express branch at KAUST."
+            }
+          ],
+          "established_by": "codex",
+          "established_at": "2026-08-24"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "Tamimi Markets",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-clarify-variant-05.json",
+              "result_entity_ids": [
+                "l_624fd0d03252",
+                "l_7c5efd718c43",
+                "l_85facf32b5c2",
+                "l_6fd82e245b2c",
+                "l_fde602fdd554",
+                "l_1aedc3861c9a",
+                "l_74533f635a43",
+                "l_a569e3dd0eb5",
+                "l_c21ccba57e32",
+                "l_6330a1b1bb23",
+                "l_f360fb464f5e",
+                "l_c336af58c9e0",
+                "l_7ef0d8234167",
+                "l_cb2e2cee82c4",
+                "l_ef8650dd668b"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "Tamimi Markets Discovery Square KAUST",
+              "provider": "frozen-real-source-catalog-bm25-v2",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-clarify-variant-05.json",
+              "result_entity_ids": [
+                "l_cb2e2cee82c4",
+                "l_6f56ee36a2c7",
+                "l_ef8650dd668b",
+                "l_624fd0d03252",
+                "l_7c5efd718c43",
+                "l_85facf32b5c2",
+                "l_6fd82e245b2c",
+                "l_fde602fdd554",
+                "l_1aedc3861c9a",
+                "l_74533f635a43",
+                "l_a569e3dd0eb5",
+                "l_c21ccba57e32",
+                "l_6330a1b1bb23",
+                "l_f360fb464f5e",
+                "l_c336af58c9e0"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "l_624fd0d03252",
+            "l_7c5efd718c43",
+            "l_85facf32b5c2",
+            "l_6fd82e245b2c",
+            "l_fde602fdd554",
+            "l_1aedc3861c9a",
+            "l_74533f635a43",
+            "l_a569e3dd0eb5",
+            "l_c21ccba57e32",
+            "l_6330a1b1bb23",
+            "l_f360fb464f5e",
+            "l_c336af58c9e0",
+            "l_7ef0d8234167",
+            "l_cb2e2cee82c4",
+            "l_ef8650dd668b",
+            "l_6f56ee36a2c7"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "l_f360fb464f5e",
+            "l_ef8650dd668b",
+            "l_1aedc3861c9a",
+            "l_6f56ee36a2c7"
+          ],
+          "related_entity_ids": [
+            "l_624fd0d03252",
+            "l_7c5efd718c43",
+            "l_85facf32b5c2",
+            "l_6fd82e245b2c",
+            "l_fde602fdd554",
+            "l_74533f635a43",
+            "l_a569e3dd0eb5",
+            "l_c21ccba57e32",
+            "l_6330a1b1bb23",
+            "l_c336af58c9e0",
+            "l_7ef0d8234167"
+          ],
+          "ambient_entity_ids": [],
+          "detail_decision_fields": [
+            "name",
+            "address",
+            "location",
+            "summary",
+            "facts"
+          ],
+          "rejected": [
+            {
+              "entity_id": "l_f360fb464f5e",
+              "ring": "core",
+              "reason": "规范地址位于 Riyadh 的 Qurtubah，不是 KAUST Discovery Square。",
+              "why_plausible": "它是相同 Tamimi Markets Express 品牌和杂货店类别的真实分店。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_ef8650dd668b",
+              "ring": "core",
+              "reason": "官方页面将其列为 KAUST Health 附近的超市，不是 Discovery Square 门店。",
+              "why_plausible": "它位于 KAUST/Thuwal 且属于 Tamimi 品牌，是自然的本地分店候选。",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_1aedc3861c9a",
+              "ring": "core",
+              "reason": "地点详情位于 Riyadh 的 An Nakheel，不是 Discovery Square。",
+              "why_plausible": "它是 Tamimi Markets 的真实杂货店，匹配画面品牌和服务类别。",
+              "failure_predicates": [
+                "website_detail_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "l_6f56ee36a2c7",
+              "ring": "core",
+              "reason": "它是广场地点本身，不是用户要求保存的 Tamimi 杂货店列表。",
+              "why_plausible": "它是 KAUST 的真实 Discovery Square，完全匹配用户澄清的位置。",
+              "failure_predicates": [
+                "wrong_object_same_method"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": {
+            "status": "coding_agent_accepted",
+            "confidence": "high",
+            "reviewer": "skill-executing-coding-agent",
+            "review_reference": "data/sources/core_neighbor_semantic_reviews.json",
+            "required_checks": [
+              "usefulness",
+              "scene_update_website_consistency",
+              "continuous_change",
+              "deterministic_verifiability",
+              "four_core_neighbors",
+              "three_failure_predicates"
+            ]
+          }
+        }
+      },
+      "replaces_candidate_id": "seed-maps-refresh-replace-01",
+      "replacement_reason": "The old task incorrectly treated a generic plaza exit as a target replacement. This task uses the readable storefront and explicit outlet clarification.",
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "no_scene_answer_recoverable_from_location",
+        "reason": "The no-scene test keeps the grocery instruction, Discovery Square/KAUST answer and website. These alone select l_cb2e2cee82c4; the eight released frames show only one physical storefront. The prior visual-necessity approval is superseded by this concrete counterexample.",
+        "reviewed_at": "2026-09-14",
+        "reviewer": "skill-executing-coding-agent"
+      },
+      "repair_history": [
+        {
+          "repair_type": "leave_blocked_no_honest_replacement",
+          "revised_at": "2026-10-15",
+          "reason": "Clarify requires two visible same-kind referents. This source has one Tamimi entrance, and no unused Local/Maps Ego2Web clip supplies two named same-kind places.",
+          "unused_clips_rechecked": [
+            "7b904a75",
+            "8b916cb7",
+            "8e5256fb",
+            "ac4304f6",
+            "8bcf39ab"
+          ]
+        }
+      ]
+    }
+  ]
+}

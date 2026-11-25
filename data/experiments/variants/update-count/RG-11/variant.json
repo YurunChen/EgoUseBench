@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "pair_id": "RG-11",
+  "id": "RG-11-update-count",
+  "source_task_path": "data/experiments/composite/RG-11.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 128.0,
+      "request": "Keep the rules video to five minutes or less."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 154.0
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 165.0,
+      "request": "Two minutes or less, please, so we can get back to the game."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_ef25803fe753"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_f5039fe450a1"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "128秒早于154秒特定牌Refresh，当前需求仍为UNO普通规则。536秒Classic Rules Explained与73秒经典规则均可回答初期需求，5分钟限制排除536秒并保留73秒，不提前使用后来的特殊牌。",
+    "public_facts": [
+      {
+        "entity_id": "m_ef25803fe753",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 536
+      },
+      {
+        "entity_id": "m_f5039fe450a1",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 73
+      },
+      {
+        "entity_id": "m_f5039fe450a1",
+        "path": [
+          "title"
+        ],
+        "equals": "How to Play Uno in 2 Minutes (Easy Rules for Kids & Beginners)"
+      },
+      {
+        "entity_id": "m_ef25803fe753",
+        "path": [
+          "title"
+        ],
+        "equals": "How to Play UNO – Classic Rules Explained Simply (+ Rules Most People Get Wrong)"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_ef25803fe753",
+        "retained_state": "m_f5039fe450a1"
+      },
+      "operator": "<=",
+      "value": 300
+    },
+    "original_request_effect": "154秒后改讲Wild Draw Four单牌；284秒m_7bb2090acc04满足5分钟，但原2分钟再排除它，保留118/101秒原终态。"
+  }
+}

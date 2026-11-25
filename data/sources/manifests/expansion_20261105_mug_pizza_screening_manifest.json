@@ -1,0 +1,2986 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "CaptainCook4D",
+    "source_root": "reference/sources/CaptainCook4D/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official CaptainCook4D research media; annotation terms separate."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110541",
+      "source": {
+        "dataset": "CaptainCook4D",
+        "media_id": "3_11__332-524",
+        "original_video_id": "3_11",
+        "media_start_seconds": 332,
+        "source_video_path": "reference/sources/CaptainCook4D/clips-screened/3_11__332-524.mp4",
+        "original_video_url": "https://utdallas.box.com/shared/static/2ip09f5v8cg68zvvx21d1661wkbafiaf.mp4",
+        "source_acquisition": {
+          "dataset_entry": "reference/sources/CaptainCook4D/downloader/metadata/download_links.json::/3_11/gopro_360p",
+          "method": "FFmpeg input seek 332 seconds from the official Box 360p GoPro recording; contiguous 192 s original scene encoded H.264 without audio. No crop."
+        },
+        "record_ids": [
+          "3_11/348.2-410.2/provisional_pale_mug_batter",
+          "3_11/411.2-507.2/tomato_cheese_and_cooking_same_mug"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              348.2,
+              396.2
+            ],
+            "description": "The wearer mixes a pale, flour-like batter in the pink mug. The visible base is not yet specific to a sweet or savory recipe."
+          },
+          {
+            "interval_seconds": [
+              398.2,
+              410.2
+            ],
+            "description": "An open jar of red sauce is set near the mug. Its use with the batter is not yet established."
+          },
+          {
+            "interval_seconds": [
+              411.2,
+              507.2
+            ],
+            "description": "The wearer spreads red sauce onto the same mug batter, adds shredded cheese, and puts the same mug into the microwave."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            348.2,
+            351.2,
+            355.2,
+            396.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110541/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110541/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110541/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110541/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            411.2,
+            415.2,
+            473.2,
+            499.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110541/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110541/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110541/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110541/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          348.2,
+          507.2
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110541/review.json"
+      },
+      "family": "refresh",
+      "subtype": "replace",
+      "status": "video_screened",
+      "supported_claims": [
+        {
+          "text": "The visible pale flour-like batter is mixed in the same pink mug; the finish remains open.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The wearer applies red sauce to that base, then adds shredded cheese and microwaves the same cup.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "screening": {
+        "proposed_instruction": "Could you save a recipe video so I can make this again, from mixing to cooking?",
+        "source_continuity": "Continuous [348.2, 507.2] seconds from one original recording."
+      },
+      "construct": {
+        "research_question": "Can an agent revise a provisional recipe when the same ambiguous base is finished as a different dish?",
+        "belief_before": "Pale mug batter could be the base of a one-serving sweet or savory recipe.",
+        "belief_after": "The same batter receives tomato-based sauce and melting cheese and is microwaved in the same mug.",
+        "required_behavior_change": "Keep a complete tutorial for the same kind of cup pizza, replacing a sweet-mug-cake-only selection if necessary. Preserve a complete cup-pizza tutorial if it was already selected.",
+        "no_update_failure": "Keep a plain sweet mug-cake guide, a pizza made outside the mug, or instructions that only reheat a prepared pizza.",
+        "overupdate_failure": "Discard a genuinely matching pizza variation or retain both a plain cake and a pizza tutorial.",
+        "visual_dependency_claim": "The request names only the mug and asks for a complete recipe. The footage identifies the same pale base, red sauce applied to that base, cheese, and the later heat step.",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a recipe video so I can make this again, from mixing to cooking?",
+          "target_granularity": "category",
+          "initial_target_role": "provisional_item",
+          "final_target_role": "observed_item",
+          "environment_role_ids": {
+            "provisional_item": "m_171688607bc4",
+            "observed_item": "m_6630ab343198"
+          },
+          "equivalent_role_ids": {
+            "provisional_item": [
+              "m_ac646dc132dd",
+              "m_446ffb066974",
+              "m_92d2bb3cea64",
+              "m_f5b66680e4e2",
+              "m_42290cc0cda6",
+              "m_c965efa8e24e",
+              "m_896906c4dfbb",
+              "m_f751e28a9de7",
+              "m_7663a0c8f634",
+              "m_da566aafd607",
+              "m_89c3a009ee15",
+              "m_3d8af5b3b490",
+              "m_ce382241c79c",
+              "m_fcc7999dfb6d",
+              "m_3b98578964b9",
+              "m_610227e81c36",
+              "m_9c9b5a78eaa8",
+              "m_2405327e2a55",
+              "m_6d7100f310db",
+              "m_e482cb08c8e7",
+              "m_e3f720bba2a3",
+              "m_33e82b6b0f8b",
+              "m_d3cc2fc487eb",
+              "m_4a0b9eae6a66",
+              "m_94f475464e6c",
+              "m_8e3429531780",
+              "m_951ca1888867",
+              "m_b89ddcf977a6",
+              "m_5cf5168da8de",
+              "m_78fdabf34748",
+              "m_4e5ea8be7e3a",
+              "m_cc8e4a55bab1",
+              "m_d13b5ebcfd8b",
+              "m_0bea4ca953d2",
+              "m_fb5bcec8bc9b",
+              "m_6630ab343198",
+              "m_42ccd1443356",
+              "m_ac63dc941ac0",
+              "m_46e6fe6323e0",
+              "m_10febfed46ed",
+              "m_c75c66ba3851",
+              "m_167e4baa435b",
+              "m_c91b825030d7",
+              "m_720c9a162f29",
+              "m_d5bd8e31f281",
+              "m_192868a5cbed",
+              "m_0b0a10c47286",
+              "m_2a0257af3b5f",
+              "m_d5c845529ae7",
+              "m_128804573a49",
+              "m_5b8dfc80353d",
+              "m_3b75ea894855",
+              "m_28a460b01921",
+              "m_6c6a960e843c",
+              "m_30607d6ff5c1"
+            ],
+            "observed_item": [
+              "m_42ccd1443356",
+              "m_ac63dc941ac0",
+              "m_46e6fe6323e0",
+              "m_10febfed46ed",
+              "m_c75c66ba3851",
+              "m_167e4baa435b",
+              "m_720c9a162f29",
+              "m_d5bd8e31f281",
+              "m_192868a5cbed",
+              "m_2a0257af3b5f"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "old": "m_171688607bc4",
+            "new": "m_6630ab343198"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "old"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The scene shows a pale batter in a single mug; no topping resolves sweet versus savory yet. A complete plain vanilla mug-cake tutorial is a reasonable provisional choice."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "new"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "Red sauce is now on that same batter; the later cheese and microwave preparation confirm a savory cup pizza rather than a vanilla cake."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "vanilla microwave mug cake",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110541.json",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "m_171688607bc4",
+                "m_ac646dc132dd",
+                "m_446ffb066974",
+                "m_92d2bb3cea64",
+                "m_f5b66680e4e2",
+                "m_42290cc0cda6",
+                "m_c965efa8e24e",
+                "m_896906c4dfbb",
+                "m_f751e28a9de7",
+                "m_7663a0c8f634",
+                "m_da566aafd607",
+                "m_89c3a009ee15",
+                "m_3d8af5b3b490",
+                "m_ce382241c79c",
+                "m_fcc7999dfb6d",
+                "m_0012e5543f90",
+                "m_3b98578964b9",
+                "m_610227e81c36",
+                "m_2a889e0f7ee2",
+                "m_9c9b5a78eaa8",
+                "m_2405327e2a55",
+                "m_6d7100f310db",
+                "m_e482cb08c8e7",
+                "m_971af41dece7",
+                "m_e3f720bba2a3",
+                "m_33e82b6b0f8b",
+                "m_d3cc2fc487eb",
+                "m_4a0b9eae6a66",
+                "m_94f475464e6c",
+                "m_8e3429531780",
+                "m_951ca1888867",
+                "m_b89ddcf977a6",
+                "m_5cf5168da8de",
+                "m_78fdabf34748",
+                "m_4e5ea8be7e3a",
+                "m_cc8e4a55bab1",
+                "m_d13b5ebcfd8b",
+                "m_0bea4ca953d2",
+                "m_4109ec78cd37",
+                "m_fb5bcec8bc9b"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "microwave pizza in a mug marinara mozzarella",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110541.json",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "m_6630ab343198",
+                "m_42ccd1443356",
+                "m_ac63dc941ac0",
+                "m_46e6fe6323e0",
+                "m_10febfed46ed",
+                "m_c75c66ba3851",
+                "m_fe4a957dbd30",
+                "m_167e4baa435b",
+                "m_c91b825030d7",
+                "m_76ddfba1c1c2",
+                "m_a9be5f2a5126",
+                "m_594b87aec328",
+                "m_2c3500ca999e",
+                "m_57e13ce1ed7c",
+                "m_877a2af1240e",
+                "m_f07781fbcabe",
+                "m_a4f4b853fbfc",
+                "m_403c8584441c",
+                "m_2ed95988bde9",
+                "m_eb9c208c76c5",
+                "m_cfe0a962a821",
+                "m_5b1149e0836b",
+                "m_dc35f715f6b4",
+                "m_50afe08fefff",
+                "m_12d06b36e3a4",
+                "m_22967f556a76",
+                "m_50964e346a0e",
+                "m_a71641c29823",
+                "m_dc19b164ad68",
+                "m_c1eebe7478fe",
+                "m_2095859b9a43",
+                "m_12bcd5fce5db",
+                "m_76d4456c3063",
+                "m_5a13a95bfc6a",
+                "m_7455e65e0463",
+                "m_720c9a162f29",
+                "m_a033436d1b3a",
+                "m_816c0c8617b6",
+                "m_9484c9a19658",
+                "m_90514fccad08"
+              ]
+            },
+            {
+              "stage": "broad_comparison",
+              "query": "easy mug recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110541.json",
+              "snapshot_stage": "broad_comparison",
+              "result_entity_ids": [
+                "m_61b7a1506628",
+                "m_ce382241c79c",
+                "m_0012e5543f90",
+                "m_3d8af5b3b490",
+                "m_971af41dece7",
+                "m_169393406af4",
+                "m_446ffb066974",
+                "m_5ac5ed23f57e",
+                "m_d5bd8e31f281",
+                "m_192868a5cbed",
+                "m_e9874f33a9e2",
+                "m_0b0a10c47286",
+                "m_e67d1caf167a",
+                "m_ac646dc132dd",
+                "m_2788a5746e28",
+                "m_f3167ea75091",
+                "m_2a0257af3b5f",
+                "m_05e84cfc6374",
+                "m_c965efa8e24e",
+                "m_5cf5168da8de",
+                "m_d5c845529ae7",
+                "m_128804573a49",
+                "m_bc18e0abf97d",
+                "m_171688607bc4",
+                "m_9a3b21e5e386",
+                "m_896906c4dfbb",
+                "m_5b8dfc80353d",
+                "m_2a889e0f7ee2",
+                "m_3b75ea894855",
+                "m_74ca55ca9f3d",
+                "m_28a460b01921",
+                "m_6c6a960e843c",
+                "m_ad28cbbfc311",
+                "m_4109ec78cd37",
+                "m_9c9b5a78eaa8",
+                "m_82402931a3c0",
+                "m_b432e408f2f6",
+                "m_fb5bcec8bc9b",
+                "m_fcc7999dfb6d",
+                "m_30607d6ff5c1"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_171688607bc4",
+            "m_ac646dc132dd",
+            "m_446ffb066974",
+            "m_92d2bb3cea64",
+            "m_f5b66680e4e2",
+            "m_42290cc0cda6",
+            "m_c965efa8e24e",
+            "m_896906c4dfbb",
+            "m_f751e28a9de7",
+            "m_7663a0c8f634",
+            "m_da566aafd607",
+            "m_89c3a009ee15",
+            "m_3d8af5b3b490",
+            "m_ce382241c79c",
+            "m_fcc7999dfb6d",
+            "m_0012e5543f90",
+            "m_3b98578964b9",
+            "m_610227e81c36",
+            "m_2a889e0f7ee2",
+            "m_9c9b5a78eaa8",
+            "m_2405327e2a55",
+            "m_6d7100f310db",
+            "m_e482cb08c8e7",
+            "m_971af41dece7",
+            "m_e3f720bba2a3",
+            "m_33e82b6b0f8b",
+            "m_d3cc2fc487eb",
+            "m_4a0b9eae6a66",
+            "m_94f475464e6c",
+            "m_8e3429531780",
+            "m_951ca1888867",
+            "m_b89ddcf977a6",
+            "m_5cf5168da8de",
+            "m_78fdabf34748",
+            "m_4e5ea8be7e3a",
+            "m_cc8e4a55bab1",
+            "m_d13b5ebcfd8b",
+            "m_0bea4ca953d2",
+            "m_4109ec78cd37",
+            "m_fb5bcec8bc9b",
+            "m_6630ab343198",
+            "m_42ccd1443356",
+            "m_ac63dc941ac0",
+            "m_46e6fe6323e0",
+            "m_10febfed46ed",
+            "m_c75c66ba3851",
+            "m_fe4a957dbd30",
+            "m_167e4baa435b",
+            "m_c91b825030d7",
+            "m_76ddfba1c1c2",
+            "m_a9be5f2a5126",
+            "m_594b87aec328",
+            "m_2c3500ca999e",
+            "m_57e13ce1ed7c",
+            "m_877a2af1240e",
+            "m_f07781fbcabe",
+            "m_a4f4b853fbfc",
+            "m_403c8584441c",
+            "m_2ed95988bde9",
+            "m_eb9c208c76c5",
+            "m_cfe0a962a821",
+            "m_5b1149e0836b",
+            "m_dc35f715f6b4",
+            "m_50afe08fefff",
+            "m_12d06b36e3a4",
+            "m_22967f556a76",
+            "m_50964e346a0e",
+            "m_a71641c29823",
+            "m_dc19b164ad68",
+            "m_c1eebe7478fe",
+            "m_2095859b9a43",
+            "m_12bcd5fce5db",
+            "m_76d4456c3063",
+            "m_5a13a95bfc6a",
+            "m_7455e65e0463",
+            "m_720c9a162f29",
+            "m_a033436d1b3a",
+            "m_816c0c8617b6",
+            "m_9484c9a19658",
+            "m_90514fccad08",
+            "m_61b7a1506628",
+            "m_169393406af4",
+            "m_5ac5ed23f57e",
+            "m_d5bd8e31f281",
+            "m_192868a5cbed",
+            "m_e9874f33a9e2",
+            "m_0b0a10c47286",
+            "m_e67d1caf167a",
+            "m_2788a5746e28",
+            "m_f3167ea75091",
+            "m_2a0257af3b5f",
+            "m_05e84cfc6374",
+            "m_d5c845529ae7",
+            "m_128804573a49",
+            "m_bc18e0abf97d",
+            "m_9a3b21e5e386",
+            "m_5b8dfc80353d",
+            "m_3b75ea894855",
+            "m_74ca55ca9f3d",
+            "m_28a460b01921",
+            "m_6c6a960e843c",
+            "m_ad28cbbfc311",
+            "m_82402931a3c0",
+            "m_b432e408f2f6",
+            "m_30607d6ff5c1"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_171688607bc4",
+            "m_ac646dc132dd",
+            "m_446ffb066974",
+            "m_92d2bb3cea64",
+            "m_f5b66680e4e2",
+            "m_42290cc0cda6",
+            "m_c965efa8e24e",
+            "m_896906c4dfbb",
+            "m_f751e28a9de7",
+            "m_7663a0c8f634",
+            "m_da566aafd607",
+            "m_89c3a009ee15",
+            "m_3d8af5b3b490",
+            "m_ce382241c79c",
+            "m_fcc7999dfb6d",
+            "m_0012e5543f90",
+            "m_3b98578964b9",
+            "m_610227e81c36",
+            "m_2a889e0f7ee2",
+            "m_9c9b5a78eaa8",
+            "m_2405327e2a55",
+            "m_6d7100f310db",
+            "m_e482cb08c8e7",
+            "m_971af41dece7",
+            "m_e3f720bba2a3",
+            "m_33e82b6b0f8b",
+            "m_d3cc2fc487eb",
+            "m_4a0b9eae6a66",
+            "m_94f475464e6c",
+            "m_8e3429531780",
+            "m_951ca1888867",
+            "m_b89ddcf977a6",
+            "m_5cf5168da8de",
+            "m_78fdabf34748",
+            "m_4e5ea8be7e3a",
+            "m_cc8e4a55bab1",
+            "m_d13b5ebcfd8b",
+            "m_0bea4ca953d2",
+            "m_4109ec78cd37",
+            "m_fb5bcec8bc9b",
+            "m_fe4a957dbd30",
+            "m_c91b825030d7",
+            "m_76ddfba1c1c2",
+            "m_a9be5f2a5126",
+            "m_594b87aec328",
+            "m_2c3500ca999e",
+            "m_57e13ce1ed7c",
+            "m_877a2af1240e",
+            "m_f07781fbcabe",
+            "m_a4f4b853fbfc",
+            "m_403c8584441c",
+            "m_2ed95988bde9",
+            "m_eb9c208c76c5",
+            "m_cfe0a962a821",
+            "m_5b1149e0836b",
+            "m_dc35f715f6b4",
+            "m_50afe08fefff",
+            "m_12d06b36e3a4",
+            "m_22967f556a76",
+            "m_50964e346a0e",
+            "m_a71641c29823",
+            "m_dc19b164ad68",
+            "m_c1eebe7478fe",
+            "m_2095859b9a43",
+            "m_12bcd5fce5db",
+            "m_76d4456c3063",
+            "m_5a13a95bfc6a",
+            "m_7455e65e0463",
+            "m_a033436d1b3a",
+            "m_816c0c8617b6",
+            "m_9484c9a19658",
+            "m_90514fccad08",
+            "m_61b7a1506628",
+            "m_169393406af4",
+            "m_5ac5ed23f57e",
+            "m_e9874f33a9e2",
+            "m_0b0a10c47286",
+            "m_e67d1caf167a",
+            "m_2788a5746e28",
+            "m_f3167ea75091",
+            "m_05e84cfc6374",
+            "m_d5c845529ae7",
+            "m_128804573a49",
+            "m_bc18e0abf97d",
+            "m_9a3b21e5e386",
+            "m_5b8dfc80353d",
+            "m_3b75ea894855",
+            "m_74ca55ca9f3d",
+            "m_28a460b01921",
+            "m_6c6a960e843c",
+            "m_ad28cbbfc311",
+            "m_82402931a3c0",
+            "m_b432e408f2f6",
+            "m_30607d6ff5c1"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_171688607bc4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Published recipe uses 4 tbsp flour, 3 tbsp milk, 1 tbsp oil or butter and baking powder. The pale batter can become a vanilla mug cake; it does not teach the later savory topping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_171688607bc4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sx40toRYdoc.json"
+              ]
+            },
+            {
+              "entity_id": "m_ac646dc132dd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Published flour, milk, butter and baking powder form a light vanilla mug batter, microwaved without a tomato/cheese finish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ac646dc132dd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DWKp7zLKWwg.json"
+              ]
+            },
+            {
+              "entity_id": "m_446ffb066974",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Includes a fully taught light vanilla mug cake among the three options; no microwave cup pizza.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_446ffb066974.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/H3OhTEkNbgU.json"
+              ]
+            },
+            {
+              "entity_id": "m_92d2bb3cea64",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator offers a microwave vanilla mug cake from a light flour-based batter, not a mug pizza.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_92d2bb3cea64.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/86d1CRlGarQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f5b66680e4e2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator describes a quick, light vanilla bean cake cooked from batter in the mug.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f5b66680e4e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IjWjouN8_Ug.json"
+              ]
+            },
+            {
+              "entity_id": "m_42290cc0cda6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator teaches mixing and microwave-cooking a light vanilla mug cake in the serving vessel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_42290cc0cda6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EdSq-Dv64vw.json"
+              ]
+            },
+            {
+              "entity_id": "m_c965efa8e24e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The multi-recipe video includes a light flour, milk and baking-powder mug cake. Its taught variations are cakes, not tomato-and-cheese mug pizza.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c965efa8e24e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MmVXLM97YL0.json"
+              ]
+            },
+            {
+              "entity_id": "m_896906c4dfbb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator’s vanilla mug recipe prepares a light self-rising flour batter and microwaves the single serving.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_896906c4dfbb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/X14xnoc8qyA.json"
+              ]
+            },
+            {
+              "entity_id": "m_f751e28a9de7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The published plain-flour and baking-powder vanilla mug batter includes a microwave method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f751e28a9de7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CJwE7bgEAiw.json"
+              ]
+            },
+            {
+              "entity_id": "m_7663a0c8f634",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher teaches a plain self-rising-flour and milk vanilla cake cooked in a mug; an egg is a compatible batter variation before the dish is known.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7663a0c8f634.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CfiLMXVI-Jg.json"
+              ]
+            },
+            {
+              "entity_id": "m_da566aafd607",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator lists 4 tbsp all-purpose flour, 3 tbsp milk, 1 tbsp butter or oil and baking powder, then cooks the vanilla mug cake in a microwave.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_da566aafd607.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vplUkhSm1NU.json"
+              ]
+            },
+            {
+              "entity_id": "m_89c3a009ee15",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator explicitly links the complete vanilla mug recipe; light flour, milk and fat batter is mixed and microwaved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_89c3a009ee15.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Zx_GBqMrHIM.json"
+              ]
+            },
+            {
+              "entity_id": "m_3d8af5b3b490",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator’s vanilla segment gives flour, milk, vegetable oil and baking powder, then the microwave cook. It does not contain pizza.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3d8af5b3b490.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZueS19mDlqQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_ce382241c79c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The vanilla strawberry segment presents a light single-serve mug batter and microwave cook, without a savory pizza topping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ce382241c79c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/k4dhf_S5ypw.json"
+              ]
+            },
+            {
+              "entity_id": "m_fcc7999dfb6d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The vanilla variation provides flour, liquid and fat in a light microwave mug batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fcc7999dfb6d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HtX7f_dKWTw.json"
+              ]
+            },
+            {
+              "entity_id": "m_0012e5543f90",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0012e5543f90.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7Q13DGGXiYU.json"
+              ]
+            },
+            {
+              "entity_id": "m_3b98578964b9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher mixes all-purpose flour, liquid, oil and baking powder for a light vanilla cake, then cooks in the microwave. Water for milk is a batter variation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3b98578964b9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/958oJkn5aRA.json"
+              ]
+            },
+            {
+              "entity_id": "m_610227e81c36",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator’s light all-purpose flour and baking-powder vanilla cake is explicitly mixed and microwaved in the mug.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_610227e81c36.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fYsrqKC-uMI.json"
+              ]
+            },
+            {
+              "entity_id": "m_2a889e0f7ee2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native storyboard shows dark cocoa batter whisked in a bowl and transferred to a mug, not the comparable pale mug batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2a889e0f7ee2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2at7z3ZX_lI.json"
+              ]
+            },
+            {
+              "entity_id": "m_9c9b5a78eaa8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The separately taught vanilla option uses a light leavened almond-flour batter in a mug and microwaves it. Flour type is not discernible or requested in the opening.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9c9b5a78eaa8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wBMwUqrtdIw.json"
+              ]
+            },
+            {
+              "entity_id": "m_2405327e2a55",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator gives a light almond-flour vanilla batter with baking powder and fat and teaches the microwave cook.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2405327e2a55.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cYaDjKe5_c4.json"
+              ]
+            },
+            {
+              "entity_id": "m_6d7100f310db",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator teaches a complete vanilla mug batter and microwave cook; the native video does not teach a pizza finish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6d7100f310db.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QjjDBvgy2uU.json"
+              ]
+            },
+            {
+              "entity_id": "m_e482cb08c8e7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "原生分镜第 0–2 张：在同一杯加粉、糖、泡打粉、黄油和牛奶，搅拌成浅色糊；第 2 张第一行直接提示 Microwave for 1 minute，后见杯蛋糕。简介不足但真实画面补足。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e482cb08c8e7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wcCaksbXa4w.json"
+              ]
+            },
+            {
+              "entity_id": "m_971af41dece7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_971af41dece7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WLbyNn8sHCA.json"
+              ]
+            },
+            {
+              "entity_id": "m_e3f720bba2a3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "At least one recipe teaches a pale flour, milk, butter and baking-powder batter cooked in a mug.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e3f720bba2a3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/d_BYeKMbwBM.json"
+              ]
+            },
+            {
+              "entity_id": "m_33e82b6b0f8b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator’s vanilla batter includes flour, baking powder and fat, with chocolate chips as an add-in; no pizza finish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_33e82b6b0f8b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rFhJJcXViDI.json"
+              ]
+            },
+            {
+              "entity_id": "m_d3cc2fc487eb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The vanilla segment provides a light flour-substitute batter for microwave mug cake, not pizza.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d3cc2fc487eb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jY5r2VpCGfU.json"
+              ]
+            },
+            {
+              "entity_id": "m_4a0b9eae6a66",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "原生分镜第 0–2 张先分开量取干料和杯中黄油、奶与香草，随后合在杯中搅成浅色糊，约 65 秒操作微波，撒糖珠是可选味型。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4a0b9eae6a66.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/z-AHW8xOr8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_94f475464e6c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "49.6–165 秒分镜清楚展示量取浅色粉料和湿料、在黑杯里搅成浅色面糊、同杯出成品；创作者简介明确在该杯中微波。看不清全部标签不妨碍确认完整基本方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_94f475464e6c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/djyQQ37pLRs.json"
+              ]
+            },
+            {
+              "entity_id": "m_8e3429531780",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator supplies a self-rising flour, milk and protein vanilla batter and the mug microwave cook.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8e3429531780.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_Ddp-5U86cI.json"
+              ]
+            },
+            {
+              "entity_id": "m_951ca1888867",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator teaches a light leavened almond-flour vanilla batter and microwave mug cook.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_951ca1888867.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SN-5hskr1lU.json"
+              ]
+            },
+            {
+              "entity_id": "m_b89ddcf977a6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator mixes a light almond-flour, butter and leavener batter and microwaves for a vanilla mug cake.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b89ddcf977a6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/gZzzinY_AfY.json"
+              ]
+            },
+            {
+              "entity_id": "m_5cf5168da8de",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The publisher teaches light flour-based vanilla or muffin batter in a mug and its microwave cook; the segment does not teach pizza.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5cf5168da8de.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/TskyrDTyWiI.json"
+              ]
+            },
+            {
+              "entity_id": "m_78fdabf34748",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "A complete vegan vanilla mug cake segment mixes a light flour-based batter and microwaves it, distinct from the later tomato sauce/cheese finish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_78fdabf34748.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZymxJTU40IM.json"
+              ]
+            },
+            {
+              "entity_id": "m_4e5ea8be7e3a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher uses an all-purpose flour and baking-powder vanilla/blueberry mug batter, then microwave cooks it.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4e5ea8be7e3a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YdSUi1CFo-w.json"
+              ]
+            },
+            {
+              "entity_id": "m_cc8e4a55bab1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native vanilla variation shows flour, milk, baking powder and melted butter prepared and microwaved as a mug cake.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cc8e4a55bab1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ekn_C3ee4tM.json"
+              ]
+            },
+            {
+              "entity_id": "m_d13b5ebcfd8b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher shows a separate light vanilla mug-cake batter and microwave cook as well as the chocolate version.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d13b5ebcfd8b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PIDYuxAtFZs.json"
+              ]
+            },
+            {
+              "entity_id": "m_0bea4ca953d2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe includes pale all-purpose-flour, milk, oil and baking-powder vanilla mug batter and a microwave cook.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0bea4ca953d2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Bux1Od8JoHo.json"
+              ]
+            },
+            {
+              "entity_id": "m_4109ec78cd37",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4109ec78cd37.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RJyGlWsswW0.json"
+              ]
+            },
+            {
+              "entity_id": "m_fb5bcec8bc9b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator teaches light self-raising-flour and milk blueberry muffin batter in a mug, using the microwave.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fb5bcec8bc9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A-BZN5cmTOk.json"
+              ]
+            },
+            {
+              "entity_id": "m_fe4a957dbd30",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The named mug pizza uses refrigerated biscuits as its base, not a flour batter mixed in the mug; the other chapters do not establish an equivalent pale flour-batter method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fe4a957dbd30.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/yhHlG5cYHO0.json"
+              ]
+            },
+            {
+              "entity_id": "m_c91b825030d7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "公开章节 0:25–1:31 在杯里混合面粉、膨松剂、牛奶、油，1:31–2:23 铺披萨酱和马苏里拉。它与早段未确认设备的杯内现拌相容；2:36 起明确教锅和模具而非微波，故不列为末段匹配。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c91b825030d7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qTqymSH7-KI.json"
+              ]
+            },
+            {
+              "entity_id": "m_76ddfba1c1c2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native pizza is shaped and pre-baked before saucing, not the observed loose in-mug batter topped before microwaving.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_76ddfba1c1c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/LeBvWrhRNBA.json"
+              ]
+            },
+            {
+              "entity_id": "m_a9be5f2a5126",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Reviews frozen pizza products instead of teaching the observed preparation from batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a9be5f2a5126.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8wILus2TMUE.json"
+              ]
+            },
+            {
+              "entity_id": "m_594b87aec328",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The recipe uses a multi-serving shaped yeast dough and a ten-minute microwave method, not a single-mug batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_594b87aec328.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lkFgCyA53Fw.json"
+              ]
+            },
+            {
+              "entity_id": "m_2c3500ca999e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2c3500ca999e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1X9mjrPFSwo.json"
+              ]
+            },
+            {
+              "entity_id": "m_57e13ce1ed7c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57e13ce1ed7c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0ZFPy2ZZLh4.json"
+              ]
+            },
+            {
+              "entity_id": "m_877a2af1240e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_877a2af1240e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h4UMbZk9vMY.json"
+              ]
+            },
+            {
+              "entity_id": "m_f07781fbcabe",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f07781fbcabe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ajRXBMKycHo.json"
+              ]
+            },
+            {
+              "entity_id": "m_a4f4b853fbfc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a4f4b853fbfc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sv3TXMSv6Lw.json"
+              ]
+            },
+            {
+              "entity_id": "m_403c8584441c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_403c8584441c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rvZ9NQBG0UA.json"
+              ]
+            },
+            {
+              "entity_id": "m_2ed95988bde9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2ed95988bde9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rmuGh3TwvFA.json"
+              ]
+            },
+            {
+              "entity_id": "m_eb9c208c76c5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_eb9c208c76c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SDpCzJw2xm4.json"
+              ]
+            },
+            {
+              "entity_id": "m_cfe0a962a821",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cfe0a962a821.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MDX8fylSisU.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b1149e0836b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b1149e0836b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9FUiONvtErk.json"
+              ]
+            },
+            {
+              "entity_id": "m_dc35f715f6b4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dc35f715f6b4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_2iNY6L5h0A.json"
+              ]
+            },
+            {
+              "entity_id": "m_50afe08fefff",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The flour and milk form a separate white sauce for layered lasagna; there is no matching pizza batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_50afe08fefff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sSdOq9iPON0.json"
+              ]
+            },
+            {
+              "entity_id": "m_12d06b36e3a4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12d06b36e3a4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2j8tu9Htajs.json"
+              ]
+            },
+            {
+              "entity_id": "m_22967f556a76",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_22967f556a76.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ApuvOGAEp4c.json"
+              ]
+            },
+            {
+              "entity_id": "m_50964e346a0e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_50964e346a0e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/b5UUNnaHc2E.json"
+              ]
+            },
+            {
+              "entity_id": "m_a71641c29823",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a71641c29823.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XKC62IFnH2s.json"
+              ]
+            },
+            {
+              "entity_id": "m_dc19b164ad68",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dc19b164ad68.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5BoM2p5RumU.json"
+              ]
+            },
+            {
+              "entity_id": "m_c1eebe7478fe",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c1eebe7478fe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WM1XcYXix0Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_2095859b9a43",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2095859b9a43.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A4OeQAYfoIw.json"
+              ]
+            },
+            {
+              "entity_id": "m_12bcd5fce5db",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12bcd5fce5db.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NEd1-jyVD9s.json"
+              ]
+            },
+            {
+              "entity_id": "m_76d4456c3063",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_76d4456c3063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mHipexNOAq4.json"
+              ]
+            },
+            {
+              "entity_id": "m_5a13a95bfc6a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5a13a95bfc6a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/421H_HlSCR8.json"
+              ]
+            },
+            {
+              "entity_id": "m_7455e65e0463",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7455e65e0463.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HjKEKgRrysQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_a033436d1b3a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a033436d1b3a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pjsX1GzDl_M.json"
+              ]
+            },
+            {
+              "entity_id": "m_816c0c8617b6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_816c0c8617b6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/80aYP0lTDt0.json"
+              ]
+            },
+            {
+              "entity_id": "m_9484c9a19658",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9484c9a19658.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PcXc8IJXHWw.json"
+              ]
+            },
+            {
+              "entity_id": "m_90514fccad08",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_90514fccad08.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NbENxfQwnKk.json"
+              ]
+            },
+            {
+              "entity_id": "m_61b7a1506628",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_61b7a1506628.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JPx2M6FzdqQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_169393406af4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_169393406af4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T2he7q_4dj0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5ac5ed23f57e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator expressly uses a flourless chocolate preparation, not a light flour-based batter.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5ac5ed23f57e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CkN_OVpxZtQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_e9874f33a9e2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e9874f33a9e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jl38HGupIeQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_0b0a10c47286",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator teaches an eggless apple version with pale flour, milk, fat and baking-powder batter in the microwave.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0b0a10c47286.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pMl8mi7_MPQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_e67d1caf167a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native storyboard explicitly shows cocoa or dark ingredients before the milk and a dark cake batter; no comparable pale recipe is taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e67d1caf167a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/D9HI_h6u1Lg.json"
+              ]
+            },
+            {
+              "entity_id": "m_2788a5746e28",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2788a5746e28.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tMiDuoCTeoA.json"
+              ]
+            },
+            {
+              "entity_id": "m_f3167ea75091",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f3167ea75091.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8eOZLAwhekI.json"
+              ]
+            },
+            {
+              "entity_id": "m_05e84cfc6374",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_05e84cfc6374.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G9feY4a3dOU.json"
+              ]
+            },
+            {
+              "entity_id": "m_d5c845529ae7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Published microwave coffee mug cake uses a light self-raising-flour batter and butter, not the tomato and cheese finish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d5c845529ae7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mEWEufQNiQ0.json"
+              ]
+            },
+            {
+              "entity_id": "m_128804573a49",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Creator teaches a flour, milk, fat and baking-powder pancake batter made and cooked in a mug. The final preparation is not pizza.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_128804573a49.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DnuH1Yggnjw.json"
+              ]
+            },
+            {
+              "entity_id": "m_bc18e0abf97d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bc18e0abf97d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ftMRIHNRd68.json"
+              ]
+            },
+            {
+              "entity_id": "m_9a3b21e5e386",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9a3b21e5e386.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zHBqUgPEa_0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b8dfc80353d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "8:52–11:07 的 Cinnamon Coffee Cake 段（不是开头的花生巧克力），配方用面粉、奶、油、泡打粉，分镜显示同杯混合和微波。肉桂和酥粒不排除为初段暂选。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b8dfc80353d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ssx9rylkUqQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_3b75ea894855",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "原生简介和章节有全麦面粉 3 汤匙、牛奶、油、泡打成分与香蕉，搅拌后微波约 45 秒。作者规则已经接纳类似苹果及蓝莓杯蛋糕，并且不要求面粉品种；不能只因香蕉口味排除。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3b75ea894855.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sVRjZ5cwOWQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_74ca55ca9f3d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_74ca55ca9f3d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UD8olODCqg4.json"
+              ]
+            },
+            {
+              "entity_id": "m_28a460b01921",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "保留初段，但原生章节支持 3:06–5:34 Spiced apple mug cake，而非作者记录所说的独立原味香草版。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_28a460b01921.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7jAFFEt_HkM.json"
+              ]
+            },
+            {
+              "entity_id": "m_6c6a960e843c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "原生章节 1:22–2:32 加杏仁粉、乳清、泡打粉，混浅色面糊后倒入一个杯或烤盅，微波烹饪至 3:06。已接纳其他杏仁粉或蓝莓教程，也接纳先混合再入杯的 m_42290cc0cda6；不应对这条另加限制。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6c6a960e843c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2-n_gUe5WEA.json"
+              ]
+            },
+            {
+              "entity_id": "m_ad28cbbfc311",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ad28cbbfc311.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h4nonntSGWQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_82402931a3c0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_82402931a3c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4TksxjQjvkQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_b432e408f2f6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b432e408f2f6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/28yQo2yqPZ8.json"
+              ]
+            },
+            {
+              "entity_id": "m_30607d6ff5c1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "披萨段 7:14–12:24 失败，不算末段；另有 12:24–15:47 成功杯甜甜圈。原生分镜显示搅拌黄色面糊、加果酱、微波，视频所链接原配方给面粉、奶、黄油、泡打粉等和完整步骤。支持当作早段浅色面基的同杯甜点变体。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_30607d6ff5c1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qxVGS20DOF4.json"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_171688607bc4",
+              "native_id": "sx40toRYdoc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Published recipe uses 4 tbsp flour, 3 tbsp milk, 1 tbsp oil or butter and baking powder. The pale batter can become a vanilla mug cake; it does not teach the later savory topping.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_171688607bc4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sx40toRYdoc.json"
+              ]
+            },
+            {
+              "entity_id": "m_ac646dc132dd",
+              "native_id": "DWKp7zLKWwg",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Published flour, milk, butter and baking powder form a light vanilla mug batter, microwaved without a tomato/cheese finish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ac646dc132dd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DWKp7zLKWwg.json"
+              ]
+            },
+            {
+              "entity_id": "m_446ffb066974",
+              "native_id": "H3OhTEkNbgU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Includes a fully taught light vanilla mug cake among the three options; no microwave cup pizza.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_446ffb066974.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/H3OhTEkNbgU.json"
+              ]
+            },
+            {
+              "entity_id": "m_92d2bb3cea64",
+              "native_id": "86d1CRlGarQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator offers a microwave vanilla mug cake from a light flour-based batter, not a mug pizza.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_92d2bb3cea64.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/86d1CRlGarQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f5b66680e4e2",
+              "native_id": "IjWjouN8_Ug",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator describes a quick, light vanilla bean cake cooked from batter in the mug.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f5b66680e4e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IjWjouN8_Ug.json"
+              ]
+            },
+            {
+              "entity_id": "m_42290cc0cda6",
+              "native_id": "EdSq-Dv64vw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator teaches mixing and microwave-cooking a light vanilla mug cake in the serving vessel.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_42290cc0cda6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EdSq-Dv64vw.json"
+              ]
+            },
+            {
+              "entity_id": "m_c965efa8e24e",
+              "native_id": "MmVXLM97YL0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The multi-recipe video includes a light flour, milk and baking-powder mug cake. Its taught variations are cakes, not tomato-and-cheese mug pizza.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c965efa8e24e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MmVXLM97YL0.json"
+              ]
+            },
+            {
+              "entity_id": "m_896906c4dfbb",
+              "native_id": "X14xnoc8qyA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator’s vanilla mug recipe prepares a light self-rising flour batter and microwaves the single serving.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_896906c4dfbb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/X14xnoc8qyA.json"
+              ]
+            },
+            {
+              "entity_id": "m_f751e28a9de7",
+              "native_id": "CJwE7bgEAiw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The published plain-flour and baking-powder vanilla mug batter includes a microwave method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f751e28a9de7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CJwE7bgEAiw.json"
+              ]
+            },
+            {
+              "entity_id": "m_7663a0c8f634",
+              "native_id": "CfiLMXVI-Jg",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher teaches a plain self-rising-flour and milk vanilla cake cooked in a mug; an egg is a compatible batter variation before the dish is known.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7663a0c8f634.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CfiLMXVI-Jg.json"
+              ]
+            },
+            {
+              "entity_id": "m_da566aafd607",
+              "native_id": "vplUkhSm1NU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator lists 4 tbsp all-purpose flour, 3 tbsp milk, 1 tbsp butter or oil and baking powder, then cooks the vanilla mug cake in a microwave.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_da566aafd607.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vplUkhSm1NU.json"
+              ]
+            },
+            {
+              "entity_id": "m_89c3a009ee15",
+              "native_id": "Zx_GBqMrHIM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator explicitly links the complete vanilla mug recipe; light flour, milk and fat batter is mixed and microwaved.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_89c3a009ee15.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Zx_GBqMrHIM.json"
+              ]
+            },
+            {
+              "entity_id": "m_3d8af5b3b490",
+              "native_id": "ZueS19mDlqQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator’s vanilla segment gives flour, milk, vegetable oil and baking powder, then the microwave cook. It does not contain pizza.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3d8af5b3b490.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZueS19mDlqQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_ce382241c79c",
+              "native_id": "k4dhf_S5ypw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The vanilla strawberry segment presents a light single-serve mug batter and microwave cook, without a savory pizza topping.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ce382241c79c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/k4dhf_S5ypw.json"
+              ]
+            },
+            {
+              "entity_id": "m_fcc7999dfb6d",
+              "native_id": "HtX7f_dKWTw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The vanilla variation provides flour, liquid and fat in a light microwave mug batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fcc7999dfb6d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HtX7f_dKWTw.json"
+              ]
+            },
+            {
+              "entity_id": "m_0012e5543f90",
+              "native_id": "7Q13DGGXiYU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0012e5543f90.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7Q13DGGXiYU.json"
+              ]
+            },
+            {
+              "entity_id": "m_3b98578964b9",
+              "native_id": "958oJkn5aRA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher mixes all-purpose flour, liquid, oil and baking powder for a light vanilla cake, then cooks in the microwave. Water for milk is a batter variation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3b98578964b9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/958oJkn5aRA.json"
+              ]
+            },
+            {
+              "entity_id": "m_610227e81c36",
+              "native_id": "fYsrqKC-uMI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator’s light all-purpose flour and baking-powder vanilla cake is explicitly mixed and microwaved in the mug.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_610227e81c36.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fYsrqKC-uMI.json"
+              ]
+            },
+            {
+              "entity_id": "m_2a889e0f7ee2",
+              "native_id": "2at7z3ZX_lI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native storyboard shows dark cocoa batter whisked in a bowl and transferred to a mug, not the comparable pale mug batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2a889e0f7ee2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2at7z3ZX_lI.json"
+              ]
+            },
+            {
+              "entity_id": "m_9c9b5a78eaa8",
+              "native_id": "wBMwUqrtdIw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The separately taught vanilla option uses a light leavened almond-flour batter in a mug and microwaves it. Flour type is not discernible or requested in the opening.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9c9b5a78eaa8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wBMwUqrtdIw.json"
+              ]
+            },
+            {
+              "entity_id": "m_2405327e2a55",
+              "native_id": "cYaDjKe5_c4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator gives a light almond-flour vanilla batter with baking powder and fat and teaches the microwave cook.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2405327e2a55.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cYaDjKe5_c4.json"
+              ]
+            },
+            {
+              "entity_id": "m_6d7100f310db",
+              "native_id": "QjjDBvgy2uU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator teaches a complete vanilla mug batter and microwave cook; the native video does not teach a pizza finish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6d7100f310db.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QjjDBvgy2uU.json"
+              ]
+            },
+            {
+              "entity_id": "m_e482cb08c8e7",
+              "native_id": "wcCaksbXa4w",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生分镜第 0–2 张：在同一杯加粉、糖、泡打粉、黄油和牛奶，搅拌成浅色糊；第 2 张第一行直接提示 Microwave for 1 minute，后见杯蛋糕。简介不足但真实画面补足。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e482cb08c8e7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/wcCaksbXa4w.json"
+              ]
+            },
+            {
+              "entity_id": "m_971af41dece7",
+              "native_id": "WLbyNn8sHCA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_971af41dece7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WLbyNn8sHCA.json"
+              ]
+            },
+            {
+              "entity_id": "m_e3f720bba2a3",
+              "native_id": "d_BYeKMbwBM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "At least one recipe teaches a pale flour, milk, butter and baking-powder batter cooked in a mug.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e3f720bba2a3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/d_BYeKMbwBM.json"
+              ]
+            },
+            {
+              "entity_id": "m_33e82b6b0f8b",
+              "native_id": "rFhJJcXViDI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator’s vanilla batter includes flour, baking powder and fat, with chocolate chips as an add-in; no pizza finish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_33e82b6b0f8b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rFhJJcXViDI.json"
+              ]
+            },
+            {
+              "entity_id": "m_d3cc2fc487eb",
+              "native_id": "jY5r2VpCGfU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The vanilla segment provides a light flour-substitute batter for microwave mug cake, not pizza.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d3cc2fc487eb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jY5r2VpCGfU.json"
+              ]
+            },
+            {
+              "entity_id": "m_4a0b9eae6a66",
+              "native_id": "z-AHW8xOr8I",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生分镜第 0–2 张先分开量取干料和杯中黄油、奶与香草，随后合在杯中搅成浅色糊，约 65 秒操作微波，撒糖珠是可选味型。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4a0b9eae6a66.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/z-AHW8xOr8I.json"
+              ]
+            },
+            {
+              "entity_id": "m_94f475464e6c",
+              "native_id": "djyQQ37pLRs",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "49.6–165 秒分镜清楚展示量取浅色粉料和湿料、在黑杯里搅成浅色面糊、同杯出成品；创作者简介明确在该杯中微波。看不清全部标签不妨碍确认完整基本方法。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_94f475464e6c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/djyQQ37pLRs.json"
+              ]
+            },
+            {
+              "entity_id": "m_8e3429531780",
+              "native_id": "_Ddp-5U86cI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator supplies a self-rising flour, milk and protein vanilla batter and the mug microwave cook.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8e3429531780.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_Ddp-5U86cI.json"
+              ]
+            },
+            {
+              "entity_id": "m_951ca1888867",
+              "native_id": "SN-5hskr1lU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator teaches a light leavened almond-flour vanilla batter and microwave mug cook.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_951ca1888867.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SN-5hskr1lU.json"
+              ]
+            },
+            {
+              "entity_id": "m_b89ddcf977a6",
+              "native_id": "gZzzinY_AfY",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator mixes a light almond-flour, butter and leavener batter and microwaves for a vanilla mug cake.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b89ddcf977a6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/gZzzinY_AfY.json"
+              ]
+            },
+            {
+              "entity_id": "m_5cf5168da8de",
+              "native_id": "TskyrDTyWiI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The publisher teaches light flour-based vanilla or muffin batter in a mug and its microwave cook; the segment does not teach pizza.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5cf5168da8de.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/TskyrDTyWiI.json"
+              ]
+            },
+            {
+              "entity_id": "m_78fdabf34748",
+              "native_id": "ZymxJTU40IM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "A complete vegan vanilla mug cake segment mixes a light flour-based batter and microwaves it, distinct from the later tomato sauce/cheese finish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_78fdabf34748.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZymxJTU40IM.json"
+              ]
+            },
+            {
+              "entity_id": "m_4e5ea8be7e3a",
+              "native_id": "YdSUi1CFo-w",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher uses an all-purpose flour and baking-powder vanilla/blueberry mug batter, then microwave cooks it.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4e5ea8be7e3a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YdSUi1CFo-w.json"
+              ]
+            },
+            {
+              "entity_id": "m_cc8e4a55bab1",
+              "native_id": "Ekn_C3ee4tM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native vanilla variation shows flour, milk, baking powder and melted butter prepared and microwaved as a mug cake.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cc8e4a55bab1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ekn_C3ee4tM.json"
+              ]
+            },
+            {
+              "entity_id": "m_d13b5ebcfd8b",
+              "native_id": "PIDYuxAtFZs",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher shows a separate light vanilla mug-cake batter and microwave cook as well as the chocolate version.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d13b5ebcfd8b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PIDYuxAtFZs.json"
+              ]
+            },
+            {
+              "entity_id": "m_0bea4ca953d2",
+              "native_id": "Bux1Od8JoHo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native recipe includes pale all-purpose-flour, milk, oil and baking-powder vanilla mug batter and a microwave cook.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0bea4ca953d2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Bux1Od8JoHo.json"
+              ]
+            },
+            {
+              "entity_id": "m_4109ec78cd37",
+              "native_id": "RJyGlWsswW0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4109ec78cd37.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RJyGlWsswW0.json"
+              ]
+            },
+            {
+              "entity_id": "m_fb5bcec8bc9b",
+              "native_id": "A-BZN5cmTOk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator teaches light self-raising-flour and milk blueberry muffin batter in a mug, using the microwave.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fb5bcec8bc9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A-BZN5cmTOk.json"
+              ]
+            },
+            {
+              "entity_id": "m_6630ab343198",
+              "native_id": "x4oenkaDKDU",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The creator lists plain flour, baking powder, oil and milk, then marinara and mozzarella; it teaches microwave mug pizza from the batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6630ab343198.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/x4oenkaDKDU.json"
+              ]
+            },
+            {
+              "entity_id": "m_42ccd1443356",
+              "native_id": "nSbPZRcidvQ",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The published procedure combines flour and leavener with oil and liquid, then places tomato sauce and mozzarella over the batter and microwave cooks it in the mug.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_42ccd1443356.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nSbPZRcidvQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_ac63dc941ac0",
+              "native_id": "EODE1uRWu3o",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native chapters show flour, leaveners and butter mixed in the mug, layered pizza sauce and mozzarella; the native description identifies the microwave cup method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ac63dc941ac0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EODE1uRWu3o.json"
+              ]
+            },
+            {
+              "entity_id": "m_46e6fe6323e0",
+              "native_id": "-loiz1Mu-tQ",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Its pepperoni mug pizza segment actually presents flour, baking powder, milk, olive oil, marinara and mozzarella in a mug, with the microwave cook.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_46e6fe6323e0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/-loiz1Mu-tQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_10febfed46ed",
+              "native_id": "T4aHY-_dHHY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native recipe chapters mix flour, baking powder, milk and oil, then add tomato sauce and mozzarella before microwave cooking a cup pizza. Added chicken is a topping variation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_10febfed46ed.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T4aHY-_dHHY.json"
+              ]
+            },
+            {
+              "entity_id": "m_c75c66ba3851",
+              "native_id": "PRz4cVypdRc",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native chapters and creator instructions show a flour crust mixed in the mug, tomato sauce and mozzarella-style shreds, then microwaving. Nondairy milk and shreds preserve the method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c75c66ba3851.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PRz4cVypdRc.json"
+              ]
+            },
+            {
+              "entity_id": "m_fe4a957dbd30",
+              "native_id": "yhHlG5cYHO0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The named mug pizza uses refrigerated biscuits as its base, not a flour batter mixed in the mug; the other chapters do not establish an equivalent pale flour-batter method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fe4a957dbd30.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/yhHlG5cYHO0.json"
+              ]
+            },
+            {
+              "entity_id": "m_167e4baa435b",
+              "native_id": "xqjLxiOHgyY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Its complete mug pizza segment mixes flour with leavener, curd/water and oil, spreads pizza sauce without pressing it into the batter, adds mozzarella and microwaves.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_167e4baa435b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xqjLxiOHgyY.json"
+              ]
+            },
+            {
+              "entity_id": "m_c91b825030d7",
+              "native_id": "qTqymSH7-KI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "公开章节 0:25–1:31 在杯里混合面粉、膨松剂、牛奶、油，1:31–2:23 铺披萨酱和马苏里拉。它与早段未确认设备的杯内现拌相容；2:36 起明确教锅和模具而非微波，故不列为末段匹配。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c91b825030d7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qTqymSH7-KI.json"
+              ]
+            },
+            {
+              "entity_id": "m_76ddfba1c1c2",
+              "native_id": "LeBvWrhRNBA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native pizza is shaped and pre-baked before saucing, not the observed loose in-mug batter topped before microwaving.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_76ddfba1c1c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/LeBvWrhRNBA.json"
+              ]
+            },
+            {
+              "entity_id": "m_a9be5f2a5126",
+              "native_id": "8wILus2TMUE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Reviews frozen pizza products instead of teaching the observed preparation from batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a9be5f2a5126.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8wILus2TMUE.json"
+              ]
+            },
+            {
+              "entity_id": "m_594b87aec328",
+              "native_id": "lkFgCyA53Fw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The recipe uses a multi-serving shaped yeast dough and a ten-minute microwave method, not a single-mug batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_594b87aec328.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lkFgCyA53Fw.json"
+              ]
+            },
+            {
+              "entity_id": "m_2c3500ca999e",
+              "native_id": "1X9mjrPFSwo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2c3500ca999e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1X9mjrPFSwo.json"
+              ]
+            },
+            {
+              "entity_id": "m_57e13ce1ed7c",
+              "native_id": "0ZFPy2ZZLh4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57e13ce1ed7c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0ZFPy2ZZLh4.json"
+              ]
+            },
+            {
+              "entity_id": "m_877a2af1240e",
+              "native_id": "h4UMbZk9vMY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_877a2af1240e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h4UMbZk9vMY.json"
+              ]
+            },
+            {
+              "entity_id": "m_f07781fbcabe",
+              "native_id": "ajRXBMKycHo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f07781fbcabe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ajRXBMKycHo.json"
+              ]
+            },
+            {
+              "entity_id": "m_a4f4b853fbfc",
+              "native_id": "sv3TXMSv6Lw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a4f4b853fbfc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sv3TXMSv6Lw.json"
+              ]
+            },
+            {
+              "entity_id": "m_403c8584441c",
+              "native_id": "rvZ9NQBG0UA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_403c8584441c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rvZ9NQBG0UA.json"
+              ]
+            },
+            {
+              "entity_id": "m_2ed95988bde9",
+              "native_id": "rmuGh3TwvFA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2ed95988bde9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rmuGh3TwvFA.json"
+              ]
+            },
+            {
+              "entity_id": "m_eb9c208c76c5",
+              "native_id": "SDpCzJw2xm4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_eb9c208c76c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SDpCzJw2xm4.json"
+              ]
+            },
+            {
+              "entity_id": "m_cfe0a962a821",
+              "native_id": "MDX8fylSisU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cfe0a962a821.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MDX8fylSisU.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b1149e0836b",
+              "native_id": "9FUiONvtErk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b1149e0836b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9FUiONvtErk.json"
+              ]
+            },
+            {
+              "entity_id": "m_dc35f715f6b4",
+              "native_id": "_2iNY6L5h0A",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dc35f715f6b4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_2iNY6L5h0A.json"
+              ]
+            },
+            {
+              "entity_id": "m_50afe08fefff",
+              "native_id": "sSdOq9iPON0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The flour and milk form a separate white sauce for layered lasagna; there is no matching pizza batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_50afe08fefff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sSdOq9iPON0.json"
+              ]
+            },
+            {
+              "entity_id": "m_12d06b36e3a4",
+              "native_id": "2j8tu9Htajs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12d06b36e3a4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2j8tu9Htajs.json"
+              ]
+            },
+            {
+              "entity_id": "m_22967f556a76",
+              "native_id": "ApuvOGAEp4c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_22967f556a76.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ApuvOGAEp4c.json"
+              ]
+            },
+            {
+              "entity_id": "m_50964e346a0e",
+              "native_id": "b5UUNnaHc2E",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_50964e346a0e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/b5UUNnaHc2E.json"
+              ]
+            },
+            {
+              "entity_id": "m_a71641c29823",
+              "native_id": "XKC62IFnH2s",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a71641c29823.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XKC62IFnH2s.json"
+              ]
+            },
+            {
+              "entity_id": "m_dc19b164ad68",
+              "native_id": "5BoM2p5RumU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_dc19b164ad68.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/5BoM2p5RumU.json"
+              ]
+            },
+            {
+              "entity_id": "m_c1eebe7478fe",
+              "native_id": "WM1XcYXix0Y",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c1eebe7478fe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/WM1XcYXix0Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_2095859b9a43",
+              "native_id": "A4OeQAYfoIw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2095859b9a43.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A4OeQAYfoIw.json"
+              ]
+            },
+            {
+              "entity_id": "m_12bcd5fce5db",
+              "native_id": "NEd1-jyVD9s",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_12bcd5fce5db.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NEd1-jyVD9s.json"
+              ]
+            },
+            {
+              "entity_id": "m_76d4456c3063",
+              "native_id": "mHipexNOAq4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_76d4456c3063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mHipexNOAq4.json"
+              ]
+            },
+            {
+              "entity_id": "m_5a13a95bfc6a",
+              "native_id": "421H_HlSCR8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5a13a95bfc6a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/421H_HlSCR8.json"
+              ]
+            },
+            {
+              "entity_id": "m_7455e65e0463",
+              "native_id": "HjKEKgRrysQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7455e65e0463.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/HjKEKgRrysQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_720c9a162f29",
+              "native_id": "xMoE2la6vcI",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "前半段确实用多个金属小碗在锅里烤；后段约 10:18–12:20 另教单份微波版。白色可微波小碗直接量入面粉、泡打粉等，用水和黄油拌成黏面基，铺披萨酱和马苏里拉、加可选蔬菜，随后把同一碗放进微波炉并取出成品。第 5 张（零起算）的第 1–5 行清楚显示完整步骤。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_720c9a162f29.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xMoE2la6vcI.json"
+              ]
+            },
+            {
+              "entity_id": "m_a033436d1b3a",
+              "native_id": "pjsX1GzDl_M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a033436d1b3a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pjsX1GzDl_M.json"
+              ]
+            },
+            {
+              "entity_id": "m_816c0c8617b6",
+              "native_id": "80aYP0lTDt0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_816c0c8617b6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/80aYP0lTDt0.json"
+              ]
+            },
+            {
+              "entity_id": "m_9484c9a19658",
+              "native_id": "PcXc8IJXHWw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9484c9a19658.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PcXc8IJXHWw.json"
+              ]
+            },
+            {
+              "entity_id": "m_90514fccad08",
+              "native_id": "NbENxfQwnKk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different process or format: shaped pizza, ready-made base, whole oven/pan preparation, pizza dough alone, or a pasta or sauce recipe, not a mixed single-mug microwave batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_90514fccad08.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NbENxfQwnKk.json"
+              ]
+            },
+            {
+              "entity_id": "m_61b7a1506628",
+              "native_id": "JPx2M6FzdqQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_61b7a1506628.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JPx2M6FzdqQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_169393406af4",
+              "native_id": "T2he7q_4dj0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_169393406af4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T2he7q_4dj0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5ac5ed23f57e",
+              "native_id": "CkN_OVpxZtQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Creator expressly uses a flourless chocolate preparation, not a light flour-based batter.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5ac5ed23f57e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CkN_OVpxZtQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_d5bd8e31f281",
+              "native_id": "9YiYg-1jziw",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "1:17–2:44；官网步骤和原生 5×5 分镜均显示在同一杯里现拌面粉、奶、油和泡打粉，先微波饼底，再加红酱、马苏里拉并微波融化。两次加热仍是可跟做的同杯微波变体。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d5bd8e31f281.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9YiYg-1jziw.json"
+              ]
+            },
+            {
+              "entity_id": "m_192868a5cbed",
+              "native_id": "6eslIRo9als",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Gemma’s named mug pizza segment gives the flour/baking powder, milk and oil batter, then sauce, cheese and herbs. The published title and creator instructions identify microwave cook.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_192868a5cbed.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6eslIRo9als.json"
+              ]
+            },
+            {
+              "entity_id": "m_e9874f33a9e2",
+              "native_id": "jl38HGupIeQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e9874f33a9e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jl38HGupIeQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_0b0a10c47286",
+              "native_id": "pMl8mi7_MPQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator teaches an eggless apple version with pale flour, milk, fat and baking-powder batter in the microwave.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0b0a10c47286.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pMl8mi7_MPQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_e67d1caf167a",
+              "native_id": "D9HI_h6u1Lg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native storyboard explicitly shows cocoa or dark ingredients before the milk and a dark cake batter; no comparable pale recipe is taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e67d1caf167a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/D9HI_h6u1Lg.json"
+              ]
+            },
+            {
+              "entity_id": "m_2788a5746e28",
+              "native_id": "tMiDuoCTeoA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2788a5746e28.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/tMiDuoCTeoA.json"
+              ]
+            },
+            {
+              "entity_id": "m_f3167ea75091",
+              "native_id": "8eOZLAwhekI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f3167ea75091.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8eOZLAwhekI.json"
+              ]
+            },
+            {
+              "entity_id": "m_2a0257af3b5f",
+              "native_id": "ho-wd1OjDX0",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The complete native first storyboard tile shows flour and liquid mixed in a pink mug, a red sauce layer spread over it, cheese and optional toppings added, the microwave, and the finished mug being tasted. This actual demonstrated segment qualifies despite the generic compilation title.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2a0257af3b5f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ho-wd1OjDX0.json"
+              ]
+            },
+            {
+              "entity_id": "m_05e84cfc6374",
+              "native_id": "G9feY4a3dOU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_05e84cfc6374.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G9feY4a3dOU.json"
+              ]
+            },
+            {
+              "entity_id": "m_d5c845529ae7",
+              "native_id": "mEWEufQNiQ0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Published microwave coffee mug cake uses a light self-raising-flour batter and butter, not the tomato and cheese finish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d5c845529ae7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/mEWEufQNiQ0.json"
+              ]
+            },
+            {
+              "entity_id": "m_128804573a49",
+              "native_id": "DnuH1Yggnjw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Creator teaches a flour, milk, fat and baking-powder pancake batter made and cooked in a mug. The final preparation is not pizza.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_128804573a49.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DnuH1Yggnjw.json"
+              ]
+            },
+            {
+              "entity_id": "m_bc18e0abf97d",
+              "native_id": "ftMRIHNRd68",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bc18e0abf97d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ftMRIHNRd68.json"
+              ]
+            },
+            {
+              "entity_id": "m_9a3b21e5e386",
+              "native_id": "zHBqUgPEa_0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9a3b21e5e386.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zHBqUgPEa_0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b8dfc80353d",
+              "native_id": "ssx9rylkUqQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "8:52–11:07 的 Cinnamon Coffee Cake 段（不是开头的花生巧克力），配方用面粉、奶、油、泡打粉，分镜显示同杯混合和微波。肉桂和酥粒不排除为初段暂选。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b8dfc80353d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ssx9rylkUqQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_3b75ea894855",
+              "native_id": "sVRjZ5cwOWQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生简介和章节有全麦面粉 3 汤匙、牛奶、油、泡打成分与香蕉，搅拌后微波约 45 秒。作者规则已经接纳类似苹果及蓝莓杯蛋糕，并且不要求面粉品种；不能只因香蕉口味排除。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3b75ea894855.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sVRjZ5cwOWQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_74ca55ca9f3d",
+              "native_id": "UD8olODCqg4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_74ca55ca9f3d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UD8olODCqg4.json"
+              ]
+            },
+            {
+              "entity_id": "m_28a460b01921",
+              "native_id": "7jAFFEt_HkM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "保留初段，但原生章节支持 3:06–5:34 Spiced apple mug cake，而非作者记录所说的独立原味香草版。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_28a460b01921.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7jAFFEt_HkM.json"
+              ]
+            },
+            {
+              "entity_id": "m_6c6a960e843c",
+              "native_id": "2-n_gUe5WEA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节 1:22–2:32 加杏仁粉、乳清、泡打粉，混浅色面糊后倒入一个杯或烤盅，微波烹饪至 3:06。已接纳其他杏仁粉或蓝莓教程，也接纳先混合再入杯的 m_42290cc0cda6；不应对这条另加限制。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6c6a960e843c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/2-n_gUe5WEA.json"
+              ]
+            },
+            {
+              "entity_id": "m_ad28cbbfc311",
+              "native_id": "h4nonntSGWQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ad28cbbfc311.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h4nonntSGWQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_82402931a3c0",
+              "native_id": "4TksxjQjvkQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_82402931a3c0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4TksxjQjvkQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_b432e408f2f6",
+              "native_id": "28yQo2yqPZ8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe is for a different starting mixture or preparation: cocoa/peanut-butter batter, a flourless mix, cookie dough, or another non-matching mug dish; no usable light flour mug-batter segment is shown.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b432e408f2f6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/28yQo2yqPZ8.json"
+              ]
+            },
+            {
+              "entity_id": "m_30607d6ff5c1",
+              "native_id": "qxVGS20DOF4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "披萨段 7:14–12:24 失败，不算末段；另有 12:24–15:47 成功杯甜甜圈。原生分镜显示搅拌黄色面糊、加果酱、微波，视频所链接原配方给面粉、奶、黄油、泡打粉等和完整步骤。支持当作早段浅色面基的同杯甜点变体。",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_30607d6ff5c1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qxVGS20DOF4.json"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "summary",
+            "chapters",
+            "public_previews"
+          ],
+          "answer_boundary_rule": "Save one usable recipe or clearly complete variation for pizza cooked in a single mug or equivalent microwave-safe cup: mix the flour-based batter, add tomato-based sauce and melting cheese, and microwave it in the same cup. A recipe that microwaves the batter before adding sauce and cheese, then reheats the same cup, is a legitimate variant. Exact timing, wattage, toppings, brand and cheese variety are not constraints. A preassembled pizza that is only reheated, a savory batter without the pizza finish, or pizza made outside the cup does not qualify."
+        }
+      }
+    }
+  ]
+}

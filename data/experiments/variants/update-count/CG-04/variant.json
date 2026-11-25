@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "pair_id": "CG-04",
+  "id": "CG-04-update-count",
+  "source_task_path": "data/experiments/composite/CG-04.json",
+  "direction": "insert",
+  "subtype": "quantity_revision",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 16.0,
+      "request": "Make it exactly two cans of that drink for now."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 24.0,
+      "request": "Make it exactly three cans of that drink."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "p_2c0dafab0677"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "p_2c0dafab0677",
+        "p_2c0dafab0677"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "16秒继承原C紧邻绿罐右侧NOS。初始single can or pack允许一罐，新增恰好两罐排除一罐并保留两罐；单罐数由公开商品名称及原已封存包装核查支持。",
+    "public_facts": [
+      {
+        "entity_id": "p_2c0dafab0677",
+        "path": [
+          "name"
+        ],
+        "equals": "NOS High Performance Energy Drink 16 Oz can"
+      },
+      {
+        "entity_id": "p_4af1748eea8b",
+        "path": [
+          "name"
+        ],
+        "equals": "NOS Original Energy Drink — Blue 473 mL Can"
+      },
+      {
+        "entity_id": "p_2c0dafab0677",
+        "path": [
+          "name"
+        ],
+        "equals": "NOS High Performance Energy Drink 16 Oz can"
+      }
+    ],
+    "constraint": {
+      "kind": "quantity",
+      "units": {
+        "p_2c0dafab0677": 1,
+        "p_4af1748eea8b": 1
+      },
+      "operator": "==",
+      "value": 2
+    },
+    "original_request_effect": "24秒改成三罐，明确替换数量两罐；原单罐等价映射和最终三罐不变。"
+  }
+}

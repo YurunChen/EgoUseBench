@@ -1,0 +1,1395 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video"
+  },
+  "tasks": [
+    {
+      "status": "video_screened",
+      "source": {
+        "record_ids": [
+          359
+        ],
+        "media_id": "ef8accda-a901-4958-8632-2f083dcdd87b",
+        "original_video_id": "ef8accda-a901-4958-8632-2f083dcdd87b",
+        "media_start_seconds": 0,
+        "media_sha256": "52714c8fdfb4600ab9e9afc5c0fdbc05b4197dccf126fb2789c734314b258f94",
+        "original_annotations": [
+          "On Amazon, find and open a Prime-eligible multipack (6+ count) of the same kitchen sponge used in the video that is priced under $10."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              15,
+              24.8
+            ],
+            "role": "referent",
+            "description": "A red, oblong rectangular cutting board with rounded corners leans at the front of the drying rack to the left of the sink; the wearer washes a glass lid and a dark pan."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            15,
+            16.4,
+            17.8,
+            19.2,
+            20.6,
+            22,
+            23.4,
+            24.8
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_00.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_01.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_02.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_03.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_04.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_05.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_06.jpg",
+            "data/observations/candidate-mart-graft-replace-2026101802/V0_07.jpg"
+          ]
+        }
+      ],
+      "task_id": "candidate-mart-graft-replace-2026101802",
+      "family": "graft",
+      "subtype": "replace",
+      "replaces_candidate_id": "candidate-media-graft-c-116",
+      "replacement_reason": "The original text supplies both cookware and material, allowing a complete no-scene solution and asserting unsupported steel. The same source visibly supports a spare-board to color-separated-set cart replacement.",
+      "repair": {
+        "strategy": "redesign_same_source",
+        "previous_candidate_id": "candidate-media-graft-c-116",
+        "date": "2026-10-18",
+        "evidence_reference": ".scratch/task-completion-20261018/formal/candidate-media-graft-c-116-targeted.json"
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "supported_claims": [
+        {
+          "text": "The frontmost upright board beside the sink has a red cutting surface and an oblong rectangular body. Its brand, precise size and material are not claimed.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent replace one visually matched spare cutting board with a food-separated multicolor set while preserving the scene-derived appearance match?",
+        "divergence_source": "intention",
+        "event_origin": "redesign_same_source",
+        "belief_before": "One spare single board matching the visible board's color and broad shape belongs in the cart.",
+        "belief_after": "One differently colored set including such a board belongs in the cart for separate raw-ingredient and vegetable preparation.",
+        "required_behavior_change": "Remove the single-board listing and add one suitable multicolor set, retaining the scene-derived appearance requirement.",
+        "no_update_failure": "Keep only the old single-board listing.",
+        "overupdate_failure": "Keep both the old board and the new set or add several sets.",
+        "visual_dependency_claim": "Neither A nor B gives red or rectangular; only released frames supply the frontmost rack board's color and body shape. The real window also includes blue/green, pastel, gray, white, and circular alternatives.",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "site": "egomart",
+          "initial_goal_roles": [
+            [
+              "single_board"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "multicolor_set"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "single_board": "p_d568527bc6ae",
+            "multicolor_set": "p_05100fd005ad"
+          },
+          "equivalent_role_ids": {
+            "single_board": [
+              "p_d3daf7088e93",
+              "p_4d6dc4518b3d",
+              "p_e11efaa366c5",
+              "p_65d7efaf87b0",
+              "p_37ad4c94763a",
+              "p_c3a4ccd4c2d4",
+              "p_9f927ef851a9",
+              "p_3fe4c2eadcf9",
+              "p_3ca23fff8166",
+              "p_6ab874689685",
+              "p_a75c20e4b35b",
+              "p_6dca99a9a259",
+              "p_e56f3b9ebc8a",
+              "p_70fbb4950b84",
+              "p_47264702323b",
+              "p_9834e08491a8",
+              "p_283d08418316",
+              "p_f82f6b6c64a1",
+              "p_36e758cef9f8",
+              "p_72ca944ed873",
+              "p_0e42df372bb4",
+              "p_65e907941152",
+              "p_f906a9bc548b",
+              "p_18f36e42352b",
+              "p_6fda8515c71b",
+              "p_1c683ffa42a7",
+              "p_3dd5c035ecb7",
+              "p_eae136c51e59",
+              "p_3a9dc37f2b8e",
+              "p_e307ea6370a3"
+            ],
+            "multicolor_set": [
+              "p_d6cd34d6e332",
+              "p_1301e5e57579",
+              "p_319d1a31f831",
+              "p_ad7a6aa588ae",
+              "p_bf45e7ee22d0",
+              "p_e3d5bf04b6a9",
+              "p_76f8aef62775",
+              "p_b1b517a62e6a",
+              "p_f00a92700c7e",
+              "p_900784312eb8",
+              "p_e7acb5e8b902",
+              "p_a7b8bd10c802",
+              "p_da4c8df4c72a",
+              "p_954da1616748",
+              "p_4e4d1ab9f4bc",
+              "p_8f747221392c",
+              "p_e709832e4d78",
+              "p_98b0523bf50d",
+              "p_e17bbdae039e",
+              "p_748e6e3848ac",
+              "p_d99c0ac017a8",
+              "p_f91a1425b1e9",
+              "p_d2f164c26a7c",
+              "p_591ba9649d68"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "single_goal": {
+              "goal_ref": "initial"
+            },
+            "set_goal": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "single_goal",
+                "set_goal"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "set_goal"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "B replaces the one-board purchase with a multicolor set so raw ingredients and vegetables use separate boards."
+            }
+          ],
+          "established_by": "/root/washing_board_repair_1018",
+          "established_at": "2026-10-18"
+        },
+        "difficulty": {
+          "level": "unclassified"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "red cutting board",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-replace-2026101802.json",
+              "result_entity_ids": [
+                "p_d3daf7088e93",
+                "p_4d6dc4518b3d",
+                "p_52109c2e6df9",
+                "p_e920de71b3d4",
+                "p_d568527bc6ae",
+                "p_e11efaa366c5",
+                "p_65d7efaf87b0",
+                "p_37ad4c94763a",
+                "p_c3a4ccd4c2d4",
+                "p_9f927ef851a9",
+                "p_3fe4c2eadcf9",
+                "p_3ca23fff8166",
+                "p_bc3e937e1b98",
+                "p_6ab874689685",
+                "p_a75c20e4b35b",
+                "p_84b0d68e1fe8",
+                "p_5c010dd3c22a",
+                "p_6dca99a9a259",
+                "p_e56f3b9ebc8a",
+                "p_70fbb4950b84",
+                "p_31c0ecb25446",
+                "p_d6cd34d6e332",
+                "p_47264702323b",
+                "p_9834e08491a8",
+                "p_283d08418316",
+                "p_99bb11d0494c",
+                "p_f82f6b6c64a1",
+                "p_36e758cef9f8",
+                "p_72ca944ed873",
+                "p_0e42df372bb4",
+                "p_65e907941152",
+                "p_f906a9bc548b",
+                "p_18f36e42352b",
+                "p_6fda8515c71b",
+                "p_1c683ffa42a7",
+                "p_36a3c7eb56bb",
+                "p_2b1319176855",
+                "p_3dd5c035ecb7",
+                "p_5d0b5a03da39",
+                "p_ba0b07c69cd6",
+                "p_eae136c51e59",
+                "p_1301e5e57579",
+                "p_319d1a31f831",
+                "p_af4715fa070e",
+                "p_6e177dc66cb3",
+                "p_fb9f9356a841",
+                "p_3a9dc37f2b8e",
+                "p_e307ea6370a3",
+                "p_c9b4d0774461",
+                "p_064dc78c05b0",
+                "p_ad7a6aa588ae",
+                "p_5b0618c5c7b5",
+                "p_1b76fd875893",
+                "p_18015673f392",
+                "p_ac574849ee6f",
+                "p_a9643f4c6318",
+                "p_84d63a526cd6",
+                "p_f36d1bbf69f0"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "colour coded cutting board set",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-replace-2026101802.json",
+              "result_entity_ids": [
+                "p_bf45e7ee22d0",
+                "p_05100fd005ad",
+                "p_e3d5bf04b6a9",
+                "p_bf5a06c6b52d",
+                "p_76f8aef62775",
+                "p_b1b517a62e6a",
+                "p_f00a92700c7e",
+                "p_900784312eb8",
+                "p_e7acb5e8b902",
+                "p_2b1319176855",
+                "p_d6cd34d6e332",
+                "p_c8a4a4bb799a",
+                "p_b0b6e97a0724",
+                "p_a7b8bd10c802",
+                "p_71f1cfa7fbfe",
+                "p_b59887f8c757",
+                "p_1fa0a775a03e",
+                "p_6614c27a96a0",
+                "p_da4c8df4c72a",
+                "p_14c7ff4891a1",
+                "p_efabb089f570",
+                "p_954da1616748",
+                "p_40853e09bdea",
+                "p_bfbe175bb0e5",
+                "p_ad7a6aa588ae",
+                "p_c90adbc6875e",
+                "p_4e4d1ab9f4bc",
+                "p_1b76fd875893",
+                "p_5663ad499099",
+                "p_beaac2ece0ae",
+                "p_8f747221392c",
+                "p_e709832e4d78",
+                "p_f2795106d9f7",
+                "p_98b0523bf50d",
+                "p_4c0c9820dfd3",
+                "p_77ea2547b169",
+                "p_e17bbdae039e",
+                "p_80687f60b666",
+                "p_5009560b6e80",
+                "p_1f500e36e2a9",
+                "p_748e6e3848ac",
+                "p_d99c0ac017a8",
+                "p_f91a1425b1e9",
+                "p_d2f164c26a7c",
+                "p_18b4c951690f",
+                "p_6187143c261e",
+                "p_4855f690dd16",
+                "p_591ba9649d68"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_d3daf7088e93",
+            "p_4d6dc4518b3d",
+            "p_52109c2e6df9",
+            "p_e920de71b3d4",
+            "p_d568527bc6ae",
+            "p_e11efaa366c5",
+            "p_65d7efaf87b0",
+            "p_37ad4c94763a",
+            "p_c3a4ccd4c2d4",
+            "p_9f927ef851a9",
+            "p_3fe4c2eadcf9",
+            "p_3ca23fff8166",
+            "p_bc3e937e1b98",
+            "p_6ab874689685",
+            "p_a75c20e4b35b",
+            "p_84b0d68e1fe8",
+            "p_5c010dd3c22a",
+            "p_6dca99a9a259",
+            "p_e56f3b9ebc8a",
+            "p_70fbb4950b84",
+            "p_31c0ecb25446",
+            "p_d6cd34d6e332",
+            "p_47264702323b",
+            "p_9834e08491a8",
+            "p_283d08418316",
+            "p_99bb11d0494c",
+            "p_f82f6b6c64a1",
+            "p_36e758cef9f8",
+            "p_72ca944ed873",
+            "p_0e42df372bb4",
+            "p_65e907941152",
+            "p_f906a9bc548b",
+            "p_18f36e42352b",
+            "p_6fda8515c71b",
+            "p_1c683ffa42a7",
+            "p_36a3c7eb56bb",
+            "p_2b1319176855",
+            "p_3dd5c035ecb7",
+            "p_5d0b5a03da39",
+            "p_ba0b07c69cd6",
+            "p_eae136c51e59",
+            "p_1301e5e57579",
+            "p_319d1a31f831",
+            "p_af4715fa070e",
+            "p_6e177dc66cb3",
+            "p_fb9f9356a841",
+            "p_3a9dc37f2b8e",
+            "p_e307ea6370a3",
+            "p_c9b4d0774461",
+            "p_064dc78c05b0",
+            "p_ad7a6aa588ae",
+            "p_5b0618c5c7b5",
+            "p_1b76fd875893",
+            "p_18015673f392",
+            "p_ac574849ee6f",
+            "p_a9643f4c6318",
+            "p_84d63a526cd6",
+            "p_f36d1bbf69f0",
+            "p_bf45e7ee22d0",
+            "p_05100fd005ad",
+            "p_e3d5bf04b6a9",
+            "p_bf5a06c6b52d",
+            "p_76f8aef62775",
+            "p_b1b517a62e6a",
+            "p_f00a92700c7e",
+            "p_900784312eb8",
+            "p_e7acb5e8b902",
+            "p_c8a4a4bb799a",
+            "p_b0b6e97a0724",
+            "p_a7b8bd10c802",
+            "p_71f1cfa7fbfe",
+            "p_b59887f8c757",
+            "p_1fa0a775a03e",
+            "p_6614c27a96a0",
+            "p_da4c8df4c72a",
+            "p_14c7ff4891a1",
+            "p_efabb089f570",
+            "p_954da1616748",
+            "p_40853e09bdea",
+            "p_bfbe175bb0e5",
+            "p_c90adbc6875e",
+            "p_4e4d1ab9f4bc",
+            "p_5663ad499099",
+            "p_beaac2ece0ae",
+            "p_8f747221392c",
+            "p_e709832e4d78",
+            "p_f2795106d9f7",
+            "p_98b0523bf50d",
+            "p_4c0c9820dfd3",
+            "p_77ea2547b169",
+            "p_e17bbdae039e",
+            "p_80687f60b666",
+            "p_5009560b6e80",
+            "p_1f500e36e2a9",
+            "p_748e6e3848ac",
+            "p_d99c0ac017a8",
+            "p_f91a1425b1e9",
+            "p_d2f164c26a7c",
+            "p_18b4c951690f",
+            "p_6187143c261e",
+            "p_4855f690dd16",
+            "p_591ba9649d68"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "p_d3daf7088e93",
+            "p_4d6dc4518b3d",
+            "p_d568527bc6ae",
+            "p_e11efaa366c5",
+            "p_65d7efaf87b0",
+            "p_37ad4c94763a",
+            "p_c3a4ccd4c2d4",
+            "p_9f927ef851a9",
+            "p_3fe4c2eadcf9",
+            "p_3ca23fff8166",
+            "p_6ab874689685",
+            "p_a75c20e4b35b",
+            "p_6dca99a9a259",
+            "p_e56f3b9ebc8a",
+            "p_70fbb4950b84",
+            "p_47264702323b",
+            "p_9834e08491a8",
+            "p_283d08418316",
+            "p_f82f6b6c64a1",
+            "p_36e758cef9f8",
+            "p_72ca944ed873",
+            "p_0e42df372bb4",
+            "p_65e907941152",
+            "p_f906a9bc548b",
+            "p_18f36e42352b",
+            "p_6fda8515c71b",
+            "p_1c683ffa42a7",
+            "p_3dd5c035ecb7",
+            "p_eae136c51e59",
+            "p_3a9dc37f2b8e",
+            "p_e307ea6370a3"
+          ],
+          "related_entity_ids": [
+            "p_af4715fa070e",
+            "p_52109c2e6df9",
+            "p_e920de71b3d4",
+            "p_bc3e937e1b98",
+            "p_84b0d68e1fe8",
+            "p_5c010dd3c22a",
+            "p_31c0ecb25446",
+            "p_99bb11d0494c",
+            "p_2b1319176855",
+            "p_5d0b5a03da39",
+            "p_ba0b07c69cd6",
+            "p_6e177dc66cb3",
+            "p_fb9f9356a841",
+            "p_064dc78c05b0",
+            "p_5b0618c5c7b5",
+            "p_1b76fd875893",
+            "p_18015673f392",
+            "p_a9643f4c6318",
+            "p_84d63a526cd6",
+            "p_f36d1bbf69f0",
+            "p_bf5a06c6b52d",
+            "p_c8a4a4bb799a",
+            "p_b0b6e97a0724",
+            "p_71f1cfa7fbfe",
+            "p_b59887f8c757",
+            "p_1fa0a775a03e",
+            "p_6614c27a96a0",
+            "p_14c7ff4891a1",
+            "p_efabb089f570",
+            "p_40853e09bdea",
+            "p_bfbe175bb0e5",
+            "p_c90adbc6875e",
+            "p_5663ad499099",
+            "p_beaac2ece0ae",
+            "p_f2795106d9f7",
+            "p_4c0c9820dfd3",
+            "p_77ea2547b169",
+            "p_80687f60b666",
+            "p_5009560b6e80",
+            "p_1f500e36e2a9",
+            "p_18b4c951690f",
+            "p_6187143c261e",
+            "p_4855f690dd16"
+          ],
+          "ambient_entity_ids": [
+            "p_36a3c7eb56bb",
+            "p_c9b4d0774461",
+            "p_ac574849ee6f"
+          ],
+          "detail_decision_fields": [
+            "title",
+            "image",
+            "Colour",
+            "Shape",
+            "feature_bullets",
+            "IncludedComponents"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_d3daf7088e93",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_4d6dc4518b3d",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_52109c2e6df9",
+              "ring": "related",
+              "reason": "Four same-color folding boards; B requires a set of differently colored boards.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_e920de71b3d4",
+              "ring": "related",
+              "reason": "White cutting surfaces with red grips; the visible board has a red cutting surface, and the set is not differently colored.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_d568527bc6ae",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_e11efaa366c5",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_65d7efaf87b0",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_37ad4c94763a",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_c3a4ccd4c2d4",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_9f927ef851a9",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_3fe4c2eadcf9",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_3ca23fff8166",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_bc3e937e1b98",
+              "ring": "related",
+              "reason": "The cutting surface is white with a red border; it does not match the visible board's red surface.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_6ab874689685",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_a75c20e4b35b",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_84b0d68e1fe8",
+              "ring": "related",
+              "reason": "Three red boards of different sizes, not differently colored boards.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_5c010dd3c22a",
+              "ring": "related",
+              "reason": "Two boards in the same red color, not differently colored boards.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_6dca99a9a259",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_e56f3b9ebc8a",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_70fbb4950b84",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_31c0ecb25446",
+              "ring": "related",
+              "reason": "The selected listing and image are pink, not the visible board's red.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_47264702323b",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_9834e08491a8",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_283d08418316",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_99bb11d0494c",
+              "ring": "related",
+              "reason": "A predominantly wooden board with a resin stripe; its overall color does not match the visible red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_f82f6b6c64a1",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_36e758cef9f8",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_72ca944ed873",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_0e42df372bb4",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_65e907941152",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_f906a9bc548b",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_18f36e42352b",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_6fda8515c71b",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_1c683ffa42a7",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_36a3c7eb56bb",
+              "ring": "ambient",
+              "reason": "Board Buddyz is a cross-shaped board support, not a cutting board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_2b1319176855",
+              "ring": "related",
+              "reason": "Two green boards; no red board is shown or specified.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_3dd5c035ecb7",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_5d0b5a03da39",
+              "ring": "related",
+              "reason": "A 30-by-30-cm square board, unlike the visible oblong board, and it is not a set.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_ba0b07c69cd6",
+              "ring": "related",
+              "reason": "White cutting surface with red strainer; it does not match the visible board's red cutting surface.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_eae136c51e59",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_af4715fa070e",
+              "ring": "related",
+              "reason": "Unsupported initial appearance match: the selected Amazon image shows a large white central area despite the Red label. Targeted manufacturer capture identifies red SKU K05932, but that variant has no image; its only family image belongs to blue SKU 05931. No same-SKU evidence establishes that the white area is removable packaging over a red cutting surface. Apply the same demonstrated cutting-face color rule as white-board/red-grip and conflicting-color listings; do not infer that the physical item must be white or must be red. It is also a single board and cannot meet B's multicolor-set requirement.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "unsupported_initial_cutting_face_color",
+                "single_board_not_multicolor_set"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_6e177dc66cb3",
+              "ring": "related",
+              "reason": "The pictured cutting surface is metallic silver/white rather than red.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_fb9f9356a841",
+              "ring": "related",
+              "reason": "Three white cutting surfaces with red grips, not differently colored boards including a red cutting surface.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_3a9dc37f2b8e",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_e307ea6370a3",
+              "ring": "core",
+              "reason": "A permits this single red board with a broadly rectangular body. B replaces the single board with a differently colored set; one board alone cannot provide separate boards for raw ingredients and vegetables.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "old_single_board_only"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_c9b4d0774461",
+              "ring": "ambient",
+              "reason": "Board Buddyz is an orange cross-shaped support rather than a cutting board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_064dc78c05b0",
+              "ring": "related",
+              "reason": "A round watermelon-shaped board rather than the visible oblong board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_5b0618c5c7b5",
+              "ring": "related",
+              "reason": "Three white cutting surfaces with red grips, not differently colored boards including a red cutting surface.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_1b76fd875893",
+              "ring": "related",
+              "reason": "The selected listing and image show black/gray boards, not a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_18015673f392",
+              "ring": "related",
+              "reason": "The selected image and Colour field show white boards with colored outlines. The title's GREEN/RED/YELLOW and description do not establish a red cutting surface; public color evidence is conflicting. This is insufficient evidence, not a claim that an unseen physical variant cannot match.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_ac574849ee6f",
+              "ring": "ambient",
+              "reason": "A bottle of board conditioner, not a cutting board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_a9643f4c6318",
+              "ring": "related",
+              "reason": "The selected titanium set has silver cutting surfaces and no red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_84d63a526cd6",
+              "ring": "related",
+              "reason": "The selected titanium set has silver cutting surfaces and no red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_f36d1bbf69f0",
+              "ring": "related",
+              "reason": "The selected titanium set has silver cutting surfaces and no red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_bf5a06c6b52d",
+              "ring": "related",
+              "reason": "The selected detail specifies Deep Blue, Sky Blue, Light Blue, White; no red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_c8a4a4bb799a",
+              "ring": "related",
+              "reason": "The selected Graphite listing shows gray/blue boards; the selected image provides no red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_b0b6e97a0724",
+              "ring": "related",
+              "reason": "The selected trio is blue/green rather than a set including a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_71f1cfa7fbfe",
+              "ring": "related",
+              "reason": "The selected Regular Graphite image and Blue/Graphite color field show no red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_b59887f8c757",
+              "ring": "related",
+              "reason": "The selected listing shows black/gray boards rather than a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_1fa0a775a03e",
+              "ring": "related",
+              "reason": "The selected set shows green, blue, yellow, pale gray and dark gray boards, without a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_6614c27a96a0",
+              "ring": "related",
+              "reason": "White cutting surfaces with colored edge grips do not supply the requested red cutting surface.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_14c7ff4891a1",
+              "ring": "related",
+              "reason": "This selected variant shows blue/green cutting mats, with no red mat.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_efabb089f570",
+              "ring": "related",
+              "reason": "The selected Opal variant shows blue/green boards; no red board is established.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_40853e09bdea",
+              "ring": "related",
+              "reason": "The selected image shows dark blue/gray boards and generic colorful metadata. It does not establish a red board; do not infer colors of an unseen variant.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_bfbe175bb0e5",
+              "ring": "related",
+              "reason": "White cutting surfaces with green/gray edge grips; no red cutting surface.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_c90adbc6875e",
+              "ring": "related",
+              "reason": "This selected variant shows blue/green mats, with no red mat.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_5663ad499099",
+              "ring": "related",
+              "reason": "The selected paddle set is sage/mauve/gray; no red board is shown or specified.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_beaac2ece0ae",
+              "ring": "related",
+              "reason": "The selected stainless case contains gray boards; no red board is established by its selected image.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_f2795106d9f7",
+              "ring": "related",
+              "reason": "The selected image shows pastel sage, peach, lavender and pink boards, not a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_4c0c9820dfd3",
+              "ring": "related",
+              "reason": "The selected paddle set shows sage, mauve and gray boards, not a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_77ea2547b169",
+              "ring": "related",
+              "reason": "The selected listing shows white surfaces with gray grips, not a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_80687f60b666",
+              "ring": "related",
+              "reason": "The selected Sage Green variant shows green/white boards without a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_5009560b6e80",
+              "ring": "related",
+              "reason": "The selected wooden boards are wood-colored, not a set including a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_1f500e36e2a9",
+              "ring": "related",
+              "reason": "The selected Carbon Black variant shows gray boards, with no red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_18b4c951690f",
+              "ring": "related",
+              "reason": "The selected image shows pastel sage/peach/lavender/pink boards, not a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_6187143c261e",
+              "ring": "related",
+              "reason": "The selected image shows beige/gray boards rather than a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            },
+            {
+              "entity_id": "p_4855f690dd16",
+              "ring": "related",
+              "reason": "The selected titanium set has silver cutting surfaces, not a red board.",
+              "why_plausible": "A real captured product in the cutting-board result window.",
+              "failure_predicates": [
+                "wrong_visible_color_shape_or_purchase_unit"
+              ],
+              "semantic_review": "coding_agent_accepted",
+              "review_reference": ".scratch/task-completion-20261018/c116-replacement/construction_evidence.json::candidate_boundary"
+            }
+          ]
+        }
+      },
+      "stream": {
+        "session_seconds": [
+          15.0,
+          88.8
+        ],
+        "update_onset_seconds": 63.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-replace-2026101802/review.json"
+      }
+    }
+  ]
+}

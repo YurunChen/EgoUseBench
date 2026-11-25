@@ -1,0 +1,2593 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official HD-EPIC data record, CC BY 4.0; targeted excerpt of one recording."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110501",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P06-20240511-102207__665-706",
+        "original_video_id": "P06-20240511-102207",
+        "media_start_seconds": 665.0,
+        "media_sha256": "93ed5af831fc43c1d97ddfd0c7d26ae0d3811f4efa436ba97a64a5ea3b85b702",
+        "annotation_reference": "reference/sources/HD-EPIC/annotations/high-level/complete_recipes.json::P06_R06",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              676,
+              683
+            ],
+            "description": "The wearer spoons yellow beaten egg and diced red onion from a white bowl into a shallow frying pan, then briefly swirls the pan. Two slices of bread remain on the board beside the stove and have not touched the egg."
+          },
+          {
+            "interval_seconds": [
+              684,
+              695
+            ],
+            "description": "The wearer picks up one bread slice from the board, places it in the same pan directly on the unset egg, lifts the now yellow egg-coated slice to turn it, and leaves it centered in the egg mixture. The burner is then adjusted; the food remains in that same pan."
+          }
+        ],
+        "acquisition_receipt": "data/sources/provenance/expansion_20261105_bread_omelette_frame_provenance.json::source_acquisition"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            676,
+            678,
+            681,
+            683
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110501/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110501/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110501/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110501/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            684,
+            686,
+            689,
+            695
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110501/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110501/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110501/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110501/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The ongoing food in the frying pan is beaten egg with diced onion. Bread is visible beside the pan, which alone does not establish whether it will be a side or an ingredient.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "Later frames show the bread put directly into the unset egg and turned while visibly coated, making this a bread omelette cooked together in the same frying pan, rather than a plain omelette with bread on the side.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          676.0,
+          699.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110501/review.json"
+      },
+      "screening": {
+        "proposed_instruction": "Could you save a video showing how to make what I'm cooking in this pan?",
+        "source_continuity": "One continuous 41-second official HD-EPIC excerpt; source time equals excerpt time plus 665 s; no omitted interval within the 676–699 s proposal. Source display shows a physical same-pan change. No new user utterance."
+      },
+      "construct": {
+        "research_question": "Can an agent update a reasonable saved tutorial when an ongoing food preparation reveals a different method?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "belief_before": "Beaten egg with diced onion cooks in a frying pan; bread on a separate board can be a side or a later ingredient.",
+        "belief_after": "The same pan receives bread directly in its unset omelette; the slice is visibly coated, flipped, and left to cook with the egg.",
+        "required_behavior_change": "Replace a plain-omelette-only tutorial if saved, but retain any tutorial that already teaches the applicable bread omelette.",
+        "no_update_failure": "Leave a tutorial that only shows a plain omelette or separately serving toast after the integrated method is visible.",
+        "overupdate_failure": "Replace a valid one-pan bread omelette tutorial, save an additional unrelated result, or require precise seasoning, number of slices or a brand.",
+        "visual_dependency_claim": "The unchanged request names no food or technique. In V0 a standalone omelette with bread beside the pan remains plausible; V1 establishes bonding bread and still-unset egg into a single skillet preparation. Broad native results cover multiple mutually distinguishable techniques, not just the final dish.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a video showing how to make what I'm cooking in this pan?",
+          "target_granularity": "category",
+          "initial_target_role": "plausible_skillet_omelette",
+          "final_target_role": "bread_cooked_with_omelette",
+          "environment_role_ids": {
+            "plausible_skillet_omelette": "m_732a699cf1b8",
+            "bread_cooked_with_omelette": "m_4a485741ff27"
+          },
+          "equivalent_role_ids": {
+            "plausible_skillet_omelette": [
+              "m_7c5620b6bbd5",
+              "m_78acadb97841",
+              "m_67c9a72f995b",
+              "m_1fd75e26228a",
+              "m_f9253ac087a8",
+              "m_350b99dc04c7",
+              "m_83a849f86e78",
+              "m_3a98a7327a39",
+              "m_0d39c99fcf90",
+              "m_abdc0128d6dc",
+              "m_ca62a4d35ee5",
+              "m_3efc950dad19",
+              "m_67e9d74cbc75",
+              "m_268966ea3e7c",
+              "m_593c270d2285",
+              "m_253dbb23a958",
+              "m_d2ea25f35172",
+              "m_31b18e1510c0",
+              "m_74350f02a19e",
+              "m_5959702e064f",
+              "m_05aaacd8e043",
+              "m_01387b909b30",
+              "m_7ea6b5cde383",
+              "m_af41e43966c3",
+              "m_23bbf6ab617e",
+              "m_820b4e3c3251",
+              "m_db7bf476c02d",
+              "m_b26cb6d41bea",
+              "m_2666482473a8",
+              "m_4bbe678f7e0a",
+              "m_bbec94044af7",
+              "m_95197af11fad",
+              "m_4a485741ff27",
+              "m_89551e6680aa",
+              "m_f3d23ced14bf",
+              "m_0b0233c32082",
+              "m_92c2538abb2d"
+            ],
+            "bread_cooked_with_omelette": [
+              "m_4bbe678f7e0a",
+              "m_95197af11fad",
+              "m_89551e6680aa",
+              "m_f3d23ced14bf",
+              "m_0b0233c32082",
+              "m_92c2538abb2d"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "ordinary_omelette": "m_732a699cf1b8",
+            "bread_omelette": "m_4a485741ff27"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "ordinary_omelette",
+                "bread_omelette"
+              ],
+              "why": "The pan contains egg and diced onion. Sliced bread beside the pan can still be served separately."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "ordinary_omelette",
+                "bread_omelette"
+              ],
+              "why": "The wearer picks up a slice and brings it over the same pan; this frame alone does not establish how it will be used."
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "bread_omelette"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The slice is pressed directly into the same pan's unset beaten egg; subsequent frames show it coated and flipped, not toasted separately."
+            }
+          ],
+          "established_by": "/root/replacements",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "skillet omelette breakfast recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110501.json",
+              "snapshot_stage": "skillet_breakfast",
+              "result_entity_ids": [
+                "m_7c5620b6bbd5",
+                "m_1f0cb8bd159b",
+                "m_78acadb97841",
+                "m_71269b1dc81d",
+                "m_732a699cf1b8",
+                "m_67c9a72f995b",
+                "m_1fd75e26228a",
+                "m_f9253ac087a8",
+                "m_350b99dc04c7",
+                "m_83a849f86e78",
+                "m_3a98a7327a39",
+                "m_0d39c99fcf90",
+                "m_abdc0128d6dc",
+                "m_ca62a4d35ee5",
+                "m_21dc3b022642",
+                "m_3efc950dad19",
+                "m_2b45d71f3414",
+                "m_67e9d74cbc75",
+                "m_268966ea3e7c",
+                "m_593c270d2285",
+                "m_253dbb23a958",
+                "m_5d35c4c4991c",
+                "m_000c72307947",
+                "m_d2ea25f35172",
+                "m_31b18e1510c0",
+                "m_74350f02a19e",
+                "m_5959702e064f",
+                "m_405e49dc4331",
+                "m_05aaacd8e043",
+                "m_01387b909b30",
+                "m_7ea6b5cde383",
+                "m_6f86babbbf64",
+                "m_af41e43966c3",
+                "m_23bbf6ab617e",
+                "m_820b4e3c3251",
+                "m_2eecf30b95c1",
+                "m_db7bf476c02d",
+                "m_b26cb6d41bea",
+                "m_93acdf211977",
+                "m_2666482473a8"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "eggs and bread skillet breakfast recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110501.json",
+              "snapshot_stage": "eggs_and_bread",
+              "result_entity_ids": [
+                "m_d14783b31927",
+                "m_966bf4fdf177",
+                "m_76bd5d587f48",
+                "m_d574e1e6bfd4",
+                "m_903ea0f22b68",
+                "m_8ea6ebaf905d",
+                "m_29d28724f6e3",
+                "m_baa15511b98d",
+                "m_4bbe678f7e0a",
+                "m_6640c1c7890e",
+                "m_7422ad514591",
+                "m_18674e732ab9",
+                "m_3ba55e8ca5e1",
+                "m_85b495015c3c",
+                "m_bbec94044af7",
+                "m_95197af11fad",
+                "m_ce052d97681f",
+                "m_2be5547b29e3",
+                "m_b6d1741647ee",
+                "m_4a485741ff27",
+                "m_ce4897138d7e",
+                "m_b877a22d9473",
+                "m_9b51cd9dde8d",
+                "m_ef483fdc7ab0",
+                "m_a86c0f2946c8",
+                "m_92c2538abb2d",
+                "m_89551e6680aa",
+                "m_c59e71546f59",
+                "m_71c4ba9604e8",
+                "m_ce3b20ebc8c4",
+                "m_f3d23ced14bf",
+                "m_5443a0349522",
+                "m_0b0233c32082",
+                "m_23034c7c9ff1",
+                "m_12b4b8414aaa",
+                "m_fb7a351b8f34",
+                "m_53090eb766e4",
+                "m_d72c6e508631",
+                "m_7f71024d3247",
+                "m_1eb08d15a02f"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_7c5620b6bbd5",
+            "m_1f0cb8bd159b",
+            "m_78acadb97841",
+            "m_71269b1dc81d",
+            "m_732a699cf1b8",
+            "m_67c9a72f995b",
+            "m_1fd75e26228a",
+            "m_f9253ac087a8",
+            "m_350b99dc04c7",
+            "m_83a849f86e78",
+            "m_3a98a7327a39",
+            "m_0d39c99fcf90",
+            "m_abdc0128d6dc",
+            "m_ca62a4d35ee5",
+            "m_21dc3b022642",
+            "m_3efc950dad19",
+            "m_2b45d71f3414",
+            "m_67e9d74cbc75",
+            "m_268966ea3e7c",
+            "m_593c270d2285",
+            "m_253dbb23a958",
+            "m_5d35c4c4991c",
+            "m_000c72307947",
+            "m_d2ea25f35172",
+            "m_31b18e1510c0",
+            "m_74350f02a19e",
+            "m_5959702e064f",
+            "m_405e49dc4331",
+            "m_05aaacd8e043",
+            "m_01387b909b30",
+            "m_7ea6b5cde383",
+            "m_6f86babbbf64",
+            "m_af41e43966c3",
+            "m_23bbf6ab617e",
+            "m_820b4e3c3251",
+            "m_2eecf30b95c1",
+            "m_db7bf476c02d",
+            "m_b26cb6d41bea",
+            "m_93acdf211977",
+            "m_2666482473a8",
+            "m_d14783b31927",
+            "m_966bf4fdf177",
+            "m_76bd5d587f48",
+            "m_d574e1e6bfd4",
+            "m_903ea0f22b68",
+            "m_8ea6ebaf905d",
+            "m_29d28724f6e3",
+            "m_baa15511b98d",
+            "m_4bbe678f7e0a",
+            "m_6640c1c7890e",
+            "m_7422ad514591",
+            "m_18674e732ab9",
+            "m_3ba55e8ca5e1",
+            "m_85b495015c3c",
+            "m_bbec94044af7",
+            "m_95197af11fad",
+            "m_ce052d97681f",
+            "m_2be5547b29e3",
+            "m_b6d1741647ee",
+            "m_4a485741ff27",
+            "m_ce4897138d7e",
+            "m_b877a22d9473",
+            "m_9b51cd9dde8d",
+            "m_ef483fdc7ab0",
+            "m_a86c0f2946c8",
+            "m_92c2538abb2d",
+            "m_89551e6680aa",
+            "m_c59e71546f59",
+            "m_71c4ba9604e8",
+            "m_ce3b20ebc8c4",
+            "m_f3d23ced14bf",
+            "m_5443a0349522",
+            "m_0b0233c32082",
+            "m_23034c7c9ff1",
+            "m_12b4b8414aaa",
+            "m_fb7a351b8f34",
+            "m_53090eb766e4",
+            "m_d72c6e508631",
+            "m_7f71024d3247",
+            "m_1eb08d15a02f"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_7c5620b6bbd5",
+            "m_1f0cb8bd159b",
+            "m_78acadb97841",
+            "m_71269b1dc81d",
+            "m_732a699cf1b8",
+            "m_67c9a72f995b",
+            "m_1fd75e26228a",
+            "m_f9253ac087a8",
+            "m_350b99dc04c7",
+            "m_83a849f86e78",
+            "m_3a98a7327a39",
+            "m_0d39c99fcf90",
+            "m_abdc0128d6dc",
+            "m_ca62a4d35ee5",
+            "m_21dc3b022642",
+            "m_3efc950dad19",
+            "m_2b45d71f3414",
+            "m_67e9d74cbc75",
+            "m_268966ea3e7c",
+            "m_593c270d2285",
+            "m_253dbb23a958",
+            "m_5d35c4c4991c",
+            "m_000c72307947",
+            "m_d2ea25f35172",
+            "m_31b18e1510c0",
+            "m_74350f02a19e",
+            "m_5959702e064f",
+            "m_405e49dc4331",
+            "m_05aaacd8e043",
+            "m_01387b909b30",
+            "m_7ea6b5cde383",
+            "m_6f86babbbf64",
+            "m_af41e43966c3",
+            "m_23bbf6ab617e",
+            "m_820b4e3c3251",
+            "m_2eecf30b95c1",
+            "m_db7bf476c02d",
+            "m_b26cb6d41bea",
+            "m_93acdf211977",
+            "m_2666482473a8",
+            "m_d14783b31927",
+            "m_966bf4fdf177",
+            "m_76bd5d587f48",
+            "m_d574e1e6bfd4",
+            "m_903ea0f22b68",
+            "m_8ea6ebaf905d",
+            "m_29d28724f6e3",
+            "m_baa15511b98d",
+            "m_6640c1c7890e",
+            "m_7422ad514591",
+            "m_18674e732ab9",
+            "m_3ba55e8ca5e1",
+            "m_85b495015c3c",
+            "m_bbec94044af7",
+            "m_ce052d97681f",
+            "m_2be5547b29e3",
+            "m_b6d1741647ee",
+            "m_ce4897138d7e",
+            "m_b877a22d9473",
+            "m_9b51cd9dde8d",
+            "m_ef483fdc7ab0",
+            "m_a86c0f2946c8",
+            "m_c59e71546f59",
+            "m_71c4ba9604e8",
+            "m_ce3b20ebc8c4",
+            "m_5443a0349522",
+            "m_23034c7c9ff1",
+            "m_12b4b8414aaa",
+            "m_fb7a351b8f34",
+            "m_53090eb766e4",
+            "m_d72c6e508631",
+            "m_7f71024d3247",
+            "m_1eb08d15a02f"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_7c5620b6bbd5",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "从打匀全蛋开始，在平底煎锅煎成法式蛋饼。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fqqwFWqxUr4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/fqqwFWqxUr4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fqqwFWqxUr4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_1f0cb8bd159b",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览专教带铰链的双半圆锅：蛋液分为两格烹调再合盖，没有用普通单室锅的同类做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_78acadb97841",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节顺序为打蛋、在煎锅煮成蛋底、调味、折叠；法式细节不影响基本做法。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/bF4bp-lRbDg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/bF4bp-lRbDg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/bF4bp-lRbDg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_71269b1dc81d",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和章节只教在平面烤盘/铁板做大面积蛋饼，不演示现场的单口煎锅做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rBoYBcq4YuU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/rBoYBcq4YuU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rBoYBcq4YuU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_732a699cf1b8",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "实做含洋葱的鸡蛋煎饼；火腿、甜椒和芝士可调整。描述末尾的 bread omelette 只是关键词，食材和原生做法未显示面包入蛋。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/E2nHfbzHDmY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/E2nHfbzHDmY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/E2nHfbzHDmY.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_67c9a72f995b",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "标题与公开描述共同提供完整普通煎蛋饼教程；没有合煎面包的步骤或支持信息。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ixpYIgHlU60.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ixpYIgHlU60.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ixpYIgHlU60.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_1fd75e26228a",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "Jamie Oliver 的普通蛋饼教程含入锅和出锅步骤，奶酪是可变配料。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OQyRuOEKfVk.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/OQyRuOEKfVk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OQyRuOEKfVk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_f9253ac087a8",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "描述和章节列出乡村式、法式和炸式蛋饼；其中前两种演示普通平底煎锅方法，没有面包入蛋。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/p3EwVIpzFjI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/p3EwVIpzFjI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/p3EwVIpzFjI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_350b99dc04c7",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "作者步骤明确把打匀的鸡蛋倒入抹了黄油的平底锅并转锅铺匀，再加入可选馅料。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EHCq4JLOV54.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/EHCq4JLOV54.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/EHCq4JLOV54.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_83a849f86e78",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "用不锈钢煎锅烹制由打匀鸡蛋形成的普通法式蛋饼；锅材可变。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/wVNCIYMr_y0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/wVNCIYMr_y0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/wVNCIYMr_y0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3a98a7327a39",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述明确演示在铸铁煎锅中煎普通蛋饼，防粘不是另一道菜。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/P6ebA0eaLH0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/P6ebA0eaLH0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/P6ebA0eaLH0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_0d39c99fcf90",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和章节演示在平底锅中把打好的蛋煎成整片并卷入馅料；面包没有入锅。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/CBlTBg7tq9k.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/CBlTBg7tq9k.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/CBlTBg7tq9k.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_abdc0128d6dc",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述为可复现的火腿芝士煎蛋饼，教普通蛋饼主体；火腿芝士是合理馅料变体。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ttloiIkTMA4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ttloiIkTMA4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ttloiIkTMA4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ca62a4d35ee5",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述明确教把蛋煎成连续饼，而不是炒碎；火腿芝士是可调整的馅料。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8ZGJfwy75eI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/8ZGJfwy75eI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8ZGJfwy75eI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_21dc3b022642",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和章节为 TeChef 专用折叠分格锅演示，未教如何用普通单室煎锅完成。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5I4HB9hL-54.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/5I4HB9hL-54.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5I4HB9hL-54.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3efc950dad19",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述确认是在铸铁煎锅中调温并煎普通蛋饼。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/JHldzUX55fI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/JHldzUX55fI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/JHldzUX55fI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2b45d71f3414",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "专门为日式蛋包饭做内软外薄的包饭蛋皮，教程终点是盖到米饭上；与现场煎锅蛋饼不是同一做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Ol_QWPvH3fg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Ol_QWPvH3fg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Ol_QWPvH3fg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_67e9d74cbc75",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生完整预览中先把打散蛋液倒入单室不锈钢煎锅，后煎成整片，不含面包。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_268966ea3e7c",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述与章节有乡村式及传统蛋饼的分步骤教学，可用来煎普通蛋饼。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/INXURwh-duw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/INXURwh-duw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/INXURwh-duw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_593c270d2285",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节包含 Basic omelette；其余三种是馅料变体，不包含面包同煎。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/9feEKoL0YWQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/9feEKoL0YWQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/9feEKoL0YWQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_253dbb23a958",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节从备蛋、备锅至煎和翻面，铸铁锅不是本题额外要求。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/HMXexneLjzA.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/HMXexneLjzA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/HMXexneLjzA.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5d35c4c4991c",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生食谱明确在空气炸锅把蛋液加热凝固；没有现场用炉灶平底锅的做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/q1HFeXhAUoA.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/q1HFeXhAUoA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/q1HFeXhAUoA.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_000c72307947",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把蛋液分入带铰链的两格专用锅、合盖成型，不是单室平底煎锅。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_d2ea25f35172",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "完整教程从打蛋到在锅里煎出火腿芝士蛋饼，馅料和呈现方式可变。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_zU2lFl921c.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/_zU2lFl921c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_zU2lFl921c.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_31b18e1510c0",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "虽也教炒蛋，但单独的末段章节教铸铁锅普通蛋饼从准备到出锅。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KhL9c3v4bG4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/KhL9c3v4bG4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/KhL9c3v4bG4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_74350f02a19e",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生步骤把打散鸡蛋倒入热煎锅、煎成整片并卷起，没有加入面包。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/meZD0VmTg1Y.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/meZD0VmTg1Y.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/meZD0VmTg1Y.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5959702e064f",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节从打蛋、选锅、下锅转动、调馅到折叠，覆盖普通蛋饼需要的步骤。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8xVIs_aEibU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/8xVIs_aEibU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8xVIs_aEibU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_405e49dc4331",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述明确是大型平面铁板的长刮铲折叠方法，没有普通煎锅版本。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pQ1BWQ736GM.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/pQ1BWQ736GM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pQ1BWQ736GM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_05aaacd8e043",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和 Method 章节讲经典法式煎蛋饼，连贯煎制而不是另做配菜。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pFWX5Ad6zTE.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/pFWX5Ad6zTE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pFWX5Ad6zTE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_01387b909b30",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节演示从准备打匀鸡蛋到平底锅烹制并成型的普通蛋饼。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/A-pqjLgFCqw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/A-pqjLgFCqw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/A-pqjLgFCqw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7ea6b5cde383",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和章节教在碳钢煎锅中做普通蛋饼，并包含初学者实做。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WCihMykNSxY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/WCihMykNSxY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WCihMykNSxY.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_6f86babbbf64",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "标题、食材和公开食谱为以土豆为主体的西班牙厚蛋饼，非现场的煎蛋片方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/epIdjMaHa_w.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/epIdjMaHa_w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/epIdjMaHa_w.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_af41e43966c3",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节覆盖煎锅、黄油温度、蛋液凝固、成型和出锅；没有合煎面包的步骤。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/uvDpOz0bJc8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/uvDpOz0bJc8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/uvDpOz0bJc8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_23bbf6ab617e",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节先用单独的面包练习翻面，随后清锅另放蛋液、煎出普通蛋饼。面包练习不是蛋饼配料。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/huer5RO4yEM.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/huer5RO4yEM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/huer5RO4yEM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_820b4e3c3251",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节含碳钢锅煎法式蛋饼实做和具体技法，锅材不影响适用性。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/kHQ1roWgiqg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/kHQ1roWgiqg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/kHQ1roWgiqg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2eecf30b95c1",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览为微波炉双格塑料翻盖容器教程，未在炉上平底煎锅合煎。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_db7bf476c02d",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节有单独的 basic recipe，另教菠菜蘑菇、西式和托斯卡纳等普通蛋饼配料变化。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/NjLuDWvgyy8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/NjLuDWvgyy8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/NjLuDWvgyy8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b26cb6d41bea",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和章节教炒配料、打蛋、下锅煎和折叠，含红洋葱；培根/辣椒/奶酪不是本题硬要求。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Y0c7368byTQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Y0c7368byTQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Y0c7368byTQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_93acdf211977",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "公开描述是 Traeger 铁板上的薯饼铺底反向蛋饼；土豆主体和大平面铁板方法均非现场条件。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rGRlSmon0YQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/rGRlSmon0YQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rGRlSmon0YQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2666482473a8",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节先演示基础蛋饼，再演示混合配料版，不要求特定涂层或翻面。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/eLAMsM55TGw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/eLAMsM55TGw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/eLAMsM55TGw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d14783b31927",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把吸收蛋液的面包片捣碎并压成披萨状底，再加番茄酱和奶酪；未保留完整面包片与湿蛋形成的蛋饼。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_966bf4fdf177",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览挖掉吐司中心，把蛋倒入面包孔内，并盖回中间面包；蛋在孔内凝固，不是在锅内铺开一整片蛋液再与面包贴合。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_76bd5d587f48",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述明确是酸面包和鸡蛋烤箱焗烤，不是平底煎锅鸡蛋饼。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yAQDiLgjJwI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/yAQDiLgjJwI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yAQDiLgjJwI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d574e1e6bfd4",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览将面包/蛋混合物分成小块煎，再堆叠番茄和奶酪；没有成片蛋饼裹着完整面包。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_903ea0f22b68",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述明示空气炸锅中烤 20 分钟，没有炉灶煎锅步骤。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hFLgyZfNDA8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/hFLgyZfNDA8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hFLgyZfNDA8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_8ea6ebaf905d",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把蛋倒入挖空吐司的孔内，随后夹菠菜和芝士；蛋在孔内凝固，不是在锅内铺开一整片蛋液再与面包贴合。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_29d28724f6e3",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把吐司切小丁并与蛋液拌成面包饼胚再涂酱，不演示完整面包片与蛋饼贴合。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_baa15511b98d",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把面包切成立方小块后与蔬菜和蛋混拌做饼状底并加披萨式配料，不是把面包片和蛋饼合煎。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6640c1c7890e",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "作者标题和描述只称早餐做法；原生公开封面明确是从烘焙纸上的糖霜整蛋糕切出一块，未提供普通煎蛋饼或与面包片同锅合煎的证据。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/LDDTesxBK2c.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/LDDTesxBK2c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/LDDTesxBK2c.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_6640c1c7890e.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_7422ad514591",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把混合物舀到正在烤的单片面包表面，成品为法式吐司，没有一片在锅底铺开的蛋饼把面包包合。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_18674e732ab9",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "公开章节为甜味法式吐司：先做蛋浆并用其浸面包，后煎吐司并搭配糖煮苹果，没有现场的整片蛋饼。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/arrznB5iEPU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/arrznB5iEPU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/arrznB5iEPU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3ba55e8ca5e1",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "各原生章节分别教薯饼、焗烤蛋/培根、谷物、肉桂法式吐司和牛油果吐司；没有普通蛋饼或湿蛋与面包片合煎。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MuajFTgkoHw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/MuajFTgkoHw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MuajFTgkoHw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_85b495015c3c",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把面包掰碎与蛋拌匀后压成小披萨底，再加番茄和芝士；不是整片面包入煎蛋片。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bbec94044af7",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述提供完整平底锅舒芙蕾蛋饼段，可作普通蛋饼变体；其它吐司段把已炒熟鸡蛋放在吐司上，未把面包与湿蛋合煎。 V0可用；V1已显示要把面包片与一整片尚未凝固的煎蛋在同一锅中结合，本片未展示这个关键方法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/XPovkUZfWok.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/XPovkUZfWok.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/XPovkUZfWok.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ce052d97681f",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览将切好的面包条在碗中浸蛋奶后另煎并裹糖，无连续锅底蛋饼。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_2be5547b29e3",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生食谱为切碎面包和蛋做 tikki 裹糠煎饼，不是完整面包片与鸡蛋饼同锅贴合。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rnXBn8mRHDQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/rnXBn8mRHDQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rnXBn8mRHDQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b6d1741647ee",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节为制 custard、浸吐司再另煎；没有煎锅内先形成蛋片的做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Km7KRbKVu88.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Km7KRbKVu88.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Km7KRbKVu88.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ce4897138d7e",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节明确为无面粉的牛油果代用面包，不是煎鸡蛋饼或与切片吐司合煎。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1cLWKa0XYVs.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/1cLWKa0XYVs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1cLWKa0XYVs.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b877a22d9473",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和配方为从原料自制早餐面包，并未演示普通煎蛋饼或面包与蛋片合煎。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4-wAckalSCc.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/4-wAckalSCc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/4-wAckalSCc.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_9b51cd9dde8d",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "全片教程故意把煎锅中的鸡蛋炒成碎凝乳，不是凝成一片的蛋饼。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yyi55ZrpJ0E.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/yyi55ZrpJ0E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yyi55ZrpJ0E.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ef483fdc7ab0",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "用马芬烤盘把面包做成杯并装入整蛋；容器、加热和成品与现场不同。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lFdWbeZKaHQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/lFdWbeZKaHQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/lFdWbeZKaHQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a86c0f2946c8",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节明确浸面包后用烤箱和上火烤，不是锅里成蛋片后合煎。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-6joNSLxhgs.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-6joNSLxhgs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-6joNSLxhgs.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_c59e71546f59",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述和章节为在墨西哥薄饼上做早餐 quesadilla；没有现场的吐司面包和蛋饼搭配。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/j2z1ABDaaxg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/j2z1ABDaaxg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/j2z1ABDaaxg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_71c4ba9604e8",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览为烤早餐三明治及另制配料，未显示把吐司放进煎锅湿蛋中成型。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_ce3b20ebc8c4",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生章节为制蛋奶浆、浸面包后另煎法式吐司，未保留一片单独凝固的蛋饼。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1nqpTkHpYyE.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/1nqpTkHpYyE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1nqpTkHpYyE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5443a0349522",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生描述是煎完整带蛋黄的 fried eggs，不是打匀全蛋的煎蛋饼。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-W1dpRkthrI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-W1dpRkthrI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-W1dpRkthrI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_23034c7c9ff1",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生食谱和步骤是把小块面包炒进香料煎蛋，另在描述链接其它视频；链接不能替本片提供完整合煎教学。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ecGyrMRyKZI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ecGyrMRyKZI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ecGyrMRyKZI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_12b4b8414aaa",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生步骤将面包在碗内浸入鹰嘴豆粉/蛋奶混合物后再放锅煎，实为单独煎浸液吐司，而不是把面包合进平底锅的湿蛋片。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/cLL6DiNaofU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/cLL6DiNaofU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/cLL6DiNaofU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_fb7a351b8f34",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "公开章节是慢炖早餐、焗烤蛋、烤饼等，没有普通锅煎蛋饼或合煎吐司的完整段。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Vk0-LGhBNW8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Vk0-LGhBNW8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Vk0-LGhBNW8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_53090eb766e4",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "原生配方先揉成含蛋、奶、酵母的面团，再在油锅中煎炸面团；标题中的面包是现做面团成品，不是在锅里合煎现成的面包片与一整片蛋液。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/PwwbRc3vO0A.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/PwwbRc3vO0A.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/PwwbRc3vO0A.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d72c6e508631",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "公开章节是早餐卷、燕麦、填馅辣椒、盘烤松饼、烤鸡蛋/奶酪，没有现场做法。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/QGrk4gnxPL0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/QGrk4gnxPL0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/QGrk4gnxPL0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7f71024d3247",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览把炒好的蛋馅包进卷起的面包，再逐个用有纹铁板压烤；不是在一片湿蛋中和面包合煎。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1eb08d15a02f",
+              "ring": "core",
+              "why_plausible": "来自真实炉上蛋饼或鸡蛋面包早餐检索窗口。",
+              "reason": "官方预览先教在面包挖孔煎整蛋，后教面包包馅另煎；两段均未把完整面包片置入一整片锅内湿蛋中。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "constructor_checked_pending_independent_review",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::public_previews"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_7c5620b6bbd5",
+              "title": "POV: How to Make an Omelette Like a Chef",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "从打匀全蛋开始，在平底煎锅煎成法式蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fqqwFWqxUr4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/fqqwFWqxUr4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fqqwFWqxUr4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_1f0cb8bd159b",
+              "title": "How To Use An Omelette Pan",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览专教带铰链的双半圆锅：蛋液分为两格烹调再合盖，没有用普通单室锅的同类做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/S6Z0d-rQpnY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_78acadb97841",
+              "title": "How to Make a Classic French Omelette, According to a Michelin-Starred Chef",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节顺序为打蛋、在煎锅煮成蛋底、调味、折叠；法式细节不影响基本做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/bF4bp-lRbDg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/bF4bp-lRbDg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/bF4bp-lRbDg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_71269b1dc81d",
+              "title": "How to make an Omelette on a griddle!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述和章节只教在平面烤盘/铁板做大面积蛋饼，不演示现场的单口煎锅做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rBoYBcq4YuU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/rBoYBcq4YuU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rBoYBcq4YuU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_732a699cf1b8",
+              "title": "How to Make a Perfect Omelette | Quick and Easy Breakfast Recipe",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "实做含洋葱的鸡蛋煎饼；火腿、甜椒和芝士可调整。描述末尾的 bread omelette 只是关键词，食材和原生做法未显示面包入蛋。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/E2nHfbzHDmY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/E2nHfbzHDmY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/E2nHfbzHDmY.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_67c9a72f995b",
+              "title": "How To Make an Omelette",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "标题与公开描述共同提供完整普通煎蛋饼教程；没有合煎面包的步骤或支持信息。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ixpYIgHlU60.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ixpYIgHlU60.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ixpYIgHlU60.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_1fd75e26228a",
+              "title": "Jamie Oliver on making the perfect omelette - Jamie's Ministry of Food",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Jamie Oliver 的普通蛋饼教程含入锅和出锅步骤，奶酪是可变配料。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OQyRuOEKfVk.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/OQyRuOEKfVk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OQyRuOEKfVk.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_f9253ac087a8",
+              "title": "The Perfect Homemade Omelet (3 Ways)",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "描述和章节列出乡村式、法式和炸式蛋饼；其中前两种演示普通平底煎锅方法，没有面包入蛋。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/p3EwVIpzFjI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/p3EwVIpzFjI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/p3EwVIpzFjI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_350b99dc04c7",
+              "title": "HOW TO COOK AN OMELET IN A CAST IRON SKILLET",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "作者步骤明确把打匀的鸡蛋倒入抹了黄油的平底锅并转锅铺匀，再加入可选馅料。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/EHCq4JLOV54.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/EHCq4JLOV54.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/EHCq4JLOV54.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_83a849f86e78",
+              "title": "How To Make A French Omelette In Stainless Steel",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "用不锈钢煎锅烹制由打匀鸡蛋形成的普通法式蛋饼；锅材可变。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/wVNCIYMr_y0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/wVNCIYMr_y0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/wVNCIYMr_y0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3a98a7327a39",
+              "title": "Cast Iron Skillet Omelette",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述明确演示在铸铁煎锅中煎普通蛋饼，防粘不是另一道菜。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/P6ebA0eaLH0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/P6ebA0eaLH0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/P6ebA0eaLH0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_0d39c99fcf90",
+              "title": "How to Make Omelets Like a Pro",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述和章节演示在平底锅中把打好的蛋煎成整片并卷入馅料；面包没有入锅。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/CBlTBg7tq9k.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/CBlTBg7tq9k.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/CBlTBg7tq9k.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_abdc0128d6dc",
+              "title": "How To Make The PERFECT OMELETTE With Cheese And Ham (SUPER QUICK & EASY Breakfast Recipe)",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述为可复现的火腿芝士煎蛋饼，教普通蛋饼主体；火腿芝士是合理馅料变体。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ttloiIkTMA4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ttloiIkTMA4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ttloiIkTMA4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ca62a4d35ee5",
+              "title": "How To Make The PERFECT Omelette Ham and Cheese omelet",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述明确教把蛋煎成连续饼，而不是炒碎；火腿芝士是可调整的馅料。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8ZGJfwy75eI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/8ZGJfwy75eI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8ZGJfwy75eI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_21dc3b022642",
+              "title": "How to make an omelet in an Omelet Pan",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述和章节为 TeChef 专用折叠分格锅演示，未教如何用普通单室煎锅完成。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5I4HB9hL-54.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/5I4HB9hL-54.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/5I4HB9hL-54.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3efc950dad19",
+              "title": "Omelet in a cast iron skillet",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述确认是在铸铁煎锅中调温并煎普通蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/JHldzUX55fI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/JHldzUX55fI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/JHldzUX55fI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2b45d71f3414",
+              "title": "How to Master the Omurice Omelet",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "专门为日式蛋包饭做内软外薄的包饭蛋皮，教程终点是盖到米饭上；与现场煎锅蛋饼不是同一做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Ol_QWPvH3fg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Ol_QWPvH3fg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Ol_QWPvH3fg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_67e9d74cbc75",
+              "title": "The Secret to Cooking an Omelette In a Stainless Steel Pan",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生完整预览中先把打散蛋液倒入单室不锈钢煎锅，后煎成整片，不含面包。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/7P_Romr0HS4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_268966ea3e7c",
+              "title": "Mastering Omelette Making: Country Style & Traditional Techniques!",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述与章节有乡村式及传统蛋饼的分步骤教学，可用来煎普通蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/INXURwh-duw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/INXURwh-duw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/INXURwh-duw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_593c270d2285",
+              "title": "Easy Omelette Recipe (4 Ways)",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节包含 Basic omelette；其余三种是馅料变体，不包含面包同煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/9feEKoL0YWQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/9feEKoL0YWQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/9feEKoL0YWQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_253dbb23a958",
+              "title": "how to make a PERFECT omelette in a cast iron pan",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节从备蛋、备锅至煎和翻面，铸铁锅不是本题额外要求。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/HMXexneLjzA.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/HMXexneLjzA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/HMXexneLjzA.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5d35c4c4991c",
+              "title": "Easy Air Fryer Omelet Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生食谱明确在空气炸锅把蛋液加热凝固；没有现场用炉灶平底锅的做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/q1HFeXhAUoA.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/q1HFeXhAUoA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/q1HFeXhAUoA.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_000c72307947",
+              "title": "The Omelette Pan",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把蛋液分入带铰链的两格专用锅、合盖成型，不是单室平底煎锅。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/lmqDPosQhdo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_d2ea25f35172",
+              "title": "The perfect \"Waffle House Omelet\" Toddle House style",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "完整教程从打蛋到在锅里煎出火腿芝士蛋饼，馅料和呈现方式可变。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_zU2lFl921c.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/_zU2lFl921c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/_zU2lFl921c.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_31b18e1510c0",
+              "title": "Best Scrambled Eggs | PLUS Easy Omelette in a Cast Iron Skillet",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "虽也教炒蛋，但单独的末段章节教铸铁锅普通蛋饼从准备到出锅。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/KhL9c3v4bG4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/KhL9c3v4bG4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/KhL9c3v4bG4.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_74350f02a19e",
+              "title": "Minimal oil omelette frying on stainless steel pan  without sticking",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生步骤把打散鸡蛋倒入热煎锅、煎成整片并卷起，没有加入面包。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/meZD0VmTg1Y.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/meZD0VmTg1Y.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/meZD0VmTg1Y.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5959702e064f",
+              "title": "Make The Best Omelets With Tips You'll Wish You Knew Sooner",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节从打蛋、选锅、下锅转动、调馅到折叠，覆盖普通蛋饼需要的步骤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8xVIs_aEibU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/8xVIs_aEibU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8xVIs_aEibU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_405e49dc4331",
+              "title": "How to make an omelette on the griddle for beginners",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述明确是大型平面铁板的长刮铲折叠方法，没有普通煎锅版本。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pQ1BWQ736GM.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/pQ1BWQ736GM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pQ1BWQ736GM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_05aaacd8e043",
+              "title": "A \"Perfect\" French Omelette is hard to make",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述和 Method 章节讲经典法式煎蛋饼，连贯煎制而不是另做配菜。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/pFWX5Ad6zTE.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/pFWX5Ad6zTE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/pFWX5Ad6zTE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_01387b909b30",
+              "title": "The Best French Omelet You’ll Ever Make (Restaurant-Quality) | Epicurious 101",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节演示从准备打匀鸡蛋到平底锅烹制并成型的普通蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/A-pqjLgFCqw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/A-pqjLgFCqw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/A-pqjLgFCqw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7ea6b5cde383",
+              "title": "How To Cook An Omelette In A Carbon Steel Pan",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述和章节教在碳钢煎锅中做普通蛋饼，并包含初学者实做。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WCihMykNSxY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/WCihMykNSxY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WCihMykNSxY.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_6f86babbbf64",
+              "title": "Easy Spanish Omelette For One (Or Two) | Tortilla de Patatas",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "标题、食材和公开食谱为以土豆为主体的西班牙厚蛋饼，非现场的煎蛋片方法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/epIdjMaHa_w.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/epIdjMaHa_w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/epIdjMaHa_w.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_af41e43966c3",
+              "title": "Everything I Learned Cooking Thousands of Omelets in a French Bistro | Techniquely with Lan Lam",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节覆盖煎锅、黄油温度、蛋液凝固、成型和出锅；没有合煎面包的步骤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/uvDpOz0bJc8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/uvDpOz0bJc8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/uvDpOz0bJc8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_23bbf6ab617e",
+              "title": "How to Flip an Omelet",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节先用单独的面包练习翻面，随后清锅另放蛋液、煎出普通蛋饼。面包练习不是蛋饼配料。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/huer5RO4yEM.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/huer5RO4yEM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/huer5RO4yEM.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_820b4e3c3251",
+              "title": "Can we make a real French Omelette in  de Buyer Egg Pan?",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节含碳钢锅煎法式蛋饼实做和具体技法，锅材不影响适用性。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/kHQ1roWgiqg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/kHQ1roWgiqg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/kHQ1roWgiqg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2eecf30b95c1",
+              "title": "Omelette",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览为微波炉双格塑料翻盖容器教程，未在炉上平底煎锅合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/suCjtFaA8Lw.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_db7bf476c02d",
+              "title": "HOW TO MAKE AN OMELETTE | perfect every time!",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节有单独的 basic recipe，另教菠菜蘑菇、西式和托斯卡纳等普通蛋饼配料变化。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/NjLuDWvgyy8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/NjLuDWvgyy8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/NjLuDWvgyy8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b26cb6d41bea",
+              "title": "Make the Perfect Western Omelet in Minutes",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述和章节教炒配料、打蛋、下锅煎和折叠，含红洋葱；培根/辣椒/奶酪不是本题硬要求。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Y0c7368byTQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Y0c7368byTQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Y0c7368byTQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_93acdf211977",
+              "title": "Hash Brown Omelette - Traeger Flatrock Griddle",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开描述是 Traeger 铁板上的薯饼铺底反向蛋饼；土豆主体和大平面铁板方法均非现场条件。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rGRlSmon0YQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/rGRlSmon0YQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rGRlSmon0YQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_2666482473a8",
+              "title": "Omelette Without Non Stick Pan or Flipping (Misteaks #4)",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生章节先演示基础蛋饼，再演示混合配料版，不要求特定涂层或翻面。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/eLAMsM55TGw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/eLAMsM55TGw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/eLAMsM55TGw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d14783b31927",
+              "title": "Pour 2 Eggs on 2 Bread Slices and Make This Delicious Breakfast, Brunch, or a Quick Family Meal! 😋",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把吸收蛋液的面包片捣碎并压成披萨状底，再加番茄酱和奶酪；未保留完整面包片与湿蛋形成的蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/D59OUqj4UME.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_966bf4fdf177",
+              "title": "Do You Have Bread and Eggs? Try This Quick and Delicious Breakfast!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览挖掉吐司中心，把蛋倒入面包孔内，并盖回中间面包；蛋在孔内凝固，不是在锅内铺开一整片蛋液再与面包贴合。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/ia2WKhnxFSY.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_76bd5d587f48",
+              "title": "Pour Eggs Over Bread. Easy and Delicious! A New Breakfast That Melts in Your Mouth",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述明确是酸面包和鸡蛋烤箱焗烤，不是平底煎锅鸡蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yAQDiLgjJwI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/yAQDiLgjJwI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yAQDiLgjJwI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d574e1e6bfd4",
+              "title": "Pour 2 Eggs Over 2 Slices of Bread! Quick & Delicious Breakfast!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览将面包/蛋混合物分成小块煎，再堆叠番茄和奶酪；没有成片蛋饼裹着完整面包。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/WediInsZHyo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_903ea0f22b68",
+              "title": "Pour Eggs Over Bread in the Air Fryer… Breakfast Will NEVER Be the Same!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述明示空气炸锅中烤 20 分钟，没有炉灶煎锅步骤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hFLgyZfNDA8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/hFLgyZfNDA8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hFLgyZfNDA8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_8ea6ebaf905d",
+              "title": "Pour 1 Egg onto the Bread! Make This Quick and Delicious Breakfast! 😋",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把蛋倒入挖空吐司的孔内，随后夹菠菜和芝士；蛋在孔内凝固，不是在锅内铺开一整片蛋液再与面包贴合。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/AsoGZPyzel4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_29d28724f6e3",
+              "title": "Add Egg to Bread & make this Easy and delicious Breakfast",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把吐司切小丁并与蛋液拌成面包饼胚再涂酱，不演示完整面包片与蛋饼贴合。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/RGH2GiHSPF0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_baa15511b98d",
+              "title": "Do you have eggs and bread? It's so delicious I make it every week! A novel breakfast!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把面包切成立方小块后与蔬菜和蛋混拌做饼状底并加披萨式配料，不是把面包片和蛋饼合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/8-QQBseNHcU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_4bbe678f7e0a",
+              "title": "Stop cooking boring breakfasts! Try this 5-minute eggs and bread trick I learned from a 5-star chef",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方最后一组约 492–549 秒把打匀鸡蛋倒入同一平底锅的完整三角面包片间，凝固成一片并翻面。之后另加玉米/奶酪作披萨式变化，不排除已经独立演示的合煎步骤。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4_SqjKjcX7w.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/4_SqjKjcX7w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/4_SqjKjcX7w.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/4_SqjKjcX7w.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_6640c1c7890e",
+              "title": "How did I not know this easy breakfast trick?!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "作者标题和描述只称早餐做法；原生公开封面明确是从烘焙纸上的糖霜整蛋糕切出一块，未提供普通煎蛋饼或与面包片同锅合煎的证据。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/LDDTesxBK2c.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/LDDTesxBK2c.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/LDDTesxBK2c.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_6640c1c7890e.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_7422ad514591",
+              "title": "Masala Egg Bread Toast | Egg Masala French Toast | Breakfast Recipes | Egg recipes | Bread Recipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把混合物舀到正在烤的单片面包表面，成品为法式吐司，没有一片在锅底铺开的蛋饼把面包包合。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/xFjkRiZHceE.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_18674e732ab9",
+              "title": "Gordon Ramsay's Cinnamon Eggy Bread with Quick Stewed Apples",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开章节为甜味法式吐司：先做蛋浆并用其浸面包，后煎吐司并搭配糖煮苹果，没有现场的整片蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/arrznB5iEPU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/arrznB5iEPU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/arrznB5iEPU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3ba55e8ca5e1",
+              "title": "4 Delicious Breakfast Recipes | Gordon Ramsay",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "各原生章节分别教薯饼、焗烤蛋/培根、谷物、肉桂法式吐司和牛油果吐司；没有普通蛋饼或湿蛋与面包片合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/MuajFTgkoHw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/MuajFTgkoHw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/MuajFTgkoHw.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_85b495015c3c",
+              "title": "Pour 2 Eggs Over 2 Slices of Bread! Quick & Delicious Breakfast",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把面包掰碎与蛋拌匀后压成小披萨底，再加番茄和芝士；不是整片面包入煎蛋片。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/zNTaptSpT3M.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_bbec94044af7",
+              "title": "World's Best EGG BREAKFAST Recipes to Make at Home!",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "原生描述提供完整平底锅舒芙蕾蛋饼段，可作普通蛋饼变体；其它吐司段把已炒熟鸡蛋放在吐司上，未把面包与湿蛋合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/XPovkUZfWok.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/XPovkUZfWok.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/XPovkUZfWok.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_95197af11fad",
+              "title": "Egg Sandwich Recipe • Egg Recipes For Breakfast • French Toast Recipe • Bread Omelette Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方连续预览约 26–44 秒先在平底锅放打匀的蛋液，再把两片完整面包放入湿蛋中；后翻面把同一蛋片包住面包。描述对分层的泛称不改变实际做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OlXhqeajSfU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/OlXhqeajSfU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OlXhqeajSfU.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/OlXhqeajSfU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_ce052d97681f",
+              "title": "Turn Bread, Eggs & Milk Into This Delicious Snacks! 😍 | Bread Egg Milk Toast Nashta | Easy Breakfast",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览将切好的面包条在碗中浸蛋奶后另煎并裹糖，无连续锅底蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/-nIeaH83_9E.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_2be5547b29e3",
+              "title": "Do You Have Just 2 Slices of Bread & 2 Eggs At Home, You Can Make This Bread Egg Tikki Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生食谱为切碎面包和蛋做 tikki 裹糠煎饼，不是完整面包片与鸡蛋饼同锅贴合。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/rnXBn8mRHDQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/rnXBn8mRHDQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/rnXBn8mRHDQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b6d1741647ee",
+              "title": "Easy French Toast Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节为制 custard、浸吐司再另煎；没有煎锅内先形成蛋片的做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Km7KRbKVu88.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Km7KRbKVu88.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Km7KRbKVu88.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_4a485741ff27",
+              "title": "एकदम बाजार जैसा मसालेदार ब्रेड चीज़ आमलेट | Bread Cheese Omelette Recipe | Breakfast | Kabitaskitchen",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方连续预览约 75–125 秒把打匀的洋葱蛋液铺在平底锅，再把切片面包直接蘸进锅内蛋液。随后一并翻面；芝士、香料及片数不作硬性要求。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/v75BZ65yN1U.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/v75BZ65yN1U.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/v75BZ65yN1U.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/v75BZ65yN1U.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_ce4897138d7e",
+              "title": "Take an avocado, egg and cheese! I haven't bought bread in a year! Very tasty and healthy!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节明确为无面粉的牛油果代用面包，不是煎鸡蛋饼或与切片吐司合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1cLWKa0XYVs.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/1cLWKa0XYVs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1cLWKa0XYVs.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b877a22d9473",
+              "title": "Delicious Bread For Breakfast, I've been doing it for 20 years, it has never misled me!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述和配方为从原料自制早餐面包，并未演示普通煎蛋饼或面包与蛋片合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4-wAckalSCc.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/4-wAckalSCc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/4-wAckalSCc.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_9b51cd9dde8d",
+              "title": "World's Best SCRAMBLED EGGS Recipe to Make at Home!",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "全片教程故意把煎锅中的鸡蛋炒成碎凝乳，不是凝成一片的蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yyi55ZrpJ0E.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/yyi55ZrpJ0E.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yyi55ZrpJ0E.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ef483fdc7ab0",
+              "title": "Bacon and Egg Bread Toast Cups | Muffin Tin Breakfast | Hungry Mom Cooking",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "用马芬烤盘把面包做成杯并装入整蛋；容器、加热和成品与现场不同。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lFdWbeZKaHQ.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/lFdWbeZKaHQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/lFdWbeZKaHQ.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a86c0f2946c8",
+              "title": "How to Make the Best (and Easiest) French Toast",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节明确浸面包后用烤箱和上火烤，不是锅里成蛋片后合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-6joNSLxhgs.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-6joNSLxhgs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-6joNSLxhgs.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_92c2538abb2d",
+              "title": "One Pan Egg & Cheese Sandwich with Strawberry Jam | Easy Breakfast Recipe",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "作者描述教用同一平底煎锅做蛋芝士面包；公开原生封面直接显示两片面包在同一锅内贴着尚未凝固、覆盖锅底的打匀蛋液，表面已被蛋液裹住。可用于同锅合煎，草莓酱与芝士只是口味变体。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/leVSWocn_fY.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/leVSWocn_fY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/leVSWocn_fY.json::public_chapters",
+                "sites/egomedia/static/thumbnails/upstream/m_92c2538abb2d.jpg"
+              ]
+            },
+            {
+              "entity_id": "m_89551e6680aa",
+              "title": "Just 5 minutes 4 simple and delicious toast recipe | Egg toast | Bread Omelette Toast",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方预览最后一个做法约 222–255 秒先在锅内铺湿蛋液，再把两片切分的吐司放进蛋液，待蛋凝固后整体翻面；前三个相似做法不影响该段适用性。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TaT1sXJhlH4.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/TaT1sXJhlH4.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/TaT1sXJhlH4.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/TaT1sXJhlH4.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_c59e71546f59",
+              "title": "Breakfast Quesadillas Recipe - 3 Easy Ways",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述和章节为在墨西哥薄饼上做早餐 quesadilla；没有现场的吐司面包和蛋饼搭配。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/j2z1ABDaaxg.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/j2z1ABDaaxg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/j2z1ABDaaxg.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_71c4ba9604e8",
+              "title": "The Best Breakfast Sandwich At Home",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览为烤早餐三明治及另制配料，未显示把吐司放进煎锅湿蛋中成型。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/vjIfHr0GOrw.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_ce3b20ebc8c4",
+              "title": "The Best French Toast You'll Ever Make (Restaurant-Quality) | Epicurious 101",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生章节为制蛋奶浆、浸面包后另煎法式吐司，未保留一片单独凝固的蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1nqpTkHpYyE.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/1nqpTkHpYyE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/1nqpTkHpYyE.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_f3d23ced14bf",
+              "title": "I tried this 2-minute viral egg sandwich hack and I'm NEVER making quick breakfast normally again! 🤯",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方预览约 10–34 秒在同一平底锅让打匀鸡蛋与三角面包片共同凝固，再一起折叠/翻面；调换先下哪样不影响可用合煎做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VmJG0zGeCEo.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/VmJG0zGeCEo.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/VmJG0zGeCEo.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/VmJG0zGeCEo.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5443a0349522",
+              "title": "The Best Fried Eggs You’ll Ever Make | Epicurious 101",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生描述是煎完整带蛋黄的 fried eggs，不是打匀全蛋的煎蛋饼。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-W1dpRkthrI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-W1dpRkthrI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-W1dpRkthrI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_0b0233c32082",
+              "title": "2 Minutes Bread Recipe | Bread Egg Roll Sandwich Recipe | New Recipe | Cheese Bread Egg Roll",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "官方预览约 51–84 秒将打匀的调味蛋液和条切面包在同一平底锅合煎至凝固成一片；后续加酱、分条卷起是可选的成型变化。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IceZLy1LqRA.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/IceZLy1LqRA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/IceZLy1LqRA.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/IceZLy1LqRA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_23034c7c9ff1",
+              "title": "Egg Bread Masala | Quick Breakfast Recipes | Evening Snacks Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生食谱和步骤是把小块面包炒进香料煎蛋，另在描述链接其它视频；链接不能替本片提供完整合煎教学。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ecGyrMRyKZI.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/ecGyrMRyKZI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ecGyrMRyKZI.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_12b4b8414aaa",
+              "title": "Bread Omelette Recipe in 2 Minutes | Anday Aur Bread Ka Nashta",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生步骤将面包在碗内浸入鹰嘴豆粉/蛋奶混合物后再放锅煎，实为单独煎浸液吐司，而不是把面包合进平底锅的湿蛋片。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/cLL6DiNaofU.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/cLL6DiNaofU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/cLL6DiNaofU.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_fb7a351b8f34",
+              "title": "10 Cheap and Easy Breakfast Recipes | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开章节是慢炖早餐、焗烤蛋、烤饼等，没有普通锅煎蛋饼或合煎吐司的完整段。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Vk0-LGhBNW8.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/Vk0-LGhBNW8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Vk0-LGhBNW8.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_53090eb766e4",
+              "title": "Egg Milk Bread | Breakfast & Lunch Special | Soft & Fluffy Milk Bread | N'Oven",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "原生配方先揉成含蛋、奶、酵母的面团，再在油锅中煎炸面团；标题中的面包是现做面团成品，不是在锅里合煎现成的面包片与一整片蛋液。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/PwwbRc3vO0A.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/PwwbRc3vO0A.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/PwwbRc3vO0A.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d72c6e508631",
+              "title": "5 High-Protein Breakfast Recipes You Need to Try | Allrecipes",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "公开章节是早餐卷、燕麦、填馅辣椒、盘烤松饼、烤鸡蛋/奶酪，没有现场做法。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/QGrk4gnxPL0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/QGrk4gnxPL0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/QGrk4gnxPL0.json::public_chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7f71024d3247",
+              "title": "5 Minutes Healthy Snacks Recipes | Egg Snacks | Bread Roll Recipe | New Recipe | Egg Recipe",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览把炒好的蛋馅包进卷起的面包，再逐个用有纹铁板压烤；不是在一片湿蛋中和面包合煎。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/VZLA1Nl5Qi0.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_1eb08d15a02f",
+              "title": "ডিম ও পাউরুটি থাকলে বানিয়ে ফেলুন এই 2টি ঝটপট ও সুস্বাদু টিফিন😋| Healthy Breakfast Ideas Bengali",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "官方预览先教在面包挖孔煎整蛋，后教面包包馅另煎；两段均未把完整面包片置入一整片锅内湿蛋中。",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::title",
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::public_chapters",
+                "data/sources/upstream_detail_snapshots/youtube/-O7acAAk4lc.json::public_previews"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters",
+            "public_previews",
+            "thumbnail_path"
+          ],
+          "answer_boundary_rule": "V0 accepts ordinary complete stovetop frying-pan omelette tutorials and bread-omelette tutorials still plausible before bread is shown entering the pan. V1 requires showing egg and bread slices or cut slice portions cooking together as a single omelette in a skillet, not toast served with cooked eggs, French toast separately dipped in a bowl, an egg cracked into a toast hole, a crumb crust, or another cooking appliance. Accept different fillings, seasoning, shapes, amounts, materials and order of egg/bread, as long as the demonstrated method cooks bread and unset egg into one preparation. A multi-method video qualifies if one full method applies. Insufficient public evidence is recorded separately from a demonstrated mismatch.",
+          "landing_semantic_review": {
+            "status": "constructor_checked_pending_independent_review",
+            "reviewer": "/root/replacements",
+            "scope": "Both full 40-result real searches; each row reviewed against native text, chapters, or public whole-storyboard footage as needed.",
+            "evidence_refs": [
+              "data/sources/search_snapshots/candidate-media-refresh-replace-2026110501.json"
+            ]
+          }
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}

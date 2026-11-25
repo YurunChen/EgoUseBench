@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "pair_id": "RG-12",
+  "id": "RG-12-update-count",
+  "source_task_path": "data/experiments/composite/RG-12.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "refresh",
+      "onset_seconds": 97.0
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 109.0,
+      "request": "Keep the battery guide to four minutes or less."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 129.0,
+      "request": "Two minutes or less, please. I only need a quick reminder."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_b6e5899a3348"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_041f7b5f5aa1"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "109秒已在97秒Refresh之后，沿用原审核识别的Mazda6。287秒视频公开标题和简介列Mazda6及分步换电池，230秒视频标题直接列Mazda6；两者均是当时合法方法，4分钟限制排除287秒并保留230秒。",
+    "public_facts": [
+      {
+        "entity_id": "m_b6e5899a3348",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 287
+      },
+      {
+        "entity_id": "m_041f7b5f5aa1",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 230
+      },
+      {
+        "entity_id": "m_041f7b5f5aa1",
+        "path": [
+          "title"
+        ],
+        "equals": "How to Replace Mazda6 Key Fob Battery"
+      },
+      {
+        "entity_id": "m_b6e5899a3348",
+        "path": [
+          "title"
+        ],
+        "equals": "Mazda Key Fob Battery Replacement (CX-3, CX-30, CX-5, CX-9, 3, 6, MX5 Miata & more)"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_b6e5899a3348",
+        "retained_state": "m_041f7b5f5aa1"
+      },
+      "operator": "<=",
+      "value": 240
+    },
+    "original_request_effect": "原129秒2分钟上限进一步排除230秒，保留109秒m_b9df72dd543b等原五条终态；不用无排除效力的5分钟阈值。"
+  }
+}

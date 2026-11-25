@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ content.title }}{% endblock %}</title>
+  <meta name="description" content="{{ content.paper_title }}">
+  <link rel="icon" href="{{ url_for('static', filename='lens.svg') }}" type="image/svg+xml">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..800;1,400..600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
+</head>
+<body class="{% block body_class %}page{% endblock %}">
+  <header class="top">
+    <span class="brand">
+      <img class="brand-mark" src="{{ url_for('static', filename='egousebench-logo.png') }}" alt="" width="28" height="28">
+      {{ content.title }}
+    </span>
+    <div class="top-logos">
+      <img class="logo-lab" src="{{ url_for('static', filename='ai4gc-lab-logo.png') }}" alt="{{ content.lab }}" width="33" height="30">
+      <img class="logo-uni" src="{{ url_for('static', filename='zhejiang-university-logo.png') }}" alt="{{ content.affiliation }}" width="104" height="29">
+    </div>
+  </header>
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+  <footer class="foot">
+    <span class="foot-lab">{{ content.lab }} · {{ content.affiliation }}</span>
+    <div class="foot-links">
+      {% if request.path != '/' %}<a href="{{ url_for('home') }}">Home</a>{% endif %}
+      <a href="{{ content.code_url }}">Code</a>
+      <a href="{{ content.dataset_url }}">Dataset</a>
+    </div>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

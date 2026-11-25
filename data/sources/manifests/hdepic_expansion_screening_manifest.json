@@ -1,0 +1,99 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC",
+    "license_or_access_note": "HD-EPIC is released by the University of Bristol under CC BY 4.0. The three full recordings below were downloaded from the official data record, verified against the official MD5 list, reviewed, and then removed because none could support an honest benchmark task."
+  },
+  "tasks": [
+    {
+      "task_id": "rejected-hdepic-expansion-p02-113925",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          "P02-20240210-113925/baguette",
+          "P02-20240210-113925/smoked-bacon-medallion",
+          "P02-20240210-113925/egg"
+        ],
+        "media_id": "P02-20240210-113925",
+        "media_sha256": "ff78e6a0e965ed8fa0df4d8e88549492c2cf057864a1302387b9d7a6484662e9",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P02/P02-20240210-113925.mp4",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              123,
+              131.58
+            ],
+            "role": "same_product_units",
+            "description": "The wearer handles two visually interchangeable bacon medallions from the same package."
+          }
+        ]
+      },
+      "rejection_reason": "The mined switches are between a whole food item and one of its pieces, or between interchangeable units of the same packaged food. They do not define different website entities, so asking the agent to retain or replace one would produce a constructor-defined answer.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-hdepic-expansion-p03-100448",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          "P03-20240217-100448/tea-towel"
+        ],
+        "media_id": "P03-20240217-100448",
+        "media_sha256": "8006800101def10fd5ff13ea707bb870c602ddab984ab6ab784a31b7d6c1b010",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P03/P03-20240217-100448.mp4",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              185.16,
+              226.46
+            ],
+            "role": "same_towel_interaction",
+            "description": "The interval repeatedly shows a gray patterned tea towel being moved between the table, sink, and appliance area."
+          }
+        ]
+      },
+      "rejection_reason": "The annotation names first and second towel roles, but the reviewed interval does not expose two stable, visually separable products. The temporal role therefore cannot be mapped to a unique frozen-site entity.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    },
+    {
+      "task_id": "rejected-hdepic-expansion-p09-153748",
+      "status": "rejected",
+      "rejection_code": "exact_entity_unlinkable",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          "P09-20240623-153748/stove-metal-cover"
+        ],
+        "media_id": "P09-20240623-153748",
+        "media_sha256": "a431f16fc3d3a3b84b5bf8ba8dc526181188b55d25518beff455cd5a9f2bbdfd",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P09/P09-20240623-153748.mp4",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              103.77,
+              154.28
+            ],
+            "role": "stove_cover_sequence",
+            "description": "The wearer removes and replaces black metal supports or covers around the same stove."
+          }
+        ]
+      },
+      "rejection_reason": "The right and left stove parts are installed components of the same appliance and show no stable product-level difference. Their order is visible, but it cannot lead to two independently grounded website actions.",
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": []
+    }
+  ]
+}

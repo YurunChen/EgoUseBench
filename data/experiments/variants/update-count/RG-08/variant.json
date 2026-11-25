@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "pair_id": "RG-08",
+  "id": "RG-08-update-count",
+  "source_task_path": "data/experiments/composite/RG-08.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 85.0,
+      "request": "Could the video be three minutes or less?"
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 102.0
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 114.0,
+      "request": "Could it be two minutes or less? I just need a quick reminder."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_f9a130f714c4"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_deb87c65ed13"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "85秒早于102秒Refresh，按61–77秒已核实的枕头与枕套识别当前对象。215秒how kids can change a pillowcase与108秒How to Put on a Pillowcase均为换枕套方法，3分钟限制排除215秒并保留108秒；不用未来被套教程证明早期排除。",
+    "public_facts": [
+      {
+        "entity_id": "m_f9a130f714c4",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 215
+      },
+      {
+        "entity_id": "m_deb87c65ed13",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 108
+      },
+      {
+        "entity_id": "m_f9a130f714c4",
+        "path": [
+          "title"
+        ],
+        "equals": "how kids can change a pillowcase"
+      },
+      {
+        "entity_id": "m_deb87c65ed13",
+        "path": [
+          "title"
+        ],
+        "equals": "How to Put on a Pillowcase"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_f9a130f714c4",
+        "retained_state": "m_deb87c65ed13"
+      },
+      "operator": "<=",
+      "value": 180
+    },
+    "original_request_effect": "102秒对象换成被套后，134秒m_e972c94c7029满足3分钟但违反原2分钟；原<=120秒被套终态仍有效。"
+  }
+}

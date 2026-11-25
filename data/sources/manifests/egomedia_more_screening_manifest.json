@@ -1,0 +1,1452 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-graft-c-23",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          55
+        ],
+        "media_id": "44e9b119-fd74-4e07-916e-fb70c4a82ece",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, open a tutorial that teaches the same leaf-preparation technique shown in the video. The tutorial should clearly demonstrate the identical tool-based step used on the same type of long leaves."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              20,
+              30
+            ],
+            "role": "referent",
+            "description": "A metal spoon is drawn repeatedly along both sides of long stiff leaves to prepare their fibers."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows long leaves and repeated spoon scraping along their length.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm getting these long leaves ready to weave with. Find a video and save one.",
+            "b": "I'm scraping them down with the back of a spoon, so I need the one that does it that way rather than soaking them.",
+            "bundled": "I'm scraping these long leaves down with a spoon first, so find a video that preps them that way before weaving, and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_scrape_long_leaves_with_a_spoon_before_w"
+            ],
+            [
+              "initial_1_prepare_long_leaves_for_weaving"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_0_scrape_long_leaves_with_a_spoon_before_w"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_scrape_long_leaves_with_a_spoon_before_w": "m_35ea80b4c167",
+            "initial_1_prepare_long_leaves_for_weaving": "m_914c2d6a7e30",
+            "auto_neighbor_1": "m_10037077284f",
+            "auto_neighbor_2": "m_236ebc95d1a4",
+            "auto_neighbor_3": "m_28e5b16a0c74",
+            "auto_neighbor_4": "m_309ed4c176bf",
+            "auto_neighbor_5": "m_314dba89e206",
+            "auto_neighbor_6": "m_483de172ca95"
+          }
+        },
+        "release_anchor_seconds": 27.142857,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            20,
+            21.428571,
+            22.857143,
+            24.285714,
+            25.714286,
+            27.142857,
+            28.571429,
+            30
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-23/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-23/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-23/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-23/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-23/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-23/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-23/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-23/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: A metal spoon is drawn repeatedly along both sides of long stiff leaves to prepare their fibers. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-24",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          57
+        ],
+        "media_id": "662598ba-9fb6-4111-ba2d-8cb867710bec",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, open a cooking tutorial that demonstrates the same onion-seasoning method as in the video. Open a video where this method is clearly shown in the early part of the video."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              65,
+              70
+            ],
+            "role": "referent",
+            "description": "Finely chopped onion is seasoned in a metal bowl and squeezed and mixed directly by hand."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows chopped onion, a small metal bowl and direct hand mixing and squeezing.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm working this chopped onion in a bowl. Find a video and save one.",
+            "b": "It's already chopped, what I need is the seasoning and squeezing it by hand.",
+            "bundled": "This onion is already chopped, so find a video on seasoning it and squeezing it by hand in a bowl, and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_finely_chop_onion_for_cooking"
+            ],
+            [
+              "initial_1_season_and_squeeze_chopped_onion_by_hand"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_season_and_squeeze_chopped_onion_by_hand"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_finely_chop_onion_for_cooking": "m_82b715c0e946",
+            "initial_1_season_and_squeeze_chopped_onion_by_hand": "m_d39e04b6218a",
+            "auto_neighbor_1": "m_0f4eb173ca62",
+            "auto_neighbor_2": "m_12a86db5f937",
+            "auto_neighbor_3": "m_19cae43d760b",
+            "auto_neighbor_4": "m_2fc530bd8a61",
+            "auto_neighbor_5": "m_4350d1e8a762",
+            "auto_neighbor_6": "m_5c83b04fa927"
+          }
+        },
+        "release_anchor_seconds": 68.571429,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            65,
+            65.714286,
+            66.428571,
+            67.142857,
+            67.857143,
+            68.571429,
+            69.285714,
+            70
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-24/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-24/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-24/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-24/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-24/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-24/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-24/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-24/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: Finely chopped onion is seasoned in a metal bowl and squeezed and mixed directly by hand. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-25",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          77
+        ],
+        "media_id": "004a7f7e-9e83-431f-bc98-859cf9024e93",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, find a cooking video that matches what’s being prepared. It should show taking the same type of ingredient from cold storage, pureeing it in a countertop appliance, and then adding a measured dairy component to a simmering stovetop pot. Open a result that clearly demonstrates all these steps."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              55,
+              85
+            ],
+            "role": "referent",
+            "description": "A chilled ingredient is processed in a countertop blender, followed by work at the refrigerator and a simmering stovetop pot."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet spans the continuous blender, cold-storage and stovetop stages of the same soup workflow.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm making this vegetable soup. Find a video and save one.",
+            "b": "Mine goes in the blender and gets chilled with cream stirred in, not just simmered on the hob.",
+            "bundled": "I'm making a vegetable soup that goes in the blender and gets chilled with cream, so find a video for that and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_chilled_vegetable_blender_soup_with_crea"
+            ],
+            [
+              "initial_1_easy_stovetop_vegetable_soup"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_0_chilled_vegetable_blender_soup_with_crea"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_chilled_vegetable_blender_soup_with_crea": "m_5c83b04fa927",
+            "initial_1_easy_stovetop_vegetable_soup": "m_a42e71d596c0",
+            "auto_neighbor_1": "m_0f4eb173ca62",
+            "auto_neighbor_2": "m_19cae43d760b",
+            "auto_neighbor_3": "m_d3618a2fc709",
+            "auto_neighbor_4": "m_12a86db5f937",
+            "auto_neighbor_5": "m_2fc530bd8a61",
+            "auto_neighbor_6": "m_4350d1e8a762"
+          }
+        },
+        "release_anchor_seconds": 76.428571,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            55,
+            59.285714,
+            63.571429,
+            67.857143,
+            72.142857,
+            76.428571,
+            80.714286,
+            85
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-25/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-25/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-25/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-25/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-25/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-25/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-25/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-25/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: A chilled ingredient is processed in a countertop blender, followed by work at the refrigerator and a simmering stovetop pot. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-26",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          91,
+          92
+        ],
+        "media_id": "22a04ca6-5169-4af3-af0a-e7d1627abd97",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "Find one matching inflatable pool float for that same animal on both amazon.com and walmart.com. Open each product page, confirm it is rider-size (intended to carry a person), and report the listed maximum weight capacity for riders; if not listed, note \"not specified.\" Provide the two product links.",
+          "On youtube.com, locate a tutorial that demonstrates inflation/setup or patch repair for a pool float matching the same animal and color seen in the video. Open the video, verify the float shown matches on animal and color, and then report the video title and total duration."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              26,
+              31
+            ],
+            "role": "referent",
+            "description": "A rider-size pink flamingo pool float is visible among the pool equipment."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows the pink flamingo form and rider-size body of the target float.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "This big pool float keeps going soft. Find a video about it and save one.",
+            "b": "It's losing air, so I need finding the leak and patching it, not how to inflate it.",
+            "bundled": "This big pool float keeps losing air, so find a video on finding the leak and patching it, and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_set_up_and_inflate_a_pink_flamingo_pool_"
+            ],
+            [
+              "initial_1_patch_a_leak_in_a_pink_flamingo_pool_flo"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_patch_a_leak_in_a_pink_flamingo_pool_flo"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_set_up_and_inflate_a_pink_flamingo_pool_": "m_704d91a3cb56",
+            "initial_1_patch_a_leak_in_a_pink_flamingo_pool_flo": "m_fe26b8057c14",
+            "auto_neighbor_1": "m_03835b386a14",
+            "auto_neighbor_2": "m_1a7169b87f51",
+            "auto_neighbor_3": "m_3652e8fe33f5",
+            "auto_neighbor_4": "m_68b3191dc068",
+            "auto_neighbor_5": "m_78971337292b",
+            "auto_neighbor_6": "m_843a942dc558"
+          }
+        },
+        "release_anchor_seconds": 29.571429,
+        "decision_point_provenance": "auto_v3_bulk_20260820",
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            26,
+            26.714286,
+            27.428571,
+            28.142857,
+            28.857143,
+            29.571429,
+            30.285714,
+            31
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-26/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-26/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-26/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-26/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-26/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-26/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-26/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-26/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: A rider-size pink flamingo pool float is visible among the pool equipment. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-27",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          93
+        ],
+        "media_id": "ee8362e5-ba66-4af6-b3f5-b7f52c134123",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On youtube.com, find a step-by-step video tutorial that demonstrates the same metalworking process and the same type of part as in the clip. Open a result where both the process and the part clearly match, and provide the video title and channel name."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              50,
+              55
+            ],
+            "role": "referent",
+            "description": "A circular metal part is heated with a handheld torch while a separate filler rod is fed into the joint."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows the circular part, handheld flame and separate filler rod at the joint.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm joining this round metal part. Find a video and save one.",
+            "b": "I'm heating it with a handheld torch and feeding a separate rod into the joint, so it needs to show that.",
+            "bundled": "I'm brazing this round metal part with a handheld torch and a separate rod, so find a video showing that and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_join_a_circular_metal_part"
+            ],
+            [
+              "initial_1_braze_a_circular_metal_joint_with_torch_"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_braze_a_circular_metal_joint_with_torch_"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_join_a_circular_metal_part": "m_1e780fa6d324",
+            "initial_1_braze_a_circular_metal_joint_with_torch_": "m_b6472c09ea51",
+            "auto_neighbor_1": "m_16f47c9ad302",
+            "auto_neighbor_2": "m_62fd71bc840e",
+            "auto_neighbor_3": "m_9ab316d4e027",
+            "auto_neighbor_4": "m_b8295e17ca64",
+            "auto_neighbor_5": "m_29fd64c8e107",
+            "auto_neighbor_6": "m_4a216de89bc5"
+          }
+        },
+        "release_anchor_seconds": 53.571429,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            50,
+            50.714286,
+            51.428571,
+            52.142857,
+            52.857143,
+            53.571429,
+            54.285714,
+            55
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-27/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-27/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-27/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-27/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-27/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-27/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-27/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-27/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: A circular metal part is heated with a handheld torch while a separate filler rod is fed into the joint. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-28",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          152
+        ],
+        "media_id": "128b24a2-9f0f-40af-80f4-70cfd6573a92",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On youtube.com, find a tutorial that matches the preparation shown and open it. It should demonstrate cutting the same poultry parts on the same type of cutting surface and collecting the pieces into a bowl."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              20,
+              40
+            ],
+            "role": "referent",
+            "description": "Chicken drumsticks are cut on a wooden board and transferred into a large metal bowl."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows chicken drumsticks, the wooden cutting board and the receiving metal bowl.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm cutting up these chicken drumsticks. Find a video and save one.",
+            "b": "I'm working on a wooden board and dropping the pieces into a metal bowl, so I want one set up the same way.",
+            "bundled": "I'm cutting these drumsticks up on a wooden chopping board and collecting them in a metal bowl, so find a video set up the same way and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_prepare_chicken_pieces_for_cooking"
+            ],
+            [
+              "initial_1_cut_chicken_drumsticks_on_a_wooden_board"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_cut_chicken_drumsticks_on_a_wooden_board"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_prepare_chicken_pieces_for_cooking": "m_2fc530bd8a61",
+            "initial_1_cut_chicken_drumsticks_on_a_wooden_board": "m_d86491e7c052",
+            "auto_neighbor_1": "m_12a86db5f937",
+            "auto_neighbor_2": "m_651fc0e7b42a",
+            "auto_neighbor_3": "m_ecc121e4ad7c",
+            "auto_neighbor_4": "m_0f4eb173ca62",
+            "auto_neighbor_5": "m_19cae43d760b",
+            "auto_neighbor_6": "m_4350d1e8a762"
+          }
+        },
+        "release_anchor_seconds": 34.285714,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            20,
+            22.857143,
+            25.714286,
+            28.571429,
+            31.428571,
+            34.285714,
+            37.142857,
+            40
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-28/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-28/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-28/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-28/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-28/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-28/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-28/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-28/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: Chicken drumsticks are cut on a wooden board and transferred into a large metal bowl. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-29",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          153
+        ],
+        "media_id": "889d1b46-90c8-432e-a784-333a1cbb5007",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, find and open a tutorial that demonstrates using the same type of countertop appliance shown in the video to prepare a batter. Choose a video where the device and the key actions visibly match what’s done in the clip."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              25,
+              45
+            ],
+            "role": "referent",
+            "description": "A tall countertop grinder or blender jar is used for batter, which is then transferred and handled in a wide metal bowl."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows the tall appliance jar, pale batter and wide metal bowl in one preparation sequence.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm blending this batter. Find a video and save one.",
+            "b": "It goes into the tall jar first and then out into the wide metal bowl, so I need that step shown.",
+            "bundled": "This batter gets blended in the tall jar, then tipped into the wide metal bowl, so find a video showing that and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_make_batter_in_a_countertop_blender"
+            ],
+            [
+              "initial_1_blend_batter_in_a_tall_jar_and_transfer_"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_blend_batter_in_a_tall_jar_and_transfer_"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_make_batter_in_a_countertop_blender": "m_19cae43d760b",
+            "initial_1_blend_batter_in_a_tall_jar_and_transfer_": "m_f50862ab4e91",
+            "auto_neighbor_1": "m_0f4eb173ca62",
+            "auto_neighbor_2": "m_12a86db5f937",
+            "auto_neighbor_3": "m_2fc530bd8a61",
+            "auto_neighbor_4": "m_4350d1e8a762",
+            "auto_neighbor_5": "m_5c83b04fa927",
+            "auto_neighbor_6": "m_651fc0e7b42a"
+          }
+        },
+        "release_anchor_seconds": 39.285714,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            25,
+            27.857143,
+            30.714286,
+            33.571429,
+            36.428571,
+            39.285714,
+            42.142857,
+            45
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-29/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-29/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-29/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-29/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-29/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-29/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-29/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-29/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: A tall countertop grinder or blender jar is used for batter, which is then transferred and handled in a wide metal bowl. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-30",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          159
+        ],
+        "media_id": "bcf51f42-0e26-4be7-a210-edd9ad7d2ec0",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, open a beginner tutorial that teaches the exact stitch pattern being formed in the video and uses the same type of needles configured the same way. Stop on a video where the visuals clearly match what’s being done in the clip."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              30,
+              35
+            ],
+            "role": "referent",
+            "description": "A textured green fabric is worked flat with two straight knitting needles and live stitches held on one needle."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows two straight needles, the live stitch row and the textured flat fabric.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm knitting a flat piece here on two needles. Find a video and save one.",
+            "b": "The stitch I'm after gives a raised texture, not plain stocking stitch.",
+            "bundled": "I'm knitting a flat piece on two needles and want a raised texture rather than plain stocking stitch, so find a video for that and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_beginner_flat_knitting_with_straight_nee"
+            ],
+            [
+              "initial_1_knit_a_textured_flat_fabric_on_two_strai"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_knit_a_textured_flat_fabric_on_two_strai"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_beginner_flat_knitting_with_straight_nee": "m_670d18ea9342",
+            "initial_1_knit_a_textured_flat_fabric_on_two_strai": "m_c5b42f09d761",
+            "auto_neighbor_1": "m_e46f9730a25d",
+            "auto_neighbor_2": "m_10037077284f",
+            "auto_neighbor_3": "m_236ebc95d1a4",
+            "auto_neighbor_4": "m_28e5b16a0c74",
+            "auto_neighbor_5": "m_309ed4c176bf",
+            "auto_neighbor_6": "m_314dba89e206"
+          }
+        },
+        "release_anchor_seconds": 33.571429,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            30,
+            30.714286,
+            31.428571,
+            32.142857,
+            32.857143,
+            33.571429,
+            34.285714,
+            35
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-30/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-30/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-30/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-30/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-30/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-30/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-30/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-30/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: A textured green fabric is worked flat with two straight knitting needles and live stitches held on one needle. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-31",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          260
+        ],
+        "media_id": "13211c8e-1d6e-46b3-85dc-60ca351ef0c6",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On youtube.com, open a tutorial that teaches the exact decorative attachment method used at the very top of the clay piece in the video. The tutorial should clearly demonstrate the same method step-by-step."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              60,
+              70
+            ],
+            "role": "referent",
+            "description": "The top rim of a tall clay vessel is cut into pointed tabs and the tabs are folded and attached outward as decoration."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows the tall clay form, cut rim tabs and their outward attachment around the top.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm finishing the rim on this clay pot. Find a video and save one.",
+            "b": "I'm cutting pointed tabs and folding them outward around the top, so I need that specifically.",
+            "bundled": "I'm cutting pointed tabs around the rim of this pot and folding them outward, so find a video covering that and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_decorate_the_rim_of_a_hand_built_clay_ve"
+            ],
+            [
+              "initial_1_cut_and_fold_pointed_tabs_on_a_clay_vess"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_cut_and_fold_pointed_tabs_on_a_clay_vess"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_decorate_the_rim_of_a_hand_built_clay_ve": "m_28e5b16a0c74",
+            "initial_1_cut_and_fold_pointed_tabs_on_a_clay_vess": "m_f3d6029c815b",
+            "auto_neighbor_1": "m_90fe3467ab21",
+            "auto_neighbor_2": "m_10037077284f",
+            "auto_neighbor_3": "m_236ebc95d1a4",
+            "auto_neighbor_4": "m_309ed4c176bf",
+            "auto_neighbor_5": "m_314dba89e206",
+            "auto_neighbor_6": "m_35ea80b4c167"
+          }
+        },
+        "release_anchor_seconds": 67.142857,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            60,
+            61.428571,
+            62.857143,
+            64.285714,
+            65.714286,
+            67.142857,
+            68.571429,
+            70
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-31/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-31/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-31/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-31/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-31/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-31/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-31/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-31/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: The top rim of a tall clay vessel is cut into pointed tabs and the tabs are folded and attached outward as decoration. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-32",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          277
+        ],
+        "media_id": "bd223d57-1b07-417e-8322-b5f1c8423c03",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, open a how-to video that demonstrates cleaning the exact stovetop setup shown in the video. Choose a tutorial that matches the same burner type and the way it’s currently configured, and make sure it specifically shows safe cleaning steps for that setup."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              160,
+              165
+            ],
+            "role": "referent",
+            "description": "A black electric coil stovetop with foil-lined drip bowls is shown during cleaning setup."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows exposed electric coil burners and reflective foil-lined drip bowls.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm cleaning this electric hob. Find a video and save one.",
+            "b": "Mine has exposed coils sitting in drip pans lined with foil, so it needs to cover those.",
+            "bundled": "I'm cleaning an electric hob with exposed coils sitting in drip pans lined with foil, so find a video covering that and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_clean_an_electric_coil_stovetop_safely"
+            ],
+            [
+              "initial_1_clean_electric_coils_with_foil_lined_dri"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_clean_electric_coils_with_foil_lined_dri"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_clean_an_electric_coil_stovetop_safely": "m_0a27e85bc149",
+            "initial_1_clean_electric_coils_with_foil_lined_dri": "m_db614f92a730",
+            "auto_neighbor_1": "m_84d1c2e70639",
+            "auto_neighbor_2": "m_92a65ac74528",
+            "auto_neighbor_3": "m_1cc799f05886",
+            "auto_neighbor_4": "m_20ea76c489f1",
+            "auto_neighbor_5": "m_37ea05b49c12",
+            "auto_neighbor_6": "m_7fc89ae36a9d"
+          }
+        },
+        "release_anchor_seconds": 163.571429,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            160,
+            160.714286,
+            161.428571,
+            162.142857,
+            162.857143,
+            163.571429,
+            164.285714,
+            165
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-32/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-32/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-32/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-32/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-32/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-32/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-32/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-32/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: A black electric coil stovetop with foil-lined drip bowls is shown during cleaning setup. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    },
+    {
+      "task_id": "candidate-media-graft-c-33",
+      "status": "rejected",
+      "rejection_code": "visual_not_necessary",
+      "family": "graft",
+      "subtype": "refine",
+      "source": {
+        "record_ids": [
+          332
+        ],
+        "media_id": "cf0feb20-5b14-448d-aa34-eb5d5166b25f",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On YouTube, find a tutorial that demonstrates operating the same dough-flattening machine used in the video. Open a matching video and report the video title and channel name."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              20,
+              35
+            ],
+            "role": "referent",
+            "description": "Long dough pieces are repeatedly fed through a countertop roller machine and handled between passes."
+          }
+        ]
+      },
+      "supported_claims": [
+        {
+          "text": "The packet shows the countertop roller, long dough sheet and repeated feed-through workflow.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent integrate a later C update while preserving the still-required initial goal?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "belief_before": "The initial visual goal is sufficient.",
+        "belief_after": "The later request changes the required final web state.",
+        "required_behavior_change": "Update the pending web commitment after B while preserving still-required parts of A.",
+        "no_update_failure": "The Agent submits the A-only state after B arrives.",
+        "overupdate_failure": "The Agent drops a still-required part of A after B arrives.",
+        "visual_dependency_claim": "Released Observation packets ground the physical referent (the object I am using now); the website alone does not identify which item was handled.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm running dough through this countertop roller. Find a video and save one.",
+            "b": "The sheets get long and go through several times, so I need one that handles that rather than a basic demo.",
+            "bundled": "I'm feeding long sheets of dough through this roller several times over, so find a video that covers that and save it."
+          },
+          "initial_goal_roles": [
+            [
+              "initial_0_use_a_countertop_dough_roller"
+            ],
+            [
+              "initial_1_roll_long_dough_sheets_with_repeated_mac"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "initial_1_roll_long_dough_sheets_with_repeated_mac"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "initial_0_use_a_countertop_dough_roller": "m_4350d1e8a762",
+            "initial_1_roll_long_dough_sheets_with_repeated_mac": "m_c7204b69df13",
+            "auto_neighbor_1": "m_ecc121e4ad7c",
+            "auto_neighbor_2": "m_0f4eb173ca62",
+            "auto_neighbor_3": "m_12a86db5f937",
+            "auto_neighbor_4": "m_19cae43d760b",
+            "auto_neighbor_5": "m_2fc530bd8a61",
+            "auto_neighbor_6": "m_5c83b04fa927"
+          }
+        },
+        "release_anchor_seconds": 30.714286,
+        "neighbor_role_ids": [
+          "auto_neighbor_1",
+          "auto_neighbor_2",
+          "auto_neighbor_3",
+          "auto_neighbor_4",
+          "auto_neighbor_5",
+          "auto_neighbor_6"
+        ],
+        "decision_point_provenance": "auto_v3_bulk_20260820"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            20,
+            22.142857,
+            24.285714,
+            26.428571,
+            28.571429,
+            30.714286,
+            32.857143,
+            35
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-33/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-33/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-33/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-33/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-33/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-33/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-33/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-33/V0_07.jpg"
+          ]
+        }
+      ],
+      "rejection_reason": "Archived 2026-08-22: the acceptance text_pinning advisory showed the instruction's own words retrieve the target from the frozen catalog, so the released packet is not required to make the decision. Task file kept under data/archive/v4-egomedia-textpinned-20260822/.",
+      "blocking_checks": [],
+      "unresolved": [],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "fail",
+        "code": "counterfactual_check_failed",
+        "reason": "Continuous video confirms the real activity: Long dough pieces are repeatedly fed through a countertop roller machine and handled between passes. However, the decisive refinement is fully stated in B and no new visual evidence arrives after browsing starts. One representative start image identifies the activity, and bundling A+B preserves the same tutorial choice and save/submit commitment; moving the same text to a later step only changes arbitrary injection timing. The task therefore fails the static-replacement and timing counterfactuals, so the glasses stream is not structurally necessary."
+      }
+    }
+  ]
+}

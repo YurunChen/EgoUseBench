@@ -1,0 +1,3967 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Authorized HD-EPIC public research distribution; original recording identity and start offset retained."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102585",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P09-20240621-093545__2468-2608",
+        "original_video_id": "P09-20240621-093545",
+        "media_start_seconds": 2468,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P09-20240621-093545__2468-2608.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P09/P09-20240621-093545.mp4",
+        "record_ids": [
+          "P09-20240621-093545__2468-2608"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "pre-microwave-use",
+            "source_occurrences_seconds": [
+              [
+                2470,
+                2473
+              ],
+              [
+                2553,
+                2554
+              ]
+            ],
+            "description": "A dinner fork stirs the curry in the same red single-handle saucepan. Each condition exposes clear tines and actual stirring as a matched two-frame event;2470 and2553 establish the head form,2473 and2554 show actual in-pan work."
+          },
+          {
+            "event_id": "basil-picking",
+            "source_occurrences_seconds": [
+              [
+                2500,
+                2500
+              ]
+            ],
+            "description": "Both hands pluck basil leaves at a separate countertop; requested cutlery not visible."
+          },
+          {
+            "event_id": "basil-washing",
+            "source_occurrences_seconds": [
+              [
+                2523,
+                2523
+              ]
+            ],
+            "description": "Basil is held over the sink at the tap; requested cutlery not visible."
+          },
+          {
+            "event_id": "microwave-rice",
+            "source_occurrences_seconds": [
+              [
+                2559,
+                2561
+              ]
+            ],
+            "description": "The microwave is opened and cooked rice is removed; neither candidate utensil is actively used."
+          },
+          {
+            "event_id": "post-microwave-use",
+            "source_occurrences_seconds": [
+              [
+                2602,
+                2604
+              ]
+            ],
+            "description": "A large bowl-head serving spoon stirs the same red saucepan. The earlier fork is not re-exposed in these released frames."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact retail identity, brand, dimensions and material are not matching conditions."
+        ]
+      },
+      "screening": {
+        "real_user_need": "Restock a same-type pack of the referenced cutlery.",
+        "scope_note": "Experiment-only independent original recording; same full temporal reference supplied upfront to both conditions.",
+        "proposed_instruction": "I want to restock one of the types of cutlery I used in the saucepan here. Add one pack of that basic type to my cart. Brand, exact size and material can differ. The pack should contain only that type of cutlery, not a mixed cutlery set or a combination multitool."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2470.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2473.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2500.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2523.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2559.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2561.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2602.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2604.jpg"
+          ],
+          "timestamps_seconds": [
+            2470,
+            2473,
+            2500,
+            2523,
+            2559,
+            2561,
+            2602,
+            2604
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does binding saucepan cutlery use to later microwave rice removal change with additional real intervening events?",
+        "belief_before": "Two distinct cutlery types are used in the same saucepan, before and after removing rice from the microwave.",
+        "belief_after": "The temporal reference selects the fork used before rice was removed, not the subsequent serving spoon.",
+        "required_behavior_change": "Link microwave rice removal to the earlier saucepan utensil and select one same-type cutlery pack.",
+        "no_update_failure": "The oracle resolves the temporal reference upfront; no proactive-question difference.",
+        "overupdate_failure": "Selecting mixed utensil types violates the same-type-only pack request.",
+        "visual_dependency_claim": "The rice-removal anchor and common basil events do not show the requested fork. Both cutlery types actually work in the same saucepan. Earlier tines must be visible enough for independent identification.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I want to restock one of the types of cutlery I used in the saucepan here. Add one pack of that basic type to my cart. Brand, exact size and material can differ. The pack should contain only that type of cutlery, not a mixed cutlery set or a combination multitool.",
+          "oracle_instruction": "I want to restock the type of cutlery I used in the saucepan before I took the rice out of the microwave, not the one I used in it afterwards. Add one pack of that basic type to my cart. Brand, exact size and material can differ. The pack should contain only that type of cutlery, not a mixed cutlery set or a combination multitool.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "pre_cutlery",
+            "post_cutlery"
+          ],
+          "hidden_target_role": "pre_cutlery",
+          "valid_slot": "sequence",
+          "canonical_question": "Which type of cutlery used in the saucepan do you mean?",
+          "canonical_answer": "The type I used in the saucepan before I took the rice out of the microwave, not the one I used in it afterwards.",
+          "environment_role_ids": {
+            "pre_cutlery": "p_773e4812326b",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "equivalent_role_ids": {
+            "pre_cutlery": [
+              "p_54b6d37a2e1f",
+              "p_43f71ae41805",
+              "p_09e479b60df8",
+              "p_cdd381021705",
+              "p_12a89237d547",
+              "p_7ff50c055142",
+              "p_3feb0e211998",
+              "p_abeccd7b8e68"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "pre_cutlery": "p_773e4812326b",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "pre_cutlery"
+              ],
+              "narrowed_by": "action_order",
+              "why": "Full reference selects the cutlery type actively used in the saucepan before rice was removed from the microwave."
+            }
+          ],
+          "established_by": "Constructing agent; independent review pending",
+          "established_at": "2026-10-25"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "stainless steel forks spoons separate packs",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_c1f98fffa806",
+                "p_4787810d3e98",
+                "p_fd168bfdd94a",
+                "p_773e4812326b",
+                "p_8fcf901bb92a",
+                "p_54b6d37a2e1f",
+                "p_b1269900c618",
+                "p_627e20d0ca23",
+                "p_5b42b910aa56",
+                "p_9f4d6c1f9ddc",
+                "p_37ca83309a09",
+                "p_4f60a76f0bab",
+                "p_63c0d28ed1da",
+                "p_ae0a1856ae1e",
+                "p_96391d8a8a97",
+                "p_65e7453ee18b",
+                "p_a4c323c1ed54",
+                "p_19d8224c95aa",
+                "p_43f71ae41805",
+                "p_28fe784dadbf",
+                "p_f78bc5991a41",
+                "p_e2fbc53eb24e",
+                "p_294243287514",
+                "p_7ea774e1599c",
+                "p_09e479b60df8",
+                "p_9f7054ad7784",
+                "p_7bf50fb97e7a",
+                "p_707be042ae79",
+                "p_ae9a4b24f9f6",
+                "p_9e70cc93a7a0",
+                "p_6e73a44733c8",
+                "p_b858ad56553c",
+                "p_cdd381021705",
+                "p_b3ec85a800b5",
+                "p_5ee1aef32a55",
+                "p_aa7c884e95b9",
+                "p_b21c0dff2416",
+                "p_cee31aafc132",
+                "p_cbc29e71284e",
+                "p_2b681059d31c",
+                "p_12a89237d547",
+                "p_42b455544c8e",
+                "p_7ff50c055142",
+                "p_3e6266f2037c",
+                "p_3feb0e211998",
+                "p_3a400ef26250",
+                "p_58c858205bed",
+                "p_90079795d6da"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "stainless steel table spoon set",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_8b7977f54209",
+                "p_63c0d28ed1da",
+                "p_923307113295",
+                "p_31f0ff0425f6",
+                "p_5a6cdf275208",
+                "p_41ca83d84408",
+                "p_e59d5135e2c4",
+                "p_21b844db6c4a",
+                "p_c8f85ac96c40",
+                "p_fd168bfdd94a",
+                "p_4f201c92a193",
+                "p_84fcdc057aba",
+                "p_4d52664c03b0",
+                "p_f1569bd9e84b",
+                "p_d604ef478182",
+                "p_a7041b12c700",
+                "p_fc87d3f9e596",
+                "p_f5bba3a0b633",
+                "p_86861ca1a863",
+                "p_43308248dda9",
+                "p_7bf50fb97e7a",
+                "p_7ea774e1599c",
+                "p_9f91f9d2f00c",
+                "p_b49daf563820",
+                "p_29921496a6d1",
+                "p_3a5abc85b7a8",
+                "p_5afcaa9eec18",
+                "p_1bc3c78c6385",
+                "p_97b7713b8437",
+                "p_b8d88541f6a0",
+                "p_7a0883592b3e",
+                "p_5bc3d867ddb2",
+                "p_4c0e850ba8a2",
+                "p_4a6d5db0c3b8",
+                "p_6d564633f514",
+                "p_5620372e3b20",
+                "p_c1f98fffa806",
+                "p_ec6fb3367373",
+                "p_b39a0d9c0114",
+                "p_6aa9f1a3cbfb",
+                "p_f51aeb7a6223",
+                "p_f68fddb2bc85",
+                "p_7c35c14d4152",
+                "p_a27dd8eaf670",
+                "p_90e8a57aa843",
+                "p_58c858205bed",
+                "p_5be9f2e6ec7c",
+                "p_38fd8da9e823"
+              ]
+            },
+            {
+              "stage": "before_other_cutlery",
+              "query": "stainless steel dinner knives set",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "before_other_cutlery",
+              "result_entity_ids": [
+                "p_a3bbf6622956",
+                "p_5a56105e7ded",
+                "p_ed5725882898",
+                "p_c0f8701bc667",
+                "p_7b8b39b45736",
+                "p_53300a1b43af",
+                "p_0a0aeaca3f54",
+                "p_cbc29e71284e",
+                "p_0c5637b1b0c6",
+                "p_fad945680ee8",
+                "p_acdc9492b045",
+                "p_58c048623c9a",
+                "p_692759e7f54f",
+                "p_7ea774e1599c",
+                "p_ee80907e8401",
+                "p_b67911722348",
+                "p_c7043c05e1d3",
+                "p_fd5a2d88111f",
+                "p_f16800070790",
+                "p_da514edc360a",
+                "p_d203c49e98ce",
+                "p_579093f49bff",
+                "p_c25608a55fff",
+                "p_f09d3cde8cba",
+                "p_bd347c64399a",
+                "p_7bf50fb97e7a",
+                "p_8d613e9dca7a",
+                "p_0a21be2895e0",
+                "p_77bf2dfe565f",
+                "p_6cad278e8220",
+                "p_a531b30888ad",
+                "p_5be9f2e6ec7c",
+                "p_10e381ff6fd2",
+                "p_3133a3270681",
+                "p_11bbab01cb8f",
+                "p_c1921143250d",
+                "p_3c8917340775",
+                "p_72c7be823c02",
+                "p_04cdcfabf7d1",
+                "p_044386bc4665",
+                "p_2fa3a9a613cc",
+                "p_d9f58a3d47db",
+                "p_4ad153abad58",
+                "p_58b4b01303f1",
+                "p_4a198cf71eab",
+                "p_abeccd7b8e68",
+                "p_0d15ac35c4c7",
+                "p_751c1bcf58f9"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_773e4812326b",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_8b7977f54209",
+            "p_923307113295",
+            "p_31f0ff0425f6",
+            "p_5a6cdf275208",
+            "p_41ca83d84408",
+            "p_e59d5135e2c4",
+            "p_21b844db6c4a",
+            "p_c8f85ac96c40",
+            "p_4f201c92a193",
+            "p_84fcdc057aba",
+            "p_4d52664c03b0",
+            "p_f1569bd9e84b",
+            "p_d604ef478182",
+            "p_a7041b12c700",
+            "p_fc87d3f9e596",
+            "p_f5bba3a0b633",
+            "p_86861ca1a863",
+            "p_43308248dda9",
+            "p_9f91f9d2f00c",
+            "p_b49daf563820",
+            "p_29921496a6d1",
+            "p_3a5abc85b7a8",
+            "p_5afcaa9eec18",
+            "p_1bc3c78c6385",
+            "p_97b7713b8437",
+            "p_b8d88541f6a0",
+            "p_7a0883592b3e",
+            "p_5bc3d867ddb2",
+            "p_4c0e850ba8a2",
+            "p_4a6d5db0c3b8",
+            "p_6d564633f514",
+            "p_5620372e3b20",
+            "p_ec6fb3367373",
+            "p_b39a0d9c0114",
+            "p_6aa9f1a3cbfb",
+            "p_f51aeb7a6223",
+            "p_f68fddb2bc85",
+            "p_7c35c14d4152",
+            "p_a27dd8eaf670",
+            "p_90e8a57aa843",
+            "p_5be9f2e6ec7c",
+            "p_38fd8da9e823",
+            "p_a3bbf6622956",
+            "p_5a56105e7ded",
+            "p_ed5725882898",
+            "p_c0f8701bc667",
+            "p_7b8b39b45736",
+            "p_53300a1b43af",
+            "p_0a0aeaca3f54",
+            "p_0c5637b1b0c6",
+            "p_fad945680ee8",
+            "p_acdc9492b045",
+            "p_58c048623c9a",
+            "p_692759e7f54f",
+            "p_ee80907e8401",
+            "p_b67911722348",
+            "p_c7043c05e1d3",
+            "p_fd5a2d88111f",
+            "p_f16800070790",
+            "p_da514edc360a",
+            "p_d203c49e98ce",
+            "p_579093f49bff",
+            "p_c25608a55fff",
+            "p_f09d3cde8cba",
+            "p_bd347c64399a",
+            "p_8d613e9dca7a",
+            "p_0a21be2895e0",
+            "p_77bf2dfe565f",
+            "p_6cad278e8220",
+            "p_a531b30888ad",
+            "p_10e381ff6fd2",
+            "p_3133a3270681",
+            "p_11bbab01cb8f",
+            "p_c1921143250d",
+            "p_3c8917340775",
+            "p_72c7be823c02",
+            "p_04cdcfabf7d1",
+            "p_044386bc4665",
+            "p_2fa3a9a613cc",
+            "p_d9f58a3d47db",
+            "p_4ad153abad58",
+            "p_58b4b01303f1",
+            "p_4a198cf71eab",
+            "p_abeccd7b8e68",
+            "p_0d15ac35c4c7",
+            "p_751c1bcf58f9"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_63c0d28ed1da",
+            "p_c1f98fffa806",
+            "p_fd168bfdd94a",
+            "p_4787810d3e98"
+          ],
+          "related_entity_ids": [
+            "p_8fcf901bb92a",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_42b455544c8e",
+            "p_3e6266f2037c",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_8b7977f54209",
+            "p_923307113295",
+            "p_31f0ff0425f6",
+            "p_5a6cdf275208",
+            "p_41ca83d84408",
+            "p_e59d5135e2c4",
+            "p_21b844db6c4a",
+            "p_c8f85ac96c40",
+            "p_4f201c92a193",
+            "p_84fcdc057aba",
+            "p_4d52664c03b0",
+            "p_f1569bd9e84b",
+            "p_d604ef478182",
+            "p_a7041b12c700",
+            "p_fc87d3f9e596",
+            "p_f5bba3a0b633",
+            "p_86861ca1a863",
+            "p_43308248dda9",
+            "p_9f91f9d2f00c",
+            "p_b49daf563820",
+            "p_29921496a6d1",
+            "p_3a5abc85b7a8",
+            "p_5afcaa9eec18",
+            "p_1bc3c78c6385",
+            "p_97b7713b8437",
+            "p_b8d88541f6a0",
+            "p_7a0883592b3e",
+            "p_5bc3d867ddb2",
+            "p_4c0e850ba8a2",
+            "p_4a6d5db0c3b8",
+            "p_6d564633f514",
+            "p_5620372e3b20",
+            "p_ec6fb3367373",
+            "p_b39a0d9c0114",
+            "p_6aa9f1a3cbfb",
+            "p_f51aeb7a6223",
+            "p_f68fddb2bc85",
+            "p_7c35c14d4152",
+            "p_a27dd8eaf670",
+            "p_90e8a57aa843",
+            "p_5be9f2e6ec7c",
+            "p_38fd8da9e823",
+            "p_a3bbf6622956",
+            "p_5a56105e7ded",
+            "p_ed5725882898",
+            "p_c0f8701bc667",
+            "p_7b8b39b45736",
+            "p_53300a1b43af",
+            "p_0a0aeaca3f54",
+            "p_0c5637b1b0c6",
+            "p_fad945680ee8",
+            "p_acdc9492b045",
+            "p_58c048623c9a",
+            "p_692759e7f54f",
+            "p_ee80907e8401",
+            "p_b67911722348",
+            "p_c7043c05e1d3",
+            "p_fd5a2d88111f",
+            "p_f16800070790",
+            "p_da514edc360a",
+            "p_d203c49e98ce",
+            "p_579093f49bff",
+            "p_c25608a55fff",
+            "p_f09d3cde8cba",
+            "p_bd347c64399a",
+            "p_8d613e9dca7a",
+            "p_0a21be2895e0",
+            "p_77bf2dfe565f",
+            "p_6cad278e8220",
+            "p_a531b30888ad",
+            "p_10e381ff6fd2",
+            "p_3133a3270681",
+            "p_11bbab01cb8f",
+            "p_c1921143250d",
+            "p_3c8917340775",
+            "p_72c7be823c02",
+            "p_04cdcfabf7d1",
+            "p_044386bc4665",
+            "p_2fa3a9a613cc",
+            "p_d9f58a3d47db",
+            "p_4ad153abad58",
+            "p_58b4b01303f1",
+            "p_4a198cf71eab",
+            "p_0d15ac35c4c7",
+            "p_751c1bcf58f9"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_c1f98fffa806",
+              "ring": "core",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4787810d3e98",
+              "ring": "core",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fd168bfdd94a",
+              "ring": "core",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8fcf901bb92a",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b1269900c618",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_627e20d0ca23",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5b42b910aa56",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f4d6c1f9ddc",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_37ca83309a09",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4f60a76f0bab",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_63c0d28ed1da",
+              "ring": "core",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae0a1856ae1e",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_96391d8a8a97",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_65e7453ee18b",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a4c323c1ed54",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_19d8224c95aa",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_28fe784dadbf",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f78bc5991a41",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e2fbc53eb24e",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_294243287514",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7ea774e1599c",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f7054ad7784",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7bf50fb97e7a",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_707be042ae79",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae9a4b24f9f6",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9e70cc93a7a0",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6e73a44733c8",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b858ad56553c",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b3ec85a800b5",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5ee1aef32a55",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aa7c884e95b9",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b21c0dff2416",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cee31aafc132",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cbc29e71284e",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2b681059d31c",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_42b455544c8e",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3e6266f2037c",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3a400ef26250",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58c858205bed",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_90079795d6da",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8b7977f54209",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_923307113295",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_31f0ff0425f6",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5a6cdf275208",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_41ca83d84408",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e59d5135e2c4",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_21b844db6c4a",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c8f85ac96c40",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4f201c92a193",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_84fcdc057aba",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4d52664c03b0",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f1569bd9e84b",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d604ef478182",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a7041b12c700",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fc87d3f9e596",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f5bba3a0b633",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_86861ca1a863",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_43308248dda9",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f91f9d2f00c",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b49daf563820",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_29921496a6d1",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3a5abc85b7a8",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5afcaa9eec18",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1bc3c78c6385",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_97b7713b8437",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b8d88541f6a0",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7a0883592b3e",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5bc3d867ddb2",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4c0e850ba8a2",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4a6d5db0c3b8",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6d564633f514",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5620372e3b20",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ec6fb3367373",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b39a0d9c0114",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6aa9f1a3cbfb",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f51aeb7a6223",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f68fddb2bc85",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7c35c14d4152",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a27dd8eaf670",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_90e8a57aa843",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5be9f2e6ec7c",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_38fd8da9e823",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a3bbf6622956",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5a56105e7ded",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ed5725882898",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c0f8701bc667",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7b8b39b45736",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_53300a1b43af",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0a0aeaca3f54",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0c5637b1b0c6",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fad945680ee8",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_acdc9492b045",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58c048623c9a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_692759e7f54f",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ee80907e8401",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b67911722348",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c7043c05e1d3",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fd5a2d88111f",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f16800070790",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_da514edc360a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d203c49e98ce",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_579093f49bff",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c25608a55fff",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f09d3cde8cba",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bd347c64399a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8d613e9dca7a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0a21be2895e0",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_77bf2dfe565f",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6cad278e8220",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a531b30888ad",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_10e381ff6fd2",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3133a3270681",
+              "ring": "related",
+              "reason": "Public title identifies dinner knives, while the product image displays a fork and knife. The listing conflicts on contents and does not establish a fork-only pack; it is not a supported single-type fork answer.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_11bbab01cb8f",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c1921143250d",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3c8917340775",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_72c7be823c02",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_04cdcfabf7d1",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_044386bc4665",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2fa3a9a613cc",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d9f58a3d47db",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4ad153abad58",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58b4b01303f1",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4a198cf71eab",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0d15ac35c4c7",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_751c1bcf58f9",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "134 unique public product images and native fields checked; complete stable-ID answer matrix retained."
+          }
+        },
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding"
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and public answer-boundary review."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/curry-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A dinner fork stirs the curry in the same red single-handle saucepan. Each condition exposes clear tines and actual stirring as a matched two-frame event;2470 and2553 establish the head form,2473 and2554 show actual in-pan work.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "Both hands pluck basil leaves at a separate countertop; requested cutlery not visible.",
+          "supported_by": [
+            "V0:2"
+          ]
+        },
+        {
+          "text": "Basil is held over the sink at the tap; requested cutlery not visible.",
+          "supported_by": [
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The microwave is opened and cooked rice is removed; neither candidate utensil is actively used.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "A large bowl-head serving spoon stirs the same red saucepan. The earlier fork is not re-exposed in these released frames.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102586",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P09-20240621-093545__2468-2608",
+        "original_video_id": "P09-20240621-093545",
+        "media_start_seconds": 2468,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P09-20240621-093545__2468-2608.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P09/P09-20240621-093545.mp4",
+        "record_ids": [
+          "P09-20240621-093545__2468-2608"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "pre-microwave-use",
+            "source_occurrences_seconds": [
+              [
+                2470,
+                2473
+              ],
+              [
+                2553,
+                2554
+              ]
+            ],
+            "description": "A dinner fork stirs the curry in the same red single-handle saucepan. Each condition exposes clear tines and actual stirring as a matched two-frame event;2470 and2553 establish the head form,2473 and2554 show actual in-pan work."
+          },
+          {
+            "event_id": "basil-picking",
+            "source_occurrences_seconds": [
+              [
+                2500,
+                2500
+              ]
+            ],
+            "description": "Both hands pluck basil leaves at a separate countertop; requested cutlery not visible."
+          },
+          {
+            "event_id": "basil-washing",
+            "source_occurrences_seconds": [
+              [
+                2523,
+                2523
+              ]
+            ],
+            "description": "Basil is held over the sink at the tap; requested cutlery not visible."
+          },
+          {
+            "event_id": "microwave-rice",
+            "source_occurrences_seconds": [
+              [
+                2559,
+                2561
+              ]
+            ],
+            "description": "The microwave is opened and cooked rice is removed; neither candidate utensil is actively used."
+          },
+          {
+            "event_id": "post-microwave-use",
+            "source_occurrences_seconds": [
+              [
+                2602,
+                2604
+              ]
+            ],
+            "description": "A large bowl-head serving spoon stirs the same red saucepan. The earlier fork is not re-exposed in these released frames."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact retail identity, brand, dimensions and material are not matching conditions."
+        ]
+      },
+      "screening": {
+        "real_user_need": "Restock a same-type pack of the referenced cutlery.",
+        "scope_note": "Experiment-only independent original recording; same full temporal reference supplied upfront to both conditions.",
+        "proposed_instruction": "I want to restock one of the types of cutlery I used in the saucepan here. Add one pack of that basic type to my cart. Brand, exact size and material can differ. The pack should contain only that type of cutlery, not a mixed cutlery set or a combination multitool."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2500.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2523.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2553.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2554.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2559.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2561.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2602.jpg",
+            "data/experiments/variants/span/curry-before-microwave-cutlery/frames/source_2604.jpg"
+          ],
+          "timestamps_seconds": [
+            2500,
+            2523,
+            2553,
+            2554,
+            2559,
+            2561,
+            2602,
+            2604
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Does binding saucepan cutlery use to later microwave rice removal change with additional real intervening events?",
+        "belief_before": "Two distinct cutlery types are used in the same saucepan, before and after removing rice from the microwave.",
+        "belief_after": "The temporal reference selects the fork used before rice was removed, not the subsequent serving spoon.",
+        "required_behavior_change": "Link microwave rice removal to the earlier saucepan utensil and select one same-type cutlery pack.",
+        "no_update_failure": "The oracle resolves the temporal reference upfront; no proactive-question difference.",
+        "overupdate_failure": "Selecting mixed utensil types violates the same-type-only pack request.",
+        "visual_dependency_claim": "The rice-removal anchor and common basil events do not show the requested fork. Both cutlery types actually work in the same saucepan. Earlier tines must be visible enough for independent identification.",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I want to restock one of the types of cutlery I used in the saucepan here. Add one pack of that basic type to my cart. Brand, exact size and material can differ. The pack should contain only that type of cutlery, not a mixed cutlery set or a combination multitool.",
+          "oracle_instruction": "I want to restock the type of cutlery I used in the saucepan before I took the rice out of the microwave, not the one I used in it afterwards. Add one pack of that basic type to my cart. Brand, exact size and material can differ. The pack should contain only that type of cutlery, not a mixed cutlery set or a combination multitool.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "pre_cutlery",
+            "post_cutlery"
+          ],
+          "hidden_target_role": "pre_cutlery",
+          "valid_slot": "sequence",
+          "canonical_question": "Which type of cutlery used in the saucepan do you mean?",
+          "canonical_answer": "The type I used in the saucepan before I took the rice out of the microwave, not the one I used in it afterwards.",
+          "environment_role_ids": {
+            "pre_cutlery": "p_773e4812326b",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "equivalent_role_ids": {
+            "pre_cutlery": [
+              "p_54b6d37a2e1f",
+              "p_43f71ae41805",
+              "p_09e479b60df8",
+              "p_cdd381021705",
+              "p_12a89237d547",
+              "p_7ff50c055142",
+              "p_3feb0e211998",
+              "p_abeccd7b8e68"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "pre_cutlery": "p_773e4812326b",
+            "post_cutlery": "p_63c0d28ed1da"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "pre_cutlery",
+                "post_cutlery"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "pre_cutlery"
+              ],
+              "narrowed_by": "action_order",
+              "why": "Full reference selects the cutlery type actively used in the saucepan before rice was removed from the microwave."
+            }
+          ],
+          "established_by": "Constructing agent; independent review pending",
+          "established_at": "2026-10-25"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "stainless steel forks spoons separate packs",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_c1f98fffa806",
+                "p_4787810d3e98",
+                "p_fd168bfdd94a",
+                "p_773e4812326b",
+                "p_8fcf901bb92a",
+                "p_54b6d37a2e1f",
+                "p_b1269900c618",
+                "p_627e20d0ca23",
+                "p_5b42b910aa56",
+                "p_9f4d6c1f9ddc",
+                "p_37ca83309a09",
+                "p_4f60a76f0bab",
+                "p_63c0d28ed1da",
+                "p_ae0a1856ae1e",
+                "p_96391d8a8a97",
+                "p_65e7453ee18b",
+                "p_a4c323c1ed54",
+                "p_19d8224c95aa",
+                "p_43f71ae41805",
+                "p_28fe784dadbf",
+                "p_f78bc5991a41",
+                "p_e2fbc53eb24e",
+                "p_294243287514",
+                "p_7ea774e1599c",
+                "p_09e479b60df8",
+                "p_9f7054ad7784",
+                "p_7bf50fb97e7a",
+                "p_707be042ae79",
+                "p_ae9a4b24f9f6",
+                "p_9e70cc93a7a0",
+                "p_6e73a44733c8",
+                "p_b858ad56553c",
+                "p_cdd381021705",
+                "p_b3ec85a800b5",
+                "p_5ee1aef32a55",
+                "p_aa7c884e95b9",
+                "p_b21c0dff2416",
+                "p_cee31aafc132",
+                "p_cbc29e71284e",
+                "p_2b681059d31c",
+                "p_12a89237d547",
+                "p_42b455544c8e",
+                "p_7ff50c055142",
+                "p_3e6266f2037c",
+                "p_3feb0e211998",
+                "p_3a400ef26250",
+                "p_58c858205bed",
+                "p_90079795d6da"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "stainless steel table spoon set",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_8b7977f54209",
+                "p_63c0d28ed1da",
+                "p_923307113295",
+                "p_31f0ff0425f6",
+                "p_5a6cdf275208",
+                "p_41ca83d84408",
+                "p_e59d5135e2c4",
+                "p_21b844db6c4a",
+                "p_c8f85ac96c40",
+                "p_fd168bfdd94a",
+                "p_4f201c92a193",
+                "p_84fcdc057aba",
+                "p_4d52664c03b0",
+                "p_f1569bd9e84b",
+                "p_d604ef478182",
+                "p_a7041b12c700",
+                "p_fc87d3f9e596",
+                "p_f5bba3a0b633",
+                "p_86861ca1a863",
+                "p_43308248dda9",
+                "p_7bf50fb97e7a",
+                "p_7ea774e1599c",
+                "p_9f91f9d2f00c",
+                "p_b49daf563820",
+                "p_29921496a6d1",
+                "p_3a5abc85b7a8",
+                "p_5afcaa9eec18",
+                "p_1bc3c78c6385",
+                "p_97b7713b8437",
+                "p_b8d88541f6a0",
+                "p_7a0883592b3e",
+                "p_5bc3d867ddb2",
+                "p_4c0e850ba8a2",
+                "p_4a6d5db0c3b8",
+                "p_6d564633f514",
+                "p_5620372e3b20",
+                "p_c1f98fffa806",
+                "p_ec6fb3367373",
+                "p_b39a0d9c0114",
+                "p_6aa9f1a3cbfb",
+                "p_f51aeb7a6223",
+                "p_f68fddb2bc85",
+                "p_7c35c14d4152",
+                "p_a27dd8eaf670",
+                "p_90e8a57aa843",
+                "p_58c858205bed",
+                "p_5be9f2e6ec7c",
+                "p_38fd8da9e823"
+              ]
+            },
+            {
+              "stage": "before_other_cutlery",
+              "query": "stainless steel dinner knives set",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "before_other_cutlery",
+              "result_entity_ids": [
+                "p_a3bbf6622956",
+                "p_5a56105e7ded",
+                "p_ed5725882898",
+                "p_c0f8701bc667",
+                "p_7b8b39b45736",
+                "p_53300a1b43af",
+                "p_0a0aeaca3f54",
+                "p_cbc29e71284e",
+                "p_0c5637b1b0c6",
+                "p_fad945680ee8",
+                "p_acdc9492b045",
+                "p_58c048623c9a",
+                "p_692759e7f54f",
+                "p_7ea774e1599c",
+                "p_ee80907e8401",
+                "p_b67911722348",
+                "p_c7043c05e1d3",
+                "p_fd5a2d88111f",
+                "p_f16800070790",
+                "p_da514edc360a",
+                "p_d203c49e98ce",
+                "p_579093f49bff",
+                "p_c25608a55fff",
+                "p_f09d3cde8cba",
+                "p_bd347c64399a",
+                "p_7bf50fb97e7a",
+                "p_8d613e9dca7a",
+                "p_0a21be2895e0",
+                "p_77bf2dfe565f",
+                "p_6cad278e8220",
+                "p_a531b30888ad",
+                "p_5be9f2e6ec7c",
+                "p_10e381ff6fd2",
+                "p_3133a3270681",
+                "p_11bbab01cb8f",
+                "p_c1921143250d",
+                "p_3c8917340775",
+                "p_72c7be823c02",
+                "p_04cdcfabf7d1",
+                "p_044386bc4665",
+                "p_2fa3a9a613cc",
+                "p_d9f58a3d47db",
+                "p_4ad153abad58",
+                "p_58b4b01303f1",
+                "p_4a198cf71eab",
+                "p_abeccd7b8e68",
+                "p_0d15ac35c4c7",
+                "p_751c1bcf58f9"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_773e4812326b",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_8b7977f54209",
+            "p_923307113295",
+            "p_31f0ff0425f6",
+            "p_5a6cdf275208",
+            "p_41ca83d84408",
+            "p_e59d5135e2c4",
+            "p_21b844db6c4a",
+            "p_c8f85ac96c40",
+            "p_4f201c92a193",
+            "p_84fcdc057aba",
+            "p_4d52664c03b0",
+            "p_f1569bd9e84b",
+            "p_d604ef478182",
+            "p_a7041b12c700",
+            "p_fc87d3f9e596",
+            "p_f5bba3a0b633",
+            "p_86861ca1a863",
+            "p_43308248dda9",
+            "p_9f91f9d2f00c",
+            "p_b49daf563820",
+            "p_29921496a6d1",
+            "p_3a5abc85b7a8",
+            "p_5afcaa9eec18",
+            "p_1bc3c78c6385",
+            "p_97b7713b8437",
+            "p_b8d88541f6a0",
+            "p_7a0883592b3e",
+            "p_5bc3d867ddb2",
+            "p_4c0e850ba8a2",
+            "p_4a6d5db0c3b8",
+            "p_6d564633f514",
+            "p_5620372e3b20",
+            "p_ec6fb3367373",
+            "p_b39a0d9c0114",
+            "p_6aa9f1a3cbfb",
+            "p_f51aeb7a6223",
+            "p_f68fddb2bc85",
+            "p_7c35c14d4152",
+            "p_a27dd8eaf670",
+            "p_90e8a57aa843",
+            "p_5be9f2e6ec7c",
+            "p_38fd8da9e823",
+            "p_a3bbf6622956",
+            "p_5a56105e7ded",
+            "p_ed5725882898",
+            "p_c0f8701bc667",
+            "p_7b8b39b45736",
+            "p_53300a1b43af",
+            "p_0a0aeaca3f54",
+            "p_0c5637b1b0c6",
+            "p_fad945680ee8",
+            "p_acdc9492b045",
+            "p_58c048623c9a",
+            "p_692759e7f54f",
+            "p_ee80907e8401",
+            "p_b67911722348",
+            "p_c7043c05e1d3",
+            "p_fd5a2d88111f",
+            "p_f16800070790",
+            "p_da514edc360a",
+            "p_d203c49e98ce",
+            "p_579093f49bff",
+            "p_c25608a55fff",
+            "p_f09d3cde8cba",
+            "p_bd347c64399a",
+            "p_8d613e9dca7a",
+            "p_0a21be2895e0",
+            "p_77bf2dfe565f",
+            "p_6cad278e8220",
+            "p_a531b30888ad",
+            "p_10e381ff6fd2",
+            "p_3133a3270681",
+            "p_11bbab01cb8f",
+            "p_c1921143250d",
+            "p_3c8917340775",
+            "p_72c7be823c02",
+            "p_04cdcfabf7d1",
+            "p_044386bc4665",
+            "p_2fa3a9a613cc",
+            "p_d9f58a3d47db",
+            "p_4ad153abad58",
+            "p_58b4b01303f1",
+            "p_4a198cf71eab",
+            "p_abeccd7b8e68",
+            "p_0d15ac35c4c7",
+            "p_751c1bcf58f9"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_63c0d28ed1da",
+            "p_c1f98fffa806",
+            "p_fd168bfdd94a",
+            "p_4787810d3e98"
+          ],
+          "related_entity_ids": [
+            "p_8fcf901bb92a",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_42b455544c8e",
+            "p_3e6266f2037c",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_8b7977f54209",
+            "p_923307113295",
+            "p_31f0ff0425f6",
+            "p_5a6cdf275208",
+            "p_41ca83d84408",
+            "p_e59d5135e2c4",
+            "p_21b844db6c4a",
+            "p_c8f85ac96c40",
+            "p_4f201c92a193",
+            "p_84fcdc057aba",
+            "p_4d52664c03b0",
+            "p_f1569bd9e84b",
+            "p_d604ef478182",
+            "p_a7041b12c700",
+            "p_fc87d3f9e596",
+            "p_f5bba3a0b633",
+            "p_86861ca1a863",
+            "p_43308248dda9",
+            "p_9f91f9d2f00c",
+            "p_b49daf563820",
+            "p_29921496a6d1",
+            "p_3a5abc85b7a8",
+            "p_5afcaa9eec18",
+            "p_1bc3c78c6385",
+            "p_97b7713b8437",
+            "p_b8d88541f6a0",
+            "p_7a0883592b3e",
+            "p_5bc3d867ddb2",
+            "p_4c0e850ba8a2",
+            "p_4a6d5db0c3b8",
+            "p_6d564633f514",
+            "p_5620372e3b20",
+            "p_ec6fb3367373",
+            "p_b39a0d9c0114",
+            "p_6aa9f1a3cbfb",
+            "p_f51aeb7a6223",
+            "p_f68fddb2bc85",
+            "p_7c35c14d4152",
+            "p_a27dd8eaf670",
+            "p_90e8a57aa843",
+            "p_5be9f2e6ec7c",
+            "p_38fd8da9e823",
+            "p_a3bbf6622956",
+            "p_5a56105e7ded",
+            "p_ed5725882898",
+            "p_c0f8701bc667",
+            "p_7b8b39b45736",
+            "p_53300a1b43af",
+            "p_0a0aeaca3f54",
+            "p_0c5637b1b0c6",
+            "p_fad945680ee8",
+            "p_acdc9492b045",
+            "p_58c048623c9a",
+            "p_692759e7f54f",
+            "p_ee80907e8401",
+            "p_b67911722348",
+            "p_c7043c05e1d3",
+            "p_fd5a2d88111f",
+            "p_f16800070790",
+            "p_da514edc360a",
+            "p_d203c49e98ce",
+            "p_579093f49bff",
+            "p_c25608a55fff",
+            "p_f09d3cde8cba",
+            "p_bd347c64399a",
+            "p_8d613e9dca7a",
+            "p_0a21be2895e0",
+            "p_77bf2dfe565f",
+            "p_6cad278e8220",
+            "p_a531b30888ad",
+            "p_10e381ff6fd2",
+            "p_3133a3270681",
+            "p_11bbab01cb8f",
+            "p_c1921143250d",
+            "p_3c8917340775",
+            "p_72c7be823c02",
+            "p_04cdcfabf7d1",
+            "p_044386bc4665",
+            "p_2fa3a9a613cc",
+            "p_d9f58a3d47db",
+            "p_4ad153abad58",
+            "p_58b4b01303f1",
+            "p_4a198cf71eab",
+            "p_0d15ac35c4c7",
+            "p_751c1bcf58f9"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_c1f98fffa806",
+              "ring": "core",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4787810d3e98",
+              "ring": "core",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fd168bfdd94a",
+              "ring": "core",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8fcf901bb92a",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b1269900c618",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_627e20d0ca23",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5b42b910aa56",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f4d6c1f9ddc",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_37ca83309a09",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4f60a76f0bab",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_63c0d28ed1da",
+              "ring": "core",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae0a1856ae1e",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_96391d8a8a97",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_65e7453ee18b",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a4c323c1ed54",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_19d8224c95aa",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_28fe784dadbf",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f78bc5991a41",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e2fbc53eb24e",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_294243287514",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7ea774e1599c",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f7054ad7784",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7bf50fb97e7a",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_707be042ae79",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ae9a4b24f9f6",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9e70cc93a7a0",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6e73a44733c8",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b858ad56553c",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b3ec85a800b5",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5ee1aef32a55",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_aa7c884e95b9",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b21c0dff2416",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cee31aafc132",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_cbc29e71284e",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2b681059d31c",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_42b455544c8e",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3e6266f2037c",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3a400ef26250",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58c858205bed",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_90079795d6da",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8b7977f54209",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_923307113295",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_31f0ff0425f6",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5a6cdf275208",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_41ca83d84408",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_e59d5135e2c4",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_21b844db6c4a",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c8f85ac96c40",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4f201c92a193",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_84fcdc057aba",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4d52664c03b0",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f1569bd9e84b",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d604ef478182",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a7041b12c700",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fc87d3f9e596",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f5bba3a0b633",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_86861ca1a863",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_43308248dda9",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_9f91f9d2f00c",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b49daf563820",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_29921496a6d1",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3a5abc85b7a8",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5afcaa9eec18",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_1bc3c78c6385",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_97b7713b8437",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b8d88541f6a0",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7a0883592b3e",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5bc3d867ddb2",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4c0e850ba8a2",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4a6d5db0c3b8",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6d564633f514",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5620372e3b20",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ec6fb3367373",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b39a0d9c0114",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6aa9f1a3cbfb",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f51aeb7a6223",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f68fddb2bc85",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7c35c14d4152",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a27dd8eaf670",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_90e8a57aa843",
+              "ring": "related",
+              "reason": "Native image and fields show mixed utensils or a combination/multitool, contrary to the same-type-only pack request.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5be9f2e6ec7c",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_38fd8da9e823",
+              "ring": "related",
+              "reason": "Native image/fields show bowl-head spoons, mixed utensils or a combination tool, not a same-type fork pack.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a3bbf6622956",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_5a56105e7ded",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ed5725882898",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c0f8701bc667",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_7b8b39b45736",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_53300a1b43af",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0a0aeaca3f54",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0c5637b1b0c6",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fad945680ee8",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_acdc9492b045",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58c048623c9a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_692759e7f54f",
+              "ring": "related",
+              "reason": "Public image and listing fields establish a mixed cutlery pack, not a pack containing only the referenced basic type.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_ee80907e8401",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_b67911722348",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c7043c05e1d3",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_fd5a2d88111f",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f16800070790",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_da514edc360a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d203c49e98ce",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_579093f49bff",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c25608a55fff",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_f09d3cde8cba",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_bd347c64399a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_8d613e9dca7a",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0a21be2895e0",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_77bf2dfe565f",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_6cad278e8220",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_a531b30888ad",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_10e381ff6fd2",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3133a3270681",
+              "ring": "related",
+              "reason": "Public title identifies dinner knives, while the product image displays a fork and knife. The listing conflicts on contents and does not establish a fork-only pack; it is not a supported single-type fork answer.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_11bbab01cb8f",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_c1921143250d",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_3c8917340775",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_72c7be823c02",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_04cdcfabf7d1",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_044386bc4665",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_2fa3a9a613cc",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_d9f58a3d47db",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4ad153abad58",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_58b4b01303f1",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_4a198cf71eab",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_0d15ac35c4c7",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            },
+            {
+              "entity_id": "p_751c1bcf58f9",
+              "ring": "related",
+              "reason": "Public image and fields establish a knife-only pack, a plausible alternative basic cutlery type but not the fork established by the earlier video event.",
+              "why_plausible": "Full public fork/spoon, table-spoon and dinner-knife query windows; same-type packs and mixed offers preserved.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "134 unique public product images and native fields checked; complete stable-ID answer matrix retained."
+          }
+        },
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding"
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-28",
+          "scope": "link_existing_review_not_new_semantic_review",
+          "resolved_notes": [
+            "Independent blind reconstruction and public answer-boundary review."
+          ],
+          "evidence_reference": ".scratch/expand-variables-20261025/curry-review/review.json"
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A dinner fork stirs the curry in the same red single-handle saucepan. Each condition exposes clear tines and actual stirring as a matched two-frame event;2470 and2553 establish the head form,2473 and2554 show actual in-pan work.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "Both hands pluck basil leaves at a separate countertop; requested cutlery not visible.",
+          "supported_by": [
+            "V0:0"
+          ]
+        },
+        {
+          "text": "Basil is held over the sink at the tap; requested cutlery not visible.",
+          "supported_by": [
+            "V0:1"
+          ]
+        },
+        {
+          "text": "The microwave is opened and cooked rice is removed; neither candidate utensil is actively used.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "A large bowl-head serving spoon stirs the same red saucepan. The earlier fork is not re-exposed in these released frames.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    }
+  ]
+}

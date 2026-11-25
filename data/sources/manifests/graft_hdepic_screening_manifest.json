@@ -1,0 +1,2881 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Authorized HD-EPIC public research distribution; original recording identity and start offset retained."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-augment-2026111308",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "augment",
+      "replaces_candidate_id": "candidate-mart-graft-p-34",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P09-20240621-093545__2468-2608",
+        "original_video_id": "P09-20240621-093545",
+        "media_start_seconds": 2468,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P09-20240621-093545__2468-2608.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P09/P09-20240621-093545.mp4",
+        "record_ids": [
+          "P09-20240621-093545__2468-2608"
+        ],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "first-cutlery-use",
+            "interval_seconds": [
+              2548,
+              2555
+            ],
+            "role": "initial_referent",
+            "description": "A tined fork is held and used in the red single-handle saucepan;2553 exposes tines and2554 shows in-pan stirring."
+          },
+          {
+            "event_id": "intervening-meal-preparation",
+            "interval_seconds": [
+              2556,
+              2598
+            ],
+            "role": "continuous_context",
+            "description": "The wearer removes cooked rice from the microwave, sets it down, opens a cutlery drawer and rinses hands during the same meal preparation. These are not extra requested purchases."
+          },
+          {
+            "event_id": "later-cutlery-use",
+            "interval_seconds": [
+              2599,
+              2607
+            ],
+            "role": "followup_referent",
+            "description": "A bowl-head spoon is held near the same saucepan at2599 and actually stirs it at2602 and2604. The follow-up adds this basic type and retains the first type."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact retail identity, brand, dimensions, material and serving-versus-table size are not matching conditions."
+        ]
+      },
+      "screening": {
+        "real_user_need": "Restock separate same-type cutlery packs after using two utensils during one meal preparation.",
+        "scope_note": "New independent recording relative to formal200; explicit user-origin augment, not world-triggered replacement.",
+        "proposed_instruction": "Add one pack of the same basic type of cutlery as the one I'm using in this saucepan. Any brand, size or material is fine. The pack should contain only that type of cutlery, not a mixed set or a combination multitool."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002548.jpg",
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002553.jpg",
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002554.jpg",
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002555.jpg",
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002599.jpg",
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002602.jpg",
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002604.jpg",
+            "data/observations/candidate-mart-graft-augment-2026111308/service-compatible-20261113/frames/source_002606.jpg"
+          ],
+          "timestamps_seconds": [
+            2548,
+            2553,
+            2554,
+            2555,
+            2599,
+            2602,
+            2604,
+            2606
+          ],
+          "resolution": [
+            1408,
+            1408
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A tined fork works in the saucepan before a bowl-head spoon is used in the same saucepan. Only basic cutlery type is matched.",
+          "supported_by": [
+            "V0:1",
+            "V0:2",
+            "V0:4",
+            "V0:5",
+            "V0:6"
+          ]
+        }
+      ],
+      "sensitivity_review": {
+        "policy": "strict_glass_use_necessity",
+        "decision": "uncertain",
+        "code": "new_graft_input_pending_review",
+        "reason": "Visual utensil forms determine the two purchases; new wording, continuous window and spoon boundary await independent review."
+      },
+      "stream": {
+        "session_seconds": [
+          2548,
+          2607
+        ],
+        "update_onset_seconds": 2604,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-augment-2026111308/service-compatible-20261113/review.json",
+        "wearer_max_image_edge": 1280,
+        "render_review_evidence": "artifacts/reports/source-review-evidence/render-limits-20261114.json"
+      },
+      "construct": {
+        "research_question": "Can the agent add the later visually grounded cutlery type while retaining the earlier requested pack?",
+        "divergence_source": "user_update",
+        "event_origin": "user",
+        "belief_before": "One same-type pack matching the first saucepan utensil is requested.",
+        "belief_after": "A separate pack matching the later saucepan utensil is also requested; the first remains required.",
+        "required_behavior_change": "Retain the first pack and add one separate pack of the later basic type.",
+        "no_update_failure": "Only a first-type pack misses the added request.",
+        "overupdate_failure": "Replacing the first pack, or using a mixed set, misses two separate same-type packs.",
+        "visual_dependency_claim": "The requests do not name either type. Initial tines and later spoon bowl, both in saucepan use, determine shopping roles. No exact brand, material or size is inferable as mandatory.",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "task_blueprint": {
+          "site": "egomart",
+          "instructions": {
+            "a": "Add one pack of the same basic type of cutlery as the one I'm using in this saucepan. Any brand, size or material is fine. The pack should contain only that type of cutlery, not a mixed set or a combination multitool.",
+            "b": "Also add one pack of the other type of cutlery I'm using in the saucepan now. Keep the first pack.",
+            "bundled": "Add one pack matching each of the two basic types of cutlery I use in this saucepan: the one used first and the one used afterwards. Any brand, size or material is fine. Each pack must contain only its own cutlery type, not a mixed set or a combination multitool."
+          },
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "first_cutlery": "p_773e4812326b",
+            "later_cutlery": "p_63c0d28ed1da"
+          },
+          "equivalent_role_ids": {
+            "first_cutlery": [
+              "p_54b6d37a2e1f",
+              "p_43f71ae41805",
+              "p_09e479b60df8",
+              "p_cdd381021705",
+              "p_12a89237d547",
+              "p_7ff50c055142",
+              "p_3feb0e211998",
+              "p_abeccd7b8e68"
+            ],
+            "later_cutlery": [
+              "p_8b7977f54209",
+              "p_923307113295",
+              "p_31f0ff0425f6",
+              "p_5a6cdf275208",
+              "p_41ca83d84408",
+              "p_e59d5135e2c4",
+              "p_21b844db6c4a",
+              "p_c8f85ac96c40",
+              "p_4f201c92a193",
+              "p_84fcdc057aba",
+              "p_4d52664c03b0",
+              "p_f1569bd9e84b",
+              "p_d604ef478182",
+              "p_a7041b12c700",
+              "p_fc87d3f9e596",
+              "p_f5bba3a0b633",
+              "p_86861ca1a863",
+              "p_43308248dda9",
+              "p_9f91f9d2f00c",
+              "p_b49daf563820",
+              "p_29921496a6d1",
+              "p_3a5abc85b7a8",
+              "p_5afcaa9eec18",
+              "p_1bc3c78c6385",
+              "p_b8d88541f6a0",
+              "p_7a0883592b3e",
+              "p_4c0e850ba8a2",
+              "p_4a6d5db0c3b8",
+              "p_6d564633f514",
+              "p_5620372e3b20",
+              "p_ec6fb3367373",
+              "p_6aa9f1a3cbfb",
+              "p_f51aeb7a6223",
+              "p_f68fddb2bc85",
+              "p_7c35c14d4152",
+              "p_a27dd8eaf670",
+              "p_38fd8da9e823"
+            ]
+          },
+          "initial_goal_roles": [
+            [
+              "first_cutlery"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "first_cutlery",
+              "later_cutlery"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {}
+        },
+        "decision": {
+          "candidates": {
+            "first_only": {
+              "goal_ref": "initial"
+            },
+            "both_types": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "first_only",
+                "both_types"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "both_types"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "Wearer explicitly adds the current other type and retains the first pack; scene appearance alone does not authorize another purchase."
+            }
+          ],
+          "established_by": "constructing_agent_pending_independent_review",
+          "established_at": "2026-11-13"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "stainless steel forks spoons separate packs",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "p_c1f98fffa806",
+                "p_4787810d3e98",
+                "p_fd168bfdd94a",
+                "p_773e4812326b",
+                "p_8fcf901bb92a",
+                "p_54b6d37a2e1f",
+                "p_b1269900c618",
+                "p_627e20d0ca23",
+                "p_5b42b910aa56",
+                "p_9f4d6c1f9ddc",
+                "p_37ca83309a09",
+                "p_4f60a76f0bab",
+                "p_63c0d28ed1da",
+                "p_ae0a1856ae1e",
+                "p_96391d8a8a97",
+                "p_65e7453ee18b",
+                "p_a4c323c1ed54",
+                "p_19d8224c95aa",
+                "p_43f71ae41805",
+                "p_28fe784dadbf",
+                "p_f78bc5991a41",
+                "p_e2fbc53eb24e",
+                "p_294243287514",
+                "p_7ea774e1599c",
+                "p_09e479b60df8",
+                "p_9f7054ad7784",
+                "p_7bf50fb97e7a",
+                "p_707be042ae79",
+                "p_ae9a4b24f9f6",
+                "p_9e70cc93a7a0",
+                "p_6e73a44733c8",
+                "p_b858ad56553c",
+                "p_cdd381021705",
+                "p_b3ec85a800b5",
+                "p_5ee1aef32a55",
+                "p_aa7c884e95b9",
+                "p_b21c0dff2416",
+                "p_cee31aafc132",
+                "p_cbc29e71284e",
+                "p_2b681059d31c",
+                "p_12a89237d547",
+                "p_42b455544c8e",
+                "p_7ff50c055142",
+                "p_3e6266f2037c",
+                "p_3feb0e211998",
+                "p_3a400ef26250",
+                "p_58c858205bed",
+                "p_90079795d6da"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "stainless steel table spoon set",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_8b7977f54209",
+                "p_63c0d28ed1da",
+                "p_923307113295",
+                "p_31f0ff0425f6",
+                "p_5a6cdf275208",
+                "p_41ca83d84408",
+                "p_e59d5135e2c4",
+                "p_21b844db6c4a",
+                "p_c8f85ac96c40",
+                "p_fd168bfdd94a",
+                "p_4f201c92a193",
+                "p_84fcdc057aba",
+                "p_4d52664c03b0",
+                "p_f1569bd9e84b",
+                "p_d604ef478182",
+                "p_a7041b12c700",
+                "p_fc87d3f9e596",
+                "p_f5bba3a0b633",
+                "p_86861ca1a863",
+                "p_43308248dda9",
+                "p_7bf50fb97e7a",
+                "p_7ea774e1599c",
+                "p_9f91f9d2f00c",
+                "p_b49daf563820",
+                "p_29921496a6d1",
+                "p_3a5abc85b7a8",
+                "p_5afcaa9eec18",
+                "p_1bc3c78c6385",
+                "p_97b7713b8437",
+                "p_b8d88541f6a0",
+                "p_7a0883592b3e",
+                "p_5bc3d867ddb2",
+                "p_4c0e850ba8a2",
+                "p_4a6d5db0c3b8",
+                "p_6d564633f514",
+                "p_5620372e3b20",
+                "p_c1f98fffa806",
+                "p_ec6fb3367373",
+                "p_b39a0d9c0114",
+                "p_6aa9f1a3cbfb",
+                "p_f51aeb7a6223",
+                "p_f68fddb2bc85",
+                "p_7c35c14d4152",
+                "p_a27dd8eaf670",
+                "p_90e8a57aa843",
+                "p_58c858205bed",
+                "p_5be9f2e6ec7c",
+                "p_38fd8da9e823"
+              ]
+            },
+            {
+              "stage": "before_other_cutlery",
+              "query": "stainless steel dinner knives set",
+              "provider": "real-retail-union-v1",
+              "snapshot_path": "data/experiments/variants/span/curry-before-microwave-cutlery/search-snapshot.json",
+              "snapshot_task_id": "span-curry-before-microwave-cutlery",
+              "snapshot_stage": "before_other_cutlery",
+              "result_entity_ids": [
+                "p_a3bbf6622956",
+                "p_5a56105e7ded",
+                "p_ed5725882898",
+                "p_c0f8701bc667",
+                "p_7b8b39b45736",
+                "p_53300a1b43af",
+                "p_0a0aeaca3f54",
+                "p_cbc29e71284e",
+                "p_0c5637b1b0c6",
+                "p_fad945680ee8",
+                "p_acdc9492b045",
+                "p_58c048623c9a",
+                "p_692759e7f54f",
+                "p_7ea774e1599c",
+                "p_ee80907e8401",
+                "p_b67911722348",
+                "p_c7043c05e1d3",
+                "p_fd5a2d88111f",
+                "p_f16800070790",
+                "p_da514edc360a",
+                "p_d203c49e98ce",
+                "p_579093f49bff",
+                "p_c25608a55fff",
+                "p_f09d3cde8cba",
+                "p_bd347c64399a",
+                "p_7bf50fb97e7a",
+                "p_8d613e9dca7a",
+                "p_0a21be2895e0",
+                "p_77bf2dfe565f",
+                "p_6cad278e8220",
+                "p_a531b30888ad",
+                "p_5be9f2e6ec7c",
+                "p_10e381ff6fd2",
+                "p_3133a3270681",
+                "p_11bbab01cb8f",
+                "p_c1921143250d",
+                "p_3c8917340775",
+                "p_72c7be823c02",
+                "p_04cdcfabf7d1",
+                "p_044386bc4665",
+                "p_2fa3a9a613cc",
+                "p_d9f58a3d47db",
+                "p_4ad153abad58",
+                "p_58b4b01303f1",
+                "p_4a198cf71eab",
+                "p_abeccd7b8e68",
+                "p_0d15ac35c4c7",
+                "p_751c1bcf58f9"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_c1f98fffa806",
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_773e4812326b",
+            "p_8fcf901bb92a",
+            "p_54b6d37a2e1f",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_63c0d28ed1da",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_43f71ae41805",
+            "p_28fe784dadbf",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_09e479b60df8",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_cdd381021705",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_12a89237d547",
+            "p_42b455544c8e",
+            "p_7ff50c055142",
+            "p_3e6266f2037c",
+            "p_3feb0e211998",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_8b7977f54209",
+            "p_923307113295",
+            "p_31f0ff0425f6",
+            "p_5a6cdf275208",
+            "p_41ca83d84408",
+            "p_e59d5135e2c4",
+            "p_21b844db6c4a",
+            "p_c8f85ac96c40",
+            "p_4f201c92a193",
+            "p_84fcdc057aba",
+            "p_4d52664c03b0",
+            "p_f1569bd9e84b",
+            "p_d604ef478182",
+            "p_a7041b12c700",
+            "p_fc87d3f9e596",
+            "p_f5bba3a0b633",
+            "p_86861ca1a863",
+            "p_43308248dda9",
+            "p_9f91f9d2f00c",
+            "p_b49daf563820",
+            "p_29921496a6d1",
+            "p_3a5abc85b7a8",
+            "p_5afcaa9eec18",
+            "p_1bc3c78c6385",
+            "p_97b7713b8437",
+            "p_b8d88541f6a0",
+            "p_7a0883592b3e",
+            "p_5bc3d867ddb2",
+            "p_4c0e850ba8a2",
+            "p_4a6d5db0c3b8",
+            "p_6d564633f514",
+            "p_5620372e3b20",
+            "p_ec6fb3367373",
+            "p_b39a0d9c0114",
+            "p_6aa9f1a3cbfb",
+            "p_f51aeb7a6223",
+            "p_f68fddb2bc85",
+            "p_7c35c14d4152",
+            "p_a27dd8eaf670",
+            "p_90e8a57aa843",
+            "p_5be9f2e6ec7c",
+            "p_38fd8da9e823",
+            "p_a3bbf6622956",
+            "p_5a56105e7ded",
+            "p_ed5725882898",
+            "p_c0f8701bc667",
+            "p_7b8b39b45736",
+            "p_53300a1b43af",
+            "p_0a0aeaca3f54",
+            "p_0c5637b1b0c6",
+            "p_fad945680ee8",
+            "p_acdc9492b045",
+            "p_58c048623c9a",
+            "p_692759e7f54f",
+            "p_ee80907e8401",
+            "p_b67911722348",
+            "p_c7043c05e1d3",
+            "p_fd5a2d88111f",
+            "p_f16800070790",
+            "p_da514edc360a",
+            "p_d203c49e98ce",
+            "p_579093f49bff",
+            "p_c25608a55fff",
+            "p_f09d3cde8cba",
+            "p_bd347c64399a",
+            "p_8d613e9dca7a",
+            "p_0a21be2895e0",
+            "p_77bf2dfe565f",
+            "p_6cad278e8220",
+            "p_a531b30888ad",
+            "p_10e381ff6fd2",
+            "p_3133a3270681",
+            "p_11bbab01cb8f",
+            "p_c1921143250d",
+            "p_3c8917340775",
+            "p_72c7be823c02",
+            "p_04cdcfabf7d1",
+            "p_044386bc4665",
+            "p_2fa3a9a613cc",
+            "p_d9f58a3d47db",
+            "p_4ad153abad58",
+            "p_58b4b01303f1",
+            "p_4a198cf71eab",
+            "p_abeccd7b8e68",
+            "p_0d15ac35c4c7",
+            "p_751c1bcf58f9"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_c1f98fffa806",
+            "p_28fe784dadbf",
+            "p_5bc3d867ddb2",
+            "p_a3bbf6622956"
+          ],
+          "related_entity_ids": [
+            "p_4787810d3e98",
+            "p_fd168bfdd94a",
+            "p_8fcf901bb92a",
+            "p_b1269900c618",
+            "p_627e20d0ca23",
+            "p_5b42b910aa56",
+            "p_9f4d6c1f9ddc",
+            "p_37ca83309a09",
+            "p_4f60a76f0bab",
+            "p_ae0a1856ae1e",
+            "p_96391d8a8a97",
+            "p_65e7453ee18b",
+            "p_a4c323c1ed54",
+            "p_19d8224c95aa",
+            "p_f78bc5991a41",
+            "p_e2fbc53eb24e",
+            "p_294243287514",
+            "p_7ea774e1599c",
+            "p_9f7054ad7784",
+            "p_7bf50fb97e7a",
+            "p_707be042ae79",
+            "p_ae9a4b24f9f6",
+            "p_9e70cc93a7a0",
+            "p_6e73a44733c8",
+            "p_b858ad56553c",
+            "p_b3ec85a800b5",
+            "p_5ee1aef32a55",
+            "p_aa7c884e95b9",
+            "p_b21c0dff2416",
+            "p_cee31aafc132",
+            "p_cbc29e71284e",
+            "p_2b681059d31c",
+            "p_42b455544c8e",
+            "p_3e6266f2037c",
+            "p_3a400ef26250",
+            "p_58c858205bed",
+            "p_90079795d6da",
+            "p_97b7713b8437",
+            "p_b39a0d9c0114",
+            "p_90e8a57aa843",
+            "p_5be9f2e6ec7c",
+            "p_5a56105e7ded",
+            "p_ed5725882898",
+            "p_c0f8701bc667",
+            "p_7b8b39b45736",
+            "p_53300a1b43af",
+            "p_0a0aeaca3f54",
+            "p_0c5637b1b0c6",
+            "p_fad945680ee8",
+            "p_acdc9492b045",
+            "p_58c048623c9a",
+            "p_692759e7f54f",
+            "p_ee80907e8401",
+            "p_b67911722348",
+            "p_c7043c05e1d3",
+            "p_fd5a2d88111f",
+            "p_f16800070790",
+            "p_da514edc360a",
+            "p_d203c49e98ce",
+            "p_579093f49bff",
+            "p_c25608a55fff",
+            "p_f09d3cde8cba",
+            "p_bd347c64399a",
+            "p_8d613e9dca7a",
+            "p_0a21be2895e0",
+            "p_77bf2dfe565f",
+            "p_6cad278e8220",
+            "p_a531b30888ad",
+            "p_10e381ff6fd2",
+            "p_3133a3270681",
+            "p_11bbab01cb8f",
+            "p_c1921143250d",
+            "p_3c8917340775",
+            "p_72c7be823c02",
+            "p_04cdcfabf7d1",
+            "p_044386bc4665",
+            "p_2fa3a9a613cc",
+            "p_d9f58a3d47db",
+            "p_4ad153abad58",
+            "p_58b4b01303f1",
+            "p_4a198cf71eab",
+            "p_0d15ac35c4c7",
+            "p_751c1bcf58f9"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_c1f98fffa806",
+              "ring": "core",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_4787810d3e98",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_fd168bfdd94a",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_8fcf901bb92a",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_b1269900c618",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_627e20d0ca23",
+              "ring": "related",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_5b42b910aa56",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_9f4d6c1f9ddc",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_37ca83309a09",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_4f60a76f0bab",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_ae0a1856ae1e",
+              "ring": "related",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_96391d8a8a97",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_65e7453ee18b",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_a4c323c1ed54",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_19d8224c95aa",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_28fe784dadbf",
+              "ring": "core",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_f78bc5991a41",
+              "ring": "related",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_e2fbc53eb24e",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_294243287514",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_7ea774e1599c",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_9f7054ad7784",
+              "ring": "related",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_7bf50fb97e7a",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_707be042ae79",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_ae9a4b24f9f6",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_9e70cc93a7a0",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_6e73a44733c8",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_b858ad56553c",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_b3ec85a800b5",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_5ee1aef32a55",
+              "ring": "related",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_aa7c884e95b9",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_b21c0dff2416",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_cee31aafc132",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_cbc29e71284e",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_2b681059d31c",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_42b455544c8e",
+              "ring": "related",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_3e6266f2037c",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_3a400ef26250",
+              "ring": "related",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_58c858205bed",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_90079795d6da",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_97b7713b8437",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_5bc3d867ddb2",
+              "ring": "core",
+              "reason": "Measuring-spoon set, with hemispherical measuring cups rather than eating cutlery; neither visible basic cutlery type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_b39a0d9c0114",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_90e8a57aa843",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_5be9f2e6ec7c",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_a3bbf6622956",
+              "ring": "core",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_5a56105e7ded",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_ed5725882898",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_c0f8701bc667",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_7b8b39b45736",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_53300a1b43af",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_0a0aeaca3f54",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_0c5637b1b0c6",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_fad945680ee8",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_acdc9492b045",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_58c048623c9a",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_692759e7f54f",
+              "ring": "related",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_ee80907e8401",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_b67911722348",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_c7043c05e1d3",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_fd5a2d88111f",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_f16800070790",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_da514edc360a",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_d203c49e98ce",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_579093f49bff",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_c25608a55fff",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_f09d3cde8cba",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_bd347c64399a",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_8d613e9dca7a",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_0a21be2895e0",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_77bf2dfe565f",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_6cad278e8220",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_a531b30888ad",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_10e381ff6fd2",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_3133a3270681",
+              "ring": "related",
+              "reason": "Title identifies a dinner-knife set while the image displays a fork and knife. Public contents conflict; neither a fork-only nor a spoon-only pack is established.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "insufficient_public_evidence"
+            },
+            {
+              "entity_id": "p_11bbab01cb8f",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_c1921143250d",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_3c8917340775",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_72c7be823c02",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_04cdcfabf7d1",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_044386bc4665",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_2fa3a9a613cc",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_d9f58a3d47db",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_4ad153abad58",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_58b4b01303f1",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_4a198cf71eab",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_0d15ac35c4c7",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            },
+            {
+              "entity_id": "p_751c1bcf58f9",
+              "ring": "related",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "why_plausible": "Retained from the complete real fork/spoon, spoon and dinner-knife search windows.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "pending_independent_review",
+              "evidence_status": "rejected"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "pending_independent_review",
+            "reason": "Constructor inspected all134 product images/fields; new38 spoon alternatives and342 two-pack outcomes need independent review."
+          },
+          "candidate_matrix": {
+            "p_c1f98fffa806": {
+              "entity_id": "p_c1f98fffa806",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Set of 12, Stainless Steel Dinner Forks and Spoons Silverware Set, Heavy-Duty Dinner Forks (8 Inch) and Spoons(6.7 Inch) Cutlery Set, Dishwasher Safe (Silver)",
+              "image_path": "sites/egomart/static/products/upstream/p_c1f98fffa806.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4787810d3e98": {
+              "entity_id": "p_4787810d3e98",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Portable Camping Silverware Set, 3PCS Stainless Steel Chopsticks Spoon Fork Travel Outdoor Flatware Set. Picnic Work Utensils Cutlery Set with a Wheat Straw Case (Silver)",
+              "image_path": "sites/egomart/static/products/upstream/p_4787810d3e98.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_fd168bfdd94a": {
+              "entity_id": "p_fd168bfdd94a",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "36 Piece Forks and Spoons Silverware Sets Food Grade Stainless Steel Cutlery Set for Home Kitchen Restaurant Includes 18 Dinner Forks （8\"） and 18 Dinner Spoons（7.2\"） Mirror Polished Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_fd168bfdd94a.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_773e4812326b": {
+              "entity_id": "p_773e4812326b",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Set of 12, Stainless Steel Dinner Forks Silverware Set, Heavy-Duty Dinner Forks (8 Inch) Cutlery Set, Dishwasher Safe (Silver)",
+              "image_path": "sites/egomart/static/products/upstream/p_773e4812326b.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_8fcf901bb92a": {
+              "entity_id": "p_8fcf901bb92a",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Travel Utensils with Case, Stainless Steel Camping Cutlery Set, Reinforced Case with Snap-Lock Closure, Include Fork Spoon Knife Chopsticks, Portable Lunch Box Silverware for Picnic Office, Silver",
+              "image_path": "sites/egomart/static/products/upstream/p_8fcf901bb92a.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_54b6d37a2e1f": {
+              "entity_id": "p_54b6d37a2e1f",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Berglander Dinner Forks of 12, Stainless Steel Modern Fork Set, Forks and Spoons Silverware, Spoons and Forks Set",
+              "image_path": "sites/egomart/static/products/upstream/p_54b6d37a2e1f.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b1269900c618": {
+              "entity_id": "p_b1269900c618",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Quatish 5 Piece Travel Utensils with Case, Reusable Camping Utensil, Silver | Stainless Steel, Ustensile Boite a Lunch, Portable Cutlery Set, For Camping, Picnic, Gadgets, Lunch Box, Camping Essentials",
+              "image_path": "sites/egomart/static/products/upstream/p_b1269900c618.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_627e20d0ca23": {
+              "entity_id": "p_627e20d0ca23",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "HIKENTURE 4-in-1 Camping Utensils,Stainless Steel Fork Spoon Knife & Bottle Opener Combo - Travel, Backpacking Cutlery Multitool Set(A4 Green)",
+              "image_path": "sites/egomart/static/products/upstream/p_627e20d0ca23.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5b42b910aa56": {
+              "entity_id": "p_5b42b910aa56",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Fiazony 3-Piece Stainless Steel Travel Utensils Set with Case | Knife, Fork, Spoon, Stainless Steel Reusable Flatware Set Cutlery Set for Camping Picnic Hiking Office",
+              "image_path": "sites/egomart/static/products/upstream/p_5b42b910aa56.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_9f4d6c1f9ddc": {
+              "entity_id": "p_9f4d6c1f9ddc",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Travel Utensils with Case, 4-Piece Stainless Steel Portable Cutlery Set, Reinforced Case with Buckle Design, Lunch Box for Camping Work School, Include Fork Spoon Knife, Dishwasher Safe, Silver",
+              "image_path": "sites/egomart/static/products/upstream/p_9f4d6c1f9ddc.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_37ca83309a09": {
+              "entity_id": "p_37ca83309a09",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "HornTide 16-Piece Cutlery Flatware Sets Dinner Knife Fork Spoon Teaspoon 4-Piece Place Setting Service for 4 Person Stainless Steel Mirror Polishing",
+              "image_path": "sites/egomart/static/products/upstream/p_37ca83309a09.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4f60a76f0bab": {
+              "entity_id": "p_4f60a76f0bab",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "10Pcs Flatware Sets, Silver Spoons and Forks Set, Stainless Steel Dinner Spoons and Dinner Forks, Services for 5",
+              "image_path": "sites/egomart/static/products/upstream/p_4f60a76f0bab.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_63c0d28ed1da": {
+              "entity_id": "p_63c0d28ed1da",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Dinner Spoon Set,8-Piece 7.3 Inch Soup Spoons,Premium Food Grade Stainless Steel Table Spoon,Durable Metal Tablespoon,Dishwasher Safe Silverware Spoons",
+              "image_path": "sites/egomart/static/products/upstream/p_63c0d28ed1da.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_ae0a1856ae1e": {
+              "entity_id": "p_ae0a1856ae1e",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "10 Pieces Stainless Steel Fruit Fork Coffee Spoon Combination Creative Appetizer Cake Fruit Fork Set Cutlery Teaspoon hot Tea Small Spoon Condiments Stir Sugar ice Cream",
+              "image_path": "sites/egomart/static/products/upstream/p_ae0a1856ae1e.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_96391d8a8a97": {
+              "entity_id": "p_96391d8a8a97",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "36-Piece Cutlery Set for 12, Stainless Steel Flatware Silverware Set, | Mirror Polished Utensil Set Include Forks Spoons Knives for Home Restaurant Hotel, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_96391d8a8a97.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_65e7453ee18b": {
+              "entity_id": "p_65e7453ee18b",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "HornTide 3X Dessert Fork and 3X Tea Spoon Set, Stainless Steel Mirror Polishing, 5.5-Inch 14cm, Ideal for Fruits Cakes Salads",
+              "image_path": "sites/egomart/static/products/upstream/p_65e7453ee18b.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_a4c323c1ed54": {
+              "entity_id": "p_a4c323c1ed54",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Quatish 5 Piece Travel Utensils with Case, Reusable Camping Utensil, Silver | Stainless Steel, Ustensile Boite a Lunch, Portable Cutlery Set, For Camping, Picnic, Gadgets, Lunch Box, Camping Essentials",
+              "image_path": "sites/egomart/static/products/upstream/p_a4c323c1ed54.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_19d8224c95aa": {
+              "entity_id": "p_19d8224c95aa",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "DEHOV Toddler Eating Utensils Set,Set of 12 Food Grade Stainless Steel Silverware Sets for Kids,Dishwasher Safe Children Small Metal Spoons and Forks Flatware Sets",
+              "image_path": "sites/egomart/static/products/upstream/p_19d8224c95aa.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_43f71ae41805": {
+              "entity_id": "p_43f71ae41805",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Dinner Forks,8-Piece 8 Inches Stainless Steel Table Fork,Dishwasher Safe Flatware Forks,Food Grade Mirror Polishing Silverware Main Fork for Home,Restaurant Or Hotel",
+              "image_path": "sites/egomart/static/products/upstream/p_43f71ae41805.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_28fe784dadbf": {
+              "entity_id": "p_28fe784dadbf",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Maydahui 2PCS Spoon and Fork Foldable Stainless Steel SUS 18/10(304) | Salad Spork Portable for Thermos and Outdoors",
+              "image_path": "sites/egomart/static/products/upstream/p_28fe784dadbf.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_f78bc5991a41": {
+              "entity_id": "p_f78bc5991a41",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Orblue 4-in-1 Camping Utensils, 2-Pack - Portable Stainless Steel Spoon, Fork, Knife & Bottle Opener Combo Set - Travel, Backpacking Cutlery Multitool, Red",
+              "image_path": "sites/egomart/static/products/upstream/p_f78bc5991a41.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_e2fbc53eb24e": {
+              "entity_id": "p_e2fbc53eb24e",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Set of 12, Stainless Steel Dinner Forks and Spoons Silverware Set, Heavy-Duty Forks (8 Inch) and Spoons (6.7 Inch) Cutlery Set, Dishwasher Safe (Black)",
+              "image_path": "sites/egomart/static/products/upstream/p_e2fbc53eb24e.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_294243287514": {
+              "entity_id": "p_294243287514",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Travel Cutlery Set Metal with Case, 4 Colors/Set | Reusable Stainless Steel, Forks Spoons Knife, Camping Utensils Kit with Straws, For Travel, Picnic, Lunch",
+              "image_path": "sites/egomart/static/products/upstream/p_294243287514.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_7ea774e1599c": {
+              "entity_id": "p_7ea774e1599c",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "DEHOV 30 Pcs Cutelry Sets,Premium Stainless Steel Flatware Sets Service for 6, Mirror Polished Tableware Silverware Set for Home,Restaurant,Hotel Knife Spoon and Forks Sets",
+              "image_path": "sites/egomart/static/products/upstream/p_7ea774e1599c.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_09e479b60df8": {
+              "entity_id": "p_09e479b60df8",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Berglander Dinner Forks Set 12pcs 18.5cm, Stainless Steel Table Fork, Dessert Salad Forks, Flatware Silverware Fork for Restaurant, Hotel, Bulk Value, Affordable, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_09e479b60df8.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_9f7054ad7784": {
+              "entity_id": "p_9f7054ad7784",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Orblue 4-in-1 Camping Utensils, 1-Pack, Portable Stainless Steel Spoon, Fork, Knife & Bottle Opener Combo Set - Travel, Backpacking Cutlery Multitool, Blue",
+              "image_path": "sites/egomart/static/products/upstream/p_9f7054ad7784.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_7bf50fb97e7a": {
+              "entity_id": "p_7bf50fb97e7a",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Flatware Set, 20-Piece Elegant Silverware Cutlery Set, Stainless Steel Utensils Service for 4, Include Knife/Fork/Spoon, Mirror Polished, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_7bf50fb97e7a.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_707be042ae79": {
+              "entity_id": "p_707be042ae79",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Travel Utensils with Case, 4-Piece Stainless Steel Portable Cutlery Set, Reinforced Case with Buckle Design, Lunch Box for Camping Work School, Include Fork Spoon Knife, Dishwasher Safe, Black",
+              "image_path": "sites/egomart/static/products/upstream/p_707be042ae79.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_ae9a4b24f9f6": {
+              "entity_id": "p_ae9a4b24f9f6",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "12-Piece Dinner Forks and Spoons,Spoons and Forks Set Stainless Steel, Steel Silverware Flatware Eating Utensils Set for Home Kitchen Restaurant, Food Grade Metal & Streamline Design",
+              "image_path": "sites/egomart/static/products/upstream/p_ae9a4b24f9f6.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_9e70cc93a7a0": {
+              "entity_id": "p_9e70cc93a7a0",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "VANRA 2 Pieces Children Fork Spoon Set with Travel Case for Lunch Box, 18/8 Stainless Steel Kids Silverware Flatware Set Kids Utensil Set for School (Fork Spoon)",
+              "image_path": "sites/egomart/static/products/upstream/p_9e70cc93a7a0.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_6e73a44733c8": {
+              "entity_id": "p_6e73a44733c8",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Set of 16 Demitasse Espresso Spoon (4 inch) and Stainless Steel Forks (4.8 inch), DaKuan Mini Coffee Spoons & Cake Forks for Dessert, Tea, Appetizer",
+              "image_path": "sites/egomart/static/products/upstream/p_6e73a44733c8.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b858ad56553c": {
+              "entity_id": "p_b858ad56553c",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Replacement Spoon and Dinner Forks Compatible with Thermos Stainless King Vacuum-Insulated Food Jar 16 Oz (2 Spoon,2 Dinner Forks)",
+              "image_path": "sites/egomart/static/products/upstream/p_b858ad56553c.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_cdd381021705": {
+              "entity_id": "p_cdd381021705",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Matt Dinner Forks 6 Piece, Stainless Steel Forks Silverware Set, Dessert Forks, Table Forks, Salad Forks for Home, Restaurant, Dishwasher Safe (Matt Silver-8.4 Inch)",
+              "image_path": "sites/egomart/static/products/upstream/p_cdd381021705.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b3ec85a800b5": {
+              "entity_id": "p_b3ec85a800b5",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Set of 12, Stainless Steel Dinner Forks and Spoons, findTop Heavy-Duty Forks (8 Inch) and Spoons (7 Inch) Cutlery Set",
+              "image_path": "sites/egomart/static/products/upstream/p_b3ec85a800b5.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5ee1aef32a55": {
+              "entity_id": "p_5ee1aef32a55",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "HIKENTURE 4-in-1 Camping Utensils,Stainless Steel Fork Spoon Knife & Bottle Opener Combo - Travel, Backpacking Cutlery Multitool Set(A3 RED)",
+              "image_path": "sites/egomart/static/products/upstream/p_5ee1aef32a55.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_aa7c884e95b9": {
+              "entity_id": "p_aa7c884e95b9",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "E-far 16-Piece Dinner Forks and Spoons, Stainless Steel Silverware Flatware Eating Utensils Set for Home Kitchen Restaurant, Food Grade Metal & Streamline Design, Mirror Finish & Dishwasher Safe, 8 In",
+              "image_path": "sites/egomart/static/products/upstream/p_aa7c884e95b9.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b21c0dff2416": {
+              "entity_id": "p_b21c0dff2416",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "24-Piece Spoons and Forks Set, E-far Stainless Steel Square 12 Dinner Forks and 12 Dinner Spoons, Modern Metal Silverware Flatware Cutlery for Kitchen and Restaurant, Dishwasher Safe-7.9 Inch",
+              "image_path": "sites/egomart/static/products/upstream/p_b21c0dff2416.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_cee31aafc132": {
+              "entity_id": "p_cee31aafc132",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Nicunom 8 Pack Portable Utensils Set with Case, Premium Stainless Steel Travel Silverware Set Reusable Flatware Set Travel cutlerys Fork Spoon Knife for Camping, Lunch, Picnic, School, Workplace",
+              "image_path": "sites/egomart/static/products/upstream/p_cee31aafc132.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_cbc29e71284e": {
+              "entity_id": "p_cbc29e71284e",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "24 Piece Forks and Knives Set, Premium Stainless Steel Cutlery Set - 12 Knives & 12 Forks for Home & Hotels, Mirror Polished & Dishwasher Safe(24-Piece Silverware Set for 12)",
+              "image_path": "sites/egomart/static/products/upstream/p_cbc29e71284e.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_2b681059d31c": {
+              "entity_id": "p_2b681059d31c",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Kiddream 4 Pieces Stainless Steel Camping Utensils, Forks Spoons Knives Set with Blue Case",
+              "image_path": "sites/egomart/static/products/upstream/p_2b681059d31c.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_12a89237d547": {
+              "entity_id": "p_12a89237d547",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Amazon Basics Stainless Steel Dinner Forks with Scalloped Edge, Pack of 12",
+              "image_path": "sites/egomart/static/products/upstream/p_12a89237d547.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_42b455544c8e": {
+              "entity_id": "p_42b455544c8e",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Orblue 4-in-1 Camping Utensils, 1-Pack, Portable Stainless Steel Spoon, Fork, Knife & Bottle Opener Combo Set - Travel, Backpacking Cutlery Multitool Olive Green",
+              "image_path": "sites/egomart/static/products/upstream/p_42b455544c8e.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_7ff50c055142": {
+              "entity_id": "p_7ff50c055142",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Berglander Table Forks Set of 12pcs 20.5cm, Food Grade Stainless Steel Dinner Fork Set for Home, Restaurant, Daily Dinning, Easy to Clean and Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_7ff50c055142.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_3e6266f2037c": {
+              "entity_id": "p_3e6266f2037c",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "E-far 24-Piece Hammered Spoons and Forks Silverware Set, Stainless Steel 12 Dinner Forks and 12 Dinner Spoons, Modern Metal Flatware Cutlery for Restaurant, Dishwasher Safe-7.9 Inch",
+              "image_path": "sites/egomart/static/products/upstream/p_3e6266f2037c.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_3feb0e211998": {
+              "entity_id": "p_3feb0e211998",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "Salad Fork,8-Piece 6.7'' Dessert Forks Set,Durable Dishwasher Safe Stainless Steel Fork(6.7 Inches),Silverware Fork.Flatware Forks",
+              "image_path": "sites/egomart/static/products/upstream/p_3feb0e211998.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_3a400ef26250": {
+              "entity_id": "p_3a400ef26250",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Orblue 4-in-1 Camping Utensils, 2-Pack, Portable Stainless Steel Spoon, Fork, Knife & Bottle Opener Combo Set - Travel, Backpacking Cutlery Multitool Gray",
+              "image_path": "sites/egomart/static/products/upstream/p_3a400ef26250.jpg",
+              "reason": "Public image and listing show combined or multifunction cutlery, not a pack of only one basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_58c858205bed": {
+              "entity_id": "p_58c858205bed",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Flatware Set, 50-Piece Cutlery Set, Silverware Set for 10, Stainless Steel Utensils Set Include Fork Spoon Knife, Mirror Polished, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_58c858205bed.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_90079795d6da": {
+              "entity_id": "p_90079795d6da",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "E-far 12-Piece Toddler Silverware, Stainless Steel Kids Utensils Forks and Spoons, Children Safe Metal Cutlery Set for Self Feeding, Mirror Polished & Dishwasher Safe, 6 Forks & 6 Spoons",
+              "image_path": "sites/egomart/static/products/upstream/p_90079795d6da.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_8b7977f54209": {
+              "entity_id": "p_8b7977f54209",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Dinner Spoons Set 12pcs, 18.7cm Soup Spoon Berglander Food Grade Stainless Steel Silverware Spoons, Metal Tablespoon for Restaurant, Mirror Polished, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_8b7977f54209.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_923307113295": {
+              "entity_id": "p_923307113295",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Evanda Dinner Spoons 12 Pieces 18.5cm, Stainless Steel Soup Spoons, Table Spoon, Sturdy and Durable for Home and Restauroom Daily Use, Easy to Clean, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_923307113295.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_31f0ff0425f6": {
+              "entity_id": "p_31f0ff0425f6",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "HornTide 6-Piece Dinner Spoon Set Table Spoon Flatware Stainless Steel Mirror Polishing 7-Inch 18cm",
+              "image_path": "sites/egomart/static/products/upstream/p_31f0ff0425f6.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5a6cdf275208": {
+              "entity_id": "p_5a6cdf275208",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "12 Pieces Dinner Spoons, Stainless Steel Table Spoon Set | Silver Spoons for Home, Hotel, Party, Restaurant",
+              "image_path": "sites/egomart/static/products/upstream/p_5a6cdf275208.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_41ca83d84408": {
+              "entity_id": "p_41ca83d84408",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "36-Piece Dinner Spoons Set - 6.7\" Stainless Steel Spoons Silverware, Durable Dessert Spoons, Table Spoon Use for Home, Restaurant - Mirror Polished, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_41ca83d84408.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_e59d5135e2c4": {
+              "entity_id": "p_e59d5135e2c4",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Thick Heavy-Weight Stainless Steel Soup Spoon, High Quality Table Spoon, Coffee Spoon, 6.5 Inches, Set of 6, Durable Restaurant & Home Use Utensils",
+              "image_path": "sites/egomart/static/products/upstream/p_e59d5135e2c4.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_21b844db6c4a": {
+              "entity_id": "p_21b844db6c4a",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "BEWOS 24-Piece Dinner Spoons Set - 7.5 Inch Stainless Steel Tablespoons, Mirror Polished Silverware Spoons, Dishwasher Safe, Silver Silverware Set for Home, Restaurant",
+              "image_path": "sites/egomart/static/products/upstream/p_21b844db6c4a.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_c8f85ac96c40": {
+              "entity_id": "p_c8f85ac96c40",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "16-Piece 7.3 Inches Dinner Spoons,Stainless Steel Soup Spoons,Dishwasher Safe Tablespoon,Durable Silver Table Spoon Set for Restaurant,Hotel",
+              "image_path": "sites/egomart/static/products/upstream/p_c8f85ac96c40.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4f201c92a193": {
+              "entity_id": "p_4f201c92a193",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Kyraton 6-Piece Stainless Steel Round Soup Spoons - Dinner & Table Spoons, Silverware Set, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_4f201c92a193.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_84fcdc057aba": {
+              "entity_id": "p_84fcdc057aba",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Cand Stainless Steel Dinner Spoons, Set of 12 | Table Spoons for Restaurant, Hotel, Home, Banquet, Party",
+              "image_path": "sites/egomart/static/products/upstream/p_84fcdc057aba.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4d52664c03b0": {
+              "entity_id": "p_4d52664c03b0",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Teaspoon Set of 12, E-far 6.7 Inch Stainless Steel Hammered Spoons for Kitchen or Restaurant, Non-toxic & Mirror Polished, Squared Edge & Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_4d52664c03b0.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_f1569bd9e84b": {
+              "entity_id": "p_f1569bd9e84b",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Dinner Spoons Set of 12, E-far 7.9 Inch Stainless Steel Hammered Soup Spoons Tablespoons for Home, Kitchen or Restaurant, Non-toxic & Mirror Polished, Squared Edge & Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_f1569bd9e84b.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_d604ef478182": {
+              "entity_id": "p_d604ef478182",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Spoons, 8 Pieces Stainless Steel Korean Spoons,8.5 Inch Soup Spoons,Metal Spoon Set,Long Eating Spoons,Rice Spoon,Table Spoon,Bouillon Spoons for Home or Restaurant",
+              "image_path": "sites/egomart/static/products/upstream/p_d604ef478182.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_a7041b12c700": {
+              "entity_id": "p_a7041b12c700",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Qskely Stainless Steel Dinner Spoon, Table Spoons Set, 12-Piece",
+              "image_path": "sites/egomart/static/products/upstream/p_a7041b12c700.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_fc87d3f9e596": {
+              "entity_id": "p_fc87d3f9e596",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Berglander Dinner Spoons Set 24pcs, 18.7cm Food Grade Stainless Steel Silverware Soup Spoon Tablespoon for Home, Hotels or Restaurant Mirror Polished, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_fc87d3f9e596.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_f5bba3a0b633": {
+              "entity_id": "p_f5bba3a0b633",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Soup Spoons, Stainless Steel 6.1” Heavy Duty Round Spoons, Dinner Spoon Table Spoon Silverware, Metal Spoon Cutlery Set, 6-Piece",
+              "image_path": "sites/egomart/static/products/upstream/p_f5bba3a0b633.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_86861ca1a863": {
+              "entity_id": "p_86861ca1a863",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Spoons 24 Piece Stainless Steel Cutlery Dinner Spoons Set 7.32 Inchs, Dishwasher Safe, Mirror Polish, Perfect for Yogurt, Ice Cream, Soup, Desserts",
+              "image_path": "sites/egomart/static/products/upstream/p_86861ca1a863.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_43308248dda9": {
+              "entity_id": "p_43308248dda9",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "36-Piece Stainless Steel Teaspoons Set, 5.6 inch(14cm),Dishwasher Safe, Coffee Spoons/Cake Spoons/Dessert Spoons/Latte Spoons for Home/Hotel/Restaurant",
+              "image_path": "sites/egomart/static/products/upstream/p_43308248dda9.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_9f91f9d2f00c": {
+              "entity_id": "p_9f91f9d2f00c",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Winco 0005-10 12-Piece Dots European Table Spoon Set, 18-0 Stainless Steel | Dishwasher safe, Heavyweight, Restaurant service, Great for Soup, Broth, Noodles and Tasting Service",
+              "image_path": "sites/egomart/static/products/upstream/p_9f91f9d2f00c.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b49daf563820": {
+              "entity_id": "p_b49daf563820",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Soup Spoon of 4, Berglander 7.5\" Stainless Steel Round Spoons Silverware, Table Spoon Set Sturdy Easy To Clean, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_b49daf563820.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_29921496a6d1": {
+              "entity_id": "p_29921496a6d1",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Kyraton Soup Spoons - 12 Pieces, Stainless Steel Round Bouillon & Table/Dinner Spoons, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_29921496a6d1.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_3a5abc85b7a8": {
+              "entity_id": "p_3a5abc85b7a8",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "4-Piece Round Stainless Steel Bouillon Spoons Soup Spoons, Stainless Steel Large Heavy-Weight Spoon Set, Dinner Metal Spoons for Soup Grain Dessert Milk",
+              "image_path": "sites/egomart/static/products/upstream/p_3a5abc85b7a8.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5afcaa9eec18": {
+              "entity_id": "p_5afcaa9eec18",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Winco Continental 12-Piece Table Spoon Set, European, Heavyweight Stainless Steel",
+              "image_path": "sites/egomart/static/products/upstream/p_5afcaa9eec18.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_1bc3c78c6385": {
+              "entity_id": "p_1bc3c78c6385",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "BEWOS 24 Pieces Tea Spoons - 6.2 Inches Stainless Steel Teaspoons, Coffee Spoons, Small Spoons, Mirror Polished, Dishwasher Safe, Silver Silverware Set for Home, Restaurant",
+              "image_path": "sites/egomart/static/products/upstream/p_1bc3c78c6385.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_97b7713b8437": {
+              "entity_id": "p_97b7713b8437",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "24-Piece Black Silverware Set with Steak Knives, Black Flatware Set for 4, Food-Grade Stainless Steel Tableware Cutlery Set, Mirror Finished Knife Spoon and Fork Sets for Home Restaurant",
+              "image_path": "sites/egomart/static/products/upstream/p_97b7713b8437.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b8d88541f6a0": {
+              "entity_id": "p_b8d88541f6a0",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Hespama Stainless Steel Dinner Spoons, Set of 12 Table Spoons",
+              "image_path": "sites/egomart/static/products/upstream/p_b8d88541f6a0.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_7a0883592b3e": {
+              "entity_id": "p_7a0883592b3e",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Saedy 12-Piece Dinner Spoons, Stainless Steel Table Spoons, 7.8-Inch",
+              "image_path": "sites/egomart/static/products/upstream/p_7a0883592b3e.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5bc3d867ddb2": {
+              "entity_id": "p_5bc3d867ddb2",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "3pcs Stainless Steel Measuring Spoons Set - 1 TSP (5 ML), 1/3 Tbsp - Short Handle for Kitchen, Baking, Tea, Coffee, or Soup Ingredients | Durable Metal Teaspoon & Tablespoon",
+              "image_path": "sites/egomart/static/products/upstream/p_5bc3d867ddb2.jpg",
+              "reason": "Measuring-spoon set, with hemispherical measuring cups rather than eating cutlery; neither visible basic cutlery type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4c0e850ba8a2": {
+              "entity_id": "p_4c0e850ba8a2",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Ggbin 12 Piece Stainless Steel Dessert Spoons | Silver Spoon Set",
+              "image_path": "sites/egomart/static/products/upstream/p_4c0e850ba8a2.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4a6d5db0c3b8": {
+              "entity_id": "p_4a6d5db0c3b8",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Black Dinner Spoon Set, Seeshine 7.6-inch(19.3cm) Stainless Steel Shiny Black Soup Table Spoon Silverware, Set of 6",
+              "image_path": "sites/egomart/static/products/upstream/p_4a6d5db0c3b8.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_6d564633f514": {
+              "entity_id": "p_6d564633f514",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Gold Dinner Spoons 24 Pieces, Stainless Steel Titanium Gold Plating Table Spoon, Soup Spoons, Use for Home, Restaurant, Wedding, Parties, Events, Christmax",
+              "image_path": "sites/egomart/static/products/upstream/p_6d564633f514.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5620372e3b20": {
+              "entity_id": "p_5620372e3b20",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Winco 0006-10 12-Piece Toulouse European Table Spoon Set, 18-0 Extra Heavy Weight Stainless Steel",
+              "image_path": "sites/egomart/static/products/upstream/p_5620372e3b20.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_ec6fb3367373": {
+              "entity_id": "p_ec6fb3367373",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Berglander Soup Spoons 12 Pieces, Stainless Steel Dinner Spoon, Table Spoon, Spoons Silverware for Home, Restaurant, Hotel, Daily Use, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_ec6fb3367373.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b39a0d9c0114": {
+              "entity_id": "p_b39a0d9c0114",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "20-Piece Silverware Set, E-far Stainless Steel Flatware Set Service for 4, Modern Tableware Cutlery Set includes Forks, Spoons, Knives, Square Edge & Mirror Finish, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_b39a0d9c0114.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_6aa9f1a3cbfb": {
+              "entity_id": "p_6aa9f1a3cbfb",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Teaspoons 24 Pieces 14cm, Berglander Stainless Steel Mini Spoons Set for Coffee, Dessert, Ice Cream, Metal Cutlery for Home, Restaurant Café, Party, Wedding",
+              "image_path": "sites/egomart/static/products/upstream/p_6aa9f1a3cbfb.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_f51aeb7a6223": {
+              "entity_id": "p_f51aeb7a6223",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Teaspoons 12 Pieces 14cm, Berglander Stainless Steel Coffee Spoon Mini Spoons Set for Dessert, Ice Cream, Demitasse Espresso, Metal Cutlery Spoon for Restaurant, Café, Party, Wedding",
+              "image_path": "sites/egomart/static/products/upstream/p_f51aeb7a6223.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_f68fddb2bc85": {
+              "entity_id": "p_f68fddb2bc85",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "KINGSTONE Dinner Spoons Set of 16, 8-Inch 18/10 Stainless Steel Spoon Cutlery Table Spoon for Home, Kitchen & Restaurant, Dishwasher Safe (Dinner Spoons Set, 16-Piece), KS6612",
+              "image_path": "sites/egomart/static/products/upstream/p_f68fddb2bc85.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_7c35c14d4152": {
+              "entity_id": "p_7c35c14d4152",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "Dinner Spoons, Kyraton 6 Pieces 8\" Stainless Steel Dinner Spoon, Soup Spoons, Spoons Sliverware Dishwasher Safe Set of 6",
+              "image_path": "sites/egomart/static/products/upstream/p_7c35c14d4152.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_a27dd8eaf670": {
+              "entity_id": "p_a27dd8eaf670",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "18/8 Stainless Steel Heavy Duty Deep Soup Spoon - (A Type 6.7inch) Regular Handle Personal Table Spoon SET OF 4",
+              "image_path": "sites/egomart/static/products/upstream/p_a27dd8eaf670.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_90e8a57aa843": {
+              "entity_id": "p_90e8a57aa843",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Nuogo 100 Pieces Forks and Spoons Silverware Set Stainless Steel Dinner | 50 Forks 50 Spoons, Flatware Bulk, Mirror Polished, for Home Restaurant Kitchen, Dishwasher Safe Cutlery",
+              "image_path": "sites/egomart/static/products/upstream/p_90e8a57aa843.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5be9f2e6ec7c": {
+              "entity_id": "p_5be9f2e6ec7c",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "24-Piece Silverware Set with Steak Knives, Flatware Set Service for 4, Food-Grade Stainless Steel Cutlery Set, Includes Knife Spoon and Fork, Mirror Finished Utensil Sets for Home Restaurant",
+              "image_path": "sites/egomart/static/products/upstream/p_5be9f2e6ec7c.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_38fd8da9e823": {
+              "entity_id": "p_38fd8da9e823",
+              "decision": "accepted",
+              "accepted_role": "later_cutlery",
+              "public_basis": "KEAWELL Premium Verona 4-Piece 7.6-Inch Dinner Spoon Set (4, Dinner Spoons) | 18/10 Stainless Steel Dinner Spoons; Heavy-Duty Feel; Comfortable Grip; Mirror Finish; For Soup, Cereal & Daily Meals",
+              "image_path": "sites/egomart/static/products/upstream/p_38fd8da9e823.jpg",
+              "reason": "Public image and listing establish a spoon-only eating-cutlery pack. Teaspoons, soup spoons and dessert spoons remain valid because size is unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_a3bbf6622956": {
+              "entity_id": "p_a3bbf6622956",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Berglander Dinner Knives Set Of 4, Stainless Steel Butter Knife Spreader 23.3cm, Table Dinner Knife for Daily Use, Restaurant, Hotel, Parties, Events, Sturdy And Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_a3bbf6622956.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_5a56105e7ded": {
+              "entity_id": "p_5a56105e7ded",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Dinner Knives Set of 6, Berglander Stainless Steel Shiny Mirror Dinner Knife, Butter Knife Spreader Table Knives Sturdy and Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_5a56105e7ded.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_ed5725882898": {
+              "entity_id": "p_ed5725882898",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Dinner Knife 36P Set, 8.1 Inches Durable Butter Knife Set",
+              "image_path": "sites/egomart/static/products/upstream/p_ed5725882898.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_c0f8701bc667": {
+              "entity_id": "p_c0f8701bc667",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Amazon Basics Stainless Steel Dinner Knives with Round Edge, Pack of 12",
+              "image_path": "sites/egomart/static/products/upstream/p_c0f8701bc667.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_7b8b39b45736": {
+              "entity_id": "p_7b8b39b45736",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "BEWOS 24-Piece Dinner Knives - 9-Inch Dinner Knife Set, Butter Knife, Food Grade Stainless Steel Table Knives, Mirror Polished Silverware, Sharp, Silver",
+              "image_path": "sites/egomart/static/products/upstream/p_7b8b39b45736.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_53300a1b43af": {
+              "entity_id": "p_53300a1b43af",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Steak Knife Set, Kyrtaon Serrated Knife, Stainless Steel Sharp Knives Set, Dinner Knifes Set of 8, Dishwasher Safe Sturdy and Easy to Clean",
+              "image_path": "sites/egomart/static/products/upstream/p_53300a1b43af.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_0a0aeaca3f54": {
+              "entity_id": "p_0a0aeaca3f54",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "6 Piece Stainless Steel Dinner Knives Set, 9 Inch",
+              "image_path": "sites/egomart/static/products/upstream/p_0a0aeaca3f54.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_0c5637b1b0c6": {
+              "entity_id": "p_0c5637b1b0c6",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "VANRA 4-Piece Children Knives Set Stainless Steel Kids Dinner Knife Child Silver Cutlery Set 6.8-inch (4 Knives)",
+              "image_path": "sites/egomart/static/products/upstream/p_0c5637b1b0c6.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_fad945680ee8": {
+              "entity_id": "p_fad945680ee8",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Berglander Table Knife Set of 12 Pieces, Food Grade Stainless Steel Butter Knives Dinner Knife for Home, Restaurant, Hotel, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_fad945680ee8.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_acdc9492b045": {
+              "entity_id": "p_acdc9492b045",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Obstnny 12 Pieces Dinner Knives Set, Stainless Steel Table Knife",
+              "image_path": "sites/egomart/static/products/upstream/p_acdc9492b045.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_58c048623c9a": {
+              "entity_id": "p_58c048623c9a",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Gold Dinner Knives Set Of 6, Berglander 23.3cm Titanium Gold Plating Stainless Steel Butter Knife Spreader Table Dinner Knife for Daily Use, Restaurant, Hotel, Parties, Events, Wedding Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_58c048623c9a.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_692759e7f54f": {
+              "entity_id": "p_692759e7f54f",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Steak Knives Set 12 Piece, Premium Stainless Steel 6 Dinner Forks and 6 Dinner Knives Set, Steak Knives Steak Forks for 6 Person, Mirror Polish, Dishwasher Safe (Shiny Silver)",
+              "image_path": "sites/egomart/static/products/upstream/p_692759e7f54f.jpg",
+              "reason": "Public image and listing show a mixed cutlery set or combination utensil, not a pack containing only one requested basic type.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_ee80907e8401": {
+              "entity_id": "p_ee80907e8401",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "12 Piece Premium Dinner Knives, Stainless Steel Table Knife Set",
+              "image_path": "sites/egomart/static/products/upstream/p_ee80907e8401.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_b67911722348": {
+              "entity_id": "p_b67911722348",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "E-far Dinner Knives Set of 12, 8.9 Inch Stainless Steel Serrated Steak Butter Knife for Home Kitchen Restaurant, Modern Design & Square Edge, Mirror Finish & Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_b67911722348.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_c7043c05e1d3": {
+              "entity_id": "p_c7043c05e1d3",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Stainless Steel Dinner Knives Set, Kitchen Steak Knives, 4-Piece Cutlery Set (Gold)",
+              "image_path": "sites/egomart/static/products/upstream/p_c7043c05e1d3.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_fd5a2d88111f": {
+              "entity_id": "p_fd5a2d88111f",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Stainless Steel Dinner Knives Set, Kitchen Steak Knives, 4-Piece Cutlery Set (Silver)",
+              "image_path": "sites/egomart/static/products/upstream/p_fd5a2d88111f.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_f16800070790": {
+              "entity_id": "p_f16800070790",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Hampton Forge 898599 Austin Dinner Knives, Set Of 2",
+              "image_path": "sites/egomart/static/products/upstream/p_f16800070790.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_da514edc360a": {
+              "entity_id": "p_da514edc360a",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Home Hero 8 Pcs Black Serrated Stainless Steel Steak Knives | Serrated Steak Knives - Rust-Resistant Stainless Steel Blades, Non-Stick Coating & Ergonomic Handles",
+              "image_path": "sites/egomart/static/products/upstream/p_da514edc360a.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_d203c49e98ce": {
+              "entity_id": "p_d203c49e98ce",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "New Star Foodservice 58802 Stainless Steel Dominion Pattern Dinner Knife, 8.2-Inch, Set of 12",
+              "image_path": "sites/egomart/static/products/upstream/p_d203c49e98ce.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_579093f49bff": {
+              "entity_id": "p_579093f49bff",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "VANRA Small Dessert Knives Set of 6 Stainless Steel Kids Dinner Knife Appetizer Fruit Snack Serving Knives Mini Flatware Set Silverware 5.7inch",
+              "image_path": "sites/egomart/static/products/upstream/p_579093f49bff.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_c25608a55fff": {
+              "entity_id": "p_c25608a55fff",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Berglander 12 Pieces Steak Knives Set, Food Grade Stainless Steel Blade Black Plastic Handle, One-Piece Ergonomic Sharp Dinner Knives for Home Kitchen Restaurant Daily Use",
+              "image_path": "sites/egomart/static/products/upstream/p_c25608a55fff.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_f09d3cde8cba": {
+              "entity_id": "p_f09d3cde8cba",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "36-Piece Butter Knives, 9-Inch Dinner Knife Set, Food Grade Stainless Steel Table Knife for Home/Restaurant/Kitchen, Dishwasher Safe & Mirror Polished",
+              "image_path": "sites/egomart/static/products/upstream/p_f09d3cde8cba.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_bd347c64399a": {
+              "entity_id": "p_bd347c64399a",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "VANRA 6-Piece Dinner Knives Set Stainless Steel Knife Silver Cutlery Set",
+              "image_path": "sites/egomart/static/products/upstream/p_bd347c64399a.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_8d613e9dca7a": {
+              "entity_id": "p_8d613e9dca7a",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Dinner Knife 24P Set, 8.1\" Inches Durable Butter Knife Set",
+              "image_path": "sites/egomart/static/products/upstream/p_8d613e9dca7a.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_0a21be2895e0": {
+              "entity_id": "p_0a21be2895e0",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "ASETY Serrated Steak Knives Set of 8, 4.5 Inch Steak Knives,Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_0a21be2895e0.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_77bf2dfe565f": {
+              "entity_id": "p_77bf2dfe565f",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Gold Steak Knife Set, Kyrtaon Golden Serrated Knife, Titanium Gold Plating Stainless Steel Sharp Knives Set, Dinner Knifes Set of 8, Dishwasher Safe Sturdy and Easy to Clean",
+              "image_path": "sites/egomart/static/products/upstream/p_77bf2dfe565f.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_6cad278e8220": {
+              "entity_id": "p_6cad278e8220",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "French Home Set of 4 Laguiole Steak Knives (Pewter) — Stainless Steel Dinner Knives — Cutlery Set for 4 — Fancy Serrated Knives (9.25\")",
+              "image_path": "sites/egomart/static/products/upstream/p_6cad278e8220.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_a531b30888ad": {
+              "entity_id": "p_a531b30888ad",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Alata 8-Piece Steak Knives Set, 4.7 Inch with Serrated Edge Razor-Sharp Dinner Knives, Full-Tang Construction，Stainless Steel Steak Knives Set of 8",
+              "image_path": "sites/egomart/static/products/upstream/p_a531b30888ad.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_10e381ff6fd2": {
+              "entity_id": "p_10e381ff6fd2",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "12 Pieces Dinner Knives, Stainless Steel Table Knife",
+              "image_path": "sites/egomart/static/products/upstream/p_10e381ff6fd2.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_3133a3270681": {
+              "entity_id": "p_3133a3270681",
+              "decision": "insufficient_public_evidence",
+              "accepted_role": null,
+              "public_basis": "Stainless Steel Dinner Knife Set with Curved Handle, Silver",
+              "image_path": "sites/egomart/static/products/upstream/p_3133a3270681.jpg",
+              "reason": "Title identifies a dinner-knife set while the image displays a fork and knife. Public contents conflict; neither a fork-only nor a spoon-only pack is established.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_11bbab01cb8f": {
+              "entity_id": "p_11bbab01cb8f",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "12 Pieces Stainless Steel Dinner Knives, Kitchen Table Knife Set",
+              "image_path": "sites/egomart/static/products/upstream/p_11bbab01cb8f.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_c1921143250d": {
+              "entity_id": "p_c1921143250d",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Steak Knives Ultra-Sharp Stainless Steel Cutlery Set,Dinner Knives 6-Piece Stainless Steel kitchen Serrated Best Steak Knife kitchen Sets Dishwasher Safe (Gold)",
+              "image_path": "sites/egomart/static/products/upstream/p_c1921143250d.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_3c8917340775": {
+              "entity_id": "p_3c8917340775",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Steak Knives, 4.5 inches Steak Knife Set of 6, Dishwasher Safe High Carbon Stainless Steel Steak Knife, Silver",
+              "image_path": "sites/egomart/static/products/upstream/p_3c8917340775.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_72c7be823c02": {
+              "entity_id": "p_72c7be823c02",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Winco 0005-08 12-Piece Dots Dinner Knife Set, 18-0 Stainless Steel",
+              "image_path": "sites/egomart/static/products/upstream/p_72c7be823c02.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_04cdcfabf7d1": {
+              "entity_id": "p_04cdcfabf7d1",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Stainless Steel Dinner Knives Set, Kitchen Steak Knives, 4-Piece Cutlery Set (Gradient Gold)",
+              "image_path": "sites/egomart/static/products/upstream/p_04cdcfabf7d1.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_044386bc4665": {
+              "entity_id": "p_044386bc4665",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Anbers Stainless Steel Dinner Knives, Kitchen Table Knife Set, 12 Pieces",
+              "image_path": "sites/egomart/static/products/upstream/p_044386bc4665.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_2fa3a9a613cc": {
+              "entity_id": "p_2fa3a9a613cc",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Teyyvn 16-Piece Dinner Knives, Black Stainless Steel Flatware Knife Set",
+              "image_path": "sites/egomart/static/products/upstream/p_2fa3a9a613cc.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_d9f58a3d47db": {
+              "entity_id": "p_d9f58a3d47db",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "VANRA 5.8in 4-Piece Dessert Knives Set Stainless Steel Small Kids Dinner Knife Appetizer Fruit Snack Serving Knives Flatware Set",
+              "image_path": "sites/egomart/static/products/upstream/p_d9f58a3d47db.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4ad153abad58": {
+              "entity_id": "p_4ad153abad58",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "PAUDIN Steak Knives Set of 6, 4.5\" Steak Knife with Pakkawood Handle",
+              "image_path": "sites/egomart/static/products/upstream/p_4ad153abad58.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_58b4b01303f1": {
+              "entity_id": "p_58b4b01303f1",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "36 Pieces Dinner Knives Set, 8.1 Inches Table Knives Set, Odourless Butter Knife, Food Grade Stainless Steel Dinner Knife, Cost-effective Silverware - Mirror Polished, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_58b4b01303f1.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_4a198cf71eab": {
+              "entity_id": "p_4a198cf71eab",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "Matte Black Dinner Knife, GoGeiLi Stainless Steel Satin Finish 9.4-inch Dinner Table Knife Set, Service for 6, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_4a198cf71eab.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_abeccd7b8e68": {
+              "entity_id": "p_abeccd7b8e68",
+              "decision": "accepted",
+              "accepted_role": "first_cutlery",
+              "public_basis": "36 Piece Dinner Fork Set (8 Inches) - Premium Stainless Steel Cutlery Forks -Table Forks for Home or Restaurant, Mirror Polished and Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_abeccd7b8e68.jpg",
+              "reason": "Public image and listing establish a fork-only cutlery pack. Brand, size, material and pieces per pack are unrestricted.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_0d15ac35c4c7": {
+              "entity_id": "p_0d15ac35c4c7",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "23.4cm Gold Dinner Knife Set, Stainless Steel Table Knives Set of 6, Silverware Knife Set For Cutting Meat, Beef, Steak, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_0d15ac35c4c7.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            },
+            "p_751c1bcf58f9": {
+              "entity_id": "p_751c1bcf58f9",
+              "decision": "rejected",
+              "accepted_role": null,
+              "public_basis": "GoGeiLi Matte Gold Dinner Knife Set, 9.4-inch Stainless Steel Satin Finish Gold Dinner Table Knife Set of 6, Dishwasher Safe",
+              "image_path": "sites/egomart/static/products/upstream/p_751c1bcf58f9.jpg",
+              "reason": "Public image and listing establish a knife-only pack. Neither requested saucepan utensil is a knife.",
+              "semantic_review": "constructor_checked_pending_independent_review"
+            }
+          }
+        },
+        "landing_semantic_review": {
+          "status": "pending_independent_review",
+          "note": "Full134-product source snapshot retained without pruning alternatives."
+        }
+      }
+    }
+  ]
+}

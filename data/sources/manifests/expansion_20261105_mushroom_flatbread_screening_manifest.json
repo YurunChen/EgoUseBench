@@ -1,0 +1,2408 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official HD-EPIC data record, CC BY 4.0; targeted excerpt from one recording."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110506",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P02-20240211-182630__1136-1192",
+        "original_video_id": "P02-20240211-182630",
+        "media_start_seconds": 1136,
+        "media_sha256": "0d6c60603cfa26cb71567574a68ff3eed46d7a7f96337713c2d77f9c27e4f4af",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              1138,
+              1145
+            ],
+            "description": "The wearer takes a foil-lined tray of browned mushroom pieces out of the oven. No bread is visible in this opening batch."
+          },
+          {
+            "interval_seconds": [
+              1147,
+              1154
+            ],
+            "description": "The wearer brings the same tray close to two thin pieces of bread on a board. The bread remains separate; bowls of other food also sit nearby."
+          },
+          {
+            "interval_seconds": [
+              1167,
+              1190
+            ],
+            "description": "Using a broad spatula, the wearer places the cooked mushroom pieces from the same oven tray on top of the ready flatbread. The later frames continue the same transfer; they do not establish the final folding method."
+          }
+        ],
+        "acquisition_receipt": "data/sources/provenance/expansion_20261105_mushroom_flatbread_frame_provenance.json::source_acquisition"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            1139,
+            1144,
+            1149,
+            1154
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110506/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110506/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110506/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110506/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            1168,
+            1170,
+            1172,
+            1174
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110506/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110506/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110506/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110506/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          1138.0,
+          1190.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110506/review.json"
+      },
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "replace",
+      "screening": {
+        "proposed_instruction": "Could you save a recipe video for what I’m making?",
+        "source_continuity": "One continuous HD-EPIC source, session 1138–1190 s. No skipped time and no new user request."
+      },
+      "supported_claims": [
+        {
+          "text": "The cooked mushroom pieces are visible on the foil-lined tray before they touch a flatbread.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The wearer places the same cooked mushroom pieces directly onto a ready thin flatbread as its main topping or filling, rather than serving the bread alongside the separate mushrooms.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [],
+      "construct": {
+        "research_question": "Can an agent revise an initially applicable recipe when the same prepared ingredient is visibly used in a different dish?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "belief_before": "A tray of browned mushrooms comes out of the oven; no serving form is visible in the first batch.",
+        "belief_after": "The same cooked pieces are transferred directly from the oven tray onto the flatbread as the main topping.",
+        "required_behavior_change": "Replace a standalone roast-only recipe if saved; keep an applicable mushroom-on-flatbread tutorial.",
+        "no_update_failure": "Keep a standalone oven-roasted mushroom side tutorial after the mushroom pieces are visibly put onto the flatbread.",
+        "overupdate_failure": "Replace an applicable flatbread recipe, save a second unrelated video, or impose an exact mushroom species, appliance or finished fold.",
+        "visual_dependency_claim": "The request names no ingredient or technique. Opening alone supports a standalone tray-roasted mushroom recipe. A later batch shows actual tray-to-flatbread transfer, making a standalone roast-only recipe incomplete. A suitable early flatbread guess can remain valid.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a recipe video for what I’m making?",
+          "target_granularity": "category",
+          "initial_target_role": "plausible_mushroom_preparation",
+          "final_target_role": "cooked_mushroom_flatbread",
+          "environment_role_ids": {
+            "plausible_mushroom_preparation": "m_5973381aee1e",
+            "cooked_mushroom_flatbread": "m_aeb7b695cbe0"
+          },
+          "equivalent_role_ids": {
+            "plausible_mushroom_preparation": [
+              "m_5a2e101aeb35",
+              "m_7a7f516a08c5",
+              "m_c409703890a4",
+              "m_8eb82f4cdf1c",
+              "m_40ddc8e8ea81",
+              "m_df03e043319f",
+              "m_b14a4cd52a1c",
+              "m_a74683d582b0",
+              "m_fe74eb7a5150",
+              "m_aeb7b695cbe0",
+              "m_73cc1abbcf50",
+              "m_03f6bc592d57",
+              "m_6ea6a85a3daf",
+              "m_edaf2263fa0b",
+              "m_a059289c24b1",
+              "m_9d2e225a5829",
+              "m_5e3c12c7be4b",
+              "m_c44e63c49da8",
+              "m_b1d8dccd3756",
+              "m_1179ae238653",
+              "m_1aef1a91e274",
+              "m_62fe2f95497c"
+            ],
+            "cooked_mushroom_flatbread": [
+              "m_c409703890a4",
+              "m_8eb82f4cdf1c",
+              "m_40ddc8e8ea81",
+              "m_df03e043319f",
+              "m_b14a4cd52a1c",
+              "m_a74683d582b0",
+              "m_fe74eb7a5150",
+              "m_73cc1abbcf50",
+              "m_03f6bc592d57",
+              "m_6ea6a85a3daf",
+              "m_edaf2263fa0b",
+              "m_a059289c24b1",
+              "m_9d2e225a5829",
+              "m_5e3c12c7be4b",
+              "m_c44e63c49da8",
+              "m_b1d8dccd3756",
+              "m_1179ae238653",
+              "m_1aef1a91e274",
+              "m_62fe2f95497c"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "standalone_mushrooms": "m_5973381aee1e",
+            "mushroom_flatbread": "m_aeb7b695cbe0"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "standalone_mushrooms",
+                "mushroom_flatbread"
+              ],
+              "why": "The cooked mushroom pieces are on the same tray; the opening does not establish their serving form."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "mushroom_flatbread"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The wearer directly puts pieces from the same cooked tray onto the thin bread as the main topping."
+            }
+          ],
+          "established_by": "/root/scout_reuse",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "roasted sliced mushrooms recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110506.json",
+              "snapshot_stage": "roasted_mushrooms",
+              "result_entity_ids": [
+                "m_5973381aee1e",
+                "m_6a04abb292c5",
+                "m_91ced2c8708f",
+                "m_d0eb01e63b6c",
+                "m_a3c99f36a08f",
+                "m_c216571c56f1",
+                "m_36147cb6d564",
+                "m_a946be9e6f87",
+                "m_e146f76edae8",
+                "m_f8fb92a07316",
+                "m_d8ea73ed4653",
+                "m_62d6180826d9",
+                "m_6ea16bd18cbc",
+                "m_82a38fb66da6",
+                "m_e7d31662bad0",
+                "m_411da396e78f",
+                "m_5a2e101aeb35",
+                "m_dd3a911e3091",
+                "m_c9b3539781b3",
+                "m_a23c8b560bda",
+                "m_214a3c62b6c9",
+                "m_fbee5a8ce223",
+                "m_7a7f516a08c5",
+                "m_23b39beb6c81",
+                "m_10069f722067",
+                "m_b2e76bdcd9bb",
+                "m_28fdbbcff1d4",
+                "m_dbd8cdbc1614",
+                "m_1e6d75a56ff0",
+                "m_116d30f558d6",
+                "m_9db9bdeda4e4",
+                "m_3b7390601996",
+                "m_ddcf47335813",
+                "m_2b3ea814f404",
+                "m_a4441d139b38",
+                "m_7a6019fd1249",
+                "m_ee402af58b5d",
+                "m_b7e13a7e42a9",
+                "m_e6123e04c8f3",
+                "m_bf846f2dee7b"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "roasted mushrooms flatbread wrap recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110506.json",
+              "snapshot_stage": "mushroom_flatbread",
+              "result_entity_ids": [
+                "m_c409703890a4",
+                "m_8eb82f4cdf1c",
+                "m_40ddc8e8ea81",
+                "m_72daa0b08a5c",
+                "m_df03e043319f",
+                "m_b14a4cd52a1c",
+                "m_a74683d582b0",
+                "m_fe74eb7a5150",
+                "m_aeb7b695cbe0",
+                "m_73cc1abbcf50",
+                "m_5368ad883e6a",
+                "m_03f6bc592d57",
+                "m_6ea6a85a3daf",
+                "m_edaf2263fa0b",
+                "m_0ff2079b184d",
+                "m_6735a0cc53be",
+                "m_a059289c24b1",
+                "m_2de639ab9a16",
+                "m_7d3211bcc76e",
+                "m_9d2e225a5829",
+                "m_5bd4cef17d82",
+                "m_593332cc6a8b",
+                "m_b56697a12e41",
+                "m_5e3c12c7be4b",
+                "m_e1ee9db260b5",
+                "m_c44e63c49da8",
+                "m_61505192d41d",
+                "m_abbe93b4562d",
+                "m_b1d8dccd3756",
+                "m_980c00356f3b",
+                "m_c913feee750a",
+                "m_6102b3307d8c",
+                "m_567dd3ae10a8",
+                "m_83f34cd3eefd",
+                "m_6310cc0af90d",
+                "m_1179ae238653",
+                "m_1aef1a91e274",
+                "m_62fe2f95497c",
+                "m_c5456a8d72d2",
+                "m_7b7ac1cab8a8"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_5973381aee1e",
+            "m_6a04abb292c5",
+            "m_91ced2c8708f",
+            "m_d0eb01e63b6c",
+            "m_a3c99f36a08f",
+            "m_c216571c56f1",
+            "m_36147cb6d564",
+            "m_a946be9e6f87",
+            "m_e146f76edae8",
+            "m_f8fb92a07316",
+            "m_d8ea73ed4653",
+            "m_62d6180826d9",
+            "m_6ea16bd18cbc",
+            "m_82a38fb66da6",
+            "m_e7d31662bad0",
+            "m_411da396e78f",
+            "m_5a2e101aeb35",
+            "m_dd3a911e3091",
+            "m_c9b3539781b3",
+            "m_a23c8b560bda",
+            "m_214a3c62b6c9",
+            "m_fbee5a8ce223",
+            "m_7a7f516a08c5",
+            "m_23b39beb6c81",
+            "m_10069f722067",
+            "m_b2e76bdcd9bb",
+            "m_28fdbbcff1d4",
+            "m_dbd8cdbc1614",
+            "m_1e6d75a56ff0",
+            "m_116d30f558d6",
+            "m_9db9bdeda4e4",
+            "m_3b7390601996",
+            "m_ddcf47335813",
+            "m_2b3ea814f404",
+            "m_a4441d139b38",
+            "m_7a6019fd1249",
+            "m_ee402af58b5d",
+            "m_b7e13a7e42a9",
+            "m_e6123e04c8f3",
+            "m_bf846f2dee7b",
+            "m_c409703890a4",
+            "m_8eb82f4cdf1c",
+            "m_40ddc8e8ea81",
+            "m_72daa0b08a5c",
+            "m_df03e043319f",
+            "m_b14a4cd52a1c",
+            "m_a74683d582b0",
+            "m_fe74eb7a5150",
+            "m_aeb7b695cbe0",
+            "m_73cc1abbcf50",
+            "m_5368ad883e6a",
+            "m_03f6bc592d57",
+            "m_6ea6a85a3daf",
+            "m_edaf2263fa0b",
+            "m_0ff2079b184d",
+            "m_6735a0cc53be",
+            "m_a059289c24b1",
+            "m_2de639ab9a16",
+            "m_7d3211bcc76e",
+            "m_9d2e225a5829",
+            "m_5bd4cef17d82",
+            "m_593332cc6a8b",
+            "m_b56697a12e41",
+            "m_5e3c12c7be4b",
+            "m_e1ee9db260b5",
+            "m_c44e63c49da8",
+            "m_61505192d41d",
+            "m_abbe93b4562d",
+            "m_b1d8dccd3756",
+            "m_980c00356f3b",
+            "m_c913feee750a",
+            "m_6102b3307d8c",
+            "m_567dd3ae10a8",
+            "m_83f34cd3eefd",
+            "m_6310cc0af90d",
+            "m_1179ae238653",
+            "m_1aef1a91e274",
+            "m_62fe2f95497c",
+            "m_c5456a8d72d2",
+            "m_7b7ac1cab8a8"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_5973381aee1e",
+            "m_6a04abb292c5",
+            "m_91ced2c8708f",
+            "m_d0eb01e63b6c",
+            "m_a3c99f36a08f",
+            "m_c216571c56f1",
+            "m_36147cb6d564",
+            "m_a946be9e6f87",
+            "m_e146f76edae8",
+            "m_f8fb92a07316",
+            "m_d8ea73ed4653",
+            "m_62d6180826d9",
+            "m_6ea16bd18cbc",
+            "m_82a38fb66da6",
+            "m_e7d31662bad0",
+            "m_411da396e78f",
+            "m_5a2e101aeb35",
+            "m_dd3a911e3091",
+            "m_c9b3539781b3",
+            "m_a23c8b560bda",
+            "m_214a3c62b6c9",
+            "m_fbee5a8ce223",
+            "m_7a7f516a08c5",
+            "m_23b39beb6c81",
+            "m_10069f722067",
+            "m_b2e76bdcd9bb",
+            "m_28fdbbcff1d4",
+            "m_dbd8cdbc1614",
+            "m_1e6d75a56ff0",
+            "m_116d30f558d6",
+            "m_9db9bdeda4e4",
+            "m_3b7390601996",
+            "m_ddcf47335813",
+            "m_2b3ea814f404",
+            "m_a4441d139b38",
+            "m_7a6019fd1249",
+            "m_ee402af58b5d",
+            "m_b7e13a7e42a9",
+            "m_e6123e04c8f3",
+            "m_bf846f2dee7b",
+            "m_72daa0b08a5c",
+            "m_5368ad883e6a",
+            "m_0ff2079b184d",
+            "m_6735a0cc53be",
+            "m_2de639ab9a16",
+            "m_7d3211bcc76e",
+            "m_5bd4cef17d82",
+            "m_593332cc6a8b",
+            "m_b56697a12e41",
+            "m_e1ee9db260b5",
+            "m_61505192d41d",
+            "m_abbe93b4562d",
+            "m_980c00356f3b",
+            "m_c913feee750a",
+            "m_6102b3307d8c",
+            "m_567dd3ae10a8",
+            "m_83f34cd3eefd",
+            "m_6310cc0af90d",
+            "m_c5456a8d72d2",
+            "m_7b7ac1cab8a8"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_5973381aee1e",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Inspired Taste gives a full oven-roasted mushroom side: preparation, roasting, seasoning and serving. No flatbread assembly is taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/J8NHoRIGOcU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/J8NHoRIGOcU.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_6a04abb292c5",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Stovetop sauté lesson only; no tray roasting or assembled flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6fgASvNU5vk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6fgASvNU5vk.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_91ced2c8708f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Sauté method contrasts when to add oil in cast-iron/stainless frying pans, not oven-tray or flatbread preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6Aa3aFccue8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6Aa3aFccue8.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d0eb01e63b6c",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Garlic butter stovetop sauté recipe, suggested for steak or side; no roasting in oven or bread assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/cvaibAcAFvE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/cvaibAcAFvE.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a3c99f36a08f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native water-method teaching boils moisture from mushrooms and fries them; chapter on bread compares its internal structure, not a flatbread recipe.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OPJmJdStvwI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OPJmJdStvwI.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/OPJmJdStvwI.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_c216571c56f1",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native steps are basic stovetop sauté. The author links a separate roasted recipe; it is not taught in this video.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SMlmZjeE800.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SMlmZjeE800.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_36147cb6d564",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Breadcrumb-coated, shallow-fried slices served separately; neither the visible unbreaded oven tray nor bread assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lbxwsYjVgZE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/lbxwsYjVgZE.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a946be9e6f87",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Official storyboard shows stovetop sautéing sliced shiitake and plating them separately; no oven roasting or completed flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Gbo8deokDfg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Gbo8deokDfg.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/Gbo8deokDfg.json::public_previews",
+                "data/sources/upstream_detail_snapshots/youtube/Gbo8deokDfg.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_e146f76edae8",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native step-by-step water evaporation and frying in a pan, only to serve fried mushrooms separately.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ktrwSUhWDDE.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_f8fb92a07316",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Tips compilation merely names dish ideas including sheet pan mushrooms and pizza; chapters do not teach either complete applicable recipe.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GH-uuzK_6Xs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/GH-uuzK_6Xs.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_d8ea73ed4653",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native link and details concern air-fried mushrooms and onions, not a conventional oven tray or filled bread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/G-4WU4VPTTs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/G-4WU4VPTTs.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_62d6180826d9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Standalone stovetop-fried garlic mushrooms. No later flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Yu_mkN65E1I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Yu_mkN65E1I.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_6ea16bd18cbc",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Battered mushrooms are fried as a separate appetizer with dip; no roasting or making a flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xPvgaEIbz1A.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xPvgaEIbz1A.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_82a38fb66da6",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Author sautés mushrooms and onions in a stovetop pan. No separate oven method or flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/j37BOItHA0k.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/j37BOItHA0k.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_e7d31662bad0",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native chapters identify, trim and clean portobellos, not a complete cooked dish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fR0VfkOZsQA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fR0VfkOZsQA.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_411da396e78f",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native method sautés mushrooms with wine and rosemary in a skillet, with no oven or bread assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yEtlkePFIGM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yEtlkePFIGM.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_5a2e101aeb35",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "The author bakes sliced mushrooms and cheese on a flat metal tray and suggests eating the standalone dish with lavash. Official tiles 366–376 s show a single hand-held bite taken from the tray, not a prepared mushroom-filled flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7XRSioE_xQM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7XRSioE_xQM.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/7XRSioE_xQM.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_dd3a911e3091",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Roasts the potatoes, not the mushrooms; mushrooms go into a stovetop ragout/sauce.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/NxpN6IqAvcM.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_c9b3539781b3",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native recipe is only sautéed mushrooms; tortilla-warmer text appears among unrelated equipment links.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/eYU7uBeUBHk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/eYU7uBeUBHk.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_a23c8b560bda",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Small air-fryer basket mushroom side; no oven-tray option or use on a flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RS8H27nhoDw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RS8H27nhoDw.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_214a3c62b6c9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native pan sauté recipe suggests pasta, burger, pizza or eggs as ideas; does not teach ready-flatbread assembly or a tray-roasted dish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Fgqlptt9WY0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Fgqlptt9WY0.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_fbee5a8ce223",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native instructions fry mushrooms with aromatics in a pot; no conventional roast or flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/oA6HnoqOXkI.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_7a7f516a08c5",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Official tiles 35–71 s show the author roasting mushrooms on a tray; the finished mushrooms are served as a standalone antipasto. There are polenta and thick sliced-toast serving suggestions (106–124 s), but no thin flatbread assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TaA0fDH9y_s.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/TaA0fDH9y_s.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_23b39beb6c81",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Beef stroganoff with mushroom sauce; its roasted tenderloin is an unrelated video link.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7r3dlmYUf4s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7r3dlmYUf4s.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_10069f722067",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Standalone mushroom gravy for other dishes, no roasted mushroom side or ready flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/XSGEwqycung.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/XSGEwqycung.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b2e76bdcd9bb",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "One-skillet chicken with creamy mushroom sauce; mushrooms are not the standalone roast or filling.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8ITXgvh1b3Q.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_28fdbbcff1d4",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Oven tray method for eggplant as the main ingredient, not mushrooms or assembled bread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1_MuOnKtJRQ.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_dbd8cdbc1614",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Battered mushrooms deep-fried as a snack. No mushroom flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hBqYjD_q-3o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hBqYjD_q-3o.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_1e6d75a56ff0",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Stir-fried sliced mushrooms with spices, no conventional oven or flatbread recipe.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lDbEHOhiy10.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_116d30f558d6",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Pan-seared chicken served with mushroom gravy, not the visible dish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0-g-xoTOPAU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/0-g-xoTOPAU.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_9db9bdeda4e4",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Balsamic vegetables and mushrooms are grilled in a grill basket; they remain a stand-alone mixed side.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ocK7k-FhVWQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ocK7k-FhVWQ.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_3b7390601996",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Air-fryer portobellos as standalone dish; no corresponding bread assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/reWUB25pSxg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/reWUB25pSxg.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ddcf47335813",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Official preview shows a tray of peppers, potato, zucchini, carrots, sweet potatoes and garlic, not mushroom preparation; nothing placed on ready bread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Qg-f6UeJc-A.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/Qg-f6UeJc-A.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_2b3ea814f404",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Chicken thighs in mushroom sauce and a skillet are a different preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GMwpQqS9Srk.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_a4441d139b38",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Beef-and-mushroom recipe targets a different main ingredient, no established matching roast/assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Gk2__MI9fK8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Gk2__MI9fK8.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7a6019fd1249",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Steak with a creamy mushroom sauce, not whole pieces as stand-alone roast or as main bread filling.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/UgXd8bQLR3w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/UgXd8bQLR3w.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_ee402af58b5d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Roasts carrots, not mushrooms.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qYfoARhooHE.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_b7e13a7e42a9",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Bakes cauliflower steaks, not mushrooms.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/nzgnnMeSt0s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/nzgnnMeSt0s.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_e6123e04c8f3",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Lamb chop with mushrooms as accompaniment, not the same preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5-zMID6BCHY.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_bf846f2dee7b",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native steps dry-roast spices only and pan-fry mushrooms as masala; no tray-roasted mushrooms or bread assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vfqv-Su5-f8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vfqv-Su5-f8.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_72daa0b08a5c",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Official chapter and frames 110–146 s show the cook placing whipped cheese and sautéed mushrooms on a plate, arranging separate folded breads alongside, then taking a bite with the bread and salad. No assembled mushroom flatbread is presented as the dish, and no oven-roast method is shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/c7s4nbz2w6w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/c7s4nbz2w6w.json::chapters",
+                "data/sources/upstream_detail_snapshots/youtube/c7s4nbz2w6w.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5368ad883e6a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Wraps mushrooms and cheddar in phyllo and cooks the packed pastry on both sides, rather than placing a separately cooked mushroom filling on ready flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0fP6H8HfWnQ.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/0fP6H8HfWnQ.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_0ff2079b184d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "General flatbread/toastie promotional description; no verified cooked mushroom main topping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4eTJX0g2Bwo.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_6735a0cc53be",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "The native recipe focuses on gravy potatoes as the principal filling, with mushroom and onion as additions.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/w2yi-HHuscc.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_2de639ab9a16",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native instructions make a mushroom/arugula/pepperoni pizza from raw dough with an oven finish; does not show the same direct mushroom-to-ready-wrap application.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GPZ2J9bw4ww.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_7d3211bcc76e",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Official previews show unleavened breads cooked in a skillet, and separate skillet asparagus/vegetables; no cooked mushroom filling placed on ready bread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SIAkzs2aExU.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/SIAkzs2aExU.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_5bd4cef17d82",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "The official video loads bread with grilled halloumi and a pepper/onion-led pan mixture with some mushroom; mushrooms are not a principal topping.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Vb3meqf_Jgs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Vb3meqf_Jgs.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/Vb3meqf_Jgs.json::public_previews",
+                "data/sources/upstream_detail_snapshots/youtube/Vb3meqf_Jgs.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_593332cc6a8b",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Harissa chicken is explicitly the main ingredient and mushrooms accompany it in the layered bread; different main preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/JClKtH8Swgg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/JClKtH8Swgg.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_b56697a12e41",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native ingredients list ham, avocado, cheese and few mushrooms; title makes chicken a key ingredient. No separate mushroom-led route.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IIjdlIsJDG0.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_e1ee9db260b5",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "The only mushroom option is led by bacon; no distinct mushroom-main preparation is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/p5dYP0tzTV4.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_61505192d41d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Bread toast with dried mushrooms and egg; different bread and no cooked-mushroom flatbread assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/DHDP92YRito.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_abbe93b4562d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Official preparation uses sausage as a core component; no mushroom-led alternative is documented.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7iEZ8LJ-kCc.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_980c00356f3b",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Official frames show stovetop cooked mushroom slices put into uncooked layered phyllo for a pastry, not on ready flexible flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_tjKPYeJmiA.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/_tjKPYeJmiA.json::public_previews"
+              ]
+            },
+            {
+              "entity_id": "m_c913feee750a",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Opens and bakes an already-assembled frozen flatbread; no recipe for the observed operation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SKL-SlygWuY.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_6102b3307d8c",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native chapters stuff whole mushroom caps; the optional roti chapter uses a leftover mushroom-stem masala. Neither shows the already cooked mushroom pieces as a main filling.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Mh_wlNAirM0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Mh_wlNAirM0.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_567dd3ae10a8",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "The native recipe uses flattened multigrain loaf slices and is led by paneer; it does not show a mushroom-led flatbread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VNr7O_0Gfnw.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_83f34cd3eefd",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Lamb is the main ingredient, and the tutorial is about crisping it and serving it with bread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RgM5KMLjHDw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RgM5KMLjHDw.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_6310cc0af90d",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native recipe for herb flatbread dough; mushrooms are only a possible add-in, not a taught filling assembled onto ready bread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/C5_Ik1AuKZc.json::description"
+              ]
+            },
+            {
+              "entity_id": "m_c5456a8d72d2",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Native linked recipe is for meat kebabs with flatbreads, not mushrooms.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Bp21t6_hmJY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Bp21t6_hmJY.json::chapters"
+              ]
+            },
+            {
+              "entity_id": "m_7b7ac1cab8a8",
+              "ring": "core",
+              "why_plausible": "Appears in a complete native roasted mushroom or mushroom-flatbread recipe result window.",
+              "reason": "Commercial already-assembled frozen mushroom flatbread; no recipe showing cooking/assembly.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "independent_boundary_repaired_and_verified",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ywZxQcqe0sM.json::description"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "native_id": "J8NHoRIGOcU",
+              "entity_id": "m_5973381aee1e",
+              "title": "Perfect Roasted Mushrooms Recipe",
+              "before_rank": 1,
+              "after_rank": null,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Inspired Taste gives a full oven-roasted mushroom side: preparation, roasting, seasoning and serving. No flatbread assembly is taught.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/J8NHoRIGOcU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/J8NHoRIGOcU.json::chapters"
+              ]
+            },
+            {
+              "native_id": "6fgASvNU5vk",
+              "entity_id": "m_6a04abb292c5",
+              "title": "Made In Presents | How To Saute Mushrooms (ft. Chef Tom Colicchio)",
+              "before_rank": 2,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Stovetop sauté lesson only; no tray roasting or assembled flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6fgASvNU5vk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6fgASvNU5vk.json::chapters"
+              ]
+            },
+            {
+              "native_id": "6Aa3aFccue8",
+              "entity_id": "m_91ced2c8708f",
+              "title": "Stop Adding Oil First—This Makes Mushrooms Golden Brown | Japanese Chef",
+              "before_rank": 3,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Sauté method contrasts when to add oil in cast-iron/stainless frying pans, not oven-tray or flatbread preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/6Aa3aFccue8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/6Aa3aFccue8.json::chapters"
+              ]
+            },
+            {
+              "native_id": "cvaibAcAFvE",
+              "entity_id": "m_d0eb01e63b6c",
+              "title": "Recipe: Garlic Mushrooms – Earthy, Garlic-Glazed Perfection",
+              "before_rank": 4,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Garlic butter stovetop sauté recipe, suggested for steak or side; no roasting in oven or bread assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/cvaibAcAFvE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/cvaibAcAFvE.json::chapters"
+              ]
+            },
+            {
+              "native_id": "OPJmJdStvwI",
+              "entity_id": "m_a3c99f36a08f",
+              "title": "The wet method of cooking mushrooms",
+              "before_rank": 5,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native water-method teaching boils moisture from mushrooms and fries them; chapter on bread compares its internal structure, not a flatbread recipe.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/OPJmJdStvwI.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/OPJmJdStvwI.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/OPJmJdStvwI.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "SMlmZjeE800",
+              "entity_id": "m_c216571c56f1",
+              "title": "How to Cook Mushrooms Perfectly",
+              "before_rank": 6,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native steps are basic stovetop sauté. The author links a separate roasted recipe; it is not taught in this video.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SMlmZjeE800.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/SMlmZjeE800.json::chapters"
+              ]
+            },
+            {
+              "native_id": "lbxwsYjVgZE",
+              "entity_id": "m_36147cb6d564",
+              "title": "Crunchy Fried Mushrooms Recipe | Breaded Mushrooms",
+              "before_rank": 7,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Breadcrumb-coated, shallow-fried slices served separately; neither the visible unbreaded oven tray nor bread assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lbxwsYjVgZE.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/lbxwsYjVgZE.json::chapters"
+              ]
+            },
+            {
+              "native_id": "Gbo8deokDfg",
+              "entity_id": "m_a946be9e6f87",
+              "title": "How to Cook Shiitake Mushrooms : Comfort Food",
+              "before_rank": 8,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official storyboard shows stovetop sautéing sliced shiitake and plating them separately; no oven roasting or completed flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Gbo8deokDfg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Gbo8deokDfg.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/Gbo8deokDfg.json::public_previews",
+                "data/sources/upstream_detail_snapshots/youtube/Gbo8deokDfg.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "ktrwSUhWDDE",
+              "entity_id": "m_e146f76edae8",
+              "title": "How to cook mushrooms properly",
+              "before_rank": 9,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native step-by-step water evaporation and frying in a pan, only to serve fried mushrooms separately.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ktrwSUhWDDE.json::description"
+              ]
+            },
+            {
+              "native_id": "GH-uuzK_6Xs",
+              "entity_id": "m_f8fb92a07316",
+              "title": "The Biggest Mistakes Everyone Makes When Cooking Mushrooms",
+              "before_rank": 10,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Tips compilation merely names dish ideas including sheet pan mushrooms and pizza; chapters do not teach either complete applicable recipe.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GH-uuzK_6Xs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/GH-uuzK_6Xs.json::chapters"
+              ]
+            },
+            {
+              "native_id": "G-4WU4VPTTs",
+              "entity_id": "m_d8ea73ed4653",
+              "title": "Garlic Butter Mushrooms & Onions",
+              "before_rank": 11,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native link and details concern air-fried mushrooms and onions, not a conventional oven tray or filled bread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/G-4WU4VPTTs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/G-4WU4VPTTs.json::chapters"
+              ]
+            },
+            {
+              "native_id": "Yu_mkN65E1I",
+              "entity_id": "m_62d6180826d9",
+              "title": "This is my secret sauteed garlic mushroom recipe. It's so addictive!",
+              "before_rank": 12,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Standalone stovetop-fried garlic mushrooms. No later flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Yu_mkN65E1I.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Yu_mkN65E1I.json::chapters"
+              ]
+            },
+            {
+              "native_id": "xPvgaEIbz1A",
+              "entity_id": "m_6ea16bd18cbc",
+              "title": "The Easiest Way to Make FRIED MUSHROOMS",
+              "before_rank": 13,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Battered mushrooms are fried as a separate appetizer with dip; no roasting or making a flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/xPvgaEIbz1A.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/xPvgaEIbz1A.json::chapters"
+              ]
+            },
+            {
+              "native_id": "j37BOItHA0k",
+              "entity_id": "m_82a38fb66da6",
+              "title": "How to Saute Mushrooms and Onions | Simple and Fast",
+              "before_rank": 14,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Author sautés mushrooms and onions in a stovetop pan. No separate oven method or flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/j37BOItHA0k.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/j37BOItHA0k.json::chapters"
+              ]
+            },
+            {
+              "native_id": "fR0VfkOZsQA",
+              "entity_id": "m_e7d31662bad0",
+              "title": "Learn To Cook: How to Properly Prepare Portobello Mushrooms",
+              "before_rank": 15,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native chapters identify, trim and clean portobellos, not a complete cooked dish.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/fR0VfkOZsQA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/fR0VfkOZsQA.json::chapters"
+              ]
+            },
+            {
+              "native_id": "yEtlkePFIGM",
+              "entity_id": "m_411da396e78f",
+              "title": "How to Make the Best Sautéed Mushrooms with Red Wine and Rosemary",
+              "before_rank": 16,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native method sautés mushrooms with wine and rosemary in a skillet, with no oven or bread assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/yEtlkePFIGM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/yEtlkePFIGM.json::chapters"
+              ]
+            },
+            {
+              "native_id": "7XRSioE_xQM",
+              "entity_id": "m_5a2e101aeb35",
+              "title": "Vegetarian Baked Mushrooms with Cheese in Just 5 MINUTES! | Quick & Tasty Appetizer Recipe",
+              "before_rank": 17,
+              "after_rank": null,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The author bakes sliced mushrooms and cheese on a flat metal tray and suggests eating the standalone dish with lavash. Official tiles 366–376 s show a single hand-held bite taken from the tray, not a prepared mushroom-filled flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7XRSioE_xQM.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7XRSioE_xQM.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/7XRSioE_xQM.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "NxpN6IqAvcM",
+              "entity_id": "m_dd3a911e3091",
+              "title": "This Mushroom and Potato Ragout Is Better Than Any Diet. Vegan, Healthy, and Aromatic",
+              "before_rank": 18,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Roasts the potatoes, not the mushrooms; mushrooms go into a stovetop ragout/sauce.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/NxpN6IqAvcM.json::description"
+              ]
+            },
+            {
+              "native_id": "eYU7uBeUBHk",
+              "entity_id": "m_c9b3539781b3",
+              "title": "Everyone Should Know How To Saute Mushrooms Like This",
+              "before_rank": 19,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native recipe is only sautéed mushrooms; tortilla-warmer text appears among unrelated equipment links.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/eYU7uBeUBHk.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/eYU7uBeUBHk.json::chapters"
+              ]
+            },
+            {
+              "native_id": "RS8H27nhoDw",
+              "entity_id": "m_a23c8b560bda",
+              "title": "Tasty Air Fryer Mushrooms [Quick & Easy]",
+              "before_rank": 20,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Small air-fryer basket mushroom side; no oven-tray option or use on a flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RS8H27nhoDw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RS8H27nhoDw.json::chapters"
+              ]
+            },
+            {
+              "native_id": "Fgqlptt9WY0",
+              "entity_id": "m_214a3c62b6c9",
+              "title": "SHIITAKE MUSHROOMS RECIPE | how to cook shiitake mushrooms",
+              "before_rank": 21,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native pan sauté recipe suggests pasta, burger, pizza or eggs as ideas; does not teach ready-flatbread assembly or a tray-roasted dish.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Fgqlptt9WY0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Fgqlptt9WY0.json::chapters"
+              ]
+            },
+            {
+              "native_id": "oA6HnoqOXkI",
+              "entity_id": "m_fbee5a8ce223",
+              "title": "GARLIC MUSHROOM Recipe | Easy Vegetarian and Vegan Meals | Mushroom recipes",
+              "before_rank": 22,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native instructions fry mushrooms with aromatics in a pot; no conventional roast or flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/oA6HnoqOXkI.json::description"
+              ]
+            },
+            {
+              "native_id": "TaA0fDH9y_s",
+              "entity_id": "m_7a7f516a08c5",
+              "title": "Balsamic Marinated Mushrooms",
+              "before_rank": 23,
+              "after_rank": null,
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official tiles 35–71 s show the author roasting mushrooms on a tray; the finished mushrooms are served as a standalone antipasto. There are polenta and thick sliced-toast serving suggestions (106–124 s), but no thin flatbread assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/TaA0fDH9y_s.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/TaA0fDH9y_s.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "7r3dlmYUf4s",
+              "entity_id": "m_23b39beb6c81",
+              "title": "Easy Classic Beef Stroganoff Recipe - Natasha's Kitchen",
+              "before_rank": 24,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Beef stroganoff with mushroom sauce; its roasted tenderloin is an unrelated video link.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7r3dlmYUf4s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/7r3dlmYUf4s.json::chapters"
+              ]
+            },
+            {
+              "native_id": "XSGEwqycung",
+              "entity_id": "m_10069f722067",
+              "title": "Mushroom Gravy | Mushrooms in a Hearty Comforting Brown Gravy | How to Make Mushroom Gravy | Gravy",
+              "before_rank": 25,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Standalone mushroom gravy for other dishes, no roasted mushroom side or ready flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/XSGEwqycung.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/XSGEwqycung.json::chapters"
+              ]
+            },
+            {
+              "native_id": "8ITXgvh1b3Q",
+              "entity_id": "m_b2e76bdcd9bb",
+              "title": "Mushroom Chicken I Make 3 Times a Week! 😋 It Always Turns Out Perfect",
+              "before_rank": 26,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "One-skillet chicken with creamy mushroom sauce; mushrooms are not the standalone roast or filling.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8ITXgvh1b3Q.json::description"
+              ]
+            },
+            {
+              "native_id": "1_MuOnKtJRQ",
+              "entity_id": "m_28fdbbcff1d4",
+              "title": "Roasted Eggplant",
+              "before_rank": 27,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Oven tray method for eggplant as the main ingredient, not mushrooms or assembled bread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/1_MuOnKtJRQ.json::description"
+              ]
+            },
+            {
+              "native_id": "hBqYjD_q-3o",
+              "entity_id": "m_dbd8cdbc1614",
+              "title": "Crispy Fried Mushrooms | Now You're Cooking",
+              "before_rank": 28,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Battered mushrooms deep-fried as a snack. No mushroom flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hBqYjD_q-3o.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/hBqYjD_q-3o.json::chapters"
+              ]
+            },
+            {
+              "native_id": "lDbEHOhiy10",
+              "entity_id": "m_1e6d75a56ff0",
+              "title": "കൂൺ മെഴുക്കുപുരട്ടി | Mushroom Mezhukkupuratti - Kerala Style Recipe",
+              "before_rank": 29,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Stir-fried sliced mushrooms with spices, no conventional oven or flatbread recipe.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lDbEHOhiy10.json::description"
+              ]
+            },
+            {
+              "native_id": "0-g-xoTOPAU",
+              "entity_id": "m_116d30f558d6",
+              "title": "Chicken with Mushroom Gravy",
+              "before_rank": 30,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Pan-seared chicken served with mushroom gravy, not the visible dish.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0-g-xoTOPAU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/0-g-xoTOPAU.json::chapters"
+              ]
+            },
+            {
+              "native_id": "ocK7k-FhVWQ",
+              "entity_id": "m_9db9bdeda4e4",
+              "title": "Balsamic Grilled Zucchini and Mushrooms Recipe",
+              "before_rank": 31,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Balsamic vegetables and mushrooms are grilled in a grill basket; they remain a stand-alone mixed side.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ocK7k-FhVWQ.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/ocK7k-FhVWQ.json::chapters"
+              ]
+            },
+            {
+              "native_id": "reWUB25pSxg",
+              "entity_id": "m_3b7390601996",
+              "title": "Air Fryer Portobello Mushrooms [Quick & Easy]",
+              "before_rank": 32,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Air-fryer portobellos as standalone dish; no corresponding bread assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/reWUB25pSxg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/reWUB25pSxg.json::chapters"
+              ]
+            },
+            {
+              "native_id": "Qg-f6UeJc-A",
+              "entity_id": "m_ddcf47335813",
+              "title": "One Pan Roasted Vegetables - Super Easy Bake and forget!",
+              "before_rank": 33,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official preview shows a tray of peppers, potato, zucchini, carrots, sweet potatoes and garlic, not mushroom preparation; nothing placed on ready bread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Qg-f6UeJc-A.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/Qg-f6UeJc-A.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "GMwpQqS9Srk",
+              "entity_id": "m_2b3ea814f404",
+              "title": "Recipe: Garlic Mushroom Chicken Thighs – Savoury, Herb-Infused Comfort",
+              "before_rank": 34,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Chicken thighs in mushroom sauce and a skillet are a different preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GMwpQqS9Srk.json::description"
+              ]
+            },
+            {
+              "native_id": "Gk2__MI9fK8",
+              "entity_id": "m_a4441d139b38",
+              "title": "BEEF WITH MUSHROOMS",
+              "before_rank": 35,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Beef-and-mushroom recipe targets a different main ingredient, no established matching roast/assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Gk2__MI9fK8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Gk2__MI9fK8.json::chapters"
+              ]
+            },
+            {
+              "native_id": "UgXd8bQLR3w",
+              "entity_id": "m_7a6019fd1249",
+              "title": "Recipe: Garlic Butter Steak & Creamy Mushroom Sauce – Bold, Buttery Bliss",
+              "before_rank": 36,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Steak with a creamy mushroom sauce, not whole pieces as stand-alone roast or as main bread filling.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/UgXd8bQLR3w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/UgXd8bQLR3w.json::chapters"
+              ]
+            },
+            {
+              "native_id": "qYfoARhooHE",
+              "entity_id": "m_ee402af58b5d",
+              "title": "Recipe: Honey Garlic Butter Roasted Carrots – Sweet, Savoury Oven-Roasted Goodness",
+              "before_rank": 37,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Roasts carrots, not mushrooms.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/qYfoARhooHE.json::description"
+              ]
+            },
+            {
+              "native_id": "nzgnnMeSt0s",
+              "entity_id": "m_b7e13a7e42a9",
+              "title": "Roasted Cauliflower Steaks",
+              "before_rank": 38,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Bakes cauliflower steaks, not mushrooms.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/nzgnnMeSt0s.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/nzgnnMeSt0s.json::chapters"
+              ]
+            },
+            {
+              "native_id": "5-zMID6BCHY",
+              "entity_id": "m_e6123e04c8f3",
+              "title": "Mouth-watering Lamb Chop with Mushrooms Recipe | Jacques Pépin Cooking at Home  | KQED",
+              "before_rank": 39,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Lamb chop with mushrooms as accompaniment, not the same preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/5-zMID6BCHY.json::description"
+              ]
+            },
+            {
+              "native_id": "vfqv-Su5-f8",
+              "entity_id": "m_bf846f2dee7b",
+              "title": "Mushroom Pepper Fry Recipe | Easy Spicy Mushroom Masala | मशरूम काली मिर्च मसाला | Chef Sanjyot Keer",
+              "before_rank": 40,
+              "after_rank": null,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native steps dry-roast spices only and pan-fry mushrooms as masala; no tray-roasted mushrooms or bread assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/vfqv-Su5-f8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/vfqv-Su5-f8.json::chapters"
+              ]
+            },
+            {
+              "native_id": "54DylJUoCfY",
+              "entity_id": "m_c409703890a4",
+              "title": "Chargrilled Mushrooms & Courgette Flatbreads | Jamie Oliver",
+              "before_rank": null,
+              "after_rank": 1,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Chef teaches chargrilled mushrooms as a main topping on ready flatbread with courgette; mushrooms remain a main component and do not cook inside raw dough.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/54DylJUoCfY.json::description"
+              ]
+            },
+            {
+              "native_id": "igK75QtWVYk",
+              "entity_id": "m_8eb82f4cdf1c",
+              "title": "NKC - Flatbread uit de pan met oesterzwam shoarma",
+              "before_rank": null,
+              "after_rank": 2,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native author description explicitly fills cooked flatbreads with separately cooked seasoned oyster mushroom shawarma; seasoning and mushroom variety can differ.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/igK75QtWVYk.json::description"
+              ]
+            },
+            {
+              "native_id": "m1GfyjnhGXU",
+              "entity_id": "m_40ddc8e8ea81",
+              "title": "🎄VEGANES GENUSS-REZEPT | Knuspriger Pilz-Wrap [Selbst gemachtes Fladenbrot/Tortilla!]",
+              "before_rank": null,
+              "after_rank": 3,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The official video shows cooked crispy oyster mushrooms going directly on a tortilla as the main filling (native storyboard 148.48–196.00 s). Breading is an acceptable variation in preparing the mushroom topping; it does not change the purpose of the preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/m1GfyjnhGXU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/m1GfyjnhGXU.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "c7s4nbz2w6w",
+              "entity_id": "m_72daa0b08a5c",
+              "title": "Sauteed Wild Mushrooms, Cheese, Flatbread and Ramp Pickles",
+              "before_rank": null,
+              "after_rank": 4,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official chapter and frames 110–146 s show the cook placing whipped cheese and sautéed mushrooms on a plate, arranging separate folded breads alongside, then taking a bite with the bread and salad. No assembled mushroom flatbread is presented as the dish, and no oven-roast method is shown.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/c7s4nbz2w6w.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/c7s4nbz2w6w.json::chapters",
+                "data/sources/upstream_detail_snapshots/youtube/c7s4nbz2w6w.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "WjEwdX4F260",
+              "entity_id": "m_df03e043319f",
+              "title": "Grilled Oyster Mushrooms with Spicy Harissa Marinade on Flatbread (Grilling Series, Episode 9)",
+              "before_rank": null,
+              "after_rank": 5,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Explicit harissa-grilled mushroom flatbread assembly with mushroom as the filling. Grilling and marinade are variants; the useful late operation is putting already cooked mushrooms on bread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/WjEwdX4F260.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/WjEwdX4F260.json::chapters"
+              ]
+            },
+            {
+              "native_id": "GsQFLBVOCoE",
+              "entity_id": "m_b14a4cd52a1c",
+              "title": "Mushroom Wrap | Mushroom Recipes | Mushroom Mortar",
+              "before_rank": null,
+              "after_rank": 6,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Detailed native recipe cooks chopped mushrooms in a pan before spreading the mixture on an already-made flatbread with cheddar. Bread is subsequently warmed with the filling.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GsQFLBVOCoE.json::description"
+              ]
+            },
+            {
+              "native_id": "hhVlv3aL_2s",
+              "entity_id": "m_a74683d582b0",
+              "title": "Tortilla Wrap Recipe | Devilled Mushroom Wrap | Trending Tortilla | How to make Tortilla Wrap",
+              "before_rank": null,
+              "after_rank": 7,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native ingredients and assembly show already prepared devilled mushrooms as a distinct major filling in tortilla, with optional sauce and salad.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/hhVlv3aL_2s.json::description"
+              ]
+            },
+            {
+              "native_id": "VZwKE1gUjXg",
+              "entity_id": "m_fe74eb7a5150",
+              "title": "Mushroom Artichoke Flatbread",
+              "before_rank": null,
+              "after_rank": 8,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native storyboard first shows already cooked sliced mushrooms, then spreads them on a ready rectangular flatbread (20–38 s). Subsequent cheese/artichoke garnish and final warming are valid recipe variations.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VZwKE1gUjXg.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/VZwKE1gUjXg.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "28l4aqfN2aA",
+              "entity_id": "m_aeb7b695cbe0",
+              "title": "My Favorite Oyster Mushroom Shawarma with Zero Oil",
+              "before_rank": null,
+              "after_rank": 9,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Explicit oven-only or pan-to-oven mushroom browning plus seasoning; native wrap chapter and official previews show the cooked mushrooms used as the main filling on prepared flatbread. Portobello is an explicit alternative.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/28l4aqfN2aA.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/28l4aqfN2aA.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/28l4aqfN2aA.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "IXb6bHNkB5M",
+              "entity_id": "m_73cc1abbcf50",
+              "title": "Lavash with mushroom filling | mushroom dishes | mushroom roll",
+              "before_rank": null,
+              "after_rank": 10,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native directions separately cook the mushrooms then place them on already-made lavash and roll it; onion/cucumber are plausible additions.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IXb6bHNkB5M.json::description"
+              ]
+            },
+            {
+              "native_id": "0fP6H8HfWnQ",
+              "entity_id": "m_5368ad883e6a",
+              "title": "5 Minute Flatbread for Breakfast - Mushroom and Cheddar Cheese Flatbread Recipe",
+              "before_rank": null,
+              "after_rank": 11,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Wraps mushrooms and cheddar in phyllo and cooks the packed pastry on both sides, rather than placing a separately cooked mushroom filling on ready flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0fP6H8HfWnQ.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/0fP6H8HfWnQ.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "0HeMr_idGCs",
+              "entity_id": "m_03f6bc592d57",
+              "title": "Shroomy Sababa Wrap",
+              "before_rank": null,
+              "after_rank": 12,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native directions separately brown mushrooms and use them in the assembly on warm flatbread or pita; optional sweet potatoes and sauce do not replace the mushroom method.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/0HeMr_idGCs.json::description"
+              ]
+            },
+            {
+              "native_id": "mM0PxE1dtsc",
+              "entity_id": "m_6ea6a85a3daf",
+              "title": "Mushroom Flat Bread In Minutes! Vegetarian, Filling. MUSHROOM LOVERS! #mushrooms",
+              "before_rank": null,
+              "after_rank": 13,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official storyboard (6–77 s) cooks sliced mushrooms separately in a pan, then (107–131 s) transfers them to an already-made flatbread. Final quick bake melts cheese and is optional to the relevant assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/mM0PxE1dtsc.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/mM0PxE1dtsc.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "J2OII65gaKA",
+              "entity_id": "m_edaf2263fa0b",
+              "title": "Mushroom Flatbread with Chef Erik",
+              "before_rank": null,
+              "after_rank": 14,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official preview first grills the bread; 77–118 s then adds cooked mushrooms as a main topping on the ready flatbread, rather than serving them separately as a side.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/J2OII65gaKA.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/J2OII65gaKA.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "4eTJX0g2Bwo",
+              "entity_id": "m_0ff2079b184d",
+              "title": "Speedy Flatbreads | Jamie Oliver | ONE | Monday 8.30pm Channel 4 UK",
+              "before_rank": null,
+              "after_rank": 15,
+              "initial": "not_supported",
+              "final": "insufficient_evidence",
+              "reason": "General flatbread/toastie promotional description; no verified cooked mushroom main topping.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/4eTJX0g2Bwo.json::description"
+              ]
+            },
+            {
+              "native_id": "w2yi-HHuscc",
+              "entity_id": "m_6735a0cc53be",
+              "title": "Delicious Gravy Potato Wrap with Sauteed Mushrooms & Onions, No Oil",
+              "before_rank": null,
+              "after_rank": 16,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe focuses on gravy potatoes as the principal filling, with mushroom and onion as additions.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/w2yi-HHuscc.json::description"
+              ]
+            },
+            {
+              "native_id": "Umm1yM6pxk0",
+              "entity_id": "m_a059289c24b1",
+              "title": "Healthy Vegetable Grilled Wrap | Vegetable Roll | Oyster Mushroom Grilled Wrap | Easy Wrap Recipe",
+              "before_rank": null,
+              "after_rank": 17,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native directions explicitly stir-fry mushrooms as the named main ingredient then assemble with a separately cooked flatbread. Sauce and vegetables can vary.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Umm1yM6pxk0.json::description"
+              ]
+            },
+            {
+              "native_id": "GPZ2J9bw4ww",
+              "entity_id": "m_2de639ab9a16",
+              "title": "Cooking With Kitchen Pride - Mushroom Flatbread",
+              "before_rank": null,
+              "after_rank": 18,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native instructions make a mushroom/arugula/pepperoni pizza from raw dough with an oven finish; does not show the same direct mushroom-to-ready-wrap application.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/GPZ2J9bw4ww.json::description"
+              ]
+            },
+            {
+              "native_id": "SIAkzs2aExU",
+              "entity_id": "m_7d3211bcc76e",
+              "title": "Asparagus / Mushrooms / Onions / Unleavened Bread / Feast Of Unleavened Bread",
+              "before_rank": null,
+              "after_rank": 19,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official previews show unleavened breads cooked in a skillet, and separate skillet asparagus/vegetables; no cooked mushroom filling placed on ready bread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SIAkzs2aExU.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/SIAkzs2aExU.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "SFH2SjxGzBE",
+              "entity_id": "m_9d2e225a5829",
+              "title": "Paneer Mushroom Pita Wrap",
+              "before_rank": null,
+              "after_rank": 20,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official frames show cooked sliced mushrooms and paneer, then placing them together inside a ready pita (29–40 s). Paneer is an optional co-filling, not a required trait inferred from wearer footage.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SFH2SjxGzBE.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/SFH2SjxGzBE.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "Vb3meqf_Jgs",
+              "entity_id": "m_5bd4cef17d82",
+              "title": "20 minute Halloumi Mushroom and Pepper Wrap",
+              "before_rank": null,
+              "after_rank": 21,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The official video loads bread with grilled halloumi and a pepper/onion-led pan mixture with some mushroom; mushrooms are not a principal topping.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Vb3meqf_Jgs.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Vb3meqf_Jgs.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/Vb3meqf_Jgs.json::public_previews",
+                "data/sources/upstream_detail_snapshots/youtube/Vb3meqf_Jgs.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "JClKtH8Swgg",
+              "entity_id": "m_593332cc6a8b",
+              "title": "Harrisa Chicken Mushroom Flat Bread Recipe by Food Fusion",
+              "before_rank": null,
+              "after_rank": 22,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Harissa chicken is explicitly the main ingredient and mushrooms accompany it in the layered bread; different main preparation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/JClKtH8Swgg.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/JClKtH8Swgg.json::chapters"
+              ]
+            },
+            {
+              "native_id": "IIjdlIsJDG0",
+              "entity_id": "m_b56697a12e41",
+              "title": "Grilled wraps with chicken and mushrooms",
+              "before_rank": null,
+              "after_rank": 23,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native ingredients list ham, avocado, cheese and few mushrooms; title makes chicken a key ingredient. No separate mushroom-led route.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/IIjdlIsJDG0.json::description"
+              ]
+            },
+            {
+              "native_id": "7k7khBkjKjg",
+              "entity_id": "m_5e3c12c7be4b",
+              "title": "Garlic Mushroom Flatbread on the Blackstone Griddle",
+              "before_rank": null,
+              "after_rank": 24,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The native Blackstone instructions brown sliced mushrooms, warm ready-made flatbreads, then spread the mushrooms as the main topping. Bacon is named in the prose but does not appear in the directions as part of that mushroom process.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7k7khBkjKjg.json::description"
+              ]
+            },
+            {
+              "native_id": "p5dYP0tzTV4",
+              "entity_id": "m_e1ee9db260b5",
+              "title": "How To Make The Best 'Bacon & Mushroom Pitta Bread' or 'Egg & Cheese Breakfast Wrap'",
+              "before_rank": null,
+              "after_rank": 25,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The only mushroom option is led by bacon; no distinct mushroom-main preparation is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/p5dYP0tzTV4.json::description"
+              ]
+            },
+            {
+              "native_id": "17ed0208NdU",
+              "entity_id": "m_c44e63c49da8",
+              "title": "Healthy Vegan Summer Meal Idea - Jerk Pulled Mushroom Wraps!",
+              "before_rank": null,
+              "after_rank": 26,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native directions and storyboard explicitly roast seasoned mushrooms on a baking sheet, then add the cooked mushrooms to a ready flatbread or lettuce alternative; flatbread is an explicit valid route.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/17ed0208NdU.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/17ed0208NdU.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/17ed0208NdU.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "DHDP92YRito",
+              "entity_id": "m_61505192d41d",
+              "title": "How to make Homemade Bread Toast with Mushrooms.",
+              "before_rank": null,
+              "after_rank": 27,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Bread toast with dried mushrooms and egg; different bread and no cooked-mushroom flatbread assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/DHDP92YRito.json::description"
+              ]
+            },
+            {
+              "native_id": "7iEZ8LJ-kCc",
+              "entity_id": "m_abbe93b4562d",
+              "title": "Cheesy Mushroom and Sausage Flatbread Cooked on Fire in the Forest",
+              "before_rank": null,
+              "after_rank": 28,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official preparation uses sausage as a core component; no mushroom-led alternative is documented.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/7iEZ8LJ-kCc.json::description"
+              ]
+            },
+            {
+              "native_id": "8GiArjr4Wjo",
+              "entity_id": "m_b1d8dccd3756",
+              "title": "Looking for a Healthy easy meal option? Try this Roasted Vegetable herbed ricotta lavash flatbread!",
+              "before_rank": null,
+              "after_rank": 29,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native description, official frames 16–24 and 62–83 s, and the linked author recipe show thin-cut portobello oven-roasted, then layered on ready lavash before rolling. The author explicitly permits substituting other vegetables.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/8GiArjr4Wjo.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/8GiArjr4Wjo.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "_tjKPYeJmiA",
+              "entity_id": "m_980c00356f3b",
+              "title": "Wild mushroom phyllo wrap",
+              "before_rank": null,
+              "after_rank": 30,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Official frames show stovetop cooked mushroom slices put into uncooked layered phyllo for a pastry, not on ready flexible flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/_tjKPYeJmiA.json::description",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/_tjKPYeJmiA.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "SKL-SlygWuY",
+              "entity_id": "m_c913feee750a",
+              "title": "Trader Joe's Wild Mushroom & Black Truffle Flatbread Part two",
+              "before_rank": null,
+              "after_rank": 31,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Opens and bakes an already-assembled frozen flatbread; no recipe for the observed operation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/SKL-SlygWuY.json::description"
+              ]
+            },
+            {
+              "native_id": "Mh_wlNAirM0",
+              "entity_id": "m_6102b3307d8c",
+              "title": "cheese stuffed mushrooms | స్టఫ్డ్ మష్రూమ్ | चीज़ ​मशरुम | rotipizza | rotiwrap | specialdesirecipes",
+              "before_rank": null,
+              "after_rank": 32,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native chapters stuff whole mushroom caps; the optional roti chapter uses a leftover mushroom-stem masala. Neither shows the already cooked mushroom pieces as a main filling.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Mh_wlNAirM0.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Mh_wlNAirM0.json::chapters"
+              ]
+            },
+            {
+              "native_id": "VNr7O_0Gfnw",
+              "entity_id": "m_567dd3ae10a8",
+              "title": "Paneer Mushroom Bread Roll | @belezzafitness | Diet Recipe | Food for Weight Loss",
+              "before_rank": null,
+              "after_rank": 33,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The native recipe uses flattened multigrain loaf slices and is led by paneer; it does not show a mushroom-led flatbread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/VNr7O_0Gfnw.json::description"
+              ]
+            },
+            {
+              "native_id": "RgM5KMLjHDw",
+              "entity_id": "m_83f34cd3eefd",
+              "title": "Crispy Lamb Flatbreads | Jamie Oliver",
+              "before_rank": null,
+              "after_rank": 34,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Lamb is the main ingredient, and the tutorial is about crisping it and serving it with bread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/RgM5KMLjHDw.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/RgM5KMLjHDw.json::chapters"
+              ]
+            },
+            {
+              "native_id": "C5_Ik1AuKZc",
+              "entity_id": "m_6310cc0af90d",
+              "title": "Herb Flatbread | Around The Table",
+              "before_rank": null,
+              "after_rank": 35,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native recipe for herb flatbread dough; mushrooms are only a possible add-in, not a taught filling assembled onto ready bread.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/C5_Ik1AuKZc.json::description"
+              ]
+            },
+            {
+              "native_id": "jS-JqduDJec",
+              "entity_id": "m_1179ae238653",
+              "title": "Portobello Mushroom Shawarma on Homemade Pita Bread",
+              "before_rank": null,
+              "after_rank": 36,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native full instructions pan-press, season and brown portobellos, then put them as the centerpiece on warm ready pita. The mushroom-roasting appliance need not be copied to use this assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/jS-JqduDJec.json::description"
+              ]
+            },
+            {
+              "native_id": "YV3fPJu6a3o",
+              "entity_id": "m_1aef1a91e274",
+              "title": "What's for lunch: Mushroom Wraps 🍄🌯",
+              "before_rank": null,
+              "after_rank": 37,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native ingredient lists and method show cooked mushroom masala as a distinct filling on ready lachha paratha; yogurt is optional.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/YV3fPJu6a3o.json::description"
+              ]
+            },
+            {
+              "native_id": "lA4FroI5Ly8",
+              "entity_id": "m_62fe2f95497c",
+              "title": "Chef's plate/ Mediterranean mushroom and kale flatbread",
+              "before_rank": null,
+              "after_rank": 38,
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native chapters and official storyboard ~88–234 s cook the sliced mushrooms and kale before topping flatbread. Mushroom remains a major topping; optional greens and cheese do not change the operation.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/lA4FroI5Ly8.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/lA4FroI5Ly8.json::chapters",
+                ".scratch/refresh-scout-reuse-20261105/mushroom-details/lA4FroI5Ly8.json::public_previews"
+              ]
+            },
+            {
+              "native_id": "Bp21t6_hmJY",
+              "entity_id": "m_c5456a8d72d2",
+              "title": "Kebabs & Homemade Flatbreads | Jamie's £1 Wonders & Money-Saving Meals | Channel 4, Mondays, 8pm",
+              "before_rank": null,
+              "after_rank": 39,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native linked recipe is for meat kebabs with flatbreads, not mushrooms.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/Bp21t6_hmJY.json::description",
+                "data/sources/upstream_detail_snapshots/youtube/Bp21t6_hmJY.json::chapters"
+              ]
+            },
+            {
+              "native_id": "ywZxQcqe0sM",
+              "entity_id": "m_7b7ac1cab8a8",
+              "title": "Trader  Joe's Wild Mushroom & Black Truffle Flatbread Part one",
+              "before_rank": null,
+              "after_rank": 40,
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Commercial already-assembled frozen mushroom flatbread; no recipe showing cooking/assembly.",
+              "evidence_refs": [
+                "data/sources/upstream_detail_snapshots/youtube/ywZxQcqe0sM.json::description"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters",
+            "public_previews",
+            "linked_manufacturer_instructions"
+          ],
+          "answer_boundary_rule": "Opening: the wearer has tray-roasted mushrooms; an oven-roasted mushroom side is a reasonable provisional recipe, and a mushroom dish with optional or still unseen assembly may also fit. Terminal: show serving mushrooms as a main topping/filling by placing cooked pieces on a ready thin flatbread. Accept an applicable separate cooking method plus this assembly, optional sauce and vegetables, and open or folded presentations. Do not require a mushroom species, bread type, appliance brand, exact seasonings, visible cheese, or a completed fold. Dipping or serving a separate bread side is not the observed assembly, nor is teaching raw dough or merely reheating a commercial ready meal.",
+          "landing_semantic_review": {
+            "status": "independent_boundary_repaired_and_verified",
+            "reviewer": "/root/blind_0506",
+            "scope": "Both full native search windows, plausible opening versus verified final variants and actual site search.",
+            "evidence_refs": [
+              "data/sources/search_snapshots/candidate-media-refresh-replace-2026110506.json",
+              ".scratch/refresh-scout-reuse-20261105/adversarial-review.json"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

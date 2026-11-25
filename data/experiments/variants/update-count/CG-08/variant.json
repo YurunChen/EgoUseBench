@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "pair_id": "CG-08",
+  "id": "CG-08-update-count",
+  "source_task_path": "data/experiments/composite/CG-08.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 28.0,
+      "request": "Keep it under $60."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 36.0,
+      "request": "Keep it under $40. I only need this as a backup."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "p_47246a89c470"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "p_df7ff0bb7df7"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "28秒无Refresh；原C确定右侧长方砧板。Utoplike单块长方板$139.99和FARBERWARE长方板$54.61均可作不限尺寸材料的初始备件。",
+    "public_facts": [
+      {
+        "entity_id": "p_47246a89c470",
+        "path": [
+          "price"
+        ],
+        "equals": "$139.99"
+      },
+      {
+        "entity_id": "p_df7ff0bb7df7",
+        "path": [
+          "price"
+        ],
+        "equals": "$54.61"
+      },
+      {
+        "entity_id": "p_df7ff0bb7df7",
+        "path": [
+          "name"
+        ],
+        "equals": "FARBERWARE Rectangular Build-a-Board Cutting Board with Single Compartment and Clear Locking Lid for Charcuterie, Snacks, and More, Bamboo"
+      },
+      {
+        "entity_id": "p_47246a89c470",
+        "path": [
+          "name"
+        ],
+        "equals": "Utoplike One-Piece Teak Cutting Board, Large Wooden Butcher Block 22 x 14"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "price",
+      "entity_id_by_state": {
+        "excluded_state": "p_47246a89c470",
+        "retained_state": "p_df7ff0bb7df7"
+      },
+      "operator": "<",
+      "value": 60
+    },
+    "original_request_effect": "原$40改口再排除$54.61，原16种低于$40的最终状态仍有效。"
+  }
+}

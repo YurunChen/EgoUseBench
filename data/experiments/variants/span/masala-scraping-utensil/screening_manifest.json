@@ -1,0 +1,2437 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "HD-EPIC official Bristol research distribution; original recording attribution retained. User confirmed dataset authorization."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102511",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P04-20240414-170520__310-822",
+        "original_video_id": "P04-20240414-170520",
+        "media_start_seconds": 310,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P04-20240414-170520__310-822.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P04/P04-20240414-170520.mp4",
+        "record_ids": [],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "whisk-bowl",
+            "interval_seconds": [
+              311,
+              312
+            ],
+            "description": "A whisk mixes contents in a white handleless bowl."
+          },
+          {
+            "event_id": "spatula-scrapes-spoon",
+            "interval_seconds": [
+              709,
+              710
+            ],
+            "description": "A broad wooden spatula scrapes food off a metal spoon held separately."
+          },
+          {
+            "event_id": "salt-seasoning",
+            "interval_seconds": [
+              804,
+              805
+            ],
+            "description": "A seasoning container is handled; the spatula rests on the board, without active stirring in cookware."
+          },
+          {
+            "event_id": "spatula-two-grip-pan",
+            "interval_seconds": [
+              738,
+              739
+            ],
+            "description": "The same broad wooden spatula stirs food in a cooking pan with two opposing short side handles."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact cookware brand, size, capacity or retail identity",
+          "Independent camera wearer; this is a new recording from existing HD-EPIC participant P08"
+        ]
+      },
+      "screening": {
+        "real_user_need": "Prepare two batches at once using a spare of the vessel identified through the observed tool-use relation.",
+        "scope_note": "Independent semantic review completed; executable pair consistency checked separately.",
+        "proposed_instruction": "Next time I want to prepare two batches at once. Add one spare pan or bowl with the same handle layout as one of the vessels I used here. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_311.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_312.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_709.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_710.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_738.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_739.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_804.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_805.jpg"
+          ],
+          "timestamps_seconds": [
+            311,
+            312,
+            709,
+            710,
+            738,
+            739,
+            804,
+            805
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the model link the identifying scraping action to the cookware-use relation across more observed events?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The handleless bowl and the two-side-grip cooking pan are both observed vessels.",
+        "belief_after": "The utensil scraping food off the spoon is later used to stir in the two-side-grip cooking pan.",
+        "required_behavior_change": "Link the two necessary actions and add one matching spare vessel.",
+        "no_update_failure": "The same full reference is supplied upfront in both conditions.",
+        "overupdate_failure": "Adding both vessel types does not satisfy the one-vessel request.",
+        "visual_dependency_claim": "oracle没有命名把手布局；网站同时存在无柄碗、长柄锅、双短柄锅。无画面不能确定目标布局。",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Next time I want to prepare two batches at once. Add one spare pan or bowl with the same handle layout as one of the vessels I used here. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine.",
+          "oracle_instruction": "Next time I want to prepare two batches at once. Add one spare pan or bowl with the same handle layout as the vessel I stirred using the utensil that scraped food off the spoon. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "target_pan",
+            "other_bowl"
+          ],
+          "hidden_target_role": "target_pan",
+          "valid_slot": "sequence",
+          "canonical_question": "Which pan or bowl do you mean?",
+          "canonical_answer": "The one I stirred with the utensil I used to scrape food off the spoon.",
+          "environment_role_ids": {
+            "target_pan": "p_abfa5dea3a27",
+            "other_bowl": "p_6afb3ad7e2f9"
+          },
+          "equivalent_role_ids": {
+            "target_pan": [
+              "p_c2f035d6e809",
+              "p_be8c769e28e4",
+              "p_eb3a11817fb8",
+              "p_4bf146b995a6",
+              "p_205a79979420",
+              "p_98b64e0c683c",
+              "p_d1630c0d4e62",
+              "p_c64d753347bb",
+              "p_27ee3e1034be",
+              "p_09377755048d",
+              "p_9f7d998f3adb",
+              "p_cbce64d62acc",
+              "p_66143dc926f6",
+              "p_bd4149488988",
+              "p_93164381c2e2",
+              "p_96c6154bb549",
+              "p_7d30dbc8a7e8",
+              "p_f1a8da822c65",
+              "p_bb81ddff78de",
+              "p_bc7928161fe9",
+              "p_f8f2b99b669b",
+              "p_473ba701a051",
+              "p_b9ce1159f372",
+              "p_f9539605c8ba",
+              "p_26cfa070f582",
+              "p_e2d80b30b779",
+              "p_5ea98d8e5784",
+              "p_85aae0196078",
+              "p_3078891182d0",
+              "p_02146ab7d2c9",
+              "p_29ffa86c4af5"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "single kadai two handles",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026101706--before_change_outer.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-2026101706",
+              "snapshot_stage": "before_change_outer",
+              "result_entity_ids": [
+                "p_26cfa070f582",
+                "p_96c6154bb549",
+                "p_4bf146b995a6",
+                "p_3078891182d0",
+                "p_472af6893c95",
+                "p_93164381c2e2",
+                "p_495654168038",
+                "p_d1630c0d4e62",
+                "p_eb3a11817fb8",
+                "p_abfa5dea3a27",
+                "p_5ea98d8e5784",
+                "p_7d30dbc8a7e8",
+                "p_66143dc926f6",
+                "p_e2d80b30b779",
+                "p_c2167c990e27",
+                "p_bb81ddff78de",
+                "p_bd4149488988",
+                "p_32b8c7de57ab",
+                "p_bc7928161fe9",
+                "p_e8b2dbfd495e",
+                "p_f9539605c8ba",
+                "p_0052b544e8d0",
+                "p_27ee3e1034be",
+                "p_f1a8da822c65",
+                "p_9f7d998f3adb",
+                "p_205a79979420",
+                "p_98b64e0c683c",
+                "p_09377755048d",
+                "p_b9ce1159f372",
+                "p_75b7c3d32064",
+                "p_0be980c0a797",
+                "p_50516d2ab20d",
+                "p_29ffa86c4af5",
+                "p_cbce64d62acc",
+                "p_c64d753347bb",
+                "p_f8f2b99b669b",
+                "p_be8c769e28e4",
+                "p_85aae0196078",
+                "p_f33e8fdb0203",
+                "p_be870ea0529d",
+                "p_ede9ea5b0df6",
+                "p_c2f035d6e809",
+                "p_f99f79592343",
+                "p_8eeb880e742f",
+                "p_48be0f649818",
+                "p_473ba701a051",
+                "p_02146ab7d2c9",
+                "p_defa9aad0b1b"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "single round bowl",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026101706--after_change.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-2026101706",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_b1203bcb9b41",
+                "p_3db30a4c7df3",
+                "p_c736b815b22d",
+                "p_974c315c0ddf",
+                "p_e15c1831362b",
+                "p_4970c7aa7dea",
+                "p_c3006f800343",
+                "p_83fb7735c857",
+                "p_92eb99a6ce50",
+                "p_094c2d797572",
+                "p_4049be28e96a",
+                "p_45e9df3a6f89",
+                "p_038177ea7c4c",
+                "p_d1e2c1b4504a",
+                "p_7f09a58ca5e5",
+                "p_02f7f87d5b5f",
+                "p_10b51218457d",
+                "p_6afb3ad7e2f9",
+                "p_b447b3fb5d2a",
+                "p_4e49288631df",
+                "p_9917c580f3b1",
+                "p_99cad0791444",
+                "p_947649f1a87a",
+                "p_aa2053e18e40",
+                "p_f93ad21f4c6a",
+                "p_38bdfc6c797f",
+                "p_a8f4de5dd79c",
+                "p_fe81fa221b11",
+                "p_d6ef9bb344ae",
+                "p_a826b72fd51f",
+                "p_0ad099710d8e",
+                "p_c4ddf091f748",
+                "p_164c309c14d1",
+                "p_e0b44c7e2c0e",
+                "p_4642732ec754",
+                "p_7933da5cb09a",
+                "p_e911998c71c9",
+                "p_541c95e06aaf",
+                "p_6d70350b03ae",
+                "p_f9d2404a8a20",
+                "p_ad0a7d869085",
+                "p_4280c20066d9",
+                "p_c682e079daae",
+                "p_0e80cedb1cba",
+                "p_3f8ca123c8f6",
+                "p_9ec7488e594b",
+                "p_53b289e54d3e",
+                "p_d65bcaf918eb"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_26cfa070f582",
+            "p_96c6154bb549",
+            "p_4bf146b995a6",
+            "p_3078891182d0",
+            "p_472af6893c95",
+            "p_93164381c2e2",
+            "p_495654168038",
+            "p_d1630c0d4e62",
+            "p_eb3a11817fb8",
+            "p_abfa5dea3a27",
+            "p_5ea98d8e5784",
+            "p_7d30dbc8a7e8",
+            "p_66143dc926f6",
+            "p_e2d80b30b779",
+            "p_c2167c990e27",
+            "p_bb81ddff78de",
+            "p_bd4149488988",
+            "p_32b8c7de57ab",
+            "p_bc7928161fe9",
+            "p_e8b2dbfd495e",
+            "p_f9539605c8ba",
+            "p_0052b544e8d0",
+            "p_27ee3e1034be",
+            "p_f1a8da822c65",
+            "p_9f7d998f3adb",
+            "p_205a79979420",
+            "p_98b64e0c683c",
+            "p_09377755048d",
+            "p_b9ce1159f372",
+            "p_75b7c3d32064",
+            "p_0be980c0a797",
+            "p_50516d2ab20d",
+            "p_29ffa86c4af5",
+            "p_cbce64d62acc",
+            "p_c64d753347bb",
+            "p_f8f2b99b669b",
+            "p_be8c769e28e4",
+            "p_85aae0196078",
+            "p_f33e8fdb0203",
+            "p_be870ea0529d",
+            "p_ede9ea5b0df6",
+            "p_c2f035d6e809",
+            "p_f99f79592343",
+            "p_8eeb880e742f",
+            "p_48be0f649818",
+            "p_473ba701a051",
+            "p_02146ab7d2c9",
+            "p_defa9aad0b1b",
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_472af6893c95",
+            "p_495654168038",
+            "p_32b8c7de57ab"
+          ],
+          "related_entity_ids": [
+            "p_c2167c990e27",
+            "p_e8b2dbfd495e",
+            "p_0052b544e8d0",
+            "p_75b7c3d32064",
+            "p_0be980c0a797",
+            "p_50516d2ab20d",
+            "p_f33e8fdb0203",
+            "p_be870ea0529d",
+            "p_ede9ea5b0df6",
+            "p_f99f79592343",
+            "p_8eeb880e742f",
+            "p_48be0f649818",
+            "p_defa9aad0b1b",
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_472af6893c95",
+              "ring": "core",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "三个双侧柄锅的套装；题面只要一口锅。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_495654168038",
+              "ring": "core",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "一个长柄加一个短辅柄，不等于两个短侧柄。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c2167c990e27",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_32b8c7de57ab",
+              "ring": "core",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "单长柄saucier，非双侧短柄。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e8b2dbfd495e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0052b544e8d0",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_75b7c3d32064",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0be980c0a797",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_50516d2ab20d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f33e8fdb0203",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_be870ea0529d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_ede9ea5b0df6",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f99f79592343",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_8eeb880e742f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_48be0f649818",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_defa9aad0b1b",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "一个长柄加一个短辅柄，不等于两个短侧柄。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_b1203bcb9b41",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_3db30a4c7df3",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c736b815b22d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_974c315c0ddf",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e15c1831362b",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4970c7aa7dea",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c3006f800343",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_83fb7735c857",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_92eb99a6ce50",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_094c2d797572",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4049be28e96a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_45e9df3a6f89",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_038177ea7c4c",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_d1e2c1b4504a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_7f09a58ca5e5",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_02f7f87d5b5f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_10b51218457d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_6afb3ad7e2f9",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_b447b3fb5d2a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4e49288631df",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_9917c580f3b1",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_99cad0791444",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_947649f1a87a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_aa2053e18e40",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f93ad21f4c6a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_38bdfc6c797f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_a8f4de5dd79c",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_fe81fa221b11",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_d6ef9bb344ae",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_a826b72fd51f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0ad099710d8e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c4ddf091f748",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_164c309c14d1",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e0b44c7e2c0e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4642732ec754",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_7933da5cb09a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e911998c71c9",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_541c95e06aaf",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_6d70350b03ae",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f9d2404a8a20",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_ad0a7d869085",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4280c20066d9",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c682e079daae",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0e80cedb1cba",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_3f8ca123c8f6",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_9ec7488e594b",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_53b289e54d3e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_d65bcaf918eb",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "verified",
+            "reason": ".scratch/expand-variables-20261025/masala-fresh/review.json"
+          }
+        },
+        "decision": {
+          "candidates": {
+            "target_pan": "p_abfa5dea3a27",
+            "other_bowl": "p_6afb3ad7e2f9"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "target_pan"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The utensil scraping food off the spoon is later used to stir in the two-side-grip cooking pan."
+            }
+          ],
+          "established_by": "/root/span_masala_fresh",
+          "established_at": "2026-10-25"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-25",
+          "scope": "wording_only",
+          "reason": "Bind the requested handle layout explicitly to the vessel, not the nearby utensil noun.",
+          "previous_instructions": {
+            "ambiguous": "Next time I want to prepare two batches at once. Add a spare like one of the pans or bowls I used here. Match its handle arrangement. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine.",
+            "oracle": "Next time I want to prepare two batches at once. Add a spare like the pan or bowl I stirred with the utensil I used to scrape food off the spoon. Match its handle arrangement. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine."
+          },
+          "semantic_review": "/root/span_review_current targeted wording judgment; prior video and answer reviews retained."
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A whisk mixes contents in a white handleless bowl.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "A broad wooden spatula scrapes food off a metal spoon held separately.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "A seasoning container is handled; the spatula rests on the board, without active stirring in cookware.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        },
+        {
+          "text": "The same broad wooden spatula stirs food in a cooking pan with two opposing short side handles.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102512",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "dataset": "HD-EPIC",
+        "media_id": "P04-20240414-170520__310-822",
+        "original_video_id": "P04-20240414-170520",
+        "media_start_seconds": 310,
+        "original_video_path": "reference/sources/HD-EPIC/clips-screened/P04-20240414-170520__310-822.mp4",
+        "original_video_url": "https://data.bris.ac.uk/datasets/3cqb5b81wk2dc2379fx1mrxh47/Videos/P04/P04-20240414-170520.mp4",
+        "record_ids": [],
+        "annotation_source": {
+          "path": "reference/sources/HD-EPIC/annotations/narrations-and-action-segments/HD_EPIC_Narrations.pkl"
+        },
+        "observed_events": [
+          {
+            "event_id": "whisk-bowl",
+            "interval_seconds": [
+              311,
+              312
+            ],
+            "description": "A whisk mixes contents in a white handleless bowl."
+          },
+          {
+            "event_id": "spatula-scrapes-spoon",
+            "interval_seconds": [
+              709,
+              710
+            ],
+            "description": "A broad wooden spatula scrapes food off a metal spoon held separately."
+          },
+          {
+            "event_id": "salt-seasoning",
+            "interval_seconds": [
+              804,
+              805
+            ],
+            "description": "A seasoning container is handled; the spatula rests on the board, without active stirring in cookware."
+          },
+          {
+            "event_id": "spatula-two-grip-pan",
+            "interval_seconds": [
+              819,
+              820
+            ],
+            "description": "The same broad wooden spatula stirs food in a cooking pan with two opposing short side handles."
+          }
+        ],
+        "unsupported_claims": [
+          "Exact cookware brand, size, capacity or retail identity",
+          "Independent camera wearer; this is a new recording from existing HD-EPIC participant P08"
+        ]
+      },
+      "screening": {
+        "real_user_need": "Prepare two batches at once using a spare of the vessel identified through the observed tool-use relation.",
+        "scope_note": "Independent semantic review completed; executable pair consistency checked separately.",
+        "proposed_instruction": "Next time I want to prepare two batches at once. Add one spare pan or bowl with the same handle layout as one of the vessels I used here. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "frame_paths": [
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_311.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_312.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_709.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_710.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_804.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_805.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_819.jpg",
+            "data/experiments/variants/span/masala-scraping-utensil/frames/source_820.jpg"
+          ],
+          "timestamps_seconds": [
+            311,
+            312,
+            709,
+            710,
+            804,
+            805,
+            819,
+            820
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the model link the identifying scraping action to the cookware-use relation across more observed events?",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "in_view_deixis",
+        "commitment_surface": "cart",
+        "belief_before": "The handleless bowl and the two-side-grip cooking pan are both observed vessels.",
+        "belief_after": "The utensil scraping food off the spoon is later used to stir in the two-side-grip cooking pan.",
+        "required_behavior_change": "Link the two necessary actions and add one matching spare vessel.",
+        "no_update_failure": "The same full reference is supplied upfront in both conditions.",
+        "overupdate_failure": "Adding both vessel types does not satisfy the one-vessel request.",
+        "visual_dependency_claim": "oracle没有命名把手布局；网站同时存在无柄碗、长柄锅、双短柄锅。无画面不能确定目标布局。",
+        "evidence_requirements": [
+          "continuous_video_interval"
+        ],
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "Next time I want to prepare two batches at once. Add one spare pan or bowl with the same handle layout as one of the vessels I used here. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine.",
+          "oracle_instruction": "Next time I want to prepare two batches at once. Add one spare pan or bowl with the same handle layout as the vessel I stirred using the utensil that scraped food off the spoon. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine.",
+          "target_granularity": "category",
+          "candidate_roles": [
+            "target_pan",
+            "other_bowl"
+          ],
+          "hidden_target_role": "target_pan",
+          "valid_slot": "sequence",
+          "canonical_question": "Which pan or bowl do you mean?",
+          "canonical_answer": "The one I stirred with the utensil I used to scrape food off the spoon.",
+          "environment_role_ids": {
+            "target_pan": "p_abfa5dea3a27",
+            "other_bowl": "p_6afb3ad7e2f9"
+          },
+          "equivalent_role_ids": {
+            "target_pan": [
+              "p_c2f035d6e809",
+              "p_be8c769e28e4",
+              "p_eb3a11817fb8",
+              "p_4bf146b995a6",
+              "p_205a79979420",
+              "p_98b64e0c683c",
+              "p_d1630c0d4e62",
+              "p_c64d753347bb",
+              "p_27ee3e1034be",
+              "p_09377755048d",
+              "p_9f7d998f3adb",
+              "p_cbce64d62acc",
+              "p_66143dc926f6",
+              "p_bd4149488988",
+              "p_93164381c2e2",
+              "p_96c6154bb549",
+              "p_7d30dbc8a7e8",
+              "p_f1a8da822c65",
+              "p_bb81ddff78de",
+              "p_bc7928161fe9",
+              "p_f8f2b99b669b",
+              "p_473ba701a051",
+              "p_b9ce1159f372",
+              "p_f9539605c8ba",
+              "p_26cfa070f582",
+              "p_e2d80b30b779",
+              "p_5ea98d8e5784",
+              "p_85aae0196078",
+              "p_3078891182d0",
+              "p_02146ab7d2c9",
+              "p_29ffa86c4af5"
+            ]
+          },
+          "goal_fields": {}
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "single kadai two handles",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026101706--before_change_outer.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-2026101706",
+              "snapshot_stage": "before_change_outer",
+              "result_entity_ids": [
+                "p_26cfa070f582",
+                "p_96c6154bb549",
+                "p_4bf146b995a6",
+                "p_3078891182d0",
+                "p_472af6893c95",
+                "p_93164381c2e2",
+                "p_495654168038",
+                "p_d1630c0d4e62",
+                "p_eb3a11817fb8",
+                "p_abfa5dea3a27",
+                "p_5ea98d8e5784",
+                "p_7d30dbc8a7e8",
+                "p_66143dc926f6",
+                "p_e2d80b30b779",
+                "p_c2167c990e27",
+                "p_bb81ddff78de",
+                "p_bd4149488988",
+                "p_32b8c7de57ab",
+                "p_bc7928161fe9",
+                "p_e8b2dbfd495e",
+                "p_f9539605c8ba",
+                "p_0052b544e8d0",
+                "p_27ee3e1034be",
+                "p_f1a8da822c65",
+                "p_9f7d998f3adb",
+                "p_205a79979420",
+                "p_98b64e0c683c",
+                "p_09377755048d",
+                "p_b9ce1159f372",
+                "p_75b7c3d32064",
+                "p_0be980c0a797",
+                "p_50516d2ab20d",
+                "p_29ffa86c4af5",
+                "p_cbce64d62acc",
+                "p_c64d753347bb",
+                "p_f8f2b99b669b",
+                "p_be8c769e28e4",
+                "p_85aae0196078",
+                "p_f33e8fdb0203",
+                "p_be870ea0529d",
+                "p_ede9ea5b0df6",
+                "p_c2f035d6e809",
+                "p_f99f79592343",
+                "p_8eeb880e742f",
+                "p_48be0f649818",
+                "p_473ba701a051",
+                "p_02146ab7d2c9",
+                "p_defa9aad0b1b"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "single round bowl",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-drop-2026101706--after_change.json",
+              "snapshot_task_id": "candidate-mart-graft-drop-2026101706",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "p_b1203bcb9b41",
+                "p_3db30a4c7df3",
+                "p_c736b815b22d",
+                "p_974c315c0ddf",
+                "p_e15c1831362b",
+                "p_4970c7aa7dea",
+                "p_c3006f800343",
+                "p_83fb7735c857",
+                "p_92eb99a6ce50",
+                "p_094c2d797572",
+                "p_4049be28e96a",
+                "p_45e9df3a6f89",
+                "p_038177ea7c4c",
+                "p_d1e2c1b4504a",
+                "p_7f09a58ca5e5",
+                "p_02f7f87d5b5f",
+                "p_10b51218457d",
+                "p_6afb3ad7e2f9",
+                "p_b447b3fb5d2a",
+                "p_4e49288631df",
+                "p_9917c580f3b1",
+                "p_99cad0791444",
+                "p_947649f1a87a",
+                "p_aa2053e18e40",
+                "p_f93ad21f4c6a",
+                "p_38bdfc6c797f",
+                "p_a8f4de5dd79c",
+                "p_fe81fa221b11",
+                "p_d6ef9bb344ae",
+                "p_a826b72fd51f",
+                "p_0ad099710d8e",
+                "p_c4ddf091f748",
+                "p_164c309c14d1",
+                "p_e0b44c7e2c0e",
+                "p_4642732ec754",
+                "p_7933da5cb09a",
+                "p_e911998c71c9",
+                "p_541c95e06aaf",
+                "p_6d70350b03ae",
+                "p_f9d2404a8a20",
+                "p_ad0a7d869085",
+                "p_4280c20066d9",
+                "p_c682e079daae",
+                "p_0e80cedb1cba",
+                "p_3f8ca123c8f6",
+                "p_9ec7488e594b",
+                "p_53b289e54d3e",
+                "p_d65bcaf918eb"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_26cfa070f582",
+            "p_96c6154bb549",
+            "p_4bf146b995a6",
+            "p_3078891182d0",
+            "p_472af6893c95",
+            "p_93164381c2e2",
+            "p_495654168038",
+            "p_d1630c0d4e62",
+            "p_eb3a11817fb8",
+            "p_abfa5dea3a27",
+            "p_5ea98d8e5784",
+            "p_7d30dbc8a7e8",
+            "p_66143dc926f6",
+            "p_e2d80b30b779",
+            "p_c2167c990e27",
+            "p_bb81ddff78de",
+            "p_bd4149488988",
+            "p_32b8c7de57ab",
+            "p_bc7928161fe9",
+            "p_e8b2dbfd495e",
+            "p_f9539605c8ba",
+            "p_0052b544e8d0",
+            "p_27ee3e1034be",
+            "p_f1a8da822c65",
+            "p_9f7d998f3adb",
+            "p_205a79979420",
+            "p_98b64e0c683c",
+            "p_09377755048d",
+            "p_b9ce1159f372",
+            "p_75b7c3d32064",
+            "p_0be980c0a797",
+            "p_50516d2ab20d",
+            "p_29ffa86c4af5",
+            "p_cbce64d62acc",
+            "p_c64d753347bb",
+            "p_f8f2b99b669b",
+            "p_be8c769e28e4",
+            "p_85aae0196078",
+            "p_f33e8fdb0203",
+            "p_be870ea0529d",
+            "p_ede9ea5b0df6",
+            "p_c2f035d6e809",
+            "p_f99f79592343",
+            "p_8eeb880e742f",
+            "p_48be0f649818",
+            "p_473ba701a051",
+            "p_02146ab7d2c9",
+            "p_defa9aad0b1b",
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_472af6893c95",
+            "p_495654168038",
+            "p_32b8c7de57ab"
+          ],
+          "related_entity_ids": [
+            "p_c2167c990e27",
+            "p_e8b2dbfd495e",
+            "p_0052b544e8d0",
+            "p_75b7c3d32064",
+            "p_0be980c0a797",
+            "p_50516d2ab20d",
+            "p_f33e8fdb0203",
+            "p_be870ea0529d",
+            "p_ede9ea5b0df6",
+            "p_f99f79592343",
+            "p_8eeb880e742f",
+            "p_48be0f649818",
+            "p_defa9aad0b1b",
+            "p_b1203bcb9b41",
+            "p_3db30a4c7df3",
+            "p_c736b815b22d",
+            "p_974c315c0ddf",
+            "p_e15c1831362b",
+            "p_4970c7aa7dea",
+            "p_c3006f800343",
+            "p_83fb7735c857",
+            "p_92eb99a6ce50",
+            "p_094c2d797572",
+            "p_4049be28e96a",
+            "p_45e9df3a6f89",
+            "p_038177ea7c4c",
+            "p_d1e2c1b4504a",
+            "p_7f09a58ca5e5",
+            "p_02f7f87d5b5f",
+            "p_10b51218457d",
+            "p_6afb3ad7e2f9",
+            "p_b447b3fb5d2a",
+            "p_4e49288631df",
+            "p_9917c580f3b1",
+            "p_99cad0791444",
+            "p_947649f1a87a",
+            "p_aa2053e18e40",
+            "p_f93ad21f4c6a",
+            "p_38bdfc6c797f",
+            "p_a8f4de5dd79c",
+            "p_fe81fa221b11",
+            "p_d6ef9bb344ae",
+            "p_a826b72fd51f",
+            "p_0ad099710d8e",
+            "p_c4ddf091f748",
+            "p_164c309c14d1",
+            "p_e0b44c7e2c0e",
+            "p_4642732ec754",
+            "p_7933da5cb09a",
+            "p_e911998c71c9",
+            "p_541c95e06aaf",
+            "p_6d70350b03ae",
+            "p_f9d2404a8a20",
+            "p_ad0a7d869085",
+            "p_4280c20066d9",
+            "p_c682e079daae",
+            "p_0e80cedb1cba",
+            "p_3f8ca123c8f6",
+            "p_9ec7488e594b",
+            "p_53b289e54d3e",
+            "p_d65bcaf918eb"
+          ],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "p_472af6893c95",
+              "ring": "core",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "三个双侧柄锅的套装；题面只要一口锅。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_495654168038",
+              "ring": "core",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "一个长柄加一个短辅柄，不等于两个短侧柄。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c2167c990e27",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_32b8c7de57ab",
+              "ring": "core",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "单长柄saucier，非双侧短柄。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e8b2dbfd495e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0052b544e8d0",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_75b7c3d32064",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0be980c0a797",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_50516d2ab20d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f33e8fdb0203",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_be870ea0529d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_ede9ea5b0df6",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f99f79592343",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_8eeb880e742f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_48be0f649818",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_defa9aad0b1b",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "一个长柄加一个短辅柄，不等于两个短侧柄。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_b1203bcb9b41",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_3db30a4c7df3",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c736b815b22d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_974c315c0ddf",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e15c1831362b",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4970c7aa7dea",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c3006f800343",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_83fb7735c857",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_92eb99a6ce50",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_094c2d797572",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4049be28e96a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_45e9df3a6f89",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_038177ea7c4c",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_d1e2c1b4504a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_7f09a58ca5e5",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_02f7f87d5b5f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_10b51218457d",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_6afb3ad7e2f9",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_b447b3fb5d2a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4e49288631df",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_9917c580f3b1",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_99cad0791444",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_947649f1a87a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_aa2053e18e40",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f93ad21f4c6a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_38bdfc6c797f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_a8f4de5dd79c",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_fe81fa221b11",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_d6ef9bb344ae",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_a826b72fd51f",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0ad099710d8e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c4ddf091f748",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_164c309c14d1",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e0b44c7e2c0e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4642732ec754",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_7933da5cb09a",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_e911998c71c9",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_541c95e06aaf",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_6d70350b03ae",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_f9d2404a8a20",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_ad0a7d869085",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_4280c20066d9",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_c682e079daae",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_0e80cedb1cba",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_3f8ca123c8f6",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_9ec7488e594b",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_53b289e54d3e",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            },
+            {
+              "entity_id": "p_d65bcaf918eb",
+              "ring": "related",
+              "why_plausible": "A cookware offer in the same real search window.",
+              "reason": "公开图和标题不符：长柄或长柄加辅柄，或无两侧短柄，或多口锅/多碗套装，或不是可用锅碗。",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "verified"
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "attributes",
+            "image"
+          ],
+          "semantic_review": {
+            "status": "verified",
+            "reason": ".scratch/expand-variables-20261025/masala-fresh/review.json"
+          }
+        },
+        "decision": {
+          "candidates": {
+            "target_pan": "p_abfa5dea3a27",
+            "other_bowl": "p_6afb3ad7e2f9"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "target_pan",
+                "other_bowl"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "target_pan"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The utensil scraping food off the spoon is later used to stir in the two-side-grip cooking pan."
+            }
+          ],
+          "established_by": "/root/span_masala_fresh",
+          "established_at": "2026-10-25"
+        }
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-25",
+          "scope": "wording_only",
+          "reason": "Bind the requested handle layout explicitly to the vessel, not the nearby utensil noun.",
+          "previous_instructions": {
+            "ambiguous": "Next time I want to prepare two batches at once. Add a spare like one of the pans or bowls I used here. Match its handle arrangement. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine.",
+            "oracle": "Next time I want to prepare two batches at once. Add a spare like the pan or bowl I stirred with the utensil I used to scrape food off the spoon. Match its handle arrangement. Brand, colour, material and size can differ. Just one pan or bowl, not a set; a lid is fine."
+          },
+          "semantic_review": "/root/span_review_current targeted wording judgment; prior video and answer reviews retained."
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A whisk mixes contents in a white handleless bowl.",
+          "supported_by": [
+            "V0:0",
+            "V0:1"
+          ]
+        },
+        {
+          "text": "A broad wooden spatula scrapes food off a metal spoon held separately.",
+          "supported_by": [
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "A seasoning container is handled; the spatula rests on the board, without active stirring in cookware.",
+          "supported_by": [
+            "V0:4",
+            "V0:5"
+          ]
+        },
+        {
+          "text": "The same broad wooden spatula stirs food in a cooking pan with two opposing short side handles.",
+          "supported_by": [
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ]
+    }
+  ]
+}

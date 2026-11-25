@@ -1,0 +1,3137 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "EgoLife",
+    "source_root": "reference/sources/EgoLife/videos",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "EgoLife is released under S-Lab License 1.0 for non-commercial research. Only a targeted consecutive 60-second excerpt is stored locally. Released frames have identifiable faces blurred. Captions and private dialogue are not used and are not committed."
+  },
+  "screening_batch": {
+    "purpose": "Same-source appearance-matched second coffee corner and separately purchased compatible refills; no unreadable source commercial size.",
+    "review_date": "2026-10-16",
+    "status": "source_and_web_screening",
+    "authoring_rule": "Explicitly reuse the complete original two-query window; historical task and evidence remain unchanged."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-graft-augment-2026101663",
+      "status": "video_screened",
+      "family": "graft",
+      "subtype": "augment",
+      "site": "egomart",
+      "signal": "graft.augment",
+      "signal_schema_version": 2,
+      "source": {
+        "dataset": "EgoLife",
+        "record_ids": [
+          "DAY4_A6_SHURE_12400000",
+          "DAY4_A6_SHURE_12403000"
+        ],
+        "media_id": "DAY4_A6_SHURE_12400000",
+        "original_video_id": "DAY4_pourover",
+        "media_start_seconds": 0,
+        "media_path": "reference/sources/EgoLife/videos/DAY4_A6_SHURE_12400000.mp4",
+        "media_sha256": "c2875a87b8324172f2aa2a9ce0a7c5f8f2ef8eba471aa4c1b83c904a490615b6",
+        "media_duration_seconds": 60.06322,
+        "resolution": [
+          1408,
+          1408
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              1,
+              10
+            ],
+            "role": "dripper_on_carafe",
+            "description": "A separate black brewing dripper is placed on an existing glass jug. No brand, commercial size or exact base geometry is readable."
+          },
+          {
+            "interval_seconds": [
+              13,
+              19
+            ],
+            "role": "paper_filter",
+            "description": "The wearer handles and opens a white paper filter. These oblique frames are not used to adjudicate a pointed V60 base against a wedge-bottom paper family."
+          },
+          {
+            "interval_seconds": [
+              22,
+              31
+            ],
+            "role": "paper_lined_dripper",
+            "description": "Paper is seated inside the separate dripper and grounds are added. This supports the paper-filter brewing activity, not an exact retail family or cup size."
+          }
+        ],
+        "visual_review": {
+          "reviewer": "skill-executing-coding-agent",
+          "reviewed_at": "2026-10-15",
+          "reviewed_source_interval_seconds": [
+            0,
+            60
+          ],
+          "review_mode": "concatenated_consecutive_30s_slices_plus_native_resolution_keyframes_and_all_released_frames",
+          "sampling_hz": 2,
+          "full_resolution_keyframes_inspected": true,
+          "released_frame_count_inspected": 8,
+          "native_fps_playback_reviewed": false,
+          "scope_limit": "Two official 30-second slices covering 12:40:00-12:41:00 were concatenated into one continuous excerpt and inspected through ordered samples plus the eight released frames. This is not uninterrupted native-rate playback of a longer hour file. DAY5/DAY7 video and the Jake view were not locally available.",
+          "face_blur": "The stored source excerpt and every released frame have the wearer lower-face region and the second person on the right Gaussian-blurred. Brand and dripper size remain unreadable.",
+          "targeted_repair_scope_20261018": {
+            "reviewer": "/root/formal_media_batch_b_1018",
+            "released_native_frames_inspected": [
+              "V0:0",
+              "V0:2",
+              "V0:3",
+              "V0:4",
+              "V0:5",
+              "V0:7"
+            ],
+            "reused_continuous_inspection": ".scratch/formal-repairs-20261016/1663-blind.json::evidence.visual_evidence",
+            "scope": "Prior 1–31s ordered 2fps/11–22s folding inspection is reused only for the separate dripper, glass jug and paper handling. This repair did not claim native-fps playback or resolve pointed versus wedge geometry."
+          },
+          "color_matching_repair_20261018": {
+            "reviewer": "/root/formal_media_batch_b_1018",
+            "released_native_frames_inspected": [
+              "V0:0",
+              "V0:4",
+              "V0:7"
+            ],
+            "timestamps_seconds": [
+              1,
+              19,
+              31
+            ],
+            "observation": "The main dripper body is consistently black; the final white liner is separate paper. No commercial model, paper size, precise geometry or new continuous-video claim is made.",
+            "reuse": ".scratch/formal-repairs-20261016/1663-blind.json::evidence.visual_evidence"
+          }
+        },
+        "screening_lineage": {
+          "event_id": "DAY4_pourover:0-60:graft.augment_cone_dripper_and_matching_filters:v1",
+          "discovery_method": "Targeted EgoLife DAY4 pour-over excerpt after a prior dependency gap that existing catalogs lacked a real dripper-filter compatibility family.",
+          "same_event_views": "DAY4 Jake and Shure views are one source event. Only the Shure excerpt is stored locally.",
+          "additional_sources_pending": "DAY5 and DAY7 pour-over video was not locally available without a full EgoLife download."
+        },
+        "unsupported_claims": [
+          "The dripper brand, model or commercial size is readable.",
+          "The paper filter SKU, bleached vs unbleached colour, or pack count is established.",
+          "The source records an authored shopping request or spoken brand name.",
+          "Full native-frame-rate playback of an hour-long EgoLife file was watched.",
+          "The released oblique paper view uniquely establishes V60 pointed rather than wedge-bottom paper geometry."
+        ]
+      },
+      "screening": {
+        "source_facts_status": "black_main_body_statically_supported_exact_geometry_not_required",
+        "instruction_freeze": {
+          "instruction_owner": "data/instructions/authored.json",
+          "frozen_at": "2026-10-18",
+          "stage": "same_source_color_matched_second_station_repair",
+          "rule": "Keep all81 captured entities and the8 original frames. Frame color is necessary; public compatibility, not source commercial paper family, determines the separately bought pack."
+        },
+        "before": "A second standalone dripper with a black main body, matching the visible component's color, no extra jug, and compatible disposable paper available in the frozen window.",
+        "later_information": "Also buy one separately listed compatible paper pack; do not remove the chosen dripper.",
+        "after": "Keep one same-color dripper and add one separately sold pack publicly listed as compatible with it; included paper does not replace this extra pack.",
+        "real_user_need": "Equip another coffee corner using an already owned jug, keep the same visible component color for a coordinated look, then add a separate refill pack.",
+        "catalog_mapping_status": "review_required"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            1,
+            10,
+            13,
+            16,
+            19,
+            22,
+            28,
+            31
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_00.jpg",
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_01.jpg",
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_02.jpg",
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_03.jpg",
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_04.jpg",
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_05.jpg",
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_06.jpg",
+            "data/observations/candidate-mart-graft-augment-2026101501/V0/frame_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The separate dripper above the glass jug has a black main body in released V0:0/4/7. Paper and grounds establish its brewing role. A second coffee corner can match this visible color without copying an unreadable retail model or paper geometry.",
+          "supported_by": [
+            "V0:0",
+            "V0:4",
+            "V0:7"
+          ]
+        }
+      ],
+      "unsupported_claims": [
+        "The source records the authored shopping request.",
+        "Exact brand, model or filter size of the observed objects.",
+        "Full native-frame-rate source playback was watched.",
+        "The source uniquely proves a pointed V60 rather than wedge-bottom commercial paper family."
+      ],
+      "construct": {
+        "research_question": "Can the agent match the visible component's color for another coffee corner, preserve its valid choice, and add a publicly compatible paper pack?",
+        "divergence_source": "intention",
+        "event_origin": "counterfactual_recombination",
+        "evidence_type": "in_view_deixis",
+        "evidence_requirements": [],
+        "commitment_surface": "cart",
+        "belief_before": "A second standalone dripper with a black main body, matching the visible component's color, no extra jug, and compatible disposable paper available in the frozen window.",
+        "belief_after": "Keep one same-color dripper and add one separately sold pack publicly listed as compatible with it; included paper does not replace this extra pack.",
+        "required_behavior_change": "Keep one black-main-body functional brewing component selected under A and add one compatible paper pack under B. Do not infer the source brand, capacity or exact paper geometry.",
+        "no_update_failure": "Only the dripper remains after the request for a separate refill pack.",
+        "overupdate_failure": "The dripper is removed, a second jug or third cart entity is added, or only included sample papers are counted.",
+        "visual_dependency_claim": "A asks for the same color without naming it. Released native V0:0/4/7 show the component's black main body. Text and website alone cannot establish that required color; publicly compatible nonblack setups remain real alternatives but fail the actual same-color need. Glass, metal mesh, material, brand and capacity do not determine color equivalence.",
+        "task_blueprint": {
+          "site": "egomart",
+          "instructions": {
+            "a": "For another coffee corner, I want another of the piece I'm using on top of the glass jug. Keep the same color as the one in front of me so the two corners match. Add that part only; I already have another jug. Any brand or capacity is fine, but choose one with disposable paper refills available here.",
+            "b": "Also add one separately sold pack of paper refills listed as compatible with the item you've chosen. Keep that item. Any brand or paper color is fine; paper included with it doesn't replace this extra pack.",
+            "bundled": "For another coffee corner, I want another of the piece I'm using on top of the glass jug. Keep the same color as the one in front of me so the two corners match. Add that part only; I already have another jug. Any brand or capacity is fine, but choose one with disposable paper refills available here. Also add one separately sold pack of paper refills listed as compatible with the item you've chosen. Keep that item. Any brand or paper color is fine; paper included with it doesn't replace this extra pack."
+          },
+          "initial_goal_roles": [
+            [
+              "entity_p_63e50479a5e9"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1"
+            ],
+            [
+              "entity_p_22079b883717"
+            ],
+            [
+              "entity_p_2e77efc5f3bf"
+            ],
+            [
+              "entity_p_11fdbf1495ce"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba"
+            ],
+            [
+              "entity_p_4d9b9abf1a43"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_47cd6d6e82c9"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_d152ef5d18a4"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_ff123a16af24"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_6294bcdcd1af"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_1162bc902803"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_c05e2eb0f53d"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_f49ea26a33e2"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_0c3b91ca068a"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_641004168929"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_16fff3782721"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_a2a110f5188f"
+            ],
+            [
+              "entity_p_63e50479a5e9",
+              "entity_p_c3916f43d895"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_47cd6d6e82c9"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_d152ef5d18a4"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_ff123a16af24"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_6294bcdcd1af"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_1162bc902803"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_c05e2eb0f53d"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_f49ea26a33e2"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_0c3b91ca068a"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_641004168929"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_16fff3782721"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_a2a110f5188f"
+            ],
+            [
+              "entity_p_fcb91fa2b1a1",
+              "entity_p_c3916f43d895"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_d3333ab560b0"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_118c415248c5"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_672b707de49a"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_fcc37e6bf43c"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_0c3b91ca068a"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_641004168929"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_a2a110f5188f"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_c3916f43d895"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_16fff3782721"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_3190282a4013"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_6e0af355f9bd"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_85f3a0d3223e"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_dbe408351571"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_dfc9aa05484a"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_b754062c004f"
+            ],
+            [
+              "entity_p_22079b883717",
+              "entity_p_f49ea26a33e2"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_d3333ab560b0"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_118c415248c5"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_672b707de49a"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_fcc37e6bf43c"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_0c3b91ca068a"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_641004168929"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_a2a110f5188f"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_c3916f43d895"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_16fff3782721"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_3190282a4013"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_6e0af355f9bd"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_85f3a0d3223e"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_dbe408351571"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_dfc9aa05484a"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_b754062c004f"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_3e4ab56bc65d"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_07c88828f01b"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_525464602002"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_f49ea26a33e2"
+            ],
+            [
+              "entity_p_2e77efc5f3bf",
+              "entity_p_203d4e592bf0"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_203d4e592bf0"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_f49ea26a33e2"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_3e4ab56bc65d"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_0c3b91ca068a"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_a2a110f5188f"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_641004168929"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_16fff3782721"
+            ],
+            [
+              "entity_p_11fdbf1495ce",
+              "entity_p_c3916f43d895"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_203d4e592bf0"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_f49ea26a33e2"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_3e4ab56bc65d"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_0c3b91ca068a"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_a2a110f5188f"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_641004168929"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_16fff3782721"
+            ],
+            [
+              "entity_p_7b7a2a4a9dba",
+              "entity_p_c3916f43d895"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_203d4e592bf0"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_f49ea26a33e2"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_3e4ab56bc65d"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_0c3b91ca068a"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_a2a110f5188f"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_641004168929"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_16fff3782721"
+            ],
+            [
+              "entity_p_4d9b9abf1a43",
+              "entity_p_c3916f43d895"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "entity_p_63e50479a5e9": "p_63e50479a5e9",
+            "entity_p_47cd6d6e82c9": "p_47cd6d6e82c9",
+            "entity_p_d152ef5d18a4": "p_d152ef5d18a4",
+            "entity_p_ff123a16af24": "p_ff123a16af24",
+            "entity_p_6294bcdcd1af": "p_6294bcdcd1af",
+            "entity_p_1162bc902803": "p_1162bc902803",
+            "entity_p_c05e2eb0f53d": "p_c05e2eb0f53d",
+            "entity_p_f49ea26a33e2": "p_f49ea26a33e2",
+            "entity_p_fcb91fa2b1a1": "p_fcb91fa2b1a1",
+            "entity_p_22079b883717": "p_22079b883717",
+            "entity_p_d3333ab560b0": "p_d3333ab560b0",
+            "entity_p_118c415248c5": "p_118c415248c5",
+            "entity_p_672b707de49a": "p_672b707de49a",
+            "entity_p_fcc37e6bf43c": "p_fcc37e6bf43c",
+            "entity_p_0c3b91ca068a": "p_0c3b91ca068a",
+            "entity_p_641004168929": "p_641004168929",
+            "entity_p_a2a110f5188f": "p_a2a110f5188f",
+            "entity_p_c3916f43d895": "p_c3916f43d895",
+            "entity_p_16fff3782721": "p_16fff3782721",
+            "entity_p_3190282a4013": "p_3190282a4013",
+            "entity_p_6e0af355f9bd": "p_6e0af355f9bd",
+            "entity_p_85f3a0d3223e": "p_85f3a0d3223e",
+            "entity_p_dbe408351571": "p_dbe408351571",
+            "entity_p_dfc9aa05484a": "p_dfc9aa05484a",
+            "entity_p_b754062c004f": "p_b754062c004f",
+            "entity_p_2e77efc5f3bf": "p_2e77efc5f3bf",
+            "entity_p_3e4ab56bc65d": "p_3e4ab56bc65d",
+            "entity_p_07c88828f01b": "p_07c88828f01b",
+            "entity_p_525464602002": "p_525464602002",
+            "entity_p_203d4e592bf0": "p_203d4e592bf0",
+            "entity_p_11fdbf1495ce": "p_11fdbf1495ce",
+            "entity_p_7b7a2a4a9dba": "p_7b7a2a4a9dba",
+            "entity_p_4d9b9abf1a43": "p_4d9b9abf1a43"
+          },
+          "protocol_status": "Same-source appearance-matching repair. Native images determine the black main body; public compatibility determines the separate refill. Prior17/145 and7/65 boundaries preserved. Current7/84 applies the same explicit conical/filter-cup class claims consistently; independent confirmation is not claimed by the constructor."
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "component_only": {
+              "goal_ref": "initial"
+            },
+            "component_and_refills": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "component_only",
+                "component_and_refills"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "component_and_refills"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "B authorizes a separate pack while the valid selected component remains required."
+            }
+          ],
+          "established_by": "/root/formal_media_batch_b_1018",
+          "established_at": "2026-10-18"
+        },
+        "native_state_checks": {
+          "correct": "One black-main-body standalone brewing component plus one separately sold paper pack listed as compatible.",
+          "wrong": "A nonblack-main-body component, unestablished refill relation, or added jug.",
+          "missing": "Chosen dripper or the separately bought paper pack is absent.",
+          "extra": "Third cart entity, second dripper or added jug.",
+          "premature": "The separate paper purchase is only authorized by B.",
+          "stale": "Only the dripper remains after B."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "pour over coffee dripper",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+              "result_entity_ids": [
+                "p_9a056a2c6446",
+                "p_9ce2e95b39e6",
+                "p_ab73a457abb9",
+                "p_70a7da459ae8",
+                "p_10cb2f2fdcbd",
+                "p_c9275455839a",
+                "p_83bc7e90a993",
+                "p_63e50479a5e9",
+                "p_43270e64b7a7",
+                "p_a9c81611a955",
+                "p_d4c24d8cb6bc",
+                "p_194da110605e",
+                "p_11fdbf1495ce",
+                "p_5ef8f3a8137a",
+                "p_ce503b584944",
+                "p_49c335da884c",
+                "p_ec6ee57049d1",
+                "p_d6b9eb041691",
+                "p_a5172d9afd30",
+                "p_2793f4b551e7",
+                "p_c274ade3289e",
+                "p_1d54cc477b05",
+                "p_f8a02f2620aa",
+                "p_d321a862a136",
+                "p_c8df291acbf8",
+                "p_9b2933bf0f5f",
+                "p_4d9b9abf1a43",
+                "p_da99ef31ed47",
+                "p_67e0aee400e6",
+                "p_b1bb6a859dc1",
+                "p_54a7bca7662e",
+                "p_436176ddcdbf",
+                "p_26d348fcccc4",
+                "p_7b7a2a4a9dba",
+                "p_64e2d719f22f",
+                "p_e4b65aa34743",
+                "p_775b259d429f",
+                "p_22079b883717",
+                "p_2e77efc5f3bf",
+                "p_665f8240ebf2",
+                "p_a97c20be3373",
+                "p_4212582e59ab",
+                "p_8bbe712d32d2",
+                "p_87ecfe32b043",
+                "p_114d14eb9c4e",
+                "p_179b2eab9ad3",
+                "p_fcb91fa2b1a1",
+                "p_ae836d7cec05"
+              ],
+              "snapshot_task_id": "candidate-mart-graft-augment-2026101501"
+            },
+            {
+              "stage": "after_change",
+              "query": "pour over coffee filters",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+              "result_entity_ids": [
+                "p_194da110605e",
+                "p_641004168929",
+                "p_16fff3782721",
+                "p_b754062c004f",
+                "p_0c3b91ca068a",
+                "p_d3333ab560b0",
+                "p_6bd41b92673b",
+                "p_203d4e592bf0",
+                "p_6294bcdcd1af",
+                "p_c3916f43d895",
+                "p_3190282a4013",
+                "p_9a056a2c6446",
+                "p_4ebd57c5afb4",
+                "p_f49ea26a33e2",
+                "p_60d2bdf215d6",
+                "p_3f376eb73e8a",
+                "p_70a7da459ae8",
+                "p_3e4ab56bc65d",
+                "p_118c415248c5",
+                "p_6751dfb5210c",
+                "p_fcc37e6bf43c",
+                "p_07c88828f01b",
+                "p_f8a02f2620aa",
+                "p_54a7bca7662e",
+                "p_c9275455839a",
+                "p_dfc9aa05484a",
+                "p_672b707de49a",
+                "p_10cb2f2fdcbd",
+                "p_525464602002",
+                "p_bba5d812608a",
+                "p_da99ef31ed47",
+                "p_a2a110f5188f",
+                "p_9ce2e95b39e6",
+                "p_6e0af355f9bd",
+                "p_47cd6d6e82c9",
+                "p_c05e2eb0f53d",
+                "p_85f3a0d3223e",
+                "p_ff123a16af24",
+                "p_c018aa06fd5c",
+                "p_11fdbf1495ce",
+                "p_d321a862a136",
+                "p_ec6ee57049d1",
+                "p_dbe408351571",
+                "p_7b7a2a4a9dba",
+                "p_d152ef5d18a4",
+                "p_fcb91fa2b1a1",
+                "p_436176ddcdbf",
+                "p_1162bc902803"
+              ],
+              "snapshot_task_id": "candidate-mart-graft-augment-2026101501"
+            }
+          ],
+          "window_entity_ids": [
+            "p_9a056a2c6446",
+            "p_9ce2e95b39e6",
+            "p_ab73a457abb9",
+            "p_70a7da459ae8",
+            "p_10cb2f2fdcbd",
+            "p_c9275455839a",
+            "p_83bc7e90a993",
+            "p_63e50479a5e9",
+            "p_43270e64b7a7",
+            "p_a9c81611a955",
+            "p_d4c24d8cb6bc",
+            "p_194da110605e",
+            "p_11fdbf1495ce",
+            "p_5ef8f3a8137a",
+            "p_ce503b584944",
+            "p_49c335da884c",
+            "p_ec6ee57049d1",
+            "p_d6b9eb041691",
+            "p_a5172d9afd30",
+            "p_2793f4b551e7",
+            "p_c274ade3289e",
+            "p_1d54cc477b05",
+            "p_f8a02f2620aa",
+            "p_d321a862a136",
+            "p_c8df291acbf8",
+            "p_9b2933bf0f5f",
+            "p_4d9b9abf1a43",
+            "p_da99ef31ed47",
+            "p_67e0aee400e6",
+            "p_b1bb6a859dc1",
+            "p_54a7bca7662e",
+            "p_436176ddcdbf",
+            "p_26d348fcccc4",
+            "p_7b7a2a4a9dba",
+            "p_64e2d719f22f",
+            "p_e4b65aa34743",
+            "p_775b259d429f",
+            "p_22079b883717",
+            "p_2e77efc5f3bf",
+            "p_665f8240ebf2",
+            "p_a97c20be3373",
+            "p_4212582e59ab",
+            "p_8bbe712d32d2",
+            "p_87ecfe32b043",
+            "p_114d14eb9c4e",
+            "p_179b2eab9ad3",
+            "p_fcb91fa2b1a1",
+            "p_ae836d7cec05",
+            "p_641004168929",
+            "p_16fff3782721",
+            "p_b754062c004f",
+            "p_0c3b91ca068a",
+            "p_d3333ab560b0",
+            "p_6bd41b92673b",
+            "p_203d4e592bf0",
+            "p_6294bcdcd1af",
+            "p_c3916f43d895",
+            "p_3190282a4013",
+            "p_4ebd57c5afb4",
+            "p_f49ea26a33e2",
+            "p_60d2bdf215d6",
+            "p_3f376eb73e8a",
+            "p_3e4ab56bc65d",
+            "p_118c415248c5",
+            "p_6751dfb5210c",
+            "p_fcc37e6bf43c",
+            "p_07c88828f01b",
+            "p_dfc9aa05484a",
+            "p_672b707de49a",
+            "p_525464602002",
+            "p_bba5d812608a",
+            "p_a2a110f5188f",
+            "p_6e0af355f9bd",
+            "p_47cd6d6e82c9",
+            "p_c05e2eb0f53d",
+            "p_85f3a0d3223e",
+            "p_ff123a16af24",
+            "p_c018aa06fd5c",
+            "p_dbe408351571",
+            "p_d152ef5d18a4",
+            "p_1162bc902803"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [],
+          "related_entity_ids": [
+            "p_9a056a2c6446",
+            "p_9ce2e95b39e6",
+            "p_ab73a457abb9",
+            "p_70a7da459ae8",
+            "p_10cb2f2fdcbd",
+            "p_c9275455839a",
+            "p_83bc7e90a993",
+            "p_43270e64b7a7",
+            "p_a9c81611a955",
+            "p_d4c24d8cb6bc",
+            "p_194da110605e",
+            "p_5ef8f3a8137a",
+            "p_ce503b584944",
+            "p_49c335da884c",
+            "p_ec6ee57049d1",
+            "p_d6b9eb041691",
+            "p_a5172d9afd30",
+            "p_2793f4b551e7",
+            "p_c274ade3289e",
+            "p_1d54cc477b05",
+            "p_f8a02f2620aa",
+            "p_d321a862a136",
+            "p_c8df291acbf8",
+            "p_9b2933bf0f5f",
+            "p_da99ef31ed47",
+            "p_67e0aee400e6",
+            "p_b1bb6a859dc1",
+            "p_54a7bca7662e",
+            "p_436176ddcdbf",
+            "p_26d348fcccc4",
+            "p_64e2d719f22f",
+            "p_e4b65aa34743",
+            "p_775b259d429f",
+            "p_665f8240ebf2",
+            "p_a97c20be3373",
+            "p_4212582e59ab",
+            "p_8bbe712d32d2",
+            "p_87ecfe32b043",
+            "p_114d14eb9c4e",
+            "p_179b2eab9ad3",
+            "p_ae836d7cec05",
+            "p_6bd41b92673b",
+            "p_4ebd57c5afb4",
+            "p_60d2bdf215d6",
+            "p_3f376eb73e8a",
+            "p_6751dfb5210c",
+            "p_bba5d812608a",
+            "p_c018aa06fd5c"
+          ],
+          "ambient_entity_ids": [],
+          "detail_decision_fields": [
+            "name",
+            "brand",
+            "attributes",
+            "image_path"
+          ],
+          "rejected": [],
+          "semantic_review": {
+            "status": "review_required",
+            "reviewer": "/root/formal_media_batch_b_1018",
+            "reviewed_at": "2026-10-18",
+            "notes": "Constructor rework responding to independent no-scene and missing compatibility findings. The observed-color requirement and all81 candidate classifications are updated; previous concrete review remains history. Not a blind approval."
+          },
+          "reused_from_task_id": "candidate-mart-graft-augment-2026101501",
+          "window_adjudication": [
+            {
+              "entity_id": "p_9a056a2c6446",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_9a056a2c6446",
+                "source_url": "https://www.amazon.ca/Buphallo-Stainless-Steel-Coffee-Dripper/dp/B01GGOK774/ref=sr_1_12",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B01GGOK774.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_9a056a2c6446.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_9ce2e95b39e6",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: white. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_9ce2e95b39e6",
+                "source_url": "https://www.amazon.ca/DOWAN-Non-Electric-Dripper-Porcelain-Accessories/dp/B07RT4S7K9/ref=sr_1_33",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07RT4S7K9.json",
+                  "data/sources/answer_closure_reviews/egolife-pourover-repair-20261016.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_9ce2e95b39e6.jpg"
+              },
+              "observed_main_body_color": "white"
+            },
+            {
+              "entity_id": "p_ab73a457abb9",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: white. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_ab73a457abb9",
+                "source_url": "https://www.amazon.ca/Melitta-SS-PO-WH-Signature/dp/B07QK39RWT/ref=sr_1_3",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07QK39RWT.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_ab73a457abb9.jpg"
+              },
+              "observed_main_body_color": "white"
+            },
+            {
+              "entity_id": "p_70a7da459ae8",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: red. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_70a7da459ae8",
+                "source_url": "https://www.amazon.ca/Melitta-640820-Filter-Pourover-Manual/dp/B00CHILTMG/ref=sr_1_17",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B00CHILTMG.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_70a7da459ae8.jpg"
+              },
+              "observed_main_body_color": "red"
+            },
+            {
+              "entity_id": "p_10cb2f2fdcbd",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_10cb2f2fdcbd",
+                "source_url": "https://www.amazon.ca/Pour-Over-Coffee-Dripper-Stainless/dp/B0G4VHLN8L/ref=sr_1_28",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0G4VHLN8L.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_10cb2f2fdcbd.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_c9275455839a",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_c9275455839a",
+                "source_url": "https://www.amazon.ca/Reusable-Stainless-Paperless-Permanent-Strainer/dp/B0D66PRVZK/ref=sr_1_25",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0D66PRVZK.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_c9275455839a.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_83bc7e90a993",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: brown. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_83bc7e90a993",
+                "source_url": "https://www.amazon.ca/DOWAN-Ceramic-Coffee-Dripper-Reusable/dp/B07RT4SDFS/ref=sr_1_7",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07RT4SDFS.json",
+                  "data/sources/answer_closure_reviews/egolife-pourover-repair-20261016.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_83bc7e90a993.jpg"
+              },
+              "observed_main_body_color": "brown"
+            },
+            {
+              "entity_id": "p_63e50479a5e9",
+              "a": "supported_same_color_component",
+              "b": "supported_in_pairs",
+              "reason": "Original product image shows black; a standalone functional brewing component. Public compatibility table records each separately available paper. The same-color need does not require identical material, exact shape, brand or capacity.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_63e50479a5e9",
+                "source_url": "https://www.amazon.ca/Melitta-SS-PO-BL-Signature/dp/B07QJ775XB/ref=sr_1_8",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07QJ775XB.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_63e50479a5e9.jpg"
+              },
+              "observed_main_body_color": "black",
+              "compatible_paper_ids": [
+                "p_47cd6d6e82c9",
+                "p_d152ef5d18a4",
+                "p_ff123a16af24",
+                "p_6294bcdcd1af",
+                "p_1162bc902803",
+                "p_c05e2eb0f53d",
+                "p_f49ea26a33e2"
+              ]
+            },
+            {
+              "entity_id": "p_43270e64b7a7",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass and wood with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_43270e64b7a7",
+                "source_url": "https://www.amazon.ca/Lalord-Coffee-Borosilicate-Restaurant-Camping/dp/B0BXRZBYBD/ref=sr_1_9",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0BXRZBYBD.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_43270e64b7a7.jpg"
+              },
+              "observed_main_body_color": "clear glass and wood with additional jug"
+            },
+            {
+              "entity_id": "p_a9c81611a955",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_a9c81611a955",
+                "source_url": "https://www.amazon.ca/Pour-Over-Coffee-Dripper-Well-Balanced/dp/B0DT9QXCC3/ref=sr_1_10",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0DT9QXCC3.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_a9c81611a955.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_d4c24d8cb6bc",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: red. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_d4c24d8cb6bc",
+                "source_url": "https://www.amazon.ca/HARIO-VDR-02R-Transparent-Coffee-Dripper/dp/B0BWHJ7TVQ/ref=sr_1_11",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0BWHJ7TVQ.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_d4c24d8cb6bc.jpg"
+              },
+              "observed_main_body_color": "red"
+            },
+            {
+              "entity_id": "p_194da110605e",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_194da110605e",
+                "source_url": "https://www.amazon.ca/MELITTA-Natural-Filters-Coffee-Replacement/dp/B00CHILPG6/ref=sr_1_1",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B00CHILPG6.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_194da110605e.jpg"
+              }
+            },
+            {
+              "entity_id": "p_11fdbf1495ce",
+              "a": "supported_same_color_component",
+              "b": "supported_in_pairs",
+              "reason": "Original product image shows black main upper body with metal mesh bottom; a standalone functional brewing component. Public compatibility table records each separately available paper. The same-color need does not require identical material, exact shape, brand or capacity.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_11fdbf1495ce",
+                "source_url": "https://www.amazon.ca/Portable-Reusable-Paperless-Cleaning-Travelling/dp/B08CVJR59Y/ref=sr_1_40",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B08CVJR59Y.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_11fdbf1495ce.jpg"
+              },
+              "observed_main_body_color": "black main upper body with metal mesh bottom",
+              "compatible_paper_ids": [
+                "p_203d4e592bf0",
+                "p_f49ea26a33e2",
+                "p_3e4ab56bc65d",
+                "p_0c3b91ca068a",
+                "p_a2a110f5188f"
+              ]
+            },
+            {
+              "entity_id": "p_5ef8f3a8137a",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass/metal with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_5ef8f3a8137a",
+                "source_url": "https://www.amazon.ca/Paperless-Borosilicate-Reusable-Stainless-Permanent/dp/B096VDMS5S/ref=sr_1_14",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B096VDMS5S.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_5ef8f3a8137a.jpg"
+              },
+              "observed_main_body_color": "clear glass/metal with additional jug"
+            },
+            {
+              "entity_id": "p_ce503b584944",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body with black base. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_ce503b584944",
+                "source_url": "https://www.amazon.ca/Hario-V60-Metal-Coffee-Dripper/dp/B0BWH5N65J/ref=sr_1_15",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0BWH5N65J.json",
+                  "data/sources/answer_closure_reviews/egolife-pourover-repair-20261016.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_ce503b584944.jpg"
+              },
+              "observed_main_body_color": "silver metal main body with black base"
+            },
+            {
+              "entity_id": "p_49c335da884c",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: white. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_49c335da884c",
+                "source_url": "https://www.amazon.ca/ELEFOCUS-Porcelain-Coffee-Dripper-Filter/dp/B01HT9KRRU/ref=sr_1_16",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B01HT9KRRU.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_49c335da884c.jpg"
+              },
+              "observed_main_body_color": "white"
+            },
+            {
+              "entity_id": "p_ec6ee57049d1",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_ec6ee57049d1",
+                "source_url": "https://www.amazon.ca/Coffees-Dripper-Reusable-Stainless-Cleaning/dp/B0GS9GLVG3/ref=sr_1_42",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0GS9GLVG3.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_ec6ee57049d1.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_d6b9eb041691",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass and wood. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_d6b9eb041691",
+                "source_url": "https://www.amazon.ca/Coffee-Dripper-Unbreakable-Filter-Reusable/dp/B0D8SBSF5Z/ref=sr_1_18",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0D8SBSF5Z.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_d6b9eb041691.jpg"
+              },
+              "observed_main_body_color": "clear glass and wood"
+            },
+            {
+              "entity_id": "p_a5172d9afd30",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: white. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_a5172d9afd30",
+                "source_url": "https://www.amazon.ca/Ceramic-coffee-dripper-Kalita-102/dp/B001U7B1QO/ref=sr_1_19_mod_primary_new",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B001U7B1QO.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_a5172d9afd30.jpg"
+              },
+              "observed_main_body_color": "white"
+            },
+            {
+              "entity_id": "p_2793f4b551e7",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_2793f4b551e7",
+                "source_url": "https://www.amazon.ca/Hario-VD-02T-Coffee-Dripper-Clear/dp/B001RBTSMM/ref=sr_1_20",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B001RBTSMM.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_2793f4b551e7.jpg"
+              },
+              "observed_main_body_color": "clear"
+            },
+            {
+              "entity_id": "p_c274ade3289e",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: pale grey with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_c274ade3289e",
+                "source_url": "https://www.amazon.ca/Hario-VCSD-02PGR-Coffee-Server-Japan/dp/B0BW3JQD1N/ref=sr_1_21",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0BW3JQD1N.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_c274ade3289e.jpg"
+              },
+              "observed_main_body_color": "pale grey with additional jug"
+            },
+            {
+              "entity_id": "p_1d54cc477b05",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: red. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_1d54cc477b05",
+                "source_url": "https://www.amazon.ca/Collapsible-Silicone-Reusable-Backpacking-Survival/dp/B098T7PX6B/ref=sr_1_22",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B098T7PX6B.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_1d54cc477b05.jpg"
+              },
+              "observed_main_body_color": "red"
+            },
+            {
+              "entity_id": "p_f8a02f2620aa",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body with brown trim. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_f8a02f2620aa",
+                "source_url": "https://www.amazon.ca/Bambeav-Coffee-Dripper-Stainless-Heat-Resistant/dp/B0GV8W85H4/ref=sr_1_23",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0GV8W85H4.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_f8a02f2620aa.jpg"
+              },
+              "observed_main_body_color": "silver metal main body with brown trim"
+            },
+            {
+              "entity_id": "p_d321a862a136",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass/metal with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_d321a862a136",
+                "source_url": "https://www.amazon.ca/AGOGO-Woodneck-Stainless-Filters-Cleaning/dp/B07T7W1QCZ/ref=sr_1_41",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07T7W1QCZ.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_d321a862a136.jpg"
+              },
+              "observed_main_body_color": "clear glass/metal with additional jug"
+            },
+            {
+              "entity_id": "p_c8df291acbf8",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_c8df291acbf8",
+                "source_url": "https://www.amazon.ca/Kalita-Wave-Dripper-185-People/dp/B0991SLKW5/ref=sr_1_25",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0991SLKW5.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_c8df291acbf8.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_9b2933bf0f5f",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_9b2933bf0f5f",
+                "source_url": "https://www.amazon.ca/Stainless-LHS-Paperless-Reusable-Non-Slip/dp/B07MX87HH9/ref=sr_1_26",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07MX87HH9.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_9b2933bf0f5f.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_4d9b9abf1a43",
+              "a": "supported_same_color_component",
+              "b": "supported_in_pairs",
+              "reason": "Original product image shows black; a standalone functional brewing component. Public compatibility table records each separately available paper. The same-color need does not require identical material, exact shape, brand or capacity.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_4d9b9abf1a43",
+                "source_url": "https://www.amazon.ca/Roponan-Ceramic-Dripper-Porcelain-Restaurants/dp/B08M9HB41L/ref=sr_1_27",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B08M9HB41L.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_4d9b9abf1a43.jpg"
+              },
+              "observed_main_body_color": "black",
+              "compatible_paper_ids": [
+                "p_203d4e592bf0",
+                "p_f49ea26a33e2",
+                "p_3e4ab56bc65d",
+                "p_0c3b91ca068a",
+                "p_a2a110f5188f"
+              ]
+            },
+            {
+              "entity_id": "p_da99ef31ed47",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_da99ef31ed47",
+                "source_url": "https://www.amazon.ca/BEAUGIREW-Dripper-Stainless-Paperless-Reusable/dp/B0FVFNG6ZS/ref=sr_1_31",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FVFNG6ZS.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_da99ef31ed47.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_67e0aee400e6",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_67e0aee400e6",
+                "source_url": "https://www.amazon.ca/FACIACC-Professional-Stainless-Paperless-Reusable/dp/B0CHVVT9D2/ref=sr_1_29",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0CHVVT9D2.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_67e0aee400e6.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_b1bb6a859dc1",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: white. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_b1bb6a859dc1",
+                "source_url": "https://www.amazon.ca/Hario-Ceramic-Coffee-Dripper-White/dp/B000P4D5HG/ref=sr_1_30",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B000P4D5HG.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_b1bb6a859dc1.jpg"
+              },
+              "observed_main_body_color": "white"
+            },
+            {
+              "entity_id": "p_54a7bca7662e",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_54a7bca7662e",
+                "source_url": "https://www.amazon.ca/Coffee-Dripper-Stainless-Reusable-Removable/dp/B09CQ7Y37D/ref=sr_1_24",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B09CQ7Y37D.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_54a7bca7662e.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_436176ddcdbf",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: copper metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_436176ddcdbf",
+                "source_url": "https://www.amazon.ca/Upgraded-Version%E3%80%91Pour-Coffee-Stainless-Paperless/dp/B0FXB2Q8CS/ref=sr_1_47",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FXB2Q8CS.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_436176ddcdbf.jpg"
+              },
+              "observed_main_body_color": "copper metal main body"
+            },
+            {
+              "entity_id": "p_26d348fcccc4",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass/metal with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_26d348fcccc4",
+                "source_url": "https://www.amazon.ca/Paperless-Borosilicate-Reusable-Stainless-Permanent/dp/B09FXKLCZM/ref=sr_1_33",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B09FXKLCZM.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_26d348fcccc4.jpg"
+              },
+              "observed_main_body_color": "clear glass/metal with additional jug"
+            },
+            {
+              "entity_id": "p_7b7a2a4a9dba",
+              "a": "supported_same_color_component",
+              "b": "supported_in_pairs",
+              "reason": "Original product image shows black main upper body with metal mesh bottom; a standalone functional brewing component. Public compatibility table records each separately available paper. The same-color need does not require identical material, exact shape, brand or capacity.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_7b7a2a4a9dba",
+                "source_url": "https://www.amazon.ca/Dripper-Filters-Paperless-Reusable-Stainless/dp/B0BS3FXG1R/ref=sr_1_44",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0BS3FXG1R.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_7b7a2a4a9dba.jpg"
+              },
+              "observed_main_body_color": "black main upper body with metal mesh bottom",
+              "compatible_paper_ids": [
+                "p_203d4e592bf0",
+                "p_f49ea26a33e2",
+                "p_3e4ab56bc65d",
+                "p_0c3b91ca068a",
+                "p_a2a110f5188f"
+              ]
+            },
+            {
+              "entity_id": "p_64e2d719f22f",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass/metal with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_64e2d719f22f",
+                "source_url": "https://www.amazon.ca/subjectthree-Coffee-Maker-Glass-Carafe/dp/B0DJPTMSZZ/ref=sr_1_35",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0DJPTMSZZ.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_64e2d719f22f.jpg"
+              },
+              "observed_main_body_color": "clear glass/metal with additional jug"
+            },
+            {
+              "entity_id": "p_e4b65aa34743",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass and wood. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_e4b65aa34743",
+                "source_url": "https://www.amazon.ca/Lalord-Coffee-Dripper-Filter-Borosilicate/dp/B0BZW4HJMT/ref=sr_1_36",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0BZW4HJMT.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_e4b65aa34743.jpg"
+              },
+              "observed_main_body_color": "clear glass and wood"
+            },
+            {
+              "entity_id": "p_775b259d429f",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: black jug but silver metal filter; extra insulated jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_775b259d429f",
+                "source_url": "https://www.amazon.ca/ASOBU-Insulated-Coffee-Double-Wall-Stainless-Steel/dp/B07FK27D8R/ref=sr_1_37",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07FK27D8R.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_775b259d429f.jpg"
+              },
+              "observed_main_body_color": "black jug but silver metal filter; extra insulated jug"
+            },
+            {
+              "entity_id": "p_22079b883717",
+              "a": "supported_same_color_component",
+              "b": "supported_in_pairs",
+              "reason": "Original product image shows black main body with silver rim; a standalone functional brewing component. Public compatibility table records each separately available paper. The same-color need does not require identical material, exact shape, brand or capacity.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_22079b883717",
+                "source_url": "https://www.amazon.ca/YETI-Accessory-Ramblers-Extraction-Stainless/dp/B0DS6KM3WW/ref=sr_1_38",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0DS6KM3WW.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_22079b883717.jpg"
+              },
+              "observed_main_body_color": "black main body with silver rim",
+              "compatible_paper_ids": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571",
+                "p_dfc9aa05484a",
+                "p_b754062c004f",
+                "p_f49ea26a33e2"
+              ]
+            },
+            {
+              "entity_id": "p_2e77efc5f3bf",
+              "a": "supported_same_color_component",
+              "b": "supported_in_pairs",
+              "reason": "Original product image shows black; a standalone functional brewing component. Public compatibility table records each separately available paper. The same-color need does not require identical material, exact shape, brand or capacity.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_2e77efc5f3bf",
+                "source_url": "https://www.amazon.ca/ALXBSONE-Collapsible-Silicone-Filterfilter-Backpacking/dp/B0CPXJFWBZ/ref=sr_1_39",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0CPXJFWBZ.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_2e77efc5f3bf.jpg"
+              },
+              "observed_main_body_color": "black",
+              "compatible_paper_ids": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571",
+                "p_dfc9aa05484a",
+                "p_b754062c004f",
+                "p_3e4ab56bc65d",
+                "p_07c88828f01b",
+                "p_525464602002",
+                "p_f49ea26a33e2",
+                "p_203d4e592bf0"
+              ]
+            },
+            {
+              "entity_id": "p_665f8240ebf2",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass main body with black base. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_665f8240ebf2",
+                "source_url": "https://www.amazon.ca/HARIO-V60-Immersion-Dripper-03/dp/B09JL4R6SX/ref=sr_1_40",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B09JL4R6SX.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_665f8240ebf2.jpg"
+              },
+              "observed_main_body_color": "clear glass main body with black base"
+            },
+            {
+              "entity_id": "p_a97c20be3373",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: brown ceramic set with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_a97c20be3373",
+                "source_url": "https://www.amazon.ca/HYAXGM-Coffee-Ceramic-Filter%EF%BC%8C16oz-Dripper/dp/B0D7Q4J3XG/ref=sr_1_41",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0D7Q4J3XG.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_a97c20be3373.jpg"
+              },
+              "observed_main_body_color": "brown ceramic set with additional jug"
+            },
+            {
+              "entity_id": "p_4212582e59ab",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass coffeemaker with integrated jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_4212582e59ab",
+                "source_url": "https://www.amazon.ca/Chemex-Classic-Pour-over-Glass-Coffeemaker/dp/B004BEQFVY/ref=sr_1_42",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B004BEQFVY.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_4212582e59ab.jpg"
+              },
+              "observed_main_body_color": "clear glass coffeemaker with integrated jug"
+            },
+            {
+              "entity_id": "p_8bbe712d32d2",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_8bbe712d32d2",
+                "source_url": "https://www.amazon.ca/Bambeav-Coffee-Dripper-Stainless-Heat-Resistant/dp/B0GV8NRBGQ/ref=sr_1_43",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0GV8NRBGQ.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_8bbe712d32d2.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_87ecfe32b043",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_87ecfe32b043",
+                "source_url": "https://www.amazon.ca/Stainless-Reusable-Paperless-Non-Slip-Anti-Drip/dp/B0H9LWCK1H/ref=sr_1_44",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0H9LWCK1H.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_87ecfe32b043.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_114d14eb9c4e",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: dark brown ceramic set with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_114d14eb9c4e",
+                "source_url": "https://www.amazon.ca/Globe-Stoneware-Coffee-Dripper-Carafe/dp/B09L7WY24T/ref=sr_1_45",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B09L7WY24T.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_114d14eb9c4e.jpg"
+              },
+              "observed_main_body_color": "dark brown ceramic set with additional jug"
+            },
+            {
+              "entity_id": "p_179b2eab9ad3",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: clear glass set with additional jug. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_179b2eab9ad3",
+                "source_url": "https://www.amazon.ca/HARIO-Glass-Brewing-600ml-Clear/dp/B08WYQB4QC/ref=sr_1_46",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B08WYQB4QC.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_179b2eab9ad3.jpg"
+              },
+              "observed_main_body_color": "clear glass set with additional jug"
+            },
+            {
+              "entity_id": "p_fcb91fa2b1a1",
+              "a": "supported_same_color_component",
+              "b": "supported_in_pairs",
+              "reason": "Original product image shows black; a standalone functional brewing component. Public compatibility table records each separately available paper. The same-color need does not require identical material, exact shape, brand or capacity.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_fcb91fa2b1a1",
+                "source_url": "https://www.amazon.ca/Flat-Bottom-FILTER-Coffee-Westmark/dp/B000VZGCME/ref=sr_1_46",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B000VZGCME.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_fcb91fa2b1a1.jpg"
+              },
+              "observed_main_body_color": "black",
+              "compatible_paper_ids": [
+                "p_47cd6d6e82c9",
+                "p_d152ef5d18a4",
+                "p_ff123a16af24",
+                "p_6294bcdcd1af",
+                "p_1162bc902803",
+                "p_c05e2eb0f53d",
+                "p_f49ea26a33e2"
+              ]
+            },
+            {
+              "entity_id": "p_ae836d7cec05",
+              "a": "not_matching_color_or_component_only",
+              "b": "not_matching_color_or_component_only",
+              "reason": "Actual native product image: silver metal main body. This does not supply only a black-main-body component matching the source. A black handle/base alone is not the component's main-body color; an extra jug fails the explicit part-only request. This is not a claim about whether the paper family could otherwise work.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_ae836d7cec05",
+                "source_url": "https://www.amazon.ca/Stainless-Strainer-Paperless-Compatible-Household/dp/B0GLPY7CFW/ref=sr_1_48",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0GLPY7CFW.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_ae836d7cec05.jpg"
+              },
+              "observed_main_body_color": "silver metal main body"
+            },
+            {
+              "entity_id": "p_641004168929",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack with an explicit public conical/filter-cup class claim, accepted equally with all seven current black cone components; title size alone is not an exclusive restriction. Public listed compatibility, not measured fit.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_641004168929",
+                "source_url": "https://www.amazon.ca/Filters-Disposable-Compatible-Conical-Maker%EF%BC%8CNatural/dp/B0F1WWG8FC/ref=sr_1_2",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0F1WWG8FC.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_641004168929.jpg"
+              }
+            },
+            {
+              "entity_id": "p_16fff3782721",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack with an explicit public conical/filter-cup class claim, accepted equally with all seven current black cone components; title size alone is not an exclusive restriction. Public listed compatibility, not measured fit.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_16fff3782721",
+                "source_url": "https://www.amazon.ca/Filters-Unbleached-Natural-Disposable-Compatible/dp/B0G57GZJRC/ref=sr_1_3",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0G57GZJRC.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_16fff3782721.jpg"
+              }
+            },
+            {
+              "entity_id": "p_b754062c004f",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_b754062c004f",
+                "source_url": "https://www.amazon.ca/Hario-V60-Paper-Coffee-Filters/dp/B004EH30DY/ref=sr_1_4",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B004EH30DY.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_b754062c004f.jpg"
+              }
+            },
+            {
+              "entity_id": "p_0c3b91ca068a",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack with an explicit public conical/filter-cup class claim, accepted equally with all seven current black cone components; title size alone is not an exclusive restriction. Public listed compatibility, not measured fit.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_0c3b91ca068a",
+                "source_url": "https://www.amazon.ca/Coffee-Filter-Suitable-Unbleached-Disposable/dp/B0DTHCXYPT/ref=sr_1_5",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0DTHCXYPT.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_0c3b91ca068a.jpg"
+              }
+            },
+            {
+              "entity_id": "p_d3333ab560b0",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_d3333ab560b0",
+                "source_url": "https://www.amazon.ca/Hario-V60-Misarashi-Coffee-200-count/dp/B073S4XTKJ/ref=sr_1_6",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B073S4XTKJ.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_d3333ab560b0.jpg"
+              }
+            },
+            {
+              "entity_id": "p_6bd41b92673b",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_6bd41b92673b",
+                "source_url": "https://www.amazon.ca/Chemex-Filters-Natural-Squares-FSU-100/dp/B0000CF3HB/ref=sr_1_7",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0000CF3HB.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_6bd41b92673b.jpg"
+              }
+            },
+            {
+              "entity_id": "p_203d4e592bf0",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_203d4e592bf0",
+                "source_url": "https://www.amazon.ca/Filters-Disposable-Natural-Unbleached-Suitable/dp/B0G13B6CB7/ref=sr_1_8",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0G13B6CB7.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_203d4e592bf0.jpg"
+              }
+            },
+            {
+              "entity_id": "p_6294bcdcd1af",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_6294bcdcd1af",
+                "source_url": "https://www.amazon.ca/MELITTA-Natural-Bamboo-Filters-Replacement/dp/B00CHILRF0/ref=sr_1_9",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B00CHILRF0.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_6294bcdcd1af.jpg"
+              }
+            },
+            {
+              "entity_id": "p_c3916f43d895",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack with an explicit public conical/filter-cup class claim, accepted equally with all seven current black cone components; title size alone is not an exclusive restriction. Public listed compatibility, not measured fit.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_c3916f43d895",
+                "source_url": "https://www.amazon.ca/AMSGANK-Coffee-Disposable-Filters-Unbleached/dp/B0FRG3KSS6/ref=sr_1_10",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FRG3KSS6.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_c3916f43d895.jpg"
+              }
+            },
+            {
+              "entity_id": "p_3190282a4013",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_3190282a4013",
+                "source_url": "https://www.amazon.ca/Hario-100-Count-Coffee-Filters-3-Pack/dp/B00W9XANYY/ref=sr_1_11",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B00W9XANYY.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_3190282a4013.jpg"
+              }
+            },
+            {
+              "entity_id": "p_4ebd57c5afb4",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_4ebd57c5afb4",
+                "source_url": "https://www.amazon.ca/AGOGO-Disposable-Exclusive-Packaging-Burlywood/dp/B0B418BS9J/ref=sr_1_13",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0B418BS9J.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_4ebd57c5afb4.jpg"
+              }
+            },
+            {
+              "entity_id": "p_f49ea26a33e2",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_f49ea26a33e2",
+                "source_url": "https://www.amazon.ca/Coffee-Filter-Unbleached-Premium-Disposable/dp/B0FF4BZY36/ref=sr_1_14",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FF4BZY36.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FF4BZY36-fit-guide.jpg",
+                  "data/experiments/variants/dependency/basket-coffee/web-evidence.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_f49ea26a33e2.jpg"
+              }
+            },
+            {
+              "entity_id": "p_60d2bdf215d6",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_60d2bdf215d6",
+                "source_url": "https://www.amazon.ca/Chemex-Classic-Coffee-Filters-Squares/dp/B000N4W2SG/ref=sr_1_15",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B000N4W2SG.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_60d2bdf215d6.jpg"
+              }
+            },
+            {
+              "entity_id": "p_3f376eb73e8a",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_3f376eb73e8a",
+                "source_url": "https://www.amazon.ca/Bluelark-50Pcs-Hanging-Coffee-Filter/dp/B0FJ89CP98/ref=sr_1_16",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FJ89CP98.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_3f376eb73e8a.jpg"
+              }
+            },
+            {
+              "entity_id": "p_3e4ab56bc65d",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_3e4ab56bc65d",
+                "source_url": "https://www.amazon.ca/Coffee-Filters-Disposable-Compatible-Dripper/dp/B0D12RMKLS/ref=sr_1_18",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0D12RMKLS.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_3e4ab56bc65d.jpg"
+              }
+            },
+            {
+              "entity_id": "p_118c415248c5",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_118c415248c5",
+                "source_url": "https://www.amazon.ca/Hario-Count-Coffee-Filter-Natural/dp/B001O0R46I/ref=sr_1_19",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B001O0R46I.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_118c415248c5.jpg"
+              }
+            },
+            {
+              "entity_id": "p_6751dfb5210c",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_6751dfb5210c",
+                "source_url": "https://www.amazon.ca/Buphallo-Pocket-Coffee-Filter-50pcs/dp/B07K4YCPXR/ref=sr_1_20",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B07K4YCPXR.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_6751dfb5210c.jpg"
+              }
+            },
+            {
+              "entity_id": "p_fcc37e6bf43c",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_fcc37e6bf43c",
+                "source_url": "https://www.amazon.ca/CAFEC-Cone-shaped-Universal-Disposable-Eco-Friendly/dp/B076MCYZ9R/ref=sr_1_21",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B076MCYZ9R.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_fcc37e6bf43c.jpg"
+              }
+            },
+            {
+              "entity_id": "p_07c88828f01b",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_07c88828f01b",
+                "source_url": "https://www.amazon.ca/Kalita-Wave-Filters-Specially-Dripper/dp/B0793L756T/ref=sr_1_22",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0793L756T.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_07c88828f01b.jpg"
+              }
+            },
+            {
+              "entity_id": "p_dfc9aa05484a",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_dfc9aa05484a",
+                "source_url": "https://www.amazon.ca/Ecowilli-Coffee-Biodegradable-Unbleached-Filters/dp/B0C4BLFGL9/ref=sr_1_26",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0C4BLFGL9.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_dfc9aa05484a.jpg"
+              }
+            },
+            {
+              "entity_id": "p_672b707de49a",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_672b707de49a",
+                "source_url": "https://www.amazon.ca/Hario-Misarashi-Coffee-200-count-Natural/dp/B073RWF7NT/ref=sr_1_27",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B073RWF7NT.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_672b707de49a.jpg"
+              }
+            },
+            {
+              "entity_id": "p_525464602002",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_525464602002",
+                "source_url": "https://www.amazon.ca/ecowilli-Coffee-Filters-Unbleached-150-pk/dp/B0H2XJVVFY/ref=sr_1_29",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0H2XJVVFY.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_525464602002.jpg"
+              }
+            },
+            {
+              "entity_id": "p_bba5d812608a",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_bba5d812608a",
+                "source_url": "https://www.amazon.ca/Count-Coffee-Filters-Unbleached-Compatible/dp/B0FMFMF88M/ref=sr_1_30",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FMFMF88M.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0FMFMF88M-fit-guide.jpg",
+                  "data/experiments/variants/dependency/basket-coffee/web-evidence.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_bba5d812608a.jpg"
+              }
+            },
+            {
+              "entity_id": "p_a2a110f5188f",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack with an explicit public conical/filter-cup class claim, accepted equally with all seven current black cone components; title size alone is not an exclusive restriction. Public listed compatibility, not measured fit.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_a2a110f5188f",
+                "source_url": "https://www.amazon.ca/YICOTA-Disposable-Unbleached-Filters-Compatible/dp/B0DBHKP68K/ref=sr_1_32",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0DBHKP68K.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_a2a110f5188f.jpg"
+              }
+            },
+            {
+              "entity_id": "p_6e0af355f9bd",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_6e0af355f9bd",
+                "source_url": "https://www.amazon.ca/Coffee-Filters-Natural-Unbleached-Disposable/dp/B0CXLZW4FH/ref=sr_1_34",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0CXLZW4FH.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_6e0af355f9bd.jpg"
+              }
+            },
+            {
+              "entity_id": "p_47cd6d6e82c9",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_47cd6d6e82c9",
+                "source_url": "https://www.amazon.ca/Melitta-Coffee-Filters-White-Count/dp/B00006IUTP/ref=sr_1_35",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B00006IUTP.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_47cd6d6e82c9.jpg"
+              }
+            },
+            {
+              "entity_id": "p_c05e2eb0f53d",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_c05e2eb0f53d",
+                "source_url": "https://www.amazon.ca/Coffee-Filters-Unbleached-Natural-Compatible/dp/B0F9Y85GYW/ref=sr_1_36",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0F9Y85GYW.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_c05e2eb0f53d.jpg"
+              }
+            },
+            {
+              "entity_id": "p_85f3a0d3223e",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_85f3a0d3223e",
+                "source_url": "https://www.amazon.ca/Coffee-Filters-Unbleached-Disposable-Natural/dp/B0GYR47GFL/ref=sr_1_37",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0GYR47GFL-fit-guide.jpg",
+                  "data/experiments/variants/dependency/basket-coffee/web-evidence.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_85f3a0d3223e.jpg"
+              }
+            },
+            {
+              "entity_id": "p_ff123a16af24",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_ff123a16af24",
+                "source_url": "https://www.amazon.ca/Coffee-Filters-Unbleached-Natural-Filter/dp/B0GTV4PCXZ/ref=sr_1_38",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0GTV4PCXZ.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_ff123a16af24.jpg"
+              }
+            },
+            {
+              "entity_id": "p_c018aa06fd5c",
+              "a": "not_component",
+              "b": "unsupported_pair",
+              "reason": "No specific accepted black-component relation is established by this pack's actual public scope. General 'most' or 'wide compatibility' without identifying this component is not treated as universal. Hanging-ear self-supported bags are not a liner refill. This classification does not prove physical impossibility.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_c018aa06fd5c",
+                "source_url": "https://www.amazon.ca/Primula-Brew-Buddy-Portable-Dishwasher/dp/B08JHF2QB6/ref=sr_1_39",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B08JHF2QB6.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_c018aa06fd5c.jpg"
+              }
+            },
+            {
+              "entity_id": "p_dbe408351571",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_dbe408351571",
+                "source_url": "https://www.amazon.ca/AGOGO-Coffee-Paper-Filters-Basket/dp/B0F2911PB8/ref=sr_1_43",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0F2911PB8.json",
+                  "data/experiments/variants/dependency/basket-coffee/web-evidence.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_dbe408351571.jpg"
+              }
+            },
+            {
+              "entity_id": "p_d152ef5d18a4",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_d152ef5d18a4",
+                "source_url": "https://www.amazon.ca/Coffee-Filters-Natural-Unbleached-Basket/dp/B0CXM2Y26Q/ref=sr_1_45",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0CXM2Y26Q.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_d152ef5d18a4.jpg"
+              }
+            },
+            {
+              "entity_id": "p_1162bc902803",
+              "a": "not_component",
+              "b": "supported_in_pairs",
+              "reason": "Separately sold paper pack; accepted only with the publicly supported black-component pairs in the compatibility table. Paper color and source paper geometry are unrestricted.",
+              "evidence_refs": {
+                "site_catalog": "sites/egomart/products.json",
+                "entity_id": "p_1162bc902803",
+                "source_url": "https://www.amazon.ca/Coffee-Filters-Unbleached-Natural-Filter/dp/B0GY536XFN/ref=sr_1_48",
+                "source_snapshot_paths": [
+                  "data/sources/search_snapshots/candidate-mart-graft-augment-2026101501.json",
+                  "data/sources/upstream_detail_snapshots/amazon/B0GY536XFN.json"
+                ],
+                "product_image": "sites/egomart/static/products/upstream/p_1162bc902803.jpg"
+              }
+            }
+          ]
+        },
+        "answer_boundary_repair_20261018": {
+          "owner": "/root/formal_media_batch_b_1018",
+          "scope": "same_color_for_another_coffee_corner",
+          "independent_concern": ".scratch/task-completion-20261018/1663-compatibility-repair/independent-confirmation.json",
+          "previous_boundary_ref": "construct.answer_boundary_repair_history[-1]",
+          "prior_initial_drippers": 7,
+          "prior_final_pairs": 65,
+          "compatibility": {
+            "p_63e50479a5e9": [
+              "p_47cd6d6e82c9",
+              "p_d152ef5d18a4",
+              "p_ff123a16af24",
+              "p_6294bcdcd1af",
+              "p_1162bc902803",
+              "p_c05e2eb0f53d",
+              "p_f49ea26a33e2",
+              "p_0c3b91ca068a",
+              "p_641004168929",
+              "p_16fff3782721",
+              "p_a2a110f5188f",
+              "p_c3916f43d895"
+            ],
+            "p_fcb91fa2b1a1": [
+              "p_47cd6d6e82c9",
+              "p_d152ef5d18a4",
+              "p_ff123a16af24",
+              "p_6294bcdcd1af",
+              "p_1162bc902803",
+              "p_c05e2eb0f53d",
+              "p_f49ea26a33e2",
+              "p_0c3b91ca068a",
+              "p_641004168929",
+              "p_16fff3782721",
+              "p_a2a110f5188f",
+              "p_c3916f43d895"
+            ],
+            "p_22079b883717": [
+              "p_d3333ab560b0",
+              "p_118c415248c5",
+              "p_672b707de49a",
+              "p_fcc37e6bf43c",
+              "p_0c3b91ca068a",
+              "p_641004168929",
+              "p_a2a110f5188f",
+              "p_c3916f43d895",
+              "p_16fff3782721",
+              "p_3190282a4013",
+              "p_6e0af355f9bd",
+              "p_85f3a0d3223e",
+              "p_dbe408351571",
+              "p_dfc9aa05484a",
+              "p_b754062c004f",
+              "p_f49ea26a33e2"
+            ],
+            "p_2e77efc5f3bf": [
+              "p_d3333ab560b0",
+              "p_118c415248c5",
+              "p_672b707de49a",
+              "p_fcc37e6bf43c",
+              "p_0c3b91ca068a",
+              "p_641004168929",
+              "p_a2a110f5188f",
+              "p_c3916f43d895",
+              "p_16fff3782721",
+              "p_3190282a4013",
+              "p_6e0af355f9bd",
+              "p_85f3a0d3223e",
+              "p_dbe408351571",
+              "p_dfc9aa05484a",
+              "p_b754062c004f",
+              "p_3e4ab56bc65d",
+              "p_07c88828f01b",
+              "p_525464602002",
+              "p_f49ea26a33e2",
+              "p_203d4e592bf0"
+            ],
+            "p_11fdbf1495ce": [
+              "p_203d4e592bf0",
+              "p_f49ea26a33e2",
+              "p_3e4ab56bc65d",
+              "p_0c3b91ca068a",
+              "p_a2a110f5188f",
+              "p_641004168929",
+              "p_16fff3782721",
+              "p_c3916f43d895"
+            ],
+            "p_7b7a2a4a9dba": [
+              "p_203d4e592bf0",
+              "p_f49ea26a33e2",
+              "p_3e4ab56bc65d",
+              "p_0c3b91ca068a",
+              "p_a2a110f5188f",
+              "p_641004168929",
+              "p_16fff3782721",
+              "p_c3916f43d895"
+            ],
+            "p_4d9b9abf1a43": [
+              "p_203d4e592bf0",
+              "p_f49ea26a33e2",
+              "p_3e4ab56bc65d",
+              "p_0c3b91ca068a",
+              "p_a2a110f5188f",
+              "p_641004168929",
+              "p_16fff3782721",
+              "p_c3916f43d895"
+            ]
+          },
+          "initial_drippers": 7,
+          "final_pairs": 84,
+          "window_entities": 81,
+          "matching_rule": "Match the main visible body color, not every trim piece. Black-body portable mesh-bottom components are useful alternatives; paperless means paper is unnecessary, not forbidden. No same-brand/model/material/capacity/source-paper-family condition. For B, accept an explicit named family, an unqualified compatible cone/filter-cup class or universal claim when the chosen component belongs to it. Apply the same class claim to all seven cones; do not infer exclusive family restrictions from a title number. A most-standard/most-cone claim alone leaves particular unlisted relations unsupported.",
+          "compatibility_scope": [
+            {
+              "paper": "p_203d4e592bf0",
+              "public_field": "feature_3",
+              "claim": "perfectly fitting any 1-2 cup coffee dripper and coffee maker",
+              "accepted_drippers": [
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "ALXB is single serve; Gocoffun and WASYPLSFOI are explicitly1–2cup. Roponan brews1–3cups, including actual1–2cup use; no same-size-number restriction is added. The formerly missing red Melitta1-Cup relation is valid under the superseded color-unrestricted scope, but red now fails A."
+            },
+            {
+              "paper": "p_f49ea26a33e2",
+              "public_field": "feature_1",
+              "claim": "Designed to fit all coffee makers",
+              "accepted_drippers": [
+                "p_63e50479a5e9",
+                "p_fcb91fa2b1a1",
+                "p_22079b883717",
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "Apply the public universal statement equally to all seven black functional choices; no same-ASIN public dimensions establish a direct contradiction. Do not silently shrink it to #2 because of the title."
+            },
+            {
+              "paper": "p_3e4ab56bc65d",
+              "public_field": "feature_3",
+              "claim": "fit ... small coffee maker, single serve coffee maker ... also perform exceptionally well as #2 cone filters, ideal for1–2people",
+              "accepted_drippers": [
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "Existing ALXB basket acceptance retained; small/single-serve black alternatives are not excluded merely for lacking Wave155/#2 labels."
+            },
+            {
+              "paper": "p_0c3b91ca068a",
+              "public_field": "feature_2",
+              "claim": "perfect fit for conical filter cups; compatible with a wide range of coffee makers, filter cups and hand brewing devices",
+              "accepted_drippers": [
+                "p_63e50479a5e9",
+                "p_fcb91fa2b1a1",
+                "p_22079b883717",
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "Apply the explicit public cone/filter-cup class claim equally to all seven listed cone brewing components, including the two Size4 models. Size02 in the title is not an exclusive-only restriction. No compared native dimensions establish a contradiction; this accepts the listed class claim, not a measured physical fit."
+            },
+            {
+              "paper": "p_641004168929",
+              "public_field": "feature_3",
+              "claim": "suitable for size 02 pour over cone coffee filters, conical Shaped filter cups, filter drippers, drip coffee maker, pour over brewers",
+              "accepted_drippers": [
+                "p_63e50479a5e9",
+                "p_fcb91fa2b1a1",
+                "p_22079b883717",
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "Apply the explicit public cone/filter-cup class claim equally to all seven listed cone brewing components, including the two Size4 models. Size02 in the title is not an exclusive-only restriction. No compared native dimensions establish a contradiction; this accepts the listed class claim, not a measured physical fit."
+            },
+            {
+              "paper": "p_16fff3782721",
+              "public_field": "feature_2",
+              "claim": "compatible with 02 pour over and drip coffee maker, conical filter cups, filter drippers",
+              "accepted_drippers": [
+                "p_63e50479a5e9",
+                "p_fcb91fa2b1a1",
+                "p_22079b883717",
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "Apply the explicit public cone/filter-cup class claim equally to all seven listed cone brewing components, including the two Size4 models. Size02 in the title is not an exclusive-only restriction. No compared native dimensions establish a contradiction; this accepts the listed class claim, not a measured physical fit."
+            },
+            {
+              "paper": "p_a2a110f5188f",
+              "public_field": "feature_2/5",
+              "claim": "fits for V60 coffee drippers and other V-shaped pour over coffee makers; compatible with V60 coffee drippers, filter cups and other pour over coffee making machines",
+              "accepted_drippers": [
+                "p_63e50479a5e9",
+                "p_fcb91fa2b1a1",
+                "p_22079b883717",
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "Apply the explicit public cone/filter-cup class claim equally to all seven listed cone brewing components, including the two Size4 models. Size02 in the title is not an exclusive-only restriction. No compared native dimensions establish a contradiction; this accepts the listed class claim, not a measured physical fit."
+            },
+            {
+              "paper": "p_c3916f43d895",
+              "public_field": "feature_5",
+              "claim": "Compatible with V60 Size 02, and can be used with coffee machines, filter cups and other models",
+              "accepted_drippers": [
+                "p_63e50479a5e9",
+                "p_fcb91fa2b1a1",
+                "p_22079b883717",
+                "p_2e77efc5f3bf",
+                "p_11fdbf1495ce",
+                "p_7b7a2a4a9dba",
+                "p_4d9b9abf1a43"
+              ],
+              "reason": "Apply the explicit public cone/filter-cup class claim equally to all seven listed cone brewing components, including the two Size4 models. Size02 in the title is not an exclusive-only restriction. No compared native dimensions establish a contradiction; this accepts the listed class claim, not a measured physical fit."
+            }
+          ],
+          "broader_prior_relation_corrections": [
+            {
+              "dripper": "p_70a7da459ae8",
+              "paper": "p_203d4e592bf0",
+              "public_support": "Melitta1-Cup and paper any1–2cup; valid under prior color-unrestricted request, excluded now only because the actual product is red."
+            },
+            {
+              "dripper": "p_83bc7e90a993",
+              "paper": "p_203d4e592bf0",
+              "public_support": "DOWAN public a cup or two; prior compatible alternative, now brown does not match."
+            },
+            {
+              "dripper": "p_9ce2e95b39e6",
+              "paper": "p_203d4e592bf0",
+              "public_support": "DOWAN public a cup or two; prior compatible alternative, now white does not match."
+            }
+          ],
+          "evidence_refs": [
+            "V0:0",
+            "V0:4",
+            "V0:7",
+            "sites/egomart/products.json",
+            "construct.catalog_resolution.window_adjudication"
+          ],
+          "source_geometry_resolution": "No exact source paper-family judgement is made. Existing compatible #4, V60 and basket families remain usable if the chosen component meets the observed-color need.",
+          "independent_admission_claimed": false,
+          "consistency_review_20261018": {
+            "scope": "All81 captured entities, including all34 non-component entries and all7 accepted black component native attributes reread; prior static image/color evidence reused.",
+            "reviewed_by": "/root/paper_compatibility_finish_1018",
+            "independent_concern_ref": ".scratch/task-completion-20261018/1663-compatibility-repair/color-current-independent.json",
+            "newly_supported_pairs": [
+              [
+                "p_63e50479a5e9",
+                "p_0c3b91ca068a"
+              ],
+              [
+                "p_63e50479a5e9",
+                "p_641004168929"
+              ],
+              [
+                "p_63e50479a5e9",
+                "p_16fff3782721"
+              ],
+              [
+                "p_63e50479a5e9",
+                "p_a2a110f5188f"
+              ],
+              [
+                "p_63e50479a5e9",
+                "p_c3916f43d895"
+              ],
+              [
+                "p_fcb91fa2b1a1",
+                "p_0c3b91ca068a"
+              ],
+              [
+                "p_fcb91fa2b1a1",
+                "p_641004168929"
+              ],
+              [
+                "p_fcb91fa2b1a1",
+                "p_16fff3782721"
+              ],
+              [
+                "p_fcb91fa2b1a1",
+                "p_a2a110f5188f"
+              ],
+              [
+                "p_fcb91fa2b1a1",
+                "p_c3916f43d895"
+              ],
+              [
+                "p_11fdbf1495ce",
+                "p_641004168929"
+              ],
+              [
+                "p_11fdbf1495ce",
+                "p_16fff3782721"
+              ],
+              [
+                "p_11fdbf1495ce",
+                "p_c3916f43d895"
+              ],
+              [
+                "p_7b7a2a4a9dba",
+                "p_641004168929"
+              ],
+              [
+                "p_7b7a2a4a9dba",
+                "p_16fff3782721"
+              ],
+              [
+                "p_7b7a2a4a9dba",
+                "p_c3916f43d895"
+              ],
+              [
+                "p_4d9b9abf1a43",
+                "p_641004168929"
+              ],
+              [
+                "p_4d9b9abf1a43",
+                "p_16fff3782721"
+              ],
+              [
+                "p_4d9b9abf1a43",
+                "p_c3916f43d895"
+              ]
+            ],
+            "previous_pairs_retained": 65,
+            "total_pairs": 84,
+            "unknown_not_negative": [
+              "p_6bd41b92673b: most standard makers does not name a particular remaining component.",
+              "p_60d2bdf215d6: most other cone makers does not establish each particular component.",
+              "p_bba5d812608a: most coffee maker and size2 do not identify the remaining component families."
+            ],
+            "limits": "Existing exact-family, universal and small-brewer relations retained. No product text, picture, real source frame, public input or authored instruction changed; no physical fit test claimed."
+          },
+          "evidence_limits": [
+            "The broad public conical/V-shaped/small-brewer claims are applied to the black portable and Roponan alternatives without an observed physical fit test. Exact dimensions of those drippers are not established. Roponan's1–3cup range includes1–2cup use but is not an explicit1–2cup model designation; the matrix accepts the reasonable advertised-range interpretation rather than claiming measured compatibility.",
+            "Remaining 'most' compatibility claims do not identify a particular accepted black component. They remain unsupported relations, not established physical negatives. No native listing text or image was altered to settle them."
+          ],
+          "evidence_limit_resolution_20261018": {
+            "resolved_by": "/root/paper_compatibility_finish_1018",
+            "independent_review": ".scratch/task-completion-20261018/1663-compatibility-repair/color-current-84-confirmed.json",
+            "scope": "The actual authored B asks for paper listed as compatible, not a measured physical fit. The two previous unresolved texts are retained verbatim above as evidence limits, not presented as source faults.",
+            "reasons": [
+              "Specific named families, explicit unqualified compatible cone/filter-cup classes and the universal claim support the listed relations. No physical insertion or dimensional measurement was conducted or claimed.",
+              "A most-standard or most-cone statement alone does not identify a specific remaining component under the listed-as-compatible criterion. Those remaining relations are unestablished, not proven physically incompatible; the native listings and all reachable candidates remain unchanged."
+            ],
+            "blind_review_not_replaced": true
+          }
+        },
+        "answer_boundary_repair_history": [
+          {
+            "owner": "/root/formal_media_batch_b_1018",
+            "previous_scope": {
+              "instructions": {
+                "a": "I want a spare for brewing the way I am doing here. Add just the dripper; I already have the carafe. Any brand, color or cup size is fine, but pick one whose page identifies the paper refills it takes.",
+                "b": "Also add an extra pack of the same style of paper I am folding here, in a size that fits the dripper you have chosen. Keep the dripper. Paper already included with it does not replace this extra pack; any paper brand or color is fine.",
+                "bundled": "I want a spare for brewing the way I am doing here. Add just the dripper; I already have the carafe. Any brand, color or cup size is fine, but pick one whose page identifies the paper refills it takes. Also add an extra pack of the same style of paper I am folding here, in a size that fits the dripper you have chosen. Keep the dripper. Paper already included with it does not replace this extra pack; any paper brand or color is fine."
+              },
+              "prior_initial_goal_count": 9,
+              "prior_final_goal_count": 93,
+              "source_geometry_claim": "V0:2–5 show folding and seating a smooth pointed-cone sheet rather than a preformed wave basket or wedge-bottom paper. Brand and commercial size remain unreadable. The authored request permits other capacities and paper colors.",
+              "prior_required_behavior_change": "Retain the selected dripper and add a separately listed compatible pointed-cone refill.",
+              "prior_difficulty": {
+                "level": "L3",
+                "reviewed_by": "coding-agent-authoring-proposal",
+                "evidence_refs": [
+                  "V0:2–5 show folded pointed-cone paper.",
+                  "Switch03 publicly accepts 03 paper and also supports standard pour-over.",
+                  "The selected metal HARIO is VDMR-02-HSV, independently confirmed as02 by its Amazon detail and HARIO official page."
+                ],
+                "simplest_solution": "Choose a publicly documented dripper for the observed method and use its stated refill family to add the extra paper pack.",
+                "no_simpler_solution": "Final states are not all possible dripper/paper combinations: fixed02 and Switch03 have different accepted papers.",
+                "necessary_conditions": [
+                  {
+                    "id": "object",
+                    "requirement": "The dripper supports the observed pointed-cone paper method and does not add a carafe.",
+                    "independent_counterexample": "Wave185 uses preformed wave paper; a starter set adds an unwanted carafe."
+                  },
+                  {
+                    "id": "fit",
+                    "requirement": "The extra paper matches the observed shape and the chosen dripper public refill family.",
+                    "independent_counterexample": "Switch03 plus an02-only paper does not satisfy the advertised fit."
+                  }
+                ],
+                "dependencies": [
+                  {
+                    "from": "object",
+                    "to": "fit",
+                    "proof": "Replacing a fixed02 choice with Switch03 changes the valid paper to03. Broad V60-compatible listings retain their explicitly advertised family scope."
+                  }
+                ]
+              }
+            },
+            "prior_specific_review": ".scratch/formal-repairs-20261016/1663-blind.json",
+            "difference_inventory": ".scratch/task-completion-20261018/prior-review-recovery-confirmations/candidate-mart-graft-augment-2026101663.json",
+            "old_30_pairs_identity_check": "All 16 distinct entity IDs remain in the same81 window and still name the same7 drippers/9 paper packs. 0/30 in the prior executable is not treated as an ID migration failure; geometry-specific scope caused a different family choice.",
+            "geometry_resolution": "No adjudication between the conflicting old visual labels is needed for the revised second-station purpose. Both old paper-family and pointed/wave-family compatible setups can satisfy the new need.",
+            "compatibility": {
+              "p_63e50479a5e9": [
+                "p_47cd6d6e82c9",
+                "p_d152ef5d18a4",
+                "p_ff123a16af24",
+                "p_6294bcdcd1af",
+                "p_1162bc902803",
+                "p_c05e2eb0f53d"
+              ],
+              "p_ab73a457abb9": [
+                "p_47cd6d6e82c9",
+                "p_d152ef5d18a4",
+                "p_ff123a16af24",
+                "p_6294bcdcd1af",
+                "p_1162bc902803",
+                "p_c05e2eb0f53d"
+              ],
+              "p_fcb91fa2b1a1": [
+                "p_47cd6d6e82c9",
+                "p_d152ef5d18a4",
+                "p_ff123a16af24",
+                "p_6294bcdcd1af",
+                "p_1162bc902803",
+                "p_c05e2eb0f53d"
+              ],
+              "p_70a7da459ae8": [
+                "p_194da110605e",
+                "p_f49ea26a33e2",
+                "p_bba5d812608a"
+              ],
+              "p_49c335da884c": [
+                "p_194da110605e",
+                "p_f49ea26a33e2",
+                "p_bba5d812608a"
+              ],
+              "p_83bc7e90a993": [
+                "p_194da110605e",
+                "p_f49ea26a33e2",
+                "p_bba5d812608a"
+              ],
+              "p_9ce2e95b39e6": [
+                "p_194da110605e",
+                "p_f49ea26a33e2",
+                "p_bba5d812608a"
+              ],
+              "p_2793f4b551e7": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571"
+              ],
+              "p_d4c24d8cb6bc": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571"
+              ],
+              "p_b1bb6a859dc1": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571"
+              ],
+              "p_e4b65aa34743": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571"
+              ],
+              "p_f8a02f2620aa": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571"
+              ],
+              "p_ce503b584944": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571"
+              ],
+              "p_22079b883717": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571",
+                "p_dfc9aa05484a",
+                "p_b754062c004f"
+              ],
+              "p_2e77efc5f3bf": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571",
+                "p_dfc9aa05484a",
+                "p_b754062c004f",
+                "p_3e4ab56bc65d",
+                "p_07c88828f01b",
+                "p_525464602002"
+              ],
+              "p_665f8240ebf2": [
+                "p_b754062c004f"
+              ],
+              "p_c8df291acbf8": [
+                "p_07c88828f01b",
+                "p_525464602002",
+                "p_dbe408351571"
+              ]
+            },
+            "initial_drippers": 17,
+            "final_pairs": 145,
+            "window_entities": 81,
+            "independent_admission_claimed": false
+          },
+          {
+            "previous_scope": "same_color_for_another_coffee_corner",
+            "reason": "Superseded7/65 matrix preserved before applying all explicit public conical/filter-cup class claims consistently.",
+            "owner": "/root/formal_media_batch_b_1018",
+            "scope": "same_color_for_another_coffee_corner",
+            "independent_concern": ".scratch/task-completion-20261018/1663-compatibility-repair/independent-confirmation.json",
+            "previous_boundary_ref": "construct.answer_boundary_repair_history[-1]",
+            "prior_initial_drippers": 17,
+            "prior_final_pairs": 145,
+            "compatibility": {
+              "p_63e50479a5e9": [
+                "p_47cd6d6e82c9",
+                "p_d152ef5d18a4",
+                "p_ff123a16af24",
+                "p_6294bcdcd1af",
+                "p_1162bc902803",
+                "p_c05e2eb0f53d",
+                "p_f49ea26a33e2"
+              ],
+              "p_fcb91fa2b1a1": [
+                "p_47cd6d6e82c9",
+                "p_d152ef5d18a4",
+                "p_ff123a16af24",
+                "p_6294bcdcd1af",
+                "p_1162bc902803",
+                "p_c05e2eb0f53d",
+                "p_f49ea26a33e2"
+              ],
+              "p_22079b883717": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571",
+                "p_dfc9aa05484a",
+                "p_b754062c004f",
+                "p_f49ea26a33e2"
+              ],
+              "p_2e77efc5f3bf": [
+                "p_d3333ab560b0",
+                "p_118c415248c5",
+                "p_672b707de49a",
+                "p_fcc37e6bf43c",
+                "p_0c3b91ca068a",
+                "p_641004168929",
+                "p_a2a110f5188f",
+                "p_c3916f43d895",
+                "p_16fff3782721",
+                "p_3190282a4013",
+                "p_6e0af355f9bd",
+                "p_85f3a0d3223e",
+                "p_dbe408351571",
+                "p_dfc9aa05484a",
+                "p_b754062c004f",
+                "p_3e4ab56bc65d",
+                "p_07c88828f01b",
+                "p_525464602002",
+                "p_f49ea26a33e2",
+                "p_203d4e592bf0"
+              ],
+              "p_11fdbf1495ce": [
+                "p_203d4e592bf0",
+                "p_f49ea26a33e2",
+                "p_3e4ab56bc65d",
+                "p_0c3b91ca068a",
+                "p_a2a110f5188f"
+              ],
+              "p_7b7a2a4a9dba": [
+                "p_203d4e592bf0",
+                "p_f49ea26a33e2",
+                "p_3e4ab56bc65d",
+                "p_0c3b91ca068a",
+                "p_a2a110f5188f"
+              ],
+              "p_4d9b9abf1a43": [
+                "p_203d4e592bf0",
+                "p_f49ea26a33e2",
+                "p_3e4ab56bc65d",
+                "p_0c3b91ca068a",
+                "p_a2a110f5188f"
+              ]
+            },
+            "initial_drippers": 7,
+            "final_pairs": 65,
+            "window_entities": 81,
+            "matching_rule": "Match the main visible body color, not every trim piece. Black-body portable mesh-bottom components are useful alternatives; paperless means paper is unnecessary, not forbidden. No same-brand/model/material/capacity/source-paper-family condition.",
+            "compatibility_scope": [
+              {
+                "paper": "p_203d4e592bf0",
+                "public_field": "feature_3",
+                "claim": "perfectly fitting any 1-2 cup coffee dripper and coffee maker",
+                "accepted_drippers": [
+                  "p_2e77efc5f3bf",
+                  "p_11fdbf1495ce",
+                  "p_7b7a2a4a9dba",
+                  "p_4d9b9abf1a43"
+                ],
+                "reason": "ALXB is single serve; Gocoffun and WASYPLSFOI are explicitly1–2cup. Roponan brews1–3cups, including actual1–2cup use; no same-size-number restriction is added. The formerly missing red Melitta1-Cup relation is valid under the superseded color-unrestricted scope, but red now fails A."
+              },
+              {
+                "paper": "p_f49ea26a33e2",
+                "public_field": "feature_1",
+                "claim": "Designed to fit all coffee makers",
+                "accepted_drippers": [
+                  "p_63e50479a5e9",
+                  "p_fcb91fa2b1a1",
+                  "p_22079b883717",
+                  "p_2e77efc5f3bf",
+                  "p_11fdbf1495ce",
+                  "p_7b7a2a4a9dba",
+                  "p_4d9b9abf1a43"
+                ],
+                "reason": "Apply the public universal statement equally to all seven black functional choices; no same-ASIN public dimensions establish a direct contradiction. Do not silently shrink it to #2 because of the title."
+              },
+              {
+                "paper": "p_3e4ab56bc65d",
+                "public_field": "feature_3",
+                "claim": "fit ... small coffee maker, single serve coffee maker ... also perform exceptionally well as #2 cone filters, ideal for1–2people",
+                "accepted_drippers": [
+                  "p_2e77efc5f3bf",
+                  "p_11fdbf1495ce",
+                  "p_7b7a2a4a9dba",
+                  "p_4d9b9abf1a43"
+                ],
+                "reason": "Existing ALXB basket acceptance retained; small/single-serve black alternatives are not excluded merely for lacking Wave155/#2 labels."
+              },
+              {
+                "paper": "p_0c3b91ca068a",
+                "public_field": "feature_2",
+                "claim": "perfect fit for conical filter cups ... compatible with a wide range ... hand brewing devices",
+                "accepted_drippers": [
+                  "p_22079b883717",
+                  "p_2e77efc5f3bf",
+                  "p_11fdbf1495ce",
+                  "p_7b7a2a4a9dba",
+                  "p_4d9b9abf1a43"
+                ],
+                "reason": "The new black standalone cone cups are within the stated conical-cup class. The page provides dimensions, but no compared product dimension directly contradicts the general class claim."
+              },
+              {
+                "paper": "p_a2a110f5188f",
+                "public_field": "feature_2/5",
+                "claim": "fits for V60 coffee drippers and other V-shaped pour over coffee makers",
+                "accepted_drippers": [
+                  "p_22079b883717",
+                  "p_2e77efc5f3bf",
+                  "p_11fdbf1495ce",
+                  "p_7b7a2a4a9dba",
+                  "p_4d9b9abf1a43"
+                ],
+                "reason": "Roponan explicitly calls its dripper V-shaped, and both portable listings identify a cone design. The claim extends beyond named V60 models. No source geometry is required."
+              }
+            ],
+            "broader_prior_relation_corrections": [
+              {
+                "dripper": "p_70a7da459ae8",
+                "paper": "p_203d4e592bf0",
+                "public_support": "Melitta1-Cup and paper any1–2cup; valid under prior color-unrestricted request, excluded now only because the actual product is red."
+              },
+              {
+                "dripper": "p_83bc7e90a993",
+                "paper": "p_203d4e592bf0",
+                "public_support": "DOWAN public a cup or two; prior compatible alternative, now brown does not match."
+              },
+              {
+                "dripper": "p_9ce2e95b39e6",
+                "paper": "p_203d4e592bf0",
+                "public_support": "DOWAN public a cup or two; prior compatible alternative, now white does not match."
+              }
+            ],
+            "evidence_refs": [
+              "V0:0",
+              "V0:4",
+              "V0:7",
+              "sites/egomart/products.json",
+              "construct.catalog_resolution.window_adjudication"
+            ],
+            "source_geometry_resolution": "No exact source paper-family judgement is made. Existing compatible #4, V60 and basket families remain usable if the chosen component meets the observed-color need.",
+            "independent_admission_claimed": false
+          }
+        ]
+      },
+      "blocking_checks": [],
+      "unresolved": [],
+      "replaces_candidate_id": "candidate-mart-graft-augment-2026101501",
+      "replacement_reason": "Same original recording and frames; natural second-station shopping purpose removes unsupported exact source-paper geometry. Keep the extra paper pack update and public dripper-to-refill dependency; preserve prior specific observations without treating this constructor repair as an independent approval.",
+      "stream": {
+        "session_seconds": [
+          1.0,
+          59.6
+        ],
+        "update_onset_seconds": 10.0,
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-graft-augment-2026101663/review.json"
+      }
+    }
+  ]
+}

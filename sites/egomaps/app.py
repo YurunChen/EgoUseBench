@@ -1,4 +1,4 @@
-"""EgoMaps site adapter."""
+"""Google Maps site adapter. Internal site id remains `egomaps`."""
 
 from __future__ import annotations
 
@@ -6,21 +6,25 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from sites.content import ContentSiteConfig, create_content_runtime, load_content_data
-from sites.runtime import SiteRuntime
+from sites.runtime import ActionTrace, SiteRuntime
 
 
 CONFIG = ContentSiteConfig(
     site="egomaps",
-    title="EgoMaps",
+    title="Google Maps",
     entity_key="places",
     id_key="place_id",
     detail_path="place",
-    selection_label="Saved destinations",
+    selection_label="Saved places",
+    searchable_keys=("title", "name", "kind", "address", "summary", "facts"),
+    search_mode="ranked_terms",
 )
 
 
 def load_data(
-    root: str | Path, *, require_assets: bool = False,
+    root: str | Path,
+    *,
+    require_assets: bool = False,
     released_frame_paths: Iterable[str] = (),
 ) -> dict[str, Any]:
     del require_assets, released_frame_paths
@@ -28,7 +32,10 @@ def load_data(
 
 
 def create_runtime(
-    task: dict[str, Any], arm: str, data: dict[str, Any], asset_root: str | Path,
-    *, port: int = 0,
+    data: dict[str, Any],
+    asset_root: str | Path,
+    *,
+    trace: ActionTrace | None = None,
+    port: int = 0,
 ) -> SiteRuntime:
-    return create_content_runtime(task, arm, data, asset_root, CONFIG, port=port)
+    return create_content_runtime(data, asset_root, CONFIG, trace=trace, port=port)

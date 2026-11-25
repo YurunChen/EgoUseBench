@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "pair_id": "CG-01",
+  "id": "CG-01-update-count",
+  "source_task_path": "data/experiments/composite/CG-01.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 76.0,
+      "request": "Keep it under $25."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 92.0,
+      "request": "Keep it under $15."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "p_5573c2baddd9"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "p_1d3250069730"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "76秒无Refresh，沿用原C对线轴旁缝纫剪的指代；新增话语不揭示C答案。JARVISTAR 4英寸刺绣剪$30.53与Fiskars刺绣剪$24.98均属于初始允许的同类备件，中间$25预算排除前者并保留后者。",
+    "public_facts": [
+      {
+        "entity_id": "p_5573c2baddd9",
+        "path": [
+          "price"
+        ],
+        "equals": "$30.53"
+      },
+      {
+        "entity_id": "p_1d3250069730",
+        "path": [
+          "price"
+        ],
+        "equals": "$24.98"
+      },
+      {
+        "entity_id": "p_5573c2baddd9",
+        "path": [
+          "name"
+        ],
+        "equals": "JARVISTAR Small Embroidery Curved Scissors, 4” Forged Stainless Steel Detail Craft Shears, Pointed Tip Sharp Metal Scissors for Fabric Sewing Needle Work, DIY craft."
+      },
+      {
+        "entity_id": "p_1d3250069730",
+        "path": [
+          "name"
+        ],
+        "equals": "Fiskars Embroidery Scissors, Length: 10 cm, for Right- and Left-Handed Users, Stainless Steel Blade/Plastic Handles, Orange, Classic, 1005143"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "price",
+      "entity_id_by_state": {
+        "excluded_state": "p_5573c2baddd9",
+        "retained_state": "p_1d3250069730"
+      },
+      "operator": "<",
+      "value": 25
+    },
+    "original_request_effect": "原$15改口再排除$24.98；最终$11.46的p_6950a6f394d3仍合格。"
+  }
+}

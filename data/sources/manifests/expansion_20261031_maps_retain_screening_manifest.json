@@ -1,0 +1,855 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Existing locally permitted source clip; no new source video downloaded. Current public KAUST directory assets are frozen for local research use with their own source URLs."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-maps-refresh-retain-2026103104",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          435,
+          436
+        ],
+        "media_id": "595a45c2-1c49-4d13-b49c-8a29ce07a790",
+        "original_video_id": "595a45c2-1c49-4d13-b49c-8a29ce07a790",
+        "media_start_seconds": 1410,
+        "original_annotations": [
+          "On Google Maps, locate the exact grocery store shown at the very start of the video and open its business listing. Provide the store’s phone number from the listing, making sure you’ve identified the correct place by matching what’s shown on its entrance.",
+          "After finding the store on Google Maps, identify the larger complex or plaza it belongs to. Confirm by opening Street View or photos and visually matching the outdoor area seen after leaving the store, then report the complex/plaza name and its average rating (from Google Maps)."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              1410,
+              1416
+            ],
+            "role": "original_store",
+            "description": "The wearer faces glass doors under the minimarket/Express sign, then approaches those same doors. The frontage matches the official Discovery Square Tamimi Express photo."
+          },
+          {
+            "interval_seconds": [
+              1536,
+              1567
+            ],
+            "role": "later_store",
+            "description": "After leaving the minimarket, the wearer crosses the outdoor square towards a covered arcade. A glass frontage with café tables, and from 1542 s coloured diagonal stripes, is directly ahead and passed at close range; no readable sign. The wearer then leaves the arcade past bike racks into a street and approaches and walks past the Giordano doorway, whose English and Arabic signs and geometric facade are visible (1555-1567 s)."
+          }
+        ],
+        "continuous_review": {
+          "interval_seconds": [
+            1482,
+            1567
+          ],
+          "decision": "Local72–84 shows checkout at the original store,88 the same exit,92–116 the exterior square,130 the other side,140–157 the route to the Giordano door. These sampled source transitions preserve the same walking scene. The released wording does not require or claim an entry into Giordano.",
+          "evidence_paths": [
+            ".scratch/refresh-expansion-20261031/maps-sources/ego435-continuity.jpg",
+            ".scratch/refresh-expansion-20261031/maps-sources/ego435-130.jpg",
+            ".scratch/refresh-expansion-20261031/maps-sources/ego435-145.jpg",
+            ".scratch/refresh-expansion-20261031/maps-sources/ego435-157.jpg"
+          ]
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            1410,
+            1412,
+            1414,
+            1416
+          ],
+          "frame_paths": [
+            "data/observations/candidate-maps-refresh-retain-2026103104/V0_00.jpg",
+            "data/observations/candidate-maps-refresh-retain-2026103104/V0_01.jpg",
+            "data/observations/candidate-maps-refresh-retain-2026103104/V0_02.jpg",
+            "data/observations/candidate-maps-refresh-retain-2026103104/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            1536,
+            1542,
+            1555,
+            1567
+          ],
+          "frame_paths": [
+            "data/observations/candidate-maps-refresh-retain-2026103104/stream-20261103/V1_00.jpg",
+            "data/observations/candidate-maps-refresh-retain-2026103104/stream-20261103/V1_01.jpg",
+            "data/observations/candidate-maps-refresh-retain-2026103104/stream-20261103/V1_02.jpg",
+            "data/observations/candidate-maps-refresh-retain-2026103104/stream-20261103/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "V0 is the specific Discovery Square minimarket storefront, matched against the official branch photograph and unit TC-7445; not a brand-only guess.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "V1 shows other storefronts on the same plaza walk: first an unlabelled glass café frontage under the covered arcade directly ahead, then the signed Giordano storefront. Neither revokes the original return-to-store need.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "unresolved": [],
+      "blocking_checks": [],
+      "construct": {
+        "research_question": "Can an Agent retain a useful place commitment when a salient later view shows another shop but the user has not changed the return destination?",
+        "divergence_source": "grounding",
+        "event_origin": "observed",
+        "evidence_type": "place_approach",
+        "commitment_surface": "place_identity",
+        "belief_before": "The return destination is the minimarket directly ahead at speaking time.",
+        "belief_after": "The wearer later passes Giordano; the requested return destination remains the original minimarket.",
+        "required_behavior_change": "Keep the original specific store saved, rather than chasing the newest storefront.",
+        "no_update_failure": "Ignoring the later visual packet does not alter the correct store; this is the intended retain control.",
+        "overupdate_failure": "The Agent replaces the minimarket with Giordano, or saves both stores although only the original return destination was requested.",
+        "visual_dependency_claim": "The user names only KAUST. V0 storefront geometry and signage identify the specific official minimarket branch, while V1 supplies a genuine competing storefront.",
+        "task_blueprint": {
+          "site": "egomaps",
+          "instruction": "I’m walking around KAUST. Save the shop in front of me on EgoMaps so I can return to it later.",
+          "initial_target_role": "original_market",
+          "final_target_role": "original_market",
+          "target_granularity": "exact_instance",
+          "goal_fields": {},
+          "environment_role_ids": {
+            "original_market": "l_cb2e2cee82c4"
+          },
+          "completion_claim": "Only the original Discovery Square minimarket remains saved."
+        },
+        "decision": {
+          "candidates": {
+            "original_market": "l_cb2e2cee82c4",
+            "later_giordano": "l_e2f9fc9f763b",
+            "main_supermarket": "l_ef8650dd668b"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "original_market"
+              ],
+              "narrowed_by": "wearer_vantage",
+              "why": "At speaking time the wearer faces the glass-fronted minimarket, whose door arrangement and overhead Express sign match the independent official Discovery Square storefront photo. The requested return destination is this store, not a later store."
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "original_market"
+              ],
+              "why": "The later frames put an unlabelled café arcade frontage and then the Giordano storefront in front of the wearer. Merely walking past other shops does not change the earlier return-to-this-store commitment."
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V1:2",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V1:3",
+              "live": [
+                "original_market"
+              ]
+            }
+          ],
+          "established_by": "source-constructor",
+          "established_at": "2026-10-31"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "KAUST shops",
+              "provider": "kaust-official-retail-list-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-refresh-retain-2026103104.json",
+              "result_entity_ids": [
+                "l_116e7c8584f3",
+                "l_f841374ea83b",
+                "l_55d835698ccf",
+                "l_4f65a0a2f511",
+                "l_80c85b3581d8",
+                "l_a1ac3c577b61",
+                "l_f8b80249e562",
+                "l_e2f9fc9f763b",
+                "l_459f25acb28f",
+                "l_f1629b0b5c73",
+                "l_f723eda91652",
+                "l_a5fa38a3e37e",
+                "l_7d05e0069ba5",
+                "l_42d8f331d964",
+                "l_2e6bd85c062c",
+                "l_1eee99050b54",
+                "l_4fe7347393e8",
+                "l_ecfb4b5a4feb",
+                "l_d12e29739bbc",
+                "l_14589e86f602",
+                "l_cb2e2cee82c4",
+                "l_0136373aa8fa",
+                "l_ef8650dd668b",
+                "l_b234e93466d5",
+                "l_38d06f5fb59a",
+                "l_eb3dfe3bd469",
+                "l_ede3c2c382be"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "KAUST shops",
+              "provider": "kaust-official-retail-list-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-maps-refresh-retain-2026103104.json",
+              "result_entity_ids": [
+                "l_116e7c8584f3",
+                "l_f841374ea83b",
+                "l_55d835698ccf",
+                "l_4f65a0a2f511",
+                "l_80c85b3581d8",
+                "l_a1ac3c577b61",
+                "l_f8b80249e562",
+                "l_e2f9fc9f763b",
+                "l_459f25acb28f",
+                "l_f1629b0b5c73",
+                "l_f723eda91652",
+                "l_a5fa38a3e37e",
+                "l_7d05e0069ba5",
+                "l_42d8f331d964",
+                "l_2e6bd85c062c",
+                "l_1eee99050b54",
+                "l_4fe7347393e8",
+                "l_ecfb4b5a4feb",
+                "l_d12e29739bbc",
+                "l_14589e86f602",
+                "l_cb2e2cee82c4",
+                "l_0136373aa8fa",
+                "l_ef8650dd668b",
+                "l_b234e93466d5",
+                "l_38d06f5fb59a",
+                "l_eb3dfe3bd469",
+                "l_ede3c2c382be"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "l_116e7c8584f3",
+            "l_f841374ea83b",
+            "l_55d835698ccf",
+            "l_4f65a0a2f511",
+            "l_80c85b3581d8",
+            "l_a1ac3c577b61",
+            "l_f8b80249e562",
+            "l_e2f9fc9f763b",
+            "l_459f25acb28f",
+            "l_f1629b0b5c73",
+            "l_f723eda91652",
+            "l_a5fa38a3e37e",
+            "l_7d05e0069ba5",
+            "l_42d8f331d964",
+            "l_2e6bd85c062c",
+            "l_1eee99050b54",
+            "l_4fe7347393e8",
+            "l_ecfb4b5a4feb",
+            "l_d12e29739bbc",
+            "l_14589e86f602",
+            "l_cb2e2cee82c4",
+            "l_0136373aa8fa",
+            "l_ef8650dd668b",
+            "l_b234e93466d5",
+            "l_38d06f5fb59a",
+            "l_eb3dfe3bd469",
+            "l_ede3c2c382be"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "l_e2f9fc9f763b",
+            "l_ef8650dd668b"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [
+            "l_116e7c8584f3",
+            "l_f841374ea83b",
+            "l_55d835698ccf",
+            "l_4f65a0a2f511",
+            "l_80c85b3581d8",
+            "l_a1ac3c577b61",
+            "l_f8b80249e562",
+            "l_459f25acb28f",
+            "l_f1629b0b5c73",
+            "l_f723eda91652",
+            "l_a5fa38a3e37e",
+            "l_7d05e0069ba5",
+            "l_42d8f331d964",
+            "l_2e6bd85c062c",
+            "l_1eee99050b54",
+            "l_4fe7347393e8",
+            "l_ecfb4b5a4feb",
+            "l_d12e29739bbc",
+            "l_14589e86f602",
+            "l_0136373aa8fa",
+            "l_b234e93466d5",
+            "l_38d06f5fb59a",
+            "l_eb3dfe3bd469",
+            "l_ede3c2c382be"
+          ],
+          "detail_decision_fields": [
+            "name",
+            "kind",
+            "address",
+            "photo_path"
+          ],
+          "rejected": [
+            {
+              "entity_id": "l_116e7c8584f3",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_116e7c8584f3--20261031.png",
+                "King Abdullah / Bayt Al Hikmah Boulevard"
+              ]
+            },
+            {
+              "entity_id": "l_f841374ea83b",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_f841374ea83b--20261031.png",
+                "Oasis Neighbourhood"
+              ]
+            },
+            {
+              "entity_id": "l_55d835698ccf",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_55d835698ccf--20261031.png",
+                "Souk Walk H-4306B / Gas Station"
+              ]
+            },
+            {
+              "entity_id": "l_4f65a0a2f511",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_4f65a0a2f511--20261031.jpg",
+                "Souk Walk | Next to Fakeeh Vision"
+              ]
+            },
+            {
+              "entity_id": "l_80c85b3581d8",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_80c85b3581d8--20261031.png",
+                "Island I-5621"
+              ]
+            },
+            {
+              "entity_id": "l_a1ac3c577b61",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_a1ac3c577b61--20261031.png",
+                "Souk Walk"
+              ]
+            },
+            {
+              "entity_id": "l_f8b80249e562",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_f8b80249e562--20261031.png",
+                "Harbor Walk H-4306B"
+              ]
+            },
+            {
+              "entity_id": "l_e2f9fc9f763b",
+              "ring": "core",
+              "why_plausible": "Another visible later shop in the same Discovery Square walk.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The later Giordano clothing store is a different visible storefront; no new instruction changes the earlier shop referent.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_e2f9fc9f763b--20261031.png",
+                "Discovery Square H-4300B"
+              ]
+            },
+            {
+              "entity_id": "l_459f25acb28f",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_459f25acb28f--20261031.png",
+                "Harbor Sports Club"
+              ]
+            },
+            {
+              "entity_id": "l_f1629b0b5c73",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_f1629b0b5c73--20261031.png",
+                "Bldg 2, Room 2251 Campus spine, next to House of Donuts shop"
+              ]
+            },
+            {
+              "entity_id": "l_f723eda91652",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_f723eda91652--20261031.png",
+                "Souk Walk H-4300A"
+              ]
+            },
+            {
+              "entity_id": "l_a5fa38a3e37e",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_a5fa38a3e37e--20261031.png",
+                "Building 18 Level 0 | CSAB Building | KAUST Health | KRTP | Kindergarten East | Kindergarten West| Security Admin Building Temporarily Closed for Maintenance"
+              ]
+            },
+            {
+              "entity_id": "l_7d05e0069ba5",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_7d05e0069ba5--20261031.png",
+                "Souk Walk | Next to Fakeeh vision"
+              ]
+            },
+            {
+              "entity_id": "l_42d8f331d964",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_42d8f331d964--20261031.png",
+                "Building 12, Level 0, Room 0120"
+              ]
+            },
+            {
+              "entity_id": "l_2e6bd85c062c",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_2e6bd85c062c--20261031.png",
+                "Al Khozama Hotel"
+              ]
+            },
+            {
+              "entity_id": "l_1eee99050b54",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_1eee99050b54--20261031.png",
+                "BLD-05, Level-2, Spine Area, R-2292"
+              ]
+            },
+            {
+              "entity_id": "l_4fe7347393e8",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_4fe7347393e8--20261031.jpg",
+                "Next to KAUST Health"
+              ]
+            },
+            {
+              "entity_id": "l_ecfb4b5a4feb",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_ecfb4b5a4feb--20261031.jpg",
+                "Discovery Square"
+              ]
+            },
+            {
+              "entity_id": "l_d12e29739bbc",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_d12e29739bbc--20261031.jpg",
+                "Building 2"
+              ]
+            },
+            {
+              "entity_id": "l_14589e86f602",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_14589e86f602--20261031.jpg",
+                "Discovery Square"
+              ]
+            },
+            {
+              "entity_id": "l_0136373aa8fa",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_0136373aa8fa--20261031.jpg",
+                "arcades to the west of the Grand Mosque"
+              ]
+            },
+            {
+              "entity_id": "l_ef8650dd668b",
+              "ring": "core",
+              "why_plausible": "A genuine same-brand supermarket at KAUST.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The separate KAUST Health supermarket has a different large-store facade and a different official unit/location from the glass-door minimarket.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_ef8650dd668b.jpg",
+                "between KAUST Health and the main bus shelter"
+              ]
+            },
+            {
+              "entity_id": "l_b234e93466d5",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_b234e93466d5--20261031.jpg",
+                "Discovery Square"
+              ]
+            },
+            {
+              "entity_id": "l_38d06f5fb59a",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_38d06f5fb59a--20261031.jpg",
+                "KAUST community; exact premises not listed"
+              ]
+            },
+            {
+              "entity_id": "l_eb3dfe3bd469",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_eb3dfe3bd469--20261031.png",
+                "Island I-5661"
+              ]
+            },
+            {
+              "entity_id": "l_ede3c2c382be",
+              "ring": "ambient",
+              "why_plausible": "Returned by the complete official KAUST retail directory.",
+              "failure_predicates": [
+                "original_store_identity"
+              ],
+              "reason": "The official directory identifies this as another named premises/service; its public card is not the source minimarket storefront at Discovery Square TC-7445.",
+              "evidence": [
+                "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+                "sites/egomaps/static/photos/l_ede3c2c382be--20261031.png",
+                "KAUST community; exact premises not listed"
+              ]
+            }
+          ]
+        },
+        "source_evidence": {
+          "official_retail_list": "https://cc.kaust.edu.sa/services/food-retail/retail-outlets",
+          "official_express_alias": "https://cc.kaust.edu.sa/latest-news/2022/03/23/tamimi-markets-express-closed-for-renovation",
+          "official_square_context": "https://cc.kaust.edu.sa/spaces/outdoor-spaces/discovery-square",
+          "source_bounded_mapping": "The current official list names Tamimi Minimarket at Discovery Square TC-7445 and includes the Express-labeled frontage photo; the 2022 official notice explicitly binds the earlier Express name to Discovery Square. Giordano is separately listed at Discovery Square H-4300B with its own storefront image. The main Tamimi supermarket is explicitly a different site near KAUST Health.",
+          "user_known_context": "KAUST is user-provided location context, not claimed as readable source-video text."
+        },
+        "counterexample_checks": {
+          "without_video": "KAUST shops directory contains27 real alternatives; text never names Tamimi, a grocery category,Discovery Square orGiordano. No single listing guarantees the intended original store without V0.",
+          "without_later_packet": "Original minimarket is still correct: retain is the explicit control; lack of replacement is not a defect.",
+          "no_latest_object_rule": "The referent is fixed at speaking time; no instruction asks to follow the latest seen shop.",
+          "branch_disambiguation": "Use actual full storefront photo+official unit,address and location; generic Tamimi logo does not prove this branch. Main supermarket retained as a genuine same-brand alternative.",
+          "one_image_split": "V0 andV1 are different source moments145seconds apart, with different real storefronts.",
+          "initial_boundary": [
+            "l_cb2e2cee82c4"
+          ],
+          "final_boundary": [
+            "l_cb2e2cee82c4"
+          ],
+          "universal_answer": "Saving wholeKAUST orDiscoverySquare does not equal saving the requested specific shop.",
+          "review_status": "Not independently reviewed; construction assertions await fresh-context verification."
+        }
+      },
+      "repair_history": [
+        {
+          "repair_id": "fixed-step-replay-v1-onset-20261103",
+          "date": "2026-11-03",
+          "reason": "The delivered 16 s lead-in before V1 already showed a different frontage; V1 now starts at the first frame where that frontage is squarely ahead, so the lead-in shows it only in the distance.",
+          "review_reference": ".scratch/stream-materials/repairs/candidate-maps-refresh-retain-2026103104/proposal.json",
+          "previous_packets": [
+            {
+              "id": "V1",
+              "timestamps_seconds": [
+                1555,
+                1560,
+                1565,
+                1567
+              ],
+              "frame_paths": [
+                "data/observations/candidate-maps-refresh-retain-2026103104/V1_00.jpg",
+                "data/observations/candidate-maps-refresh-retain-2026103104/V1_01.jpg",
+                "data/observations/candidate-maps-refresh-retain-2026103104/V1_02.jpg",
+                "data/observations/candidate-maps-refresh-retain-2026103104/V1_03.jpg"
+              ]
+            }
+          ],
+          "previous_observed_events": [
+            {
+              "interval_seconds": [
+                1410,
+                1416
+              ],
+              "role": "original_store",
+              "description": "The wearer faces glass doors under the minimarket/Express sign, then approaches those same doors. The frontage matches the official Discovery Square Tamimi Express photo."
+            },
+            {
+              "interval_seconds": [
+                1555,
+                1567
+              ],
+              "role": "later_store",
+              "description": "The wearer approaches and walks past the Giordano doorway at the side of the outdoor square. The English and Arabic signs and surrounding geometric facade are visible."
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "V0 is the specific Discovery Square minimarket storefront, matched against the official branch photograph and unit TC-7445; not a brand-only guess.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3"
+              ]
+            },
+            {
+              "text": "V1 shows the different Giordano storefront on the same plaza walk; it does not revoke the original return-to-store need.",
+              "supported_by": [
+                "V1:0",
+                "V1:1",
+                "V1:2",
+                "V1:3"
+              ]
+            }
+          ],
+          "previous_decision_observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "original_market"
+              ],
+              "narrowed_by": "wearer_vantage",
+              "why": "At speaking time the wearer faces the glass-fronted minimarket, whose door arrangement and overhead Express sign match the independent official Discovery Square storefront photo. The requested return destination is this store, not a later store."
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "original_market"
+              ],
+              "why": "The later frames show the Giordano storefront beside the plaza. Merely walking past another shop does not change the earlier return-to-this-store commitment."
+            },
+            {
+              "frame": "V1:1",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V1:2",
+              "live": [
+                "original_market"
+              ]
+            },
+            {
+              "frame": "V1:3",
+              "live": [
+                "original_market"
+              ]
+            }
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          1410.0,
+          1567.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-maps-refresh-retain-2026103104/review.json"
+      }
+    }
+  ]
+}

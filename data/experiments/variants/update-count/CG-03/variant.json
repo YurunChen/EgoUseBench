@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "pair_id": "CG-03",
+  "id": "CG-03-update-count",
+  "source_task_path": "data/experiments/composite/CG-03.json",
+  "direction": "insert",
+  "subtype": "addition_split",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 41.0,
+      "request": "Add one dinner plate for serving as well. Just one plate, not a set."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 61.0,
+      "request": "Add one solid white dinner plate for serving, too. No set or colored pattern."
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "p_f77ad4b8820b"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "p_f77ad4b8820b",
+        "p_8340dd31bba5"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "41秒仍只需原C指定的左手餐叉；单独p_f77ad4b8820b是完整合法状态。新增独立餐盘义务后必须有盘，叉加红白Splendor单卖正餐盘是存活的完整状态。新增话语不揭示C答案，subtype=addition_split。",
+    "public_facts": [
+      {
+        "entity_id": "p_f77ad4b8820b",
+        "path": [
+          "name"
+        ],
+        "equals": "ZWILLING Provence Dinner fork polished"
+      },
+      {
+        "entity_id": "p_8340dd31bba5",
+        "path": [
+          "name"
+        ],
+        "equals": "Corelle Splendor White and Red 10.25 in. Dinner Plate"
+      }
+    ],
+    "constraint": {
+      "kind": "presence",
+      "entity_ids": [
+        "p_8340dd31bba5"
+      ],
+      "operator": ">=",
+      "value": 1
+    },
+    "original_request_effect": "61秒将同一serving dinner plate限定为纯白，排除红白盘；叉+p_978889b685e3纯白盘保持原最终目标。"
+  }
+}

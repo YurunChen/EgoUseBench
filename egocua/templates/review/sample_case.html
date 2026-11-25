@@ -1,0 +1,33 @@
+{% extends "review/base.html" %}
+{% from "review/_detail.html" import detail %}
+{% macro entity_card(entity) %}
+<article class="entity-card">
+{% set image=entity.image_path or entity.thumbnail_path or entity.photo_path %}
+{% if image %}<img src="{{ url_for('sample_review_asset', item=item, index=assets[image]) }}" alt="{{ entity.title or entity.name }}" loading="lazy">{% endif %}
+<h3>{{ entity.title or entity.name }}</h3>
+{% if entity.summary or entity.description %}<p>{{ (entity.summary or entity.description)|truncate(220) }}</p>{% endif %}
+<details class="entity-evidence"><summary>查看网站详情</summary>
+{% if entity.summary or entity.description %}<p>{{ entity.summary or entity.description }}</p>{% endif %}
+{% for key,value in entity.items() %}{% if key not in ['entity_id','title','name','summary','description','image_path','thumbnail_path','photo_path','public_previews'] %}<div><b>{{ key|replace('_',' ') }}</b>{{ detail(value) }}</div>{% endif %}{% endfor %}
+{% for preview in entity.get('public_previews', []) %}<img src="{{ url_for('sample_review_asset', item=item, index=assets[preview.image_path]) }}" alt="详情预览" loading="lazy">{% if preview.caption %}<p>{{ preview.caption }}</p>{% endif %}{% endfor %}
+</details></article>
+{% endmacro %}
+{% block title %}任务 {{ '%02d'|format(item) }} · 40题质量核查{% endblock %}
+{% block content %}
+<div class="sample-review">
+<a class="back" href="{{ url_for('sample_review_index') }}">← 返回40题列表</a>
+<section class="case-head"><div><p class="eyebrow">{{ case.source.sample.stratum }} · {{ case.task.id }}</p><h1>任务 {{ '%02d'|format(item) }} / {{ total }}</h1><p>核对任务是否成立，不需要重新作答或操作网站。<a href="#judgment">记录判断 ↓</a></p></div>{% if record %}<span class="pill">已保存：{{ decisions[record.decision] }}</span>{% endif %}</section>
+<section class="panel"><h2>1. 用户请求</h2><p class="sample-instruction">{{ instruction }}</p>{% if answer %}<div class="notice"><b>提问后，佩戴者会回答：</b><p>{{ answer }}</p></div>{% endif %}</section>
+<section class="panel"><h2>2. 第一人称画面</h2><p>以下画面覆盖登记的完整窗口，按源时间排列。点击可放大。</p><div class="frames">{% for image in images %}<button type="button" class="frame-thumb" data-src="{{ url_for('sample_review_frame', item=item, batch=image.batch, image=image.image) }}" data-caption="{{ image.label }}"><img src="{{ url_for('sample_review_frame', item=item, batch=image.batch, image=image.image) }}" alt="{{ image.label }}" loading="lazy"><span>{{ image.label }}</span></button>{% endfor %}</div></section>
+<section class="panel"><h2>3. 预设答案</h2><p>下面是登记的合法结果。满足其中一组即可；请判断它们是否有画面和请求依据，以及是否遗漏其他合理答案。</p>
+<details><summary>查看全部 {{ states|length }} 组合法结果及数量</summary>{% for state in states %}<h3>结果 {{ loop.index }}</h3><ul>{% for entity,count in state['items'] %}<li>{{ entity.title or entity.name }} × {{ count }}</li>{% endfor %}</ul>{% if state.fields %}{{ detail(state.fields) }}{% endif %}{% endfor %}</details>
+{% if case.task.goal.unit_equivalences %}<details><summary>等价包装与数量换算</summary>{{ detail(case.task.goal.unit_equivalences) }}</details>{% endif %}
+<div class="entity-grid">{% for entity in answer_entities %}{{ entity_card(entity) }}{% endfor %}</div>
+<details><summary>查看其他 {{ other_entities|length }} 个网站候选</summary><div class="entity-grid">{% for entity in other_entities %}{{ entity_card(entity) }}{% endfor %}</div></details></section>
+<section class="panel" id="judgment"><h2>4. 你的判断</h2><p>重点看：画面能否支持要求；答案是否正确且没有明显漏解；更新或澄清是否自然、有效。</p>
+{% if error %}<p class="notice error" role="alert">{{ error }}</p>{% endif %}
+{% if record %}<p><b>{{ decisions[record.decision] }}</b></p>{% if record.note %}<p>{{ record.note }}</p>{% endif %}<p class="hint">本题意见已保存在本机。</p>
+{% else %}<form method="post" class="form"><input type="hidden" name="token" value="{{ token }}"><fieldset class="check"><legend>任务是否成立？</legend><div class="choices">{% for value,label in decisions.items() %}<label><input type="radio" name="decision" value="{{ value }}" required {% if selected == value %}checked{% endif %}> {{ label }}</label>{% endfor %}</div></fieldset><label for="note">说明（有问题或无法判断时必填）</label><textarea id="note" name="note" rows="3" maxlength="10000">{{ note }}</textarea><button class="button primary" type="submit">保存并进入下一题</button></form>{% endif %}
+</section><div class="case-actions">{% if item > 1 %}<a class="button" href="{{ url_for('sample_review_case', item=item-1) }}">← 上一题</a>{% endif %}{% if item < total %}<a class="button" href="{{ url_for('sample_review_case', item=item+1) }}">下一题 →</a>{% endif %}<a href="{{ url_for('sample_review_index') }}">返回列表</a></div>
+</div>
+{% endblock %}

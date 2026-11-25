@@ -4,10 +4,13 @@ import hashlib
 import json
 import tempfile
 import unittest
+from copy import deepcopy
 from pathlib import Path
 
-from tools.extract_video_evidence import _read_manifest, _validate_packet_sampling
-from tools.validate_frame_provenance import ProvenanceError, validate_provenance
+import pytest
+
+from tools.audit.validate_frame_provenance import ProvenanceError, validate_provenance
+from tools.build.extract_video_evidence import _read_manifest, _validate_packet_sampling
 
 
 def _sidecar(
@@ -74,7 +77,74 @@ def _task(family: str, packets: list[tuple[str, list[float]]]) -> dict[str, obje
     }
 
 
+@pytest.fixture
+def shared_frame_sidecar(tmp_path):
+    frame = tmp_path / "artifacts/frames/one.jpg"
+    frame.parent.mkdir(parents=True)
+    frame.write_bytes(b"frame")
+    path = _sidecar(tmp_path, digest=hashlib.sha256(b"frame").hexdigest())
+    payload = json.loads(path.read_text())
+    payload["frames"].append({**payload["frames"][0], "task_id": "fixture-2"})
+    payload["packet_sampling"].append(
+        {**payload["packet_sampling"][0], "task_id": "fixture-2"}
+    )
+    path.write_text(json.dumps(payload))
+    return path, payload
+
+
+def test_two_task_slots_can_share_one_source_frame(shared_frame_sidecar, tmp_path):
+    path, _ = shared_frame_sidecar
+
+    result = validate_provenance([path.relative_to(tmp_path)], root=tmp_path)
+
+    assert result["frames"] == 1
+
+
+def test_shared_frame_cannot_claim_different_source_time(
+    shared_frame_sidecar, tmp_path
+):
+    path, payload = shared_frame_sidecar
+    payload["frames"][1]["timestamp_seconds"] = 1.6
+    path.write_text(json.dumps(payload))
+
+    with pytest.raises(ProvenanceError, match="conflicting source"):
+        validate_provenance([path.relative_to(tmp_path)], root=tmp_path)
+
+
+def test_duplicate_slot_is_not_a_second_exposure(shared_frame_sidecar, tmp_path):
+    path, payload = shared_frame_sidecar
+    payload["frames"].append(deepcopy(payload["frames"][0]))
+    path.write_text(json.dumps(payload))
+
+    with pytest.raises(ProvenanceError, match="duplicate frame slot"):
+        validate_provenance([path.relative_to(tmp_path)], root=tmp_path)
+
+
 class FrameProvenanceTest(unittest.TestCase):
+    def test_active_screening_record_requires_canonical_id_before_extraction(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.json"
+            manifest.write_text(
+                json.dumps(
+                    {
+                        "schema_version": 2,
+                        "dataset": {"name": "fixture", "source_root": "videos"},
+                        "tasks": [
+                            {
+                                "task_id": "candidate-mart-graft-p-repair-01",
+                                "status": "video_screened",
+                                "source": {"media_id": "fixture-video"},
+                            }
+                        ],
+                    }
+                )
+            )
+
+            with self.assertRaisesRegex(ValueError, "canonical"):
+                _read_manifest(manifest)
+
     def test_rejected_screening_record_requires_known_reason_code(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             manifest = Path(directory) / "manifest.json"

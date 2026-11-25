@@ -1,0 +1,1969 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video"
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-graft-replace-2026101602",
+      "status": "construction_pending",
+      "family": "graft",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          187
+        ],
+        "media_id": "12e8c5a6-303e-41cb-b01e-2b874bae37ba",
+        "original_video_id": "12e8c5a6-303e-41cb-b01e-2b874bae37ba",
+        "media_start_seconds": 0,
+        "media_sha256": "6ffbc273ccd5d53c43678f58101536bb23242821c2d26d8712f3a427da520480",
+        "original_annotations": [
+          "On amazon.com, find a product page for a stovetop from the exact brand shown on the stovetop in the video, with the same number of burners. Open a listing whose title or specifications clearly show that brand and burner count."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              95,
+              99.9
+            ],
+            "role": "referent",
+            "description": "A pot is on a raised burner grate with front cooking controls. This supports gas cooking, not induction; no hardware fault, regulator calibration or exact model is proved."
+          }
+        ],
+        "unsupported_claims": [
+          "An exact equipment model or unsupported mounting structure.",
+          "The user-reported difficulty or future plan is shown in the video."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            95,
+            95.7,
+            96.4,
+            97.1,
+            97.8,
+            98.5,
+            99.2,
+            99.9
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-112/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-112/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-112/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-112/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-112/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-112/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-112/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-112/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "A pot is on a raised burner grate with front cooking controls. This supports gas cooking, not induction; no hardware fault, regulator calibration or exact model is proved.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [
+        "Resolve actual method evidence for the close listings in construct.answer_boundary_review before admission."
+      ],
+      "replaces_candidate_id": "candidate-media-graft-c-112",
+      "replacement_reason": "Replace the old scene-to-induction mismatch and the unsupported burner-calibration target with a future purchase plan followed by ordinary use of the current stove.",
+      "construct": {
+        "research_question": "Can an Agent replace a future plan with practical help for the physical equipment currently in use?",
+        "transition": "replace",
+        "divergence_source": "intention",
+        "event_origin": "redesign_same_source",
+        "evidence_type": "record_identity",
+        "commitment_surface": "media_save",
+        "visual_dependency_claim": "A pot is on a raised burner grate with front cooking controls. This supports gas cooking, not induction; no hardware fault, regulator calibration or exact model is proved.",
+        "belief_before": "One guide for the user-authored future plan.",
+        "belief_after": "One guide for current equipment and operation.",
+        "required_behavior_change": "Keep one qualifying current-use guide and remove an obsolete separate planning resource.",
+        "no_update_failure": "Only the future-plan resource remains.",
+        "overupdate_failure": "An extra obsolete resource remains.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I'm planning to switch to induction cooking. Save one beginner guide so I can learn the basics before I buy it.",
+            "b": "For now I am still cooking on the stovetop shown here and keep scorching food. Replace that future-purchase guide with one that teaches me to use this stovetop's controls to set the heat while cooking.",
+            "bundled": "I'm planning to switch to induction cooking. Save one beginner guide so I can learn the basics before I buy it. Then my plan changes: For now I am still cooking on the stovetop shown here and keep scorching food. Replace that future-purchase guide with one that teaches me to use this stovetop's controls to set the heat while cooking."
+          },
+          "environment_role_ids": {
+            "initial_guide": "m_8387e4011c9c",
+            "current_guide": "m_2af0b311d01d"
+          },
+          "equivalent_role_ids": {
+            "initial_guide": [
+              "m_9c29c498ee35",
+              "m_8be8afd0f59e",
+              "m_ea15e05a7636",
+              "m_40468d854ce7",
+              "m_8721b7758f30",
+              "m_4bd0ec911111",
+              "m_a04d7120b7cf",
+              "m_52727177767c",
+              "m_a41946adc1dc",
+              "m_ed71a1678357",
+              "m_45799e46b450",
+              "m_421d1713d8de",
+              "m_59d1c31cdfb8",
+              "m_4d31cda5b682",
+              "m_54845e39a288",
+              "m_9e1e3cc3a643",
+              "m_595786658d2e",
+              "m_a8590ea107bd",
+              "m_e9e725996069",
+              "m_04d68b5ba94e",
+              "m_55b3465be745",
+              "m_77cdc67f20ed",
+              "m_a10b87e2e96e",
+              "m_a842c3716404",
+              "m_b720888492c5",
+              "m_cc90b80fd07c",
+              "m_fa798157a785"
+            ],
+            "current_guide": [
+              "m_3d057572dddb",
+              "m_803f78967b73",
+              "m_7057c99be846",
+              "m_6bb0cb681c22",
+              "m_3d44c12b86a0",
+              "m_b1ae390d2475",
+              "m_ba2b4dcdaede",
+              "m_268e12aab976"
+            ]
+          },
+          "initial_goal_roles": [
+            [
+              "initial_guide"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "current_guide"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "category"
+        },
+        "decision": {
+          "candidates": {
+            "initial_goal": {
+              "goal_ref": "initial"
+            },
+            "current_goal": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "current_goal"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The changed purpose selects the equipment and practical operation in the released scene."
+            }
+          ],
+          "established_by": "skill-executing-coding-agent",
+          "established_at": "2026-10-16"
+        },
+        "native_state_checks": {
+          "correct": "Exactly one qualifying current-use resource.",
+          "wrong": "Wrong equipment or procedure.",
+          "missing": "No qualifying resource.",
+          "extra": "More than one saved resource.",
+          "stale": "Only the obsolete planning resource."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "induction cooktop beginner how to use",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-replace-2026101602.json",
+              "result_entity_ids": [
+                "m_8387e4011c9c",
+                "m_5fdd44ae0810",
+                "m_9c29c498ee35",
+                "m_b720888492c5",
+                "m_8be8afd0f59e",
+                "m_ea15e05a7636",
+                "m_40468d854ce7",
+                "m_fa798157a785",
+                "m_a842c3716404",
+                "m_a10b87e2e96e",
+                "m_77cdc67f20ed",
+                "m_cc90b80fd07c",
+                "m_29c95b7d2f8f",
+                "m_8721b7758f30",
+                "m_4bd0ec911111",
+                "m_a04d7120b7cf",
+                "m_52727177767c",
+                "m_4b6edb898a2f",
+                "m_a41946adc1dc",
+                "m_2a277da040c2",
+                "m_f789a0baff55",
+                "m_ed71a1678357",
+                "m_45799e46b450",
+                "m_421d1713d8de",
+                "m_77add7970594",
+                "m_fbe62e447e66",
+                "m_59d1c31cdfb8",
+                "m_4d31cda5b682",
+                "m_54845e39a288",
+                "m_909ca4c70028",
+                "m_9e1e3cc3a643",
+                "m_595786658d2e",
+                "m_7f445fc71cc5",
+                "m_d46d34119292",
+                "m_b303e2652240",
+                "m_55b3465be745",
+                "m_a8590ea107bd",
+                "m_e9e725996069",
+                "m_b23e14b31338",
+                "m_04d68b5ba94e"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "how to use gas stove controls beginner",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-replace-2026101602.json",
+              "result_entity_ids": [
+                "m_1ed7f9bbd25d",
+                "m_2af0b311d01d",
+                "m_6bb0cb681c22",
+                "m_3d057572dddb",
+                "m_8de0a3222ac9",
+                "m_498a6ea5e73e",
+                "m_ba2b4dcdaede",
+                "m_946a74a5daeb",
+                "m_2c5737d7560e",
+                "m_fd0257314be7",
+                "m_171cc343cfe9",
+                "m_5563e2562093",
+                "m_47e7f69bb6ad",
+                "m_24270b2fbbff",
+                "m_3d44c12b86a0",
+                "m_803f78967b73",
+                "m_7057c99be846",
+                "m_cbcd725d5485",
+                "m_cf55fc500668",
+                "m_8a5082f3b69e",
+                "m_4f16abe84ff4",
+                "m_b1ae390d2475",
+                "m_cd569d398980",
+                "m_9f3efc36f6b6",
+                "m_e01fc813fbd0",
+                "m_4c18db05d8cd",
+                "m_b58de420b1dc",
+                "m_0e2be66368e2",
+                "m_6fef0f3dd63c",
+                "m_905dd3d536c4",
+                "m_8602522faf7c",
+                "m_636f8f98d534",
+                "m_a0a77d2b7314",
+                "m_8782c0c9b9c6",
+                "m_28f96a7aebd9",
+                "m_97f87d310aff",
+                "m_268e12aab976",
+                "m_09d95f984604",
+                "m_0b8e26894226",
+                "m_abf59e17158d"
+              ]
+            },
+            {
+              "stage": "after_heat_control",
+              "query": "how to control low heat gas stove cooking tutorial",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-replace-2026101602.json",
+              "result_entity_ids": [
+                "m_b42ecca3a30a",
+                "m_636f8f98d534",
+                "m_587f84b3abb5",
+                "m_a803b5305dfc",
+                "m_ede34c423af5",
+                "m_40ef1a59acc6",
+                "m_3f552b6ce4fe",
+                "m_a41d84fb9e9f",
+                "m_8e1d0368d159",
+                "m_be8b0283ad3c",
+                "m_7426d14452de",
+                "m_8fe16aa90b63",
+                "m_ce4d36befeeb",
+                "m_61ecc8871192",
+                "m_2e4395f1fdcd",
+                "m_936ee81c6429",
+                "m_ace2e64ca0b6",
+                "m_fe88fbb78b9d",
+                "m_97f87d310aff",
+                "m_9f6450eedfc6",
+                "m_cc72bbf5e9b5",
+                "m_b720888492c5",
+                "m_2c5737d7560e",
+                "m_d5b99345b0bb",
+                "m_3ab5ba761cd8",
+                "m_7057c99be846",
+                "m_4741321e6d3c",
+                "m_3893da7f409a",
+                "m_8387e4011c9c",
+                "m_65af3abadfba",
+                "m_3d1b5c73ef97",
+                "m_abf07512854c",
+                "m_e782898dd151",
+                "m_803f78967b73",
+                "m_498a6ea5e73e",
+                "m_7c04e9f1749b",
+                "m_905dd3d536c4",
+                "m_0bb2a4c163ed",
+                "m_9a69b10ae2e6",
+                "m_d6ac8487ccd4"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_8387e4011c9c",
+            "m_5fdd44ae0810",
+            "m_9c29c498ee35",
+            "m_b720888492c5",
+            "m_8be8afd0f59e",
+            "m_ea15e05a7636",
+            "m_40468d854ce7",
+            "m_fa798157a785",
+            "m_a842c3716404",
+            "m_a10b87e2e96e",
+            "m_77cdc67f20ed",
+            "m_cc90b80fd07c",
+            "m_29c95b7d2f8f",
+            "m_8721b7758f30",
+            "m_4bd0ec911111",
+            "m_a04d7120b7cf",
+            "m_52727177767c",
+            "m_4b6edb898a2f",
+            "m_a41946adc1dc",
+            "m_2a277da040c2",
+            "m_f789a0baff55",
+            "m_ed71a1678357",
+            "m_45799e46b450",
+            "m_421d1713d8de",
+            "m_77add7970594",
+            "m_fbe62e447e66",
+            "m_59d1c31cdfb8",
+            "m_4d31cda5b682",
+            "m_54845e39a288",
+            "m_909ca4c70028",
+            "m_9e1e3cc3a643",
+            "m_595786658d2e",
+            "m_7f445fc71cc5",
+            "m_d46d34119292",
+            "m_b303e2652240",
+            "m_55b3465be745",
+            "m_a8590ea107bd",
+            "m_e9e725996069",
+            "m_b23e14b31338",
+            "m_04d68b5ba94e",
+            "m_1ed7f9bbd25d",
+            "m_2af0b311d01d",
+            "m_6bb0cb681c22",
+            "m_3d057572dddb",
+            "m_8de0a3222ac9",
+            "m_498a6ea5e73e",
+            "m_ba2b4dcdaede",
+            "m_946a74a5daeb",
+            "m_2c5737d7560e",
+            "m_fd0257314be7",
+            "m_171cc343cfe9",
+            "m_5563e2562093",
+            "m_47e7f69bb6ad",
+            "m_24270b2fbbff",
+            "m_3d44c12b86a0",
+            "m_803f78967b73",
+            "m_7057c99be846",
+            "m_cbcd725d5485",
+            "m_cf55fc500668",
+            "m_8a5082f3b69e",
+            "m_4f16abe84ff4",
+            "m_b1ae390d2475",
+            "m_cd569d398980",
+            "m_9f3efc36f6b6",
+            "m_e01fc813fbd0",
+            "m_4c18db05d8cd",
+            "m_b58de420b1dc",
+            "m_0e2be66368e2",
+            "m_6fef0f3dd63c",
+            "m_905dd3d536c4",
+            "m_8602522faf7c",
+            "m_636f8f98d534",
+            "m_a0a77d2b7314",
+            "m_8782c0c9b9c6",
+            "m_28f96a7aebd9",
+            "m_97f87d310aff",
+            "m_268e12aab976",
+            "m_09d95f984604",
+            "m_0b8e26894226",
+            "m_abf59e17158d",
+            "m_b42ecca3a30a",
+            "m_587f84b3abb5",
+            "m_a803b5305dfc",
+            "m_ede34c423af5",
+            "m_40ef1a59acc6",
+            "m_3f552b6ce4fe",
+            "m_a41d84fb9e9f",
+            "m_8e1d0368d159",
+            "m_be8b0283ad3c",
+            "m_7426d14452de",
+            "m_8fe16aa90b63",
+            "m_ce4d36befeeb",
+            "m_61ecc8871192",
+            "m_2e4395f1fdcd",
+            "m_936ee81c6429",
+            "m_ace2e64ca0b6",
+            "m_fe88fbb78b9d",
+            "m_9f6450eedfc6",
+            "m_cc72bbf5e9b5",
+            "m_d5b99345b0bb",
+            "m_3ab5ba761cd8",
+            "m_4741321e6d3c",
+            "m_3893da7f409a",
+            "m_65af3abadfba",
+            "m_3d1b5c73ef97",
+            "m_abf07512854c",
+            "m_e782898dd151",
+            "m_7c04e9f1749b",
+            "m_0bb2a4c163ed",
+            "m_9a69b10ae2e6",
+            "m_d6ac8487ccd4"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "m_8387e4011c9c",
+            "m_587f84b3abb5",
+            "m_fd0257314be7",
+            "m_a41d84fb9e9f"
+          ],
+          "related_entity_ids": [
+            "m_5fdd44ae0810",
+            "m_9c29c498ee35",
+            "m_b720888492c5",
+            "m_8be8afd0f59e",
+            "m_ea15e05a7636",
+            "m_40468d854ce7",
+            "m_fa798157a785",
+            "m_a842c3716404",
+            "m_a10b87e2e96e",
+            "m_77cdc67f20ed",
+            "m_cc90b80fd07c",
+            "m_29c95b7d2f8f",
+            "m_8721b7758f30",
+            "m_4bd0ec911111",
+            "m_a04d7120b7cf",
+            "m_52727177767c"
+          ],
+          "ambient_entity_ids": [
+            "m_4b6edb898a2f",
+            "m_a41946adc1dc",
+            "m_2a277da040c2",
+            "m_f789a0baff55",
+            "m_ed71a1678357",
+            "m_45799e46b450",
+            "m_421d1713d8de",
+            "m_77add7970594",
+            "m_fbe62e447e66",
+            "m_59d1c31cdfb8",
+            "m_4d31cda5b682",
+            "m_54845e39a288",
+            "m_909ca4c70028",
+            "m_9e1e3cc3a643",
+            "m_595786658d2e",
+            "m_7f445fc71cc5",
+            "m_d46d34119292",
+            "m_b303e2652240",
+            "m_55b3465be745",
+            "m_a8590ea107bd",
+            "m_e9e725996069",
+            "m_b23e14b31338",
+            "m_04d68b5ba94e",
+            "m_1ed7f9bbd25d",
+            "m_8de0a3222ac9",
+            "m_498a6ea5e73e",
+            "m_ba2b4dcdaede",
+            "m_946a74a5daeb",
+            "m_2c5737d7560e",
+            "m_171cc343cfe9",
+            "m_5563e2562093",
+            "m_47e7f69bb6ad",
+            "m_24270b2fbbff",
+            "m_3d44c12b86a0",
+            "m_cbcd725d5485",
+            "m_cf55fc500668",
+            "m_8a5082f3b69e",
+            "m_4f16abe84ff4",
+            "m_b1ae390d2475",
+            "m_cd569d398980",
+            "m_9f3efc36f6b6",
+            "m_e01fc813fbd0",
+            "m_4c18db05d8cd",
+            "m_b58de420b1dc",
+            "m_0e2be66368e2",
+            "m_6fef0f3dd63c",
+            "m_905dd3d536c4",
+            "m_8602522faf7c",
+            "m_636f8f98d534",
+            "m_a0a77d2b7314",
+            "m_8782c0c9b9c6",
+            "m_28f96a7aebd9",
+            "m_97f87d310aff",
+            "m_268e12aab976",
+            "m_09d95f984604",
+            "m_0b8e26894226",
+            "m_abf59e17158d",
+            "m_b42ecca3a30a",
+            "m_a803b5305dfc",
+            "m_ede34c423af5",
+            "m_40ef1a59acc6",
+            "m_3f552b6ce4fe",
+            "m_8e1d0368d159",
+            "m_be8b0283ad3c",
+            "m_7426d14452de",
+            "m_8fe16aa90b63",
+            "m_ce4d36befeeb",
+            "m_61ecc8871192",
+            "m_2e4395f1fdcd",
+            "m_936ee81c6429",
+            "m_ace2e64ca0b6",
+            "m_fe88fbb78b9d",
+            "m_9f6450eedfc6",
+            "m_cc72bbf5e9b5",
+            "m_d5b99345b0bb",
+            "m_3ab5ba761cd8",
+            "m_4741321e6d3c",
+            "m_3893da7f409a",
+            "m_65af3abadfba",
+            "m_3d1b5c73ef97",
+            "m_abf07512854c",
+            "m_e782898dd151",
+            "m_7c04e9f1749b",
+            "m_0bb2a4c163ed",
+            "m_9a69b10ae2e6",
+            "m_d6ac8487ccd4"
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters"
+          ],
+          "rejected": [
+            {
+              "entity_id": "m_8387e4011c9c",
+              "ring": "core",
+              "why_plausible": "How to Use an Induction Stove | How Does it Work?",
+              "reason": "The induction touch-panel operation does not apply to the shown grate-and-flame stove.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "m_587f84b3abb5",
+              "ring": "core",
+              "why_plausible": "Gas Cooktop Flame Adjustment",
+              "reason": "This burner minimum-valve calibration uses hardware adjustment, not the cooking control used during a meal.",
+              "failure_predicates": [
+                "wrong_method_same_object"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "m_fd0257314be7",
+              "ring": "core",
+              "why_plausible": "How to use a Portable Gas Stove (Children/Youth)",
+              "reason": "The published lesson operates a portable camping stove rather than the kitchen range shown.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "m_a41d84fb9e9f",
+              "ring": "core",
+              "why_plausible": "Gas Range Burner Adjustment",
+              "reason": "The actual guide changes a gas-range burner valve adjustment with a screwdriver instead of teaching ordinary heat selection during cooking.",
+              "failure_predicates": [
+                "wrong_method_same_object"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": "pending_incremental_review"
+        },
+        "answer_boundary_review": {
+          "reviewer": "skill-executing-coding-agent",
+          "reviewed_at": "2026-10-17",
+          "verified_public_evidence": [
+            "Original captions: m_3d057572dddb 2:33–3:00 demonstrates burner ignition and adjusting flame to the pan; m_803f78967b73 2:15–3:35 explains ordinary control-knob positions and gas flow; m_7057c99be846 7:36–7:40 explains low/high burner regulation. These are actual public captions, not inferred repair procedures.",
+            "Remaining close guides need their actual burner-control segment resolved. Oven-only, induction-only, valve calibration, burner-jet cleaning, camping and barbecue resources have a positively different equipment/procedure; lack of captions is not an exclusion.",
+            "Frigidaire native video2rmB8YskvAc at0:57 explicitly displays push knob/turn counterclockwise/turn to desired flame height. This on-screen evidence is captured as an attributed content observation in its public description, preserving the original author description.",
+            "After frozen independent firstpass, accepted additional initial resources from their actual public description/chapters; broad buy-before-learning and fixed-installation needs were not silently narrowed. Review reference: .scratch/full-validation-20261016/independent-replacement-firstpass-20261017.json.",
+            "2026-10-17 incremental original captions: Maxi e6PunXS1az4 3:32–4:29 lowers and increases flame with ordinary burner knobs; Bertazzoni dQmhNt36axU 0:37–1:17 turns the knob to high then down; Chef Premier -ii86Fv3RY4 1:34–1:40 adjusts flame bigger/smaller; Price dkaysqpfMj0 0:29–0:57 turns the knob, then selects simmering or faster heat. Canonical snapshots retain raw VTT and attributed public excerpts. Evidence: .scratch/full-validation-20261016/independent-stove-boundary-increment-20261017.json."
+          ],
+          "unresolved_entity_ids": [
+            "m_1ed7f9bbd25d",
+            "m_e01fc813fbd0",
+            "m_6fef0f3dd63c",
+            "m_09d95f984604",
+            "m_0b8e26894226",
+            "m_8de0a3222ac9",
+            "m_b42ecca3a30a",
+            "m_3f552b6ce4fe",
+            "m_0e2be66368e2",
+            "m_a0a77d2b7314",
+            "m_28f96a7aebd9",
+            "m_e782898dd151",
+            "m_2e4395f1fdcd",
+            "m_8602522faf7c",
+            "m_b58de420b1dc",
+            "m_936ee81c6429",
+            "m_61ecc8871192"
+          ],
+          "scope": "Incremental source, actual public-method and legal-answer check. Missing facts remain unresolved; this is not a fresh independent blind review. Admission waits for the listed close candidates and independent checks.",
+          "history": [
+            {
+              "reviewer": "skill-executing-coding-agent",
+              "reviewed_at": "2026-10-16",
+              "verified_public_evidence": [
+                "m_2af0b311d01d original automatic captions 0:13–0:28 teach ignition, turning the knob further for flame control and choosing low/higher flame. Captions are frozen and exposed publicly."
+              ],
+              "unresolved_entity_ids": [
+                "m_5fdd44ae0810",
+                "m_b720888492c5",
+                "m_fa798157a785",
+                "m_a842c3716404",
+                "m_a10b87e2e96e",
+                "m_77cdc67f20ed",
+                "m_cc90b80fd07c",
+                "m_29c95b7d2f8f",
+                "m_4b6edb898a2f",
+                "m_2a277da040c2",
+                "m_f789a0baff55",
+                "m_77add7970594",
+                "m_fbe62e447e66",
+                "m_909ca4c70028",
+                "m_7f445fc71cc5",
+                "m_d46d34119292",
+                "m_b303e2652240",
+                "m_55b3465be745",
+                "m_b23e14b31338",
+                "m_1ed7f9bbd25d",
+                "m_6bb0cb681c22",
+                "m_3d057572dddb",
+                "m_8de0a3222ac9",
+                "m_498a6ea5e73e",
+                "m_ba2b4dcdaede",
+                "m_946a74a5daeb",
+                "m_2c5737d7560e",
+                "m_171cc343cfe9",
+                "m_5563e2562093",
+                "m_47e7f69bb6ad",
+                "m_24270b2fbbff",
+                "m_3d44c12b86a0",
+                "m_803f78967b73",
+                "m_7057c99be846",
+                "m_cbcd725d5485",
+                "m_cf55fc500668",
+                "m_8a5082f3b69e",
+                "m_4f16abe84ff4",
+                "m_b1ae390d2475",
+                "m_cd569d398980",
+                "m_9f3efc36f6b6",
+                "m_e01fc813fbd0",
+                "m_4c18db05d8cd",
+                "m_b58de420b1dc",
+                "m_0e2be66368e2",
+                "m_6fef0f3dd63c",
+                "m_905dd3d536c4",
+                "m_8602522faf7c",
+                "m_636f8f98d534",
+                "m_a0a77d2b7314",
+                "m_8782c0c9b9c6",
+                "m_28f96a7aebd9",
+                "m_97f87d310aff",
+                "m_268e12aab976",
+                "m_09d95f984604",
+                "m_0b8e26894226",
+                "m_abf59e17158d",
+                "m_b42ecca3a30a",
+                "m_a803b5305dfc",
+                "m_ede34c423af5",
+                "m_40ef1a59acc6",
+                "m_3f552b6ce4fe",
+                "m_8e1d0368d159",
+                "m_be8b0283ad3c",
+                "m_7426d14452de",
+                "m_8fe16aa90b63",
+                "m_ce4d36befeeb",
+                "m_61ecc8871192",
+                "m_2e4395f1fdcd",
+                "m_936ee81c6429",
+                "m_ace2e64ca0b6",
+                "m_fe88fbb78b9d",
+                "m_9f6450eedfc6",
+                "m_cc72bbf5e9b5",
+                "m_d5b99345b0bb",
+                "m_3ab5ba761cd8",
+                "m_4741321e6d3c",
+                "m_3893da7f409a",
+                "m_65af3abadfba",
+                "m_3d1b5c73ef97",
+                "m_abf07512854c",
+                "m_e782898dd151",
+                "m_7c04e9f1749b",
+                "m_0bb2a4c163ed",
+                "m_9a69b10ae2e6",
+                "m_d6ac8487ccd4"
+              ],
+              "scope": "Original video and decisive primary public method verified. Unresolved rows are not rejected by title absence. Complete the semantic boundary before admission."
+            },
+            {
+              "reviewer": "skill-executing-coding-agent",
+              "reviewed_at": "2026-10-17",
+              "verified_public_evidence": [
+                "Original captions: m_3d057572dddb 2:33–3:00 demonstrates burner ignition and adjusting flame to the pan; m_803f78967b73 2:15–3:35 explains ordinary control-knob positions and gas flow; m_7057c99be846 7:36–7:40 explains low/high burner regulation. These are actual public captions, not inferred repair procedures.",
+                "Remaining close guides need their actual burner-control segment resolved. Oven-only, induction-only, valve calibration, burner-jet cleaning, camping and barbecue resources have a positively different equipment/procedure; lack of captions is not an exclusion.",
+                "Frigidaire native video2rmB8YskvAc at0:57 explicitly displays push knob/turn counterclockwise/turn to desired flame height. This on-screen evidence is captured as an attributed content observation in its public description, preserving the original author description.",
+                "After frozen independent firstpass, accepted additional initial resources from their actual public description/chapters; broad buy-before-learning and fixed-installation needs were not silently narrowed. Review reference: .scratch/full-validation-20261016/independent-replacement-firstpass-20261017.json."
+              ],
+              "unresolved_entity_ids": [
+                "m_1ed7f9bbd25d",
+                "m_3d44c12b86a0",
+                "m_b1ae390d2475",
+                "m_e01fc813fbd0",
+                "m_6fef0f3dd63c",
+                "m_268e12aab976",
+                "m_09d95f984604",
+                "m_0b8e26894226",
+                "m_ba2b4dcdaede",
+                "m_8de0a3222ac9",
+                "m_b42ecca3a30a",
+                "m_3f552b6ce4fe",
+                "m_0e2be66368e2",
+                "m_a0a77d2b7314",
+                "m_28f96a7aebd9",
+                "m_e782898dd151",
+                "m_2e4395f1fdcd",
+                "m_8602522faf7c",
+                "m_b58de420b1dc",
+                "m_936ee81c6429",
+                "m_61ecc8871192"
+              ],
+              "scope": "Incremental source, actual public-method and legal-answer check. Missing facts remain unresolved; this is not a fresh independent blind review. Admission waits for the listed close candidates and independent checks."
+            }
+          ]
+        },
+        "author_validation": {
+          "status": "pending_independent_review",
+          "independent_blind_review_completed": false,
+          "complete_window_count": 111
+        }
+      },
+      "repair": {
+        "strategy": "redesign_same_source",
+        "previous_task_reference": "data/sources/manifests/expansion_v6_ego2web_screening_manifest.json#candidate-media-graft-c-112",
+        "reason": "Replace the old scene-to-induction mismatch and the unsupported burner-calibration target with a future purchase plan followed by ordinary use of the current stove.",
+        "reused_evidence": [
+          "original source video",
+          "all original released frames",
+          "specific previous visual inventory"
+        ],
+        "changed_evidence": [
+          "released purpose",
+          "real search windows",
+          "site mapping and legal endings"
+        ],
+        "affected_checks": [
+          "user_instruction",
+          "causal_contract",
+          "information_partition",
+          "site_mapping",
+          "answer_boundary"
+        ],
+        "review_status": "pending_incremental_review"
+      },
+      "repair_history": [
+        {
+          "reviewed_at": "2026-10-17",
+          "reason": "Adopt four independently verified ordinary burner-control equivalents; preserve construction_pending and all other unresolved candidates.",
+          "previous_blueprint": {
+            "site": "egomedia",
+            "instructions": {
+              "a": "I'm planning to switch to induction cooking. Save one beginner guide so I can learn the basics before I buy it.",
+              "b": "For now I am still cooking on the stovetop shown here and keep scorching food. Replace that future-purchase guide with one that teaches me to use this stovetop's controls to set the heat while cooking.",
+              "bundled": "I'm planning to switch to induction cooking. Save one beginner guide so I can learn the basics before I buy it. Then my plan changes: For now I am still cooking on the stovetop shown here and keep scorching food. Replace that future-purchase guide with one that teaches me to use this stovetop's controls to set the heat while cooking."
+            },
+            "environment_role_ids": {
+              "initial_guide": "m_8387e4011c9c",
+              "current_guide": "m_2af0b311d01d"
+            },
+            "equivalent_role_ids": {
+              "initial_guide": [
+                "m_9c29c498ee35",
+                "m_8be8afd0f59e",
+                "m_ea15e05a7636",
+                "m_40468d854ce7",
+                "m_8721b7758f30",
+                "m_4bd0ec911111",
+                "m_a04d7120b7cf",
+                "m_52727177767c",
+                "m_a41946adc1dc",
+                "m_ed71a1678357",
+                "m_45799e46b450",
+                "m_421d1713d8de",
+                "m_59d1c31cdfb8",
+                "m_4d31cda5b682",
+                "m_54845e39a288",
+                "m_9e1e3cc3a643",
+                "m_595786658d2e",
+                "m_a8590ea107bd",
+                "m_e9e725996069",
+                "m_04d68b5ba94e",
+                "m_55b3465be745",
+                "m_77cdc67f20ed",
+                "m_a10b87e2e96e",
+                "m_a842c3716404",
+                "m_b720888492c5",
+                "m_cc90b80fd07c",
+                "m_fa798157a785"
+              ],
+              "current_guide": [
+                "m_3d057572dddb",
+                "m_803f78967b73",
+                "m_7057c99be846",
+                "m_6bb0cb681c22"
+              ]
+            },
+            "initial_goal_roles": [
+              [
+                "initial_guide"
+              ]
+            ],
+            "final_goal_roles": [
+              [
+                "current_guide"
+              ]
+            ],
+            "initial_goal_fields": {},
+            "final_goal_fields": {},
+            "target_granularity": "category"
+          },
+          "evidence_reference": ".scratch/full-validation-20261016/independent-stove-boundary-increment-20261017.json"
+        }
+      ]
+    },
+    {
+      "task_id": "candidate-media-graft-replace-2026101603",
+      "status": "construction_pending",
+      "family": "graft",
+      "subtype": "replace",
+      "source": {
+        "record_ids": [
+          250
+        ],
+        "media_id": "45f9dd1d-38f1-42fc-82f4-8d78241e66b9",
+        "original_video_id": "45f9dd1d-38f1-42fc-82f4-8d78241e66b9",
+        "media_start_seconds": 0,
+        "media_sha256": "ce71358e820f2caaa14439d9e3d6d43f603e00749ae030c60a9e39e7739d6e2b",
+        "original_annotations": [
+          "Find and open a product page for the same portable LED work light shown in the video. Use the brand visible on the light and the device type to locate the exact item on Amazon."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              80,
+              84.9
+            ],
+            "role": "referent",
+            "description": "The wearer carries and repositions a light with several broad rectangular LED panels and a handle/base. No tripod feet, exact model or special mount are established."
+          }
+        ],
+        "unsupported_claims": [
+          "An exact equipment model or unsupported mounting structure.",
+          "The user-reported difficulty or future plan is shown in the video."
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            80,
+            80.7,
+            81.4,
+            82.1,
+            82.8,
+            83.5,
+            84.2,
+            84.9
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-graft-c-114/V0_00.jpg",
+            "data/observations/candidate-media-graft-c-114/V0_01.jpg",
+            "data/observations/candidate-media-graft-c-114/V0_02.jpg",
+            "data/observations/candidate-media-graft-c-114/V0_03.jpg",
+            "data/observations/candidate-media-graft-c-114/V0_04.jpg",
+            "data/observations/candidate-media-graft-c-114/V0_05.jpg",
+            "data/observations/candidate-media-graft-c-114/V0_06.jpg",
+            "data/observations/candidate-media-graft-c-114/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The wearer carries and repositions a light with several broad rectangular LED panels and a handle/base. No tripod feet, exact model or special mount are established.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "blocking_checks": [],
+      "unresolved": [
+        "Resolve actual method evidence for the close listings in construct.answer_boundary_review before admission."
+      ],
+      "replaces_candidate_id": "candidate-media-graft-c-114",
+      "replacement_reason": "Replace unsupported tripod-specific grounding and unrelated tractor/desk installation with a fixed work-area plan followed by portable multi-directional lighting.",
+      "construct": {
+        "research_question": "Can an Agent replace a future plan with practical help for the physical equipment currently in use?",
+        "transition": "replace",
+        "divergence_source": "intention",
+        "event_origin": "redesign_same_source",
+        "evidence_type": "record_identity",
+        "commitment_surface": "media_save",
+        "visual_dependency_claim": "The wearer carries and repositions a light with several broad rectangular LED panels and a handle/base. No tripod feet, exact model or special mount are established.",
+        "belief_before": "One guide for the user-authored future plan.",
+        "belief_after": "Use the portable lighting equipment shown while moving between work spots, instead of installing fixed lighting.",
+        "required_behavior_change": "Replace the fixed-light installation resource with one applicable to setting up the kind of portable work light shown.",
+        "no_update_failure": "Only the future-plan resource remains.",
+        "overupdate_failure": "An extra obsolete resource remains.",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instructions": {
+            "a": "I was going to install fixed lighting over my work area. Save one guide that shows me how to set that up.",
+            "b": "Actually, I'll be moving between work spots in the room. Replace the fixed-installation guide with a setup guide for the kind of light I'm using here.",
+            "bundled": "I was going to install fixed lighting over my work area. Save one guide that shows me how to set that up. Then my plan changes: Actually, I'll be moving between work spots in the room. Replace the fixed-installation guide with a setup guide for the kind of light I'm using here."
+          },
+          "environment_role_ids": {
+            "initial_guide": "m_26e1f0656c80",
+            "current_guide": "m_bd9728c37a22"
+          },
+          "equivalent_role_ids": {
+            "initial_guide": [
+              "m_ab960b36857f",
+              "m_691e2abd38e7",
+              "m_122632528379",
+              "m_d2f9ba69f08a",
+              "m_c04aa883fda3",
+              "m_a69cce407296",
+              "m_d0a7ad56c89f",
+              "m_a5a6b7920a7f",
+              "m_b1c32a98e506",
+              "m_e80360029535",
+              "m_7774613f9f1c",
+              "m_57e8cb07f46e",
+              "m_bac52636cbea",
+              "m_e29d443e15b6",
+              "m_53c6422c06e7",
+              "m_0ce56b9814e5",
+              "m_d87619b27c34",
+              "m_1884a58c4454",
+              "m_445c7f089b71",
+              "m_0eef3e1d9057",
+              "m_ef26f1597f69",
+              "m_59d4f6c1428f",
+              "m_0c8582641dab",
+              "m_145c5983dcd3",
+              "m_9b6381111a91",
+              "m_08e6b64cb617",
+              "m_ee2349c604f8",
+              "m_dbd3e3fd672e",
+              "m_7d1d49835f03",
+              "m_23c1d58ad559",
+              "m_dc94525e70fb",
+              "m_35a8a6db0436",
+              "m_83d3f06a771e",
+              "m_c7c919915fd6",
+              "m_f79ace15161a"
+            ],
+            "current_guide": [
+              "m_926b8a3c17ca",
+              "m_d946a03ea8f5",
+              "m_8823640a7166"
+            ]
+          },
+          "initial_goal_roles": [
+            [
+              "initial_guide"
+            ]
+          ],
+          "final_goal_roles": [
+            [
+              "current_guide"
+            ]
+          ],
+          "initial_goal_fields": {},
+          "final_goal_fields": {},
+          "target_granularity": "category"
+        },
+        "decision": {
+          "candidates": {
+            "initial_goal": {
+              "goal_ref": "initial"
+            },
+            "current_goal": {
+              "goal_ref": "final"
+            }
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "initial_goal",
+                "current_goal"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "current_goal"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The changed purpose selects the equipment and practical operation in the released scene."
+            }
+          ],
+          "established_by": "skill-executing-coding-agent",
+          "established_at": "2026-10-16"
+        },
+        "native_state_checks": {
+          "correct": "Exactly one qualifying current-use resource.",
+          "wrong": "Wrong equipment or procedure.",
+          "missing": "No qualifying resource.",
+          "extra": "More than one saved resource.",
+          "stale": "Only the obsolete planning resource."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "workshop LED light installation tutorial",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-replace-2026101603.json",
+              "result_entity_ids": [
+                "m_26e1f0656c80",
+                "m_ab960b36857f",
+                "m_dc94525e70fb",
+                "m_691e2abd38e7",
+                "m_122632528379",
+                "m_d2f9ba69f08a",
+                "m_c04aa883fda3",
+                "m_a69cce407296",
+                "m_d0a7ad56c89f",
+                "m_a5a6b7920a7f",
+                "m_b1c32a98e506",
+                "m_e80360029535",
+                "m_c7c919915fd6",
+                "m_7774613f9f1c",
+                "m_57e8cb07f46e",
+                "m_bac52636cbea",
+                "m_e29d443e15b6",
+                "m_53c6422c06e7",
+                "m_3b9a606f447f",
+                "m_6f6ef3471184",
+                "m_0ce56b9814e5",
+                "m_d87619b27c34",
+                "m_1884a58c4454",
+                "m_445c7f089b71",
+                "m_0eef3e1d9057",
+                "m_ef26f1597f69",
+                "m_59d4f6c1428f",
+                "m_3ed6d70c9d12",
+                "m_1fc325cb7cbb",
+                "m_83d3f06a771e",
+                "m_0c8582641dab",
+                "m_145c5983dcd3",
+                "m_9b6381111a91",
+                "m_08e6b64cb617",
+                "m_ee2349c604f8",
+                "m_35a8a6db0436",
+                "m_dff01fdf802e",
+                "m_dbd3e3fd672e",
+                "m_7d1d49835f03",
+                "m_0c085545054e"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "portable multi panel work light setup positioning",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-replace-2026101603.json",
+              "result_entity_ids": [
+                "m_40e7d7304bb3",
+                "m_fc6154bf2e2e",
+                "m_ef197b92281e",
+                "m_52c7a84c85ad",
+                "m_428d59d67db5",
+                "m_646ecf7e13b9",
+                "m_8ee060d9aeed",
+                "m_c77140dbcf3c",
+                "m_f80cac9821e8",
+                "m_f831e1da94dc",
+                "m_0c085545054e",
+                "m_be01f988aa8b",
+                "m_51b91d8c462a",
+                "m_095309e5f894",
+                "m_a7750e85ac4c",
+                "m_34a4c290c3cd",
+                "m_f4937b1feee4",
+                "m_f79ace15161a",
+                "m_1e218657723c",
+                "m_1962b7710d8b",
+                "m_fd23f51261f6",
+                "m_5388b6176cac",
+                "m_d2f9ba69f08a",
+                "m_4798289458ef",
+                "m_792432032359",
+                "m_9032b90e1f48",
+                "m_dcafc521420a",
+                "m_0baa02fde059",
+                "m_ead8a9fcac62",
+                "m_f66e44fbd0ff",
+                "m_423da2d06ada",
+                "m_0426a1093a8a",
+                "m_b4b89649a178",
+                "m_52f466e55357",
+                "m_a1c8d3b15fab",
+                "m_3e0f67fea39e",
+                "m_814bebf87d19",
+                "m_4a0c28110bd3",
+                "m_d45a9fb31bd2",
+                "m_5b4825463104"
+              ]
+            },
+            {
+              "stage": "after_adjustable_heads",
+              "query": "three panel LED work light adjustable head setup",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-replace-2026101603.json",
+              "result_entity_ids": [
+                "m_bd9728c37a22",
+                "m_f0167849af84",
+                "m_5be1369839de",
+                "m_37351734775a",
+                "m_ffffeaf50eac",
+                "m_d23d00f319af",
+                "m_22b4500b8515",
+                "m_77fd87616a53",
+                "m_5dd0d7763593",
+                "m_2079df1b13ef",
+                "m_926b8a3c17ca",
+                "m_f00d0b598e63",
+                "m_76064863e4a3",
+                "m_69f275ff4f92",
+                "m_51e6471f9564",
+                "m_d946a03ea8f5",
+                "m_52a7b75e84ad",
+                "m_664a67167fa0",
+                "m_97fa56dde4ea",
+                "m_68222dfce4e2",
+                "m_32cd9d31085a",
+                "m_ec1b7945f32c",
+                "m_a0b0bf6db32d",
+                "m_30ea9dd12adb",
+                "m_23c1d58ad559",
+                "m_f276e0587a4b",
+                "m_5e11a2502a04",
+                "m_9731faec1da4",
+                "m_08b80b5bd3e5",
+                "m_17259e4b2c7d",
+                "m_fe43601e1ff0",
+                "m_52beb3932c15",
+                "m_9df3adb30323",
+                "m_043c25823812",
+                "m_52c7a84c85ad",
+                "m_314e643513d1",
+                "m_12f29c859da0",
+                "m_26c2959fb9f5",
+                "m_9032b90e1f48",
+                "m_be01f988aa8b"
+              ]
+            },
+            {
+              "stage": "after_mobile_worklight",
+              "query": "portable multi head work light demonstration",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-graft-replace-2026101603.json",
+              "result_entity_ids": [
+                "m_1f7c860e51c9",
+                "m_0704e15edf24",
+                "m_f0e7f36a01ae",
+                "m_a63965f4f7cd",
+                "m_d19e04d27523",
+                "m_d59081d7b17d",
+                "m_7229aa10ac40",
+                "m_9822b8581734",
+                "m_69f275ff4f92",
+                "m_8823640a7166",
+                "m_eee56849f9c3",
+                "m_2ad10a06175a",
+                "m_167b9b8bb695",
+                "m_5b1887fb6a08",
+                "m_ccd28174de4e",
+                "m_12f29c859da0",
+                "m_2d66455c96b2",
+                "m_3dd6a8946a5e",
+                "m_a32b7dfb4df2",
+                "m_c66cc0176fde",
+                "m_e7c284d4df92",
+                "m_38e781435881",
+                "m_3bd9d623e25e",
+                "m_b2a8ea6a07e9",
+                "m_9fe58422af9b",
+                "m_8abfb0240816",
+                "m_e72924f03880",
+                "m_365db606aa1b",
+                "m_51a992c45a84",
+                "m_428d59d67db5",
+                "m_e1845b3b9936",
+                "m_476db16e03bd",
+                "m_b710e53859c1",
+                "m_22bb21759924",
+                "m_f56b3a54c5d6",
+                "m_d3f0f89028aa",
+                "m_d62db7b06f31",
+                "m_6f9e670b6bfa",
+                "m_3bf6db8e2bc2",
+                "m_6beac5734746"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_26e1f0656c80",
+            "m_ab960b36857f",
+            "m_dc94525e70fb",
+            "m_691e2abd38e7",
+            "m_122632528379",
+            "m_d2f9ba69f08a",
+            "m_c04aa883fda3",
+            "m_a69cce407296",
+            "m_d0a7ad56c89f",
+            "m_a5a6b7920a7f",
+            "m_b1c32a98e506",
+            "m_e80360029535",
+            "m_c7c919915fd6",
+            "m_7774613f9f1c",
+            "m_57e8cb07f46e",
+            "m_bac52636cbea",
+            "m_e29d443e15b6",
+            "m_53c6422c06e7",
+            "m_3b9a606f447f",
+            "m_6f6ef3471184",
+            "m_0ce56b9814e5",
+            "m_d87619b27c34",
+            "m_1884a58c4454",
+            "m_445c7f089b71",
+            "m_0eef3e1d9057",
+            "m_ef26f1597f69",
+            "m_59d4f6c1428f",
+            "m_3ed6d70c9d12",
+            "m_1fc325cb7cbb",
+            "m_83d3f06a771e",
+            "m_0c8582641dab",
+            "m_145c5983dcd3",
+            "m_9b6381111a91",
+            "m_08e6b64cb617",
+            "m_ee2349c604f8",
+            "m_35a8a6db0436",
+            "m_dff01fdf802e",
+            "m_dbd3e3fd672e",
+            "m_7d1d49835f03",
+            "m_0c085545054e",
+            "m_40e7d7304bb3",
+            "m_fc6154bf2e2e",
+            "m_ef197b92281e",
+            "m_52c7a84c85ad",
+            "m_428d59d67db5",
+            "m_646ecf7e13b9",
+            "m_8ee060d9aeed",
+            "m_c77140dbcf3c",
+            "m_f80cac9821e8",
+            "m_f831e1da94dc",
+            "m_be01f988aa8b",
+            "m_51b91d8c462a",
+            "m_095309e5f894",
+            "m_a7750e85ac4c",
+            "m_34a4c290c3cd",
+            "m_f4937b1feee4",
+            "m_f79ace15161a",
+            "m_1e218657723c",
+            "m_1962b7710d8b",
+            "m_fd23f51261f6",
+            "m_5388b6176cac",
+            "m_4798289458ef",
+            "m_792432032359",
+            "m_9032b90e1f48",
+            "m_dcafc521420a",
+            "m_0baa02fde059",
+            "m_ead8a9fcac62",
+            "m_f66e44fbd0ff",
+            "m_423da2d06ada",
+            "m_0426a1093a8a",
+            "m_b4b89649a178",
+            "m_52f466e55357",
+            "m_a1c8d3b15fab",
+            "m_3e0f67fea39e",
+            "m_814bebf87d19",
+            "m_4a0c28110bd3",
+            "m_d45a9fb31bd2",
+            "m_5b4825463104",
+            "m_bd9728c37a22",
+            "m_f0167849af84",
+            "m_5be1369839de",
+            "m_37351734775a",
+            "m_ffffeaf50eac",
+            "m_d23d00f319af",
+            "m_22b4500b8515",
+            "m_77fd87616a53",
+            "m_5dd0d7763593",
+            "m_2079df1b13ef",
+            "m_926b8a3c17ca",
+            "m_f00d0b598e63",
+            "m_76064863e4a3",
+            "m_69f275ff4f92",
+            "m_51e6471f9564",
+            "m_d946a03ea8f5",
+            "m_52a7b75e84ad",
+            "m_664a67167fa0",
+            "m_97fa56dde4ea",
+            "m_68222dfce4e2",
+            "m_32cd9d31085a",
+            "m_ec1b7945f32c",
+            "m_a0b0bf6db32d",
+            "m_30ea9dd12adb",
+            "m_23c1d58ad559",
+            "m_f276e0587a4b",
+            "m_5e11a2502a04",
+            "m_9731faec1da4",
+            "m_08b80b5bd3e5",
+            "m_17259e4b2c7d",
+            "m_fe43601e1ff0",
+            "m_52beb3932c15",
+            "m_9df3adb30323",
+            "m_043c25823812",
+            "m_314e643513d1",
+            "m_12f29c859da0",
+            "m_26c2959fb9f5",
+            "m_1f7c860e51c9",
+            "m_0704e15edf24",
+            "m_f0e7f36a01ae",
+            "m_a63965f4f7cd",
+            "m_d19e04d27523",
+            "m_d59081d7b17d",
+            "m_7229aa10ac40",
+            "m_9822b8581734",
+            "m_8823640a7166",
+            "m_eee56849f9c3",
+            "m_2ad10a06175a",
+            "m_167b9b8bb695",
+            "m_5b1887fb6a08",
+            "m_ccd28174de4e",
+            "m_2d66455c96b2",
+            "m_3dd6a8946a5e",
+            "m_a32b7dfb4df2",
+            "m_c66cc0176fde",
+            "m_e7c284d4df92",
+            "m_38e781435881",
+            "m_3bd9d623e25e",
+            "m_b2a8ea6a07e9",
+            "m_9fe58422af9b",
+            "m_8abfb0240816",
+            "m_e72924f03880",
+            "m_365db606aa1b",
+            "m_51a992c45a84",
+            "m_e1845b3b9936",
+            "m_476db16e03bd",
+            "m_b710e53859c1",
+            "m_22bb21759924",
+            "m_f56b3a54c5d6",
+            "m_d3f0f89028aa",
+            "m_d62db7b06f31",
+            "m_6f9e670b6bfa",
+            "m_3bf6db8e2bc2",
+            "m_6beac5734746"
+          ],
+          "semantic_scope_policy": "restrict-acceptable-states-to-real-window-v1",
+          "excluded_unreachable_semantic_entity_ids": [],
+          "core_neighbor_entity_ids": [
+            "m_26e1f0656c80",
+            "m_37351734775a",
+            "m_1f7c860e51c9",
+            "m_52c7a84c85ad"
+          ],
+          "related_entity_ids": [
+            "m_ab960b36857f",
+            "m_dc94525e70fb",
+            "m_691e2abd38e7",
+            "m_122632528379",
+            "m_d2f9ba69f08a",
+            "m_c04aa883fda3",
+            "m_a69cce407296",
+            "m_d0a7ad56c89f",
+            "m_a5a6b7920a7f",
+            "m_b1c32a98e506",
+            "m_e80360029535",
+            "m_c7c919915fd6",
+            "m_7774613f9f1c",
+            "m_57e8cb07f46e",
+            "m_bac52636cbea",
+            "m_e29d443e15b6"
+          ],
+          "ambient_entity_ids": [
+            "m_53c6422c06e7",
+            "m_3b9a606f447f",
+            "m_6f6ef3471184",
+            "m_0ce56b9814e5",
+            "m_d87619b27c34",
+            "m_1884a58c4454",
+            "m_445c7f089b71",
+            "m_0eef3e1d9057",
+            "m_ef26f1597f69",
+            "m_59d4f6c1428f",
+            "m_3ed6d70c9d12",
+            "m_1fc325cb7cbb",
+            "m_83d3f06a771e",
+            "m_0c8582641dab",
+            "m_145c5983dcd3",
+            "m_9b6381111a91",
+            "m_08e6b64cb617",
+            "m_ee2349c604f8",
+            "m_35a8a6db0436",
+            "m_dff01fdf802e",
+            "m_dbd3e3fd672e",
+            "m_7d1d49835f03",
+            "m_0c085545054e",
+            "m_40e7d7304bb3",
+            "m_fc6154bf2e2e",
+            "m_ef197b92281e",
+            "m_428d59d67db5",
+            "m_646ecf7e13b9",
+            "m_8ee060d9aeed",
+            "m_c77140dbcf3c",
+            "m_f80cac9821e8",
+            "m_f831e1da94dc",
+            "m_be01f988aa8b",
+            "m_51b91d8c462a",
+            "m_095309e5f894",
+            "m_a7750e85ac4c",
+            "m_34a4c290c3cd",
+            "m_f4937b1feee4",
+            "m_f79ace15161a",
+            "m_1e218657723c",
+            "m_1962b7710d8b",
+            "m_fd23f51261f6",
+            "m_5388b6176cac",
+            "m_4798289458ef",
+            "m_792432032359",
+            "m_9032b90e1f48",
+            "m_dcafc521420a",
+            "m_0baa02fde059",
+            "m_ead8a9fcac62",
+            "m_f66e44fbd0ff",
+            "m_423da2d06ada",
+            "m_0426a1093a8a",
+            "m_b4b89649a178",
+            "m_52f466e55357",
+            "m_a1c8d3b15fab",
+            "m_3e0f67fea39e",
+            "m_814bebf87d19",
+            "m_4a0c28110bd3",
+            "m_d45a9fb31bd2",
+            "m_5b4825463104",
+            "m_f0167849af84",
+            "m_5be1369839de",
+            "m_ffffeaf50eac",
+            "m_d23d00f319af",
+            "m_22b4500b8515",
+            "m_77fd87616a53",
+            "m_5dd0d7763593",
+            "m_2079df1b13ef",
+            "m_f00d0b598e63",
+            "m_76064863e4a3",
+            "m_69f275ff4f92",
+            "m_51e6471f9564",
+            "m_52a7b75e84ad",
+            "m_664a67167fa0",
+            "m_97fa56dde4ea",
+            "m_68222dfce4e2",
+            "m_32cd9d31085a",
+            "m_ec1b7945f32c",
+            "m_a0b0bf6db32d",
+            "m_30ea9dd12adb",
+            "m_23c1d58ad559",
+            "m_f276e0587a4b",
+            "m_5e11a2502a04",
+            "m_9731faec1da4",
+            "m_08b80b5bd3e5",
+            "m_17259e4b2c7d",
+            "m_fe43601e1ff0",
+            "m_52beb3932c15",
+            "m_9df3adb30323",
+            "m_043c25823812",
+            "m_314e643513d1",
+            "m_12f29c859da0",
+            "m_26c2959fb9f5",
+            "m_0704e15edf24",
+            "m_f0e7f36a01ae",
+            "m_a63965f4f7cd",
+            "m_d19e04d27523",
+            "m_d59081d7b17d",
+            "m_7229aa10ac40",
+            "m_9822b8581734",
+            "m_eee56849f9c3",
+            "m_2ad10a06175a",
+            "m_167b9b8bb695",
+            "m_5b1887fb6a08",
+            "m_ccd28174de4e",
+            "m_2d66455c96b2",
+            "m_3dd6a8946a5e",
+            "m_a32b7dfb4df2",
+            "m_c66cc0176fde",
+            "m_e7c284d4df92",
+            "m_38e781435881",
+            "m_3bd9d623e25e",
+            "m_b2a8ea6a07e9",
+            "m_9fe58422af9b",
+            "m_8abfb0240816",
+            "m_e72924f03880",
+            "m_365db606aa1b",
+            "m_51a992c45a84",
+            "m_e1845b3b9936",
+            "m_476db16e03bd",
+            "m_b710e53859c1",
+            "m_22bb21759924",
+            "m_f56b3a54c5d6",
+            "m_d3f0f89028aa",
+            "m_d62db7b06f31",
+            "m_6f9e670b6bfa",
+            "m_3bf6db8e2bc2",
+            "m_6beac5734746"
+          ],
+          "detail_decision_fields": [
+            "title",
+            "description",
+            "chapters"
+          ],
+          "rejected": [
+            {
+              "entity_id": "m_26e1f0656c80",
+              "ring": "core",
+              "why_plausible": "How to Install an LED Strip Light / Workshop & Garage Lighting Upgrade",
+              "reason": "The actual lesson mounts and wires a fixed workshop strip fixture, which cannot move with the work area.",
+              "failure_predicates": [
+                "later_change_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "m_37351734775a",
+              "ring": "core",
+              "why_plausible": "JESLED solar light  w/3 adjustable heads",
+              "reason": "The public description installs a wall-mounted solar security lamp, rather than a movable work-area light.",
+              "failure_predicates": [
+                "wrong_variant_or_branch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "m_1f7c860e51c9",
+              "ring": "core",
+              "why_plausible": "The Swiss Army Knife of Work Lights - OEMTOOLS Multi Head Work Light Set 24648",
+              "reason": "This kit swaps flashlight, inspection and flexible-shaft attachments on one handle, unlike the simultaneous broad adjustable panels shown.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            },
+            {
+              "entity_id": "m_52c7a84c85ad",
+              "ring": "core",
+              "why_plausible": "The ULTIMATE 3 Light setup in 150 seconds!",
+              "reason": "The lesson positions three separate portrait-photography strobes and softboxes, not the carried work-area light.",
+              "failure_predicates": [
+                "wrong_method_same_object"
+              ],
+              "semantic_review": "coding_agent_accepted"
+            }
+          ],
+          "semantic_review": "pending_incremental_review"
+        },
+        "answer_boundary_review": {
+          "reviewer": "skill-executing-coding-agent",
+          "reviewed_at": "2026-10-17",
+          "verified_public_evidence": [
+            "Existing native descriptions explicitly support independently aimed panels: GeerTop each head rotates360/tilts180; Hokolite rotating panels and adjustable three-head form; Triple-Head dual pivots independently aim panels. Brand and exact head count are not requirements.",
+            "The revised user need is setting up the existing light while moving between work spots. The source establishes carried multi-panel equipment, not tripod feet or a demonstrated adjustment. Remaining plausible lights require actual operation evidence, not title-based rejection.",
+            "After frozen independent firstpass, accepted additional initial resources from their actual public description/chapters; broad buy-before-learning and fixed-installation needs were not silently narrowed. Review reference: .scratch/full-validation-20261016/independent-replacement-firstpass-20261017.json."
+          ],
+          "unresolved_entity_ids": [
+            "m_f0167849af84",
+            "m_ec1b7945f32c",
+            "m_76064863e4a3",
+            "m_ffffeaf50eac",
+            "m_d59081d7b17d",
+            "m_f56b3a54c5d6",
+            "m_a63965f4f7cd",
+            "m_eee56849f9c3",
+            "m_51e6471f9564",
+            "m_5dd0d7763593",
+            "m_69f275ff4f92",
+            "m_5be1369839de",
+            "m_d23d00f319af",
+            "m_2079df1b13ef",
+            "m_6f9e670b6bfa",
+            "m_ccd28174de4e",
+            "m_c66cc0176fde",
+            "m_167b9b8bb695",
+            "m_17259e4b2c7d",
+            "m_5e11a2502a04",
+            "m_9822b8581734",
+            "m_d19e04d27523",
+            "m_0704e15edf24",
+            "m_f0e7f36a01ae",
+            "m_5b1887fb6a08",
+            "m_12f29c859da0"
+          ],
+          "scope": "Incremental repair after frozen independent firstpass: the update supplies only the changed work pattern, while the image supplies equipment form. Recheck no_scene and actual setup applicability; no exact brand or head-count limit. Unresolved listing IDs are not rejections.",
+          "history": [
+            {
+              "reviewer": "skill-executing-coding-agent",
+              "reviewed_at": "2026-10-16",
+              "verified_public_evidence": [
+                "m_bd9728c37a22 publishes stand assembly, mounting options and a 6:00 head-adjustment demo. m_8823640a7166 chapters teach head attachment, height/angle, head adjustment and portability. Other admitted guides publicly demonstrate pivoting, mounting or portable work-light use; brand and precise head count are not selection predicates."
+              ],
+              "unresolved_entity_ids": [
+                "m_c7c919915fd6",
+                "m_3b9a606f447f",
+                "m_6f6ef3471184",
+                "m_3ed6d70c9d12",
+                "m_1fc325cb7cbb",
+                "m_83d3f06a771e",
+                "m_35a8a6db0436",
+                "m_dff01fdf802e",
+                "m_0c085545054e",
+                "m_40e7d7304bb3",
+                "m_fc6154bf2e2e",
+                "m_ef197b92281e",
+                "m_428d59d67db5",
+                "m_646ecf7e13b9",
+                "m_8ee060d9aeed",
+                "m_c77140dbcf3c",
+                "m_f80cac9821e8",
+                "m_f831e1da94dc",
+                "m_be01f988aa8b",
+                "m_51b91d8c462a",
+                "m_095309e5f894",
+                "m_a7750e85ac4c",
+                "m_34a4c290c3cd",
+                "m_f4937b1feee4",
+                "m_f79ace15161a",
+                "m_1e218657723c",
+                "m_1962b7710d8b",
+                "m_fd23f51261f6",
+                "m_5388b6176cac",
+                "m_4798289458ef",
+                "m_792432032359",
+                "m_9032b90e1f48",
+                "m_dcafc521420a",
+                "m_0baa02fde059",
+                "m_ead8a9fcac62",
+                "m_f66e44fbd0ff",
+                "m_423da2d06ada",
+                "m_0426a1093a8a",
+                "m_b4b89649a178",
+                "m_52f466e55357",
+                "m_a1c8d3b15fab",
+                "m_3e0f67fea39e",
+                "m_814bebf87d19",
+                "m_4a0c28110bd3",
+                "m_d45a9fb31bd2",
+                "m_5b4825463104",
+                "m_f0167849af84",
+                "m_5be1369839de",
+                "m_ffffeaf50eac",
+                "m_d23d00f319af",
+                "m_22b4500b8515",
+                "m_77fd87616a53",
+                "m_2079df1b13ef",
+                "m_f00d0b598e63",
+                "m_76064863e4a3",
+                "m_52a7b75e84ad",
+                "m_664a67167fa0",
+                "m_97fa56dde4ea",
+                "m_68222dfce4e2",
+                "m_32cd9d31085a",
+                "m_ec1b7945f32c",
+                "m_a0b0bf6db32d",
+                "m_30ea9dd12adb",
+                "m_f276e0587a4b",
+                "m_5e11a2502a04",
+                "m_9731faec1da4",
+                "m_08b80b5bd3e5",
+                "m_17259e4b2c7d",
+                "m_fe43601e1ff0",
+                "m_52beb3932c15",
+                "m_9df3adb30323",
+                "m_043c25823812",
+                "m_314e643513d1",
+                "m_12f29c859da0",
+                "m_26c2959fb9f5",
+                "m_0704e15edf24",
+                "m_f0e7f36a01ae",
+                "m_a63965f4f7cd",
+                "m_d19e04d27523",
+                "m_d59081d7b17d",
+                "m_7229aa10ac40",
+                "m_9822b8581734",
+                "m_eee56849f9c3",
+                "m_2ad10a06175a",
+                "m_167b9b8bb695",
+                "m_5b1887fb6a08",
+                "m_ccd28174de4e",
+                "m_2d66455c96b2",
+                "m_3dd6a8946a5e",
+                "m_a32b7dfb4df2",
+                "m_c66cc0176fde",
+                "m_e7c284d4df92",
+                "m_38e781435881",
+                "m_3bd9d623e25e",
+                "m_b2a8ea6a07e9",
+                "m_9fe58422af9b",
+                "m_8abfb0240816",
+                "m_e72924f03880",
+                "m_365db606aa1b",
+                "m_51a992c45a84",
+                "m_e1845b3b9936",
+                "m_476db16e03bd",
+                "m_b710e53859c1",
+                "m_22bb21759924",
+                "m_f56b3a54c5d6",
+                "m_d3f0f89028aa",
+                "m_d62db7b06f31",
+                "m_6f9e670b6bfa",
+                "m_3bf6db8e2bc2",
+                "m_6beac5734746"
+              ],
+              "scope": "Original video and decisive primary public method verified. Unresolved rows are not rejected by title absence. Complete the semantic boundary before admission."
+            },
+            {
+              "reviewed_at": "2026-10-17",
+              "released_instructions": {
+                "a": "I was going to install fixed lighting over my work area. Save one guide that shows me how to set that up.",
+                "b": "Actually, I need to work at different spots in the room and aim light in two directions at once without moving the whole lamp each time. Replace the fixed-installation guide with one showing how to set up and aim the kind of light I'm carrying here.",
+                "bundled": "I was going to install fixed lighting over my work area. Save one guide that shows me how to set that up. Then my plan changes: Actually, I need to work at different spots in the room and aim light in two directions at once without moving the whole lamp each time. Replace the fixed-installation guide with one showing how to set up and aim the kind of light I'm carrying here."
+              },
+              "review_reference": ".scratch/full-validation-20261016/independent-replacement-firstpass-20261017.json#candidate-media-graft-replace-2026101603",
+              "confirmed_issue": "The previous update explicitly described two-direction lighting and already revealed the functional filter without the image. That phrase has been removed, not replaced with a hidden exact-brand/head-count restriction."
+            },
+            {
+              "reviewed_at": "2026-10-17",
+              "previous_provisional_final_entity_ids": [
+                "m_bd9728c37a22",
+                "m_8823640a7166",
+                "m_926b8a3c17ca",
+                "m_51e6471f9564",
+                "m_5dd0d7763593",
+                "m_d946a03ea8f5",
+                "m_69f275ff4f92",
+                "m_5be1369839de",
+                "m_d23d00f319af",
+                "m_2079df1b13ef"
+              ],
+              "reason": "Frozen independent review distinguished product adjustability from evidence of an actual setup/handling guide. Unverified methods are held open, not rejected."
+            }
+          ]
+        },
+        "author_validation": {
+          "status": "pending_independent_review",
+          "independent_blind_review_completed": false,
+          "complete_window_count": 152
+        }
+      },
+      "repair": {
+        "strategy": "redesign_same_source",
+        "previous_task_reference": "data/sources/manifests/expansion_v6_ego2web_screening_manifest.json#candidate-media-graft-c-114",
+        "reason": "Replace unsupported tripod-specific grounding and unrelated tractor/desk installation with a fixed work-area plan followed by portable multi-directional lighting.",
+        "reused_evidence": [
+          "original source video",
+          "all original released frames",
+          "specific previous visual inventory"
+        ],
+        "changed_evidence": [
+          "released purpose",
+          "real search windows",
+          "site mapping and legal endings"
+        ],
+        "affected_checks": [
+          "user_instruction",
+          "causal_contract",
+          "information_partition",
+          "site_mapping",
+          "answer_boundary"
+        ],
+        "review_status": "pending_incremental_review",
+        "incremental_changes": [
+          {
+            "changed_at": "2026-10-17",
+            "review_reference": ".scratch/full-validation-20261016/independent-replacement-firstpass-20261017.json#candidate-media-graft-replace-2026101603",
+            "change": "Removed user-text disclosure of two-direction lighting. Retained the real change from fixed installation to moving between work spots and an image-relative reference to the current equipment.",
+            "affected_checks": [
+              "information_partition",
+              "no_scene",
+              "site_mapping",
+              "answer_boundary"
+            ],
+            "reused": [
+              "source video and released frame facts",
+              "real search windows",
+              "unaffected initial installation evidence"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

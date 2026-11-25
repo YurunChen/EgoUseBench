@@ -1,0 +1,1236 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Existing research authorization confirmed by the user; no public redistribution or release performed."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-refresh-retain-2026102905",
+      "status": "video_screened",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          407
+        ],
+        "media_id": "f1d27feb-a24f-45cf-ae36-7f0a639aa759",
+        "original_video_id": "f1d27feb-a24f-45cf-ae36-7f0a639aa759",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "The existing Ego2Web prompt mentions brushes and a palette knife. That is a search cue, not the visual ground truth."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              0,
+              6
+            ],
+            "description": "The red-handled compact flat/oval-flat brush touches the cloud painting; the black-handled fan brush is held idle."
+          },
+          {
+            "interval_seconds": [
+              15,
+              24
+            ],
+            "description": "The wearer applies paint with the black-handled spread-fan brush; the red-handled brush is now held idle."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            2,
+            4,
+            6
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026102801/V0_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102801/V0_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102801/V0_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102801/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            15,
+            18,
+            21,
+            24
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-refresh-replace-2026102801/V1_00.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102801/V1_01.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102801/V1_02.jpg",
+            "data/observations/candidate-mart-refresh-replace-2026102801/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The active brush in V0 has a compact, flattened head. The later active brush in V1 has visibly spread fan bristles. Idle tools do not determine the current referent. Exact brand, width, material and size are not established or required.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        },
+        {
+          "text": "The later fan-brush action does not change which brush was being used when the spare was requested. The original request is still fulfilled by a compact-head brush.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V1:0",
+            "V1:1",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent preserve a useful spare-brush selection when a different brush becomes active later but the purchase request still refers to the earlier brush?",
+        "event_origin": "observed",
+        "divergence_source": "referent",
+        "belief_before": "The request refers to the compact flat-headed brush used when it is spoken.",
+        "belief_after": "A fan brush is used later; the still-valid spare request remains about the compact brush.",
+        "required_behavior_change": "Retain the compact brush and do not add or switch to the later fan brush.",
+        "no_update_failure": "There is no required replacement; retaining the compact brush is correct.",
+        "overupdate_failure": "Switch to the later fan brush or keep both, even though the original purchase need did not change.",
+        "visual_dependency_claim": "The instruction names neither a flat nor fan head. The initial action establishes the referent; later action creates a plausible same-domain distraction, not a new authorization.",
+        "task_blueprint": {
+          "site": "egomart",
+          "instruction": "I'd like a spare of the brush I'm using for this part of the painting. Add one individual artist's paintbrush with the same general bristle-head shape to the cart, not a set. Any brand, size and handle colour are fine.",
+          "initial_target_role": "compact_brush",
+          "final_target_role": "compact_brush",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "compact_brush": "p_2b83353c2164",
+            "fan_brush": "p_6c0c5d0aac07"
+          },
+          "equivalent_role_ids": {
+            "compact_brush": [
+              "p_01a5e8d7d853",
+              "p_409787a4817b",
+              "p_18f5a882701b",
+              "p_d8c93310a7e6",
+              "p_027f41722605",
+              "p_316b43b217a6",
+              "p_3696671508aa",
+              "p_1192a5fa6011",
+              "p_19818beb8c2d",
+              "p_40b711123fc1",
+              "p_7d0571c717d4",
+              "p_06cca2a9a958",
+              "p_c7bc3e141512",
+              "p_b18de425845a",
+              "p_25bc0b8a60d7"
+            ],
+            "fan_brush": [
+              "p_60c5bbc676de",
+              "p_09e00264aa59",
+              "p_20cda7f1a0fc",
+              "p_475a689b4c4b",
+              "p_4d0640e83c77",
+              "p_35a21fef5cd9",
+              "p_79c6de4bc2cd",
+              "p_c7f3e5bb5f87",
+              "p_5d4ac856968f",
+              "p_1f65f0490a84",
+              "p_11fc5497a608",
+              "p_8041c6b90498",
+              "p_76818ad418e2",
+              "p_ac153d4787b9",
+              "p_6aa1d5e2c613"
+            ]
+          },
+          "later_distractor_role": "fan_brush"
+        },
+        "decision": {
+          "candidates": {
+            "compact_brush": "p_2b83353c2164",
+            "fan_brush": "p_6c0c5d0aac07"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "compact_brush"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The compact brush is actually touching the canvas in the initial views; the fan brush is idle in the other hand."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "compact_brush"
+              ],
+              "why": "The fan brush becomes active, but the request was anchored to the earlier part of the painting; physical activity changed, not the spare-item obligation."
+            }
+          ],
+          "recording": "key_events",
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-29"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "flat artist paint brush single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026102905.json",
+              "result_entity_ids": [
+                "p_75f891a4aceb",
+                "p_2b83353c2164",
+                "p_d44e88fe3cb9",
+                "p_6c74885acf56",
+                "p_01a5e8d7d853",
+                "p_409787a4817b",
+                "p_14056a429903",
+                "p_bb938fe070b9",
+                "p_120476b07ade",
+                "p_cf96012088c4",
+                "p_820030f46988",
+                "p_18f5a882701b",
+                "p_722f637879fd",
+                "p_c94af6bf2c1e",
+                "p_d8c93310a7e6",
+                "p_3ede6508d195",
+                "p_df50837f56f3",
+                "p_027f41722605",
+                "p_176cd2d8471d",
+                "p_316b43b217a6",
+                "p_16ea93e4f541",
+                "p_3696671508aa",
+                "p_d7d3420c407f",
+                "p_1192a5fa6011",
+                "p_b38bbbabaefa",
+                "p_e3a208e4614d",
+                "p_a712fcac5b9d",
+                "p_1a2e8fd5856b",
+                "p_19818beb8c2d",
+                "p_cdd6ba26fe7f",
+                "p_25c5fc0d30a0",
+                "p_4fd2c08e8855",
+                "p_40b711123fc1",
+                "p_1bf6e7aa5a16",
+                "p_4749517ed37b",
+                "p_fe2021902dd7",
+                "p_7d0571c717d4",
+                "p_dc54a8b350c1",
+                "p_06cca2a9a958",
+                "p_c7bc3e141512",
+                "p_b18de425845a",
+                "p_29756367f9fa",
+                "p_fa2f9e6cf61d",
+                "p_12894a6b7c38",
+                "p_99308b4ec3eb",
+                "p_8dd503f2f02b",
+                "p_5bdb7703bc1e",
+                "p_22480a16d87c"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "fan artist paint brush single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-refresh-retain-2026102905.json",
+              "result_entity_ids": [
+                "p_a67d73b7c120",
+                "p_6c0c5d0aac07",
+                "p_8c6c77f5a64a",
+                "p_c5ef047c502e",
+                "p_60c5bbc676de",
+                "p_fcd4f9bfce83",
+                "p_beb2a015a8b7",
+                "p_09e00264aa59",
+                "p_4ea551328ccd",
+                "p_20cda7f1a0fc",
+                "p_fe2021902dd7",
+                "p_cf5653f93fc1",
+                "p_651e06279d1b",
+                "p_4f37aab4bc55",
+                "p_bae6efa3b97b",
+                "p_d54633868cb6",
+                "p_475a689b4c4b",
+                "p_4d0640e83c77",
+                "p_8208a504810d",
+                "p_78c8a51a2ede",
+                "p_35a21fef5cd9",
+                "p_79c6de4bc2cd",
+                "p_c7f3e5bb5f87",
+                "p_a3a99c741170",
+                "p_5f7e9446a517",
+                "p_5d4ac856968f",
+                "p_5dd7830eba6f",
+                "p_4e1a0e0e515a",
+                "p_25bc0b8a60d7",
+                "p_1f65f0490a84",
+                "p_11fc5497a608",
+                "p_a742be75298c",
+                "p_6627739b408e",
+                "p_bfa749fff72d",
+                "p_630749a3f2a9",
+                "p_f0265a5860b4",
+                "p_12894a6b7c38",
+                "p_8041c6b90498",
+                "p_947d58e4ff08",
+                "p_e53ac943b9d8",
+                "p_76818ad418e2",
+                "p_9c2339db9526",
+                "p_ac153d4787b9",
+                "p_6aa1d5e2c613",
+                "p_7651b3ecc467",
+                "p_dd04c716981e",
+                "p_dc54a8b350c1",
+                "p_6f2201b01438"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_75f891a4aceb",
+            "p_2b83353c2164",
+            "p_d44e88fe3cb9",
+            "p_6c74885acf56",
+            "p_01a5e8d7d853",
+            "p_409787a4817b",
+            "p_14056a429903",
+            "p_bb938fe070b9",
+            "p_120476b07ade",
+            "p_cf96012088c4",
+            "p_820030f46988",
+            "p_18f5a882701b",
+            "p_722f637879fd",
+            "p_c94af6bf2c1e",
+            "p_d8c93310a7e6",
+            "p_3ede6508d195",
+            "p_df50837f56f3",
+            "p_027f41722605",
+            "p_176cd2d8471d",
+            "p_316b43b217a6",
+            "p_16ea93e4f541",
+            "p_3696671508aa",
+            "p_d7d3420c407f",
+            "p_1192a5fa6011",
+            "p_b38bbbabaefa",
+            "p_e3a208e4614d",
+            "p_a712fcac5b9d",
+            "p_1a2e8fd5856b",
+            "p_19818beb8c2d",
+            "p_cdd6ba26fe7f",
+            "p_25c5fc0d30a0",
+            "p_4fd2c08e8855",
+            "p_40b711123fc1",
+            "p_1bf6e7aa5a16",
+            "p_4749517ed37b",
+            "p_fe2021902dd7",
+            "p_7d0571c717d4",
+            "p_dc54a8b350c1",
+            "p_06cca2a9a958",
+            "p_c7bc3e141512",
+            "p_b18de425845a",
+            "p_29756367f9fa",
+            "p_fa2f9e6cf61d",
+            "p_12894a6b7c38",
+            "p_99308b4ec3eb",
+            "p_8dd503f2f02b",
+            "p_5bdb7703bc1e",
+            "p_22480a16d87c",
+            "p_a67d73b7c120",
+            "p_6c0c5d0aac07",
+            "p_8c6c77f5a64a",
+            "p_c5ef047c502e",
+            "p_60c5bbc676de",
+            "p_fcd4f9bfce83",
+            "p_beb2a015a8b7",
+            "p_09e00264aa59",
+            "p_4ea551328ccd",
+            "p_20cda7f1a0fc",
+            "p_cf5653f93fc1",
+            "p_651e06279d1b",
+            "p_4f37aab4bc55",
+            "p_bae6efa3b97b",
+            "p_d54633868cb6",
+            "p_475a689b4c4b",
+            "p_4d0640e83c77",
+            "p_8208a504810d",
+            "p_78c8a51a2ede",
+            "p_35a21fef5cd9",
+            "p_79c6de4bc2cd",
+            "p_c7f3e5bb5f87",
+            "p_a3a99c741170",
+            "p_5f7e9446a517",
+            "p_5d4ac856968f",
+            "p_5dd7830eba6f",
+            "p_4e1a0e0e515a",
+            "p_25bc0b8a60d7",
+            "p_1f65f0490a84",
+            "p_11fc5497a608",
+            "p_a742be75298c",
+            "p_6627739b408e",
+            "p_bfa749fff72d",
+            "p_630749a3f2a9",
+            "p_f0265a5860b4",
+            "p_8041c6b90498",
+            "p_947d58e4ff08",
+            "p_e53ac943b9d8",
+            "p_76818ad418e2",
+            "p_9c2339db9526",
+            "p_ac153d4787b9",
+            "p_6aa1d5e2c613",
+            "p_7651b3ecc467",
+            "p_dd04c716981e",
+            "p_6f2201b01438"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_6c0c5d0aac07",
+            "p_60c5bbc676de",
+            "p_a67d73b7c120",
+            "p_8c6c77f5a64a",
+            "p_c5ef047c502e",
+            "p_fcd4f9bfce83"
+          ],
+          "related_entity_ids": [
+            "p_75f891a4aceb",
+            "p_d44e88fe3cb9",
+            "p_6c74885acf56",
+            "p_14056a429903",
+            "p_bb938fe070b9",
+            "p_120476b07ade",
+            "p_cf96012088c4",
+            "p_820030f46988",
+            "p_722f637879fd",
+            "p_c94af6bf2c1e",
+            "p_3ede6508d195",
+            "p_df50837f56f3",
+            "p_176cd2d8471d",
+            "p_16ea93e4f541",
+            "p_d7d3420c407f",
+            "p_b38bbbabaefa"
+          ],
+          "ambient_entity_ids": [
+            "p_e3a208e4614d",
+            "p_a712fcac5b9d",
+            "p_1a2e8fd5856b",
+            "p_cdd6ba26fe7f",
+            "p_25c5fc0d30a0",
+            "p_4fd2c08e8855",
+            "p_1bf6e7aa5a16",
+            "p_4749517ed37b",
+            "p_fe2021902dd7",
+            "p_dc54a8b350c1",
+            "p_29756367f9fa",
+            "p_fa2f9e6cf61d",
+            "p_12894a6b7c38",
+            "p_99308b4ec3eb",
+            "p_8dd503f2f02b",
+            "p_5bdb7703bc1e",
+            "p_22480a16d87c",
+            "p_beb2a015a8b7",
+            "p_09e00264aa59",
+            "p_4ea551328ccd",
+            "p_20cda7f1a0fc",
+            "p_cf5653f93fc1",
+            "p_651e06279d1b",
+            "p_4f37aab4bc55",
+            "p_bae6efa3b97b",
+            "p_d54633868cb6",
+            "p_475a689b4c4b",
+            "p_4d0640e83c77",
+            "p_8208a504810d",
+            "p_78c8a51a2ede",
+            "p_35a21fef5cd9",
+            "p_79c6de4bc2cd",
+            "p_c7f3e5bb5f87",
+            "p_a3a99c741170",
+            "p_5f7e9446a517",
+            "p_5d4ac856968f",
+            "p_5dd7830eba6f",
+            "p_4e1a0e0e515a",
+            "p_1f65f0490a84",
+            "p_11fc5497a608",
+            "p_a742be75298c",
+            "p_6627739b408e",
+            "p_bfa749fff72d",
+            "p_630749a3f2a9",
+            "p_f0265a5860b4",
+            "p_8041c6b90498",
+            "p_947d58e4ff08",
+            "p_e53ac943b9d8",
+            "p_76818ad418e2",
+            "p_9c2339db9526",
+            "p_ac153d4787b9",
+            "p_6aa1d5e2c613",
+            "p_7651b3ecc467",
+            "p_dd04c716981e",
+            "p_6f2201b01438"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_75f891a4aceb",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_d44e88fe3cb9",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_6c74885acf56",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_14056a429903",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_bb938fe070b9",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_120476b07ade",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_cf96012088c4",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_820030f46988",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_722f637879fd",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_c94af6bf2c1e",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_3ede6508d195",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_df50837f56f3",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_176cd2d8471d",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_16ea93e4f541",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_d7d3420c407f",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_b38bbbabaefa",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_e3a208e4614d",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_a712fcac5b9d",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_1a2e8fd5856b",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_cdd6ba26fe7f",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_25c5fc0d30a0",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_4fd2c08e8855",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_1bf6e7aa5a16",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_4749517ed37b",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_fe2021902dd7",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_dc54a8b350c1",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_29756367f9fa",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_fa2f9e6cf61d",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_12894a6b7c38",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_99308b4ec3eb",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_8dd503f2f02b",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_5bdb7703bc1e",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_22480a16d87c",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_a67d73b7c120",
+              "ring": "core",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_6c0c5d0aac07",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "core"
+            },
+            {
+              "entity_id": "p_8c6c77f5a64a",
+              "ring": "core",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_c5ef047c502e",
+              "ring": "core",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_60c5bbc676de",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "core"
+            },
+            {
+              "entity_id": "p_fcd4f9bfce83",
+              "ring": "core",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_beb2a015a8b7",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_09e00264aa59",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_4ea551328ccd",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_20cda7f1a0fc",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_cf5653f93fc1",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_651e06279d1b",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_4f37aab4bc55",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_bae6efa3b97b",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_d54633868cb6",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_475a689b4c4b",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_4d0640e83c77",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_8208a504810d",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_78c8a51a2ede",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_35a21fef5cd9",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_79c6de4bc2cd",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_c7f3e5bb5f87",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_a3a99c741170",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_5f7e9446a517",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_5d4ac856968f",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_5dd7830eba6f",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_4e1a0e0e515a",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_1f65f0490a84",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_11fc5497a608",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_a742be75298c",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_6627739b408e",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_bfa749fff72d",
+              "ring": "related",
+              "reason": "A single pointed-round or dagger head does not match the later fan shape.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "different_head_shape"
+              ]
+            },
+            {
+              "entity_id": "p_630749a3f2a9",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_f0265a5860b4",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_8041c6b90498",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_947d58e4ff08",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_e53ac943b9d8",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_76818ad418e2",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_9c2339db9526",
+              "ring": "related",
+              "reason": "A single pointed-round or dagger head does not match the later fan shape.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "different_head_shape"
+              ]
+            },
+            {
+              "entity_id": "p_ac153d4787b9",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_6aa1d5e2c613",
+              "reason": "A later fan-headed brush is a plausible distraction, but not the earlier compact brush named by this still-valid spare request.",
+              "why_plausible": "The fan brush is actively used in later scene frames.",
+              "failure_predicates": [
+                "unwarranted_referent_update"
+              ],
+              "ring": "related"
+            },
+            {
+              "entity_id": "p_7651b3ecc467",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_dd04c716981e",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            },
+            {
+              "entity_id": "p_6f2201b01438",
+              "ring": "related",
+              "reason": "The public title or listing image shows a multi-brush pack or set; the user requests one individual brush, not a set.",
+              "why_plausible": "A genuine artist-paintbrush result from the complete search window.",
+              "failure_predicates": [
+                "multiple_brush_package"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ]
+        },
+        "catalogue_assessment": {
+          "rule": "One individual compact flat or oval-flat artist brush, matching the head family seen at the request. All brands, sizes, materials and handle colours are accepted. Later fan usage does not alter this request. Multi-brush packs are excluded.",
+          "initial_accepted": [
+            "p_2b83353c2164",
+            "p_01a5e8d7d853",
+            "p_409787a4817b",
+            "p_18f5a882701b",
+            "p_d8c93310a7e6",
+            "p_027f41722605",
+            "p_316b43b217a6",
+            "p_3696671508aa",
+            "p_1192a5fa6011",
+            "p_19818beb8c2d",
+            "p_40b711123fc1",
+            "p_7d0571c717d4",
+            "p_06cca2a9a958",
+            "p_c7bc3e141512",
+            "p_b18de425845a",
+            "p_25bc0b8a60d7"
+          ],
+          "final_accepted": [
+            "p_2b83353c2164",
+            "p_01a5e8d7d853",
+            "p_409787a4817b",
+            "p_18f5a882701b",
+            "p_d8c93310a7e6",
+            "p_027f41722605",
+            "p_316b43b217a6",
+            "p_3696671508aa",
+            "p_1192a5fa6011",
+            "p_19818beb8c2d",
+            "p_40b711123fc1",
+            "p_7d0571c717d4",
+            "p_06cca2a9a958",
+            "p_c7bc3e141512",
+            "p_b18de425845a",
+            "p_25bc0b8a60d7"
+          ],
+          "evidence": "Complete native result titles and all 93 listing images inspected, including set photos whose title is ambiguous and 2-pack titles that show one representative brush."
+        }
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Native 480x360 recording screened at 15-second intervals, then 0,5,15,25,35,45-second frames and the released interval inspected. It shows brushes, not a palette knife. No exact model or chemistry inference.",
+        "answer_scope": "93 distinct real listing rows and all listing images inspected; 16 initial and 16 final individual-brush alternatives. Full windows retained; no existing public product changed.",
+        "source_overlap": {
+          "recording_group": "Ego4D:04e5bd47-b789-4fdc-acfb-78f9978bbc7d",
+          "existing_task_id": "candidate-media-graft-c-100",
+          "decision": "Do not admit or count as an independent formal source. The verified brush material and captures remain available for later source-linked controlled content."
+        },
+        "missing": "Independent targeted interpretation review and one valid development trial; original source frames and native catalog retained."
+      },
+      "replaces_candidate_id": "candidate-mart-refresh-replace-2026102801",
+      "replacement_reason": "The request is anchored to the brush used when spoken. Later using a fan brush does not revoke the need for a compact brush; repair the change label and final answer rather than forcing a new purchase referent."
+    }
+  ]
+}

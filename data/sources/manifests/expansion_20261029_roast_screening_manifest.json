@@ -1,0 +1,1179 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "HD-EPIC",
+    "source_root": "reference/sources/HD-EPIC/videos/HD-EPIC/Videos/P08",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Source-dataset authorization confirmed by owner on 2026-10-17; local research use, no public redistribution."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-position-2026102901",
+      "status": "video_screened",
+      "family": "clarify",
+      "subtype": "position",
+      "source": {
+        "record_ids": [
+          "P08-20240614-132938-12"
+        ],
+        "media_id": "P08-20240614-132938",
+        "original_video_id": "P08-20240614-132938",
+        "media_start_seconds": 0,
+        "observed_events": [
+          {
+            "interval_seconds": [
+              33,
+              40
+            ],
+            "description": "The wearer holds the roast with a metal fork in the left hand and cuts it with a manual knife in the right hand. Both are useful spare-utensil referents."
+          }
+        ],
+        "scope_note": "The hand relation is established in the released carving interval. The earlier change-of-knife narration is only a source-discovery cue, not this task's ground truth."
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-position-2026102901/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "During the released carving interval, a fork in the left hand holds the roast and a knife in the right hand cuts it. No exact brand, length, handle colour or prong count is required.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can the Agent resolve an ordinary left/right-hand reference during a hands-busy meal-preparation activity and restock one practical spare without buying a mixed set?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I'd like a spare of one of the two hand utensils I'm holding while carving this roast. Add one individual utensil of the same general kind to the cart, not a multi-utensil set. Any brand, handle colour or length is fine.",
+          "oracle_instruction": "I'd like a spare of the hand utensil I'm holding in my left hand while carving this roast. Add one individual utensil of the same general kind to the cart, not a multi-utensil set. Any brand, handle colour or length is fine.",
+          "candidate_roles": [
+            "fork",
+            "knife"
+          ],
+          "hidden_target_role": "fork",
+          "valid_slot": "position",
+          "canonical_question": "Do you mean the utensil in your left hand or your right hand?",
+          "canonical_answer": "The one in my left hand.",
+          "target_granularity": "category",
+          "environment_role_ids": {
+            "fork": "p_3fb209bdcbe5",
+            "knife": "p_e64e81316f17"
+          },
+          "equivalent_role_ids": {
+            "fork": [
+              "p_8408f1aa4ea5",
+              "p_faba105bca03",
+              "p_3a16d5c20f61",
+              "p_8fac9be007cf",
+              "p_a464e53c1c87",
+              "p_15540349817e",
+              "p_96df7888fce2",
+              "p_2e2f5b031d0f",
+              "p_23b6c51d848a",
+              "p_447b01d790b9",
+              "p_0d104b88a6b7",
+              "p_eb0e7f367aa7",
+              "p_2ae472a3fcb2",
+              "p_650531237d6f",
+              "p_ef7e866101c4",
+              "p_026180b0f7b9",
+              "p_819bb2fd1b8f",
+              "p_3faf4aca5be0",
+              "p_4c4bba4df1e4",
+              "p_a9a275e0db48",
+              "p_2807a6d54603",
+              "p_67e53936d06a",
+              "p_56c2555a43e1",
+              "p_e658ba3610ad",
+              "p_cdf542af189f",
+              "p_fd49af6c3dc9",
+              "p_ab738d7bb925",
+              "p_2210faf502df",
+              "p_9cc932e58e83",
+              "p_0e3d17d71297",
+              "p_9879a948d1f2",
+              "p_9f0412e49046",
+              "p_067ca4eeb652",
+              "p_5b5eefb2d713",
+              "p_1b6157d096bc",
+              "p_05e6e7514e13",
+              "p_cb6c853ab119",
+              "p_c6a207b33b40"
+            ],
+            "knife": [
+              "p_d0e0f7a65b0c",
+              "p_c20e1d2b496b",
+              "p_432abd3da676",
+              "p_b6e9042d9a34",
+              "p_c7f6e394931e",
+              "p_ef9d2f6a4a4c",
+              "p_ebb39d03e76b",
+              "p_3ff7cd2d5ef0",
+              "p_6b0d5f8d0929",
+              "p_d1b57eebbb9c",
+              "p_177210e55116",
+              "p_31f73df386c1",
+              "p_c43fe5cd02ce",
+              "p_f236a616c186",
+              "p_879dc60f12cd",
+              "p_47e3849f69d0",
+              "p_0ec95ab0b61f",
+              "p_7c9197a173b1",
+              "p_2e7128b2728b",
+              "p_41d31270c8e4",
+              "p_d646847ffeb1",
+              "p_7d2a191ac75e",
+              "p_4768743aa4f2",
+              "p_9b2c5e04fba9",
+              "p_7bd167bf0073",
+              "p_203e35e528a4",
+              "p_2a495e45041a",
+              "p_07f4a0f75190",
+              "p_3bd660775dc4",
+              "p_25685fd784f6",
+              "p_c42760d550ad",
+              "p_a2a4978197dd",
+              "p_cb4f35594360",
+              "p_006f8af7eddd"
+            ]
+          },
+          "completion_claim": "Exactly one individual fork suitable for holding or serving the roast, from all verified catalog alternatives. Single manual food knives are the other possible initial referent. Brand, handle colour, length, blade edge and exact prong count are not hidden restrictions; ordinary protective covers and a non-utensil sharpening accessory do not turn a single knife into a multi-utensil set."
+        },
+        "decision": {
+          "candidates": {
+            "fork": "p_3fb209bdcbe5",
+            "knife": "p_e64e81316f17"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "fork",
+                "knife"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "fork"
+              ],
+              "narrowed_by": "user_utterance",
+              "why": "The answer names only the wearer's left hand; the actual frames associate it with the fork, not a website title."
+            }
+          ],
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-29",
+          "note": "Construction evidence only; not independent approval."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "carving fork single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102901.json",
+              "result_entity_ids": [
+                "p_3fb209bdcbe5",
+                "p_8408f1aa4ea5",
+                "p_faba105bca03",
+                "p_3a16d5c20f61",
+                "p_8fac9be007cf",
+                "p_a464e53c1c87",
+                "p_15540349817e",
+                "p_71e98147413f",
+                "p_96df7888fce2",
+                "p_2e2f5b031d0f",
+                "p_23b6c51d848a",
+                "p_447b01d790b9",
+                "p_0d104b88a6b7",
+                "p_eb0e7f367aa7",
+                "p_522d78b640a6",
+                "p_2ae472a3fcb2",
+                "p_650531237d6f",
+                "p_ef7e866101c4",
+                "p_026180b0f7b9",
+                "p_0e9f8f9adc17",
+                "p_819bb2fd1b8f",
+                "p_3faf4aca5be0",
+                "p_4c4bba4df1e4",
+                "p_a9a275e0db48",
+                "p_2807a6d54603",
+                "p_67e53936d06a",
+                "p_56c2555a43e1",
+                "p_e658ba3610ad",
+                "p_cdf542af189f",
+                "p_fd49af6c3dc9",
+                "p_ab738d7bb925",
+                "p_72dcf256fd59",
+                "p_2210faf502df",
+                "p_9cc932e58e83",
+                "p_0e3d17d71297",
+                "p_9879a948d1f2",
+                "p_3b2a70f36ac3",
+                "p_80e55abd9d73",
+                "p_9f0412e49046",
+                "p_067ca4eeb652",
+                "p_5b5eefb2d713",
+                "p_b6e9042d9a34",
+                "p_1b6157d096bc",
+                "p_05e6e7514e13",
+                "p_cb6c853ab119",
+                "p_883efe48a2d7",
+                "p_c6a207b33b40",
+                "p_c1b3b543faa9"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "carving knife single",
+              "provider": "amazon-ca-search-first-page-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-mart-clarify-position-2026102901.json",
+              "result_entity_ids": [
+                "p_e64e81316f17",
+                "p_ba5560c32731",
+                "p_d0e0f7a65b0c",
+                "p_c20e1d2b496b",
+                "p_432abd3da676",
+                "p_b6e9042d9a34",
+                "p_c7f6e394931e",
+                "p_98a738601258",
+                "p_ef9d2f6a4a4c",
+                "p_ebb39d03e76b",
+                "p_3ff7cd2d5ef0",
+                "p_6b0d5f8d0929",
+                "p_d1b57eebbb9c",
+                "p_a670e8ab3bb0",
+                "p_177210e55116",
+                "p_31f73df386c1",
+                "p_68bd4bfceb28",
+                "p_c43fe5cd02ce",
+                "p_008d50b49c4e",
+                "p_f236a616c186",
+                "p_a2dce9ae00b7",
+                "p_879dc60f12cd",
+                "p_47e3849f69d0",
+                "p_f54f92759477",
+                "p_df40d95d8c60",
+                "p_0ec95ab0b61f",
+                "p_7c9197a173b1",
+                "p_2e7128b2728b",
+                "p_41d31270c8e4",
+                "p_d646847ffeb1",
+                "p_7d2a191ac75e",
+                "p_a7f0264633df",
+                "p_4768743aa4f2",
+                "p_9b2c5e04fba9",
+                "p_7bd167bf0073",
+                "p_203e35e528a4",
+                "p_2a495e45041a",
+                "p_07f4a0f75190",
+                "p_3bd660775dc4",
+                "p_25685fd784f6",
+                "p_292e65740224",
+                "p_c42760d550ad",
+                "p_a2a4978197dd",
+                "p_a3ab57bd9d1d",
+                "p_cb4f35594360",
+                "p_2ce4082c971c",
+                "p_1cac0bd4b1e8",
+                "p_006f8af7eddd"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "p_3fb209bdcbe5",
+            "p_8408f1aa4ea5",
+            "p_faba105bca03",
+            "p_3a16d5c20f61",
+            "p_8fac9be007cf",
+            "p_a464e53c1c87",
+            "p_15540349817e",
+            "p_71e98147413f",
+            "p_96df7888fce2",
+            "p_2e2f5b031d0f",
+            "p_23b6c51d848a",
+            "p_447b01d790b9",
+            "p_0d104b88a6b7",
+            "p_eb0e7f367aa7",
+            "p_522d78b640a6",
+            "p_2ae472a3fcb2",
+            "p_650531237d6f",
+            "p_ef7e866101c4",
+            "p_026180b0f7b9",
+            "p_0e9f8f9adc17",
+            "p_819bb2fd1b8f",
+            "p_3faf4aca5be0",
+            "p_4c4bba4df1e4",
+            "p_a9a275e0db48",
+            "p_2807a6d54603",
+            "p_67e53936d06a",
+            "p_56c2555a43e1",
+            "p_e658ba3610ad",
+            "p_cdf542af189f",
+            "p_fd49af6c3dc9",
+            "p_ab738d7bb925",
+            "p_72dcf256fd59",
+            "p_2210faf502df",
+            "p_9cc932e58e83",
+            "p_0e3d17d71297",
+            "p_9879a948d1f2",
+            "p_3b2a70f36ac3",
+            "p_80e55abd9d73",
+            "p_9f0412e49046",
+            "p_067ca4eeb652",
+            "p_5b5eefb2d713",
+            "p_b6e9042d9a34",
+            "p_1b6157d096bc",
+            "p_05e6e7514e13",
+            "p_cb6c853ab119",
+            "p_883efe48a2d7",
+            "p_c6a207b33b40",
+            "p_c1b3b543faa9",
+            "p_e64e81316f17",
+            "p_ba5560c32731",
+            "p_d0e0f7a65b0c",
+            "p_c20e1d2b496b",
+            "p_432abd3da676",
+            "p_c7f6e394931e",
+            "p_98a738601258",
+            "p_ef9d2f6a4a4c",
+            "p_ebb39d03e76b",
+            "p_3ff7cd2d5ef0",
+            "p_6b0d5f8d0929",
+            "p_d1b57eebbb9c",
+            "p_a670e8ab3bb0",
+            "p_177210e55116",
+            "p_31f73df386c1",
+            "p_68bd4bfceb28",
+            "p_c43fe5cd02ce",
+            "p_008d50b49c4e",
+            "p_f236a616c186",
+            "p_a2dce9ae00b7",
+            "p_879dc60f12cd",
+            "p_47e3849f69d0",
+            "p_f54f92759477",
+            "p_df40d95d8c60",
+            "p_0ec95ab0b61f",
+            "p_7c9197a173b1",
+            "p_2e7128b2728b",
+            "p_41d31270c8e4",
+            "p_d646847ffeb1",
+            "p_7d2a191ac75e",
+            "p_a7f0264633df",
+            "p_4768743aa4f2",
+            "p_9b2c5e04fba9",
+            "p_7bd167bf0073",
+            "p_203e35e528a4",
+            "p_2a495e45041a",
+            "p_07f4a0f75190",
+            "p_3bd660775dc4",
+            "p_25685fd784f6",
+            "p_292e65740224",
+            "p_c42760d550ad",
+            "p_a2a4978197dd",
+            "p_a3ab57bd9d1d",
+            "p_cb4f35594360",
+            "p_2ce4082c971c",
+            "p_1cac0bd4b1e8",
+            "p_006f8af7eddd"
+          ],
+          "core_neighbor_entity_ids": [
+            "p_e64e81316f17",
+            "p_ba5560c32731",
+            "p_98a738601258",
+            "p_68bd4bfceb28",
+            "p_71e98147413f",
+            "p_3b2a70f36ac3"
+          ],
+          "related_entity_ids": [
+            "p_522d78b640a6",
+            "p_0e9f8f9adc17",
+            "p_72dcf256fd59",
+            "p_80e55abd9d73",
+            "p_b6e9042d9a34",
+            "p_883efe48a2d7",
+            "p_c1b3b543faa9",
+            "p_d0e0f7a65b0c",
+            "p_c20e1d2b496b",
+            "p_432abd3da676",
+            "p_c7f6e394931e",
+            "p_ef9d2f6a4a4c",
+            "p_ebb39d03e76b",
+            "p_3ff7cd2d5ef0",
+            "p_6b0d5f8d0929",
+            "p_d1b57eebbb9c"
+          ],
+          "ambient_entity_ids": [
+            "p_a670e8ab3bb0",
+            "p_177210e55116",
+            "p_31f73df386c1",
+            "p_c43fe5cd02ce",
+            "p_008d50b49c4e",
+            "p_f236a616c186",
+            "p_a2dce9ae00b7",
+            "p_879dc60f12cd",
+            "p_47e3849f69d0",
+            "p_f54f92759477",
+            "p_df40d95d8c60",
+            "p_0ec95ab0b61f",
+            "p_7c9197a173b1",
+            "p_2e7128b2728b",
+            "p_41d31270c8e4",
+            "p_d646847ffeb1",
+            "p_7d2a191ac75e",
+            "p_a7f0264633df",
+            "p_4768743aa4f2",
+            "p_9b2c5e04fba9",
+            "p_7bd167bf0073",
+            "p_203e35e528a4",
+            "p_2a495e45041a",
+            "p_07f4a0f75190",
+            "p_3bd660775dc4",
+            "p_25685fd784f6",
+            "p_292e65740224",
+            "p_c42760d550ad",
+            "p_a2a4978197dd",
+            "p_a3ab57bd9d1d",
+            "p_cb4f35594360",
+            "p_2ce4082c971c",
+            "p_1cac0bd4b1e8",
+            "p_006f8af7eddd"
+          ],
+          "rejected": [
+            {
+              "entity_id": "p_71e98147413f",
+              "ring": "core",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_522d78b640a6",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_0e9f8f9adc17",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_72dcf256fd59",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_3b2a70f36ac3",
+              "ring": "core",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_80e55abd9d73",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_b6e9042d9a34",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_883efe48a2d7",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_c1b3b543faa9",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_e64e81316f17",
+              "ring": "core",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ba5560c32731",
+              "ring": "core",
+              "reason": "Powered electric carving knife, not one of the manual utensils held in the scene.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "powered_instead_of_manual"
+              ]
+            },
+            {
+              "entity_id": "p_d0e0f7a65b0c",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_c20e1d2b496b",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_432abd3da676",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_c7f6e394931e",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_98a738601258",
+              "ring": "core",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_ef9d2f6a4a4c",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_ebb39d03e76b",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3ff7cd2d5ef0",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_6b0d5f8d0929",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d1b57eebbb9c",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a670e8ab3bb0",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_177210e55116",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_31f73df386c1",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_68bd4bfceb28",
+              "ring": "core",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_c43fe5cd02ce",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_008d50b49c4e",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_f236a616c186",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a2dce9ae00b7",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_879dc60f12cd",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_47e3849f69d0",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_f54f92759477",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_df40d95d8c60",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_0ec95ab0b61f",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7c9197a173b1",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2e7128b2728b",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_41d31270c8e4",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_d646847ffeb1",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7d2a191ac75e",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a7f0264633df",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_4768743aa4f2",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_9b2c5e04fba9",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_7bd167bf0073",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_203e35e528a4",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2a495e45041a",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_07f4a0f75190",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_3bd660775dc4",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_25685fd784f6",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_292e65740224",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_c42760d550ad",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a2a4978197dd",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_a3ab57bd9d1d",
+              "ring": "related",
+              "reason": "Public title or image identifies multiple main utensils in a pack or mixed carving set, while the user requests one individual utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "multiple_main_utensils"
+              ]
+            },
+            {
+              "entity_id": "p_cb4f35594360",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            },
+            {
+              "entity_id": "p_2ce4082c971c",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_1cac0bd4b1e8",
+              "ring": "related",
+              "reason": "Public title and image identify woodworking tools rather than a food-carving or serving utensil.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_use_domain"
+              ]
+            },
+            {
+              "entity_id": "p_006f8af7eddd",
+              "ring": "related",
+              "reason": "One manual food-carving or slicing knife is the other physical referent, not the fork in the left hand.",
+              "why_plausible": "A real result in a complete native carving-fork or carving-knife window.",
+              "failure_predicates": [
+                "wrong_physical_referent"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "name",
+            "image_path",
+            "attributes"
+          ]
+        },
+        "catalogue_assessment": {
+          "rule": "One individual manual meat-holding/serving fork. Accept ordinary two-prong or other fork designs and all handle materials, colours and lengths. Exclude packs containing several main utensils and mixed knife/fork sets. Single manual food knives are initial alternatives; reject woodworking and powered carving tools. A sheath/guard, or a sharpener supplied with one knife, is not another main carving utensil.",
+          "initial_accepted": [
+            "p_3fb209bdcbe5",
+            "p_8408f1aa4ea5",
+            "p_faba105bca03",
+            "p_3a16d5c20f61",
+            "p_8fac9be007cf",
+            "p_a464e53c1c87",
+            "p_15540349817e",
+            "p_96df7888fce2",
+            "p_2e2f5b031d0f",
+            "p_23b6c51d848a",
+            "p_447b01d790b9",
+            "p_0d104b88a6b7",
+            "p_eb0e7f367aa7",
+            "p_2ae472a3fcb2",
+            "p_650531237d6f",
+            "p_ef7e866101c4",
+            "p_026180b0f7b9",
+            "p_819bb2fd1b8f",
+            "p_3faf4aca5be0",
+            "p_4c4bba4df1e4",
+            "p_a9a275e0db48",
+            "p_2807a6d54603",
+            "p_67e53936d06a",
+            "p_56c2555a43e1",
+            "p_e658ba3610ad",
+            "p_cdf542af189f",
+            "p_fd49af6c3dc9",
+            "p_ab738d7bb925",
+            "p_2210faf502df",
+            "p_9cc932e58e83",
+            "p_0e3d17d71297",
+            "p_9879a948d1f2",
+            "p_9f0412e49046",
+            "p_067ca4eeb652",
+            "p_5b5eefb2d713",
+            "p_1b6157d096bc",
+            "p_05e6e7514e13",
+            "p_cb6c853ab119",
+            "p_c6a207b33b40",
+            "p_e64e81316f17",
+            "p_d0e0f7a65b0c",
+            "p_c20e1d2b496b",
+            "p_432abd3da676",
+            "p_b6e9042d9a34",
+            "p_c7f6e394931e",
+            "p_ef9d2f6a4a4c",
+            "p_ebb39d03e76b",
+            "p_3ff7cd2d5ef0",
+            "p_6b0d5f8d0929",
+            "p_d1b57eebbb9c",
+            "p_177210e55116",
+            "p_31f73df386c1",
+            "p_c43fe5cd02ce",
+            "p_f236a616c186",
+            "p_879dc60f12cd",
+            "p_47e3849f69d0",
+            "p_0ec95ab0b61f",
+            "p_7c9197a173b1",
+            "p_2e7128b2728b",
+            "p_41d31270c8e4",
+            "p_d646847ffeb1",
+            "p_7d2a191ac75e",
+            "p_4768743aa4f2",
+            "p_9b2c5e04fba9",
+            "p_7bd167bf0073",
+            "p_203e35e528a4",
+            "p_2a495e45041a",
+            "p_07f4a0f75190",
+            "p_3bd660775dc4",
+            "p_25685fd784f6",
+            "p_c42760d550ad",
+            "p_a2a4978197dd",
+            "p_cb4f35594360",
+            "p_006f8af7eddd"
+          ],
+          "final_accepted": [
+            "p_3fb209bdcbe5",
+            "p_8408f1aa4ea5",
+            "p_faba105bca03",
+            "p_3a16d5c20f61",
+            "p_8fac9be007cf",
+            "p_a464e53c1c87",
+            "p_15540349817e",
+            "p_96df7888fce2",
+            "p_2e2f5b031d0f",
+            "p_23b6c51d848a",
+            "p_447b01d790b9",
+            "p_0d104b88a6b7",
+            "p_eb0e7f367aa7",
+            "p_2ae472a3fcb2",
+            "p_650531237d6f",
+            "p_ef7e866101c4",
+            "p_026180b0f7b9",
+            "p_819bb2fd1b8f",
+            "p_3faf4aca5be0",
+            "p_4c4bba4df1e4",
+            "p_a9a275e0db48",
+            "p_2807a6d54603",
+            "p_67e53936d06a",
+            "p_56c2555a43e1",
+            "p_e658ba3610ad",
+            "p_cdf542af189f",
+            "p_fd49af6c3dc9",
+            "p_ab738d7bb925",
+            "p_2210faf502df",
+            "p_9cc932e58e83",
+            "p_0e3d17d71297",
+            "p_9879a948d1f2",
+            "p_9f0412e49046",
+            "p_067ca4eeb652",
+            "p_5b5eefb2d713",
+            "p_1b6157d096bc",
+            "p_05e6e7514e13",
+            "p_cb6c853ab119",
+            "p_c6a207b33b40"
+          ],
+          "evidence": "All 96 first-party result titles and 95 distinct public listing images inspected. Fork pack indices 7,14,19,31,36,37,45,47 contain multiple main utensils. Fork index41 is a knife. Knife index22 contains one food knife and a sharpening accessory and remains an initial alternative."
+        },
+        "belief_before": "The user needs a spare of one of two manually held roast-serving utensils; either the fork or the knife is plausible.",
+        "belief_after": "The wearer-relative left-hand answer resolves the reference to the fork. Website choice still requires selecting one individual fork rather than a mixed set.",
+        "required_behavior_change": "Use the reply with the released hand/object relation, choose a practical single-fork listing, and leave no other utensil or multi-utensil pack in the cart.",
+        "no_update_failure": "Commit to the right-hand knife while the initial request still leaves the referent unresolved.",
+        "overupdate_failure": "Buy both utensils or a mixed carving set rather than the one utensil requested.",
+        "visual_dependency_claim": "The reply says only left hand. The scene, not query-result rank or the words of the answer, associates that hand with a fork; manual knives and individual forks are both present in the full real windows."
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "stage": "construction_not_independent_review",
+        "source_observations": "Continuous source sampled at 0–45 seconds and original-resolution 33.5-second scene checked. Full source is locally available; released eight frames require independent review. Canonical HD-EPIC recording has no formal member.",
+        "missing": "Independent blind solve, boundary review, deterministic acceptance, native interface exercise and authorized development trial."
+      },
+      "stream": {
+        "session_seconds": [
+          33.0,
+          104.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-mart-clarify-position-2026102901/review.json"
+      }
+    }
+  ]
+}

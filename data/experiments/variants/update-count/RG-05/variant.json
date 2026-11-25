@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "pair_id": "RG-05",
+  "id": "RG-05-update-count",
+  "source_task_path": "data/experiments/composite/RG-05.json",
+  "direction": "insert",
+  "subtype": "tightening",
+  "included": true,
+  "composite_events": [
+    {
+      "kind": "graft",
+      "onset_seconds": 482.0,
+      "request": "Keep the recipe video under three minutes."
+    },
+    {
+      "kind": "graft",
+      "onset_seconds": 514.0,
+      "request": "Under a minute, please. I’ll check it while I pack lunch."
+    },
+    {
+      "kind": "refresh",
+      "onset_seconds": 524.0
+    }
+  ],
+  "exclusion_witness": {
+    "excluded_state": {
+      "selected_entity_ids": [
+        "m_38b86c285d76"
+      ],
+      "fields": {}
+    },
+    "retained_state": {
+      "selected_entity_ids": [
+        "m_7d0bb5d372c8"
+      ],
+      "fields": {}
+    },
+    "prior_legality_evidence": "482秒早于524秒往生菜叶放馅，沿用原已审核的初期独立金枪鱼沙拉解释，不用未来生菜卷证明排除。395秒与44秒金枪鱼沙拉教程均适用当前拌沙拉阶段，3分钟限制排除395秒并保留44秒。",
+    "public_facts": [
+      {
+        "entity_id": "m_38b86c285d76",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 395
+      },
+      {
+        "entity_id": "m_7d0bb5d372c8",
+        "path": [
+          "duration_seconds"
+        ],
+        "equals": 44
+      },
+      {
+        "entity_id": "m_7d0bb5d372c8",
+        "path": [
+          "title"
+        ],
+        "equals": "How To Make Tuna Salad | easy & delicious tuna salad recipe!"
+      },
+      {
+        "entity_id": "m_38b86c285d76",
+        "path": [
+          "title"
+        ],
+        "equals": "My Personal Favorite TUNA SALAD Recipe // So easy ❤️"
+      }
+    ],
+    "constraint": {
+      "kind": "field",
+      "field": "duration_seconds",
+      "entity_id_by_state": {
+        "excluded_state": "m_38b86c285d76",
+        "retained_state": "m_7d0bb5d372c8"
+      },
+      "operator": "<",
+      "value": 180
+    },
+    "original_request_effect": "514秒仍在Refresh前，87秒m_748e75bc0ef1普通金枪鱼沙拉满足<3分钟但不满足<1分钟；Refresh后原49秒生菜卷终态保留。"
+  }
+}

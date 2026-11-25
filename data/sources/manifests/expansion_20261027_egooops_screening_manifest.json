@@ -1,0 +1,223 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "EgoOops",
+    "source_root": "reference/sources/EgoOops/videos/blacklight",
+    "video_pattern": "{media_id}.MP4",
+    "license_or_access_note": "Existing dataset authorization confirmed by the user; no public release performed."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-mart-clarify-sequence-2026102701",
+      "status": "rejected",
+      "family": "clarify",
+      "subtype": "sequence",
+      "source": {
+        "record_ids": [
+          "S1800001"
+        ],
+        "media_id": "S1800001",
+        "media_start_seconds": 0,
+        "annotation_path": "reference/sources/EgoOops/annotations/meta/metadata.json",
+        "observed_events": [
+          {
+            "interval_seconds": [
+              39.529448,
+              67.171
+            ],
+            "role": "green_highlighter",
+            "description": "The wearer dips and squeezes the green highlighter in water."
+          },
+          {
+            "interval_seconds": [
+              74.390348,
+              102.386451
+            ],
+            "role": "yellow_highlighter",
+            "description": "The wearer next dips and squeezes the yellow highlighter in water."
+          }
+        ],
+        "scope_note": "The released interval covers the green and yellow uses only. The red marker was used earlier, outside this reference interval; the request explicitly refers to these two recent uses.",
+        "original_video_id": "blacklight/S1800001"
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            47,
+            55,
+            63,
+            71,
+            79,
+            87,
+            95,
+            102
+          ],
+          "frame_paths": [
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_00.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_01.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_02.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_03.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_04.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_05.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_06.jpg",
+            "data/observations/candidate-mart-clarify-sequence-2026102701/V0_07.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "Green is dipped before yellow. Markers, water and experimental cups are visible; exact brand, ink chemistry and pack size are not required.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3",
+            "V0:4",
+            "V0:5",
+            "V0:6",
+            "V0:7"
+          ]
+        }
+      ],
+      "construct": {
+        "research_question": "Can an Agent resolve a physical use-order reference and match the chosen ink colour to a real shopping listing?",
+        "event_origin": "counterfactual_recombination",
+        "divergence_source": "grounding",
+        "task_blueprint": {
+          "site": "egomart",
+          "ambiguous_instruction": "I need to restock one of the two highlighters I've just dipped in water for this experiment. Add one pack in the same ink colour to the cart, not an assorted-colour pack. Any brand or pack size is fine.",
+          "oracle_instruction": "I need to restock the second of the two highlighters I've just dipped in water for this experiment. Add one pack in the same ink colour to the cart, not an assorted-colour pack. Any brand or pack size is fine.",
+          "candidate_roles": [
+            "green_highlighter",
+            "yellow_highlighter"
+          ],
+          "hidden_target_role": "yellow_highlighter",
+          "valid_slot": "sequence",
+          "canonical_question": "Do you mean the one you dipped first or second?",
+          "canonical_answer": "The one I dipped second.",
+          "target_granularity": "variant",
+          "environment_role_ids": {
+            "green_highlighter": "p_cfa06baf11a0",
+            "yellow_highlighter": "p_1d3dd62be0ca"
+          },
+          "equivalent_role_ids": {
+            "yellow_highlighter": [
+              "p_5a49a7fbe215",
+              "p_1e7b596b94c6"
+            ]
+          },
+          "completion_claim": "Exactly one single-colour yellow highlighter pack in the final cart; brand, nib and number of pens are unrestricted."
+        },
+        "decision": {
+          "candidates": {
+            "green_highlighter": "p_cfa06baf11a0",
+            "yellow_highlighter": "p_1d3dd62be0ca"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "V0:1",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "V0:2",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "V0:3",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "V0:4",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "V0:5",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "V0:6",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "V0:7",
+              "live": [
+                "green_highlighter",
+                "yellow_highlighter"
+              ]
+            },
+            {
+              "frame": "utterance",
+              "live": [
+                "yellow_highlighter"
+              ],
+              "narrowed_by": "action_order",
+              "why": "The answer supplies order, not ink colour or a listing name."
+            }
+          ],
+          "established_by": "coding-agent/root",
+          "established_at": "2026-10-27",
+          "note": "Construction observation, not an independent blind review."
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "construction_note": "Existing licensed catalogue supplies real entities and images. A complete authentic search window is still required before compilation; this catalogue match is not a captured search result.",
+          "query_rounds": [],
+          "window_entity_ids": []
+        },
+        "remaining": [
+          "Capture a complete authentic highlighter search window and decide all matching monochrome packs.",
+          "Independent semantic review after the public window is frozen.",
+          "Compile, perform offline state checks, then obtain authorized development-run evidence."
+        ]
+      },
+      "screening": {
+        "reviewer": "coding-agent/root",
+        "reviewed_at": "2026-10-27",
+        "continuous_interval_seconds": [
+          39,
+          103
+        ],
+        "inspection": "Inspected chronological 2-second contact frames and all eight actual extracted frames. Green use precedes yellow use; no intervening third marker use in this interval. Official action segments independently name green then yellow.",
+        "released_frames_inspected": 8,
+        "independent_blind_review": false,
+        "catalogue_check": "Three yellow monochrome packs and one green monochrome pack identified. Two untitled-colour highlighter records visually checked and found assorted; not accepted as monochrome yellow.",
+        "scope_limit": "Pending complete real search window and independent semantic check; not compiled or admitted."
+      },
+      "rejection_code": "redundant_decision_pattern",
+      "rejection_reason": "The canonical recording blacklight/S1800001 already supports formal candidate-mart-clarify-sequence-2026090671. This alternative wording and colour reference is not a new independent source. Retain its observations, do not register it as a new member.",
+      "prior_decision_references": [
+        {
+          "path": "data/sources/manifests/expansion_20260906_restock_screening_manifest.json",
+          "task_id": "candidate-mart-clarify-sequence-2026090671",
+          "relation": "same_original_recording"
+        }
+      ]
+    }
+  ]
+}

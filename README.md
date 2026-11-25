@@ -1,60 +1,115 @@
-# EgoCUA-Bench
+<p align="center">
+  <img src="website/static/egousebench-logo.png" width="120" height="120" alt="EgoUseBench logo">
+</p>
 
-EgoCUA-Bench 研究用户主动开启的一段短时智能眼镜会话：用户仍在拿取、比较、安装或行走，网页智能体同时搜索和操作；当新的第一人称证据或用户信息出现时，智能体能否避免过早选择，并及时保持、追问或撤销重选。
+<h1 align="center">EgoUseBench</h1>
 
-本项目不假设摄像头全天开启，也不评测后台监控或自主事件发现。眼镜可以长期佩戴，但视觉输入只在用户启动的任务会话内提供。
+<p align="center"><strong>Benchmarking computer-use agents under evolving first-person contexts</strong></p>
 
-## 什么任务才属于核心集合
+<p align="center">
+  <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a>
+</p>
 
-每道任务必须同时满足：
+<p align="center">
+  <img alt="Dataset: coming soon" src="https://img.shields.io/badge/%F0%9F%A4%97%20dataset-coming%20soon-ffcc4d">
+  <img alt="Python 3.11+" src="https://img.shields.io/badge/python-3.11%2B-3776ab">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-2ea44f"></a>
+</p>
 
-1. 任务开始时的信息不足以安全完成最终网页选择；
-2. 用户仍在进行现实操作，后续第一人称证据会自然到达；
-3. Agent 必须决定等待、追问、保持选择或撤销重选；
-4. 静态截图加完整指令不能等价替代这段任务过程；
-5. 最终网页状态可以确定性检查。
+<p align="center">
+  <a href="#benchmark">Benchmark</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#repository-layout">Repository layout</a> ·
+  <a href="#release-status">Release status</a>
+</p>
 
-只根据一张商品图搜索网页，或只在网页执行中追加评分、价格等条件，不属于核心 Glass-Use 任务。这些能力在电脑和手机上也可以等价评测。
+<p align="center">
+  <img src="assets/egousebench-hero.jpg" width="920" alt="The wearer's view of a kitchen counter on the left, and the agent searching EgoMart for tortillas on the right, framed by a pair of glasses.">
+  <br>
+  <sub>The wearer asks for "one retail pack of the food I spread the filling onto" while the agent shops on EgoMart. Footage: CaptainCook4D (Apache 2.0).</sub>
+</p>
 
-## 当前状态
+**EgoUseBench** tests whether computer-use agents keep up when first-person observations or user requests change during a task. Agents find products, save tutorials, or bookmark places on local websites. A task succeeds only if the final website state meets the user's *current* request.
 
-当前进入独立人工审核的候选任务只由 `data/selection.json` 定义。进入该清单只表示来源视频、发布画面、任务语义、网站实体和程序答案已达到可审核状态，不表示正式录取。逐题复核仍可继续淘汰候选；当前 `data/releases/` 中没有正式发布任务。
+<p align="center"><strong>693 task instances</strong> &nbsp;·&nbsp; <strong>74+ hours of source recordings</strong> &nbsp;·&nbsp; <strong>3 interaction settings</strong> &nbsp;·&nbsp; <strong>3 local websites</strong></p>
 
-## 新任务过程
+## Benchmark
 
-```text
-用户主动开始眼镜任务
-→ Agent 收到当前第一人称画面和用户要求
-→ 用户继续现实操作，网页 Agent 同时搜索
-→ 后续画面或用户信息按真实时间顺序到达
-→ Agent 决定等待、追问、保持或撤销重选
-→ 网页提交可验证的最终状态
-→ 任务结束，视觉会话停止
-```
+<p align="center">
+  <img src="assets/egousebench-change-types.svg" width="920" alt="Graft: the user revises the request. Refresh: new first-person frames arrive while the request stays the same. Clarify: the agent may ask which object the user meant.">
+</p>
 
-源视频用于证明现实事件真实发生。发布给 Agent 的关键帧只是对短时视觉会话的模型输入表示，不表示用户手动拍摄多张照片。
+The three settings share the same **200 tasks** for matched comparisons. Online Ego Use adds **93 composite tasks** that combine several change types.
 
-## 主要目录
+| Setting | What the agent receives | Tasks |
+| --- | --- | ---: |
+| **Computer-Use** | Explicit final requirements, without first-person footage | 200 |
+| **Offline Ego Use** | First-person footage before execution, plus the user's requests | 200 |
+| **Online Ego Use** | First-person observations and user requests as execution unfolds | 293 |
 
-```text
-data/selection.json         当前独立人工审核候选的唯一清单
-data/tasks/                 已构造任务；是否启用由 selection.json 决定
-data/observations/          从连续视频抽取的第一人称画面
-data/sources/               来源视频、时间戳和证据记录
-sites/                      可确定性重置的本地网页环境
-egocua/                     执行、事件、检查器和指标
-artifacts/                  运行与审核结果
-docs/BENCHMARK_DESIGN.md    当前研究设计
-```
+A Graft task end to end: the request changes mid-task, and only the final cart is scored.
 
-网站数据是网页实体的唯一真相源；任务只引用实体ID和最终状态。任务来源、输入时间和最终网页状态必须形成一条可追溯链路。
+<p align="center">
+  <img src="assets/egousebench-overview.svg" width="920" alt="Online Ego Use example: the wearer first requests a small spice jar, then asks for a 1 kg refill instead. The final cart is scored against the revised request.">
+</p>
 
-## 工程检查
+Agents act on three self-hosted websites built from frozen real catalogs:
+
+| Website | Modeled after | What the agent does |
+| --- | --- | --- |
+| **EgoMart** | Online store | Add the item the wearer is using to the cart |
+| **EgoMedia** | Video platform | Save a tutorial for the activity underway |
+| **EgoMaps** | Map service | Bookmark a place that fits the request |
+
+## Quick start
+
+One command installs everything, including the test suite. You need [uv](https://docs.astral.sh/uv/) and Python 3.11+.
 
 ```bash
 uv sync
-uv run pytest -q
-uv run mypy --ignore-missing-imports egocua sites tools tests
+uv run playwright install chromium   # once, for browser tests
+uv run pytest -q             # offline tests
+uv run python -m website     # project site at http://127.0.0.1:5050 (set WEBSITE_PORT to change)
 ```
 
-确定性 smoke 只检查执行器和答案判定；GPT-5.4-mini 预审只检查任务输入是否自洽。两者都不替代独立人工审核或正式 Browser-Use 结果。
+**Evaluate an agent.** Evaluation also needs the task media from the data package (not yet public), Google Chrome, and an OpenAI-compatible endpoint.
+
+```bash
+cp .env.example .env        # set OPENAI_BASE_URL and OPENAI_API_KEY
+
+# Freeze an experiment from the registered protocol, then run it.
+uv run python -m egocua.study_cli --model <model> --export experiments/
+uv run python -m egocua.study_cli --study-from experiments/<frozen-dir> --run-all
+
+# Inspect one run: inputs, actions, final state, and score.
+uv run egocua inspect-run <run-dir> --view score
+```
+
+Each run is capped at 20 steps (30 for composite tasks), and the checker scores the final website state. Run `uv run egocua --help` to list all commands.
+
+## Repository layout
+
+| Path | Contents |
+| --- | --- |
+| [`egocua/`](egocua/) | Timeline replay, agent adapters, execution loop, and final-state checker |
+| [`sites/`](sites/) | EgoMart, EgoMedia, and EgoMaps with their frozen catalogs |
+| [`data/tasks/`](data/tasks/) | Compiled task definitions |
+| [`data/experiments/`](data/experiments/) | Interaction-setting requests, composite tasks, and controlled variants |
+| [`configs/`](configs/) | Evaluation protocol and source-dataset registry |
+| [`tools/`](tools/) | Task mining, catalog building, auditing, and rendering scripts |
+| [`website/`](website/) | Project-site source |
+| [`tests/`](tests/) | Offline test suite (`uv run pytest`) |
+
+## Release status
+
+| Surface | What belongs there |
+| --- | --- |
+| **GitHub** | Evaluation code, task definitions, frozen website catalogs, and project-site source |
+| **Hugging Face** | Matching task and website snapshots, plus observation frames, clips, and site media cleared for redistribution. *Pending.* |
+| **Project site** | Benchmark overview and task breakdowns. Evaluation results and model replays are held back for now. |
+
+Restricted Ego2Web, Ego4D-derived, and EgoLife footage stays under the original providers' access terms. See the [source registry](configs/datasets.json) for each dataset's license.
+
+## License
+
+The code is released under the [MIT License](LICENSE). First-person footage and website media keep the licenses of their original sources, as listed in [`configs/datasets.json`](configs/datasets.json).

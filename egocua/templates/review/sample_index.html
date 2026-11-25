@@ -1,0 +1,9 @@
+{% extends "review/base.html" %}
+{% block title %}40题质量核查 · EgoUseBench{% endblock %}
+{% block content %}
+<section class="hero"><div><p class="eyebrow">人工任务质量核查 · {{ reviewer }}</p><h1>40题，逐题判断是否成立</h1><p>Graft 14题 · Refresh 10题 · Clarify 8题 · 组合变化8题</p><p>查看画面、请求和预设答案，判断依据是否充分、答案是否合理、变化是否成立。无需搜索或执行网页操作。</p></div><div class="progress-number"><strong>{{ rows|selectattr('record')|list|length }}/{{ rows|length }}</strong><span>已核查</span></div></section>
+<section class="panel"><p>通过即可提交；有问题或无法判断时，简短说明原因。意见保存在本机，退出后可继续。</p></section>
+<section class="task-list">
+{% for row in rows %}<a class="task-row" href="{{ url_for('sample_review_case', item=row.item) }}"><span><b>任务 {{ '%02d'|format(row.item) }}</b> · {{ row.stratum }}</span><span>{{ decisions[row.record.decision] if row.record else '待核查' }}</span></a>{% endfor %}
+</section><p><a href="{{ url_for('sample_review_export') }}">导出本批核查记录</a></p>
+{% endblock %}

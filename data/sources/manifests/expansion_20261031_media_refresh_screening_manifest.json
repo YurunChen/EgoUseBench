@@ -1,0 +1,941 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "Ego2Web",
+    "source_root": "reference/sources/Ego2Web/dataset/ego2web_video",
+    "license_or_access_note": "Existing research authorization confirmed by project owner in configs/datasets.json; no source redistribution or release performed."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-retain-2026103101",
+      "status": "rejected",
+      "family": "refresh",
+      "subtype": "retain",
+      "source": {
+        "record_ids": [
+          293
+        ],
+        "media_id": "23368914-b104-403c-a45c-da9b4d89f0ee",
+        "original_video_id": "23368914-b104-403c-a45c-da9b4d89f0ee",
+        "media_start_seconds": 0,
+        "original_annotations": [
+          "On Amazon, find a product page for protective footwear appropriate for the metalworking task depicted in the video. The listing must show compliance with a recognized safety-toe standard and be closed-toe and slip-resistant. Open the product page and report the named safety standard on the page."
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              0,
+              15
+            ],
+            "role": "initial_tool",
+            "description": "The wearer holds a powered angle grinder with an exposed rotating disc against a metal piece; sparks are visible during grinding."
+          },
+          {
+            "interval_seconds": [
+              100,
+              130
+            ],
+            "role": "later_distractor",
+            "description": "The grinder lies on the metal panel. Manual tools remain on the ground; the wearer moves a cup/hand near the camera, with the near-camera item partly occluded. No actual use of the ground pliers or wrench is established."
+          }
+        ],
+        "continuous_inspection": {
+          "reviewer": "/root/build_media_refresh",
+          "intervals_seconds": [
+            [
+              0,
+              15
+            ],
+            [
+              85,
+              145
+            ]
+          ],
+          "basis": "Native source still at 10s establishes the initial grinder and sparks. 85–145s every 3s falsifies the claimed manual-tool use; floor tools stay put.",
+          "inspection_artifact": ".scratch/refresh-expansion-20261031/media/later85-145.jpg"
+        }
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            0,
+            5,
+            10,
+            15
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-retain-2026103101/V0_00.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V0_01.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V0_02.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_00.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_01.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_02.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_03.jpg"
+          ]
+        }
+      ],
+      "supported_claims": [
+        {
+          "text": "The initial tool is a handheld powered disc grinder; the scene does not identify an exact brand or model.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2",
+            "V0:3"
+          ]
+        },
+        {
+          "text": "The later views show the grinder and manual tools resting on the work area; the item near the camera is partly occluded, and no separate manual-tool use is established.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "construct": null,
+      "blocking_checks": [],
+      "unresolved": [],
+      "repair_history": [
+        {
+          "date": "2026-10-31",
+          "reviewer": "/root/build_media_refresh",
+          "scope": "Source hypothesis falsified by denser original-frame inspection before independent review or model execution.",
+          "previous_construct": {
+            "research_question": "Can the Agent retain a guide for the initial powered tool when the wearer later handles an unrelated manual tool?",
+            "divergence_source": "referent",
+            "event_origin": "observed",
+            "evidence_type": "procedure_stage",
+            "commitment_surface": "media_save",
+            "belief_before": "The active powered tool has a rotating abrasive disc, so beginner grinder-use guidance is relevant.",
+            "belief_after": "A separate manual tool is handled later; the original grinder-learning obligation remains.",
+            "required_behavior_change": "Retain one applicable grinder guide; do not switch to the later hand-tool guide or save both.",
+            "no_update_failure": "No replacement is required; the initial applicable guide remains correct.",
+            "overupdate_failure": "Replace the original guide with a manual-tool guide solely because another tool appears later.",
+            "visual_dependency_claim": "The released words identify no tool family, brand, disc, or method. The natural broad query contains real drills, saws, routers, hand tools and grinders; the scene identifies which tool is relevant.",
+            "task_blueprint": {
+              "site": "egomedia",
+              "instruction": "Save one beginner guide showing how to use the same kind of powered tool I am using here. Any brand is fine.",
+              "target_granularity": "category",
+              "initial_target_role": "initial_tool_guide",
+              "final_target_role": "initial_tool_guide",
+              "later_distractor_role": "manual_tool_guide",
+              "environment_role_ids": {
+                "initial_tool_guide": "m_4891ab41a1ea",
+                "manual_tool_guide": "m_372f14be2bfd"
+              },
+              "equivalent_role_ids": {
+                "initial_tool_guide": [
+                  "m_30fd2ecaaccf",
+                  "m_c69dbc9f16c4"
+                ]
+              }
+            },
+            "decision": {
+              "recording": "key_events",
+              "candidates": {
+                "initial_tool_guide": "m_4891ab41a1ea",
+                "manual_tool_guide": "m_372f14be2bfd"
+              },
+              "observed": [
+                {
+                  "frame": "V0:0",
+                  "live": [
+                    "initial_tool_guide"
+                  ],
+                  "narrowed_by": "scene_appearance",
+                  "why": "The initial frame shows a powered tool with a right-angle abrasive disc rather than the later manual gripping tool."
+                },
+                {
+                  "frame": "V1:0",
+                  "live": [
+                    "initial_tool_guide"
+                  ]
+                }
+              ],
+              "established_by": "/root/build_media_refresh",
+              "established_at": "2026-10-31"
+            },
+            "catalog_resolution": {
+              "policy_version": "real-search-window-v1",
+              "query_rounds": [
+                {
+                  "stage": "before_change",
+                  "query": "how to use power tools beginners",
+                  "provider": "youtube-search-v1",
+                  "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-retain-2026103101.json",
+                  "snapshot_stage": "natural_broad",
+                  "result_entity_ids": [
+                    "m_372f14be2bfd",
+                    "m_fd2dc161d8c0",
+                    "m_b4e7cb750e0b",
+                    "m_b6a366bf9998",
+                    "m_09501675fbcb",
+                    "m_bc2d734f7a46",
+                    "m_00a5d21dda06",
+                    "m_1981cab666e6",
+                    "m_f54dad22bc68",
+                    "m_aa80b58191c3",
+                    "m_903cd1e79f68",
+                    "m_31995b4c778e",
+                    "m_2222302c940d",
+                    "m_6e2c1d24d2b4",
+                    "m_40a32eac894e",
+                    "m_1c230964498d",
+                    "m_371c457fd0b7",
+                    "m_ac02a7eb5076",
+                    "m_c778a85ed09e",
+                    "m_b85e0a731c46",
+                    "m_aaa750b515b3",
+                    "m_cd1eafd45098",
+                    "m_52018023e219",
+                    "m_30fd2ecaaccf",
+                    "m_39dc9faeb0d4",
+                    "m_07c2ae6983b0",
+                    "m_111e156faec5",
+                    "m_c69dbc9f16c4",
+                    "m_b61a855d6721",
+                    "m_1397f5198f9d",
+                    "m_18a4e41275c8",
+                    "m_c680848bb0e7",
+                    "m_4914446213bf",
+                    "m_ef877c0a6272",
+                    "m_a152a83aba45",
+                    "m_6a71fab71e92",
+                    "m_e212fdb2df32",
+                    "m_fcd3c6bb7e41",
+                    "m_5f92c3e427da",
+                    "m_4891ab41a1ea"
+                  ]
+                },
+                {
+                  "stage": "after_change",
+                  "query": "how to use power tools beginners",
+                  "provider": "youtube-search-v1",
+                  "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-retain-2026103101.json",
+                  "snapshot_stage": "natural_broad",
+                  "result_entity_ids": [
+                    "m_372f14be2bfd",
+                    "m_fd2dc161d8c0",
+                    "m_b4e7cb750e0b",
+                    "m_b6a366bf9998",
+                    "m_09501675fbcb",
+                    "m_bc2d734f7a46",
+                    "m_00a5d21dda06",
+                    "m_1981cab666e6",
+                    "m_f54dad22bc68",
+                    "m_aa80b58191c3",
+                    "m_903cd1e79f68",
+                    "m_31995b4c778e",
+                    "m_2222302c940d",
+                    "m_6e2c1d24d2b4",
+                    "m_40a32eac894e",
+                    "m_1c230964498d",
+                    "m_371c457fd0b7",
+                    "m_ac02a7eb5076",
+                    "m_c778a85ed09e",
+                    "m_b85e0a731c46",
+                    "m_aaa750b515b3",
+                    "m_cd1eafd45098",
+                    "m_52018023e219",
+                    "m_30fd2ecaaccf",
+                    "m_39dc9faeb0d4",
+                    "m_07c2ae6983b0",
+                    "m_111e156faec5",
+                    "m_c69dbc9f16c4",
+                    "m_b61a855d6721",
+                    "m_1397f5198f9d",
+                    "m_18a4e41275c8",
+                    "m_c680848bb0e7",
+                    "m_4914446213bf",
+                    "m_ef877c0a6272",
+                    "m_a152a83aba45",
+                    "m_6a71fab71e92",
+                    "m_e212fdb2df32",
+                    "m_fcd3c6bb7e41",
+                    "m_5f92c3e427da",
+                    "m_4891ab41a1ea"
+                  ]
+                }
+              ],
+              "window_entity_ids": [
+                "m_372f14be2bfd",
+                "m_fd2dc161d8c0",
+                "m_b4e7cb750e0b",
+                "m_b6a366bf9998",
+                "m_09501675fbcb",
+                "m_bc2d734f7a46",
+                "m_00a5d21dda06",
+                "m_1981cab666e6",
+                "m_f54dad22bc68",
+                "m_aa80b58191c3",
+                "m_903cd1e79f68",
+                "m_31995b4c778e",
+                "m_2222302c940d",
+                "m_6e2c1d24d2b4",
+                "m_40a32eac894e",
+                "m_1c230964498d",
+                "m_371c457fd0b7",
+                "m_ac02a7eb5076",
+                "m_c778a85ed09e",
+                "m_b85e0a731c46",
+                "m_aaa750b515b3",
+                "m_cd1eafd45098",
+                "m_52018023e219",
+                "m_30fd2ecaaccf",
+                "m_39dc9faeb0d4",
+                "m_07c2ae6983b0",
+                "m_111e156faec5",
+                "m_c69dbc9f16c4",
+                "m_b61a855d6721",
+                "m_1397f5198f9d",
+                "m_18a4e41275c8",
+                "m_c680848bb0e7",
+                "m_4914446213bf",
+                "m_ef877c0a6272",
+                "m_a152a83aba45",
+                "m_6a71fab71e92",
+                "m_e212fdb2df32",
+                "m_fcd3c6bb7e41",
+                "m_5f92c3e427da",
+                "m_4891ab41a1ea"
+              ],
+              "core_neighbor_entity_ids": [
+                "m_372f14be2bfd"
+              ],
+              "related_entity_ids": [
+                "m_fd2dc161d8c0",
+                "m_b4e7cb750e0b",
+                "m_b6a366bf9998",
+                "m_09501675fbcb",
+                "m_bc2d734f7a46",
+                "m_00a5d21dda06",
+                "m_1981cab666e6",
+                "m_f54dad22bc68",
+                "m_aa80b58191c3",
+                "m_903cd1e79f68",
+                "m_31995b4c778e",
+                "m_2222302c940d",
+                "m_6e2c1d24d2b4",
+                "m_40a32eac894e",
+                "m_1c230964498d",
+                "m_371c457fd0b7",
+                "m_ac02a7eb5076",
+                "m_c778a85ed09e",
+                "m_b85e0a731c46",
+                "m_aaa750b515b3",
+                "m_cd1eafd45098",
+                "m_52018023e219",
+                "m_39dc9faeb0d4",
+                "m_07c2ae6983b0",
+                "m_111e156faec5",
+                "m_b61a855d6721",
+                "m_1397f5198f9d",
+                "m_18a4e41275c8",
+                "m_c680848bb0e7",
+                "m_4914446213bf",
+                "m_ef877c0a6272",
+                "m_a152a83aba45",
+                "m_6a71fab71e92",
+                "m_e212fdb2df32",
+                "m_fcd3c6bb7e41",
+                "m_5f92c3e427da"
+              ],
+              "ambient_entity_ids": [],
+              "rejected": [
+                {
+                  "entity_id": "m_372f14be2bfd",
+                  "ring": "core",
+                  "reason": "The native chapters cover screwdrivers and pliers, whereas the initial released scene shows a powered disc grinder. This guide is plausible for the later hand-tool activity but not the original request.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[0]",
+                    "data/sources/upstream_detail_snapshots/youtube/KYQCtPUDGtA.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_fd2dc161d8c0",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to Use a Cordless Drill FOR BEGINNERS!. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[1]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_b4e7cb750e0b",
+                  "ring": "related",
+                  "reason": "The public title/description teaches Cordless Drill Basics | Beginner. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[2]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_b6a366bf9998",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[3]",
+                    "data/sources/upstream_detail_snapshots/youtube/kHAfafwQt_k.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_09501675fbcb",
+                  "ring": "related",
+                  "reason": "The public title/description teaches HOW TO USE A CIRCULAR SAW FOR BEGINNERS- PART 1. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[4]",
+                    "data/sources/upstream_detail_snapshots/youtube/bflTi41S6Og.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_bc2d734f7a46",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to use a Drill- A Beginner's Guide. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[5]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_00a5d21dda06",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[6]",
+                    "data/sources/upstream_detail_snapshots/youtube/1BohrriNfWg.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_1981cab666e6",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[7]",
+                    "data/sources/upstream_detail_snapshots/youtube/zJEtdPvmoPc.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_f54dad22bc68",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[8]",
+                    "data/sources/upstream_detail_snapshots/youtube/OC62skfIi1M.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_aa80b58191c3",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to Use a Power Drill: A Beginner's Complete Guide | Woodworking 101. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[9]",
+                    "data/sources/upstream_detail_snapshots/youtube/yj0eT1Yh8A4.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_903cd1e79f68",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[10]",
+                    "data/sources/upstream_detail_snapshots/youtube/vlIiidgi9qA.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_31995b4c778e",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to use a circular saw like a pro, the ultimate guide.. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[11]",
+                    "data/sources/upstream_detail_snapshots/youtube/JC7ZzklSKPA.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_2222302c940d",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to Use a Drill/Driver, Impact Driver, & Hammer Drill and How They're Different. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[12]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_6e2c1d24d2b4",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[13]",
+                    "data/sources/upstream_detail_snapshots/youtube/Gxn9ZKzUNi8.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_40a32eac894e",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to Use a Drill (Absolute Beginner's Guide). This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[14]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_1c230964498d",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[15]",
+                    "data/sources/upstream_detail_snapshots/youtube/2eFeB2fTiQY.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_371c457fd0b7",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[16]",
+                    "data/sources/upstream_detail_snapshots/youtube/azeXwwzTUkQ.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_ac02a7eb5076",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How To Use A Router | Newbie. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[17]",
+                    "data/sources/upstream_detail_snapshots/youtube/mcLBmdYs5iU.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_c778a85ed09e",
+                  "ring": "related",
+                  "reason": "The public title/description teaches The Most MISUNDERSTOOD Feature On Your Drill. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[18]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_b85e0a731c46",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How To Use A Miter Saw | DIY For Beginners. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[19]",
+                    "data/sources/upstream_detail_snapshots/youtube/-egiw1730m8.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_aaa750b515b3",
+                  "ring": "related",
+                  "reason": "The public title/description teaches 21 HAND TOOL TIPS, TRICKS & SECRETS!! (Hammer/Screwdriver/Tape Measure/Pliers...& MORE HAND TOOLS!). This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[20]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_cd1eafd45098",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to use a Router | Woodworking Guide for Beginners. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[21]",
+                    "data/sources/upstream_detail_snapshots/youtube/xLxCEBb-74s.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_52018023e219",
+                  "ring": "related",
+                  "reason": "The public title/description teaches Beginner Hand Tools | Carpentry. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[22]",
+                    "data/sources/upstream_detail_snapshots/youtube/m6a-I4y8CG4.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_39dc9faeb0d4",
+                  "ring": "related",
+                  "reason": "The public title/description teaches Power Tools: How to use a drill. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[24]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_07c2ae6983b0",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to Use a Table Saw | All About Power Tools | The Home Depot. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[25]",
+                    "data/sources/upstream_detail_snapshots/youtube/CxzV4GsXqmo.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_111e156faec5",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[26]",
+                    "data/sources/upstream_detail_snapshots/youtube/0_BEhdEvLUo.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_b61a855d6721",
+                  "ring": "related",
+                  "reason": "The public title/description teaches Drill vs Impact Driver vs Hammer Drill EXPLAINED | RYOBI Tools 101. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[28]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_1397f5198f9d",
+                  "ring": "related",
+                  "reason": "The public title/description teaches Dremel/Rotary Tool 101: Complete Beginner Guide. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[29]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_18a4e41275c8",
+                  "ring": "related",
+                  "reason": "The public title/description teaches 15 woodworking basics you should know. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[30]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_c680848bb0e7",
+                  "ring": "related",
+                  "reason": "The public title/description teaches Tools 101: How To Use A Power Drill - Bunnings Warehouse [Complete Guide]. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[31]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_4914446213bf",
+                  "ring": "related",
+                  "reason": "The public title/description teaches NEVER Use a Drill Like This (Most Beginners Do). This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[32]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_ef877c0a6272",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to Use a Drill/Driver | RYOBI Tools 101. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[33]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_a152a83aba45",
+                  "ring": "related",
+                  "reason": "The public title/description teaches The 3 Circular Saw Tips Every Beginner Should Know!. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[34]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_6a71fab71e92",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[35]",
+                    "data/sources/upstream_detail_snapshots/youtube/Nem31nvdz58.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_e212fdb2df32",
+                  "ring": "related",
+                  "reason": "The public title/description teaches Exploring Hand Tool Woodworking | Paul Sellers. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[36]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_fcd3c6bb7e41",
+                  "ring": "related",
+                  "reason": "The captured native description/chapters list other tool families or toolkit selection, without positive instruction for setting up and using the initial disc-grinder family. This is insufficient published applicability evidence, not a claim that the full original video could never mention a grinder.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "published_applicability_not_supported"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[37]",
+                    "data/sources/upstream_detail_snapshots/youtube/VOkSFZuP3qs.json"
+                  ]
+                },
+                {
+                  "entity_id": "m_5f92c3e427da",
+                  "ring": "related",
+                  "reason": "The public title/description teaches How to use a Jigsaw - Basics. This is a different tool family from the initially visible disc grinder; the request requires the same kind of tool, not any power-tool guide.",
+                  "why_plausible": "A genuine entry from the complete unmodified power-tool beginner query.",
+                  "failure_predicates": [
+                    "scene_tool_family_mismatch"
+                  ],
+                  "evidence_refs": [
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json::results[38]",
+                    "data/sources/upstream_search_snapshots/youtube/candidate-media-refresh-retain-2026103101--natural_broad.json"
+                  ]
+                }
+              ],
+              "detail_decision_fields": [
+                "title",
+                "description",
+                "chapters"
+              ],
+              "accepted_evidence": [
+                {
+                  "entity_id": "m_4891ab41a1ea",
+                  "reason": "Ace description explicitly teaches using the grinder, changing the wheel and positioning it.",
+                  "evidence_ref": "data/sources/upstream_detail_snapshots/youtube/puGg_UzpVo4.json"
+                },
+                {
+                  "entity_id": "m_30fd2ecaaccf",
+                  "reason": "Native description covers tool function and safety; native chapter Angle Grinder spans 705–840s.",
+                  "evidence_ref": "data/sources/upstream_detail_snapshots/youtube/xbrSm6iRlPo.json"
+                },
+                {
+                  "entity_id": "m_c69dbc9f16c4",
+                  "reason": "Native description names Makita angle grinder and native Grinder chapter spans 30–240s.",
+                  "evidence_ref": "data/sources/upstream_detail_snapshots/youtube/ZOFrzLpBqf4.json"
+                }
+              ],
+              "visual_necessity_counterexample": {
+                "scope": "Complete 40-entry frozen natural query; remove only source-scene images.",
+                "general_guides_retained": [
+                  "m_30fd2ecaaccf",
+                  "m_c69dbc9f16c4"
+                ],
+                "finding": "Neither broad guide guarantees the same-tool requirement across the real alternatives. Slater lists screwdrivers/drills/rotary hammer/angle grinder/laser/distance measuring, but no positive router, table-saw, jigsaw or rotary-Dremel instruction. Home RenoVision covers the angle grinder and listed saws/driver/compressor; it does not publish router, Dremel or jigsaw instruction. Those are real independently suitable categories in this same window. The scene chooses the grinder family; general useful guides remain accepted.",
+                "counterexample_entities": [
+                  "m_ac02a7eb5076",
+                  "m_07c2ae6983b0",
+                  "m_5f92c3e427da",
+                  "m_1397f5198f9d"
+                ],
+                "native_evidence_refs": [
+                  "data/sources/upstream_detail_snapshots/youtube/xbrSm6iRlPo.json",
+                  "data/sources/upstream_detail_snapshots/youtube/ZOFrzLpBqf4.json"
+                ],
+                "limitation": "This is an offline construction argument, not a measured no-scene model success rate; the independent reviewer still checks applicability and shortcuts."
+              }
+            },
+            "difficulty": {
+              "level": "unclassified"
+            }
+          },
+          "previous_observed_events": [
+            {
+              "interval_seconds": [
+                0,
+                15
+              ],
+              "role": "initial_tool",
+              "description": "The wearer holds a powered angle grinder with an exposed rotating disc against a metal piece; sparks are visible during grinding."
+            },
+            {
+              "interval_seconds": [
+                100,
+                130
+              ],
+              "role": "later_distractor",
+              "description": "The grinder lies on the metal panel while the wearer handles a separate manual gripping/turning tool; no new request is spoken."
+            }
+          ],
+          "previous_supported_claims": [
+            {
+              "text": "The initial tool is a handheld powered disc grinder; the scene does not identify an exact brand or model.",
+              "supported_by": [
+                "V0:0",
+                "V0:1",
+                "V0:2",
+                "V0:3"
+              ]
+            },
+            {
+              "text": "Later manual-tool handling does not revoke the original request for a guide to the initial powered tool.",
+              "supported_by": [
+                "V1:0",
+                "V1:1",
+                "V1:2",
+                "V1:3"
+              ]
+            }
+          ],
+          "finding": "The earlier contact sheet mistook ground tools for a handled tool. In 85–145s at 3s steps, the pliers/wrench remain on the ground. A cup rim is visible near the right hand and later the hands occlude the near-camera item. The actual released packet does not establish using a distinct manual tool, so the proposed same-domain tool distractor is unsupported.",
+          "evidence_refs": [
+            ".scratch/refresh-expansion-20261031/media/later85-145.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_00.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_01.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_02.jpg",
+            "data/observations/candidate-media-refresh-retain-2026103101/V1_03.jpg"
+          ],
+          "preserved_facts": "Initial disc-grinder identity and three native public beginner-guide mappings remain useful source/web facts, not a qualified Refresh task."
+        }
+      ],
+      "rejection_code": "event_not_visible",
+      "rejection_reason": "Initial grinder is visible, but the claimed later manual-tool use is not. The pliers/wrench remain on the ground while the wearer appears to drink from a cup; no source-supported same-domain competing tool referent is established. Do not admit this static-guide proposal as a completed Refresh expansion."
+    }
+  ]
+}

@@ -1,32 +1,89 @@
 {% extends "review/base.html" %}
 {% block content %}
+  <nav class="workspace-tabs" aria-label="任务视图">
+    <a class="workspace-tab {% if review_view == 'all' %}active{% endif %}"
+      href="{{ url_for('review_index', view='all') }}">
+      <span><b>全部任务</b><small>只读检查任务设计</small></span>
+      <strong>{{ portal.all_total }}</strong>
+    </a>
+    <a class="workspace-tab review-tab {% if review_view == 'pending' %}active{% endif %}"
+      href="{{ url_for('review_index', view='pending') }}">
+      <span><b>人工审核</b><small>判断补查后仍不确定的问题</small></span>
+      <strong>{{ portal.pending_total }}</strong>
+    </a>
+    {% if portal.pulse_total or portal.pulse_blocked %}
+      <a class="workspace-tab" href="{{ url_for('failure_index') }}">
+        <span><b>失败原因复核</b><small>审核模型运行，不改任务状态</small></span>
+        <strong>{{ portal.pulse_todo }}</strong>
+        {% if portal.pulse_blocked %}<span>{{ portal.pulse_blocked }} 次来源待补证</span>{% endif %}
+      </a>
+    {% endif %}
+  </nav>
+
   <section class="hero">
     <div>
-      <p class="eyebrow">审核者 {{ progress.reviewer }}</p>
-      <h1>任务审核</h1>
-      <p>逐题判断画面、指令、网页目标和最终状态是否合理。</p>
-      {% if progress.scope == 'all' %}<p>当前展示全部已构造候选；正式实验清单不受影响。</p>{% endif %}
+      {% if review_view == 'all' %}
+        <p class="eyebrow">任务预览 · {{ progress.reviewer }}</p>
+        <h1>全部任务</h1>
+        <p>只读预览任务、画面、网站目标和答案，不产生人工审核结论。</p>
+      {% else %}
+        <p class="eyebrow">任务审核 · {{ progress.reviewer }}</p>
+        <h1>需要人工审核的任务</h1>
+        <p>这里只列出补查后仍不确定的具体问题，一名审核者即可。明确错误先由 Coding Agent 修复；确认问题已解决可保留，发现缺陷则提交修复意见。</p>
+      {% endif %}
     </div>
     <div class="progress-number">
-      <strong>{{ progress.counts.submitted }}</strong><span>/ {{ progress.total }}</span>
-      <small>已提交</small>
+      {% if review_view == 'all' %}
+        <strong>{{ progress.total }}</strong><span> 条</span>
+        <small>任务范围</small>
+      {% else %}
+        <strong>{{ progress.submission_counts.submitted }}</strong><span>/ {{ progress.total }}</span>
+        <small>已提交 / 待审核任务</small>
+      {% endif %}
     </div>
   </section>
 
   {% if message %}<p class="notice success">{{ message }}</p>{% endif %}
 
-  <section class="stats">
-    <div><strong>{{ progress.counts.todo }}</strong><span>未审核</span></div>
-    <div><strong>{{ progress.counts.submitted }}</strong><span>已提交</span></div>
-    <div><strong>{{ progress.counts.stale }}</strong><span>材料已变化</span></div>
-    <div><strong>{{ progress.counts.invalid }}</strong><span>提交异常</span></div>
+  <section class="panel" id="quality-control">
+    <h2>高置信抽查</h2>
+    <p>从 {{ portal.quality_control.population }} 条当前高置信任务中独立抽取 {{ portal.quality_control.sample_size }} 条，覆盖任务类型和网站。抽查用于检查审核质量；通过不代替其他验收，发现问题则退回该题修复。</p>
+    {% if portal.quality_control.task_ids %}
+      <details>
+        <summary>展开抽查清单</summary>
+        <ul>
+          {% for task_id in portal.quality_control.task_ids %}
+            <li><a href="{{ url_for('review_case', task_id=task_id, view='quality') }}">{{ task_id }}</a></li>
+          {% endfor %}
+        </ul>
+      </details>
+      <p>抽查通过只记录复核结果；发现问题并提交后，仅这道任务重新进入修复。</p>
+    {% else %}
+      <p>目前没有可抽查的高置信任务。</p>
+    {% endif %}
   </section>
 
+  {% if review_view == 'all' %}
+    <section class="stats">
+      {% for status, label in portal.status_labels.items() %}
+        <div><strong>{{ portal.status_counts[status] }}</strong><span>{{ label }}</span></div>
+      {% endfor %}
+    </section>
+  {% else %}
+    <section class="stats">
+      <div><strong>{{ progress.submission_counts.todo }}</strong><span>未提交意见</span></div>
+      <div><strong>{{ progress.submission_counts.submitted }}</strong><span>已提交意见</span></div>
+      <div><strong>{{ progress.submission_counts.stale }}</strong><span>意见对应材料已变化</span></div>
+      <div><strong>{{ progress.submission_counts.invalid }}</strong><span>意见记录异常</span></div>
+    </section>
+  {% endif %}
+
   <form class="filters" method="get">
+    <input type="hidden" name="view" value="{{ review_view }}">
     <label>任务类型
       <select name="track">
         <option value="">全部</option>
-        {% for value, label in [('graft','Graft'),('refresh','Refresh'),('clarify','Clarify')] %}
+        {% for value, label in [('graft','中途补充'),('refresh','画面更新'),('clarify','需要澄清')] %}
           <option value="{{ value }}" {% if filters.track == value %}selected{% endif %}>{{ label }}</option>
         {% endfor %}
       </select>
@@ -39,26 +96,28 @@
         {% endfor %}
       </select>
     </label>
-    <label>我的状态
-      <select name="status">
-        <option value="">全部</option>
-        {% for value, label in [('todo','未审核'),('submitted','已提交'),('stale','材料已变化'),('invalid','提交异常')] %}
-          <option value="{{ value }}" {% if filters.status == value %}selected{% endif %}>{{ label }}</option>
-        {% endfor %}
-      </select>
-    </label>
+      <label>任务状态
+        <select name="status">
+          <option value="">全部</option>
+          {% for value, label in portal.status_labels.items() %}
+            <option value="{{ value }}" {% if filters.status == value %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </label>
     <button type="submit">筛选</button>
   </form>
 
   <section class="task-list">
     {% for task in progress.tasks %}
-      <a class="task-row" href="{{ url_for('review_case', task_id=task.id) }}">
-        <span class="task-id">{{ task.id }}</span>
-        <span class="pill">{{ task.track }}</span>
-        <span class="pill muted">{{ {'egomart':'购物','egodocs':'知识','egomedia':'媒体','egomaps':'地图'}[task.site] }}</span>
-        <span class="status {{ task.status }}">
-          {{ {'todo':'未审核','submitted':'已提交','stale':'需重审','invalid':'异常'}[task.status] }}
+      <a class="task-row" href="{{ url_for('review_case', task_id=task.id, view=review_view) }}">
+        <span class="task-main">
+          <span class="task-id">{{ task.id }}</span>
+          <span class="task-preview">{{ task.preview }}</span>
         </span>
+        <span class="pill">{{ {'graft':'中途补充','refresh':'画面更新','clarify':'需要澄清'}[task.track] }}</span>
+        <span class="pill">{{ task.transition_label }}</span>
+        <span class="pill muted">{{ {'egomart':'购物','egodocs':'知识','egomedia':'媒体','egomaps':'地图'}[task.site] }}</span>
+        <span class="status {{ task.status }}">{{ task.status_label }}</span>
       </a>
     {% else %}
       <p class="empty">没有符合条件的任务。</p>

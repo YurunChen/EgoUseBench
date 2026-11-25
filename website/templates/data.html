@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Data · {{ content.title }}{% endblock %}
+{% block main %}
+<h1>Data</h1>
+<p class="lede">{{ content.intro }} The main evaluation uses {{ content.data.stats.tasks }} Online tasks. The Hugging Face repository will contain {{ content.data_contents }}.</p>
+<p>{{ content.source_access_note }}</p>
+{% if content.dataset_status == "placeholder" %}
+<p>{{ content.placeholder_note }}</p>
+{% endif %}
+<p><a class="button primary" href="{{ content.dataset_url }}">Dataset on Hugging Face ↗</a></p>
+
+<h2>Main tasks</h2>
+{% include "_stats.html" %}
+
+{% if has_replays %}
+<h2>Replayed samples</h2>
+<p>Each sample pairs one task with selected archived runs. The table lists the source and license.</p>
+<table class="samples">
+  <thead><tr><th>Task</th><th>Change</th><th>Source</th><th>Runs</th></tr></thead>
+  <tbody>
+    {% for sample in content.data.samples %}
+    <tr>
+      <th scope="row">{{ content.player.labels.get(sample.task_id, sample.task_id) }}<code>{{ sample.task_id }}</code></th>
+      <td><span class="track track-{{ sample.track }}">{{ sample.track|capitalize }}</span> {{ sample.transition }}</td>
+      <td>{{ sample.source }}<br><small>{{ sample.license }}</small></td>
+      <td>{% for run in sample.runs %}<a href="/?run={{ run.id }}#player">{{ "✓" if run.success else "✗" }} {{ run.model }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

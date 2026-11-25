@@ -1,28 +1,143 @@
 {% extends "review/base.html" %}
 {% block title %}{{ case.task.id }} · 人工审核{% endblock %}
 {% block content %}
-  <a class="back" href="{{ url_for('review_index') }}">← 返回任务列表</a>
+  {% macro answer_card(entity) %}
+    <article class="entity-card {% if entity.is_final %}final{% else %}rival{% endif %}">
+      {% if case.task.site == 'egomaps' and entity.location %}
+        <div class="review-map-preview" role="img" aria-label="{{ entity.title or entity.name }} 的地图位置">
+          <span class="review-map-pin" aria-hidden="true"></span>
+          <span class="review-map-caption"><strong>{{ entity.address }}</strong><small>{{ '%.6f'|format(entity.location.latitude) }}, {{ '%.6f'|format(entity.location.longitude) }}</small></span>
+        </div>
+      {% elif entity.visual_path %}<img src="{{ url_for('review_asset', path=entity.visual_path) }}" alt="{{ entity.title or entity.name }}">{% endif %}
+      <div class="pills">
+        {% for role in entity.roles %}
+          <span class="pill {% if role == '最终目标' %}{% else %}muted{% endif %}">{{ case.role_labels.get(role, role) }}</span>
+        {% endfor %}
+      </div>
+      <h3>{{ entity.title or entity.name }}</h3>
+      {% if entity.summary or entity.description or entity.visible_fields %}
+        <details class="entity-evidence">
+          <summary>查看说明与网站字段</summary>
+          {% if entity.summary or entity.description %}<p>{{ entity.summary or entity.description }}</p>{% endif %}
+          {% if entity.visible_fields %}
+            <dl>{% for field in entity.visible_fields %}<dt>{{ field.label }}</dt><dd>{{ field.value }}</dd>{% endfor %}</dl>
+          {% endif %}
+        </details>
+      {% endif %}
+    </article>
+  {% endmacro %}
+  <a class="back" href="{{ url_for('review_index', view=review_view) }}">← 返回任务列表</a>
   <section class="case-head">
     <div>
-      <div class="pills"><span class="pill">{{ case.task.track }}</span><span class="pill muted">{{ {'egomart':'购物','egodocs':'知识','egomedia':'媒体','egomaps':'地图'}[case.task.site] }}</span></div>
-      <h1>{{ case.task.id }}</h1>
-      <p>{{ case.focus }}</p>
+      <div class="pills">
+        <span class="pill">{{ case.track_label }}</span>
+        <span class="pill">{{ case.transition_label }}</span>
+        <span class="pill muted">{{ case.site_label }}</span>
+        <span class="pill muted">{{ case.task.id }}</span>
+      </div>
+      <h1>{{ case.focus }}</h1>
     </div>
-    <span class="status {{ case.own_status }}">{{ {'todo':'未审核','submitted':'已提交','stale':'需重审','invalid':'异常'}[case.own_status] }}</span>
+    {% set task_status = portal.task_statuses[case.task.id] %}
+    <div>
+      <span class="status {{ task_status.status }}">{{ task_status.status_label }}</span>
+      <p>你的意见：{{ {'todo':'尚未提交','submitted':'已提交','stale':'对应材料已变化','invalid':'记录异常'}[case.own_status] }}</p>
+    </div>
   </section>
 
+  {% if review_view == 'all' %}
+    <div class="preview-notice">
+      <div>
+        <b>当前是只读预览</b>
+        <span>你可以检查全部材料，但这里不会写入人工审核结论。</span>
+      </div>
+      {% if is_pending_task %}
+        <a class="button" href="{{ url_for('review_case', task_id=case.task.id, view='pending') }}">进入人工审核</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
   {% if error %}<p class="notice error">{{ error }}</p>{% endif %}
+  {% if case.release_blockers %}
+    <div class="notice error">
+      <b>当前发布阻塞：</b>
+      <ul>{% for item in case.release_blockers %}<li>{{ item }}</li>{% endfor %}</ul>
+    </div>
+  {% endif %}
+
+  {% if uncertainty_reasons %}
+    <section class="panel">
+      <h2>需要你确认</h2>
+      <ul>{% for reason in uncertainty_reasons %}<li>{{ reason }}</li>{% endfor %}</ul>
+    </section>
+  {% endif %}
 
   <section class="panel">
-    <h2>1. 先判断它是不是眼镜任务</h2>
-    <p><b>项目要测的问题：</b>{{ case.motivation.project_question }}</p>
-    <p class="notice warning"><b>最关键的反事实检查：</b>{{ case.motivation.static_replacement_test }}</p>
-    {% if case.motivation.task_risk %}<p class="notice warning"><b>这道题需要重点判断：</b>{{ case.motivation.task_risk }}</p>{% endif %}
+    <h2>1. 用户指令</h2>
+    <p>只看用户会说的话。指令不应点出网站条目标题，也不应让 Agent 不用看画面就能完成。</p>
+    <article class="experiment-card">
+      {% for line in case.briefing.instruction_lines %}
+        <p><b>{{ line.label }}：</b>{{ line.text }}</p>
+        {% if line.note %}<p class="event">{{ line.note }}</p>{% endif %}
+      {% endfor %}
+      {% if case.experiment.clarification_available %}
+        <p class="event">Agent 可以向用户提问一次。</p>
+      {% endif %}
+      {% if case.experiment.timeline_releases %}
+        <p class="event">证据时间线：
+          {% for release in case.experiment.timeline_releases %}第 {{ release.step }} 步释放 {{ release.ref }}{% if not loop.last %}；{% endif %}{% endfor %}
+          {% if case.experiment.sufficiency_step is not none %}；证据充分时刻 t* = 第 {{ case.experiment.sufficiency_step }} 步{% endif %}
+        </p>
+      {% elif case.experiment.sufficiency_step is not none %}
+        <p class="event">证据充分时刻 t* = 第 {{ case.experiment.sufficiency_step }} 步（无中途释放）。</p>
+      {% endif %}
+    </article>
+  </section>
+
+  <section class="panel">
+    <h2>2. Agent 实际看到的画面</h2>
+    {% for packet in case.briefing.packets %}
+      <h3>{{ packet.label }}</h3>
+      <div class="frames">
+        {% for frame in packet.frame_paths %}
+          <button type="button" class="frame-thumb"
+            data-src="{{ url_for('review_asset', path=frame) }}"
+            data-caption="{{ packet.label }} · 第{{ loop.index }}帧">
+            <img src="{{ url_for('review_asset', path=frame) }}" alt="{{ packet.label }} 第{{ loop.index }}帧">
+            <span>第{{ loop.index }}帧</span>
+          </button>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    {% if case.source_video %}
+      <details open>
+        {% if case.source_video.segments %}
+        <summary>查看来源片段</summary>
+        <p>以下为同一原始录制的独立短片；中间未下载部分不可核查，不代表完整连续视频。</p>
+        <div class="source-segments">
+        {% for segment in case.source_video.segments %}
+        <div>
+        <p>原录制 {{ segment.source_interval_seconds[0] }}–{{ segment.source_interval_seconds[1] }} 秒</p>
+        <video controls preload="metadata" src="{{ url_for('review_asset', path=segment.path) }}#t={{ segment.playback_interval_seconds[0] }},{{ segment.playback_interval_seconds[1] }}"></video>
+        </div>
+        {% endfor %}
+        </div>
+        {% for gap in case.source_video.unavailable_intervals_seconds %}
+        <p>未下载区间：{{ gap[0] }}–{{ gap[1] }} 秒。</p>
+        {% endfor %}
+        {% else %}
+        <summary>查看连续视频</summary>
+        <p>已定位到抽帧前后 {{ case.source_video.start_seconds }}–{{ case.source_video.end_seconds }} 秒，请连续观看这一段。</p>
+        <video controls preload="metadata" src="{{ url_for('review_asset', path=case.source_video.path) }}#t={{ case.source_video.start_seconds }},{{ case.source_video.end_seconds }}"></video>
+        {% endif %}
+      </details>
+    {% endif %}
+  </section>
+
+  <section class="panel">
+    <h2>3. 现实场景依据</h2>
     <dl class="summary-list">
-      <dt>这道题声称要研究什么</dt><dd>{{ case.motivation.research_question }}</dd>
-      <dt>为什么需要现实画面</dt><dd>{{ case.motivation.visual_dependency }}</dd>
-      <dt>新证据到达后要改变什么</dt><dd>{{ case.motivation.required_change }}</dd>
-      <dt>本轨道的准入标准</dt><dd>{{ case.motivation.track_test }}</dd>
+      <dt>任务变化怎么产生</dt><dd>{{ case.scenario_evidence.label }}</dd>
+      <dt>说明</dt><dd>{{ case.scenario_evidence.explanation }}</dd>
     </dl>
     {% if case.pending_source_items %}
       <div class="notice warning">
@@ -30,60 +145,6 @@
         <ul>{% for item in case.pending_source_items %}<li>{{ item }}</li>{% endfor %}</ul>
       </div>
     {% endif %}
-  </section>
-
-  <section class="panel">
-    <h2>2. 任务设计</h2>
-    <article class="experiment-card">
-      <p><b>用户最初的要求：</b>{{ case.experiment.instruction }}</p>
-      <p><b>开始可见的画面：</b>{{ case.experiment.visible_packets|join('、') }}</p>
-      {% if case.experiment.scheduled_event %}
-        <p class="event">在第2个交互回合开始时送达，与搜索结果无关。</p>
-        {% if case.experiment.scheduled_event.type == 'instruction_injection' %}
-          <p><b>用户中途补充：</b>{{ case.experiment.scheduled_event.payload }}</p>
-        {% elif case.experiment.scheduled_event.type == 'visual_context_update' %}
-          <p><b>执行中更新：</b>向 Agent 提供后来看到的画面。</p>
-        {% endif %}
-      {% endif %}
-      {% if case.experiment.clarification_available %}<p class="event">Agent 可以向用户提问一次。</p>{% endif %}
-    </article>
-    <h3>结构难度</h3>
-    <p>这是由任务答案推导的最低操作量，不是模型实际运行步数。</p>
-    <dl class="summary-list">
-      <dt>需要处理的变化</dt><dd>{{ case.design_profile.change }}</dd>
-      <dt>开始时的合理答案数</dt><dd>{{ case.design_profile.initial_options }}</dd>
-      <dt>最终需要选择的目标数</dt><dd>{{ case.design_profile.final_entity_count }}</dd>
-      <dt>需要填写的网页字段数</dt><dd>{{ case.design_profile.required_field_count }}</dd>
-      <dt>最少关键网页操作</dt><dd>{{ case.design_profile.minimum_key_actions }}</dd>
-    </dl>
-  </section>
-
-  <section class="panel">
-    <h2>3. Agent 实际看到的画面</h2>
-    {% for packet in case.task.visual_packets %}
-      <h3>{{ packet.id }}</h3>
-      <div class="frames">
-        {% for frame in packet.frame_paths %}
-          <a href="{{ url_for('review_asset', path=frame) }}" target="_blank">
-            <img src="{{ url_for('review_asset', path=frame) }}" alt="{{ packet.id }} 第{{ loop.index }}帧">
-            <span>{{ packet.id }}:{{ loop.index0 }}</span>
-          </a>
-        {% endfor %}
-      </div>
-    {% endfor %}
-    {% if case.source_video %}
-      <details open>
-        <summary>查看连续视频</summary>
-        <p>已定位到抽帧前后 {{ case.source_video.start_seconds }}–{{ case.source_video.end_seconds }} 秒，请连续观看这一段。</p>
-        <video controls preload="metadata" src="{{ url_for('review_asset', path=case.source_video.path) }}#t={{ case.source_video.start_seconds }},{{ case.source_video.end_seconds }}"></video>
-      </details>
-    {% endif %}
-
-    <h3>现实场景依据</h3>
-    <dl class="summary-list">
-      <dt>任务变化怎么产生</dt><dd>{{ case.scenario_evidence.label }}</dd>
-      <dt>说明</dt><dd>{{ case.scenario_evidence.explanation }}</dd>
-    </dl>
     {% if case.scenario_evidence.observed_events %}
       <details>
         <summary>查看视频中的对象和动作</summary>
@@ -98,53 +159,12 @@
       <summary>查看画面支持的关键事实</summary>
       <ul>
         {% for claim in case.scenario_evidence.supported_claims %}
-          <li>{{ claim.text }}（{{ claim.supported_by|join('、') }}）</li>
+          <li>{{ claim.text }}{% if claim.supported_by %}（{{ claim.supported_by|join('、') }}）{% endif %}</li>
         {% else %}
           <li>没有登记逐帧支持的关键事实。</li>
         {% endfor %}
       </ul>
     </details>
-  </section>
-
-  <section class="panel">
-    <div class="section-heading">
-      <div><h2>4. 基准答案</h2><p>请核对预设答案是否由画面和指令支持，并且能在网站中唯一完成。</p></div>
-      <a class="button" target="_blank" href="{{ url_for('open_site', task_id=case.task.id) }}">打开冻结网站核对</a>
-    </div>
-    {% for warning in case.review_warnings %}<p class="notice warning">{{ warning }}</p>{% endfor %}
-
-    {% if case.task.track == 'refresh' %}
-      <p><b>目标变化规则：</b>{{ '保留最初目标' if case.task.refresh.policy == 'retain' else '更新为后来出现的目标' }}</p>
-    {% elif case.task.track == 'clarify' %}
-      <p><b>允许确认的信息：</b>{{ case.task.clarification.valid_slot }}</p>
-      <p><b>用户的标准回答：</b>{{ case.task.clarification.canonical_answer }}</p>
-    {% endif %}
-
-    <div class="entity-grid">
-      {% for entity in case.entities %}
-        <article class="entity-card">
-          {% if entity.visual_path %}<img src="{{ url_for('review_asset', path=entity.visual_path) }}" alt="实体图片">{% endif %}
-          <div class="pills">{% for role in entity.roles %}<span class="pill">{{ role }}</span>{% endfor %}</div>
-          <h3>{{ entity.title or entity.name }}</h3>
-          {% if entity.summary or entity.description %}<p>{{ entity.summary or entity.description }}</p>{% endif %}
-          {% if entity.visible_fields %}<dl>{% for field in entity.visible_fields %}<dt>{{ field.label }}</dt><dd>{{ field.value }}</dd>{% endfor %}</dl>{% endif %}
-          {% if entity.facts %}<dl>{% for key, value in entity.facts.items() %}<dt>{{ key }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>{% endif %}
-        </article>
-      {% endfor %}
-    </div>
-
-    <h3>判分时要求的最终状态</h3>
-    {% for state in case.task.goal.acceptable_states %}
-      <dl class="summary-list">
-        <dt>目标数量</dt><dd>{{ state.selected_entity_ids|length }}</dd>
-        <dt>需要填写的字段</dt><dd>{{ state.fields if state.fields else '无' }}</dd>
-        <dt>必须提交</dt><dd>{{ '是' if state.submission_completed else '否' }}</dd>
-      </dl>
-    {% endfor %}
-
-    <dl class="summary-list">
-      <dt>数据来源</dt><dd>{{ case.source_dataset.name or '未注明' }}</dd>
-    </dl>
     {% if case.source_record.source.original_annotations %}
       <details>
         <summary>查看原始数据标注</summary>
@@ -153,26 +173,114 @@
     {% endif %}
   </section>
 
-  <form class="panel form" method="post" action="{{ url_for('submit_case', task_id=case.task.id) }}">
-    <h2>5. 给出整体结论</h2>
-    <input type="hidden" name="revision" value="{{ case.revision }}">
-    <div class="review-points">
-      <p><b>查看时主要确认：</b></p>
-      <ul>{% for check in case.checks %}<li>{{ check.question }}</li>{% endfor %}</ul>
+  <section class="panel">
+    <div class="section-heading">
+      <div>
+        <h2>4. 基准答案</h2>
+        <p>请核对答案是否符合画面和用户要求、能在网站中完成，以及是否漏掉其他合理答案。</p>
+      </div>
+      <a class="button" target="_blank" href="{{ url_for('open_site', task_id=case.task.id, view=review_view) }}">打开冻结网站核对</a>
     </div>
-    <label>问题说明<textarea name="note" placeholder="只有发现问题时才需要填写">{{ answers.get('note','') }}</textarea></label>
-    {% if case.own_status == 'submitted' %}
-      <button type="button" disabled>已经提交</button>
-    {% elif case.release_blockers %}
-      <div class="review-actions">
-        <button type="button" disabled>仍有验收问题，暂不能保留</button>
-        <button type="submit" name="decision" value="reject">发现问题</button>
+    {% for warning in case.review_warnings if warning not in case.release_blockers %}
+      <p class="notice warning">{{ warning }}</p>
+    {% endfor %}
+
+    {% set final_entities = case.entities|selectattr('is_final')|list %}
+    {% set rival_entities = case.entities|rejectattr('is_final')|list %}
+    <details class="answer-workbench" open>
+      <summary>
+        <span>目标与候选对照</span>
+        <small>{{ final_entities|length }} 个可接受条目 · {{ rival_entities|length }} 个比较候选</small>
+      </summary>
+      <div class="answer-tools" aria-label="答案详情显示方式">
+        <button type="button" data-answer-details="open">展开条目详情</button>
+        <button type="button" data-answer-details="close">只看图片和标题</button>
       </div>
+      <p>下方汇总所有合法答案涉及的条目，不代表全部都要选择。具体数量和组合见“判分时要求的最终状态”。</p>
+      <div class="answer-lanes">
+        <section class="answer-lane target-lane">
+          <header><span class="lane-mark">可接受</span><h3>答案涉及的条目</h3><small>画面、变化和网站条件都应支持</small></header>
+          <div class="entity-grid compact">
+            {% for entity in final_entities %}{{ answer_card(entity) }}{% endfor %}
+          </div>
+        </section>
+        <section class="answer-lane rival-lane">
+          <header><span class="lane-mark">比较</span><h3>容易混淆的候选</h3><small>逐项确认它们为什么不满足最终要求</small></header>
+          <div class="entity-grid compact">
+            {% for entity in rival_entities %}{{ answer_card(entity) }}{% else %}<p class="empty">没有登记比较候选。</p>{% endfor %}
+          </div>
+        </section>
+      </div>
+    </details>
+
+    <details class="answer-state">
+      <summary>查看判分时要求的最终状态</summary>
+      {% for state in case.task.goal.acceptable_states %}
+        <dl class="summary-list">
+          <dt>见证购物车SKU单位数</dt><dd>{{ state.selected_entity_ids|length }}</dd>
+          <dt>需要填写的字段</dt><dd>{{ state.fields if state.fields else '无' }}</dd>
+          <dt>完成条件</dt><dd>结束时网站状态满足要求</dd>
+        </dl>
+      {% endfor %}
+      {% if case.task.goal.unit_equivalences %}
+      <h3>可混买的等价包装</h3>
+      <p>按以下类别的实际件数精确合计；仍须满足见证状态的全部目标和字段，不能多买或漏买。</p>
+      {% for unit, packages in case.task.goal.unit_equivalences.items() %}
+      <h4>{{ unit }}</h4><ul>{% for entity_id, count in packages.items() %}<li>{{ entity_id }}：每个SKU含 {{ count }} 件</li>{% endfor %}</ul>
+      {% endfor %}
+      {% endif %}
+    </details>
+  </section>
+
+  <section class="panel">
+    <h2>5. 现实画面与后续变化是否必要</h2>
+    <p class="notice warning"><b>最关键的反事实检查：</b>{{ case.motivation.static_replacement_test }}</p>
+    {% if case.motivation.task_risk %}<p class="notice warning">{{ case.motivation.task_risk }}</p>{% endif %}
+    <p>{{ case.motivation.visual_dependency }}</p>
+  </section>
+
+  {% if review_view in ['pending', 'quality'] %}
+    <form class="panel form" method="post" action="{{ url_for('submit_case', task_id=case.task.id, view=review_view) }}">
+      <h2>6. {{ '高置信质量抽查' if review_view == 'quality' else '给出整体结论' }}</h2>
+      {% if review_view == 'quality' %}<p>通过只记录抽查结果；指出问题会让这道任务重新进入修复，不影响其他任务。</p>{% endif %}
+      <input type="hidden" name="revision" value="{{ case.revision }}">
+      <div class="review-points">
+        <p><b>查看时主要确认：</b></p>
+        <ul>{% for check in case.checks %}<li>{{ check.question }}</li>{% endfor %}</ul>
+      </div>
+      <label>问题说明<textarea name="note" placeholder="只有发现问题时才需要填写">{{ answers.get('note','') }}</textarea></label>
+      {% if case.own_status == 'submitted' %}
+        <button type="button" disabled>已经提交</button>
+      {% elif case.quality_review_blockers %}
+        <div class="review-actions">
+          <button type="button" disabled>仍有验收问题，暂不能保留</button>
+          <button type="submit" name="decision" value="reject">提交修复意见</button>
+        </div>
+      {% else %}
+        {% if case.release_blockers %}
+          <p class="notice warning">此处仅记录质量结论，不解除来源发布阻塞。</p>
+        {% endif %}
+        <div class="review-actions">
+          <button class="primary" type="submit" name="decision" value="admit">答案没问题，保留</button>
+          <button type="submit" name="decision" value="reject">提交修复意见</button>
+        </div>
+      {% endif %}
+    </form>
+  {% else %}
+    <section class="panel preview-summary">
+      <h2>6. 预览结论</h2>
+      <p>这里是只读预览。需要提交意见时，请从人工审核或高置信抽查清单进入本题。</p>
+    </section>
+  {% endif %}
+
+  <nav class="case-nav panel">
+    {% if case.neighbors.previous %}
+      <a href="{{ url_for('review_case', task_id=case.neighbors.previous, view=review_view) }}">← 上一题</a>
     {% else %}
-      <div class="review-actions">
-        <button class="primary" type="submit" name="decision" value="admit">答案没问题，保留</button>
-        <button type="submit" name="decision" value="reject">发现问题</button>
-      </div>
+      <span></span>
     {% endif %}
-  </form>
+    {% if case.neighbors.next %}
+      <a href="{{ url_for('review_case', task_id=case.neighbors.next, view=review_view) }}">下一题 →</a>
+    {% endif %}
+  </nav>
 {% endblock %}

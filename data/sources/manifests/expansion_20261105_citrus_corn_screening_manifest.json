@@ -1,0 +1,3119 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "CaptainCook4D",
+    "source_root": "reference/sources/CaptainCook4D/videos/360p",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official CaptainCook4D research media; annotation terms separate."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110534",
+      "source": {
+        "dataset": "CaptainCook4D",
+        "media_id": "13_45_360p",
+        "original_video_id": "13_45",
+        "media_start_seconds": 0,
+        "source_video_path": "reference/sources/CaptainCook4D/videos/360p/13_45_360p.mp4",
+        "original_video_url": "https://utdallas.box.com/shared/static/j4zow2mklflssvo0f5z75dw5e97j8ktg.mp4",
+        "source_acquisition": {
+          "dataset_entry": "reference/sources/CaptainCook4D/downloader/metadata/download_links.json::/13_45/gopro_360p",
+          "method": "Reuse unchanged local official original 360p recording."
+        },
+        "record_ids": [
+          "13_45/617.2-672.2/prepared_loose_corn",
+          "13_45/673.2-712.2/citrus_juice_added_to_same_corn"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              617.2,
+              672.2
+            ],
+            "description": "The wearer removes a bowl of cooked loose yellow corn kernels from the microwave and sets it down."
+          },
+          {
+            "interval_seconds": [
+              673.2,
+              712.2
+            ],
+            "description": "The wearer cuts a small green citrus, squeezes a piece into the same bowl at 677.2–678.2 s and mixes the same kernels."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            617.2,
+            620.2,
+            623.2,
+            660.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110534/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110534/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110534/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110534/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            675.2,
+            678.2,
+            689.2,
+            711.2
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110534/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110534/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110534/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110534/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          617.2,
+          712.2
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110534/review.json"
+      },
+      "family": "refresh",
+      "subtype": "replace",
+      "status": "video_screened",
+      "supported_claims": [
+        {
+          "text": "The wearer is preparing a savory cooked side based on loose corn kernels.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2"
+          ]
+        },
+        {
+          "text": "The wearer squeezes juice from a fresh citrus into the same bowl and continues to prepare that same side.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "screening": {
+        "proposed_instruction": "Could you save a recipe video so I can make this side dish the same way next time?",
+        "source_continuity": "Continuous [617.2, 712.2] seconds from one original recording."
+      },
+      "construct": {
+        "research_question": "Can the agent revise a provisional recipe to reflect a flavor-defining preparation step it sees the wearer perform later?",
+        "belief_before": "Only the cooked loose corn side and its early seasoning are visible.",
+        "belief_after": "The same bowl receives fresh citrus juice, which is part of the method the wearer wants to repeat.",
+        "required_behavior_change": "Keep one recipe that teaches adding lime or lemon juice to a cooked loose-kernel side. Change a previously selected plain-only recipe if necessary; keep a previously selected one that already teaches a matching variant.",
+        "no_update_failure": "Keep a plain buttered corn recipe that omits the observed citrus step.",
+        "overupdate_failure": "Keep both a plain-only and a matching recipe or switch to a whole-cob recipe.",
+        "visual_dependency_claim": "The request asks to reproduce a side dish but names neither the ingredients nor the method. Only the later visual evidence shows the citrus being added to the same corn.",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a recipe video so I can make this side dish the same way next time?",
+          "target_granularity": "category",
+          "initial_target_role": "provisional_item",
+          "final_target_role": "observed_item",
+          "environment_role_ids": {
+            "provisional_item": "m_d35c85202825",
+            "observed_item": "m_f8dd6eab93aa"
+          },
+          "equivalent_role_ids": {
+            "provisional_item": [
+              "m_da99cb28c49b",
+              "m_c9dee57c08f9",
+              "m_a05576f4fbb4",
+              "m_b73279f13049",
+              "m_8a4b32a0326d",
+              "m_44b0d5188ae1",
+              "m_bb8675c6a519",
+              "m_d61c05fcfa00",
+              "m_3b67e82505da",
+              "m_1bc95d1f70b1",
+              "m_f4f7d1f138a9",
+              "m_6715c50a4670",
+              "m_76f93671ab77",
+              "m_a2360bf7f632",
+              "m_f8dd6eab93aa",
+              "m_083dcfa4d30c",
+              "m_8449abca8fdf",
+              "m_c3adfefccf5c",
+              "m_7a5173f27e31",
+              "m_c7884e1c12c7",
+              "m_36f87d18d471",
+              "m_61540b1b0d4a",
+              "m_9b06fa6bcaa3",
+              "m_b59fab844d89",
+              "m_034e20ed356b",
+              "m_7c082079d845",
+              "m_4d2dbded98f5",
+              "m_19040019bf95",
+              "m_d3604e17ad3e",
+              "m_034ae92001a0",
+              "m_684e4e5d4248",
+              "m_ee8a1a5ef674",
+              "m_3470d2139f95",
+              "m_675679243716",
+              "m_b7b1a7844398",
+              "m_2193cd80755b",
+              "m_867d497b29ca",
+              "m_bc0fc0ae41d5"
+            ],
+            "observed_item": [
+              "m_c9dee57c08f9",
+              "m_8a4b32a0326d",
+              "m_d61c05fcfa00",
+              "m_76f93671ab77",
+              "m_a2360bf7f632",
+              "m_083dcfa4d30c",
+              "m_8449abca8fdf",
+              "m_c3adfefccf5c",
+              "m_7a5173f27e31",
+              "m_c7884e1c12c7",
+              "m_61540b1b0d4a",
+              "m_9b06fa6bcaa3",
+              "m_b59fab844d89",
+              "m_034e20ed356b",
+              "m_7c082079d845",
+              "m_19040019bf95",
+              "m_d3604e17ad3e",
+              "m_684e4e5d4248",
+              "m_ee8a1a5ef674",
+              "m_3470d2139f95",
+              "m_675679243716",
+              "m_b7b1a7844398",
+              "m_2193cd80755b",
+              "m_bc0fc0ae41d5"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "old": "m_d35c85202825",
+            "new": "m_f8dd6eab93aa"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "old"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The bowl shows cooked loose corn and seasonings, but the next ingredient is not known. An ordinary loose-kernel side recipe is a reasonable provisional match."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "new"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The new batch shows the green citrus being cut, then visibly squeezed into that same bowl at 677.2–678.2 s. A plain recipe without this step does not reproduce the preparation."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "microwave buttered corn kernels recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110534.json",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "m_d35c85202825",
+                "m_a016d8622fe0",
+                "m_9fe5b4d112df",
+                "m_da99cb28c49b",
+                "m_b6f44a0e7a33",
+                "m_c9dee57c08f9",
+                "m_a05576f4fbb4",
+                "m_b73279f13049",
+                "m_6338adde87e9",
+                "m_8a4b32a0326d",
+                "m_fc46f7036153",
+                "m_b7a7f8151331",
+                "m_44b0d5188ae1",
+                "m_bb8675c6a519",
+                "m_d35748304e07",
+                "m_d61c05fcfa00",
+                "m_5b6f3acc97d4",
+                "m_3b67e82505da",
+                "m_1bc95d1f70b1",
+                "m_5110f2bc2c64",
+                "m_d88010727274",
+                "m_29b3f82ed580",
+                "m_c4b6ad6d7afd",
+                "m_1ae4d1f37036",
+                "m_1b138f1d3768",
+                "m_98a22bd24b8a",
+                "m_bf957a4e3744",
+                "m_f4f7d1f138a9",
+                "m_3f2d77a4fd0f",
+                "m_6715c50a4670",
+                "m_ff7bd6463ba3",
+                "m_af7ee44d62d6",
+                "m_35ce73c51875",
+                "m_73624596978e",
+                "m_6dad297f8d3c",
+                "m_c6eb190be967",
+                "m_b587298e8666",
+                "m_a72527d38abf",
+                "m_7717a4153cc3",
+                "m_76f93671ab77"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "buttered corn kernels lime juice recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110534.json",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "m_c9dee57c08f9",
+                "m_ddd7cf739a24",
+                "m_a2360bf7f632",
+                "m_f8dd6eab93aa",
+                "m_083dcfa4d30c",
+                "m_8449abca8fdf",
+                "m_c3adfefccf5c",
+                "m_da99cb28c49b",
+                "m_7a5173f27e31",
+                "m_c7884e1c12c7",
+                "m_36f87d18d471",
+                "m_61540b1b0d4a",
+                "m_800e0b558196",
+                "m_9b06fa6bcaa3",
+                "m_b59fab844d89",
+                "m_034e20ed356b",
+                "m_7c082079d845",
+                "m_4d2dbded98f5",
+                "m_19040019bf95",
+                "m_45c565d351b5",
+                "m_aba55e0e386e",
+                "m_d3604e17ad3e",
+                "m_1030036c0be4",
+                "m_034ae92001a0",
+                "m_684e4e5d4248",
+                "m_60fb1d74c046",
+                "m_ee8a1a5ef674",
+                "m_24d9a25d262e",
+                "m_86e2001d8b75",
+                "m_42ea9416ba35",
+                "m_716920bacccb",
+                "m_3470d2139f95",
+                "m_477f4d393fbc",
+                "m_0ec5e6cf1bc2",
+                "m_5295262cd419",
+                "m_1c5a6dad5a9b",
+                "m_675679243716",
+                "m_e67b5fe4c0d7",
+                "m_b7b1a7844398",
+                "m_a34acabd212c"
+              ]
+            },
+            {
+              "stage": "broad_comparison",
+              "query": "easy vegetable side dish recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110534.json",
+              "snapshot_stage": "broad_comparison",
+              "result_entity_ids": [
+                "m_8e8177956132",
+                "m_296accad5dc9",
+                "m_2193cd80755b",
+                "m_54ceadcf727f",
+                "m_4179ddf0c2e2",
+                "m_91f0a4badb85",
+                "m_b5155ee17de7",
+                "m_4ba3efbe9eab",
+                "m_b18d3c01fead",
+                "m_37bcefa146ab",
+                "m_3237cfc0ae1f",
+                "m_effffe38c105",
+                "m_8029e810ba12",
+                "m_7cbf6aac51f9",
+                "m_7f9ea36d69b6",
+                "m_a009175ac4a3",
+                "m_fa93890c4cdd",
+                "m_8345b58e34c2",
+                "m_04865a6cfa1a",
+                "m_867d497b29ca",
+                "m_f01f90f1c09e",
+                "m_0126513f3306",
+                "m_321bed72e9be",
+                "m_71c4082da6c1",
+                "m_ddb01208ef81",
+                "m_c6c741a3cd6c",
+                "m_ecc8d2228912",
+                "m_b75aa9a0c2c5",
+                "m_67a342a597f7",
+                "m_9c60f8eea451",
+                "m_a4e107642ef5",
+                "m_e85b5fba7e8a",
+                "m_80241394c716",
+                "m_49a079e9c8a5",
+                "m_fbee5a8ce223",
+                "m_ddcf47335813",
+                "m_ea11c3a2292f",
+                "m_bc0fc0ae41d5",
+                "m_43e146be8e28",
+                "m_cda68c475062"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_d35c85202825",
+            "m_a016d8622fe0",
+            "m_9fe5b4d112df",
+            "m_da99cb28c49b",
+            "m_b6f44a0e7a33",
+            "m_c9dee57c08f9",
+            "m_a05576f4fbb4",
+            "m_b73279f13049",
+            "m_6338adde87e9",
+            "m_8a4b32a0326d",
+            "m_fc46f7036153",
+            "m_b7a7f8151331",
+            "m_44b0d5188ae1",
+            "m_bb8675c6a519",
+            "m_d35748304e07",
+            "m_d61c05fcfa00",
+            "m_5b6f3acc97d4",
+            "m_3b67e82505da",
+            "m_1bc95d1f70b1",
+            "m_5110f2bc2c64",
+            "m_d88010727274",
+            "m_29b3f82ed580",
+            "m_c4b6ad6d7afd",
+            "m_1ae4d1f37036",
+            "m_1b138f1d3768",
+            "m_98a22bd24b8a",
+            "m_bf957a4e3744",
+            "m_f4f7d1f138a9",
+            "m_3f2d77a4fd0f",
+            "m_6715c50a4670",
+            "m_ff7bd6463ba3",
+            "m_af7ee44d62d6",
+            "m_35ce73c51875",
+            "m_73624596978e",
+            "m_6dad297f8d3c",
+            "m_c6eb190be967",
+            "m_b587298e8666",
+            "m_a72527d38abf",
+            "m_7717a4153cc3",
+            "m_76f93671ab77",
+            "m_ddd7cf739a24",
+            "m_a2360bf7f632",
+            "m_f8dd6eab93aa",
+            "m_083dcfa4d30c",
+            "m_8449abca8fdf",
+            "m_c3adfefccf5c",
+            "m_7a5173f27e31",
+            "m_c7884e1c12c7",
+            "m_36f87d18d471",
+            "m_61540b1b0d4a",
+            "m_800e0b558196",
+            "m_9b06fa6bcaa3",
+            "m_b59fab844d89",
+            "m_034e20ed356b",
+            "m_7c082079d845",
+            "m_4d2dbded98f5",
+            "m_19040019bf95",
+            "m_45c565d351b5",
+            "m_aba55e0e386e",
+            "m_d3604e17ad3e",
+            "m_1030036c0be4",
+            "m_034ae92001a0",
+            "m_684e4e5d4248",
+            "m_60fb1d74c046",
+            "m_ee8a1a5ef674",
+            "m_24d9a25d262e",
+            "m_86e2001d8b75",
+            "m_42ea9416ba35",
+            "m_716920bacccb",
+            "m_3470d2139f95",
+            "m_477f4d393fbc",
+            "m_0ec5e6cf1bc2",
+            "m_5295262cd419",
+            "m_1c5a6dad5a9b",
+            "m_675679243716",
+            "m_e67b5fe4c0d7",
+            "m_b7b1a7844398",
+            "m_a34acabd212c",
+            "m_8e8177956132",
+            "m_296accad5dc9",
+            "m_2193cd80755b",
+            "m_54ceadcf727f",
+            "m_4179ddf0c2e2",
+            "m_91f0a4badb85",
+            "m_b5155ee17de7",
+            "m_4ba3efbe9eab",
+            "m_b18d3c01fead",
+            "m_37bcefa146ab",
+            "m_3237cfc0ae1f",
+            "m_effffe38c105",
+            "m_8029e810ba12",
+            "m_7cbf6aac51f9",
+            "m_7f9ea36d69b6",
+            "m_a009175ac4a3",
+            "m_fa93890c4cdd",
+            "m_8345b58e34c2",
+            "m_04865a6cfa1a",
+            "m_867d497b29ca",
+            "m_f01f90f1c09e",
+            "m_0126513f3306",
+            "m_321bed72e9be",
+            "m_71c4082da6c1",
+            "m_ddb01208ef81",
+            "m_c6c741a3cd6c",
+            "m_ecc8d2228912",
+            "m_b75aa9a0c2c5",
+            "m_67a342a597f7",
+            "m_9c60f8eea451",
+            "m_a4e107642ef5",
+            "m_e85b5fba7e8a",
+            "m_80241394c716",
+            "m_49a079e9c8a5",
+            "m_fbee5a8ce223",
+            "m_ddcf47335813",
+            "m_ea11c3a2292f",
+            "m_bc0fc0ae41d5",
+            "m_43e146be8e28",
+            "m_cda68c475062"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_d35c85202825",
+            "m_a016d8622fe0",
+            "m_9fe5b4d112df",
+            "m_da99cb28c49b",
+            "m_b6f44a0e7a33",
+            "m_a05576f4fbb4",
+            "m_b73279f13049",
+            "m_6338adde87e9",
+            "m_fc46f7036153",
+            "m_b7a7f8151331",
+            "m_44b0d5188ae1",
+            "m_bb8675c6a519",
+            "m_d35748304e07",
+            "m_5b6f3acc97d4",
+            "m_3b67e82505da",
+            "m_1bc95d1f70b1",
+            "m_5110f2bc2c64",
+            "m_d88010727274",
+            "m_29b3f82ed580",
+            "m_c4b6ad6d7afd",
+            "m_1ae4d1f37036",
+            "m_1b138f1d3768",
+            "m_98a22bd24b8a",
+            "m_bf957a4e3744",
+            "m_f4f7d1f138a9",
+            "m_3f2d77a4fd0f",
+            "m_6715c50a4670",
+            "m_ff7bd6463ba3",
+            "m_af7ee44d62d6",
+            "m_35ce73c51875",
+            "m_73624596978e",
+            "m_6dad297f8d3c",
+            "m_c6eb190be967",
+            "m_b587298e8666",
+            "m_a72527d38abf",
+            "m_7717a4153cc3",
+            "m_ddd7cf739a24",
+            "m_36f87d18d471",
+            "m_800e0b558196",
+            "m_4d2dbded98f5",
+            "m_45c565d351b5",
+            "m_aba55e0e386e",
+            "m_1030036c0be4",
+            "m_034ae92001a0",
+            "m_60fb1d74c046",
+            "m_24d9a25d262e",
+            "m_86e2001d8b75",
+            "m_42ea9416ba35",
+            "m_716920bacccb",
+            "m_477f4d393fbc",
+            "m_0ec5e6cf1bc2",
+            "m_5295262cd419",
+            "m_1c5a6dad5a9b",
+            "m_e67b5fe4c0d7",
+            "m_a34acabd212c",
+            "m_8e8177956132",
+            "m_296accad5dc9",
+            "m_54ceadcf727f",
+            "m_4179ddf0c2e2",
+            "m_91f0a4badb85",
+            "m_b5155ee17de7",
+            "m_4ba3efbe9eab",
+            "m_b18d3c01fead",
+            "m_37bcefa146ab",
+            "m_3237cfc0ae1f",
+            "m_effffe38c105",
+            "m_8029e810ba12",
+            "m_7cbf6aac51f9",
+            "m_7f9ea36d69b6",
+            "m_a009175ac4a3",
+            "m_fa93890c4cdd",
+            "m_8345b58e34c2",
+            "m_04865a6cfa1a",
+            "m_867d497b29ca",
+            "m_f01f90f1c09e",
+            "m_0126513f3306",
+            "m_321bed72e9be",
+            "m_71c4082da6c1",
+            "m_ddb01208ef81",
+            "m_c6c741a3cd6c",
+            "m_ecc8d2228912",
+            "m_b75aa9a0c2c5",
+            "m_67a342a597f7",
+            "m_9c60f8eea451",
+            "m_a4e107642ef5",
+            "m_e85b5fba7e8a",
+            "m_80241394c716",
+            "m_49a079e9c8a5",
+            "m_fbee5a8ce223",
+            "m_ddcf47335813",
+            "m_ea11c3a2292f",
+            "m_43e146be8e28",
+            "m_cda68c475062"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_034ae92001a0",
+              "ring": "core",
+              "why_plausible": "It teaches a cooked loose sweet-corn side and lists lime juice as an optional ingredient.",
+              "reason": "The demonstrated method adds butter, pepper and salt before serving; the optional lime ingredient is not accompanied by an established addition step.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_034ae92001a0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bQoi3UJMv4M.json",
+                "artifacts/reports/source-review-evidence/candidate-media-refresh-replace-2026110534/bqoi-citrus-closure.json"
+              ]
+            },
+            {
+              "entity_id": "m_d35c85202825",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher teaches microwave frozen loose corn as a buttered side; the complete method lacks a citrus addition.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d35c85202825.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nOwZeAYlyPA.json"
+              ]
+            },
+            {
+              "entity_id": "m_a016d8622fe0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Title suggests buttered corn but no method, text or public storyboard establishes whether loose kernels are used.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a016d8622fe0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/e7SIdCzz2Zc.json"
+              ]
+            },
+            {
+              "entity_id": "m_9fe5b4d112df",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9fe5b4d112df.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hd9hBtth9Ck.json"
+              ]
+            },
+            {
+              "entity_id": "m_da99cb28c49b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publishes a canned loose-kernel side recipe; native method shows the prepared corn without a citrus finish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_da99cb28c49b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CT11XIjY6bw.json"
+              ]
+            },
+            {
+              "entity_id": "m_b6f44a0e7a33",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b6f44a0e7a33.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XXAnPQSSobY.json"
+              ]
+            },
+            {
+              "entity_id": "m_a05576f4fbb4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Chapters teach heating loose frozen kernels in a microwaveable bowl as a side; only water is listed as an option.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a05576f4fbb4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/neJV7xq1Ko8.json"
+              ]
+            },
+            {
+              "entity_id": "m_b73279f13049",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches removing kernels, microwaving, and mixing them with butter; no citrus preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b73279f13049.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0bU0dcY8ve8.json"
+              ]
+            },
+            {
+              "entity_id": "m_6338adde87e9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6338adde87e9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qdUDcE7bY9Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_fc46f7036153",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fc46f7036153.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4DvohsJrbIg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b7a7f8151331",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b7a7f8151331.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1EJ1lrDgaqs.json"
+              ]
+            },
+            {
+              "entity_id": "m_44b0d5188ae1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native storyboard shows loose corn in the microwave and the butter stirred in before serving; no citrus is added.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_44b0d5188ae1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UUvFdgnFKNk.json"
+              ]
+            },
+            {
+              "entity_id": "m_bb8675c6a519",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native chapters and frames teach simmered loose corn with butter; citrus addition is not demonstrated.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bb8675c6a519.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Yx0EFfnMzHQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_d35748304e07",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Canned corn is mixed with egg for a formed snack; the kernels are not presented as the observed side.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d35748304e07.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ldx8cV_aeXM.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b6f3acc97d4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b6f3acc97d4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pZMHRzPJa4g.json"
+              ]
+            },
+            {
+              "entity_id": "m_3b67e82505da",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native stove-top frozen kernel tutorial shows a plain loose-corn side without citrus.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3b67e82505da.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ssaJZAolpWQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_1bc95d1f70b1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher cook-along teaches preparing canned loose kernels as a side by microwaving; no added citrus.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1bc95d1f70b1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/s_6Jdy_xQ4U.json"
+              ]
+            },
+            {
+              "entity_id": "m_5110f2bc2c64",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5110f2bc2c64.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bEAQGEQrZs4.json"
+              ]
+            },
+            {
+              "entity_id": "m_d88010727274",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d88010727274.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AJ75-64Gm5w.json"
+              ]
+            },
+            {
+              "entity_id": "m_29b3f82ed580",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native chapters show cob pieces, a dip with chips, and a fried coated snack; none is a separately cooked loose-corn side of the observed form.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_29b3f82ed580.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YxqOMG0XcdU.json"
+              ]
+            },
+            {
+              "entity_id": "m_c4b6ad6d7afd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c4b6ad6d7afd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MvxMd2teLcY.json"
+              ]
+            },
+            {
+              "entity_id": "m_1ae4d1f37036",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1ae4d1f37036.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/t1inpmpxlE0.json"
+              ]
+            },
+            {
+              "entity_id": "m_1b138f1d3768",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Uses the kernels for a flour-coated crispy fried-style snack, not the soft seasoned loose corn side in view.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1b138f1d3768.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/u6SjYC7pvBY.json"
+              ]
+            },
+            {
+              "entity_id": "m_98a22bd24b8a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_98a22bd24b8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/p1TScUnRMtw.json"
+              ]
+            },
+            {
+              "entity_id": "m_bf957a4e3744",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bf957a4e3744.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/98UIq5uxjjQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f4f7d1f138a9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native recipe stirs canned whole kernels with margarine in a pan; no citrus.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f4f7d1f138a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/v_gtDpy0Qi4.json"
+              ]
+            },
+            {
+              "entity_id": "m_3f2d77a4fd0f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3f2d77a4fd0f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ScD70coMo6E.json"
+              ]
+            },
+            {
+              "entity_id": "m_6715c50a4670",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher teaches buttered loose frozen kernels with black pepper in a pressure cooker; no citrus step.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6715c50a4670.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CbYGmDrRLtw.json"
+              ]
+            },
+            {
+              "entity_id": "m_ff7bd6463ba3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ff7bd6463ba3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6oeYGnJ0pU8.json"
+              ]
+            },
+            {
+              "entity_id": "m_af7ee44d62d6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_af7ee44d62d6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cT4JzCPtaF0.json"
+              ]
+            },
+            {
+              "entity_id": "m_35ce73c51875",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_35ce73c51875.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G7gaX_kOht8.json"
+              ]
+            },
+            {
+              "entity_id": "m_73624596978e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_73624596978e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/a9FNkQvm1Gc.json"
+              ]
+            },
+            {
+              "entity_id": "m_6dad297f8d3c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6dad297f8d3c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sNe4EdtIv3M.json"
+              ]
+            },
+            {
+              "entity_id": "m_c6eb190be967",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c6eb190be967.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/f9ikfhXKHFo.json"
+              ]
+            },
+            {
+              "entity_id": "m_b587298e8666",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b587298e8666.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fNtkOVxct3c.json"
+              ]
+            },
+            {
+              "entity_id": "m_a72527d38abf",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Title names butter, lime and salt but calls itself part 2; no public video detail establishes loose kernels, an actual juice addition, or a complete usable method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a72527d38abf.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PIo9-t7A_BE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7717a4153cc3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Published procedure cooks a sauce-heavy corn-and-pea korma; not the loose dressed kernels being made.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7717a4153cc3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EHZx26_0cy8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ddd7cf739a24",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ddd7cf739a24.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QrzMFq0UTIM.json"
+              ]
+            },
+            {
+              "entity_id": "m_36f87d18d471",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native storyboard shows loose kernels boiled, then stirred with melted butter and seasoning; no established citrus addition.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_36f87d18d471.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hszRt4A7mbo.json"
+              ]
+            },
+            {
+              "entity_id": "m_800e0b558196",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_800e0b558196.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RQoR5aWNOi4.json"
+              ]
+            },
+            {
+              "entity_id": "m_4d2dbded98f5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher recipe for brown buttered kernels lists corn, butter and salt; no citrus.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4d2dbded98f5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3mIfsZT6wac.json"
+              ]
+            },
+            {
+              "entity_id": "m_45c565d351b5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_45c565d351b5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DySxXHFTtnw.json"
+              ]
+            },
+            {
+              "entity_id": "m_aba55e0e386e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_aba55e0e386e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NbhP8GOG_Is.json"
+              ]
+            },
+            {
+              "entity_id": "m_1030036c0be4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1030036c0be4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h8Q3sKNleEU.json"
+              ]
+            },
+            {
+              "entity_id": "m_60fb1d74c046",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_60fb1d74c046.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/J-NSaaLapdE.json"
+              ]
+            },
+            {
+              "entity_id": "m_24d9a25d262e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_24d9a25d262e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Z-HRpcuobaA.json"
+              ]
+            },
+            {
+              "entity_id": "m_86e2001d8b75",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_86e2001d8b75.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/L9az0XrYZzI.json"
+              ]
+            },
+            {
+              "entity_id": "m_42ea9416ba35",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_42ea9416ba35.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/OoM9d9_3o7I.json"
+              ]
+            },
+            {
+              "entity_id": "m_716920bacccb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native storyboard shows cut cob ribs deep-fried intact, not a loose-kernel side.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_716920bacccb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cItC9Dh5_vY.json"
+              ]
+            },
+            {
+              "entity_id": "m_477f4d393fbc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_477f4d393fbc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EiYesu9kaKA.json"
+              ]
+            },
+            {
+              "entity_id": "m_0ec5e6cf1bc2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0ec5e6cf1bc2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/X3u-2u5ybtM.json"
+              ]
+            },
+            {
+              "entity_id": "m_5295262cd419",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5295262cd419.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/x4NhQfISqew.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c5a6dad5a9b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c5a6dad5a9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JPYibUMAvvk.json"
+              ]
+            },
+            {
+              "entity_id": "m_e67b5fe4c0d7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e67b5fe4c0d7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lAVNAzfXHTk.json"
+              ]
+            },
+            {
+              "entity_id": "m_a34acabd212c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a34acabd212c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Kze0GRNlzbU.json"
+              ]
+            },
+            {
+              "entity_id": "m_8e8177956132",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8e8177956132.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/OxK552Plvqk.json"
+              ]
+            },
+            {
+              "entity_id": "m_296accad5dc9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_296accad5dc9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/E9H1ThQq9PA.json"
+              ]
+            },
+            {
+              "entity_id": "m_54ceadcf727f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_54ceadcf727f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MMannUSmHeg.json"
+              ]
+            },
+            {
+              "entity_id": "m_4179ddf0c2e2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4179ddf0c2e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UaMD9pS3tC8.json"
+              ]
+            },
+            {
+              "entity_id": "m_91f0a4badb85",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_91f0a4badb85.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nYlZxJaV4n0.json"
+              ]
+            },
+            {
+              "entity_id": "m_b5155ee17de7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b5155ee17de7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9Y7E_DB9tjM.json"
+              ]
+            },
+            {
+              "entity_id": "m_4ba3efbe9eab",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4ba3efbe9eab.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bg7DMtVp-6A.json"
+              ]
+            },
+            {
+              "entity_id": "m_b18d3c01fead",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Published segment uses spinach as the primary side ingredient, with a small amount of corn.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b18d3c01fead.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0wk2CPNHW-M.json"
+              ]
+            },
+            {
+              "entity_id": "m_37bcefa146ab",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The published recipe is a cheddar-and-cream slow-cooker corn casserole rather than the dressed loose-kernel side.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_37bcefa146ab.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G5zgbcTXmZg.json"
+              ]
+            },
+            {
+              "entity_id": "m_3237cfc0ae1f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3237cfc0ae1f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eiy8tSK95so.json"
+              ]
+            },
+            {
+              "entity_id": "m_effffe38c105",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_effffe38c105.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RsZwEnM4dDQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_8029e810ba12",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8029e810ba12.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lVcy8GDvvAw.json"
+              ]
+            },
+            {
+              "entity_id": "m_7cbf6aac51f9",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7cbf6aac51f9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fVajqrF62Sc.json"
+              ]
+            },
+            {
+              "entity_id": "m_7f9ea36d69b6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7f9ea36d69b6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/VGcvw1ptcqI.json"
+              ]
+            },
+            {
+              "entity_id": "m_a009175ac4a3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a009175ac4a3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/gjRAHJphbxo.json"
+              ]
+            },
+            {
+              "entity_id": "m_fa93890c4cdd",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fa93890c4cdd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/a-Yu8qOAEYQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_8345b58e34c2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8345b58e34c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/N0XxWza-32M.json"
+              ]
+            },
+            {
+              "entity_id": "m_04865a6cfa1a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_04865a6cfa1a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GSjhVMJtbgo.json"
+              ]
+            },
+            {
+              "entity_id": "m_867d497b29ca",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native Esquites segment teaches pan-cooking loose kernels and dressing them in a bowl. Its published storyboard shows sauce additions but does not establish squeezing the nearby lime into the corn.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_867d497b29ca.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UUrFfBkPAEA.json"
+              ]
+            },
+            {
+              "entity_id": "m_f01f90f1c09e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f01f90f1c09e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QSSaTUeO9C0.json"
+              ]
+            },
+            {
+              "entity_id": "m_0126513f3306",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0126513f3306.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QJVmr7HfTxc.json"
+              ]
+            },
+            {
+              "entity_id": "m_321bed72e9be",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_321bed72e9be.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3JYVKKb05LU.json"
+              ]
+            },
+            {
+              "entity_id": "m_71c4082da6c1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_71c4082da6c1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DHfGt0ypvRg.json"
+              ]
+            },
+            {
+              "entity_id": "m_ddb01208ef81",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Corn is a minor addition to a seaweed and mixed-greens salad, not the main preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ddb01208ef81.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/06Joz01YmEY.json"
+              ]
+            },
+            {
+              "entity_id": "m_c6c741a3cd6c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c6c741a3cd6c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NZHbdR73Av8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ecc8d2228912",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ecc8d2228912.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qyqrcoRvzEg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b75aa9a0c2c5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b75aa9a0c2c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/V6MUHbGE5-A.json"
+              ]
+            },
+            {
+              "entity_id": "m_67a342a597f7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_67a342a597f7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bd6RamRe-LA.json"
+              ]
+            },
+            {
+              "entity_id": "m_9c60f8eea451",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9c60f8eea451.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3-oN59U1yvY.json"
+              ]
+            },
+            {
+              "entity_id": "m_a4e107642ef5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a4e107642ef5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KGU-c2cUtqY.json"
+              ]
+            },
+            {
+              "entity_id": "m_e85b5fba7e8a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e85b5fba7e8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/q7IDqkh-31M.json"
+              ]
+            },
+            {
+              "entity_id": "m_80241394c716",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_80241394c716.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NebeZwQi3p8.json"
+              ]
+            },
+            {
+              "entity_id": "m_49a079e9c8a5",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_49a079e9c8a5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lgFmUpMDdbA.json"
+              ]
+            },
+            {
+              "entity_id": "m_fbee5a8ce223",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fbee5a8ce223.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oA6HnoqOXkI.json"
+              ]
+            },
+            {
+              "entity_id": "m_ddcf47335813",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ddcf47335813.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Qg-f6UeJc-A.json"
+              ]
+            },
+            {
+              "entity_id": "m_ea11c3a2292f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ea11c3a2292f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IC2aBooYBeA.json"
+              ]
+            },
+            {
+              "entity_id": "m_43e146be8e28",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_43e146be8e28.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ak5GEd2z1FI.json"
+              ]
+            },
+            {
+              "entity_id": "m_cda68c475062",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cda68c475062.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/b6JJzDNDni0.json"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_d35c85202825",
+              "native_id": "nOwZeAYlyPA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher teaches microwave frozen loose corn as a buttered side; the complete method lacks a citrus addition.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d35c85202825.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nOwZeAYlyPA.json"
+              ]
+            },
+            {
+              "entity_id": "m_a016d8622fe0",
+              "native_id": "e7SIdCzz2Zc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Title suggests buttered corn but no method, text or public storyboard establishes whether loose kernels are used.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a016d8622fe0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/e7SIdCzz2Zc.json"
+              ]
+            },
+            {
+              "entity_id": "m_9fe5b4d112df",
+              "native_id": "hd9hBtth9Ck",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9fe5b4d112df.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hd9hBtth9Ck.json"
+              ]
+            },
+            {
+              "entity_id": "m_da99cb28c49b",
+              "native_id": "CT11XIjY6bw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publishes a canned loose-kernel side recipe; native method shows the prepared corn without a citrus finish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_da99cb28c49b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CT11XIjY6bw.json"
+              ]
+            },
+            {
+              "entity_id": "m_b6f44a0e7a33",
+              "native_id": "XXAnPQSSobY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b6f44a0e7a33.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XXAnPQSSobY.json"
+              ]
+            },
+            {
+              "entity_id": "m_c9dee57c08f9",
+              "native_id": "uTnBTq31unM",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher teaches classic and masala loose-corn variations; masala variant actually mixes in lemon juice.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c9dee57c08f9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/uTnBTq31unM.json"
+              ]
+            },
+            {
+              "entity_id": "m_a05576f4fbb4",
+              "native_id": "neJV7xq1Ko8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Chapters teach heating loose frozen kernels in a microwaveable bowl as a side; only water is listed as an option.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a05576f4fbb4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/neJV7xq1Ko8.json"
+              ]
+            },
+            {
+              "entity_id": "m_b73279f13049",
+              "native_id": "0bU0dcY8ve8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Teaches removing kernels, microwaving, and mixing them with butter; no citrus preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b73279f13049.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0bU0dcY8ve8.json"
+              ]
+            },
+            {
+              "entity_id": "m_6338adde87e9",
+              "native_id": "qdUDcE7bY9Q",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6338adde87e9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qdUDcE7bY9Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_8a4b32a0326d",
+              "native_id": "aLo3GnHGcEg",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher lists lemon juice; the video shows it added into the separated cooked kernels despite omission in the written summary.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8a4b32a0326d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/aLo3GnHGcEg.json"
+              ]
+            },
+            {
+              "entity_id": "m_fc46f7036153",
+              "native_id": "4DvohsJrbIg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fc46f7036153.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4DvohsJrbIg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b7a7f8151331",
+              "native_id": "1EJ1lrDgaqs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b7a7f8151331.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1EJ1lrDgaqs.json"
+              ]
+            },
+            {
+              "entity_id": "m_44b0d5188ae1",
+              "native_id": "UUvFdgnFKNk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native storyboard shows loose corn in the microwave and the butter stirred in before serving; no citrus is added.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_44b0d5188ae1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UUvFdgnFKNk.json"
+              ]
+            },
+            {
+              "entity_id": "m_bb8675c6a519",
+              "native_id": "Yx0EFfnMzHQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native chapters and frames teach simmered loose corn with butter; citrus addition is not demonstrated.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bb8675c6a519.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Yx0EFfnMzHQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_d35748304e07",
+              "native_id": "Ldx8cV_aeXM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Canned corn is mixed with egg for a formed snack; the kernels are not presented as the observed side.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d35748304e07.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ldx8cV_aeXM.json"
+              ]
+            },
+            {
+              "entity_id": "m_d61c05fcfa00",
+              "native_id": "a0iRrXe0-8c",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official storyboard and description show loose microwaved sweet corn, then lemon juice added from a spoon with the seasonings.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d61c05fcfa00.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/a0iRrXe0-8c.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b6f3acc97d4",
+              "native_id": "pZMHRzPJa4g",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b6f3acc97d4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pZMHRzPJa4g.json"
+              ]
+            },
+            {
+              "entity_id": "m_3b67e82505da",
+              "native_id": "ssaJZAolpWQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native stove-top frozen kernel tutorial shows a plain loose-corn side without citrus.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3b67e82505da.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ssaJZAolpWQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_1bc95d1f70b1",
+              "native_id": "s_6Jdy_xQ4U",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher cook-along teaches preparing canned loose kernels as a side by microwaving; no added citrus.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1bc95d1f70b1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/s_6Jdy_xQ4U.json"
+              ]
+            },
+            {
+              "entity_id": "m_5110f2bc2c64",
+              "native_id": "bEAQGEQrZs4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5110f2bc2c64.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bEAQGEQrZs4.json"
+              ]
+            },
+            {
+              "entity_id": "m_d88010727274",
+              "native_id": "AJ75-64Gm5w",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d88010727274.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AJ75-64Gm5w.json"
+              ]
+            },
+            {
+              "entity_id": "m_29b3f82ed580",
+              "native_id": "YxqOMG0XcdU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native chapters show cob pieces, a dip with chips, and a fried coated snack; none is a separately cooked loose-corn side of the observed form.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_29b3f82ed580.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YxqOMG0XcdU.json"
+              ]
+            },
+            {
+              "entity_id": "m_c4b6ad6d7afd",
+              "native_id": "MvxMd2teLcY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c4b6ad6d7afd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MvxMd2teLcY.json"
+              ]
+            },
+            {
+              "entity_id": "m_1ae4d1f37036",
+              "native_id": "t1inpmpxlE0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1ae4d1f37036.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/t1inpmpxlE0.json"
+              ]
+            },
+            {
+              "entity_id": "m_1b138f1d3768",
+              "native_id": "u6SjYC7pvBY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Uses the kernels for a flour-coated crispy fried-style snack, not the soft seasoned loose corn side in view.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1b138f1d3768.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/u6SjYC7pvBY.json"
+              ]
+            },
+            {
+              "entity_id": "m_98a22bd24b8a",
+              "native_id": "p1TScUnRMtw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_98a22bd24b8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/p1TScUnRMtw.json"
+              ]
+            },
+            {
+              "entity_id": "m_bf957a4e3744",
+              "native_id": "98UIq5uxjjQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bf957a4e3744.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/98UIq5uxjjQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_f4f7d1f138a9",
+              "native_id": "v_gtDpy0Qi4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native recipe stirs canned whole kernels with margarine in a pan; no citrus.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f4f7d1f138a9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/v_gtDpy0Qi4.json"
+              ]
+            },
+            {
+              "entity_id": "m_3f2d77a4fd0f",
+              "native_id": "ScD70coMo6E",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3f2d77a4fd0f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ScD70coMo6E.json"
+              ]
+            },
+            {
+              "entity_id": "m_6715c50a4670",
+              "native_id": "CbYGmDrRLtw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher teaches buttered loose frozen kernels with black pepper in a pressure cooker; no citrus step.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6715c50a4670.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CbYGmDrRLtw.json"
+              ]
+            },
+            {
+              "entity_id": "m_ff7bd6463ba3",
+              "native_id": "6oeYGnJ0pU8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ff7bd6463ba3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6oeYGnJ0pU8.json"
+              ]
+            },
+            {
+              "entity_id": "m_af7ee44d62d6",
+              "native_id": "cT4JzCPtaF0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_af7ee44d62d6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cT4JzCPtaF0.json"
+              ]
+            },
+            {
+              "entity_id": "m_35ce73c51875",
+              "native_id": "G7gaX_kOht8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_35ce73c51875.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G7gaX_kOht8.json"
+              ]
+            },
+            {
+              "entity_id": "m_73624596978e",
+              "native_id": "a9FNkQvm1Gc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The source teaches popcorn rather than cooked sweet-corn kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_73624596978e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/a9FNkQvm1Gc.json"
+              ]
+            },
+            {
+              "entity_id": "m_6dad297f8d3c",
+              "native_id": "sNe4EdtIv3M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6dad297f8d3c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sNe4EdtIv3M.json"
+              ]
+            },
+            {
+              "entity_id": "m_c6eb190be967",
+              "native_id": "f9ikfhXKHFo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c6eb190be967.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/f9ikfhXKHFo.json"
+              ]
+            },
+            {
+              "entity_id": "m_b587298e8666",
+              "native_id": "fNtkOVxct3c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b587298e8666.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fNtkOVxct3c.json"
+              ]
+            },
+            {
+              "entity_id": "m_a72527d38abf",
+              "native_id": "PIo9-t7A_BE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Title names butter, lime and salt but calls itself part 2; no public video detail establishes loose kernels, an actual juice addition, or a complete usable method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a72527d38abf.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PIo9-t7A_BE.json"
+              ]
+            },
+            {
+              "entity_id": "m_7717a4153cc3",
+              "native_id": "EHZx26_0cy8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Published procedure cooks a sauce-heavy corn-and-pea korma; not the loose dressed kernels being made.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7717a4153cc3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EHZx26_0cy8.json"
+              ]
+            },
+            {
+              "entity_id": "m_76f93671ab77",
+              "native_id": "cA_IWMaVt0w",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native storyboard lists lemon juice and teaches cooking and seasoning loose corn as Butter Corn Delight.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_76f93671ab77.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cA_IWMaVt0w.json"
+              ]
+            },
+            {
+              "entity_id": "m_ddd7cf739a24",
+              "native_id": "QrzMFq0UTIM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ddd7cf739a24.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QrzMFq0UTIM.json"
+              ]
+            },
+            {
+              "entity_id": "m_a2360bf7f632",
+              "native_id": "KFOOrlozqNk",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher teaches three loose-corn variations; the corn-salad segment squeezes lemon or lime onto the seasoned kernels before serving.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a2360bf7f632.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KFOOrlozqNk.json"
+              ]
+            },
+            {
+              "entity_id": "m_f8dd6eab93aa",
+              "native_id": "BVDeD19eMa0",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher supplies butter, pepper and salt with lime juice for cooked loose sweet corn kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f8dd6eab93aa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BVDeD19eMa0.json"
+              ]
+            },
+            {
+              "entity_id": "m_083dcfa4d30c",
+              "native_id": "Px0z1l-S-_E",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher lists boiled loose sweet corn and mixes the kernels with butter, spices and lime juice.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_083dcfa4d30c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Px0z1l-S-_E.json"
+              ]
+            },
+            {
+              "entity_id": "m_8449abca8fdf",
+              "native_id": "cfKeyFOniws",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher cooks corn kernels, drains them into a bowl, then adds lime and mixes it into the corn.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8449abca8fdf.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cfKeyFOniws.json"
+              ]
+            },
+            {
+              "entity_id": "m_c3adfefccf5c",
+              "native_id": "KfdOD5yDBWU",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native second recipe takes kernels off the cob and adds lime juice in the pan before mixing them.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c3adfefccf5c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KfdOD5yDBWU.json"
+              ]
+            },
+            {
+              "entity_id": "m_7a5173f27e31",
+              "native_id": "1_e2N2pIpTA",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher method adds lemon juice in the bowl of boiled loose kernels and mixes it with the spices.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7a5173f27e31.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1_e2N2pIpTA.json"
+              ]
+            },
+            {
+              "entity_id": "m_c7884e1c12c7",
+              "native_id": "sGLRVtW8QCQ",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native method roasts cut kernels and seasons them with lime juice; no particular heating method is required.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c7884e1c12c7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/sGLRVtW8QCQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_36f87d18d471",
+              "native_id": "hszRt4A7mbo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native storyboard shows loose kernels boiled, then stirred with melted butter and seasoning; no established citrus addition.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_36f87d18d471.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hszRt4A7mbo.json"
+              ]
+            },
+            {
+              "entity_id": "m_61540b1b0d4a",
+              "native_id": "u5AozHAgAVw",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher adds lime juice to cooked loose sweet corn in the masala variant.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_61540b1b0d4a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/u5AozHAgAVw.json"
+              ]
+            },
+            {
+              "entity_id": "m_800e0b558196",
+              "native_id": "RQoR5aWNOi4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_800e0b558196.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RQoR5aWNOi4.json"
+              ]
+            },
+            {
+              "entity_id": "m_9b06fa6bcaa3",
+              "native_id": "bzb_sKagpxI",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native butter-sweet-corn recipe combines cooked kernels with lime juice and dressing; kernels form the side.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9b06fa6bcaa3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bzb_sKagpxI.json"
+              ]
+            },
+            {
+              "entity_id": "m_b59fab844d89",
+              "native_id": "_Z8I1b7TYU8",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Includes a tangy loose-corn variation with lime added in the dish; the other version is also compatible with the opening.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b59fab844d89.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_Z8I1b7TYU8.json"
+              ]
+            },
+            {
+              "entity_id": "m_034e20ed356b",
+              "native_id": "q1QEIP5N1jY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "An Esquites side recipe prepares the loose cooked corn separately and dresses it with lime.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_034e20ed356b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/q1QEIP5N1jY.json"
+              ]
+            },
+            {
+              "entity_id": "m_7c082079d845",
+              "native_id": "y_-fhIyZU0g",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native method provides an American sweet-corn variation combining buttered loose kernels and lime juice.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7c082079d845.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/y_-fhIyZU0g.json"
+              ]
+            },
+            {
+              "entity_id": "m_4d2dbded98f5",
+              "native_id": "3mIfsZT6wac",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher recipe for brown buttered kernels lists corn, butter and salt; no citrus.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4d2dbded98f5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3mIfsZT6wac.json"
+              ]
+            },
+            {
+              "entity_id": "m_19040019bf95",
+              "native_id": "cHEuJjny8c0",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native storyboard includes text and pictures for adding lemon juice directly to the bowl of loose kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_19040019bf95.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cHEuJjny8c0.json"
+              ]
+            },
+            {
+              "entity_id": "m_45c565d351b5",
+              "native_id": "DySxXHFTtnw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_45c565d351b5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DySxXHFTtnw.json"
+              ]
+            },
+            {
+              "entity_id": "m_aba55e0e386e",
+              "native_id": "NbhP8GOG_Is",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_aba55e0e386e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NbhP8GOG_Is.json"
+              ]
+            },
+            {
+              "entity_id": "m_d3604e17ad3e",
+              "native_id": "s0ncbPHtjrU",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Despite generic whole-cob description, the actual tutorial shows separated kernels sautéed in a pan and squeezes lemon juice directly into them at 73–74 s.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d3604e17ad3e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/s0ncbPHtjrU.json"
+              ]
+            },
+            {
+              "entity_id": "m_1030036c0be4",
+              "native_id": "h8Q3sKNleEU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1030036c0be4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/h8Q3sKNleEU.json"
+              ]
+            },
+            {
+              "entity_id": "m_034ae92001a0",
+              "native_id": "bQoi3UJMv4M",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The publisher's storyboard teaches cooked loose corn with butter, pepper and salt, then serves it. The description lists lime juice as optional, but does not give an addition step; no citrus addition is established by the available footage or captions.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_034ae92001a0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bQoi3UJMv4M.json",
+                "artifacts/reports/source-review-evidence/candidate-media-refresh-replace-2026110534/bqoi-citrus-closure.json"
+              ]
+            },
+            {
+              "entity_id": "m_684e4e5d4248",
+              "native_id": "gZY3PIKeEDg",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official visual shows cooked kernels tipped into a bowl; publisher specifies combining the kernels with lime juice, mayonnaise and cotija.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_684e4e5d4248.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/gZY3PIKeEDg.json"
+              ]
+            },
+            {
+              "entity_id": "m_60fb1d74c046",
+              "native_id": "J-NSaaLapdE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_60fb1d74c046.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/J-NSaaLapdE.json"
+              ]
+            },
+            {
+              "entity_id": "m_ee8a1a5ef674",
+              "native_id": "1S1b8PcZ6r8",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native method steams loose kernels and explicitly adds lemon or lime juice in the bowl.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ee8a1a5ef674.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1S1b8PcZ6r8.json"
+              ]
+            },
+            {
+              "entity_id": "m_24d9a25d262e",
+              "native_id": "Z-HRpcuobaA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_24d9a25d262e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Z-HRpcuobaA.json"
+              ]
+            },
+            {
+              "entity_id": "m_86e2001d8b75",
+              "native_id": "L9az0XrYZzI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_86e2001d8b75.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/L9az0XrYZzI.json"
+              ]
+            },
+            {
+              "entity_id": "m_42ea9416ba35",
+              "native_id": "OoM9d9_3o7I",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_42ea9416ba35.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/OoM9d9_3o7I.json"
+              ]
+            },
+            {
+              "entity_id": "m_716920bacccb",
+              "native_id": "cItC9Dh5_vY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native storyboard shows cut cob ribs deep-fried intact, not a loose-kernel side.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_716920bacccb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cItC9Dh5_vY.json"
+              ]
+            },
+            {
+              "entity_id": "m_3470d2139f95",
+              "native_id": "in-xOpNJk7w",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher tosses charred loose kernels in a lime vinaigrette; this is a corn-forward side and not just a wedge.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3470d2139f95.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/in-xOpNJk7w.json"
+              ]
+            },
+            {
+              "entity_id": "m_477f4d393fbc",
+              "native_id": "EiYesu9kaKA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_477f4d393fbc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/EiYesu9kaKA.json"
+              ]
+            },
+            {
+              "entity_id": "m_0ec5e6cf1bc2",
+              "native_id": "X3u-2u5ybtM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0ec5e6cf1bc2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/X3u-2u5ybtM.json"
+              ]
+            },
+            {
+              "entity_id": "m_5295262cd419",
+              "native_id": "x4NhQfISqew",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5295262cd419.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/x4NhQfISqew.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c5a6dad5a9b",
+              "native_id": "JPYibUMAvvk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c5a6dad5a9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/JPYibUMAvvk.json"
+              ]
+            },
+            {
+              "entity_id": "m_675679243716",
+              "native_id": "koOK4KAAVUI",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The corn sub-recipe is separately taught before plating with grains; storyboard visibly labels lime as it is added into the cooked kernels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_675679243716.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/koOK4KAAVUI.json"
+              ]
+            },
+            {
+              "entity_id": "m_e67b5fe4c0d7",
+              "native_id": "lAVNAzfXHTk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e67b5fe4c0d7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lAVNAzfXHTk.json"
+              ]
+            },
+            {
+              "entity_id": "m_b7b1a7844398",
+              "native_id": "6B_ntK83Jak",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher uses five cups fresh off-cob kernels and three tablespoons lime juice in the same corn side.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b7b1a7844398.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/6B_ntK83Jak.json"
+              ]
+            },
+            {
+              "entity_id": "m_a34acabd212c",
+              "native_id": "Kze0GRNlzbU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public tutorial shows a whole ear or intact cob pieces rather than a completed loose-kernel preparation; dressing the cob is not the same method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a34acabd212c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Kze0GRNlzbU.json"
+              ]
+            },
+            {
+              "entity_id": "m_8e8177956132",
+              "native_id": "OxK552Plvqk",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8e8177956132.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/OxK552Plvqk.json"
+              ]
+            },
+            {
+              "entity_id": "m_296accad5dc9",
+              "native_id": "E9H1ThQq9PA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_296accad5dc9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/E9H1ThQq9PA.json"
+              ]
+            },
+            {
+              "entity_id": "m_2193cd80755b",
+              "native_id": "F1eemNukdoc",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "The author’s Greek Street Corn Salad segment cuts off cooked kernels and mixes in fresh lemon juice (the public automatic caption at 7:44), consistent with the directly linked Allrecipes recipe.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2193cd80755b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/F1eemNukdoc.json"
+              ]
+            },
+            {
+              "entity_id": "m_54ceadcf727f",
+              "native_id": "MMannUSmHeg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_54ceadcf727f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/MMannUSmHeg.json"
+              ]
+            },
+            {
+              "entity_id": "m_4179ddf0c2e2",
+              "native_id": "UaMD9pS3tC8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4179ddf0c2e2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UaMD9pS3tC8.json"
+              ]
+            },
+            {
+              "entity_id": "m_91f0a4badb85",
+              "native_id": "nYlZxJaV4n0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_91f0a4badb85.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/nYlZxJaV4n0.json"
+              ]
+            },
+            {
+              "entity_id": "m_b5155ee17de7",
+              "native_id": "9Y7E_DB9tjM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b5155ee17de7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9Y7E_DB9tjM.json"
+              ]
+            },
+            {
+              "entity_id": "m_4ba3efbe9eab",
+              "native_id": "bg7DMtVp-6A",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_4ba3efbe9eab.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bg7DMtVp-6A.json"
+              ]
+            },
+            {
+              "entity_id": "m_b18d3c01fead",
+              "native_id": "0wk2CPNHW-M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Published segment uses spinach as the primary side ingredient, with a small amount of corn.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b18d3c01fead.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0wk2CPNHW-M.json"
+              ]
+            },
+            {
+              "entity_id": "m_37bcefa146ab",
+              "native_id": "G5zgbcTXmZg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The published recipe is a cheddar-and-cream slow-cooker corn casserole rather than the dressed loose-kernel side.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_37bcefa146ab.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G5zgbcTXmZg.json"
+              ]
+            },
+            {
+              "entity_id": "m_3237cfc0ae1f",
+              "native_id": "eiy8tSK95so",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3237cfc0ae1f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eiy8tSK95so.json"
+              ]
+            },
+            {
+              "entity_id": "m_effffe38c105",
+              "native_id": "RsZwEnM4dDQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_effffe38c105.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/RsZwEnM4dDQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_8029e810ba12",
+              "native_id": "lVcy8GDvvAw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8029e810ba12.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lVcy8GDvvAw.json"
+              ]
+            },
+            {
+              "entity_id": "m_7cbf6aac51f9",
+              "native_id": "fVajqrF62Sc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7cbf6aac51f9.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fVajqrF62Sc.json"
+              ]
+            },
+            {
+              "entity_id": "m_7f9ea36d69b6",
+              "native_id": "VGcvw1ptcqI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7f9ea36d69b6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/VGcvw1ptcqI.json"
+              ]
+            },
+            {
+              "entity_id": "m_a009175ac4a3",
+              "native_id": "gjRAHJphbxo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a009175ac4a3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/gjRAHJphbxo.json"
+              ]
+            },
+            {
+              "entity_id": "m_fa93890c4cdd",
+              "native_id": "a-Yu8qOAEYQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fa93890c4cdd.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/a-Yu8qOAEYQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_8345b58e34c2",
+              "native_id": "N0XxWza-32M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8345b58e34c2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/N0XxWza-32M.json"
+              ]
+            },
+            {
+              "entity_id": "m_04865a6cfa1a",
+              "native_id": "GSjhVMJtbgo",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_04865a6cfa1a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/GSjhVMJtbgo.json"
+              ]
+            },
+            {
+              "entity_id": "m_867d497b29ca",
+              "native_id": "UUrFfBkPAEA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native Esquites segment teaches pan-cooking loose kernels and dressing them in a bowl. Its published storyboard shows sauce additions but does not establish squeezing the nearby lime into the corn.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_867d497b29ca.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UUrFfBkPAEA.json"
+              ]
+            },
+            {
+              "entity_id": "m_f01f90f1c09e",
+              "native_id": "QSSaTUeO9C0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f01f90f1c09e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QSSaTUeO9C0.json"
+              ]
+            },
+            {
+              "entity_id": "m_0126513f3306",
+              "native_id": "QJVmr7HfTxc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0126513f3306.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QJVmr7HfTxc.json"
+              ]
+            },
+            {
+              "entity_id": "m_321bed72e9be",
+              "native_id": "3JYVKKb05LU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_321bed72e9be.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3JYVKKb05LU.json"
+              ]
+            },
+            {
+              "entity_id": "m_71c4082da6c1",
+              "native_id": "DHfGt0ypvRg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_71c4082da6c1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/DHfGt0ypvRg.json"
+              ]
+            },
+            {
+              "entity_id": "m_ddb01208ef81",
+              "native_id": "06Joz01YmEY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Corn is a minor addition to a seaweed and mixed-greens salad, not the main preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ddb01208ef81.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/06Joz01YmEY.json"
+              ]
+            },
+            {
+              "entity_id": "m_c6c741a3cd6c",
+              "native_id": "NZHbdR73Av8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c6c741a3cd6c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NZHbdR73Av8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ecc8d2228912",
+              "native_id": "qyqrcoRvzEg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ecc8d2228912.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qyqrcoRvzEg.json"
+              ]
+            },
+            {
+              "entity_id": "m_b75aa9a0c2c5",
+              "native_id": "V6MUHbGE5-A",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b75aa9a0c2c5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/V6MUHbGE5-A.json"
+              ]
+            },
+            {
+              "entity_id": "m_67a342a597f7",
+              "native_id": "bd6RamRe-LA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_67a342a597f7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bd6RamRe-LA.json"
+              ]
+            },
+            {
+              "entity_id": "m_9c60f8eea451",
+              "native_id": "3-oN59U1yvY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9c60f8eea451.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3-oN59U1yvY.json"
+              ]
+            },
+            {
+              "entity_id": "m_a4e107642ef5",
+              "native_id": "KGU-c2cUtqY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a4e107642ef5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KGU-c2cUtqY.json"
+              ]
+            },
+            {
+              "entity_id": "m_e85b5fba7e8a",
+              "native_id": "q7IDqkh-31M",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e85b5fba7e8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/q7IDqkh-31M.json"
+              ]
+            },
+            {
+              "entity_id": "m_80241394c716",
+              "native_id": "NebeZwQi3p8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_80241394c716.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NebeZwQi3p8.json"
+              ]
+            },
+            {
+              "entity_id": "m_49a079e9c8a5",
+              "native_id": "lgFmUpMDdbA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_49a079e9c8a5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lgFmUpMDdbA.json"
+              ]
+            },
+            {
+              "entity_id": "m_fbee5a8ce223",
+              "native_id": "oA6HnoqOXkI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fbee5a8ce223.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oA6HnoqOXkI.json"
+              ]
+            },
+            {
+              "entity_id": "m_ddcf47335813",
+              "native_id": "Qg-f6UeJc-A",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ddcf47335813.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Qg-f6UeJc-A.json"
+              ]
+            },
+            {
+              "entity_id": "m_ea11c3a2292f",
+              "native_id": "IC2aBooYBeA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ea11c3a2292f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IC2aBooYBeA.json"
+              ]
+            },
+            {
+              "entity_id": "m_bc0fc0ae41d5",
+              "native_id": "yNIr-Q4wcL4",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "One complete side recipe chars loose kernels, then mixes in lime juice and zest in the bowl.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bc0fc0ae41d5.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/yNIr-Q4wcL4.json"
+              ]
+            },
+            {
+              "entity_id": "m_43e146be8e28",
+              "native_id": "Ak5GEd2z1FI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_43e146be8e28.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Ak5GEd2z1FI.json"
+              ]
+            },
+            {
+              "entity_id": "m_cda68c475062",
+              "native_id": "b6JJzDNDni0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The public title, recipe description or chapter list is for another vegetable side and shows no matching loose-kernel corn preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cda68c475062.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/b6JJzDNDni0.json"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "summary",
+            "chapters",
+            "public_previews"
+          ],
+          "answer_boundary_rule": "Save one complete usable recipe, demonstrated variant, or clearly separated sub-recipe for a side whose main component is cooked loose sweet-corn kernels, with lime or lemon juice added to the corn. Merely showing a wedge alongside the food, flavoring an intact cob only, or mixing corn into a different main dish does not suffice. No particular cultivar, butter brand, cooking appliance or serving temperature is required."
+        }
+      }
+    }
+  ]
+}

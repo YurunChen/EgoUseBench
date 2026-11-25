@@ -1,0 +1,2945 @@
+{
+  "schema_version": 2,
+  "dataset": {
+    "name": "CaptainCook4D",
+    "source_root": "reference/sources/CaptainCook4D/clips-screened",
+    "video_pattern": "{media_id}.mp4",
+    "license_or_access_note": "Official CaptainCook4D research media. Annotations are author-only discovery evidence."
+  },
+  "tasks": [
+    {
+      "task_id": "candidate-media-refresh-replace-2026110540",
+      "source": {
+        "dataset": "CaptainCook4D",
+        "media_id": "28_50__400-554",
+        "original_video_id": "28_50",
+        "media_start_seconds": 400,
+        "source_video_path": "reference/sources/CaptainCook4D/clips-screened/28_50__400-554.mp4",
+        "source_acquisition": {
+          "dataset_entry": "reference/sources/CaptainCook4D/downloader/metadata/download_links.json::/28_50/gopro_360p",
+          "original_video_url": "https://utdallas.box.com/shared/static/9rdrcbpww7736aouqysl339wx1ppl4q0.mp4",
+          "acquired_continuous_interval_seconds": [
+            400,
+            554
+          ],
+          "canonical_group": "CaptainCook4D:28_50",
+          "acquisition": "Original GoPro 360p from official dataset link, FFmpeg input seek at 400 s; 154 seconds 640×360 H.264 video-only with source clock offset 400 s."
+        },
+        "record_ids": [
+          "28_50/434-523/provisional_tuna_and_visible_lettuce_preparation",
+          "28_50/524-545/tuna_in_whole_leaf"
+        ],
+        "observed_events": [
+          {
+            "interval_seconds": [
+              434,
+              456
+            ],
+            "description": "The wearer mixes a tuna preparation in a white bowl. The eventual carrier is not established."
+          },
+          {
+            "interval_seconds": [
+              457,
+              523
+            ],
+            "description": "The wearer brings out the lettuce, places intact leaves on a plate and prepares the same tuna mixture. No completed tuna-filled lettuce portion is established until the first transfer around 523.5 s."
+          },
+          {
+            "interval_seconds": [
+              524,
+              545
+            ],
+            "description": "The first sampled portion of the tuna mixture is on an individual intact lettuce leaf. The wearer spoons further portions from the same bowl into the leaves."
+          }
+        ]
+      },
+      "packets": [
+        {
+          "id": "V0",
+          "timestamps_seconds": [
+            434,
+            436,
+            441,
+            508
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110540/V0_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110540/V0_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110540/V0_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110540/V0_03.jpg"
+          ]
+        },
+        {
+          "id": "V1",
+          "timestamps_seconds": [
+            524,
+            528,
+            535,
+            542
+          ],
+          "frame_paths": [
+            "data/observations/candidate-media-refresh-replace-2026110540/V1_00.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110540/V1_01.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110540/V1_02.jpg",
+            "data/observations/candidate-media-refresh-replace-2026110540/V1_03.jpg"
+          ]
+        }
+      ],
+      "stream": {
+        "session_seconds": [
+          434.0,
+          545.0
+        ],
+        "review_evidence": "artifacts/reports/source-review-evidence/stream-windows/candidate-media-refresh-replace-2026110540/review.json"
+      },
+      "family": "refresh",
+      "subtype": "replace",
+      "status": "video_screened",
+      "supported_claims": [
+        {
+          "text": "The wearer is making a mixed tuna preparation in the white bowl, and no serving carrier has been established.",
+          "supported_by": [
+            "V0:0",
+            "V0:1",
+            "V0:2"
+          ]
+        },
+        {
+          "text": "The same tuna mixture is served inside the intact lettuce leaves as individual edible cups.",
+          "supported_by": [
+            "V1:0",
+            "V1:1",
+            "V1:2",
+            "V1:3"
+          ]
+        }
+      ],
+      "screening": {
+        "proposed_instruction": "Could you save a recipe video for what I'm making?",
+        "source_continuity": "Continuous [434.0, 545.0] seconds from one original recording."
+      },
+      "construct": {
+        "research_question": "Can the agent revise a provisional tutorial after seeing that the same filling is served in a physically different carrier?",
+        "belief_before": "The wearer mixes a tuna-salad preparation; it may be the complete standalone recipe.",
+        "belief_after": "The same mixture serves as filling for whole lettuce leaves set out as individual cups.",
+        "required_behavior_change": "Keep one tutorial that explains both the mixed tuna and using whole lettuce leaves as the carrier. Replace a plain salad-only selection if necessary; preserve a recipe that already teaches the lettuce-cup variation.",
+        "no_update_failure": "Keep a plain tuna salad recipe that never uses whole lettuce leaves as edible containers, or a recipe where lettuce is only shredded into a bowl.",
+        "overupdate_failure": "Drop a tutorial with a real compatible lettuce-cup variation or retain extra unrelated saved videos.",
+        "visual_dependency_claim": "The request names neither tuna nor lettuce. Only the same continuous scene connects the initial tuna mixture to the later lettuce cups.",
+        "divergence_source": "referent",
+        "event_origin": "observed",
+        "evidence_type": "procedure_stage",
+        "commitment_surface": "media_save",
+        "task_blueprint": {
+          "site": "egomedia",
+          "instruction": "Could you save a recipe video for what I'm making?",
+          "target_granularity": "category",
+          "initial_target_role": "provisional_item",
+          "final_target_role": "observed_item",
+          "environment_role_ids": {
+            "provisional_item": "m_7d0bb5d372c8",
+            "observed_item": "m_590dfa06731e"
+          },
+          "equivalent_role_ids": {
+            "provisional_item": [
+              "m_e4991101993c",
+              "m_47018b6688f2",
+              "m_5514c08af09e",
+              "m_2ce1af90fafb",
+              "m_a7a733297e32",
+              "m_eb87c441d4eb",
+              "m_f9c6e15ea97a",
+              "m_9dfd4b1d12e4",
+              "m_5b895a1eb10e",
+              "m_48289d5fea26",
+              "m_1606ff175e07",
+              "m_f500385c580f",
+              "m_98c15ebbccdc",
+              "m_b4653f03c517",
+              "m_13889bb36037",
+              "m_a57c2c42f932",
+              "m_5130ab8368eb",
+              "m_ca280d281f7c",
+              "m_7f5832dec4bc",
+              "m_906bd0ae7069",
+              "m_b04c06cdd2f7",
+              "m_1c2c39afc32d",
+              "m_f7b8edb9ca15",
+              "m_1ac8341a5511",
+              "m_3687dc75ec13",
+              "m_9e7dbe4d48c8",
+              "m_f62490a5c935",
+              "m_02469203ef72",
+              "m_fb336f037bd7",
+              "m_cf52386940d4",
+              "m_b75a19f593b3",
+              "m_ab86fce751c1",
+              "m_e8cb6e70c51a",
+              "m_56ab9a40a25d",
+              "m_bf1cbe186169",
+              "m_38b86c285d76",
+              "m_75711c10c574",
+              "m_535aadeb74ab",
+              "m_23562b297d06",
+              "m_8fca7164e94d",
+              "m_590dfa06731e",
+              "m_3c36129fa011",
+              "m_1ad3e4d445dc",
+              "m_e354e65cb768",
+              "m_8f9f4261ed30",
+              "m_7a5812b7a7cc",
+              "m_6cdf773052ba",
+              "m_1c0562155746",
+              "m_73380bc21cfa",
+              "m_28a37acb6b99",
+              "m_9a63995ab9ca",
+              "m_e162436533fe",
+              "m_46eec1446314",
+              "m_d452a562f8ce",
+              "m_cd63281e0397",
+              "m_748e75bc0ef1",
+              "m_37a2fc98e3a1",
+              "m_67c1eafe6db8",
+              "m_0a9a0225cefe",
+              "m_b0366d12a3b1",
+              "m_f636f5c469b1",
+              "m_1af5c67a0063",
+              "m_f85e1aaef30b",
+              "m_484266bf618b",
+              "m_0adda5106992",
+              "m_8162d93fad3b",
+              "m_10e3eaa6e2f1",
+              "m_427b7e004063",
+              "m_85086834190e",
+              "m_0704cc0477bc",
+              "m_32e27a6c254b",
+              "m_57769826b0fa",
+              "m_c3ab307296e0",
+              "m_55970eb75e9b"
+            ],
+            "observed_item": [
+              "m_e4991101993c",
+              "m_47018b6688f2",
+              "m_eb87c441d4eb",
+              "m_23562b297d06",
+              "m_8fca7164e94d",
+              "m_3c36129fa011",
+              "m_1ad3e4d445dc",
+              "m_e354e65cb768",
+              "m_8f9f4261ed30",
+              "m_6cdf773052ba",
+              "m_1c0562155746",
+              "m_73380bc21cfa",
+              "m_28a37acb6b99",
+              "m_9a63995ab9ca",
+              "m_d452a562f8ce",
+              "m_748e75bc0ef1",
+              "m_67c1eafe6db8",
+              "m_b0366d12a3b1",
+              "m_f85e1aaef30b",
+              "m_0adda5106992",
+              "m_38b86c285d76"
+            ]
+          }
+        },
+        "decision": {
+          "recording": "key_events",
+          "candidates": {
+            "old": "m_7d0bb5d372c8",
+            "new": "m_590dfa06731e"
+          },
+          "observed": [
+            {
+              "frame": "V0:0",
+              "live": [
+                "old"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "The tuna mixture is visible, but how it will be served is not established; a standalone mixed tuna salad recipe is a reasonable provisional match."
+            },
+            {
+              "frame": "V1:0",
+              "live": [
+                "new"
+              ],
+              "narrowed_by": "scene_appearance",
+              "why": "This frame is the first production sample after the mixture from the same bowl is placed into an intact lettuce leaf; the same batch confirms the leaf is the carrier, not a garnish."
+            }
+          ],
+          "established_by": "/root",
+          "established_at": "2026-11-05"
+        },
+        "catalog_resolution": {
+          "policy_version": "real-search-window-v1",
+          "query_rounds": [
+            {
+              "stage": "before_change",
+              "query": "easy canned tuna salad recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110540.json",
+              "snapshot_stage": "before_change",
+              "result_entity_ids": [
+                "m_7d0bb5d372c8",
+                "m_e4991101993c",
+                "m_47018b6688f2",
+                "m_5514c08af09e",
+                "m_2ce1af90fafb",
+                "m_a7a733297e32",
+                "m_eb87c441d4eb",
+                "m_f9c6e15ea97a",
+                "m_9dfd4b1d12e4",
+                "m_5b895a1eb10e",
+                "m_48289d5fea26",
+                "m_1606ff175e07",
+                "m_f500385c580f",
+                "m_98c15ebbccdc",
+                "m_b4653f03c517",
+                "m_13889bb36037",
+                "m_a57c2c42f932",
+                "m_5130ab8368eb",
+                "m_ca280d281f7c",
+                "m_7f5832dec4bc",
+                "m_906bd0ae7069",
+                "m_b04c06cdd2f7",
+                "m_1c2c39afc32d",
+                "m_f7b8edb9ca15",
+                "m_1ac8341a5511",
+                "m_3687dc75ec13",
+                "m_9e7dbe4d48c8",
+                "m_f62490a5c935",
+                "m_02469203ef72",
+                "m_fb336f037bd7",
+                "m_cf52386940d4",
+                "m_b75a19f593b3",
+                "m_ab86fce751c1",
+                "m_e8cb6e70c51a",
+                "m_56ab9a40a25d",
+                "m_1a7cae1fa6d8",
+                "m_bf1cbe186169",
+                "m_38b86c285d76",
+                "m_75711c10c574",
+                "m_535aadeb74ab"
+              ]
+            },
+            {
+              "stage": "after_change",
+              "query": "tuna salad lettuce wraps cups boats recipe",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110540.json",
+              "snapshot_stage": "after_change",
+              "result_entity_ids": [
+                "m_23562b297d06",
+                "m_8fca7164e94d",
+                "m_590dfa06731e",
+                "m_3c36129fa011",
+                "m_1ad3e4d445dc",
+                "m_e354e65cb768",
+                "m_8f9f4261ed30",
+                "m_7a5812b7a7cc",
+                "m_6cdf773052ba",
+                "m_1c0562155746",
+                "m_73380bc21cfa",
+                "m_28a37acb6b99",
+                "m_9a63995ab9ca",
+                "m_e162436533fe",
+                "m_72eb0ba541ec",
+                "m_46eec1446314",
+                "m_d452a562f8ce",
+                "m_cd63281e0397",
+                "m_d8adc01919bc",
+                "m_ed8d0bd1b04e",
+                "m_9f42d0020aec",
+                "m_5c1f26ddf4fc",
+                "m_748e75bc0ef1",
+                "m_37a2fc98e3a1",
+                "m_67c1eafe6db8",
+                "m_0a9a0225cefe",
+                "m_367071abbd26",
+                "m_b0366d12a3b1",
+                "m_a7a733297e32",
+                "m_f636f5c469b1",
+                "m_3a03ef22d7e3",
+                "m_1af5c67a0063",
+                "m_f85e1aaef30b",
+                "m_484266bf618b",
+                "m_09a28640c4a7",
+                "m_472f51a35bbb",
+                "m_0adda5106992",
+                "m_49763276cfea",
+                "m_cf52386940d4",
+                "m_3c18b46d6f9d"
+              ]
+            },
+            {
+              "stage": "broad_comparison",
+              "query": "easy canned tuna lunch recipes",
+              "provider": "youtube-search-v1",
+              "snapshot_path": "data/sources/search_snapshots/candidate-media-refresh-replace-2026110540.json",
+              "snapshot_stage": "broad_comparison",
+              "result_entity_ids": [
+                "m_5658d37fae8a",
+                "m_f500385c580f",
+                "m_8162d93fad3b",
+                "m_20bc365068ee",
+                "m_f9a641de930a",
+                "m_ce64576abb94",
+                "m_7d0bb5d372c8",
+                "m_62cf9e59afd2",
+                "m_a90bc11107e4",
+                "m_d25c16e552ff",
+                "m_2ce1af90fafb",
+                "m_10e3eaa6e2f1",
+                "m_427b7e004063",
+                "m_02f3b47bfa2d",
+                "m_e4991101993c",
+                "m_a7a733297e32",
+                "m_85086834190e",
+                "m_a421b549e298",
+                "m_574a8485115c",
+                "m_e84c2b5c0f8d",
+                "m_55970eb75e9b",
+                "m_0704cc0477bc",
+                "m_0a0c7eb3747d",
+                "m_e5c19c6e4fc6",
+                "m_c3c03a8e9156",
+                "m_1a7cae1fa6d8",
+                "m_457d2b0b74b2",
+                "m_0af712e7a11d",
+                "m_5e22695a97ec",
+                "m_32e27a6c254b",
+                "m_412b4b5fd332",
+                "m_70ad33bc1f28",
+                "m_1c04950d5a5d",
+                "m_7f5832dec4bc",
+                "m_3687dc75ec13",
+                "m_ca280d281f7c",
+                "m_719e991d557a",
+                "m_57769826b0fa",
+                "m_c3ab307296e0",
+                "m_48289d5fea26"
+              ]
+            }
+          ],
+          "window_entity_ids": [
+            "m_7d0bb5d372c8",
+            "m_e4991101993c",
+            "m_47018b6688f2",
+            "m_5514c08af09e",
+            "m_2ce1af90fafb",
+            "m_a7a733297e32",
+            "m_eb87c441d4eb",
+            "m_f9c6e15ea97a",
+            "m_9dfd4b1d12e4",
+            "m_5b895a1eb10e",
+            "m_48289d5fea26",
+            "m_1606ff175e07",
+            "m_f500385c580f",
+            "m_98c15ebbccdc",
+            "m_b4653f03c517",
+            "m_13889bb36037",
+            "m_a57c2c42f932",
+            "m_5130ab8368eb",
+            "m_ca280d281f7c",
+            "m_7f5832dec4bc",
+            "m_906bd0ae7069",
+            "m_b04c06cdd2f7",
+            "m_1c2c39afc32d",
+            "m_f7b8edb9ca15",
+            "m_1ac8341a5511",
+            "m_3687dc75ec13",
+            "m_9e7dbe4d48c8",
+            "m_f62490a5c935",
+            "m_02469203ef72",
+            "m_fb336f037bd7",
+            "m_cf52386940d4",
+            "m_b75a19f593b3",
+            "m_ab86fce751c1",
+            "m_e8cb6e70c51a",
+            "m_56ab9a40a25d",
+            "m_1a7cae1fa6d8",
+            "m_bf1cbe186169",
+            "m_38b86c285d76",
+            "m_75711c10c574",
+            "m_535aadeb74ab",
+            "m_23562b297d06",
+            "m_8fca7164e94d",
+            "m_590dfa06731e",
+            "m_3c36129fa011",
+            "m_1ad3e4d445dc",
+            "m_e354e65cb768",
+            "m_8f9f4261ed30",
+            "m_7a5812b7a7cc",
+            "m_6cdf773052ba",
+            "m_1c0562155746",
+            "m_73380bc21cfa",
+            "m_28a37acb6b99",
+            "m_9a63995ab9ca",
+            "m_e162436533fe",
+            "m_72eb0ba541ec",
+            "m_46eec1446314",
+            "m_d452a562f8ce",
+            "m_cd63281e0397",
+            "m_d8adc01919bc",
+            "m_ed8d0bd1b04e",
+            "m_9f42d0020aec",
+            "m_5c1f26ddf4fc",
+            "m_748e75bc0ef1",
+            "m_37a2fc98e3a1",
+            "m_67c1eafe6db8",
+            "m_0a9a0225cefe",
+            "m_367071abbd26",
+            "m_b0366d12a3b1",
+            "m_f636f5c469b1",
+            "m_3a03ef22d7e3",
+            "m_1af5c67a0063",
+            "m_f85e1aaef30b",
+            "m_484266bf618b",
+            "m_09a28640c4a7",
+            "m_472f51a35bbb",
+            "m_0adda5106992",
+            "m_49763276cfea",
+            "m_3c18b46d6f9d",
+            "m_5658d37fae8a",
+            "m_8162d93fad3b",
+            "m_20bc365068ee",
+            "m_f9a641de930a",
+            "m_ce64576abb94",
+            "m_62cf9e59afd2",
+            "m_a90bc11107e4",
+            "m_d25c16e552ff",
+            "m_10e3eaa6e2f1",
+            "m_427b7e004063",
+            "m_02f3b47bfa2d",
+            "m_85086834190e",
+            "m_a421b549e298",
+            "m_574a8485115c",
+            "m_e84c2b5c0f8d",
+            "m_55970eb75e9b",
+            "m_0704cc0477bc",
+            "m_0a0c7eb3747d",
+            "m_e5c19c6e4fc6",
+            "m_c3c03a8e9156",
+            "m_457d2b0b74b2",
+            "m_0af712e7a11d",
+            "m_5e22695a97ec",
+            "m_32e27a6c254b",
+            "m_412b4b5fd332",
+            "m_70ad33bc1f28",
+            "m_1c04950d5a5d",
+            "m_719e991d557a",
+            "m_57769826b0fa",
+            "m_c3ab307296e0"
+          ],
+          "core_neighbor_entity_ids": [
+            "m_7d0bb5d372c8",
+            "m_5514c08af09e",
+            "m_2ce1af90fafb",
+            "m_a7a733297e32",
+            "m_f9c6e15ea97a",
+            "m_9dfd4b1d12e4",
+            "m_5b895a1eb10e",
+            "m_48289d5fea26",
+            "m_1606ff175e07",
+            "m_f500385c580f",
+            "m_98c15ebbccdc",
+            "m_b4653f03c517",
+            "m_13889bb36037",
+            "m_a57c2c42f932",
+            "m_5130ab8368eb",
+            "m_ca280d281f7c",
+            "m_7f5832dec4bc",
+            "m_906bd0ae7069",
+            "m_b04c06cdd2f7",
+            "m_1c2c39afc32d",
+            "m_f7b8edb9ca15",
+            "m_1ac8341a5511",
+            "m_3687dc75ec13",
+            "m_9e7dbe4d48c8",
+            "m_f62490a5c935",
+            "m_02469203ef72",
+            "m_fb336f037bd7",
+            "m_cf52386940d4",
+            "m_b75a19f593b3",
+            "m_ab86fce751c1",
+            "m_e8cb6e70c51a",
+            "m_56ab9a40a25d",
+            "m_1a7cae1fa6d8",
+            "m_bf1cbe186169",
+            "m_75711c10c574",
+            "m_535aadeb74ab",
+            "m_7a5812b7a7cc",
+            "m_e162436533fe",
+            "m_72eb0ba541ec",
+            "m_46eec1446314",
+            "m_cd63281e0397",
+            "m_d8adc01919bc",
+            "m_ed8d0bd1b04e",
+            "m_9f42d0020aec",
+            "m_5c1f26ddf4fc",
+            "m_37a2fc98e3a1",
+            "m_0a9a0225cefe",
+            "m_367071abbd26",
+            "m_f636f5c469b1",
+            "m_3a03ef22d7e3",
+            "m_1af5c67a0063",
+            "m_484266bf618b",
+            "m_09a28640c4a7",
+            "m_472f51a35bbb",
+            "m_49763276cfea",
+            "m_3c18b46d6f9d",
+            "m_5658d37fae8a",
+            "m_8162d93fad3b",
+            "m_20bc365068ee",
+            "m_f9a641de930a",
+            "m_ce64576abb94",
+            "m_62cf9e59afd2",
+            "m_a90bc11107e4",
+            "m_d25c16e552ff",
+            "m_10e3eaa6e2f1",
+            "m_427b7e004063",
+            "m_02f3b47bfa2d",
+            "m_85086834190e",
+            "m_a421b549e298",
+            "m_574a8485115c",
+            "m_e84c2b5c0f8d",
+            "m_55970eb75e9b",
+            "m_0704cc0477bc",
+            "m_0a0c7eb3747d",
+            "m_e5c19c6e4fc6",
+            "m_c3c03a8e9156",
+            "m_457d2b0b74b2",
+            "m_0af712e7a11d",
+            "m_5e22695a97ec",
+            "m_32e27a6c254b",
+            "m_412b4b5fd332",
+            "m_70ad33bc1f28",
+            "m_1c04950d5a5d",
+            "m_719e991d557a",
+            "m_57769826b0fa",
+            "m_c3ab307296e0"
+          ],
+          "related_entity_ids": [],
+          "ambient_entity_ids": [],
+          "rejected": [
+            {
+              "entity_id": "m_7d0bb5d372c8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native recipe and storyboard show complete dressed tuna salad mixed in a bowl and served on toast, not in lettuce leaves.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7d0bb5d372c8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zAyvDHy7ntw.json"
+              ]
+            },
+            {
+              "entity_id": "m_5514c08af09e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native chapters teach mixing tuna salad but serve individual portions in tomato vessels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5514c08af09e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7yl4K979AHM.json"
+              ]
+            },
+            {
+              "entity_id": "m_2ce1af90fafb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “I Made 3 Tuna Salads (Classic, Spicy, No Mayo) | Allrecipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2ce1af90fafb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A-mSHMsR-EA.json"
+              ]
+            },
+            {
+              "entity_id": "m_a7a733297e32",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “How To Make Real New York Deli Tuna Salad + The Best Tuna Melt!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a7a733297e32.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4iH4cuFlaRk.json"
+              ]
+            },
+            {
+              "entity_id": "m_f9c6e15ea97a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher separately teaches deli-style canned tuna salad; its sandwiches use bread and shredded lettuce, not lettuce vessels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f9c6e15ea97a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dZLkmXCAK8w.json"
+              ]
+            },
+            {
+              "entity_id": "m_9dfd4b1d12e4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “TUNA SALAD » 4 Easy, Healthy & Tasty Recipes You Can Make in 10 Minutes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9dfd4b1d12e4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Rujd2fcuc_4.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b895a1eb10e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “The Best Easy Tuna Salad Recipe | Healthy Salad Recipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b895a1eb10e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XhgqPvTRm-w.json"
+              ]
+            },
+            {
+              "entity_id": "m_48289d5fea26",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “EASY TUNA SALAD RECIPE | Makes a mean tuna sandwich or tuna melt!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_48289d5fea26.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Kpj6Un6TXcQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_1606ff175e07",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Easy Tuna Salad Recipe” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1606ff175e07.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qXIUbBwGYB0.json"
+              ]
+            },
+            {
+              "entity_id": "m_f500385c580f",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The compilation includes a stand-alone tuna salad sandwich filling; the documented other segments do not fill lettuce leaves.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f500385c580f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/w7_MpFQ62kM.json"
+              ]
+            },
+            {
+              "entity_id": "m_98c15ebbccdc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Quick, Easy & Delicious: Tuna Salad Done Right!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_98c15ebbccdc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Z82JERwNPFE.json"
+              ]
+            },
+            {
+              "entity_id": "m_b4653f03c517",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “BEST HEALTHY TUNA SALAD | light, quick & easy” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b4653f03c517.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XpKqpoDMB3k.json"
+              ]
+            },
+            {
+              "entity_id": "m_13889bb36037",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “4 Tuna Salad For Weight Loss | Easy Tuna Recipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_13889bb36037.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/87yIddwqjzY.json"
+              ]
+            },
+            {
+              "entity_id": "m_a57c2c42f932",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “My ultimate TUNA SALAD recipe! | Salad Saturday” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a57c2c42f932.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/780RY4hr4Ro.json"
+              ]
+            },
+            {
+              "entity_id": "m_5130ab8368eb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “How to Turn \"Boring\" Canned Tuna Into a Gourmet Mediterranean Feast” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5130ab8368eb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xQk8Bhzpyaw.json"
+              ]
+            },
+            {
+              "entity_id": "m_ca280d281f7c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The original public chapters teach a usable tuna mixture through 0:43; pasta is added separately at 1:06. It is provisionally compatible but no complete leaf carrier is taught.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ca280d281f7c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bkqLma8z0xk.json"
+              ]
+            },
+            {
+              "entity_id": "m_7f5832dec4bc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Keto Tuna Salad | The BEST Easy Low Carb Tuna Salad Recipe You Can Make” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7f5832dec4bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CPdRUYA12p8.json"
+              ]
+            },
+            {
+              "entity_id": "m_906bd0ae7069",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “The Best Tuna Salad | A Fridge Must Have | Quarantine Cooking Week 3” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_906bd0ae7069.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9QPBqAyTsf8.json"
+              ]
+            },
+            {
+              "entity_id": "m_b04c06cdd2f7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “TUNA & CRACKERS elevated + Easy Canned Tuna Salad Recipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b04c06cdd2f7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G-Bl1UNWAfk.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c2c39afc32d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Make This Tuna Salad Once And You'll Be Making It Forever” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c2c39afc32d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/08SjUuqY0do.json"
+              ]
+            },
+            {
+              "entity_id": "m_f7b8edb9ca15",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native storyboard visibly mixes tuna and dressing with vegetables in a bowl and serves on a bread roll.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f7b8edb9ca15.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/aE_d0C3BsKE.json"
+              ]
+            },
+            {
+              "entity_id": "m_1ac8341a5511",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “EASY TUNA SALAD RECIPE 🐟 Gale Force Twins” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1ac8341a5511.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/52sE8gvIkP8.json"
+              ]
+            },
+            {
+              "entity_id": "m_3687dc75ec13",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Tuna Salad Quick and Easy” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3687dc75ec13.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T1VmpSK_OVY.json"
+              ]
+            },
+            {
+              "entity_id": "m_9e7dbe4d48c8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Easy Tuna Salad Without Celery or Eggs Recipe” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9e7dbe4d48c8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bZtq_HvikE8.json"
+              ]
+            },
+            {
+              "entity_id": "m_f62490a5c935",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “How to make Delicious TUNA SALAD! | Deddy's Kitchen” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f62490a5c935.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XWvae2lK9gI.json"
+              ]
+            },
+            {
+              "entity_id": "m_02469203ef72",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Quick & Easy Mexican TUNA SALAD Everyone Loves | Ensalada de Atún!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_02469203ef72.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UPHISuz9vks.json"
+              ]
+            },
+            {
+              "entity_id": "m_fb336f037bd7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “How to Make Tuna Salad | Summer Recipes | The Sweetest Journey” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fb336f037bd7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Yl30cSWgk8w.json"
+              ]
+            },
+            {
+              "entity_id": "m_cf52386940d4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The avocado and canned-tuna salad is dressed and tossed as its own dish; the presentation is not individual leaf vessels.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cf52386940d4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BMYzSFeJHxc.json"
+              ]
+            },
+            {
+              "entity_id": "m_b75a19f593b3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “How To Make Old Fashion Tuna Salad” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b75a19f593b3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NafXFrUJpjU.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab86fce751c1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Mediterranean Tuna Salad” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab86fce751c1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XcH7rQ-ThKA.json"
+              ]
+            },
+            {
+              "entity_id": "m_e8cb6e70c51a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Separate tuna-salad preparation and bagel serving; serving chapter does not establish a whole-leaf vessel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e8cb6e70c51a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7J3FjOw2CDA.json"
+              ]
+            },
+            {
+              "entity_id": "m_56ab9a40a25d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Tuna Salad with Greek Yogurt Recipe” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_56ab9a40a25d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iQi1WGFb7Zo.json"
+              ]
+            },
+            {
+              "entity_id": "m_1a7cae1fa6d8",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native chapters distinguish a rice bowl and a crouton salad. Official sampled Salad Time previews show vegetables layered on a green purée; no complete, independently mixed tuna salad or lettuce serving is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1a7cae1fa6d8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NlwOglGcANQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_bf1cbe186169",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “The SECRET Ingredient That Makes Tuna Salad Taste AMAZING!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bf1cbe186169.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fyC3OG_sJNE.json"
+              ]
+            },
+            {
+              "entity_id": "m_75711c10c574",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The video teaches a usable tuna salad before making a melt; bread is the carrier.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_75711c10c574.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/P-QvoK-lLVc.json"
+              ]
+            },
+            {
+              "entity_id": "m_535aadeb74ab",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The native tutorial “Easy Canned Tuna Salad” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_535aadeb74ab.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9YwMSC488mk.json"
+              ]
+            },
+            {
+              "entity_id": "m_7a5812b7a7cc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native steps prepare tuna and mix it with vegetables; the recipe is a tossed tuna salad, not clearly served inside whole lettuce leaves.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7a5812b7a7cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UkdNMOOcKJ4.json"
+              ]
+            },
+            {
+              "entity_id": "m_e162436533fe",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher gives a complete tuna salad mix but uses hollow cucumber and celery as boats; loose lettuce in the mixture is not the vessel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e162436533fe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1mZG9D6gs1M.json"
+              ]
+            },
+            {
+              "entity_id": "m_72eb0ba541ec",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Faux tuna is a plant substitute, not a tuna salad preparation.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_72eb0ba541ec.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XHtuwY0J_TQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_46eec1446314",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official preview shows the tuna-and-vegetable salad mixed separately, then used to fill hollow cucumber, not lettuce.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_46eec1446314.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bpbmFwmst8Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_cd63281e0397",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The creator links the method: a dressed tuna salad filling in a bowl and a pita or wheat tortilla carrier, with shredded lettuce as an ingredient.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cd63281e0397.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jL6lk4Hr9dE.json"
+              ]
+            },
+            {
+              "entity_id": "m_d8adc01919bc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches chickpea filling with no tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d8adc01919bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/I02j6UqQOR8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ed8d0bd1b04e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The published collection teaches chicken, vegetarian, shrimp and chicken-salad lettuce wraps, not tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ed8d0bd1b04e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ytoMjIeVgrY.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f42d0020aec",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches a generic lettuce-wrapping method, not how to make a tuna filling.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f42d0020aec.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/x0ON4YLvjAY.json"
+              ]
+            },
+            {
+              "entity_id": "m_5c1f26ddf4fc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Chicken is the main filling, not tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5c1f26ddf4fc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/y--GfPMXWI0.json"
+              ]
+            },
+            {
+              "entity_id": "m_37a2fc98e3a1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Storyboard shows mixing tuna and using hollow cucumber halves; the filling is applicable at the opening, but cucumber is not lettuce.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_37a2fc98e3a1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qqqCIV7GftE.json"
+              ]
+            },
+            {
+              "entity_id": "m_0a9a0225cefe",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official storyboard shows a separately mixed tuna filling with avocado and assembly on hollow cucumber halves, not lettuce.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0a9a0225cefe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Xo43qYgXBkc.json"
+              ]
+            },
+            {
+              "entity_id": "m_367071abbd26",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Buffalo chicken is the filling, not tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_367071abbd26.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_I0gmII7IqI.json"
+              ]
+            },
+            {
+              "entity_id": "m_f636f5c469b1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "MSU Extension publishes a complete mix-and-chill tuna-salad method without a whole-leaf serving step.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f636f5c469b1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Sk6wWscqH48.json"
+              ]
+            },
+            {
+              "entity_id": "m_3a03ef22d7e3",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches a tofu filling, not tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3a03ef22d7e3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/26tahPz8h9c.json"
+              ]
+            },
+            {
+              "entity_id": "m_1af5c67a0063",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher gives a complete dressed canned tuna salad; no use of intact lettuce as the serving vessel is established.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1af5c67a0063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AFBhUHP_cw0.json"
+              ]
+            },
+            {
+              "entity_id": "m_484266bf618b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher gives a complete avocado and tuna salad; sliced and chopped salad vegetables are ingredients, not lettuce cups.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_484266bf618b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ctNumjKJ_go.json"
+              ]
+            },
+            {
+              "entity_id": "m_09a28640c4a7",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Uses carrot-pulp faux tuna and no actual fish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_09a28640c4a7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/J92SFXaNd8E.json"
+              ]
+            },
+            {
+              "entity_id": "m_472f51a35bbb",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Egg salad is the filling, not tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_472f51a35bbb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QQveDkl2nMA.json"
+              ]
+            },
+            {
+              "entity_id": "m_49763276cfea",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Ground beef is the filling, not tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_49763276cfea.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hTZ3xqhAN1E.json"
+              ]
+            },
+            {
+              "entity_id": "m_3c18b46d6f9d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Salmon and noodles are the filling, not tuna.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3c18b46d6f9d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xsPSKGYntTI.json"
+              ]
+            },
+            {
+              "entity_id": "m_5658d37fae8a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Hot fried tuna and eggs dish, not a mixed tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5658d37fae8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YGFCNb2bqFw.json"
+              ]
+            },
+            {
+              "entity_id": "m_8162d93fad3b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Complete herb-and-dressed canned tuna salad variation; storyboard plates the mixture together, not portioned into edible lettuce cups.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8162d93fad3b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kOwkxV-LBc8.json"
+              ]
+            },
+            {
+              "entity_id": "m_20bc365068ee",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches a tuna, rice and egg preparation instead of a separately mixed tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_20bc365068ee.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cI_bdgPVhQI.json"
+              ]
+            },
+            {
+              "entity_id": "m_f9a641de930a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Published dishes are tuna rice, pancakes, rice balls, porridge and noodles; no stand-alone tuna salad recipe.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f9a641de930a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XxSBlgrz_bE.json"
+              ]
+            },
+            {
+              "entity_id": "m_ce64576abb94",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Sizzling hot tuna sisig, not a cold separately mixed salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ce64576abb94.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qrwMC_5NN4A.json"
+              ]
+            },
+            {
+              "entity_id": "m_62cf9e59afd2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Cooked egg-and-tuna dish, not tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_62cf9e59afd2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lC9Sj5KTLW4.json"
+              ]
+            },
+            {
+              "entity_id": "m_a90bc11107e4",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches formed and cooked tuna patties, not a ready mixed tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a90bc11107e4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IUqAkha62pg.json"
+              ]
+            },
+            {
+              "entity_id": "m_d25c16e552ff",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches cooked tuna patties rather than tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d25c16e552ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zDcM9DfXEy0.json"
+              ]
+            },
+            {
+              "entity_id": "m_10e3eaa6e2f1",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The compilation visibly includes a canned tuna, onion and mayo salad prepared independently as a sandwich filling.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_10e3eaa6e2f1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FdXKcMC2IpU.json"
+              ]
+            },
+            {
+              "entity_id": "m_427b7e004063",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Official storyboard for the 8:24 tuna-melt segment shows complete tuna filling prepared in a mixing bowl before it is spooned onto bread.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_427b7e004063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/n80OeAJnoBE.json"
+              ]
+            },
+            {
+              "entity_id": "m_02f3b47bfa2d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches a cabbage-and-tuna dinner preparation, not a separate tuna salad filling.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_02f3b47bfa2d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Pg6rl26h5E0.json"
+              ]
+            },
+            {
+              "entity_id": "m_85086834190e",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The compilation includes a complete Barbie’s Tuna Salad segment, without an established whole-leaf vessel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_85086834190e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0g6UqEACPaw.json"
+              ]
+            },
+            {
+              "entity_id": "m_a421b549e298",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native chapters show salmon frittata, sardine salad, clam toast and tuna chowder; no tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a421b549e298.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kd2271nZRaU.json"
+              ]
+            },
+            {
+              "entity_id": "m_574a8485115c",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Broccoli, eggs and tuna are cooked as a different main dish.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_574a8485115c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jE6Tg7nsoDs.json"
+              ]
+            },
+            {
+              "entity_id": "m_e84c2b5c0f8d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Tuna, eggs and cheese are baked in a tortilla, not prepared as tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e84c2b5c0f8d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rfv1icQuF5I.json"
+              ]
+            },
+            {
+              "entity_id": "m_55970eb75e9b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The 15:20 chapter of the original video teaches a complete mixed tuna filling, then serves it in a soft bread bun with provolone. Native captions and storyboard confirm the bun and show no separate whole-lettuce-leaf serving method.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_55970eb75e9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iFzHfpBilD0.json"
+              ]
+            },
+            {
+              "entity_id": "m_0704cc0477bc",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Separate native Tuna Salad chapter covers the preparation before it is used in a sandwich or melt.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0704cc0477bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iBLb0C3bkYs.json"
+              ]
+            },
+            {
+              "entity_id": "m_0a0c7eb3747d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches formed tuna meatballs with sauce rather than tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0a0c7eb3747d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ICtLtcgld6w.json"
+              ]
+            },
+            {
+              "entity_id": "m_e5c19c6e4fc6",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Tuna is cooked as a pasta dish rather than a standalone tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e5c19c6e4fc6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8G-ZxTjD7Zc.json"
+              ]
+            },
+            {
+              "entity_id": "m_c3c03a8e9156",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Tuna curry, not tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c3c03a8e9156.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xCEYHHxQyFE.json"
+              ]
+            },
+            {
+              "entity_id": "m_457d2b0b74b2",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Tuna kimchi stew, not tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_457d2b0b74b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3EeQR3D5Ks0.json"
+              ]
+            },
+            {
+              "entity_id": "m_0af712e7a11d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Teaches a hot tuna accompaniment for rice, roti or bread, not tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0af712e7a11d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZhPD8SvVqb8.json"
+              ]
+            },
+            {
+              "entity_id": "m_5e22695a97ec",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native chapter explicitly stir-fries the canned tuna rather than demonstrating a salad filling.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5e22695a97ec.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eUg1Wch_AW8.json"
+              ]
+            },
+            {
+              "entity_id": "m_32e27a6c254b",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Publisher teaches complete dressed tuna and chickpea salad; beans do not disqualify an opening recipe, but there is no lettuce vessel.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_32e27a6c254b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3RzaLjKPYuM.json"
+              ]
+            },
+            {
+              "entity_id": "m_412b4b5fd332",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Cooked potato and tuna dish, not tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_412b4b5fd332.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CUidisY74ns.json"
+              ]
+            },
+            {
+              "entity_id": "m_70ad33bc1f28",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Cooked tuna and egg dish, not a separate tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_70ad33bc1f28.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hn8AP_4_5vI.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c04950d5a5d",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "The three native recipes are kimchi stew, tuna pancakes, and a rice-based tuna mayo bowl, without a separately served tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c04950d5a5d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZZZOpRs0OOM.json"
+              ]
+            },
+            {
+              "entity_id": "m_719e991d557a",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Stir-fries canned tuna to serve on rice, not a separate tuna salad.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_719e991d557a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dJJohJ-mmhQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_57769826b0fa",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native tuna-salad section mixes a complete tuna preparation separately among otherwise unrelated tuna recipes.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57769826b0fa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qS7o7WORiB8.json"
+              ]
+            },
+            {
+              "entity_id": "m_c3ab307296e0",
+              "ring": "core",
+              "why_plausible": "Genuine public result from one of the complete search windows.",
+              "reason": "Native chapters teach preparing and chilling the tuna mixture before building a bread sandwich; historical reference to lettuce is not a leaf carrier.",
+              "failure_predicates": [
+                "scene_evidence_mismatch"
+              ],
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c3ab307296e0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Vdusxq0SOmc.json"
+              ]
+            }
+          ],
+          "candidate_matrix": [
+            {
+              "entity_id": "m_7d0bb5d372c8",
+              "native_id": "zAyvDHy7ntw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native recipe and storyboard show complete dressed tuna salad mixed in a bowl and served on toast, not in lettuce leaves.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7d0bb5d372c8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zAyvDHy7ntw.json"
+              ]
+            },
+            {
+              "entity_id": "m_e4991101993c",
+              "native_id": "XmUBTpA68F0",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher teaches a complete bowl tuna salad and explicitly offers wrapping it in lettuce as one way to serve.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e4991101993c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XmUBTpA68F0.json"
+              ]
+            },
+            {
+              "entity_id": "m_47018b6688f2",
+              "native_id": "v_nzYbug3G0",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher teaches an albacore salad and specifies serving it in lettuce cups, independently of the cracker option.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_47018b6688f2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/v_nzYbug3G0.json"
+              ]
+            },
+            {
+              "entity_id": "m_5514c08af09e",
+              "native_id": "7yl4K979AHM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native chapters teach mixing tuna salad but serve individual portions in tomato vessels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5514c08af09e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7yl4K979AHM.json"
+              ]
+            },
+            {
+              "entity_id": "m_2ce1af90fafb",
+              "native_id": "A-mSHMsR-EA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “I Made 3 Tuna Salads (Classic, Spicy, No Mayo) | Allrecipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_2ce1af90fafb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/A-mSHMsR-EA.json"
+              ]
+            },
+            {
+              "entity_id": "m_a7a733297e32",
+              "native_id": "4iH4cuFlaRk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “How To Make Real New York Deli Tuna Salad + The Best Tuna Melt!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a7a733297e32.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/4iH4cuFlaRk.json"
+              ]
+            },
+            {
+              "entity_id": "m_eb87c441d4eb",
+              "native_id": "oWLNzzGUf8Q",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher gives complete tuna mixing instructions and teaches a lettuce cup as a serving option.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_eb87c441d4eb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oWLNzzGUf8Q.json"
+              ]
+            },
+            {
+              "entity_id": "m_f9c6e15ea97a",
+              "native_id": "dZLkmXCAK8w",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher separately teaches deli-style canned tuna salad; its sandwiches use bread and shredded lettuce, not lettuce vessels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f9c6e15ea97a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dZLkmXCAK8w.json"
+              ]
+            },
+            {
+              "entity_id": "m_9dfd4b1d12e4",
+              "native_id": "Rujd2fcuc_4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “TUNA SALAD » 4 Easy, Healthy & Tasty Recipes You Can Make in 10 Minutes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9dfd4b1d12e4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Rujd2fcuc_4.json"
+              ]
+            },
+            {
+              "entity_id": "m_5b895a1eb10e",
+              "native_id": "XhgqPvTRm-w",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “The Best Easy Tuna Salad Recipe | Healthy Salad Recipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5b895a1eb10e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XhgqPvTRm-w.json"
+              ]
+            },
+            {
+              "entity_id": "m_48289d5fea26",
+              "native_id": "Kpj6Un6TXcQ",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “EASY TUNA SALAD RECIPE | Makes a mean tuna sandwich or tuna melt!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_48289d5fea26.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Kpj6Un6TXcQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_1606ff175e07",
+              "native_id": "qXIUbBwGYB0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Easy Tuna Salad Recipe” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1606ff175e07.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qXIUbBwGYB0.json"
+              ]
+            },
+            {
+              "entity_id": "m_f500385c580f",
+              "native_id": "w7_MpFQ62kM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The compilation includes a stand-alone tuna salad sandwich filling; the documented other segments do not fill lettuce leaves.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f500385c580f.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/w7_MpFQ62kM.json"
+              ]
+            },
+            {
+              "entity_id": "m_98c15ebbccdc",
+              "native_id": "Z82JERwNPFE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Quick, Easy & Delicious: Tuna Salad Done Right!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_98c15ebbccdc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Z82JERwNPFE.json"
+              ]
+            },
+            {
+              "entity_id": "m_b4653f03c517",
+              "native_id": "XpKqpoDMB3k",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “BEST HEALTHY TUNA SALAD | light, quick & easy” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b4653f03c517.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XpKqpoDMB3k.json"
+              ]
+            },
+            {
+              "entity_id": "m_13889bb36037",
+              "native_id": "87yIddwqjzY",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “4 Tuna Salad For Weight Loss | Easy Tuna Recipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_13889bb36037.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/87yIddwqjzY.json"
+              ]
+            },
+            {
+              "entity_id": "m_a57c2c42f932",
+              "native_id": "780RY4hr4Ro",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “My ultimate TUNA SALAD recipe! | Salad Saturday” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a57c2c42f932.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/780RY4hr4Ro.json"
+              ]
+            },
+            {
+              "entity_id": "m_5130ab8368eb",
+              "native_id": "xQk8Bhzpyaw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “How to Turn \"Boring\" Canned Tuna Into a Gourmet Mediterranean Feast” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5130ab8368eb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xQk8Bhzpyaw.json"
+              ]
+            },
+            {
+              "entity_id": "m_ca280d281f7c",
+              "native_id": "bkqLma8z0xk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The original public chapters teach a usable tuna mixture through 0:43; pasta is added separately at 1:06. It is provisionally compatible but no complete leaf carrier is taught.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ca280d281f7c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bkqLma8z0xk.json"
+              ]
+            },
+            {
+              "entity_id": "m_7f5832dec4bc",
+              "native_id": "CPdRUYA12p8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Keto Tuna Salad | The BEST Easy Low Carb Tuna Salad Recipe You Can Make” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7f5832dec4bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CPdRUYA12p8.json"
+              ]
+            },
+            {
+              "entity_id": "m_906bd0ae7069",
+              "native_id": "9QPBqAyTsf8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “The Best Tuna Salad | A Fridge Must Have | Quarantine Cooking Week 3” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_906bd0ae7069.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9QPBqAyTsf8.json"
+              ]
+            },
+            {
+              "entity_id": "m_b04c06cdd2f7",
+              "native_id": "G-Bl1UNWAfk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “TUNA & CRACKERS elevated + Easy Canned Tuna Salad Recipes” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b04c06cdd2f7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/G-Bl1UNWAfk.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c2c39afc32d",
+              "native_id": "08SjUuqY0do",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Make This Tuna Salad Once And You'll Be Making It Forever” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c2c39afc32d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/08SjUuqY0do.json"
+              ]
+            },
+            {
+              "entity_id": "m_f7b8edb9ca15",
+              "native_id": "aE_d0C3BsKE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native storyboard visibly mixes tuna and dressing with vegetables in a bowl and serves on a bread roll.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f7b8edb9ca15.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/aE_d0C3BsKE.json"
+              ]
+            },
+            {
+              "entity_id": "m_1ac8341a5511",
+              "native_id": "52sE8gvIkP8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “EASY TUNA SALAD RECIPE 🐟 Gale Force Twins” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1ac8341a5511.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/52sE8gvIkP8.json"
+              ]
+            },
+            {
+              "entity_id": "m_3687dc75ec13",
+              "native_id": "T1VmpSK_OVY",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Tuna Salad Quick and Easy” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3687dc75ec13.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/T1VmpSK_OVY.json"
+              ]
+            },
+            {
+              "entity_id": "m_9e7dbe4d48c8",
+              "native_id": "bZtq_HvikE8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Easy Tuna Salad Without Celery or Eggs Recipe” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9e7dbe4d48c8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bZtq_HvikE8.json"
+              ]
+            },
+            {
+              "entity_id": "m_f62490a5c935",
+              "native_id": "XWvae2lK9gI",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “How to make Delicious TUNA SALAD! | Deddy's Kitchen” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f62490a5c935.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XWvae2lK9gI.json"
+              ]
+            },
+            {
+              "entity_id": "m_02469203ef72",
+              "native_id": "UPHISuz9vks",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Quick & Easy Mexican TUNA SALAD Everyone Loves | Ensalada de Atún!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_02469203ef72.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UPHISuz9vks.json"
+              ]
+            },
+            {
+              "entity_id": "m_fb336f037bd7",
+              "native_id": "Yl30cSWgk8w",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “How to Make Tuna Salad | Summer Recipes | The Sweetest Journey” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_fb336f037bd7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Yl30cSWgk8w.json"
+              ]
+            },
+            {
+              "entity_id": "m_cf52386940d4",
+              "native_id": "BMYzSFeJHxc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The avocado and canned-tuna salad is dressed and tossed as its own dish; the presentation is not individual leaf vessels.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cf52386940d4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BMYzSFeJHxc.json"
+              ]
+            },
+            {
+              "entity_id": "m_b75a19f593b3",
+              "native_id": "NafXFrUJpjU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “How To Make Old Fashion Tuna Salad” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b75a19f593b3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NafXFrUJpjU.json"
+              ]
+            },
+            {
+              "entity_id": "m_ab86fce751c1",
+              "native_id": "XcH7rQ-ThKA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Mediterranean Tuna Salad” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ab86fce751c1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XcH7rQ-ThKA.json"
+              ]
+            },
+            {
+              "entity_id": "m_e8cb6e70c51a",
+              "native_id": "7J3FjOw2CDA",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Separate tuna-salad preparation and bagel serving; serving chapter does not establish a whole-leaf vessel.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e8cb6e70c51a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/7J3FjOw2CDA.json"
+              ]
+            },
+            {
+              "entity_id": "m_56ab9a40a25d",
+              "native_id": "iQi1WGFb7Zo",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Tuna Salad with Greek Yogurt Recipe” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_56ab9a40a25d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iQi1WGFb7Zo.json"
+              ]
+            },
+            {
+              "entity_id": "m_1a7cae1fa6d8",
+              "native_id": "NlwOglGcANQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native chapters distinguish a rice bowl and a crouton salad. Official sampled Salad Time previews show vegetables layered on a green purée; no complete, independently mixed tuna salad or lettuce serving is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1a7cae1fa6d8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NlwOglGcANQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_bf1cbe186169",
+              "native_id": "fyC3OG_sJNE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “The SECRET Ingredient That Makes Tuna Salad Taste AMAZING!” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_bf1cbe186169.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/fyC3OG_sJNE.json"
+              ]
+            },
+            {
+              "entity_id": "m_38b86c285d76",
+              "native_id": "aVcPVruFjNs",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "At 4:52–5:39 the original tutorial portions its mixed canned-tuna salad onto intact butterleaf and teaches rolling a leaf into an edible taco. The toasted baguette is served separately, and the pasta and other mix-ins do not change the intact-leaf serving method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_38b86c285d76.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/aVcPVruFjNs.json",
+                "artifacts/reports/source-review-evidence/candidate-media-refresh-replace-2026110540/native-adversarial-review.json"
+              ]
+            },
+            {
+              "entity_id": "m_75711c10c574",
+              "native_id": "P-QvoK-lLVc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The video teaches a usable tuna salad before making a melt; bread is the carrier.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_75711c10c574.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/P-QvoK-lLVc.json"
+              ]
+            },
+            {
+              "entity_id": "m_535aadeb74ab",
+              "native_id": "9YwMSC488mk",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The native tutorial “Easy Canned Tuna Salad” teaches a complete tuna-salad preparation; no intact leaf carrier is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_535aadeb74ab.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/9YwMSC488mk.json"
+              ]
+            },
+            {
+              "entity_id": "m_23562b297d06",
+              "native_id": "lr14v3t0v0Y",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher explicitly cooks its tuna salad variation and links the avocado tuna salad lettuce-wrap method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_23562b297d06.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lr14v3t0v0Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_8fca7164e94d",
+              "native_id": "Qeh60xL70DY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher teaches a no-flour lettuce wrap filled with canned tuna, relish, onion, lemon, mayo and seasonings.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8fca7164e94d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Qeh60xL70DY.json"
+              ]
+            },
+            {
+              "entity_id": "m_590dfa06731e",
+              "native_id": "cAtdhfU8Ux4",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "First-party preview and matching written recipe show a bowl-mixed canned tuna salad portioned into whole butter lettuce leaves.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_590dfa06731e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cAtdhfU8Ux4.json"
+              ]
+            },
+            {
+              "entity_id": "m_3c36129fa011",
+              "native_id": "KF5Bw-EzY5M",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher teaches a complete canned tuna, Dijon and pickle filling placed in lettuce; mayo-free variant counts.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3c36129fa011.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/KF5Bw-EzY5M.json"
+              ]
+            },
+            {
+              "entity_id": "m_1ad3e4d445dc",
+              "native_id": "oXB79Y7l9yQ",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Published ingredients and method make tuna salad in a bowl; official preview shows spooning it onto whole lettuce.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1ad3e4d445dc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/oXB79Y7l9yQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_e354e65cb768",
+              "native_id": "vfMMIIM5tWo",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher gives bowl mixing and a separate low-carb leaf-only boat variant in addition to the wheat-wrap version.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e354e65cb768.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/vfMMIIM5tWo.json"
+              ]
+            },
+            {
+              "entity_id": "m_8f9f4261ed30",
+              "native_id": "13RglF_fXmo",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native targeted preview shows a bowl-mixed tuna filling spooned along whole lettuce leaves and the finished cups.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8f9f4261ed30.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/13RglF_fXmo.json"
+              ]
+            },
+            {
+              "entity_id": "m_7a5812b7a7cc",
+              "native_id": "UkdNMOOcKJ4",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native steps prepare tuna and mix it with vegetables; the recipe is a tossed tuna salad, not clearly served inside whole lettuce leaves.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_7a5812b7a7cc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/UkdNMOOcKJ4.json"
+              ]
+            },
+            {
+              "entity_id": "m_6cdf773052ba",
+              "native_id": "NmMISFDlh10",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher provides a complete mixed tuna salad recipe and explicitly instructs making Bibb lettuce boats.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_6cdf773052ba.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/NmMISFDlh10.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c0562155746",
+              "native_id": "PKPqyK46KlU",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Public recipe gives canned tuna salad ingredients and uses romaine leaves as the wrap; other serving options do not disqualify it.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c0562155746.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/PKPqyK46KlU.json"
+              ]
+            },
+            {
+              "entity_id": "m_73380bc21cfa",
+              "native_id": "ixHNEElpb58",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "First-party storyboard shows mixing seasoned tuna in a bowl, spooning it into individual leaves, and the finished cups.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_73380bc21cfa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ixHNEElpb58.json"
+              ]
+            },
+            {
+              "entity_id": "m_28a37acb6b99",
+              "native_id": "maW4bKRuwBM",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official Santa Monica Seafood storyboard visibly mixes seasoned albacore in a bowl and fills individual romaine leaves.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_28a37acb6b99.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/maW4bKRuwBM.json"
+              ]
+            },
+            {
+              "entity_id": "m_9a63995ab9ca",
+              "native_id": "BYOK3BG8kjY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Public instructions say to dress whole cos lettuce leaves and fill them with the seasoned tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9a63995ab9ca.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/BYOK3BG8kjY.json"
+              ]
+            },
+            {
+              "entity_id": "m_e162436533fe",
+              "native_id": "1mZG9D6gs1M",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher gives a complete tuna salad mix but uses hollow cucumber and celery as boats; loose lettuce in the mixture is not the vessel.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e162436533fe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1mZG9D6gs1M.json"
+              ]
+            },
+            {
+              "entity_id": "m_72eb0ba541ec",
+              "native_id": "XHtuwY0J_TQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Faux tuna is a plant substitute, not a tuna salad preparation.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_72eb0ba541ec.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XHtuwY0J_TQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_46eec1446314",
+              "native_id": "bpbmFwmst8Y",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official preview shows the tuna-and-vegetable salad mixed separately, then used to fill hollow cucumber, not lettuce.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_46eec1446314.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/bpbmFwmst8Y.json"
+              ]
+            },
+            {
+              "entity_id": "m_d452a562f8ce",
+              "native_id": "eN21vBf9ku8",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Official preview shows the mixed tuna mixture put into individual leafy cups.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d452a562f8ce.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eN21vBf9ku8.json"
+              ]
+            },
+            {
+              "entity_id": "m_cd63281e0397",
+              "native_id": "jL6lk4Hr9dE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The creator links the method: a dressed tuna salad filling in a bowl and a pita or wheat tortilla carrier, with shredded lettuce as an ingredient.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_cd63281e0397.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jL6lk4Hr9dE.json"
+              ]
+            },
+            {
+              "entity_id": "m_d8adc01919bc",
+              "native_id": "I02j6UqQOR8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches chickpea filling with no tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d8adc01919bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/I02j6UqQOR8.json"
+              ]
+            },
+            {
+              "entity_id": "m_ed8d0bd1b04e",
+              "native_id": "ytoMjIeVgrY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The published collection teaches chicken, vegetarian, shrimp and chicken-salad lettuce wraps, not tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ed8d0bd1b04e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ytoMjIeVgrY.json"
+              ]
+            },
+            {
+              "entity_id": "m_9f42d0020aec",
+              "native_id": "x0ON4YLvjAY",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches a generic lettuce-wrapping method, not how to make a tuna filling.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_9f42d0020aec.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/x0ON4YLvjAY.json"
+              ]
+            },
+            {
+              "entity_id": "m_5c1f26ddf4fc",
+              "native_id": "y--GfPMXWI0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Chicken is the main filling, not tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5c1f26ddf4fc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/y--GfPMXWI0.json"
+              ]
+            },
+            {
+              "entity_id": "m_748e75bc0ef1",
+              "native_id": "E7nL-GVvakM",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Native chapters teach a dressed canned tuna mixture and show the lettuce-cup serving option.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_748e75bc0ef1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/E7nL-GVvakM.json"
+              ]
+            },
+            {
+              "entity_id": "m_37a2fc98e3a1",
+              "native_id": "qqqCIV7GftE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Storyboard shows mixing tuna and using hollow cucumber halves; the filling is applicable at the opening, but cucumber is not lettuce.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_37a2fc98e3a1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qqqCIV7GftE.json"
+              ]
+            },
+            {
+              "entity_id": "m_67c1eafe6db8",
+              "native_id": "pASVPL1g9A8",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Public recipe explicitly mixes canned tuna and gives a whole-lettuce-leaf serving alternative.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_67c1eafe6db8.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/pASVPL1g9A8.json"
+              ]
+            },
+            {
+              "entity_id": "m_0a9a0225cefe",
+              "native_id": "Xo43qYgXBkc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official storyboard shows a separately mixed tuna filling with avocado and assembly on hollow cucumber halves, not lettuce.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0a9a0225cefe.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Xo43qYgXBkc.json"
+              ]
+            },
+            {
+              "entity_id": "m_367071abbd26",
+              "native_id": "_I0gmII7IqI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Buffalo chicken is the filling, not tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_367071abbd26.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/_I0gmII7IqI.json"
+              ]
+            },
+            {
+              "entity_id": "m_b0366d12a3b1",
+              "native_id": "1Mgy1EVDGMg",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "It is a canned albacore and mayonnaise preparation despite the ceviche title. Written method offers lettuce wraps, and preview demonstrates individual endive boats.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_b0366d12a3b1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/1Mgy1EVDGMg.json"
+              ]
+            },
+            {
+              "entity_id": "m_f636f5c469b1",
+              "native_id": "Sk6wWscqH48",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "MSU Extension publishes a complete mix-and-chill tuna-salad method without a whole-leaf serving step.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f636f5c469b1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Sk6wWscqH48.json"
+              ]
+            },
+            {
+              "entity_id": "m_3a03ef22d7e3",
+              "native_id": "26tahPz8h9c",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches a tofu filling, not tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3a03ef22d7e3.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/26tahPz8h9c.json"
+              ]
+            },
+            {
+              "entity_id": "m_1af5c67a0063",
+              "native_id": "AFBhUHP_cw0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher gives a complete dressed canned tuna salad; no use of intact lettuce as the serving vessel is established.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1af5c67a0063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/AFBhUHP_cw0.json"
+              ]
+            },
+            {
+              "entity_id": "m_f85e1aaef30b",
+              "native_id": "SKRjd7TyGPY",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Public preview resolves the ambiguous serving description: finished tuna portions are visibly served in whole lettuce cups.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f85e1aaef30b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/SKRjd7TyGPY.json"
+              ]
+            },
+            {
+              "entity_id": "m_484266bf618b",
+              "native_id": "ctNumjKJ_go",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher gives a complete avocado and tuna salad; sliced and chopped salad vegetables are ingredients, not lettuce cups.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_484266bf618b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ctNumjKJ_go.json"
+              ]
+            },
+            {
+              "entity_id": "m_09a28640c4a7",
+              "native_id": "J92SFXaNd8E",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Uses carrot-pulp faux tuna and no actual fish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_09a28640c4a7.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/J92SFXaNd8E.json"
+              ]
+            },
+            {
+              "entity_id": "m_472f51a35bbb",
+              "native_id": "QQveDkl2nMA",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Egg salad is the filling, not tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_472f51a35bbb.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/QQveDkl2nMA.json"
+              ]
+            },
+            {
+              "entity_id": "m_0adda5106992",
+              "native_id": "hIiAoMDMM9o",
+              "initial": "accepted",
+              "final": "accepted",
+              "reason": "Publisher describes making tuna salad and serving it in individual romaine leaves; apple slices are a side.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0adda5106992.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hIiAoMDMM9o.json"
+              ]
+            },
+            {
+              "entity_id": "m_49763276cfea",
+              "native_id": "hTZ3xqhAN1E",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Ground beef is the filling, not tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_49763276cfea.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/hTZ3xqhAN1E.json"
+              ]
+            },
+            {
+              "entity_id": "m_3c18b46d6f9d",
+              "native_id": "xsPSKGYntTI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Salmon and noodles are the filling, not tuna.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_3c18b46d6f9d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xsPSKGYntTI.json"
+              ]
+            },
+            {
+              "entity_id": "m_5658d37fae8a",
+              "native_id": "YGFCNb2bqFw",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Hot fried tuna and eggs dish, not a mixed tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5658d37fae8a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/YGFCNb2bqFw.json"
+              ]
+            },
+            {
+              "entity_id": "m_8162d93fad3b",
+              "native_id": "kOwkxV-LBc8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Complete herb-and-dressed canned tuna salad variation; storyboard plates the mixture together, not portioned into edible lettuce cups.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_8162d93fad3b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kOwkxV-LBc8.json"
+              ]
+            },
+            {
+              "entity_id": "m_20bc365068ee",
+              "native_id": "cI_bdgPVhQI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches a tuna, rice and egg preparation instead of a separately mixed tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_20bc365068ee.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/cI_bdgPVhQI.json"
+              ]
+            },
+            {
+              "entity_id": "m_f9a641de930a",
+              "native_id": "XxSBlgrz_bE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Published dishes are tuna rice, pancakes, rice balls, porridge and noodles; no stand-alone tuna salad recipe.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_f9a641de930a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/XxSBlgrz_bE.json"
+              ]
+            },
+            {
+              "entity_id": "m_ce64576abb94",
+              "native_id": "qrwMC_5NN4A",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Sizzling hot tuna sisig, not a cold separately mixed salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_ce64576abb94.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qrwMC_5NN4A.json"
+              ]
+            },
+            {
+              "entity_id": "m_62cf9e59afd2",
+              "native_id": "lC9Sj5KTLW4",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Cooked egg-and-tuna dish, not tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_62cf9e59afd2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/lC9Sj5KTLW4.json"
+              ]
+            },
+            {
+              "entity_id": "m_a90bc11107e4",
+              "native_id": "IUqAkha62pg",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches formed and cooked tuna patties, not a ready mixed tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a90bc11107e4.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/IUqAkha62pg.json"
+              ]
+            },
+            {
+              "entity_id": "m_d25c16e552ff",
+              "native_id": "zDcM9DfXEy0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches cooked tuna patties rather than tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_d25c16e552ff.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/zDcM9DfXEy0.json"
+              ]
+            },
+            {
+              "entity_id": "m_10e3eaa6e2f1",
+              "native_id": "FdXKcMC2IpU",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The compilation visibly includes a canned tuna, onion and mayo salad prepared independently as a sandwich filling.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_10e3eaa6e2f1.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/FdXKcMC2IpU.json"
+              ]
+            },
+            {
+              "entity_id": "m_427b7e004063",
+              "native_id": "n80OeAJnoBE",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Official storyboard for the 8:24 tuna-melt segment shows complete tuna filling prepared in a mixing bowl before it is spooned onto bread.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_427b7e004063.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/n80OeAJnoBE.json"
+              ]
+            },
+            {
+              "entity_id": "m_02f3b47bfa2d",
+              "native_id": "Pg6rl26h5E0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches a cabbage-and-tuna dinner preparation, not a separate tuna salad filling.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_02f3b47bfa2d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Pg6rl26h5E0.json"
+              ]
+            },
+            {
+              "entity_id": "m_85086834190e",
+              "native_id": "0g6UqEACPaw",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The compilation includes a complete Barbie’s Tuna Salad segment, without an established whole-leaf vessel.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_85086834190e.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/0g6UqEACPaw.json"
+              ]
+            },
+            {
+              "entity_id": "m_a421b549e298",
+              "native_id": "kd2271nZRaU",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native chapters show salmon frittata, sardine salad, clam toast and tuna chowder; no tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_a421b549e298.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/kd2271nZRaU.json"
+              ]
+            },
+            {
+              "entity_id": "m_574a8485115c",
+              "native_id": "jE6Tg7nsoDs",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Broccoli, eggs and tuna are cooked as a different main dish.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_574a8485115c.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/jE6Tg7nsoDs.json"
+              ]
+            },
+            {
+              "entity_id": "m_e84c2b5c0f8d",
+              "native_id": "rfv1icQuF5I",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Tuna, eggs and cheese are baked in a tortilla, not prepared as tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e84c2b5c0f8d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/rfv1icQuF5I.json"
+              ]
+            },
+            {
+              "entity_id": "m_55970eb75e9b",
+              "native_id": "iFzHfpBilD0",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "The 15:20 chapter of the original video teaches a complete mixed tuna filling, then serves it in a soft bread bun with provolone. Native captions and storyboard confirm the bun and show no separate whole-lettuce-leaf serving method.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_55970eb75e9b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iFzHfpBilD0.json"
+              ]
+            },
+            {
+              "entity_id": "m_0704cc0477bc",
+              "native_id": "iBLb0C3bkYs",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Separate native Tuna Salad chapter covers the preparation before it is used in a sandwich or melt.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0704cc0477bc.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/iBLb0C3bkYs.json"
+              ]
+            },
+            {
+              "entity_id": "m_0a0c7eb3747d",
+              "native_id": "ICtLtcgld6w",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches formed tuna meatballs with sauce rather than tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0a0c7eb3747d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ICtLtcgld6w.json"
+              ]
+            },
+            {
+              "entity_id": "m_e5c19c6e4fc6",
+              "native_id": "8G-ZxTjD7Zc",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Tuna is cooked as a pasta dish rather than a standalone tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_e5c19c6e4fc6.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/8G-ZxTjD7Zc.json"
+              ]
+            },
+            {
+              "entity_id": "m_c3c03a8e9156",
+              "native_id": "xCEYHHxQyFE",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Tuna curry, not tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c3c03a8e9156.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/xCEYHHxQyFE.json"
+              ]
+            },
+            {
+              "entity_id": "m_457d2b0b74b2",
+              "native_id": "3EeQR3D5Ks0",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Tuna kimchi stew, not tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_457d2b0b74b2.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3EeQR3D5Ks0.json"
+              ]
+            },
+            {
+              "entity_id": "m_0af712e7a11d",
+              "native_id": "ZhPD8SvVqb8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Teaches a hot tuna accompaniment for rice, roti or bread, not tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_0af712e7a11d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZhPD8SvVqb8.json"
+              ]
+            },
+            {
+              "entity_id": "m_5e22695a97ec",
+              "native_id": "eUg1Wch_AW8",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Native chapter explicitly stir-fries the canned tuna rather than demonstrating a salad filling.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_5e22695a97ec.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/eUg1Wch_AW8.json"
+              ]
+            },
+            {
+              "entity_id": "m_32e27a6c254b",
+              "native_id": "3RzaLjKPYuM",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Publisher teaches complete dressed tuna and chickpea salad; beans do not disqualify an opening recipe, but there is no lettuce vessel.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_32e27a6c254b.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/3RzaLjKPYuM.json"
+              ]
+            },
+            {
+              "entity_id": "m_412b4b5fd332",
+              "native_id": "CUidisY74ns",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Cooked potato and tuna dish, not tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_412b4b5fd332.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/CUidisY74ns.json"
+              ]
+            },
+            {
+              "entity_id": "m_70ad33bc1f28",
+              "native_id": "Hn8AP_4_5vI",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Cooked tuna and egg dish, not a separate tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_70ad33bc1f28.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Hn8AP_4_5vI.json"
+              ]
+            },
+            {
+              "entity_id": "m_1c04950d5a5d",
+              "native_id": "ZZZOpRs0OOM",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "The three native recipes are kimchi stew, tuna pancakes, and a rice-based tuna mayo bowl, without a separately served tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_1c04950d5a5d.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/ZZZOpRs0OOM.json"
+              ]
+            },
+            {
+              "entity_id": "m_719e991d557a",
+              "native_id": "dJJohJ-mmhQ",
+              "initial": "not_supported",
+              "final": "not_supported",
+              "reason": "Stir-fries canned tuna to serve on rice, not a separate tuna salad.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_719e991d557a.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/dJJohJ-mmhQ.json"
+              ]
+            },
+            {
+              "entity_id": "m_57769826b0fa",
+              "native_id": "qS7o7WORiB8",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native tuna-salad section mixes a complete tuna preparation separately among otherwise unrelated tuna recipes.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_57769826b0fa.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/qS7o7WORiB8.json"
+              ]
+            },
+            {
+              "entity_id": "m_c3ab307296e0",
+              "native_id": "Vdusxq0SOmc",
+              "initial": "accepted",
+              "final": "not_supported",
+              "reason": "Native chapters teach preparing and chilling the tuna mixture before building a bread sandwich; historical reference to lettuce is not a leaf carrier.",
+              "evidence_refs": [
+                "sites/egomedia/static/thumbnails/upstream/m_c3ab307296e0.jpg",
+                "data/sources/upstream_detail_snapshots/youtube/Vdusxq0SOmc.json"
+              ]
+            }
+          ],
+          "detail_decision_fields": [
+            "title",
+            "summary",
+            "chapters",
+            "public_previews"
+          ],
+          "answer_boundary_rule": "Save one usable tutorial, clearly separated recipe segment or explained variation showing a mixed tuna filling served in whole edible lettuce leaves. Open cups, boats and folded wraps are accepted. Shredded greens, a separate salad garnish, a tortilla or bread as the only carrier, or a plain tuna mixture alone do not qualify. No exact tuna packaging, avocado, dressings, lettuce variety or closure is required."
+        }
+      }
+    }
+  ]
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -31,7 +32,9 @@ class OpenAIRequestsTransport:
 
     @classmethod
     def from_env(
-        cls, env_path: str | Path = ".env", timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS
+        cls,
+        env_path: str | Path = ".env",
+        timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
     ) -> OpenAIRequestsTransport:
         path = Path(env_path)
         if path.is_file():
@@ -54,6 +57,9 @@ class OpenAIRequestsTransport:
 
     def __call__(self, request_body: dict[str, Any]) -> dict[str, Any]:
         payload = _request_payload(request_body)
+        return _response_payload(self._post_payload(payload))
+
+    def _post_payload(self, payload: dict[str, Any]) -> dict[str, Any]:
         try:
             response = self.session.post(
                 self.endpoint,
@@ -67,13 +73,18 @@ class OpenAIRequestsTransport:
             response.raise_for_status()
             response_payload = response.json()
         except requests.RequestException as exc:
-            detail = getattr(getattr(exc, "response", None), "text", "")
+            detail = getattr(getattr(exc, "response", None), "text", "") or str(exc)
             detail = detail.replace(self.api_key, "[REDACTED]")
+            detail = re.sub(r"(://)[^/\s]*@", r"\1[REDACTED]@", detail)
             suffix = f": {detail[:1000]}" if detail else ""
-            raise OpenAITransportError(f"OpenAI-compatible request failed{suffix}") from exc
+            raise OpenAITransportError(
+                f"OpenAI-compatible request failed ({type(exc).__name__}){suffix}"
+            ) from exc
         except ValueError as exc:
-            raise OpenAITransportError("OpenAI-compatible response was not valid JSON") from exc
-        return _response_payload(response_payload)
+            raise OpenAITransportError(
+                "OpenAI-compatible response was not valid JSON"
+            ) from exc
+        return response_payload
 
 
 def _request_payload(request_body: dict[str, Any]) -> dict[str, Any]:
@@ -108,7 +119,11 @@ def _messages(request_body: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def _assistant_message(content: Any) -> dict[str, Any]:
-    blocks = content if isinstance(content, list) else [{"type": "text", "text": str(content)}]
+    blocks = (
+        content
+        if isinstance(content, list)
+        else [{"type": "text", "text": str(content)}]
+    )
     text = "\n".join(
         str(block.get("text", ""))
         for block in blocks
@@ -146,20 +161,27 @@ def _tool_result_messages(content: list[dict[str, Any]]) -> list[dict[str, Any]]
         if block.get("type") != "tool_result":
             continue
         result = block.get("content", "")
-        messages.append({
-            "role": "tool",
-            "tool_call_id": block["tool_use_id"],
-            "content": _text_content(result),
-        })
+        messages.append(
+            {
+                "role": "tool",
+                "tool_call_id": block["tool_use_id"],
+                "content": _text_content(result),
+            }
+        )
         visual_parts.extend(_labeled_image_parts(result))
     if visual_parts:
-        messages.append({
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "Product images returned by the EgoMart tool:"},
-                *visual_parts,
-            ],
-        })
+        messages.append(
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Images returned by the read-only evidence tool:",
+                    },
+                    *visual_parts,
+                ],
+            }
+        )
     return messages
 
 
@@ -223,7 +245,9 @@ def _tool(tool: dict[str, Any]) -> dict[str, Any]:
         "function": {
             "name": tool["name"],
             "description": tool.get("description", ""),
-            "parameters": tool.get("input_schema", {"type": "object", "properties": {}}),
+            "parameters": tool.get(
+                "input_schema", {"type": "object", "properties": {}}
+            ),
         },
     }
 
@@ -232,7 +256,9 @@ def _response_payload(payload: dict[str, Any]) -> dict[str, Any]:
     try:
         message = payload["choices"][0]["message"]
     except (KeyError, IndexError, TypeError) as exc:
-        raise OpenAITransportError("OpenAI-compatible response has no assistant message") from exc
+        raise OpenAITransportError(
+            "OpenAI-compatible response has no assistant message"
+        ) from exc
 
     blocks: list[dict[str, Any]] = []
     content = message.get("content")
@@ -249,13 +275,19 @@ def _response_payload(payload: dict[str, Any]) -> dict[str, Any]:
         try:
             arguments = json.loads(function.get("arguments") or "{}")
         except json.JSONDecodeError as exc:
-            raise OpenAITransportError("Model returned invalid tool-call arguments") from exc
+            raise OpenAITransportError(
+                "Model returned invalid tool-call arguments"
+            ) from exc
         if not isinstance(arguments, dict):
-            raise OpenAITransportError("Model tool-call arguments must be a JSON object")
-        blocks.append({
-            "type": "tool_use",
-            "id": call["id"],
-            "name": function["name"],
-            "input": arguments,
-        })
+            raise OpenAITransportError(
+                "Model tool-call arguments must be a JSON object"
+            )
+        blocks.append(
+            {
+                "type": "tool_use",
+                "id": call["id"],
+                "name": function["name"],
+                "input": arguments,
+            }
+        )
     return {"content": blocks, "raw": payload}
