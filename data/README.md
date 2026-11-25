@@ -8,4 +8,4 @@
 
 三场景对照从正式原题派生，共用最终答案。Computer-Use 的自包含请求登记在 `experiments/interaction-settings.json`，Offline 使用原题的已审核录像窗口。Cue 描述登记在 `experiments/cue-facts.json`，按原画面变化批次送达。独立实验材料引用原题，不自动加入正式成员。
 
-Git 保留任务定义和必要的来源清单。观察帧、冻结发布快照、原始网页采集和审核记录按原路径保存在本地。对外提供哪些媒体见[发布情况](../README.zh-CN.md#发布情况)。
+Git 保留任务定义和必要的来源清单。观察帧、冻结发布快照、原始网页采集和审核记录按原路径保存在本地。媒体的获取条件和许可见[来源登记](../configs/datasets.json)。
