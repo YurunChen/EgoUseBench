@@ -38,11 +38,9 @@ PUBLIC_COPY = {
     "affiliation": "Zhejiang University",
     "code_url": "https://github.com/YurunChen/EgoUseBench",
     "paper_url": "",
-    "dataset_url": "https://huggingface.co/datasets/egousebench/egousebench",
-    "dataset_status": "placeholder",
-    "placeholder_note": "This Hugging Face repository is not public yet.",
+    "dataset_url": "https://huggingface.co/datasets/yurun-chen/EgoUseBench",
     "data_contents": (
-        "task definitions, frozen website snapshots, and observations cleared for release"
+        "task definitions, a source index, and redistributable observation frames"
     ),
     "source_access_note": (
         "Ego2Web, Ego4D-derived sources, and EgoLife are listed by source. "

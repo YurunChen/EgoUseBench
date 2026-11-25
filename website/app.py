@@ -24,7 +24,6 @@ REQUIRED_KEYS = (
     "affiliation",
     "code_url",
     "dataset_url",
-    "dataset_status",
     "run_command",
     "stats",
     "means",

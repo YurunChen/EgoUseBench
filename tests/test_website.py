@@ -261,10 +261,11 @@ def test_slope_chart_keeps_labels_apart(content):
     assert all(round(b - a, 6) >= LABEL_GAP for a, b in pairwise(labels))
 
 
-def test_data_page_marks_the_placeholder(client):
+def test_data_page_links_and_describes_the_public_dataset(client):
     html = client.get("/data").get_data(as_text=True)
-    assert "This Hugging Face repository is not public yet." in html
-    assert "task definitions, frozen website snapshots, and observations cleared for release" in html
+    assert 'href="https://huggingface.co/datasets/yurun-chen/EgoUseBench"' in html
+    assert "task definitions, a source index, and redistributable observation frames" in html
+    assert "not public yet" not in html
 
 
 def test_docs_omit_an_empty_run_command(client, content):
