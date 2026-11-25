@@ -9,7 +9,7 @@
 
 ## News
 
-- **2026-11-25** — Added a [41-second explainer](#egousebench-in-41-seconds) on how EgoUseBench evaluates agents when tasks change mid-run.
+- **2026-11-25:** We released the [EgoUseBench evaluation code](egocua/) and [benchmark task definitions](data/tasks/).
 
 ## Abstract
 
