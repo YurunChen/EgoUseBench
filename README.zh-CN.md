@@ -13,9 +13,7 @@
 
 佩戴者看到的画面、用户提出的要求、智能体改变的网页状态，可以在不同时间点更新。短片展示 EgoUseBench 如何把这三条轨道分开，以及如何用最终网页状态判分。
 
-<p align="center">
-  <a href="assets/egousebench-explainer.mp4?raw=true"><img src="assets/egousebench-explainer.png" width="680" alt="打开 EgoUseBench 视频。三条轨道分别展示第一人称观察、用户要求和网站状态。"></a>
-</p>
+https://github.com/user-attachments/assets/74b3cdaf-bd09-463a-b64f-fd1e3c26fced
 
 ## 快速开始
 

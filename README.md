@@ -13,9 +13,7 @@
 
 What the wearer sees, what they ask for, and what the agent changes on the website can evolve at different times. The video shows how EgoUseBench separates these three timelines and scores the final state.
 
-<p align="center">
-  <a href="assets/egousebench-explainer.mp4?raw=true"><img src="assets/egousebench-explainer.png" width="680" alt="Open the EgoUseBench explainer. Three timelines show first-person observations, user requirements, and website state."></a>
-</p>
+https://github.com/user-attachments/assets/74b3cdaf-bd09-463a-b64f-fd1e3c26fced
 
 ## Quick start
 
