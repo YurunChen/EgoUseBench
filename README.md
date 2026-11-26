@@ -18,11 +18,11 @@ AI wearables, such as smart glasses, extend the context available to agents beyo
 
 We introduce **EgoUseBench**, a benchmark for evaluating Ego Use across three interaction settings with different levels of first-person context. Computer-Use relies on explicit instructions, Offline Ego Use provides prerecorded first-person context before execution, and Online Ego Use provides continuous observations as user intent evolves. Based on over 74 hours of real-world first-person recordings, we construct 693 tasks across the three interaction settings. To capture task evolution, we track first-person observations, user requirements, and website state separately. We further group tasks by how information changes during execution, resulting in three types: Graft (revised user requirements), Refresh (new first-person observations), and Clarify (agent-initiated information seeking). We evaluate several advanced models and find that average success rates in Online Ego Use are 26.3% lower than in Computer-Use. This result reveals the difficulty of keeping task execution aligned with evolving first-person context and user intent.
 
-## EgoUseBench in 41 seconds
+## EgoUseBench in 70 seconds
 
-What the wearer sees, what they ask for, and what the agent changes on the website can evolve at different times. The video shows how EgoUseBench separates these three timelines and scores the final state.
+A request can change mid-task, a new view can change which product is right, and an ambiguous request may need a question first. Real first-person footage and agent runs show how EgoUseBench tests these three changes and compares explicit instructions, video provided upfront, and observations delivered during execution.
 
-https://github.com/user-attachments/assets/74b3cdaf-bd09-463a-b64f-fd1e3c26fced
+https://github.com/user-attachments/assets/ecda234c-6fe5-43e3-93a7-13bc1a9bb022
 
 ## Quick start
 
@@ -79,7 +79,7 @@ In this Graft example, the user asks for peanut butter partway through the task.
 
 We thank the teams behind Ego2Web, HD-EPIC, CaptainCook4D, EgoOops, HoloAssist, EgoLife, and EgoSchema / Ego4D for the source materials, and the independent reviewers who helped check the benchmark tasks.
 
-The explainer uses a cropped, muted excerpt from [HD-EPIC (Damen et al., University of Bristol)](https://doi.org/10.5523/bris.3cqb5b81wk2dc2379fx1mrxh47) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+The explainer uses cropped, muted excerpts from [HD-EPIC (Damen et al., University of Bristol)](https://doi.org/10.5523/bris.3cqb5b81wk2dc2379fx1mrxh47) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and from [HoloAssist (Wang et al., Microsoft)](https://holoassist.github.io/) under [CDLA-Permissive-2.0](https://cdla.dev/permissive-2-0/). Its narration and music are generated for this project.
 
 ## Contact
 

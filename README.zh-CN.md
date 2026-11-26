@@ -18,11 +18,11 @@
 
 我们提出 **EgoUseBench**，在三种设置下评估 Ego Use。Computer-Use 依赖明确指令；Offline Ego Use 在执行前提供预录的第一人称画面；Online Ego Use 则在用户意图变化的过程中持续提供观察。我们基于 74 小时以上的真实第一人称录像，在三种设置中共构建了 693 个任务。为记录任务如何变化，我们分别跟踪第一人称观察、用户要求和网站状态。按执行过程中信息变化的方式，任务分为三类：Graft（用户更新要求）、Refresh（出现新的第一人称观察）和 Clarify（智能体主动获取信息）。我们评估了多个先进模型，发现 Online Ego Use 的平均成功率比 Computer-Use 低 26.3%。这一结果表明，在第一人称情境和用户意图不断变化时，让任务执行始终与二者保持一致并不容易。
 
-## 41 秒看懂 EgoUseBench
+## 70 秒看懂 EgoUseBench
 
-佩戴者看到的画面、用户提出的要求、智能体改变的网页状态，可以在不同时间点更新。短片展示 EgoUseBench 如何把这三条轨道分开，以及如何用最终网页状态判分。
+用户可能中途改主意，眼前的场景可能改变该买的商品，模糊的要求可能需要先问清楚。短片用真实第一人称画面和智能体运行记录演示这三种变化，说明同一批任务如何分别以文字、预先给出的视频和边做边看的方式交给智能体，最后给出第一人称画面带来的难度变化。
 
-https://github.com/user-attachments/assets/74b3cdaf-bd09-463a-b64f-fd1e3c26fced
+https://github.com/user-attachments/assets/ecda234c-6fe5-43e3-93a7-13bc1a9bb022
 
 ## 快速开始
 
@@ -79,7 +79,7 @@ uv run egocua inspect-run <运行目录> --view score
 
 感谢 Ego2Web、HD-EPIC、CaptainCook4D、EgoOops、HoloAssist、EgoLife 和 EgoSchema / Ego4D 团队提供来源材料，也感谢独立审核者协助核查基准任务。
 
-短片中的第一人称画面节选自 [HD-EPIC（Damen 等，布里斯托大学）](https://doi.org/10.5523/bris.3cqb5b81wk2dc2379fx1mrxh47)，采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可。画面已裁切，原声已移除。
+短片中的第一人称画面节选自 [HD-EPIC（Damen 等，布里斯托大学）](https://doi.org/10.5523/bris.3cqb5b81wk2dc2379fx1mrxh47)（[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)）和 [HoloAssist（Wang 等，微软）](https://holoassist.github.io/)（[CDLA-Permissive-2.0](https://cdla.dev/permissive-2-0/)）。画面已裁切，原声已移除；旁白和背景音乐为本项目生成。
 
 ## 联系
 
