@@ -3,9 +3,14 @@
 <p align="center"><strong>动态第一人称情境下的电脑操作智能体基准评测</strong></p>
 
 <p align="center">
-  <a href="README.md">English</a> · <strong>简体中文</strong> ·
-  <a href="https://arxiv.org/abs/2611.34466">论文</a> · <a href="https://yurunchen.github.io/egousebench/">项目网站</a> · <a href="https://huggingface.co/datasets/yurun-chen/EgoUseBench">数据集</a> ·
-  <a href="#快速开始">快速开始</a> · <a href="https://huggingface.co/papers/2611.34466">Hugging Face 论文</a>
+  <a href="https://arxiv.org/abs/2611.34466"><img src="https://img.shields.io/badge/arXiv-F8EEEE?style=flat&amp;logo=arxiv&amp;logoColor=B31B1B" height="22" alt="arXiv 论文"></a>
+  <a href="https://yurunchen.github.io/egousebench/"><img src="https://img.shields.io/badge/Project%20Page-EDF2F8?style=flat&amp;logo=githubpages&amp;logoColor=365486" height="22" alt="项目网站"></a>
+  <a href="https://huggingface.co/datasets/yurun-chen/EgoUseBench"><img src="https://img.shields.io/badge/Dataset-F1F3F7?style=flat&amp;logo=huggingface&amp;logoColor=795408" height="22" alt="Hugging Face 数据集"></a>
+  <a href="https://huggingface.co/papers/2611.34466"><img src="https://img.shields.io/badge/Daily%20Papers-FFF1C2?style=flat&amp;logo=huggingface&amp;logoColor=6A4600" height="22" alt="Hugging Face 每日论文中的 EgoUseBench"></a>
+</p>
+
+<p align="center">
+  <a href="README.md">English</a> · <strong>简体中文</strong> · <a href="#快速开始">快速开始</a>
 </p>
 
 ## 动态
