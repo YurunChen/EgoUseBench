@@ -5,7 +5,7 @@
 <p align="center">
   <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a> ·
   <a href="https://arxiv.org/abs/2611.34466">Paper</a> · <a href="https://yurunchen.github.io/egousebench/">Website</a> · <a href="https://huggingface.co/datasets/yurun-chen/EgoUseBench">Dataset</a> ·
-  <a href="#quick-start">Quick start</a> · <a href="#benchmark">Benchmark</a> · <a href="LICENSE">MIT</a>
+  <a href="#quick-start">Quick start</a> · <a href="https://huggingface.co/papers/2611.34466">Hugging Face Paper</a>
 </p>
 
 ## News
