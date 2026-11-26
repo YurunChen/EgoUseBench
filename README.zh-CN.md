@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="README.md">English</a> · <strong>简体中文</strong> ·
-  <a href="https://yurunchen.github.io/egousebench/">项目网站</a> · <a href="https://huggingface.co/datasets/yurun-chen/EgoUseBench">数据集</a> ·
+  <a href="https://arxiv.org/abs/2611.34466">论文</a> · <a href="https://yurunchen.github.io/egousebench/">项目网站</a> · <a href="https://huggingface.co/datasets/yurun-chen/EgoUseBench">数据集</a> ·
   <a href="#快速开始">快速开始</a> · <a href="#基准概览">基准概览</a> · <a href="LICENSE">MIT</a>
 </p>
 
