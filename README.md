@@ -80,6 +80,20 @@ In this Graft example, the user asks for peanut butter partway through the task.
 | [`tools/`](tools/) · [`tests/`](tests/) | Build, audit, and rendering scripts; offline tests |
 | [`website/`](website/) | Project-site source |
 
+## Citation
+
+```bibtex
+@misc{chen2026egousebenchbenchmarkingcomputeruseagents,
+  title={EgoUseBench: Benchmarking Computer-Use Agents under Evolving First-Person Contexts},
+  author={Yurun Chen and Biao Yi and Qihang Yu and Keting Yin and Shengyu Zhang},
+  year={2026},
+  eprint={2611.34466},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2611.34466},
+}
+```
+
 ## Acknowledgments
 
 We thank the teams behind Ego2Web, HD-EPIC, CaptainCook4D, EgoOops, HoloAssist, EgoLife, and EgoSchema / Ego4D for the source materials, and the independent reviewers who helped check the benchmark tasks.

@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+PAPER_ARXIV_ID = "2611.34466"
 
 
 def _read_json(path):
@@ -37,7 +38,7 @@ PUBLIC_COPY = {
     "lab_url": "https://ai4gc.org/",
     "affiliation": "Zhejiang University",
     "code_url": "https://github.com/YurunChen/EgoUseBench",
-    "paper_url": "",
+    "paper_url": f"https://arxiv.org/abs/{PAPER_ARXIV_ID}",
     "dataset_url": "https://huggingface.co/datasets/yurun-chen/EgoUseBench",
     "data_contents": (
         "task definitions, a source index, and redistributable observation frames"
@@ -183,10 +184,14 @@ PUBLIC_COPY = {
 def _bibtex(content: dict) -> str:
     authors = " and ".join(author["name"] for author in content["authors"])
     return (
-        "@misc{egousebench2026,\n"
-        f"  title = {{{content['paper_title']}}},\n"
-        f"  author = {{{authors}}},\n"
-        "  year = {2026}\n"
+        "@misc{chen2026egousebenchbenchmarkingcomputeruseagents,\n"
+        f"  title={{{content['paper_title']}}},\n"
+        f"  author={{{authors}}},\n"
+        "  year={2026},\n"
+        f"  eprint={{{PAPER_ARXIV_ID}}},\n"
+        "  archivePrefix={arXiv},\n"
+        "  primaryClass={cs.AI},\n"
+        f"  url={{{content['paper_url']}}},\n"
         "}"
     )
 

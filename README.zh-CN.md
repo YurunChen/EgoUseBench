@@ -80,6 +80,20 @@ uv run egocua inspect-run <运行目录> --view score
 | [`tools/`](tools/) · [`tests/`](tests/) | 构建、审核与渲染脚本；离线测试 |
 | [`website/`](website/) | 项目网站源码 |
 
+## 引用
+
+```bibtex
+@misc{chen2026egousebenchbenchmarkingcomputeruseagents,
+  title={EgoUseBench: Benchmarking Computer-Use Agents under Evolving First-Person Contexts},
+  author={Yurun Chen and Biao Yi and Qihang Yu and Keting Yin and Shengyu Zhang},
+  year={2026},
+  eprint={2611.34466},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2611.34466},
+}
+```
+
 ## 致谢
 
 感谢 Ego2Web、HD-EPIC、CaptainCook4D、EgoOops、HoloAssist、EgoLife 和 EgoSchema / Ego4D 团队提供来源材料，也感谢独立审核者协助核查基准任务。
