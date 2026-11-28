@@ -4,6 +4,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2611.34466"><img src="https://img.shields.io/badge/arXiv-F8EEEE?style=flat&amp;logo=arxiv&amp;logoColor=B31B1B" height="22" alt="Paper on arXiv"></a>
+  <a href="https://www.alphaxiv.org/abs/2611.34466"><img src="https://img.shields.io/badge/alphaXiv-F1EDF7?style=flat" height="22" alt="EgoUseBench on alphaXiv"></a>
   <a href="https://yurunchen.github.io/egousebench/"><img src="https://img.shields.io/badge/Project%20Page-EDF2F8?style=flat&amp;logo=github&amp;logoColor=365486" height="22" alt="Project page"></a>
   <a href="https://huggingface.co/datasets/yurun-chen/EgoUseBench"><img src="https://img.shields.io/badge/Dataset-F1F3F7?style=flat&amp;logo=huggingface&amp;logoColor=795408" height="22" alt="Hugging Face dataset"></a>
   <a href="https://huggingface.co/papers/2611.34466"><img src="https://img.shields.io/badge/Daily%20Papers-FFF1C2?style=flat&amp;logo=huggingface&amp;logoColor=6A4600" height="22" alt="EgoUseBench on Hugging Face Daily Papers"></a>
